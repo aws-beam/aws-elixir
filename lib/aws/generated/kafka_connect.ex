@@ -7,7 +7,6 @@ defmodule AWS.KafkaConnect do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-09-14",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -211,8 +210,10 @@ defmodule AWS.KafkaConnect do
   @doc """
   Returns a list of all the connectors in this account and Region.
 
-  The list is limited to connectors whose name starts with the specified prefix.
-  The response also includes a description of each of the listed connectors.
+  The list is limited to
+  connectors whose name starts with the specified prefix. The response also
+  includes a
+  description of each of the listed connectors.
   """
   def list_connectors(
         %Client{} = client,

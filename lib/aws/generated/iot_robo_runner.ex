@@ -3,8 +3,8 @@
 
 defmodule AWS.IoTRoboRunner do
   @moduledoc """
-  An example service, deployed with the Octane Service creator, which will echo
-  the string
+  An example service, deployed with the Octane Service creator,
+  which will echo the string
   """
 
   alias AWS.Client
@@ -12,7 +12,6 @@ defmodule AWS.IoTRoboRunner do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

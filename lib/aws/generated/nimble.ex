@@ -5,12 +5,15 @@ defmodule AWS.Nimble do
   @moduledoc """
   Welcome to the Amazon Nimble Studio API reference.
 
-  This API reference provides methods, schema, resources, parameters, and more to
-  help you get the most out of Nimble Studio.
+  This API reference provides
+  methods, schema, resources, parameters, and more to help you get the most out of
+  Nimble
+  Studio.
 
   Nimble Studio is a virtual studio that empowers visual effects, animation, and
   interactive content teams to create content securely within a scalable, private
-  cloud service.
+  cloud
+  service.
   """
 
   alias AWS.Client
@@ -18,7 +21,6 @@ defmodule AWS.Nimble do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-08-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -123,7 +125,8 @@ defmodule AWS.Nimble do
   Creates a streaming session in a studio.
 
   After invoking this operation, you must poll GetStreamingSession until the
-  streaming session is in the `READY` state.
+  streaming
+  session is in the `READY` state.
   """
   def create_streaming_session(%Client{} = client, studio_id, input, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
@@ -155,7 +158,8 @@ defmodule AWS.Nimble do
   Creates a streaming session stream for a streaming session.
 
   After invoking this API, invoke GetStreamingSessionStream with the returned
-  streamId to poll the resource until it is in the `READY` state.
+  streamId
+  to poll the resource until it is in the `READY` state.
   """
   def create_streaming_session_stream(
         %Client{} = client,
@@ -193,27 +197,32 @@ defmodule AWS.Nimble do
   @doc """
   Create a new studio.
 
-  When creating a studio, two IAM roles must be provided: the admin role and the
-  user role. These roles are assumed by your users when they log in to the Nimble
-  Studio portal.
+  When creating a studio, two IAM roles must be provided: the admin role
+  and the user role. These roles are assumed by your users when they log in to the
+  Nimble Studio portal.
 
   The user role must have the `AmazonNimbleStudio-StudioUser` managed policy
   attached for the portal to function properly.
 
-  The admin role must have the `AmazonNimbleStudio-StudioAdmin` managed policy
-  attached for the portal to function properly.
+  The admin role must have the `AmazonNimbleStudio-StudioAdmin` managed
+  policy attached for the portal to function properly.
 
-  You may optionally specify a KMS key in the `StudioEncryptionConfiguration`.
+  You may optionally specify a KMS key in the
+  `StudioEncryptionConfiguration`.
 
   In Nimble Studio, resource names, descriptions, initialization scripts, and
-  other data you provide are always encrypted at rest using an KMS key. By
-  default, this key is owned by Amazon Web Services and managed on your behalf.
-  You may provide your own KMS key when calling `CreateStudio` to encrypt this
-  data using a key you own and manage.
+  other
+  data you provide are always encrypted at rest using an KMS key. By default, this
+  key is
+  owned by Amazon Web Services and managed on your behalf. You may provide your
+  own KMS key
+  when calling `CreateStudio` to encrypt this data using a key you own and
+  manage.
 
   When providing an KMS key during studio creation, Nimble Studio creates KMS
   grants in your account to provide your studio user and admin roles access to
-  these KMS keys.
+  these KMS
+  keys.
 
   If you delete this grant, the studio will no longer be accessible to your portal
   users.
@@ -388,10 +397,12 @@ defmodule AWS.Nimble do
   Deletes streaming session resource.
 
   After invoking this operation, use GetStreamingSession to poll the resource
-  until it transitions to a `DELETED` state.
+  until it
+  transitions to a `DELETED` state.
 
   A streaming session will count against your streaming session quota until it is
-  marked `DELETED`.
+  marked
+  `DELETED`.
   """
   def delete_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =
@@ -545,11 +556,13 @@ defmodule AWS.Nimble do
 
   @doc """
   Launch profile details include the launch profile resource and summary
-  information of resources that are used by, or available to, the launch profile.
+  information of
+  resources that are used by, or available to, the launch profile.
 
-  This includes the name and description of all studio components used by the
-  launch profiles, and the name and description of streaming images that can be
-  used with this launch profile.
+  This includes the name
+  and description of all studio components used by the launch profiles, and the
+  name and
+  description of streaming images that can be used with this launch profile.
   """
   def get_launch_profile_details(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
@@ -647,7 +660,8 @@ defmodule AWS.Nimble do
   Gets StreamingSession resource.
 
   Invoke this operation to poll for a streaming session state while creating or
-  deleting a session.
+  deleting
+  a session.
   """
   def get_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
@@ -685,8 +699,8 @@ defmodule AWS.Nimble do
   Invoke this operation to poll the resource after invoking
   `CreateStreamingSessionStream`.
 
-  After the `StreamingSessionStream` changes to the `READY` state, the url
-  property will contain a stream to be used with the DCV streaming client.
+  After the `StreamingSessionStream` changes to the `READY` state,
+  the url property will contain a stream to be used with the DCV streaming client.
   """
   def get_streaming_session_stream(
         %Client{} = client,
@@ -1121,9 +1135,12 @@ defmodule AWS.Nimble do
   Gets the tags for a resource, given its Amazon Resource Names (ARN).
 
   This operation supports ARNs for all resource types in Nimble Studio that
-  support tags, including studio, studio component, launch profile, streaming
-  image, and streaming session. All resources that can be tagged will contain an
-  ARN property, so you do not have to create this ARN yourself.
+  support
+  tags, including studio, studio component, launch profile, streaming image, and
+  streaming
+  session. All resources that can be tagged will contain an ARN property, so you
+  do not
+  have to create this ARN yourself.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1201,10 +1218,11 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Transitions sessions from the `STOPPED` state into the `READY` state.
+  Transitions sessions from the `STOPPED` state into the `READY`
+  state.
 
-  The `START_IN_PROGRESS` state is the intermediate state between the `STOPPED`
-  and `READY` states.
+  The `START_IN_PROGRESS` state is the intermediate state between the
+  `STOPPED` and `READY` states.
   """
   def start_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =
@@ -1237,11 +1255,13 @@ defmodule AWS.Nimble do
   Repairs the IAM Identity Center configuration for a given studio.
 
   If the studio has a valid IAM Identity Center configuration currently associated
-  with it, this operation will fail with a validation error.
+  with
+  it, this operation will fail with a validation error.
 
   If the studio does not have a valid IAM Identity Center configuration currently
   associated with it, then a new IAM Identity Center application is created for
-  the studio and the studio is changed to the `READY` state.
+  the studio
+  and the studio is changed to the `READY` state.
 
   After the IAM Identity Center application is repaired, you must use the Amazon
   Nimble Studio console to add administrators and users to your studio.
@@ -1263,10 +1283,11 @@ defmodule AWS.Nimble do
   end
 
   @doc """
-  Transitions sessions from the `READY` state into the `STOPPED` state.
+  Transitions sessions from the `READY` state into the `STOPPED`
+  state.
 
-  The `STOP_IN_PROGRESS` state is the intermediate state between the `READY` and
-  `STOPPED` states.
+  The `STOP_IN_PROGRESS` state is the intermediate state between the
+  `READY` and `STOPPED` states.
   """
   def stop_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
     url_path =
@@ -1458,7 +1479,8 @@ defmodule AWS.Nimble do
   @doc """
   Update a Studio resource.
 
-  Currently, this operation only supports updating the displayName of your studio.
+  Currently, this operation only supports updating the displayName of your
+  studio.
   """
   def update_studio(%Client{} = client, studio_id, input, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"

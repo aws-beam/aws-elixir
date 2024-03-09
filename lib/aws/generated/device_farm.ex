@@ -5,18 +5,23 @@ defmodule AWS.DeviceFarm do
   @moduledoc """
   Welcome to the AWS Device Farm API documentation, which contains APIs for:
 
-    * Testing on desktop browsers
+    *
+  Testing on desktop browsers
 
   Device Farm makes it possible for you to test your web applications on desktop
-  browsers using Selenium.
+  browsers using
+  Selenium.
 
-  The APIs for desktop browser testing contain `TestGrid` in their names. For more
-  information, see [Testing Web Applications on Selenium with Device Farm](https://docs.aws.amazon.com/devicefarm/latest/testgrid/).
+  The APIs for desktop browser testing contain `TestGrid` in their names. For
+  more information, see [Testing Web Applications on Selenium with Device
+  Farm](https://docs.aws.amazon.com/devicefarm/latest/testgrid/).
 
-    * Testing on real mobile devices
+    *
+  Testing on real mobile devices
 
   Device Farm makes it possible for you to test apps on physical phones, tablets,
-  and other devices in the cloud. For more information, see the [Device Farm Developer Guide](https://docs.aws.amazon.com/devicefarm/latest/developerguide/).
+  and other
+  devices in the cloud. For more information, see the [Device Farm Developer Guide](https://docs.aws.amazon.com/devicefarm/latest/developerguide/).
   """
 
   alias AWS.Client
@@ -24,7 +29,6 @@ defmodule AWS.DeviceFarm do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2015-06-23",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -87,7 +91,8 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a Selenium testing project.
 
-  Projects are used to track `TestGridSession` instances.
+  Projects are used to track `TestGridSession`
+  instances.
   """
   def create_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -97,7 +102,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Creates a signed, short-term URL that can be passed to a Selenium
-  `RemoteWebDriver` constructor.
+  `RemoteWebDriver`
+  constructor.
   """
   def create_test_grid_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -116,7 +122,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Creates a configuration record in Device Farm for your Amazon Virtual Private
-  Cloud (VPC) endpoint.
+  Cloud
+  (VPC) endpoint.
   """
   def create_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -127,7 +134,8 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a device pool given the pool ARN.
 
-  Does not allow deletion of curated pools owned by the system.
+  Does not allow deletion of curated pools
+  owned by the system.
   """
   def delete_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -217,7 +225,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns the number of unmetered iOS or unmetered Android devices that have been
-  purchased by the account.
+  purchased by the
+  account.
   """
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -293,10 +302,12 @@ defmodule AWS.DeviceFarm do
   Gets the current status and future status of all offerings purchased by an AWS
   account.
 
-  The response indicates how many offerings are currently available and the
-  offerings that will be available in the next period. The API returns a
-  `NotEligible` error if the user is not permitted to invoke the operation. If you
-  must be able to invoke this operation, contact
+  The response
+  indicates how many offerings are currently available and the offerings that will
+  be available in the next
+  period. The API returns a `NotEligible` error if the user is not permitted to
+  invoke the
+  operation. If you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def get_offering_status(%Client{} = client, input, options \\ []) do
@@ -365,10 +376,11 @@ defmodule AWS.DeviceFarm do
 
   You can use the following to look up sessions:
 
-    * The session ARN (`GetTestGridSessionRequest$sessionArn`).
+    *
+  The session ARN (`GetTestGridSessionRequest$sessionArn`).
 
-    * The project ARN and a session ID
-  (`GetTestGridSessionRequest$projectArn` and
+    *
+  The project ARN and a session ID (`GetTestGridSessionRequest$projectArn` and
   `GetTestGridSessionRequest$sessionId`).
   """
   def get_test_grid_session(%Client{} = client, input, options \\ []) do
@@ -388,7 +400,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns information about the configuration settings for your Amazon Virtual
-  Private Cloud (VPC) endpoint.
+  Private
+  Cloud (VPC) endpoint.
   """
   def get_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -399,8 +412,10 @@ defmodule AWS.DeviceFarm do
   @doc """
   Installs an application to the device in a remote access session.
 
-  For Android applications, the file must be in .apk format. For iOS applications,
-  the file must be in .ipa format.
+  For Android
+  applications, the file must be in .apk format. For iOS applications, the file
+  must be in
+  .ipa format.
   """
   def install_to_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -419,7 +434,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns information about the private device instances associated with one or
-  more AWS accounts.
+  more AWS
+  accounts.
   """
   def list_device_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -475,8 +491,9 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a list of offering promotions.
 
-  Each offering promotion record contains the ID and description of the promotion.
-  The API returns a `NotEligible` error if the caller is not permitted to invoke
+  Each offering promotion record contains the ID and description
+  of the promotion. The API returns a `NotEligible` error if the caller is not
+  permitted to invoke
   the operation. Contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if
   you must be able to invoke this operation.
@@ -489,12 +506,14 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns a list of all historical purchases, renewals, and system renewal
-  transactions for an AWS account.
+  transactions for an AWS
+  account.
 
   The list is paginated and ordered by a descending timestamp (most recent
-  transactions are first). The API returns a `NotEligible` error if the user is
-  not permitted to invoke the operation. If you must be able to invoke this
-  operation, contact
+  transactions are first).
+  The API returns a `NotEligible` error if the user is not permitted to invoke the
+  operation. If
+  you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def list_offering_transactions(%Client{} = client, input, options \\ []) do
@@ -507,10 +526,12 @@ defmodule AWS.DeviceFarm do
   Returns a list of products or offerings that the user can manage through the
   API.
 
-  Each offering record indicates the recurring price per unit and the frequency
-  for that offering. The API returns a `NotEligible` error if the user is not
-  permitted to invoke the operation. If you must be able to invoke this operation,
-  contact
+  Each offering record
+  indicates the recurring price per unit and the frequency for that offering. The
+  API returns a
+  `NotEligible` error if the user is not permitted to invoke the operation. If you
+  must be
+  able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def list_offerings(%Client{} = client, input, options \\ []) do
@@ -622,9 +643,16 @@ defmodule AWS.DeviceFarm do
   Gets information about unique problems, such as exceptions or crashes.
 
   Unique problems are defined as a single instance of an error across a run, job,
-  or suite. For example, if a call in your application consistently raises an
-  exception (`OutOfBoundsException in MyActivity.java:386`), `ListUniqueProblems`
-  returns a single entry instead of many individual entries for that exception.
+  or suite. For example,
+  if a call in your application consistently raises an exception (
+
+  ```
+  OutOfBoundsException in
+  MyActivity.java:386
+  ```
+
+  ), `ListUniqueProblems` returns a single entry instead of many
+  individual entries for that exception.
   """
   def list_unique_problems(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -654,10 +682,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Immediately purchases offerings for an AWS account.
 
-  Offerings renew with the latest total purchased quantity for an offering, unless
-  the renewal was overridden. The API returns a `NotEligible` error if the user is
-  not permitted to invoke the operation. If you must be able to invoke this
-  operation, contact
+  Offerings renew with the latest total purchased
+  quantity for an offering, unless the renewal was overridden. The API returns a
+  `NotEligible`
+  error if the user is not permitted to invoke the operation. If you must be able
+  to invoke this operation,
+  contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def purchase_offering(%Client{} = client, input, options \\ []) do
@@ -668,10 +698,12 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Explicitly sets the quantity of devices to renew for an offering, starting from
-  the `effectiveDate` of the next period.
+  the
+  `effectiveDate` of the next period.
 
-  The API returns a `NotEligible` error if the user is not permitted to invoke the
-  operation. If you must be able to invoke this operation, contact
+  The API returns a `NotEligible` error if the
+  user is not permitted to invoke the operation. If you must be able to invoke
+  this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def renew_offering(%Client{} = client, input, options \\ []) do
@@ -692,11 +724,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Initiates a stop request for the current job.
 
-  AWS Device Farm immediately stops the job on the device where tests have not
-  started. You are not billed for this device. On the device where tests have
-  started, setup suite and teardown suite tests run to completion on the device.
-  You are billed for setup, teardown, and any tests that were in progress or
-  already completed.
+  AWS Device Farm immediately stops the job on the device
+  where tests have not started. You are not billed for this device. On the device
+  where tests have started,
+  setup suite and teardown suite tests run to completion on the device. You are
+  billed for setup, teardown,
+  and any tests that were in progress or already completed.
   """
   def stop_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -716,11 +749,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Initiates a stop request for the current test run.
 
-  AWS Device Farm immediately stops the run on devices where tests have not
-  started. You are not billed for these devices. On devices where tests have
-  started executing, setup suite and teardown suite tests run to completion on
-  those devices. You are billed for setup, teardown, and any tests that were in
-  progress or already completed.
+  AWS Device Farm immediately stops the run on devices
+  where tests have not started. You are not billed for these devices. On devices
+  where tests have started
+  executing, setup suite and teardown suite tests run to completion on those
+  devices. You are billed for
+  setup, teardown, and any tests that were in progress or already completed.
   """
   def stop_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -731,9 +765,10 @@ defmodule AWS.DeviceFarm do
   @doc """
   Associates the specified tags to a resource with the specified `resourceArn`.
 
-  If existing tags on a resource are not specified in the request parameters, they
-  are not changed. When a resource is deleted, the tags associated with that
-  resource are also deleted.
+  If existing tags
+  on a resource are not specified in the request parameters, they are not changed.
+  When a resource is deleted,
+  the tags associated with that resource are also deleted.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -761,10 +796,11 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Modifies the name, description, and rules in a device pool given the attributes
-  and the pool ARN.
+  and
+  the pool ARN.
 
-  Rule updates are all-or-nothing, meaning they can only be updated as a whole (or
-  not at all).
+  Rule updates are all-or-nothing, meaning they can only be updated as a
+  whole (or not at all).
   """
   def update_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -791,7 +827,8 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Modifies the specified project name, given the project ARN and a new name.
+  Modifies the specified project name, given the project ARN and a new
+  name.
   """
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()

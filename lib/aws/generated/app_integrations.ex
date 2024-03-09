@@ -4,12 +4,16 @@
 defmodule AWS.AppIntegrations do
   @moduledoc """
   The Amazon AppIntegrations service enables you to configure and reuse
-  connections to external applications.
+  connections to external
+  applications.
 
   For information about how you can use external applications with Amazon Connect,
-  see [Set up pre-built integrations](https://docs.aws.amazon.com/connect/latest/adminguide/crm.html)
-  and [Deliver information to agents using Amazon Connect Wisdom](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html)
-  in the *Amazon Connect Administrator Guide*.
+  see
+  [Set up pre-built integrations](https://docs.aws.amazon.com/connect/latest/adminguide/crm.html)
+  and [Deliver information to agents using Amazon Connect
+  Wisdom](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html)
+  in the *Amazon Connect Administrator
+  Guide*.
   """
 
   alias AWS.Client
@@ -17,7 +21,6 @@ defmodule AWS.AppIntegrations do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-07-29",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -52,7 +55,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -60,8 +63,10 @@ defmodule AWS.AppIntegrations do
   Creates and persists a DataIntegration resource.
 
   You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration using the `CreateDataIntegration` API.
+  been
+  previously associated. Use a different DataIntegration, or recreate the
+  DataIntegration
+  using the `CreateDataIntegration` API.
   """
   def create_data_integration(%Client{} = client, input, options \\ []) do
     url_path = "/dataIntegrations"
@@ -79,17 +84,20 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an EventIntegration, given a specified name, description, and a
-  reference to an Amazon EventBridge bus in your account and a partner event
-  source that pushes events to that bus.
+  reference to an
+  Amazon EventBridge bus in your account and a partner event source that pushes
+  events to
+  that bus.
 
   No objects are created in the your account, only metadata that is persisted on
-  the EventIntegration control plane.
+  the
+  EventIntegration control plane.
   """
   def create_event_integration(%Client{} = client, input, options \\ []) do
     url_path = "/eventIntegrations"
@@ -107,7 +115,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -132,20 +140,21 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the DataIntegration.
 
-  Only DataIntegrations that don't have any DataIntegrationAssociations can be
-  deleted. Deleting a DataIntegration also deletes the underlying Amazon AppFlow
-  flow and service linked role.
+  Only DataIntegrations that don't have any
+  DataIntegrationAssociations can be deleted. Deleting a DataIntegration also
+  deletes the
+  underlying Amazon AppFlow flow and service linked role.
 
   You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration using the
+  been previously associated.
+  Use a different DataIntegration, or recreate the DataIntegration using the
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
@@ -170,14 +179,15 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified existing event integration.
 
-  If the event integration is associated with clients, the request is rejected.
+  If the event integration is associated
+  with clients, the request is rejected.
   """
   def delete_event_integration(%Client{} = client, name, input, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
@@ -195,7 +205,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -211,15 +221,15 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the DataIntegration.
 
   You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration using the
+  been previously associated.
+  Use a different DataIntegration, or recreate the DataIntegration using the
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
@@ -230,7 +240,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -243,7 +253,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -276,7 +286,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -305,15 +315,15 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of DataIntegration associations in the account.
 
   You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration using the
+  been previously associated.
+  Use a different DataIntegration, or recreate the DataIntegration using the
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
@@ -346,15 +356,15 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a paginated list of DataIntegrations in the account.
 
   You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration using the
+  been previously associated.
+  Use a different DataIntegration, or recreate the DataIntegration using the
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
@@ -384,7 +394,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -417,7 +427,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -449,7 +459,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -462,7 +472,7 @@ defmodule AWS.AppIntegrations do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -484,7 +494,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -512,7 +522,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -537,7 +547,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -545,8 +555,8 @@ defmodule AWS.AppIntegrations do
   Updates the description of a DataIntegration.
 
   You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration using the
+  been previously associated.
+  Use a different DataIntegration, or recreate the DataIntegration using the
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   API.
   """
@@ -566,7 +576,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -589,7 +599,7 @@ defmodule AWS.AppIntegrations do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -4,14 +4,18 @@
 defmodule AWS.AppFabric do
   @moduledoc """
   Amazon Web Services AppFabric quickly connects software as a service (SaaS)
-  applications across your organization.
+  applications across your
+  organization.
 
-  This allows IT and security teams to easily manage and secure applications using
-  a standard schema, and employees can complete everyday tasks faster using
-  generative artificial intelligence (AI). You can use these APIs to complete
-  AppFabric tasks, such as setting up audit log ingestions or viewing user access.
-  For more information about AppFabric, including the required permissions to use
-  the service, see the [Amazon Web Services AppFabric Administration Guide](https://docs.aws.amazon.com/appfabric/latest/adminguide/). For more
+  This allows IT and security teams to easily manage and secure applications
+  using a standard schema, and employees can complete everyday tasks faster using
+  generative
+  artificial intelligence (AI). You can use these APIs to complete AppFabric
+  tasks, such as
+  setting up audit log ingestions or viewing user access. For more information
+  about AppFabric,
+  including the required permissions to use the service, see the [Amazon Web Services AppFabric Administration
+  Guide](https://docs.aws.amazon.com/appfabric/latest/adminguide/). For more
   information about using the Command Line Interface (CLI) to manage your
   AppFabric resources, see the [AppFabric section of the CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/appfabric/index.html).
   """
@@ -21,7 +25,6 @@ defmodule AWS.AppFabric do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2023-05-19",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -63,7 +66,8 @@ defmodule AWS.AppFabric do
 
   @doc """
   Establishes a connection between Amazon Web Services AppFabric and an
-  application, which allows AppFabric to call the APIs of the application.
+  application, which allows AppFabric to
+  call the APIs of the application.
   """
   def connect_app_authorization(
         %Client{} = client,
@@ -95,7 +99,8 @@ defmodule AWS.AppFabric do
 
   @doc """
   Creates an app authorization within an app bundle, which allows AppFabric to
-  connect to an application.
+  connect to an
+  application.
   """
   def create_app_authorization(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations"
@@ -165,7 +170,8 @@ defmodule AWS.AppFabric do
 
   @doc """
   Creates an ingestion destination, which specifies how an application's ingested
-  data is processed by Amazon Web Services AppFabric and where it's delivered.
+  data is
+  processed by Amazon Web Services AppFabric and where it's delivered.
   """
   def create_ingestion_destination(
         %Client{} = client,
@@ -198,8 +204,8 @@ defmodule AWS.AppFabric do
   @doc """
   Deletes an app authorization.
 
-  You must delete the associated ingestion before you can delete an app
-  authorization.
+  You must delete the associated ingestion before you can
+  delete an app authorization.
   """
   def delete_app_authorization(
         %Client{} = client,
@@ -232,8 +238,8 @@ defmodule AWS.AppFabric do
   @doc """
   Deletes an app bundle.
 
-  You must delete all associated app authorizations before you can delete an app
-  bundle.
+  You must delete all associated app authorizations before you can
+  delete an app bundle.
   """
   def delete_app_bundle(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
@@ -258,8 +264,8 @@ defmodule AWS.AppFabric do
   @doc """
   Deletes an ingestion.
 
-  You must stop (disable) the ingestion and you must delete all associated
-  ingestion destinations before you can delete an app ingestion.
+  You must stop (disable) the ingestion and you must delete all
+  associated ingestion destinations before you can delete an app ingestion.
   """
   def delete_ingestion(
         %Client{} = client,
@@ -293,10 +299,13 @@ defmodule AWS.AppFabric do
   Deletes an ingestion destination.
 
   This deletes the association between an ingestion and it's destination. It
-  doesn't delete previously ingested data or the storage destination, such as the
-  Amazon S3 bucket where the data is delivered. If the ingestion destination is
-  deleted while the associated ingestion is enabled, the ingestion will fail and
-  is eventually disabled.
+  doesn't
+  delete previously ingested data or the storage destination, such as the Amazon
+  S3
+  bucket where the data is delivered. If the ingestion destination is deleted
+  while the
+  associated ingestion is enabled, the ingestion will fail and is eventually
+  disabled.
   """
   def delete_ingestion_destination(
         %Client{} = client,
@@ -684,7 +693,8 @@ defmodule AWS.AppFabric do
 
   @doc """
   Updates an app authorization within an app bundle, which allows AppFabric to
-  connect to an application.
+  connect to an
+  application.
 
   If the app authorization was in a `connected` state, updating the app
   authorization will set it back to a `PendingConnect` state.
@@ -719,7 +729,8 @@ defmodule AWS.AppFabric do
 
   @doc """
   Updates an ingestion destination, which specifies how an application's ingested
-  data is processed by Amazon Web Services AppFabric and where it's delivered.
+  data is
+  processed by Amazon Web Services AppFabric and where it's delivered.
   """
   def update_ingestion_destination(
         %Client{} = client,

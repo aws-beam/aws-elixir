@@ -11,7 +11,6 @@ defmodule AWS.MediaConvert do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-08-29",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

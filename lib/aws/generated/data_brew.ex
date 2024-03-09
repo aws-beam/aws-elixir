@@ -5,10 +5,12 @@ defmodule AWS.DataBrew do
   @moduledoc """
   Glue DataBrew is a visual, cloud-scale data-preparation service.
 
-  DataBrew simplifies data preparation tasks, targeting data issues that are hard
-  to spot and time-consuming to fix. DataBrew empowers users of all technical
-  levels to visualize the data and perform one-click data transformations, with no
-  coding required.
+  DataBrew
+  simplifies data preparation tasks, targeting data issues that are hard to spot
+  and
+  time-consuming to fix. DataBrew empowers users of all technical levels to
+  visualize the
+  data and perform one-click data transformations, with no coding required.
   """
 
   alias AWS.Client
@@ -16,7 +18,6 @@ defmodule AWS.DataBrew do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-07-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -35,30 +36,40 @@ defmodule AWS.DataBrew do
 
   The entire request will be rejected if:
 
-    * The recipe does not exist.
+    *
+  The recipe does not exist.
 
-    * There is an invalid version identifier in the list of versions.
+    *
+  There is an invalid version identifier in the list of versions.
 
-    * The version list is empty.
+    *
+  The version list is empty.
 
-    * The version list size exceeds 50.
+    *
+  The version list size exceeds 50.
 
-    * The version list contains duplicate entries.
+    *
+  The version list contains duplicate entries.
 
   The request will complete successfully, but with partial failures, if:
 
-    * A version does not exist.
+    *
+  A version does not exist.
 
-    * A version is being used by a job.
+    *
+  A version is being used by a job.
 
-    * You specify `LATEST_WORKING`, but it's being used by a project.
+    *
+  You specify `LATEST_WORKING`, but it's being used by a
+  project.
 
-    * The version fails to be deleted.
+    *
+  The version fails to be deleted.
 
-  The `LATEST_WORKING` version will only be deleted if the recipe has no other
-  versions. If you try to delete `LATEST_WORKING` while other versions exist (or
-  if they can't be deleted), then `LATEST_WORKING` will be listed as partial
-  failure in the response.
+  The `LATEST_WORKING` version will only be deleted if the recipe has no
+  other versions. If you try to delete `LATEST_WORKING` while other versions
+  exist (or if they can't be deleted), then `LATEST_WORKING` will be listed as
+  partial failure in the response.
   """
   def batch_delete_recipe_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/batchDeleteRecipeVersion"
@@ -76,7 +87,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -99,7 +110,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -122,7 +133,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -145,7 +156,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -168,7 +179,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -192,13 +203,13 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Creates a new ruleset that can be used in a profile job to validate the data
-  quality of a dataset.
+  Creates a new ruleset that can be used in a profile job to validate
+  the data quality of a dataset.
   """
   def create_ruleset(%Client{} = client, input, options \\ []) do
     url_path = "/rulesets"
@@ -216,14 +227,15 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new schedule for one or more DataBrew jobs.
 
-  Jobs can be run at a specific date and time, or at regular intervals.
+  Jobs can be run at a specific
+  date and time, or at regular intervals.
   """
   def create_schedule(%Client{} = client, input, options \\ []) do
     url_path = "/schedules"
@@ -241,7 +253,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -264,7 +276,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -287,7 +299,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -310,7 +322,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -335,7 +347,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -358,7 +370,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -381,7 +393,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -395,7 +407,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -408,7 +420,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -421,7 +433,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -434,12 +446,13 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the definition of a specific DataBrew recipe corresponding to a
-  particular version.
+  particular
+  version.
   """
   def describe_recipe(%Client{} = client, name, recipe_version \\ nil, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
@@ -455,7 +468,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -468,7 +481,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -481,7 +494,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -508,7 +521,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -541,7 +554,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -589,7 +602,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -616,11 +629,12 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the versions of a particular DataBrew recipe, except for `LATEST_WORKING`.
+  Lists the versions of a particular DataBrew recipe, except for
+  `LATEST_WORKING`.
   """
   def list_recipe_versions(
         %Client{} = client,
@@ -656,7 +670,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -696,12 +710,12 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  List all rulesets available in the current account or rulesets associated with a
-  specific resource (dataset).
+  List all rulesets available in the current account or rulesets associated
+  with a specific resource (dataset).
   """
   def list_rulesets(
         %Client{} = client,
@@ -737,7 +751,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -777,7 +791,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -790,7 +804,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -812,7 +826,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -827,7 +841,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -849,7 +863,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -864,7 +878,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -888,13 +902,14 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe,
-  job, or schedule.
+  job, or
+  schedule.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -912,7 +927,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -940,7 +955,7 @@ defmodule AWS.DataBrew do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -954,7 +969,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -967,7 +982,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -980,11 +995,12 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Modifies the definition of the `LATEST_WORKING` version of a DataBrew recipe.
+  Modifies the definition of the `LATEST_WORKING` version of a DataBrew
+  recipe.
   """
   def update_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
@@ -993,7 +1009,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1006,7 +1022,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1019,7 +1035,7 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1032,6 +1048,6 @@ defmodule AWS.DataBrew do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

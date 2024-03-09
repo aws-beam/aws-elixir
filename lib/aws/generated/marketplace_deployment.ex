@@ -18,7 +18,6 @@ defmodule AWS.MarketplaceDeployment do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2023-01-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

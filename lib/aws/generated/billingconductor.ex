@@ -4,24 +4,30 @@
 defmodule AWS.Billingconductor do
   @moduledoc """
   Amazon Web Services Billing Conductor is a fully managed service that you can
-  use to customize a
-  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback your
-  end customers.
+  use to
+  customize a
+  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback
+  your end customers.
 
-  Amazon Web Services Billing Conductor doesn't change the way you're billed by
-  Amazon Web Services each month by design. Instead, it provides you with a
-  mechanism to configure, generate, and display rates to certain customers over a
-  given billing period. You can also analyze the difference between the rates you
-  apply to your accounting groupings relative to your actual rates from Amazon Web
-  Services. As a result of your Amazon Web Services Billing Conductor
-  configuration, the payer account can also see the custom rate applied on the
+  Amazon Web Services Billing Conductor doesn't change the way you're billed
+  by Amazon Web Services each month by design. Instead, it provides you with a
+  mechanism to
+  configure, generate, and display rates to certain customers over a given billing
+  period. You
+  can also analyze the difference between the rates you apply to your accounting
+  groupings
+  relative to your actual rates from Amazon Web Services. As a result of your
+  Amazon Web Services
+  Billing Conductor configuration, the payer account can also see the custom rate
+  applied on the
   billing details page of the [Amazon Web Services Billing
   console](https://console.aws.amazon.com/billing), or configure a cost and usage
   report per billing group.
 
   This documentation shows how you can configure Amazon Web Services Billing
-  Conductor using its API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/billingconductor/)
-  user interface, see the [ Amazon Web Services Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
+  Conductor using its
+  API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/billingconductor/) user
+  interface, see the [ Amazon Web Services Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
   """
 
   alias AWS.Client
@@ -29,7 +35,6 @@ defmodule AWS.Billingconductor do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-07-30",
       content_type: "application/x-amz-json-1.1",
       credential_scope: "us-east-1",
@@ -45,11 +50,13 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Connects an array of account IDs in a consolidated billing family to a
-  predefined billing group.
+  predefined
+  billing group.
 
   The account IDs must be a part of the consolidated billing family during the
   current month, and not already associated with another billing group. The
-  maximum number of accounts that can be associated in one call is 30.
+  maximum number of
+  accounts that can be associated in one call is 30.
   """
   def associate_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/associate-accounts"
@@ -87,6 +94,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Associates a batch of resources to a percentage custom line item.
   """
   def batch_associate_resources_to_custom_line_item(%Client{} = client, input, options \\ []) do
@@ -100,6 +108,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Disassociates a batch of resources from a percentage custom line item.
   """
   def batch_disassociate_resources_from_custom_line_item(%Client{} = client, input, options \\ []) do
@@ -113,6 +122,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Creates a billing group that resembles a consolidated billing family that Amazon
   Web Services charges, based off of the predefined pricing plan computation.
   """
@@ -144,10 +154,11 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Creates a custom line item that can be used to create a one-time fixed charge
-  that can be applied to a single billing group for the current or previous
-  billing period.
+  that can be
+  applied to a single billing group for the current or previous billing period.
 
-  The one-time fixed charge is either a fee or discount.
+  The one-time
+  fixed charge is either a fee or discount.
   """
   def create_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/create-custom-line-item"
@@ -206,6 +217,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Creates a pricing rule can be associated to a pricing plan, or a set of pricing
   plans.
   """
@@ -236,6 +248,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Deletes a billing group.
   """
   def delete_billing_group(%Client{} = client, input, options \\ []) do
@@ -259,6 +272,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Deletes the custom line item identified by the given ARN in the current, or
   previous billing period.
   """
@@ -285,8 +299,8 @@ defmodule AWS.Billingconductor do
   @doc """
   Deletes a pricing plan.
 
-  The pricing plan must not be associated with any billing groups to delete
-  successfully.
+  The pricing plan must not be associated with any billing groups to
+  delete successfully.
   """
   def delete_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/delete-pricing-plan"
@@ -356,6 +370,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Disassociates a list of pricing rules from a pricing plan.
   """
   def disassociate_pricing_rules(%Client{} = client, input, options \\ []) do
@@ -370,8 +385,8 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Retrieves the margin summary report, which includes the Amazon Web Services cost
-  and charged amount (pro forma cost) by Amazon Web Service for a specific billing
-  group.
+  and charged
+  amount (pro forma cost) by Amazon Web Service for a specific billing group.
   """
   def get_billing_group_cost_report(%Client{} = client, input, options \\ []) do
     url_path = "/get-billing-group-cost-report"
@@ -395,10 +410,12 @@ defmodule AWS.Billingconductor do
 
   @doc """
   This is a paginated call to list linked accounts that are linked to the payer
-  account for the specified time period.
+  account for
+  the specified time period.
 
-  If no information is provided, the current billing period is used. The response
-  will optionally include the billing group that's associated with the linked
+  If no information is provided, the current billing period is used.
+  The response will optionally include the billing group that's associated with
+  the linked
   account.
   """
   def list_account_associations(%Client{} = client, input, options \\ []) do
@@ -423,8 +440,9 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to retrieve a summary report of actual Amazon Web Services
-  charges and the calculated Amazon Web Services charges based on the associated
-  pricing plan of a billing group.
+  charges and the calculated
+  Amazon Web Services charges based on the associated pricing plan of a billing
+  group.
   """
   def list_billing_group_cost_reports(%Client{} = client, input, options \\ []) do
     url_path = "/list-billing-group-cost-reports"
@@ -496,6 +514,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   A paginated call to get a list of all custom line items (FFLIs) for the given
   billing period.
 
@@ -547,6 +566,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   A list of the pricing plans that are associated with a pricing rule.
   """
   def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, input, options \\ []) do
@@ -570,6 +590,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Describes a pricing rule that can be associated to a pricing plan, or set of
   pricing plans.
   """
@@ -594,6 +615,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Lists the pricing rules that are associated with a pricing plan.
   """
   def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, input, options \\ []) do
@@ -617,6 +639,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   List the resources that are associated to a custom line item.
   """
   def list_resources_associated_to_custom_line_item(%Client{} = client, input, options \\ []) do
@@ -640,6 +663,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   A list the tags for a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -656,7 +680,8 @@ defmodule AWS.Billingconductor do
   Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they
-  are not changed.
+  are not
+  changed.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -679,6 +704,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -730,6 +756,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Update an existing custom line item in the current or previous billing period.
   """
   def update_custom_line_item(%Client{} = client, input, options \\ []) do
@@ -766,6 +793,7 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
+
   Updates an existing pricing rule.
   """
   def update_pricing_rule(%Client{} = client, input, options \\ []) do

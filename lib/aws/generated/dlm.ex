@@ -8,11 +8,13 @@ defmodule AWS.DLM do
   With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon
   Web Services resources.
 
-  You create lifecycle policies, which are used to automate operations on the
-  specified resources.
+  You create
+  lifecycle policies, which are used to automate operations on the specified
+  resources.
 
   Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For
-  information about using Amazon Data Lifecycle Manager with Amazon EBS, see [
+  information about using Amazon Data Lifecycle Manager
+  with Amazon EBS, see [
   Amazon Data Lifecycle
   Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
   in the *Amazon EC2 User Guide*.
@@ -23,7 +25,6 @@ defmodule AWS.DLM do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-01-12",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -42,17 +43,24 @@ defmodule AWS.DLM do
 
   Amazon Data Lifecycle Manager supports the following policy types:
 
-    * Custom EBS snapshot policy
+    *
+  Custom EBS snapshot policy
 
-    * Custom EBS-backed AMI policy
+    *
+  Custom EBS-backed AMI policy
 
-    * Cross-account copy event policy
+    *
+  Cross-account copy event policy
 
-    * Default policy for EBS snapshots
+    *
+  Default policy for EBS snapshots
 
-    * Default policy for EBS-backed AMIs
+    *
+  Default policy for EBS-backed AMIs
 
-  For more information, see [ Default policies vs custom policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html).
+  For more information, see [
+  Default policies vs custom
+  policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html).
 
   If you create a default policy, you can specify the request parameters either in
   the request body, or in the PolicyDetails request structure, but not both.
@@ -73,13 +81,14 @@ defmodule AWS.DLM do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified lifecycle policy and halts the automated operations that
-  the policy specified.
+  the
+  policy specified.
 
   For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
   """
@@ -99,7 +108,7 @@ defmodule AWS.DLM do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -167,7 +176,7 @@ defmodule AWS.DLM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -180,7 +189,7 @@ defmodule AWS.DLM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -193,7 +202,7 @@ defmodule AWS.DLM do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -215,7 +224,7 @@ defmodule AWS.DLM do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -243,7 +252,7 @@ defmodule AWS.DLM do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -268,7 +277,7 @@ defmodule AWS.DLM do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -11,7 +11,6 @@ defmodule AWS.AlexaForBusiness do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-11-09",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -28,8 +27,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Associates a skill with the organization under the customer's AWS account.
 
-  If a skill is private, the user implicitly accepts access to this skill during
-  enablement.
+  If a skill
+  is private, the user implicitly accepts access to this skill during enablement.
   """
   def approve_skill(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -58,9 +57,10 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Associates a device with a given room.
 
-  This applies all the settings from the room profile to the device, and all the
-  skills in any skill groups added to that room. This operation requires the
-  device to be online, or else a manual sync is required.
+  This applies all the settings from the room
+  profile to the device, and all the skills in any skill groups added to that
+  room. This
+  operation requires the device to be online, or else a manual sync is required.
   """
   def associate_device_with_room(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -71,8 +71,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Associates a skill group with a given room.
 
-  This enables all skills in the associated skill group on all devices in the
-  room.
+  This enables all skills in the associated
+  skill group on all devices in the room.
   """
   def associate_skill_group_with_room(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -199,7 +199,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Deletes the recurring report delivery schedule with the specified schedule ARN.
+  Deletes the recurring report delivery schedule with the specified schedule
+  ARN.
   """
   def delete_business_report_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -236,8 +237,10 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   When this action is called for a specified shared device, it allows authorized
-  users to delete the device's entire previous history of voice input data and
-  associated response data.
+  users to
+  delete the device's entire previous history of voice input data and associated
+  response
+  data.
 
   This action can be called once every 24 hours for a specific shared device.
   """
@@ -331,9 +334,10 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Disassociates a device from its current room.
 
-  The device continues to be connected to the Wi-Fi network and is still
-  registered to the account. The device settings and skills are removed from the
-  room.
+  The device continues to be connected to
+  the Wi-Fi network and is still registered to the account. The device settings
+  and skills
+  are removed from the room.
   """
   def disassociate_device_from_room(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -352,7 +356,8 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Makes a private skill unavailable for enrolled users and prevents them from
-  enabling it on their devices.
+  enabling it
+  on their devices.
   """
   def disassociate_skill_from_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -363,7 +368,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Disassociates a skill group from a specified room.
 
-  This disables all skills in the skill group on all devices in the room.
+  This disables all skills in the
+  skill group on all devices in the room.
   """
   def disassociate_skill_group_from_room(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -533,7 +539,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Retrieves a list of gateway group summaries.
 
-  Use GetGatewayGroup to retrieve details of a specific gateway group.
+  Use GetGatewayGroup to retrieve details of
+  a specific gateway group.
   """
   def list_gateway_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -544,9 +551,10 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Retrieves a list of gateway summaries.
 
-  Use GetGateway to retrieve details of a specific gateway. An optional gateway
-  group ARN can be provided to only retrieve gateway summaries of gateways that
-  are associated with that gateway group ARN.
+  Use GetGateway to retrieve details of a specific
+  gateway. An optional gateway group ARN can be provided to only retrieve gateway
+  summaries
+  of gateways that are associated with that gateway group ARN.
   """
   def list_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -611,7 +619,8 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Configures the email template for the user enrollment invitation with the
-  specified attributes.
+  specified
+  attributes.
   """
   def put_invitation_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -622,7 +631,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Updates room skill parameter details by room, skill, and parameter key ID.
 
-  Not all skills have a room skill parameter.
+  Not all
+  skills have a room skill parameter.
   """
   def put_room_skill_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -633,9 +643,10 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Links a user's account to a third-party skill provider.
 
-  If this API operation is called by an assumed IAM role, the skill being linked
-  must be a private skill. Also, the skill must be owned by the AWS account that
-  assumed the IAM role.
+  If this API operation is
+  called by an assumed IAM role, the skill being linked must be a private skill.
+  Also, the
+  skill must be owned by the AWS account that assumed the IAM role.
   """
   def put_skill_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -645,7 +656,8 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Registers an Alexa-enabled device built by an Original Equipment Manufacturer
-  (OEM) using Alexa Voice Service (AVS).
+  (OEM)
+  using Alexa Voice Service (AVS).
   """
   def register_avs_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -656,9 +668,10 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Disassociates a skill from the organization under a user's AWS account.
 
-  If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any
-  private or public skill that is rejected can be added later by calling the
-  ApproveSkill API.
+  If the skill
+  is a private skill, it moves to an AcceptStatus of PENDING. Any private or
+  public skill
+  that is rejected can be added later by calling the ApproveSkill API.
   """
   def reject_skill(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -669,14 +682,18 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Determines the details for the room from which a skill request was invoked.
 
-  This operation is used by skill developers.
+  This
+  operation is used by skill developers.
 
   To query ResolveRoom from an Alexa skill, the skill ID needs to be authorized.
-  When the skill is using an AWS Lambda function, the skill is automatically
-  authorized when you publish your skill as a private skill to your AWS account.
-  Skills that are hosted using a custom web service must be manually authorized.
-  To get your skill authorized, contact AWS Support with your AWS account ID that
-  queries the ResolveRoom API and skill ID.
+  When
+  the skill is using an AWS Lambda function, the skill is automatically authorized
+  when you
+  publish your skill as a private skill to your AWS account. Skills that are
+  hosted using a
+  custom web service must be manually authorized. To get your skill authorized,
+  contact AWS
+  Support with your AWS account ID that queries the ResolveRoom API and skill ID.
   """
   def resolve_room(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -733,7 +750,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Searches room profiles and lists the ones that meet a set of filter criteria.
+  Searches room profiles and lists the ones that meet a set of filter
+  criteria.
   """
   def search_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -742,7 +760,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Searches rooms and lists the ones that meet a set of filter and sort criteria.
+  Searches rooms and lists the ones that meet a set of filter and sort
+  criteria.
   """
   def search_rooms(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -761,7 +780,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Searches users and lists the ones that meet a set of filter and sort criteria.
+  Searches users and lists the ones that meet a set of filter and sort
+  criteria.
   """
   def search_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -771,7 +791,8 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Triggers an asynchronous flow to send text, SSML, or audio announcements to
-  rooms that are identified by a search or filter.
+  rooms that
+  are identified by a search or filter.
   """
   def send_announcement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -782,8 +803,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Sends an enrollment invitation email with a URL to a user.
 
-  The URL is valid for 30 days or until you call this operation again, whichever
-  comes first.
+  The URL is valid for 30
+  days or until you call this operation again, whichever comes first.
   """
   def send_invitation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -794,23 +815,27 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Resets a device and its account to the known default settings.
 
-  This clears all information and settings set by previous users in the following
-  ways:
+  This clears all
+  information and settings set by previous users in the following ways:
 
-    * Bluetooth - This unpairs all bluetooth devices paired with your
-  echo device.
-
-    * Volume - This resets the echo device's volume to the default
-  value.
-
-    * Notifications - This clears all notifications from your echo
+    *
+  Bluetooth - This unpairs all bluetooth devices paired with your echo
   device.
 
-    * Lists - This clears all to-do items from your echo device.
+    *
+  Volume - This resets the echo device's volume to the default value.
 
-    * Settings - This internally syncs the room's profile (if the device
-  is assigned to a room), contacts, address books, delegation access for account
-  linking, and communications (if enabled on the room profile).
+    *
+  Notifications - This clears all notifications from your echo device.
+
+    *
+  Lists - This clears all to-do items from your echo device.
+
+    *
+  Settings - This internally syncs the room's profile (if the device is assigned
+  to
+  a room), contacts, address books, delegation access for account linking, and
+  communications (if enabled on the room profile).
   """
   def start_device_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -819,7 +844,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Initiates the discovery of any smart home appliances associated with the room.
+  Initiates the discovery of any smart home appliances associated with the
+  room.
   """
   def start_smart_home_appliance_discovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -856,7 +882,8 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Updates the configuration of the report delivery schedule with the specified
-  schedule ARN.
+  schedule
+  ARN.
   """
   def update_business_report_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -894,8 +921,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Updates the details of a gateway.
 
-  If any optional field is not provided, the existing corresponding value is left
-  unmodified.
+  If any optional field is not provided, the existing
+  corresponding value is left unmodified.
   """
   def update_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -906,8 +933,8 @@ defmodule AWS.AlexaForBusiness do
   @doc """
   Updates the details of a gateway group.
 
-  If any optional field is not provided, the existing corresponding value is left
-  unmodified.
+  If any optional field is not provided, the
+  existing corresponding value is left unmodified.
   """
   def update_gateway_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

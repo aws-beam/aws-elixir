@@ -4,10 +4,12 @@
 defmodule AWS.Wisdom do
   @moduledoc """
   Amazon Connect Wisdom delivers agents the information they need to solve
-  customer issues as they're actively speaking with customers.
+  customer issues as they're
+  actively speaking with customers.
 
-  Agents can search across connected repositories from within their agent desktop
-  to find answers quickly. Use Amazon Connect Wisdom to create an assistant and a
+  Agents can search across connected repositories from within
+  their agent desktop to find answers quickly. Use Amazon Connect Wisdom to create
+  an assistant and a
   knowledge base, for example, or manage content by uploading custom files.
   """
 
@@ -16,7 +18,6 @@ defmodule AWS.Wisdom do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-10-19",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -57,8 +58,10 @@ defmodule AWS.Wisdom do
   Creates an association between an Amazon Connect Wisdom assistant and another
   resource.
 
-  Currently, the only supported association is with a knowledge base. An assistant
-  can have only a single association.
+  Currently, the
+  only supported association is with a knowledge base. An assistant can have only
+  a single
+  association.
   """
   def create_assistant_association(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
@@ -85,7 +88,8 @@ defmodule AWS.Wisdom do
 
   Before to calling this API, use
   [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html)
-  to upload an asset.
+  to
+  upload an asset.
   """
   def create_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
@@ -112,21 +116,30 @@ defmodule AWS.Wisdom do
 
   When using this API, you cannot reuse [Amazon AppIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
   DataIntegrations with external knowledge bases such as Salesforce and
-  ServiceNow. If you do, you'll get an `InvalidRequestException` error.
+  ServiceNow. If you do,
+  you'll get an `InvalidRequestException` error.
 
   For example, you're programmatically managing your external knowledge base, and
-  you want to add or remove one of the fields that is being ingested from
-  Salesforce. Do the following:
+  you want
+  to add or remove one of the fields that is being ingested from Salesforce. Do
+  the
+  following:
 
-     Call
-  [DeleteKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html).     Call
+    
+  Call
+  [DeleteKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html). 
+    
+  Call
   [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html).
 
-     Call
+    
+  Call
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  to recreate the DataIntegration or a create different one.
+  to recreate the DataIntegration or a create different
+  one.
 
-     Call CreateKnowledgeBase.
+    
+  Call CreateKnowledgeBase.
   """
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgeBases"
@@ -174,9 +187,10 @@ defmodule AWS.Wisdom do
   @doc """
   Creates a session.
 
-  A session is a contextual container used for generating recommendations. Amazon
-  Connect creates a new Wisdom session for each contact on which Wisdom is
-  enabled.
+  A session is a contextual container used for generating
+  recommendations. Amazon Connect creates a new Wisdom session for each contact on
+  which
+  Wisdom is enabled.
   """
   def create_session(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
@@ -314,11 +328,13 @@ defmodule AWS.Wisdom do
   When you use this API to delete an external knowledge base such as Salesforce or
   ServiceNow, you must also delete the [Amazon AppIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
   DataIntegration. This is because you can't reuse the DataIntegration after it's
-  been associated with an external knowledge base. However, you can delete and
-  recreate it. See
+  been
+  associated with an external knowledge base. However, you can delete and recreate
+  it. See
   [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html) and
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  in the *Amazon AppIntegrations API Reference*.
+  in the *Amazon AppIntegrations API
+  Reference*.
   """
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -480,10 +496,12 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves recommendations for the specified session.
 
-  To avoid retrieving the same recommendations in subsequent calls, use
-  [NotifyRecommendationsReceived](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html). This API supports long-polling behavior with the `waitTimeSeconds` parameter.
-  Short poll is the default behavior and only returns recommendations already
-  available. To perform a manual query against an assistant, use
+  To avoid retrieving the same
+  recommendations in subsequent calls, use
+  [NotifyRecommendationsReceived](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html). This API supports long-polling behavior with the
+  `waitTimeSeconds` parameter. Short poll is the default behavior and only returns
+  recommendations already available. To perform a manual query against an
+  assistant, use
   [QueryAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html).
   """
   def get_recommendations(
@@ -740,12 +758,13 @@ defmodule AWS.Wisdom do
 
   @doc """
   Removes the specified recommendations from the specified assistant's queue of
-  newly available recommendations.
+  newly
+  available recommendations.
 
   You can use this API in conjunction with
   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html)
-  and a `waitTimeSeconds` input for long-polling behavior and avoiding duplicate
-  recommendations.
+  and a `waitTimeSeconds` input for long-polling
+  behavior and avoiding duplicate recommendations.
   """
   def notify_recommendations_received(
         %Client{} = client,
@@ -778,7 +797,8 @@ defmodule AWS.Wisdom do
   @doc """
   Performs a manual search against the specified assistant.
 
-  To retrieve recommendations for an assistant, use
+  To retrieve recommendations for
+  an assistant, use
   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html).
   """
   def query_assistant(%Client{} = client, assistant_id, input, options \\ []) do
@@ -832,7 +852,8 @@ defmodule AWS.Wisdom do
   @doc """
   Searches for content in a specified knowledge base.
 
-  Can be used to get a specific content resource by its name.
+  Can be used to get a specific content
+  resource by its name.
   """
   def search_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
@@ -921,12 +942,14 @@ defmodule AWS.Wisdom do
   @doc """
   Get a URL to upload content to a knowledge base.
 
-  To upload content, first make a PUT request to the returned URL with your file,
-  making sure to include the required headers. Then use
+  To upload content, first make a PUT
+  request to the returned URL with your file, making sure to include the required
+  headers. Then
+  use
   [CreateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html) to finalize the content creation process or
   [UpdateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html)
-  to modify an existing resource. You can only upload content to a knowledge base
-  of type CUSTOM.
+  to modify an existing resource. You can only upload content to a
+  knowledge base of type CUSTOM.
   """
   def start_content_upload(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
@@ -953,11 +976,13 @@ defmodule AWS.Wisdom do
   file.
 
   Before calling this API, use
-  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to upload an asset that contains the resource data.
+  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to
+  upload an asset that contains the resource data.
 
-    * For importing Wisdom quick responses, you need to upload a csv
-  file including the quick responses. For information about how to format the csv
-  file for importing quick responses, see [Import quick
+    *
+  For importing Wisdom quick responses, you need to upload a csv file including
+  the quick responses. For information about how to format the csv file for
+  importing quick responses, see [Import quick
   responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
   """
   def start_import_job(%Client{} = client, knowledge_base_id, input, options \\ []) do
@@ -1059,10 +1084,11 @@ defmodule AWS.Wisdom do
   @doc """
   Updates the template URI of a knowledge base.
 
-  This is only supported for knowledge bases of type EXTERNAL. Include a single
-  variable in `${variable}` format; this interpolated by Wisdom using ingested
-  content. For example, if you ingest a Salesforce article, it has an `Id` value,
-  and you can set the template URI to
+  This is only supported for knowledge bases
+  of type EXTERNAL. Include a single variable in `${variable}` format; this
+  interpolated by Wisdom using ingested content. For example, if you ingest a
+  Salesforce
+  article, it has an `Id` value, and you can set the template URI to
   `https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view`.
   """
   def update_knowledge_base_template_uri(

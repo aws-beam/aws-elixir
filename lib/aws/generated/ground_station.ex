@@ -5,10 +5,11 @@ defmodule AWS.GroundStation do
   @moduledoc """
   Welcome to the AWS Ground Station API Reference.
 
-  AWS Ground Station is a fully managed service that enables you to control
-  satellite communications, downlink and process satellite data, and scale your
-  satellite operations efficiently and cost-effectively without having to build or
-  manage your own ground station infrastructure.
+  AWS Ground Station is a fully managed service that
+  enables you to control satellite communications, downlink and process satellite
+  data, and
+  scale your satellite operations efficiently and cost-effectively without having
+  to build or manage your own ground station infrastructure.
   """
 
   alias AWS.Client
@@ -16,7 +17,6 @@ defmodule AWS.GroundStation do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-05-23",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -83,7 +83,8 @@ defmodule AWS.GroundStation do
   `DataflowEndpoint` objects.
 
   The `name` field in each endpoint is used in your mission profile
-  `DataflowEndpointConfig` to specify which endpoints to use during a contact.
+  `DataflowEndpointConfig`
+  to specify which endpoints to use during a contact.
 
   When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
   must match a `DataflowEndpoint` in the same group.
@@ -281,6 +282,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
   Gets the latest configuration information for a registered agent.
@@ -402,8 +404,8 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of contacts.
 
-  If `statusList` contains AVAILABLE, the request must include `groundStation`,
-  `missionprofileArn`, and `satelliteArn`.
+  If `statusList` contains AVAILABLE, the request must include
+  `groundStation`, `missionprofileArn`, and `satelliteArn`.
   """
   def list_contacts(%Client{} = client, input, options \\ []) do
     url_path = "/contacts"
@@ -599,6 +601,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
   Registers a new agent with AWS Ground Station.
@@ -698,6 +701,7 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
   Update the status of the agent.
@@ -715,8 +719,8 @@ defmodule AWS.GroundStation do
   @doc """
   Updates the `Config` used when scheduling contacts.
 
-  Updating a `Config` will not update the execution parameters for existing future
-  contacts scheduled with this `Config`.
+  Updating a `Config` will not update the execution parameters
+  for existing future contacts scheduled with this `Config`.
   """
   def update_config(%Client{} = client, config_id, config_type, input, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
@@ -744,8 +748,8 @@ defmodule AWS.GroundStation do
   @doc """
   Updates a mission profile.
 
-  Updating a mission profile will not update the execution parameters for existing
-  future contacts.
+  Updating a mission profile will not update the execution parameters
+  for existing future contacts.
   """
   def update_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"

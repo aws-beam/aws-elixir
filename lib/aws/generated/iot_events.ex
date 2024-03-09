@@ -4,10 +4,11 @@
 defmodule AWS.IoTEvents do
   @moduledoc """
   AWS IoT Events monitors your equipment or device fleets for failures or changes
-  in operation, and triggers actions when such events occur.
+  in operation, and
+  triggers actions when such events occur.
 
-  You can use AWS IoT Events API operations to create, read, update, and delete
-  inputs and detector models, and to list their versions.
+  You can use AWS IoT Events API operations to create, read,
+  update, and delete inputs and detector models, and to list their versions.
   """
 
   alias AWS.Client
@@ -15,7 +16,6 @@ defmodule AWS.IoTEvents do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-07-27",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -32,8 +32,10 @@ defmodule AWS.IoTEvents do
   @doc """
   Creates an alarm model to monitor an AWS IoT Events input attribute.
 
-  You can use the alarm to get notified when the value is outside a specified
-  range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html)
+  You can use the alarm to get
+  notified when the value is outside a specified range. For more information, see
+  [Create an alarm
+  model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html)
   in the *AWS IoT Events Developer Guide*.
   """
   def create_alarm_model(%Client{} = client, input, options \\ []) do
@@ -52,7 +54,7 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -75,7 +77,7 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -105,8 +107,8 @@ defmodule AWS.IoTEvents do
   @doc """
   Deletes an alarm model.
 
-  Any alarm instances that were created based on this alarm model are also
-  deleted. This action can't be undone.
+  Any alarm instances that were created based on this alarm model
+  are also deleted. This action can't be undone.
   """
   def delete_alarm_model(%Client{} = client, alarm_model_name, input, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
@@ -131,7 +133,8 @@ defmodule AWS.IoTEvents do
   @doc """
   Deletes a detector model.
 
-  Any active instances of the detector model are also deleted.
+  Any active instances of the detector model are also
+  deleted.
   """
   def delete_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
@@ -172,15 +175,15 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Retrieves information about an alarm model.
 
-  If you don't specify a value for the `alarmModelVersion` parameter, the latest
-  version is returned.
+  If you don't specify a value for the
+  `alarmModelVersion` parameter, the latest version is returned.
   """
   def describe_alarm_model(
         %Client{} = client,
@@ -201,14 +204,14 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes a detector model.
 
-  If the `version` parameter is not specified, information about the latest
-  version is returned.
+  If the `version` parameter is not specified,
+  information about the latest version is returned.
   """
   def describe_detector_model(
         %Client{} = client,
@@ -229,7 +232,7 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -245,7 +248,7 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -258,7 +261,7 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -271,7 +274,7 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -307,14 +310,14 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the versions of an alarm model.
 
-  The operation returns only the metadata associated with each alarm model
-  version.
+  The operation returns only the metadata
+  associated with each alarm model version.
   """
   def list_alarm_model_versions(
         %Client{} = client,
@@ -343,13 +346,14 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the alarm models that you created.
 
-  The operation returns only the metadata associated with each alarm model.
+  The operation returns only the metadata
+  associated with each alarm model.
   """
   def list_alarm_models(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/alarm-models"
@@ -372,13 +376,14 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all the versions of a detector model.
 
-  Only the metadata associated with each detector model version is returned.
+  Only the metadata associated with each
+  detector model version is returned.
   """
   def list_detector_model_versions(
         %Client{} = client,
@@ -407,13 +412,14 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the detector models you have created.
 
-  Only the metadata associated with each detector model is returned.
+  Only the metadata associated with each
+  detector model is returned.
   """
   def list_detector_models(
         %Client{} = client,
@@ -441,10 +447,11 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists one or more input routings.
   """
   def list_input_routings(%Client{} = client, input, options \\ []) do
@@ -463,7 +470,7 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -491,7 +498,7 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -511,14 +518,15 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sets or updates the AWS IoT Events logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one minute
-  for the change to take effect. If you change the policy attached to the role you
+  If you update the value of any `loggingOptions` field, it takes up to one
+  minute for the change to take effect. If you change the policy attached to the
+  role you
   specified in the `roleArn` field (for example, to correct an invalid policy), it
   takes up to five minutes for that change to take effect.
   """
@@ -529,17 +537,18 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Performs an analysis of your detector model.
 
-  For more information, see [Troubleshooting a detector model](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
+  For more information,
+  see [Troubleshooting a detector model](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
   in the *AWS IoT Events Developer Guide*.
   """
   def start_detector_model_analysis(%Client{} = client, input, options \\ []) do
-    url_path = "/analysis/detector-models/"
+    url_path = "/analysis/detector-models"
     headers = []
     query_params = []
 
@@ -554,14 +563,15 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds to or modifies the tags of the given resource.
 
-  Tags are metadata that can be used to manage a resource.
+  Tags are metadata that can be used to
+  manage a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -584,7 +594,7 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -613,15 +623,15 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates an alarm model.
 
-  Any alarms that were created based on the previous version are deleted and then
-  created again as new data arrives.
+  Any alarms that were created based on the previous version are
+  deleted and then created again as new data arrives.
   """
   def update_alarm_model(%Client{} = client, alarm_model_name, input, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
@@ -639,15 +649,15 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates a detector model.
 
-  Detectors (instances) spawned by the previous version are deleted and then
-  re-created as new inputs arrive.
+  Detectors (instances) spawned by the previous version are
+  deleted and then re-created as new inputs arrive.
   """
   def update_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
@@ -665,7 +675,7 @@ defmodule AWS.IoTEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -679,6 +689,6 @@ defmodule AWS.IoTEvents do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

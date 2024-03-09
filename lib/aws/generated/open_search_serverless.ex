@@ -4,15 +4,21 @@
 defmodule AWS.OpenSearchServerless do
   @moduledoc """
   Use the Amazon OpenSearch Serverless API to create, configure, and manage
-  OpenSearch Serverless collections and security policies.
+  OpenSearch Serverless collections and
+  security policies.
 
   OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration
-  for Amazon OpenSearch Service. OpenSearch Serverless removes the operational
-  complexities of provisioning, configuring, and tuning your OpenSearch clusters.
-  It enables you to easily search and analyze petabytes of data without having to
-  worry about the underlying infrastructure and data management.
+  for
+  Amazon OpenSearch Service. OpenSearch Serverless removes the operational
+  complexities of provisioning,
+  configuring, and tuning your OpenSearch clusters. It enables you to easily
+  search and
+  analyze petabytes of data without having to worry about the underlying
+  infrastructure
+  and data management.
 
-  To learn more about OpenSearch Serverless, see [What is Amazon OpenSearch Serverless?](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)
+  To learn more about OpenSearch Serverless, see [What is Amazon OpenSearch
+  Serverless?](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)
   """
 
   alias AWS.Client
@@ -20,7 +26,6 @@ defmodule AWS.OpenSearchServerless do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-11-01",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -36,9 +41,11 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns attributes for one or more collections, including the collection
-  endpoint and the OpenSearch Dashboards endpoint.
+  endpoint and
+  the OpenSearch Dashboards endpoint.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless
+  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
   """
   def batch_get_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -73,8 +80,8 @@ defmodule AWS.OpenSearchServerless do
   Returns attributes for one or more VPC endpoints associated with the current
   account.
 
-  For more information, see [Access Amazon OpenSearch Serverless using an interface
-  endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+  For more information, see
+  [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
   """
   def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -85,9 +92,11 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates a data access policy for OpenSearch Serverless.
 
-  Access policies limit access to collections and the resources within them, and
-  allow a user to access that data irrespective of the access mechanism or network
-  source. For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  Access policies limit access to collections
+  and the resources within them, and allow a user to access that data irrespective
+  of the
+  access mechanism or network source. For more information, see [Data access control for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   def create_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -98,7 +107,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates a new OpenSearch Serverless collection.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless
+  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
   """
   def create_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -109,8 +119,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Creates a lifecyle policy to be applied to OpenSearch Serverless indexes.
 
-  Lifecycle policies define the number of days or hours to retain the data on an
-  OpenSearch Serverless index. For more information, see [Creating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create).
+  Lifecycle policies define
+  the number of days or hours to retain the data on an OpenSearch Serverless
+  index. For more information, see [Creating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create).
   """
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -121,7 +132,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Specifies a security configuration for OpenSearch Serverless.
 
-  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see
+  [SAML authentication for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   def create_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -133,11 +146,15 @@ defmodule AWS.OpenSearchServerless do
   Creates a security policy to be used by one or more OpenSearch Serverless
   collections.
 
-  Security policies provide access to a collection and its OpenSearch Dashboards
-  endpoint from public networks or specific VPC endpoints. They also allow you to
-  secure a collection with a KMS encryption key. For more information, see
-  [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
-  and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+  Security
+  policies provide access to a collection and its OpenSearch Dashboards endpoint
+  from
+  public networks or specific VPC endpoints. They also allow you to secure a
+  collection
+  with a KMS encryption key. For more information, see [Network access for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+  and [Encryption at rest for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
   """
   def create_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -160,7 +177,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes an OpenSearch Serverless access policy.
 
-  For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  For more information, see [Data access control for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   def delete_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -171,7 +189,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes an OpenSearch Serverless collection.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless
+  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
   """
   def delete_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -193,7 +212,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes a security configuration for OpenSearch Serverless.
 
-  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see
+  [SAML authentication for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   def delete_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -213,8 +234,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Deletes an OpenSearch Serverless-managed interface endpoint.
 
-  For more information, see [Access Amazon OpenSearch Serverless using an interface
-  endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+  For more information, see
+  [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
   """
   def delete_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -225,7 +246,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns an OpenSearch Serverless access policy.
 
-  For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  For more information, see [Data access control for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   def get_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -244,7 +266,8 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns statistical information about your OpenSearch Serverless access
-  policies, security configurations, and security policies.
+  policies, security
+  configurations, and security policies.
   """
   def get_policies_stats(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -255,7 +278,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns information about an OpenSearch Serverless security configuration.
 
-  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see
+  [SAML authentication for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   def get_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -266,8 +291,10 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns information about a configured OpenSearch Serverless security policy.
 
-  For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
-  and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+  For more information, see [Network access for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+  and [Encryption at rest for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
   """
   def get_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -287,10 +314,12 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Lists all OpenSearch Serverless collections.
 
-  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  For more information, see [Creating and managing Amazon OpenSearch Serverless
+  collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
 
   Make sure to include an empty request body {} if you don't include any
-  collection filters in the request.
+  collection
+  filters in the request.
   """
   def list_collections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -313,7 +342,9 @@ defmodule AWS.OpenSearchServerless do
   Returns information about configured OpenSearch Serverless security
   configurations.
 
-  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see
+  [SAML authentication for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   def list_security_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -343,10 +374,11 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns the OpenSearch Serverless-managed interface VPC endpoints associated
-  with the current account.
+  with the current
+  account.
 
-  For more information, see [Access Amazon OpenSearch Serverless using an interface
-  endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+  For more information, see
+  [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
   """
   def list_vpc_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -379,7 +411,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates an OpenSearch Serverless access policy.
 
-  For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+  For more information, see [Data access control for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
   """
   def update_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -391,7 +424,8 @@ defmodule AWS.OpenSearchServerless do
   Update the OpenSearch Serverless settings for the current Amazon Web Services
   account.
 
-  For more information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
+  For more
+  information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
   """
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -422,7 +456,9 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates a security configuration for OpenSearch Serverless.
 
-  For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+  For more information, see
+  [SAML authentication for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
   """
   def update_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -433,8 +469,10 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates an OpenSearch Serverless security policy.
 
-  For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
-  and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+  For more information, see [Network access for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+  and [Encryption at rest for Amazon OpenSearch
+  Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
   """
   def update_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -445,8 +483,8 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Updates an OpenSearch Serverless-managed interface endpoint.
 
-  For more information, see [Access Amazon OpenSearch Serverless using an interface
-  endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+  For more information, see
+  [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
   """
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()

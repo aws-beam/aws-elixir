@@ -7,8 +7,11 @@ defmodule AWS.WellArchitected do
 
   This is the *Well-Architected Tool API Reference*.
 
-  The WA Tool API provides programmatic access to the [Well-Architected Tool](http://aws.amazon.com/well-architected-tool) in the [Amazon Web Services Management Console](https://console.aws.amazon.com/wellarchitected). For
-  information about the Well-Architected Tool, see the [Well-Architected Tool User Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
+  The WA Tool API provides programmatic access to the
+  [Well-Architected Tool](http://aws.amazon.com/well-architected-tool) in the [Amazon Web Services Management
+  Console](https://console.aws.amazon.com/wellarchitected). For information
+  about the Well-Architected Tool, see the
+  [Well-Architected Tool User Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
   """
 
   alias AWS.Client
@@ -16,7 +19,6 @@ defmodule AWS.WellArchitected do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-03-31",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -39,9 +41,10 @@ defmodule AWS.WellArchitected do
   ## Disclaimer
 
   By accessing and/or applying custom lenses created by another Amazon Web
-  Services user or account, you acknowledge that custom lenses created by other
-  users and shared with you are Third Party Content as defined in the Amazon Web
-  Services Customer Agreement.
+  Services user or account,
+  you acknowledge that custom lenses created by other users and shared with you
+  are
+  Third Party Content as defined in the Amazon Web Services Customer Agreement.
   """
   def associate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
@@ -59,7 +62,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -82,7 +85,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -90,25 +93,30 @@ defmodule AWS.WellArchitected do
   Create a lens share.
 
   The owner of a lens can share it with other Amazon Web Services accounts, users,
-  an organization, and organizational units (OUs) in the same Amazon Web Services
-  Region. Lenses provided by Amazon Web Services (Amazon Web Services Official
-  Content) cannot be shared.
+  an organization,
+  and organizational units (OUs) in the same Amazon Web Services Region.
+  Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
+  cannot be shared.
 
   Shared access to a lens is not removed until the lens invitation is deleted.
 
   If you share a lens with an organization or OU, all accounts in the organization
-  or OU are granted access to the lens.
+  or OU
+  are granted access to the lens.
 
   For more information, see [Sharing a custom lens](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html)
-  in the *Well-Architected Tool User Guide*.
+  in the
+  *Well-Architected Tool User Guide*.
 
   ## Disclaimer
 
-  By sharing your custom lenses with other Amazon Web Services accounts, you
-  acknowledge that Amazon Web Services will make your custom lenses available to
-  those other accounts. Those other accounts may continue to access and use your
-  shared custom lenses even if you delete the custom lenses from your own Amazon
-  Web Services account or terminate your Amazon Web Services account.
+  By sharing your custom lenses with other Amazon Web Services accounts,
+  you acknowledge that Amazon Web Services will make your custom lenses available
+  to those
+  other accounts. Those other accounts may continue to access and use your
+  shared custom lenses even if you delete the custom lenses
+  from your own Amazon Web Services account or terminate
+  your Amazon Web Services account.
   """
   def create_lens_share(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
@@ -126,7 +134,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -136,9 +144,11 @@ defmodule AWS.WellArchitected do
   A lens can have up to 100 versions.
 
   Use this operation to publish a new lens version after you have imported a lens.
-  The `LensAlias` is used to identify the lens to be published. The owner of a
-  lens can share the lens with other Amazon Web Services accounts and users in the
-  same Amazon Web Services Region. Only the owner of a lens can delete it.
+  The `LensAlias`
+  is used to identify the lens to be published.
+  The owner of a lens can share the lens with other
+  Amazon Web Services accounts and users in the same Amazon Web Services Region.
+  Only the owner of a lens can delete it.
   """
   def create_lens_version(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
@@ -156,7 +166,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -179,7 +189,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -202,7 +212,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -225,7 +235,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -237,9 +247,11 @@ defmodule AWS.WellArchitected do
   Do not include or gather personal identifiable information (PII) of end users or
   other identifiable individuals in or via your review templates. If your review
   template or those shared with you and used in your account do include or collect
-  PII you are responsible for: ensuring that the included PII is processed in
-  accordance with applicable law, providing adequate privacy notices, and
-  obtaining necessary consents for processing such data.
+  PII
+  you are responsible for: ensuring that the included PII is processed in
+  accordance
+  with applicable law, providing adequate privacy notices, and obtaining necessary
+  consents for processing such data.
   """
   def create_review_template(%Client{} = client, input, options \\ []) do
     url_path = "/reviewTemplates"
@@ -257,7 +269,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -265,11 +277,13 @@ defmodule AWS.WellArchitected do
   Create a review template share.
 
   The owner of a review template can share it with other Amazon Web Services
-  accounts, users, an organization, and organizational units (OUs) in the same
-  Amazon Web Services Region.
+  accounts,
+  users, an organization, and organizational units (OUs) in the same Amazon Web
+  Services Region.
 
   Shared access to a review template is not removed until the review template
-  share invitation is deleted.
+  share
+  invitation is deleted.
 
   If you share a review template with an organization or OU, all accounts in the
   organization or OU are granted access to the review template.
@@ -296,7 +310,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -304,28 +318,39 @@ defmodule AWS.WellArchitected do
   Create a new workload.
 
   The owner of a workload can share the workload with other Amazon Web Services
-  accounts, users, an organization, and organizational units (OUs) in the same
-  Amazon Web Services Region. Only the owner of a workload can delete it.
+  accounts, users,
+  an organization, and organizational units (OUs)
+  in the same Amazon Web Services Region. Only the owner of a workload can delete
+  it.
 
   For more information, see [Defining a Workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html)
-  in the *Well-Architected Tool User Guide*.
+  in the
+  *Well-Architected Tool User Guide*.
 
-  Either `AwsRegions`, `NonAwsRegions`, or both must be specified when creating a
-  workload.
+  Either `AwsRegions`, `NonAwsRegions`, or both must be specified when
+  creating a workload.
 
-  You also must specify `ReviewOwner`, even though the parameter is listed as not
-  being required in the following section.
+  You also must specify `ReviewOwner`, even though the
+  parameter is listed as not being required in the following section.
 
   When creating a workload using a review template, you must have the following
   IAM permissions:
 
-    * `wellarchitected:GetReviewTemplate`
+    *
 
-    * `wellarchitected:GetReviewTemplateAnswer`
+  `wellarchitected:GetReviewTemplate`
 
-    * `wellarchitected:ListReviewTemplateAnswers`
+    *
 
-    * `wellarchitected:GetReviewTemplateLensReview`
+  `wellarchitected:GetReviewTemplateAnswer`
+
+    *
+
+  `wellarchitected:ListReviewTemplateAnswers`
+
+    *
+
+  `wellarchitected:GetReviewTemplateLensReview`
   """
   def create_workload(%Client{} = client, input, options \\ []) do
     url_path = "/workloads"
@@ -343,7 +368,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -351,14 +376,18 @@ defmodule AWS.WellArchitected do
   Create a workload share.
 
   The owner of a workload can share it with other Amazon Web Services accounts and
-  users in the same Amazon Web Services Region. Shared access to a workload is not
-  removed until the workload invitation is deleted.
+  users in the same
+  Amazon Web Services Region. Shared access to a workload is not removed until the
+  workload invitation is
+  deleted.
 
   If you share a workload with an organization or OU, all accounts in the
-  organization or OU are granted access to the workload.
+  organization or OU
+  are granted access to the workload.
 
   For more information, see [Sharing a workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html)
-  in the *Well-Architected Tool User Guide*.
+  in the
+  *Well-Architected Tool User Guide*.
   """
   def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
@@ -376,7 +405,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -384,16 +413,19 @@ defmodule AWS.WellArchitected do
   Delete an existing lens.
 
   Only the owner of a lens can delete it. After the lens is deleted, Amazon Web
-  Services accounts and users that you shared the lens with can continue to use
-  it, but they will no longer be able to apply it to new workloads.
+  Services accounts and users
+  that you shared the lens with can continue to use it, but they will no longer be
+  able to apply it to new workloads.
 
   ## Disclaimer
 
-  By sharing your custom lenses with other Amazon Web Services accounts, you
-  acknowledge that Amazon Web Services will make your custom lenses available to
-  those other accounts. Those other accounts may continue to access and use your
-  shared custom lenses even if you delete the custom lenses from your own Amazon
-  Web Services account or terminate your Amazon Web Services account.
+  By sharing your custom lenses with other Amazon Web Services accounts,
+  you acknowledge that Amazon Web Services will make your custom lenses available
+  to those
+  other accounts. Those other accounts may continue to access and use your
+  shared custom lenses even if you delete the custom lenses
+  from your own Amazon Web Services account or terminate
+  your Amazon Web Services account.
   """
   def delete_lens(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
@@ -417,7 +449,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -425,17 +457,20 @@ defmodule AWS.WellArchitected do
   Delete a lens share.
 
   After the lens share is deleted, Amazon Web Services accounts, users,
-  organizations, and organizational units (OUs) that you shared the lens with can
-  continue to use it, but they will no longer be able to apply it to new
-  workloads.
+  organizations,
+  and organizational units (OUs)
+  that you shared the lens with can continue to use it, but they will no longer be
+  able to apply it to new workloads.
 
   ## Disclaimer
 
-  By sharing your custom lenses with other Amazon Web Services accounts, you
-  acknowledge that Amazon Web Services will make your custom lenses available to
-  those other accounts. Those other accounts may continue to access and use your
-  shared custom lenses even if you delete the custom lenses from your own Amazon
-  Web Services account or terminate your Amazon Web Services account.
+  By sharing your custom lenses with other Amazon Web Services accounts,
+  you acknowledge that Amazon Web Services will make your custom lenses available
+  to those
+  other accounts. Those other accounts may continue to access and use your
+  shared custom lenses even if you delete the custom lenses
+  from your own Amazon Web Services account or terminate
+  your Amazon Web Services account.
   """
   def delete_lens_share(%Client{} = client, lens_alias, share_id, input, options \\ []) do
     url_path =
@@ -460,7 +495,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -469,11 +504,13 @@ defmodule AWS.WellArchitected do
 
   ## Disclaimer
 
-  By sharing your profile with other Amazon Web Services accounts, you acknowledge
-  that Amazon Web Services will make your profile available to those other
-  accounts. Those other accounts may continue to access and use your shared
-  profile even if you delete the profile from your own Amazon Web Services account
-  or terminate your Amazon Web Services account.
+  By sharing your profile with other Amazon Web Services accounts,
+  you acknowledge that Amazon Web Services will make your profile available to
+  those
+  other accounts. Those other accounts may continue to access and use your
+  shared profile even if you delete the profile
+  from your own Amazon Web Services account or terminate
+  your Amazon Web Services account.
   """
   def delete_profile(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
@@ -496,7 +533,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -526,7 +563,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -537,7 +574,8 @@ defmodule AWS.WellArchitected do
 
   After the review template is deleted, Amazon Web Services accounts, users,
   organizations, and organizational units (OUs) that you shared the review
-  template with will no longer be able to apply it to new workloads.
+  template with
+  will no longer be able to apply it to new workloads.
   """
   def delete_review_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
@@ -560,7 +598,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -569,7 +607,8 @@ defmodule AWS.WellArchitected do
 
   After the review template share is deleted, Amazon Web Services accounts, users,
   organizations, and organizational units (OUs) that you shared the review
-  template with will no longer be able to apply it to new workloads.
+  template with
+  will no longer be able to apply it to new workloads.
   """
   def delete_template_share(%Client{} = client, share_id, template_arn, input, options \\ []) do
     url_path =
@@ -594,7 +633,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -622,7 +661,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -652,7 +691,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -662,7 +701,8 @@ defmodule AWS.WellArchitected do
   Up to 10 lenses can be disassociated from a workload in a single API operation.
 
   The Amazon Web Services Well-Architected Framework lens (`wellarchitected`)
-  cannot be removed from a workload.
+  cannot be
+  removed from a workload.
   """
   def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
@@ -680,7 +720,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -703,7 +743,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -711,7 +751,8 @@ defmodule AWS.WellArchitected do
   Export an existing lens.
 
   Only the owner of a lens can export it. Lenses provided by Amazon Web Services
-  (Amazon Web Services Official Content) cannot be exported.
+  (Amazon Web Services Official Content)
+  cannot be exported.
 
   Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
   in the *Well-Architected Tool User Guide*.
@@ -719,9 +760,10 @@ defmodule AWS.WellArchitected do
   ## Disclaimer
 
   Do not include or gather personal identifiable information (PII) of end users or
-  other identifiable individuals in or via your custom lenses. If your custom lens
-  or those shared with you and used in your account do include or collect PII you
-  are responsible for: ensuring that the included PII is processed in accordance
+  other identifiable individuals in or via your custom lenses. If your custom
+  lens or those shared with you and used in your account do include or collect
+  PII you are responsible for: ensuring that the included PII is processed in
+  accordance
   with applicable law, providing adequate privacy notices, and obtaining necessary
   consents for processing such data.
   """
@@ -739,7 +781,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -768,7 +810,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -818,7 +860,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -838,7 +880,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -866,7 +908,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -894,7 +936,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -927,7 +969,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -942,7 +984,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -962,7 +1004,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -975,7 +1017,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -988,7 +1030,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1009,7 +1051,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1024,7 +1066,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1037,18 +1079,19 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Import a new custom lens or update an existing custom lens.
 
-  To update an existing custom lens, specify its ARN as the `LensAlias`. If no ARN
-  is specified, a new custom lens is created.
+  To update an existing custom lens, specify its ARN as the `LensAlias`. If
+  no ARN is specified, a new custom lens is created.
 
   The new or updated lens will have a status of `DRAFT`. The lens cannot be
   applied to workloads or shared with other Amazon Web Services accounts until
-  it's published with `CreateLensVersion`.
+  it's
+  published with `CreateLensVersion`.
 
   Lenses are defined in JSON. For more information, see [JSON format specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html)
   in the *Well-Architected Tool User Guide*.
@@ -1058,9 +1101,10 @@ defmodule AWS.WellArchitected do
   ## Disclaimer
 
   Do not include or gather personal identifiable information (PII) of end users or
-  other identifiable individuals in or via your custom lenses. If your custom lens
-  or those shared with you and used in your account do include or collect PII you
-  are responsible for: ensuring that the included PII is processed in accordance
+  other identifiable individuals in or via your custom lenses. If your custom
+  lens or those shared with you and used in your account do include or collect
+  PII you are responsible for: ensuring that the included PII is processed in
+  accordance
   with applicable law, providing adequate privacy notices, and obtaining necessary
   consents for processing such data.
   """
@@ -1071,7 +1115,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1131,7 +1175,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1153,7 +1197,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1177,7 +1221,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1238,7 +1282,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1279,7 +1323,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1328,7 +1372,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1384,7 +1428,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1406,7 +1450,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1429,7 +1473,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1443,7 +1487,7 @@ defmodule AWS.WellArchitected do
         workload_id \\ nil,
         options \\ []
       ) do
-    url_path = "/profileNotifications/"
+    url_path = "/profileNotifications"
     headers = []
     query_params = []
 
@@ -1470,7 +1514,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1519,7 +1563,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1567,7 +1611,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1611,7 +1655,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1643,15 +1687,15 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the share invitations.
 
-  `WorkloadNamePrefix`, `LensNamePrefix`, `ProfileNamePrefix`, and
-  `TemplateNamePrefix` are mutually exclusive. Use the parameter that matches your
-  `ShareResourceType`.
+  `WorkloadNamePrefix`, `LensNamePrefix`,
+  `ProfileNamePrefix`, and `TemplateNamePrefix` are mutually
+  exclusive. Use the parameter that matches your `ShareResourceType`.
   """
   def list_share_invitations(
         %Client{} = client,
@@ -1719,7 +1763,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1735,7 +1779,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1784,7 +1828,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1833,7 +1877,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1855,7 +1899,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1881,7 +1925,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1916,7 +1960,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1948,7 +1992,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1972,7 +2016,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1997,7 +2041,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2020,7 +2064,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2043,7 +2087,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2075,7 +2119,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2106,7 +2150,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2132,7 +2176,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2155,7 +2199,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2180,7 +2224,7 @@ defmodule AWS.WellArchitected do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2196,7 +2240,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2211,7 +2255,7 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2232,6 +2276,6 @@ defmodule AWS.WellArchitected do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

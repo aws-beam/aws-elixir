@@ -11,7 +11,6 @@ defmodule AWS.Mgn do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-02-26",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

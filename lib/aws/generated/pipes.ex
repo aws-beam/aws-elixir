@@ -6,11 +6,11 @@ defmodule AWS.Pipes do
   Amazon EventBridge Pipes connects event sources to targets.
 
   Pipes reduces the need for specialized knowledge and integration code when
-  developing event driven architectures. This helps ensures consistency across
-  your company’s applications. With Pipes, the target can be any available
-  EventBridge target. To set up a pipe, you select the event source, add optional
-  event filtering, define optional enrichment, and select the target for the event
-  data.
+  developing
+  event driven architectures. This helps ensures consistency across your company’s
+  applications. With Pipes, the target can be any available EventBridge target.
+  To set up a pipe, you select the event source, add optional event filtering,
+  define optional enrichment, and select the target for the event data.
   """
 
   alias AWS.Client
@@ -18,7 +18,6 @@ defmodule AWS.Pipes do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2015-10-07",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -237,17 +236,23 @@ defmodule AWS.Pipes do
   @doc """
   Assigns one or more tags (key-value pairs) to the specified pipe.
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope user permissions by granting a user permission to access or change only
-  resources with certain tag values.
+  Tags can
+  help you organize and categorize your resources. You can also use them to scope
+  user
+  permissions by granting a user permission to access or change only resources
+  with certain tag
+  values.
 
   Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly as strings of characters.
+  strictly as strings of
+  characters.
 
-  You can use the `TagResource` action with a pipe that already has tags. If you
-  specify a new tag key, this tag is appended to the list of tags associated with
-  the pipe. If you specify a tag key that is already associated with the pipe, the
-  new tag value that you specify replaces the previous value for that tag.
+  You can use the `TagResource` action with a pipe that already has tags. If
+  you specify a new tag key, this tag is appended to the list of tags associated
+  with the
+  pipe. If you specify a tag key that is already associated with the pipe, the new
+  tag
+  value that you specify replaces the previous value for that tag.
 
   You can associate as many as 50 tags with a pipe.
   """
@@ -303,16 +308,20 @@ defmodule AWS.Pipes do
   Update an existing pipe.
 
   When you call `UpdatePipe`, EventBridge only the updates fields you have
-  specified in the request; the rest remain unchanged. The exception to this is if
-  you modify any Amazon Web Services-service specific fields in the
-  `SourceParameters`, `EnrichmentParameters`, or `TargetParameters` objects. For
-  example, `DynamoDBStreamParameters` or `EventBridgeEventBusParameters`.
+  specified in the request; the rest remain unchanged.
+  The exception to this is if you modify any Amazon Web Services-service specific
+  fields in the `SourceParameters`, `EnrichmentParameters`, or
+  `TargetParameters` objects. For example, `DynamoDBStreamParameters` or
+  `EventBridgeEventBusParameters`.
   EventBridge updates the fields in these objects atomically as one and overrides
-  existing values. This is by design, and means that if you don't specify an
-  optional field in one of these `Parameters` objects, EventBridge sets that field
-  to its system-default value during the update.
+  existing values.
+  This is by design, and means that if you don't specify an optional field in one
+  of these `Parameters` objects, EventBridge sets that field to its system-default
+  value during the update.
 
-  For more information about pipes, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
+  For more information about pipes, see [
+  Amazon EventBridge
+  Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
   in the Amazon EventBridge User Guide.
   """
   def update_pipe(%Client{} = client, name, input, options \\ []) do

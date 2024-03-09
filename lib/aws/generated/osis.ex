@@ -6,8 +6,9 @@ defmodule AWS.OSIS do
   Use the Amazon OpenSearch Ingestion API to create and manage ingestion
   pipelines.
 
-  OpenSearch Ingestion is a fully managed data collector that delivers real-time
-  log and trace data to OpenSearch Service domains. For more information, see
+  OpenSearch Ingestion is a
+  fully managed data collector that delivers real-time log and trace data to
+  OpenSearch Service domains. For more information, see
   [Getting data into your cluster using OpenSearch Ingestion](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html).
   """
 
@@ -16,7 +17,6 @@ defmodule AWS.OSIS do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-01-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -51,7 +51,7 @@ defmodule AWS.OSIS do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -76,7 +76,7 @@ defmodule AWS.OSIS do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -90,14 +90,16 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a specific blueprint for OpenSearch Ingestion.
 
-  Blueprints are templates for the configuration needed for a `CreatePipeline`
-  request. For more information, see [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
+  Blueprints are
+  templates for the configuration needed for a `CreatePipeline` request. For more
+  information, see [Using blueprints to create a
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
   def get_pipeline_blueprint(%Client{} = client, blueprint_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineBlueprint/#{AWS.Util.encode_uri(blueprint_name)}"
@@ -106,12 +108,13 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns progress information for the current change happening on an OpenSearch
-  Ingestion pipeline.
+  Ingestion
+  pipeline.
 
   Currently, this operation only returns information when a pipeline is being
   created.
@@ -125,13 +128,14 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of all available blueprints for Data Prepper.
 
-  For more information, see [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
+  For more information, see
+  [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
   def list_pipeline_blueprints(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelineBlueprints"
@@ -149,7 +153,7 @@ defmodule AWS.OSIS do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -157,7 +161,8 @@ defmodule AWS.OSIS do
   Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services
   account and Region.
 
-  For more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
+  For
+  more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
   """
   def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelines"
@@ -180,16 +185,17 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all resource tags associated with an OpenSearch Ingestion pipeline.
 
-  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  For more information,
+  see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
-    url_path = "/2022-01-01/osis/listTagsForResource/"
+    url_path = "/2022-01-01/osis/listTagsForResource"
     headers = []
     query_params = []
 
@@ -202,7 +208,7 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -217,7 +223,7 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -232,7 +238,7 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -241,7 +247,7 @@ defmodule AWS.OSIS do
   For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
-    url_path = "/2022-01-01/osis/tagResource/"
+    url_path = "/2022-01-01/osis/tagResource"
     headers = []
 
     {query_params, input} =
@@ -261,17 +267,18 @@ defmodule AWS.OSIS do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes one or more tags from an OpenSearch Ingestion pipeline.
 
-  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  For more information, see [Tagging Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
-    url_path = "/2022-01-01/osis/untagResource/"
+    url_path = "/2022-01-01/osis/untagResource"
     headers = []
 
     {query_params, input} =
@@ -291,7 +298,7 @@ defmodule AWS.OSIS do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -307,14 +314,16 @@ defmodule AWS.OSIS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to
   creation.
 
-  For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
+  For
+  more information, see [Creating Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
   """
   def validate_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/validatePipeline"
@@ -332,7 +341,7 @@ defmodule AWS.OSIS do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

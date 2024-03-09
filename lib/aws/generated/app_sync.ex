@@ -4,7 +4,8 @@
 defmodule AWS.AppSync do
   @moduledoc """
   AppSync provides API actions for creating and interacting with data sources
-  using GraphQL from your application.
+  using GraphQL
+  from your application.
   """
 
   alias AWS.Client
@@ -12,7 +13,6 @@ defmodule AWS.AppSync do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-07-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -45,7 +45,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -76,7 +76,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -107,7 +107,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -130,7 +130,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -153,7 +153,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -176,7 +176,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -199,7 +199,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -225,7 +225,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -248,7 +248,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -256,7 +256,8 @@ defmodule AWS.AppSync do
   Creates a `Resolver` object.
 
   A resolver converts incoming requests into a format that a data source can
-  understand, and converts the data source's responses into GraphQL.
+  understand, and converts the data
+  source's responses into GraphQL.
   """
   def create_resolver(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path =
@@ -276,7 +277,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -299,7 +300,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -322,7 +323,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -345,7 +346,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -368,7 +369,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -391,7 +392,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -416,7 +417,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -439,7 +440,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -464,7 +465,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -487,7 +488,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -510,13 +511,14 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an association between a Merged API and source API using the source
-  API's identifier and the association ID.
+  API's identifier and the
+  association ID.
   """
   def disassociate_merged_graphql_api(
         %Client{} = client,
@@ -542,13 +544,14 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an association between a Merged API and source API using the Merged
-  API's identifier and the association ID.
+  API's identifier and the
+  association ID.
   """
   def disassociate_source_graphql_api(
         %Client{} = client,
@@ -574,19 +577,21 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Evaluates the given code and returns the response.
 
-  The code definition requirements depend on the specified runtime. For
-  `APPSYNC_JS` runtimes, the code defines the request and response functions. The
-  request function takes the incoming request after a GraphQL operation is parsed
-  and converts it into a request configuration for the selected data source
-  operation. The response function interprets responses from the data source and
-  maps it to the shape of the GraphQL field output type.
+  The code definition requirements depend on the specified
+  runtime. For `APPSYNC_JS` runtimes, the code defines the request and response
+  functions. The request
+  function takes the incoming request after a GraphQL operation is parsed and
+  converts it into a request
+  configuration for the selected data source operation. The response function
+  interprets responses from the data
+  source and maps it to the shape of the GraphQL field output type.
   """
   def evaluate_code(%Client{} = client, input, options \\ []) do
     url_path = "/v1/dataplane-evaluatecode"
@@ -604,19 +609,21 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Evaluates a given template and returns the response.
 
-  The mapping template can be a request or response template.
+  The mapping template can be a request or response
+  template.
 
   Request templates take the incoming request after a GraphQL operation is parsed
-  and convert it into a request configuration for the selected data source
-  operation. Response templates interpret responses from the data source and map
-  it to the shape of the GraphQL field output type.
+  and convert it into a
+  request configuration for the selected data source operation. Response templates
+  interpret responses from the
+  data source and map it to the shape of the GraphQL field output type.
 
   Mapping templates are written in the Apache Velocity Template Language (VTL).
   """
@@ -636,7 +643,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -659,7 +666,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -673,7 +680,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -686,7 +693,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -699,15 +706,16 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the record of an existing introspection.
 
-  If the retrieval is successful, the result of the instrospection will also be
-  returned. If the retrieval fails the operation, an error message will be
-  returned instead.
+  If the retrieval is successful, the result of the
+  instrospection will also be returned. If the retrieval fails the operation, an
+  error message will be returned
+  instead.
   """
   def get_data_source_introspection(
         %Client{} = client,
@@ -744,7 +752,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -757,7 +765,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -772,7 +780,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -785,7 +793,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -799,7 +807,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -832,7 +840,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -847,7 +855,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -860,7 +868,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -880,7 +888,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -900,16 +908,17 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the API keys for a given API.
 
   API keys are deleted automatically 60 days after they expire. However, they may
-  still be included in the response until they have actually been deleted. You can
-  safely call `DeleteApiKey` to manually delete a key before it's automatically
-  deleted.
+  still be included in the
+  response until they have actually been deleted. You can safely call
+  `DeleteApiKey` to manually
+  delete a key before it's automatically deleted.
   """
   def list_api_keys(
         %Client{} = client,
@@ -938,7 +947,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -971,7 +980,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -998,7 +1007,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1031,7 +1040,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1079,7 +1088,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1115,7 +1124,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1151,7 +1160,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1184,7 +1193,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1197,7 +1206,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1238,7 +1247,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1282,7 +1291,7 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1290,40 +1299,52 @@ defmodule AWS.AppSync do
 
   When creating an environmental variable, it must follow the constraints below:
 
-    * Both JavaScript and VTL templates support environmental variables.
+    *
+  Both JavaScript and VTL templates support environmental variables.
 
-    * Environmental variables are not evaluated before function
-  invocation.
+    *
+  Environmental variables are not evaluated before function invocation.
 
-    * Environmental variables only support string values.
+    *
+  Environmental variables only support string values.
 
-    * Any defined value in an environmental variable is considered a
-  string literal and not expanded.
+    *
+  Any defined value in an environmental variable is considered a string literal
+  and not
+  expanded.
 
-    * Variable evaluations should ideally be performed in the function
-  code.
+    *
+  Variable evaluations should ideally be performed in the function code.
 
   When creating an environmental variable key-value pair, it must follow the
-  additional constraints below:
+  additional constraints
+  below:
 
-    * Keys must begin with a letter.
+    *
+  Keys must begin with a letter.
 
-    * Keys must be at least two characters long.
+    *
+  Keys must be at least two characters long.
 
-    * Keys can only contain letters, numbers, and the underscore
-  character (_).
+    *
+  Keys can only contain letters, numbers, and the underscore character (_).
 
-    * Values can be up to 512 characters long.
+    *
+  Values can be up to 512 characters long.
 
-    * You can configure up to 50 key-value pairs in a GraphQL API.
+    *
+  You can configure up to 50 key-value pairs in a GraphQL API.
 
   You can create a list of environmental variables by adding it to the
-  `environmentVariables` payload as a list in the format
-  `{"key1":"value1","key2":"value2", …}`. Note that each call of the
+  `environmentVariables`
+  payload as a list in the format `{"key1":"value1","key2":"value2", …}`. Note
+  that each call of the
   `PutGraphqlApiEnvironmentVariables` action will result in the overwriting of the
-  existing environmental variable list of that API. This means the existing
-  environmental variables will be lost. To avoid this, you must include all
-  existing and new environmental variables in the list each time you call this
+  existing
+  environmental variable list of that API. This means the existing environmental
+  variables will be lost. To avoid
+  this, you must include all existing and new environmental variables in the list
+  each time you call this
   action.
   """
   def put_graphql_api_environment_variables(%Client{} = client, api_id, input, options \\ []) do
@@ -1333,13 +1354,14 @@ defmodule AWS.AppSync do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a new introspection.
 
-  Returns the `introspectionId` of the new introspection after its creation.
+  Returns the `introspectionId` of the new introspection after its
+  creation.
   """
   def start_data_source_introspection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datasources/introspections"
@@ -1357,14 +1379,15 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds a new schema to your GraphQL API.
 
-  This operation is asynchronous. Use to determine when it has completed.
+  This operation is asynchronous. Use to determine when it has
+  completed.
   """
   def start_schema_creation(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
@@ -1382,7 +1405,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1415,7 +1438,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1438,7 +1461,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1466,7 +1489,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1489,7 +1512,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1514,7 +1537,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1537,7 +1560,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1560,7 +1583,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1585,7 +1608,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1608,7 +1631,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1633,7 +1656,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1665,7 +1688,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1688,7 +1711,7 @@ defmodule AWS.AppSync do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -6,19 +6,24 @@ defmodule AWS.EntityResolution do
   Welcome to the *Entity Resolution API Reference*.
 
   Entity Resolution is an Amazon Web Services service that provides pre-configured
-  entity resolution capabilities that enable developers and analysts at
-  advertising and marketing companies to build an accurate and complete view of
-  their consumers.
+  entity
+  resolution capabilities that enable developers and analysts at advertising and
+  marketing
+  companies to build an accurate and complete view of their consumers.
 
   With Entity Resolution, you can match source records containing consumer
-  identifiers, such as name, email address, and phone number. This is true even
-  when these records have incomplete or conflicting identifiers. For example,
-  Entity Resolution can effectively match a source record from a customer
-  relationship management (CRM) system with a source record from a marketing
-  system containing campaign information.
+  identifiers,
+  such as name, email address, and phone number. This is true even when these
+  records have
+  incomplete or conflicting identifiers. For example, Entity Resolution can
+  effectively match
+  a source record from a customer relationship management (CRM) system with a
+  source record
+  from a marketing system containing campaign information.
 
   To learn more about Entity Resolution concepts, procedures, and best practices,
-  see the [Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html).
+  see the
+  [Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html).
   """
 
   alias AWS.Client
@@ -26,7 +31,6 @@ defmodule AWS.EntityResolution do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -41,11 +45,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates an `IdMappingWorkflow` object which stores the configuration of the data
-  processing job to be run.
+  Creates an `IdMappingWorkflow` object which stores the configuration of the
+  data processing job to be run.
 
-  Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing
-  workflow, use the `UpdateIdMappingWorkflow` API.
+  Each `IdMappingWorkflow` must have a unique
+  workflow name. To modify an existing workflow, use the `UpdateIdMappingWorkflow`
+  API.
   """
   def create_id_mapping_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/idmappingworkflows"
@@ -68,12 +73,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates a `MatchingWorkflow` object which stores the configuration of the data
-  processing job to be run.
+  Creates a `MatchingWorkflow` object which stores the configuration of the
+  data processing job to be run.
 
-  It is important to note that there should not be a pre-existing
-  `MatchingWorkflow` with the same name. To modify an existing workflow, utilize
-  the `UpdateMatchingWorkflow` API.
+  It is important to note that there should not be a
+  pre-existing `MatchingWorkflow` with the same name. To modify an existing
+  workflow, utilize the `UpdateMatchingWorkflow` API.
   """
   def create_matching_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/matchingworkflows"
@@ -125,8 +130,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `IdMappingWorkflow` with a given name.
 
-  This operation will succeed even if a workflow with the given name does not
-  exist.
+  This operation will
+  succeed even if a workflow with the given name does not exist.
   """
   def delete_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -151,8 +156,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `MatchingWorkflow` with a given name.
 
-  This operation will succeed even if a workflow with the given name does not
-  exist.
+  This operation will succeed
+  even if a workflow with the given name does not exist.
   """
   def delete_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -177,9 +182,11 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `SchemaMapping` with a given name.
 
-  This operation will succeed even if a schema with the given name does not exist.
-  This operation will fail if there is a `MatchingWorkflow` object that references
-  the `SchemaMapping` in the workflow's `InputSourceConfig`.
+  This operation will succeed
+  even if a schema with the given name does not exist. This operation will fail if
+  there is a
+  `MatchingWorkflow` object that references the `SchemaMapping` in
+  the workflow's `InputSourceConfig`.
   """
   def delete_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
@@ -203,7 +210,8 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Gets the status, metrics, and errors (if there are any) that are associated with
-  a job.
+  a
+  job.
   """
   def get_id_mapping_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
@@ -256,7 +264,8 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Gets the status, metrics, and errors (if there are any) that are associated with
-  a job.
+  a
+  job.
   """
   def get_matching_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
@@ -275,6 +284,26 @@ defmodule AWS.EntityResolution do
   """
   def get_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the `ProviderService` of a given name.
+  """
+  def get_provider_service(
+        %Client{} = client,
+        provider_name,
+        provider_service_name,
+        options \\ []
+      ) do
+    url_path =
+      "/providerservices/#{AWS.Util.encode_uri(provider_name)}/#{AWS.Util.encode_uri(provider_service_name)}"
+
     headers = []
     query_params = []
 
@@ -429,8 +458,8 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Returns a list of all the `ProviderServices` that are available in this Amazon
-  Web Services Region.
+  Returns a list of all the `ProviderServices` that are available in this
+  Amazon Web Services Region.
   """
   def list_provider_services(
         %Client{} = client,
@@ -470,8 +499,8 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Returns a list of all the `SchemaMappings` that have been created for an Amazon
-  Web Services account.
+  Returns a list of all the `SchemaMappings` that have been created for an
+  Amazon Web Services account.
   """
   def list_schema_mappings(
         %Client{} = client,
@@ -505,7 +534,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Displays the tags associated with an Entity Resolution resource.
 
-  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
+  In Entity Resolution,
+  `SchemaMapping`, and `MatchingWorkflow` can be tagged.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -520,8 +550,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Starts the `IdMappingJob` of a workflow.
 
-  The workflow must have previously been created using the
-  `CreateIdMappingWorkflow` endpoint.
+  The workflow must have previously
+  been created using the `CreateIdMappingWorkflow` endpoint.
   """
   def start_id_mapping_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
@@ -546,8 +576,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Starts the `MatchingJob` of a workflow.
 
-  The workflow must have previously been created using the
-  `CreateMatchingWorkflow` endpoint.
+  The workflow must have previously
+  been created using the `CreateMatchingWorkflow` endpoint.
   """
   def start_matching_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
@@ -574,14 +604,19 @@ defmodule AWS.EntityResolution do
   resource.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user permissions by granting a user permission to access or change only
-  resources with certain tag values. In Entity Resolution, `SchemaMapping` and
-  `MatchingWorkflow` can be tagged. Tags don't have any semantic meaning to Amazon
-  Web Services and are interpreted strictly as strings of characters. You can use
+  to scope
+  user permissions by granting a user permission to access or change only
+  resources with
+  certain tag values. In Entity Resolution, `SchemaMapping` and
+  `MatchingWorkflow` can be tagged. Tags don't have any semantic meaning to
+  Amazon Web Services and are interpreted strictly as strings of characters. You
+  can use
   the `TagResource` action with a resource that already has tags. If you specify a
   new tag key, this tag is appended to the list of tags associated with the
-  resource. If you specify a tag key that is already associated with the resource,
-  the new tag value that you specify replaces the previous value for that tag.
+  resource. If you
+  specify a tag key that is already associated with the resource, the new tag
+  value that you
+  specify replaces the previous value for that tag.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -606,7 +641,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Removes one or more tags from the specified Entity Resolution resource.
 
-  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
+  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be
+  tagged.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -636,9 +672,10 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing `IdMappingWorkflow`.
 
-  This method is identical to `CreateIdMappingWorkflow`, except it uses an HTTP
-  `PUT` request instead of a `POST` request, and the `IdMappingWorkflow` must
-  already exist for the method to succeed.
+  This method is identical to
+  `CreateIdMappingWorkflow`, except it uses an HTTP `PUT` request
+  instead of a `POST` request, and the `IdMappingWorkflow` must already
+  exist for the method to succeed.
   """
   def update_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -653,9 +690,10 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing `MatchingWorkflow`.
 
-  This method is identical to `CreateMatchingWorkflow`, except it uses an HTTP
-  `PUT` request instead of a `POST` request, and the `MatchingWorkflow` must
-  already exist for the method to succeed.
+  This method is identical to
+  `CreateMatchingWorkflow`, except it uses an HTTP `PUT` request
+  instead of a `POST` request, and the `MatchingWorkflow` must already
+  exist for the method to succeed.
   """
   def update_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -671,7 +709,8 @@ defmodule AWS.EntityResolution do
   Updates a schema mapping.
 
   A schema is immutable if it is being used by a workflow. Therefore, you can't
-  update a schema mapping if it's associated with a workflow.
+  update
+  a schema mapping if it's associated with a workflow.
   """
   def update_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"

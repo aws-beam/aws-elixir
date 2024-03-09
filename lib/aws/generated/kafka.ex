@@ -11,7 +11,6 @@ defmodule AWS.Kafka do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-11-14",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -95,8 +94,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Creates a new Amazon MSK cluster of either the provisioned or the serverless
-  type.
+  Creates a new MSK cluster.
   """
   def create_cluster_v2(%Client{} = client, input, options \\ []) do
     url_path = "/api/v2/clusters"
@@ -142,7 +140,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Creates a new Kafka Replicator.
+  Creates the replicator.
   """
   def create_replicator(%Client{} = client, input, options \\ []) do
     url_path = "/replication/v1/replicators"
@@ -165,7 +163,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Creates a new Amazon MSK VPC connection.
+  Creates a new MSK VPC connection.
   """
   def create_vpc_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/vpc-connection"
@@ -218,7 +216,7 @@ defmodule AWS.Kafka do
 
   @doc """
   Deletes the MSK cluster policy specified by the Amazon Resource Name (ARN) in
-  your request.
+  the request.
   """
   def delete_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -241,9 +239,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Deletes the specified MSK configuration.
-
-  The configuration must be in the ACTIVE or DELETE_FAILED state.
+  Deletes an MSK Configuration.
   """
   def delete_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
@@ -294,7 +290,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Deletes the Amazon MSK VPC connection specified in your request.
+  Deletes a MSK VPC connection.
   """
   def delete_vpc_connection(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
@@ -357,8 +353,8 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Returns a description of the MSK cluster of either the provisioned or the
-  serverless type whose Amazon Resource Name (ARN) is specified in the request.
+  Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is
+  specified in the request.
   """
   def describe_cluster_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -399,8 +395,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Returns a description of the Kafka Replicator whose Amazon Resource Name (ARN)
-  is specified in the request.
+  Describes a replicator.
   """
   def describe_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
@@ -413,7 +408,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Displays information about the specified Amazon MSK VPC connection.
+  Returns a description of this MSK VPC connection.
   """
   def describe_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
@@ -439,7 +434,8 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Retrieves the contents of the specified MSK cluster policy.
+  Get the MSK cluster policy specified by the Amazon Resource Name (ARN) in the
+  request.
   """
   def get_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -472,7 +468,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Displays a list of client VPC connections.
+  Returns a list of all the VPC connections in this Region.
   """
   def list_client_vpc_connections(
         %Client{} = client,
@@ -661,7 +657,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Returns a list of all the revisions of an MSK configuration.
+  Returns a list of all the MSK configurations in this Region.
   """
   def list_configuration_revisions(
         %Client{} = client,
@@ -877,7 +873,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Displays a list of Amazon MSK VPC connections.
+  Returns a list of all the VPC connections in this Region.
   """
   def list_vpc_connections(
         %Client{} = client,
@@ -909,10 +905,8 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Creates or updates the specified MSK cluster policy.
-
-  If updating the policy, the currentVersion field is required in the request
-  payload.
+  Creates or updates the MSK cluster policy specified by the cluster Amazon
+  Resource Name (ARN) in the request.
   """
   def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -925,7 +919,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Executes a reboot on a broker.
+  Reboots brokers.
   """
   def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
@@ -937,6 +931,9 @@ defmodule AWS.Kafka do
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
+  @doc """
+  Returns empty response.
+  """
   def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
     headers = []
@@ -1000,9 +997,6 @@ defmodule AWS.Kafka do
 
   @doc """
   Updates the number of broker nodes in the cluster.
-
-  You can use this operation to increase the number of brokers in an existing
-  cluster. You can't decrease the number of brokers.
   """
   def update_broker_count(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/count"
@@ -1028,7 +1022,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates all the brokers in the cluster to the specified type.
+  Updates EC2 instance type.
   """
   def update_broker_type(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/type"
@@ -1068,9 +1062,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates an existing MSK configuration.
-
-  The configuration must be in the Active state.
+  Updates an MSK configuration.
   """
   def update_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
@@ -1083,7 +1075,7 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates the connectivity configuration for the MSK cluster.
+  Updates the cluster's connectivity configuration.
   """
   def update_connectivity(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"
@@ -1128,8 +1120,10 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  You can use this operation to update the encrypting and authentication settings
-  for an existing cluster.
+  Updates the security settings for the cluster.
+
+  You can use this operation to specify encryption and authentication on existing
+  clusters.
   """
   def update_security(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/security"

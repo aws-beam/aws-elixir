@@ -7,9 +7,11 @@ defmodule AWS.Amplify do
   apps.
 
   Amplify Hosting provides a continuous delivery and hosting service for web
-  applications. For more information, see the [Amplify Hosting User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
+  applications.
+  For more information, see the [Amplify Hosting User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
   Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
-  documentation for client app development. For more information, see the [Amplify Framework.](https://docs.amplify.aws/)
+  documentation
+  for client app development. For more information, see the [Amplify Framework.](https://docs.amplify.aws/)
   """
 
   alias AWS.Client
@@ -17,7 +19,6 @@ defmodule AWS.Amplify do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-07-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -50,7 +51,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -73,7 +74,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -96,18 +97,20 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a deployment for a manually deployed Amplify app.
 
-  Manually deployed apps are not connected to a repository.
+  Manually deployed apps are
+  not connected to a repository.
 
   The maximum duration between the `CreateDeployment` call and the
-  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8 hours,
-  the `StartDeployment` call and the associated `Job` will fail.
+  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
+  hours, the `StartDeployment` call and the associated `Job` will
+  fail.
   """
   def create_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =
@@ -127,14 +130,15 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new domain association for an Amplify app.
 
-  This action associates a custom domain with the Amplify app
+  This action associates a custom
+  domain with the Amplify app
   """
   def create_domain_association(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
@@ -152,7 +156,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -175,7 +179,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -198,7 +202,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -229,7 +233,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -252,7 +256,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -275,7 +279,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -300,7 +304,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -323,7 +327,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -346,7 +350,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -360,7 +364,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -373,7 +377,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -388,7 +392,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -401,7 +405,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -414,7 +418,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -429,7 +433,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -442,7 +446,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -469,7 +473,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -506,7 +510,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -547,7 +551,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -580,7 +584,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -613,7 +617,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -649,7 +653,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -662,7 +666,7 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -695,17 +699,19 @@ defmodule AWS.Amplify do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a deployment for a manually deployed app.
 
-  Manually deployed apps are not connected to a repository.
+  Manually deployed apps are not
+  connected to a repository.
 
   The maximum duration between the `CreateDeployment` call and the
-  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8 hours,
-  the `StartDeployment` call and the associated `Job` will fail.
+  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
+  hours, the `StartDeployment` call and the associated `Job` will
+  fail.
   """
   def start_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =
@@ -725,7 +731,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -750,7 +756,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -775,7 +781,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -798,7 +804,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -826,7 +832,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -849,7 +855,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -872,7 +878,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -895,7 +901,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -918,7 +924,7 @@ defmodule AWS.Amplify do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -14,10 +14,12 @@ defmodule AWS.CleanRoomsML do
   training data.
 
   To learn more about Amazon Web Services Clean Rooms ML concepts, procedures, and
-  best practices, see the [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/machine-learning.html).
+  best practices, see the
+  [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/machine-learning.html).
 
   To learn more about SQL commands, functions, and conditions supported in Clean
-  Rooms, see the [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+  Rooms, see the
+  [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
   """
 
   alias AWS.Client
@@ -25,7 +27,6 @@ defmodule AWS.CleanRoomsML do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2023-09-06",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

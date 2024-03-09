@@ -4,11 +4,13 @@
 defmodule AWS.Savingsplans do
   @moduledoc """
   Savings Plans are a pricing model that offer significant savings on AWS usage
-  (for example, on Amazon EC2 instances).
+  (for
+  example, on Amazon EC2 instances).
 
-  You commit to a consistent amount of usage, in USD per hour, for a term of 1 or
-  3 years, and receive a lower price for that usage. For more information, see the
-  [AWS Savings Plans User Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
+  You commit to a consistent amount of usage, in USD
+  per hour, for a term of 1 or 3 years, and receive a lower price for that usage.
+  For
+  more information, see the [AWS Savings Plans User Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
   """
 
   alias AWS.Client
@@ -16,7 +18,6 @@ defmodule AWS.Savingsplans do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-06-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: "us-east-1",
@@ -49,7 +50,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -72,7 +73,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -95,7 +96,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -118,7 +119,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -141,7 +142,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -164,7 +165,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -187,7 +188,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -210,7 +211,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -233,7 +234,7 @@ defmodule AWS.Savingsplans do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

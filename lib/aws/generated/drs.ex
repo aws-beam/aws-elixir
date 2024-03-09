@@ -11,7 +11,6 @@ defmodule AWS.Drs do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-02-26",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -689,11 +688,12 @@ defmodule AWS.Drs do
 
   @doc """
   Returns a list of source servers on a staging account that are extensible, which
-  means that: a.
+  means that:
+  a.
 
-  The source server is not already extended into this Account. b. The source
-  server on the Account we’re reading from is not an extension of another source
-  server.
+  The source server is not already extended into this Account.
+  b. The source server on the Account we’re reading from is not an extension of
+  another source server.
   """
   def list_extensible_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/ListExtensibleSourceServers"
@@ -839,8 +839,9 @@ defmodule AWS.Drs do
   instances that originated in EC2.
 
   For recovery instances on target region - starts replication back to origin
-  region. For failback instances on origin region - starts replication to target
-  region to re-protect them.
+  region.
+  For failback instances on origin region - starts replication to target region to
+  re-protect them.
   """
   def reverse_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ReverseReplication"

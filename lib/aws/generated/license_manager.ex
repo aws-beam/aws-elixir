@@ -4,7 +4,8 @@
 defmodule AWS.LicenseManager do
   @moduledoc """
   License Manager makes it easier to manage licenses from software vendors across
-  multiple Amazon Web Services accounts and on-premises servers.
+  multiple
+  Amazon Web Services accounts and on-premises servers.
   """
 
   alias AWS.Client
@@ -12,7 +13,6 @@ defmodule AWS.LicenseManager do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-08-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -59,7 +59,8 @@ defmodule AWS.LicenseManager do
   Checks out the specified license.
 
   If the account that created the license is the same that is performing the check
-  out, you must specify the account as the beneficiary.
+  out, you must
+  specify the account as the beneficiary.
   """
   def checkout_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -70,9 +71,9 @@ defmodule AWS.LicenseManager do
   @doc """
   Creates a grant for the specified license.
 
-  A grant shares the use of license entitlements with a specific Amazon Web
-  Services account, an organization, or an organizational unit (OU). For more
-  information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  A grant shares the use of license
+  entitlements with a specific Amazon Web Services account, an organization, or an
+  organizational unit (OU). For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
   """
   def create_grant(%Client{} = client, input, options \\ []) do
@@ -84,7 +85,8 @@ defmodule AWS.LicenseManager do
   @doc """
   Creates a new version of the specified grant.
 
-  For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  For more information, see
+  [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
   """
   def create_grant_version(%Client{} = client, input, options \\ []) do
@@ -106,11 +108,15 @@ defmodule AWS.LicenseManager do
   Creates a license configuration.
 
   A license configuration is an abstraction of a customer license agreement that
-  can be consumed and enforced by License Manager. Components include
-  specifications for the license type (licensing by instance, socket, CPU, or
-  vCPU), allowed tenancy (shared tenancy, Dedicated Instance, Dedicated Host, or
-  all of these), license affinity to host (how long a license must be associated
-  with a host), and the number of licenses purchased and used.
+  can be
+  consumed and enforced by License Manager. Components include specifications for
+  the license
+  type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
+  tenancy,
+  Dedicated Instance, Dedicated Host, or all of these), license affinity to host
+  (how long a
+  license must be associated with a host), and the number of licenses purchased
+  and used.
   """
   def create_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -149,8 +155,10 @@ defmodule AWS.LicenseManager do
   Creates a long-lived token.
 
   A refresh token is a JWT token used to get an access token. With an access
-  token, you can call AssumeRoleWithWebIdentity to get role credentials that you
-  can use to call License Manager to manage the specified license.
+  token,
+  you can call AssumeRoleWithWebIdentity to get role credentials that you can use
+  to
+  call License Manager to manage the specified license.
   """
   def create_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -191,8 +199,9 @@ defmodule AWS.LicenseManager do
   Deletes the specified report generator.
 
   This action deletes the report generator, which stops it from generating future
-  reports. The action cannot be reversed. It has no effect on the previous reports
-  from this generator.
+  reports.
+  The action cannot be reversed. It has no effect on the previous reports from
+  this generator.
   """
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -223,7 +232,8 @@ defmodule AWS.LicenseManager do
   @doc """
   Gets a temporary access token to use with AssumeRoleWithWebIdentity.
 
-  Access tokens are valid for one hour.
+  Access tokens
+  are valid for one hour.
   """
   def get_access_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -299,7 +309,8 @@ defmodule AWS.LicenseManager do
 
   Resource associations need not consume licenses from a license configuration.
   For example, an AMI or a stopped instance might not consume a license (depending
-  on the license rules).
+  on
+  the license rules).
   """
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -388,9 +399,10 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists grants that are received.
 
-  Received grants are grants created while specifying the recipient as this Amazon
-  Web Services account, your organization, or an organizational unit (OU) to which
-  this member account belongs.
+  Received grants are grants created while specifying the
+  recipient as this Amazon Web Services account, your organization, or an
+  organizational unit
+  (OU) to which this member account belongs.
   """
   def list_received_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -456,8 +468,8 @@ defmodule AWS.LicenseManager do
   Lists all license usage records for a license configuration, displaying license
   consumption details by resource at a selected point in time.
 
-  Use this action to audit the current license consumption for any license
-  inventory and configuration.
+  Use this action to audit the
+  current license consumption for any license inventory and configuration.
   """
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -517,10 +529,10 @@ defmodule AWS.LicenseManager do
   Adds or removes the specified license configurations for the specified Amazon
   Web Services resource.
 
-  You can update the license specifications of AMIs, instances, and hosts. You
-  cannot update the license specifications for launch templates and CloudFormation
-  templates, as they send license configurations to the operation that creates the
-  resource.
+  You can update the license specifications of AMIs, instances, and hosts.
+  You cannot update the license specifications for launch templates and
+  CloudFormation templates,
+  as they send license configurations to the operation that creates the resource.
   """
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

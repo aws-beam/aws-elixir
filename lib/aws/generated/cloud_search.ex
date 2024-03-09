@@ -9,13 +9,15 @@ defmodule AWS.CloudSearch do
   manage search domains.
 
   Configuration service requests are submitted using the AWS Query protocol. AWS
-  Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a
-  query parameter named Action.
+  Query requests
+  are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter
+  named Action.
 
   The endpoint for configuration service requests is region-specific:
-  cloudsearch.*region*.amazonaws.com. For example,
-  cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and
-  endpoints, see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region).
+  cloudsearch.*region*.amazonaws.com.
+  For example, cloudsearch.us-east-1.amazonaws.com. For a current list of
+  supported regions and endpoints,
+  see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region).
   """
 
   alias AWS.Client
@@ -23,7 +25,6 @@ defmodule AWS.CloudSearch do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2013-01-01",
       content_type: "application/x-www-form-urlencoded",
       credential_scope: nil,
@@ -33,7 +34,7 @@ defmodule AWS.CloudSearch do
       service_id: "CloudSearch",
       signature_version: "v4",
       signing_name: "cloudsearch",
-      target_prefix: nil
+      target_prefix: "A9SearchCloudConfigService2013"
     }
   end
 
@@ -52,7 +53,8 @@ defmodule AWS.CloudSearch do
   @doc """
   Creates a new search domain.
 
-  For more information, see [Creating a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
+  For more information,
+  see [Creating a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   def create_domain(%Client{} = client, input, options \\ []) do
@@ -228,11 +230,11 @@ defmodule AWS.CloudSearch do
   @doc """
   Gets information about the search domains owned by this account.
 
-  Can be limited to specific domains. Shows all domains by default. To get the
-  number of searchable documents in a domain, use the console or submit a
-  `matchall` request to your domain's search endpoint:
-  `q=matchall&amp;q.parser=structured&amp;size=0`. For more information, see
-  [Getting Information about a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
+  Can be limited to specific domains. Shows
+  all domains by default. To get the number of searchable documents in a domain,
+  use the console or submit a `matchall` request to your domain's search endpoint:
+  `q=matchall&q.parser=structured&size=0`. For more information,
+  see [Getting Information about a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_domains(%Client{} = client, input, options \\ []) do
@@ -262,7 +264,8 @@ defmodule AWS.CloudSearch do
   Can be limited to specific fields by name. By default, shows all fields and
   includes any pending changes to the configuration. Set the `Deployed` option to
   `true` to show the active configuration and exclude pending changes. For more
-  information, see [Getting Domain Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
+  information,
+  see [Getting Domain Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_index_fields(%Client{} = client, input, options \\ []) do
@@ -290,7 +293,8 @@ defmodule AWS.CloudSearch do
 
   By default, shows the configuration with any pending changes. Set the `Deployed`
   option to `true` to show the active configuration and exclude pending changes.
-  For more information, see [Configuring Access for a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html)
+  For more information,
+  see [Configuring Access for a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   def describe_service_access_policies(%Client{} = client, input, options \\ []) do
@@ -387,7 +391,9 @@ defmodule AWS.CloudSearch do
   Configures the access rules that control access to the domain's document and
   search endpoints.
 
-  For more information, see [ Configuring Access for an Amazon CloudSearch Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
+  For more information, see [
+  Configuring Access for an Amazon CloudSearch
+  Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
   """
   def update_service_access_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()

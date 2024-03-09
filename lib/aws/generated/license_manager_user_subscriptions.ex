@@ -4,7 +4,8 @@
 defmodule AWS.LicenseManagerUserSubscriptions do
   @moduledoc """
   With License Manager, you can create user-based subscriptions to utilize
-  licensed software with a per user subscription fee on Amazon EC2 instances.
+  licensed software with
+  a per user subscription fee on Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -12,7 +13,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -30,9 +30,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   Associates the user to an EC2 instance to utilize user-based subscriptions.
 
   Your estimated bill for charges on the number of users and related costs will
-  take 48 hours to appear for billing periods that haven't closed (marked as
-  **Pending** billing status) in Amazon Web Services Billing. For more
-  information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
+  take 48
+  hours to appear for billing periods that haven't closed (marked as ## Pending
+  billing status) in Amazon Web Services Billing. For more information, see
+  [Viewing your monthly
+  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
   in the *Amazon Web Services Billing User Guide*.
   """
   def associate_user(%Client{} = client, input, options \\ []) do
@@ -220,9 +222,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   Starts a product subscription for a user with the specified identity provider.
 
   Your estimated bill for charges on the number of users and related costs will
-  take 48 hours to appear for billing periods that haven't closed (marked as
-  **Pending** billing status) in Amazon Web Services Billing. For more
-  information, see [Viewing your monthly charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
+  take 48
+  hours to appear for billing periods that haven't closed (marked as ## Pending
+  billing status) in Amazon Web Services Billing. For more information, see
+  [Viewing your monthly
+  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
   in the *Amazon Web Services Billing User Guide*.
   """
   def start_product_subscription(%Client{} = client, input, options \\ []) do

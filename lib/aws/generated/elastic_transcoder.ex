@@ -13,7 +13,6 @@ defmodule AWS.ElasticTranscoder do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2012-09-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -32,7 +31,8 @@ defmodule AWS.ElasticTranscoder do
 
   You can only cancel a job that has a status of `Submitted`. To prevent a
   pipeline from starting to process a job while you're getting the job identifier,
-  use `UpdatePipelineStatus` to temporarily pause the pipeline.
+  use
+  `UpdatePipelineStatus` to temporarily pause the pipeline.
   """
   def cancel_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
@@ -56,12 +56,14 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   When you create a job, Elastic Transcoder returns JSON data that includes the
-  values that you specified plus information about the job that is created.
+  values that you specified
+  plus information about the job that is created.
 
   If you have specified more than one output for your jobs (for example, one
-  output for the Kindle Fire and another output for the Apple iPhone 4s), you
-  currently must use the Elastic Transcoder API to list the jobs (as opposed to
-  the AWS Console).
+  output for the
+  Kindle Fire and another output for the Apple iPhone 4s), you currently must use
+  the Elastic Transcoder API to
+  list the jobs (as opposed to the AWS Console).
   """
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/jobs"
@@ -110,19 +112,26 @@ defmodule AWS.ElasticTranscoder do
   The CreatePreset operation creates a preset with settings that you specify.
 
   Elastic Transcoder checks the CreatePreset settings to ensure that they meet
-  Elastic Transcoder requirements and to determine whether they comply with H.264
-  standards. If your settings are not valid for Elastic Transcoder, Elastic
-  Transcoder returns an HTTP 400 response (`ValidationException`) and does not
-  create the preset. If the settings are valid for Elastic Transcoder but aren't
-  strictly compliant with the H.264 standard, Elastic Transcoder creates the
-  preset and returns a warning message in the response. This helps you determine
-  whether your settings comply with the H.264 standard while giving you greater
-  flexibility with respect to the video that Elastic Transcoder produces.
+  Elastic Transcoder requirements
+  and to determine whether they comply with H.264 standards. If your settings are
+  not
+  valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response
+  (`ValidationException`) and
+  does not create the preset. If the settings are valid for Elastic Transcoder but
+  aren't strictly
+  compliant with the H.264 standard, Elastic Transcoder creates the preset and
+  returns a warning message
+  in the response. This helps you determine whether your settings comply with the
+  H.264
+  standard while giving you greater flexibility with respect to the video that
+  Elastic Transcoder
+  produces.
 
   Elastic Transcoder uses the H.264 video-compression format. For more
-  information, see the International Telecommunication Union publication
-  *Recommendation ITU-T H.264: Advanced video coding for generic audiovisual
-  services*.
+  information, see the International
+  Telecommunication Union publication *Recommendation ITU-T H.264: Advanced video
+  coding
+  for generic audiovisual services*.
   """
   def create_preset(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/presets"
@@ -148,7 +157,8 @@ defmodule AWS.ElasticTranscoder do
   The DeletePipeline operation removes a pipeline.
 
   You can only delete a pipeline that has never been used or that is not currently
-  in use (doesn't contain any active jobs). If the pipeline is currently in use,
+  in use
+  (doesn't contain any active jobs). If the pipeline is currently in use,
   `DeletePipeline` returns an error.
   """
   def delete_pipeline(%Client{} = client, id, input, options \\ []) do
@@ -201,8 +211,8 @@ defmodule AWS.ElasticTranscoder do
   pipeline.
 
   Elastic Transcoder returns all of the jobs currently in the specified pipeline.
-  The response body contains one element for each job that satisfies the search
-  criteria.
+  The response body contains
+  one element for each job that satisfies the search criteria.
   """
   def list_jobs_by_pipeline(
         %Client{} = client,
@@ -231,14 +241,14 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ListJobsByStatus operation gets a list of jobs that have a specified status.
 
-  The response body contains one element for each job that satisfies the search
-  criteria.
+  The response
+  body contains one element for each job that satisfies the search criteria.
   """
   def list_jobs_by_status(
         %Client{} = client,
@@ -267,7 +277,7 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -295,12 +305,13 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The ListPresets operation gets a list of the default presets included with
-  Elastic Transcoder and the presets that you've added in an AWS region.
+  Elastic Transcoder and the presets that
+  you've added in an AWS region.
   """
   def list_presets(%Client{} = client, ascending \\ nil, page_token \\ nil, options \\ []) do
     url_path = "/2012-09-25/presets"
@@ -323,7 +334,7 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -336,7 +347,7 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -349,7 +360,7 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -362,17 +373,20 @@ defmodule AWS.ElasticTranscoder do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The TestRole operation tests the IAM role used to create the pipeline.
 
-  The `TestRole` action lets you determine whether the IAM role you are using has
-  sufficient permissions to let Elastic Transcoder perform tasks associated with
-  the transcoding process. The action attempts to assume the specified IAM role,
-  checks read access to the input and output buckets, and tries to send a test
-  notification to Amazon SNS topics that you specify.
+  The `TestRole` action lets you determine whether the IAM role you are using
+  has sufficient permissions to let Elastic Transcoder perform tasks associated
+  with the transcoding
+  process. The action attempts to assume the specified IAM role, checks read
+  access to the
+  input and output buckets, and tries to send a test notification to Amazon SNS
+  topics
+  that you specify.
   """
   def test_role(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/roleTests"
@@ -397,10 +411,10 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   Use the `UpdatePipeline` operation to update settings for a pipeline.
 
-  When you change pipeline settings, your changes take effect immediately. Jobs
-  that you have already submitted and that Elastic Transcoder has not started to
-  process are affected in addition to jobs that you submit after you change
-  settings.
+  When you change pipeline settings, your changes take effect immediately.
+  Jobs that you have already submitted and that Elastic Transcoder has not started
+  to process are
+  affected in addition to jobs that you submit after you change settings.
   """
   def update_pipeline(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
@@ -435,19 +449,22 @@ defmodule AWS.ElasticTranscoder do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the
-  pipeline stops or restarts the processing of jobs.
+  pipeline
+  stops or restarts the processing of jobs.
 
   Changing the pipeline status is useful if you want to cancel one or more jobs.
-  You can't cancel jobs after Elastic Transcoder has started processing them; if
-  you pause the pipeline to which you submitted the jobs, you have more time to
-  get the job IDs for the jobs that you want to cancel, and to send a `CancelJob`
-  request.
+  You can't
+  cancel jobs after Elastic Transcoder has started processing them; if you pause
+  the pipeline to which
+  you submitted the jobs, you have more time to get the job IDs for the jobs that
+  you want
+  to cancel, and to send a `CancelJob` request.
   """
   def update_pipeline_status(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/status"
@@ -465,7 +482,7 @@ defmodule AWS.ElasticTranscoder do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

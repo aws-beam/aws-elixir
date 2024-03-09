@@ -4,29 +4,40 @@
 defmodule AWS.GuardDuty do
   @moduledoc """
   Amazon GuardDuty is a continuous security monitoring service that analyzes and
-  processes the following foundational data sources - VPC flow logs, Amazon Web
-  Services CloudTrail management event logs, CloudTrail S3 data event logs, EKS
-  audit logs, DNS logs, Amazon EBS volume data, runtime activity belonging to
-  container workloads, such as Amazon EKS, Amazon ECS (including Amazon Web
-  Services Fargate), and Amazon EC2 instances.
+  processes
+  the following foundational data sources - VPC flow logs, Amazon Web Services
+  CloudTrail management event logs, CloudTrail S3 data event
+  logs, EKS audit logs, DNS logs, Amazon EBS volume data, runtime activity
+  belonging to container workloads, such
+  as Amazon EKS, Amazon ECS (including Amazon Web Services Fargate), and Amazon
+  EC2 instances.
 
-  It uses threat intelligence feeds, such as lists of malicious IPs and domains,
-  and machine learning to identify unexpected, potentially unauthorized, and
-  malicious activity within your Amazon Web Services environment. This can include
-  issues like escalations of privileges, uses of exposed credentials, or
+  It uses threat intelligence
+  feeds, such as lists of malicious IPs and domains, and machine learning to
+  identify
+  unexpected, potentially unauthorized, and malicious activity within your Amazon
+  Web Services environment.
+  This can include issues like escalations of privileges, uses of exposed
+  credentials, or
   communication with malicious IPs, domains, or presence of malware on your Amazon
-  EC2 instances and container workloads. For example, GuardDuty can detect
-  compromised EC2 instances and container workloads serving malware, or mining
-  bitcoin.
+  EC2 instances
+  and container workloads. For example, GuardDuty can detect compromised EC2
+  instances and
+  container workloads serving malware, or mining bitcoin.
 
   GuardDuty also monitors Amazon Web Services account access behavior for signs of
-  compromise, such as unauthorized infrastructure deployments like EC2 instances
-  deployed in a Region that has never been used, or unusual API calls like a
-  password policy change to reduce password strength.
+  compromise, such as
+  unauthorized infrastructure deployments like EC2 instances deployed in a Region
+  that has never
+  been used, or unusual API calls like a password policy change to reduce password
+  strength.
 
   GuardDuty informs you about the status of your Amazon Web Services environment
-  by producing security findings that you can view in the GuardDuty console or
-  through Amazon EventBridge. For more information, see the * [Amazon GuardDuty User
+  by producing security
+  findings that you can view in the GuardDuty console or through Amazon
+  EventBridge. For more
+  information, see the *
+  [Amazon GuardDuty User
   Guide](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
   *.
   """
@@ -36,7 +47,6 @@ defmodule AWS.GuardDuty do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-11-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -126,26 +136,34 @@ defmodule AWS.GuardDuty do
   @doc """
   Creates a single GuardDuty detector.
 
-  A detector is a resource that represents the GuardDuty service. To start using
-  GuardDuty, you must create a detector in each Region where you enable the
-  service. You can have only one detector per account per Region. All data sources
-  are enabled in a new detector by default.
+  A detector is a resource that represents the
+  GuardDuty service. To start using GuardDuty, you must create a detector in each
+  Region where
+  you enable the service. You can have only one detector per account per Region.
+  All data
+  sources are enabled in a new detector by default.
 
-    * When you don't specify any `features`, with an exception to
-  `RUNTIME_MONITORING`, all the optional features are enabled by default.
+    *
+  When you don't specify any `features`, with an
+  exception to `RUNTIME_MONITORING`, all the optional features are
+  enabled by default.
 
-    * When you specify some of the `features`, any feature that is not
-  specified in the API call gets enabled by default, with an exception to
-  `RUNTIME_MONITORING`.
+    *
+  When you specify some of the `features`, any feature that is not specified in
+  the
+  API call gets enabled by default, with an exception to `RUNTIME_MONITORING`.
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`) and Runtime
-  Monitoring (`RUNTIME_MONITORING`) will cause an error. You can add only one of
-  these two features because Runtime Monitoring already includes the threat
-  detection for Amazon EKS resources. For more information, see [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
+  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
+  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
+  You can add only one of these two features because Runtime Monitoring already
+  includes the
+  threat detection for Amazon EKS resources. For more information, see
+  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def create_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detector"
@@ -170,8 +188,9 @@ defmodule AWS.GuardDuty do
   @doc """
   Creates a filter using the specified finding criteria.
 
-  The maximum number of saved filters per Amazon Web Services account per Region
-  is 100. For more information, see [Quotas for GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
+  The maximum number of saved filters
+  per Amazon Web Services account per Region is 100. For more information, see
+  [Quotas for GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
   """
   def create_filter(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
@@ -197,10 +216,13 @@ defmodule AWS.GuardDuty do
   Creates a new IPSet, which is called a trusted IP list in the console user
   interface.
 
-  An IPSet is a list of IP addresses that are trusted for secure communication
-  with Amazon Web Services infrastructure and applications. GuardDuty doesn't
-  generate findings for IP addresses that are included in IPSets. Only users from
-  the administrator account can use this operation.
+  An
+  IPSet is a list of IP addresses that are trusted for secure communication with
+  Amazon Web Services
+  infrastructure and applications. GuardDuty doesn't generate findings for IP
+  addresses that are
+  included in IPSets. Only users from the administrator account can use this
+  operation.
   """
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
@@ -224,33 +246,40 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Creates member accounts of the current Amazon Web Services account by specifying
-  a list of Amazon Web Services account IDs.
+  a list of Amazon Web Services account
+  IDs.
 
   This step is a prerequisite for managing the associated member accounts either
-  by invitation or through an organization.
+  by
+  invitation or through an organization.
 
-  As a delegated administrator, using `CreateMembers` will enable GuardDuty in the
-  added member accounts, with the exception of the organization delegated
-  administrator account. A delegated administrator must enable GuardDuty prior to
-  being added as a member.
+  As a delegated administrator, using `CreateMembers` will enable GuardDuty in
+  the added member accounts, with the exception of the
+  organization delegated administrator account. A delegated administrator must
+  enable GuardDuty
+  prior to being added as a member.
 
-  When you use CreateMembers as an Organizations delegated administrator,
-  GuardDuty applies your organization's auto-enable settings to the member
+  When you use CreateMembers as an Organizations delegated
+  administrator, GuardDuty applies your organization's auto-enable settings to the
+  member
   accounts in this request, irrespective of the accounts being new or existing
-  members. For more information about the existing auto-enable settings for your
-  organization, see
-  [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html).  If you are adding accounts by invitation, before using
+  members. For
+  more information about the existing auto-enable settings for your organization,
+  see
+  [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html). 
+  If you are adding accounts by invitation, before using
   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html),
-  use `CreateMembers` after GuardDuty has been enabled in potential member
-  accounts.
+  use
+  `CreateMembers` after GuardDuty has been enabled in potential member accounts.
 
-  If you disassociate a member from a GuardDuty delegated administrator, the
-  member account details obtained from this API, including the associated email
-  addresses, will be retained. This is done so that the delegated administrator
-  can invoke the
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html) API without the need to invoke the CreateMembers API again. To remove the
-  details associated with a member account, the delegated administrator must
-  invoke the
+  If you disassociate a member from a GuardDuty
+  delegated administrator, the member account details
+  obtained from this API, including the associated email addresses, will be
+  retained.
+  This is done so that the delegated administrator can invoke the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html) API without the need to invoke the CreateMembers API again. To
+  remove the details associated with a member account, the delegated administrator
+  must invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
   API.
   """
@@ -277,7 +306,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Creates a publishing destination to export findings to.
 
-  The resource to export findings to must exist before you use this operation.
+  The resource to export findings to
+  must exist before you use this operation.
   """
   def create_publishing_destination(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
@@ -302,8 +332,9 @@ defmodule AWS.GuardDuty do
   @doc """
   Generates sample findings of types specified by the list of finding types.
 
-  If 'NULL' is specified for `findingTypes`, the API generates sample findings of
-  all supported finding types.
+  If 'NULL' is
+  specified for `findingTypes`, the API generates sample findings of all supported
+  finding types.
   """
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/create"
@@ -328,9 +359,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Creates a new ThreatIntelSet.
 
-  ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates
-  findings based on ThreatIntelSets. Only users of the administrator account can
-  use this operation.
+  ThreatIntelSets consist of known malicious IP addresses.
+  GuardDuty generates findings based on ThreatIntelSets. Only users of the
+  administrator
+  account can use this operation.
   """
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
@@ -354,7 +386,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Declines invitations sent to the current member account by Amazon Web Services
-  accounts specified by their account IDs.
+  accounts specified by
+  their account IDs.
   """
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/decline"
@@ -426,7 +459,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Deletes invitations sent to the current member account by Amazon Web Services
-  accounts specified by their account IDs.
+  accounts specified by
+  their account IDs.
   """
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/delete"
@@ -451,7 +485,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes the IPSet specified by the `ipSetId`.
 
-  IPSets are called trusted IP lists in the console user interface.
+  IPSets are called trusted IP
+  lists in the console user interface.
   """
   def delete_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
     url_path =
@@ -477,7 +512,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Deletes GuardDuty member accounts (to the current GuardDuty administrator
-  account) specified by the account IDs.
+  account)
+  specified by the account IDs.
 
   With `autoEnableOrganizationMembers` configuration for your organization set to
   `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member
@@ -568,12 +604,14 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns a list of malware scans.
 
-  Each member account can view the malware scans for their own accounts. An
-  administrator can view the malware scans for all the member accounts.
+  Each member account can view the malware scans for their
+  own accounts. An administrator can view the malware scans for all the member
+  accounts.
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
@@ -597,11 +635,13 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Returns information about the account selected as the delegated administrator
-  for GuardDuty.
+  for
+  GuardDuty.
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def describe_organization_configuration(
         %Client{} = client,
@@ -655,9 +695,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Removes the existing GuardDuty delegated administrator of the organization.
+  Removes the existing GuardDuty delegated
+  administrator of the organization.
 
-  Only the organization's management account can run this API operation.
+  Only the organization's management account can run this
+  API operation.
   """
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/disable"
@@ -683,14 +725,16 @@ defmodule AWS.GuardDuty do
   Disassociates the current GuardDuty member account from its administrator
   account.
 
-  When you disassociate an invited member from a GuardDuty delegated
-  administrator, the member account details obtained from the
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is done so
-  that the delegated administrator can invoke the
+  When you
+  disassociate an invited member from a GuardDuty delegated administrator, the
+  member account details
+  obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is
+  done so that the delegated administrator can invoke the
   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To remove the
-  details associated with a member account, the delegated administrator must
-  invoke the
+  API without the need to invoke the CreateMembers API again. To
+  remove the details associated with a member account, the delegated administrator
+  must invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
   API.
 
@@ -727,14 +771,16 @@ defmodule AWS.GuardDuty do
   Disassociates the current GuardDuty member account from its administrator
   account.
 
-  When you disassociate an invited member from a GuardDuty delegated
-  administrator, the member account details obtained from the
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is done so
-  that the delegated administrator can invoke the
+  When you
+  disassociate an invited member from a GuardDuty delegated administrator, the
+  member account details
+  obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is
+  done so that the delegated administrator can invoke the
   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To remove the
-  details associated with a member account, the delegated administrator must
-  invoke the
+  API without the need to invoke the CreateMembers API again. To
+  remove the details associated with a member account, the delegated administrator
+  must invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
   API.
   """
@@ -760,16 +806,19 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Disassociates GuardDuty member accounts (from the current administrator account)
-  specified by the account IDs.
+  specified
+  by the account IDs.
 
-  When you disassociate an invited member from a GuardDuty delegated
-  administrator, the member account details obtained from the
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is done so
-  that the delegated administrator can invoke the
+  When you
+  disassociate an invited member from a GuardDuty delegated administrator, the
+  member account details
+  obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is
+  done so that the delegated administrator can invoke the
   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To remove the
-  details associated with a member account, the delegated administrator must
-  invoke the
+  API without the need to invoke the CreateMembers API again. To
+  remove the details associated with a member account, the delegated administrator
+  must invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
   API.
 
@@ -799,9 +848,11 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Designates an Amazon Web Services account within the organization as your
-  GuardDuty delegated administrator.
+  GuardDuty delegated
+  administrator.
 
-  Only the organization's management account can run this API operation.
+  Only the organization's management account can run this
+  API operation.
   """
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/enable"
@@ -825,10 +876,12 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Provides the details of the GuardDuty administrator account associated with the
-  current GuardDuty member account.
+  current
+  GuardDuty member account.
 
   If the organization's management account or a delegated administrator runs this
-  API, it will return success (`HTTP 200`) but no content.
+  API,
+  it will return success (`HTTP 200`) but no content.
   """
   def get_administrator_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
@@ -843,10 +896,12 @@ defmodule AWS.GuardDuty do
   @doc """
   Retrieves aggregated statistics for your account.
 
-  If you are a GuardDuty administrator, you can retrieve the statistics for all
-  the resources associated with the active member accounts in your organization
-  who have enabled Runtime Monitoring and have the GuardDuty security agent
-  running on their resources.
+  If you are a GuardDuty administrator, you
+  can retrieve the statistics for all the resources associated with the active
+  member accounts
+  in your organization who have enabled Runtime Monitoring and have the GuardDuty
+  security agent running
+  on their resources.
   """
   def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
@@ -873,7 +928,8 @@ defmodule AWS.GuardDuty do
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_detector(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -927,8 +983,8 @@ defmodule AWS.GuardDuty do
   Lists Amazon GuardDuty findings statistics for the specified detector ID.
 
   There might be regional differences because some flags might not be available in
-  all the Regions where GuardDuty is currently supported. For more information,
-  see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  all the Regions where GuardDuty
+  is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
@@ -952,7 +1008,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Returns the count of all GuardDuty membership invitations that were sent to the
-  current member account except the currently accepted invitation.
+  current
+  member account except the currently accepted invitation.
   """
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitation/count"
@@ -984,7 +1041,8 @@ defmodule AWS.GuardDuty do
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_malware_scan_settings(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -998,7 +1056,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Provides the details for the GuardDuty administrator account associated with the
-  current GuardDuty member account.
+  current
+  GuardDuty member account.
   """
   def get_master_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
@@ -1015,7 +1074,8 @@ defmodule AWS.GuardDuty do
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
@@ -1039,7 +1099,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Retrieves GuardDuty member accounts (of the current GuardDuty administrator
-  account) specified by the account IDs.
+  account)
+  specified by the account IDs.
   """
   def get_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/get"
@@ -1062,13 +1123,13 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves how many active member accounts have each feature enabled within
-  GuardDuty.
+  Retrieves how many active member accounts have
+  each feature enabled within GuardDuty.
 
   Only a delegated GuardDuty administrator of an organization can run this API.
 
-  When you create a new organization, it might take up to 24 hours to generate the
-  statistics for the entire organization.
+  When you create a new organization, it might take up to 24
+  hours to generate the statistics for the entire organization.
   """
   def get_organization_statistics(%Client{} = client, options \\ []) do
     url_path = "/organization/statistics"
@@ -1121,12 +1182,15 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists Amazon GuardDuty usage statistics over the last 30 days for the specified
-  detector ID.
+  detector
+  ID.
 
   For newly enabled detectors or data sources, the cost returned will include only
-  the usage so far under 30 days. This may differ from the cost metrics in the
-  console, which project usage over 30 days to provide a monthly cost estimate.
-  For more information, see [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
+  the usage
+  so far under 30 days. This may differ from the cost metrics in the console,
+  which project
+  usage over 30 days to provide a monthly cost estimate. For more information, see
+  [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
   """
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"
@@ -1150,27 +1214,35 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Invites Amazon Web Services accounts to become members of an organization
-  administered by the Amazon Web Services account that invokes this API.
+  administered by the Amazon Web Services account
+  that invokes this API.
 
   If you are using Amazon Web Services Organizations to manage your GuardDuty
-  environment, this step is not needed. For more information, see [Managing accounts with
-  organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+  environment, this step is not
+  needed. For more information, see [Managing accounts with organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
 
-  To invite Amazon Web Services accounts, the first step is to ensure that
-  GuardDuty has been enabled in the potential member accounts. You can now invoke
-  this API to add accounts by invitation. The invited accounts can either accept
-  or decline the invitation from their GuardDuty accounts. Each invited Amazon Web
-  Services account can choose to accept the invitation from only one Amazon Web
-  Services account. For more information, see [Managing GuardDuty accounts by invitation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html).
+  To invite Amazon Web Services accounts, the first step is
+  to ensure that GuardDuty has been enabled in the potential member accounts. You
+  can now invoke this API
+  to add accounts by invitation. The
+  invited accounts can either accept or decline the invitation from their
+  GuardDuty accounts. Each invited Amazon Web Services account can
+  choose to accept the invitation from only one Amazon Web Services account. For
+  more information, see
+  [Managing GuardDuty accounts by
+  invitation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html).
 
   After the invite has been accepted and you choose to disassociate a member
-  account (by using
-  [DisassociateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html)) from your account, the details of the member account obtained by invoking
+  account
+  (by using
+  [DisassociateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html)) from your account,
+  the details of the member account obtained by invoking
   [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html),
-  including the associated email addresses, will be retained. This is done so that
-  you can invoke InviteMembers without the need to invoke
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) again. To remove the details associated with a member account, you must also
-  invoke
+  including the
+  associated email addresses, will be retained.
+  This is done so that you can invoke InviteMembers without the need to invoke
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) again. To
+  remove the details associated with a member account, you must also invoke
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html).
   """
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
@@ -1196,11 +1268,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists coverage details for your GuardDuty account.
 
-  If you're a GuardDuty administrator, you can retrieve all resources associated
-  with the active member accounts in your organization.
+  If you're a GuardDuty administrator, you can
+  retrieve all resources associated with the active member accounts in your
+  organization.
 
   Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent
-  running on their resources.
+  running on
+  their resources.
   """
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
@@ -1286,8 +1360,8 @@ defmodule AWS.GuardDuty do
   Lists GuardDuty findings for the specified detector ID.
 
   There might be regional differences because some flags might not be available in
-  all the Regions where GuardDuty is currently supported. For more information,
-  see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  all the Regions where GuardDuty
+  is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
@@ -1311,7 +1385,8 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists all GuardDuty membership invitations that were sent to the current Amazon
-  Web Services account.
+  Web Services
+  account.
   """
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitation"
@@ -1340,8 +1415,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists the IPSets of the GuardDuty service specified by the detector ID.
 
-  If you use this operation from a member account, the IPSets returned are the
-  IPSets from the associated administrator account.
+  If you use this
+  operation from a member account, the IPSets returned are the IPSets from the
+  associated
+  administrator account.
   """
   def list_ip_sets(
         %Client{} = client,
@@ -1418,7 +1495,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists the accounts designated as GuardDuty delegated administrators.
 
-  Only the organization's management account can run this API operation.
+  Only the organization's management account can run this
+  API operation.
   """
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -1486,9 +1564,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists tags for a resource.
 
-  Tagging is currently supported for detectors, finding filters, IP sets, threat
-  intel sets, and publishing destination, with a limit of 50 tags per resource.
-  When invoked, this operation returns all assigned tags for a given resource.
+  Tagging is currently supported for detectors, finding filters,
+  IP sets, threat intel sets, and publishing destination, with a limit of 50 tags
+  per resource.
+  When invoked, this
+  operation returns all assigned tags for a given resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1503,8 +1583,10 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.
 
-  If you use this operation from a member account, the ThreatIntelSets associated
-  with the administrator account are returned.
+  If you
+  use this operation from a member account, the ThreatIntelSets associated with
+  the
+  administrator account are returned.
   """
   def list_threat_intel_sets(
         %Client{} = client,
@@ -1540,10 +1622,12 @@ defmodule AWS.GuardDuty do
   Initiates the malware scan.
 
   Invoking this API will automatically create the [Service-linked role](https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html)
-  in the corresponding account.
+  in
+  the corresponding account.
 
   When the malware scan starts, you can use the associated scan ID to track the
-  status of the scan. For more information, see
+  status of the scan. For more information,
+  see
   [DescribeMalwareScans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeMalwareScans.html).
   """
   def start_malware_scan(%Client{} = client, input, options \\ []) do
@@ -1569,8 +1653,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Turns on GuardDuty monitoring of the specified member accounts.
 
-  Use this operation to restart monitoring of accounts that you stopped monitoring
-  with the
+  Use this operation to
+  restart monitoring of accounts that you stopped monitoring with the
   [StopMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html)
   operation.
   """
@@ -1597,7 +1681,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Stops GuardDuty monitoring for the specified member accounts.
 
-  Use the `StartMonitoringMembers` operation to restart monitoring for those
+  Use the
+  `StartMonitoringMembers` operation to restart monitoring for those
   accounts.
 
   With `autoEnableOrganizationMembers` configuration for your organization set to
@@ -1701,14 +1786,17 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the GuardDuty detector specified by the detector ID.
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`) and Runtime
-  Monitoring (`RUNTIME_MONITORING`) will cause an error. You can add only one of
-  these two features because Runtime Monitoring already includes the threat
-  detection for Amazon EKS resources. For more information, see [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
+  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
+  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
+  You can add only one of these two features because Runtime Monitoring already
+  includes the
+  threat detection for Amazon EKS resources. For more information, see
+  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -1808,7 +1896,8 @@ defmodule AWS.GuardDuty do
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -1833,14 +1922,17 @@ defmodule AWS.GuardDuty do
   @doc """
   Contains information on member accounts to be updated.
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`) and Runtime
-  Monitoring (`RUNTIME_MONITORING`) will cause an error. You can add only one of
-  these two features because Runtime Monitoring already includes the threat
-  detection for Amazon EKS resources. For more information, see [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
+  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
+  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
+  You can add only one of these two features because Runtime Monitoring already
+  includes the
+  threat detection for Amazon EKS resources. For more information, see
+  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
@@ -1865,17 +1957,21 @@ defmodule AWS.GuardDuty do
   @doc """
   Configures the delegated administrator account with the provided values.
 
-  You must provide a value for either `autoEnableOrganizationMembers` or
-  `autoEnable`, but not both.
+  You must provide
+  a value for either `autoEnableOrganizationMembers` or `autoEnable`, but not
+  both.
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`) and Runtime
-  Monitoring (`RUNTIME_MONITORING`) will cause an error. You can add only one of
-  these two features because Runtime Monitoring already includes the threat
-  detection for Amazon EKS resources. For more information, see [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
+  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
+  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
+  You can add only one of these two features because Runtime Monitoring already
+  includes the
+  threat detection for Amazon EKS resources. For more information, see
+  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"

@@ -12,7 +12,6 @@ defmodule AWS.CloudControl do
 
   def metadata do
     %{
-      abbreviation: "CloudControlApi",
       api_version: "2021-09-30",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -30,10 +29,11 @@ defmodule AWS.CloudControl do
   Cancels the specified resource operation request.
 
   For more information, see [Canceling resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel)
-  in the *Amazon Web Services Cloud Control API User Guide*.
+  in the
+  *Amazon Web Services Cloud Control API User Guide*.
 
-  Only resource operations requests with a status of `PENDING` or `IN_PROGRESS`
-  can be canceled.
+  Only resource operations requests with a status of `PENDING` or
+  `IN_PROGRESS` can be canceled.
   """
   def cancel_resource_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -48,10 +48,11 @@ defmodule AWS.CloudControl do
   in the *Amazon Web Services Cloud Control API User Guide*.
 
   After you have initiated a resource creation request, you can monitor the
-  progress of your request by calling
+  progress of your
+  request by calling
   [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html)
-  using the `RequestToken` of the `ProgressEvent` type returned by
-  `CreateResource`.
+  using the `RequestToken` of the
+  `ProgressEvent` type returned by `CreateResource`.
   """
   def create_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -66,9 +67,11 @@ defmodule AWS.CloudControl do
   in the *Amazon Web Services Cloud Control API User Guide*.
 
   After you have initiated a resource deletion request, you can monitor the
-  progress of your request by calling
+  progress of your
+  request by calling
   [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html)
-  using the `RequestToken` of the `ProgressEvent` returned by `DeleteResource`.
+  using the `RequestToken` of the
+  `ProgressEvent` returned by `DeleteResource`.
   """
   def delete_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -79,11 +82,13 @@ defmodule AWS.CloudControl do
   @doc """
   Returns information about the current state of the specified resource.
 
-  For details, see [Reading a resource's current state](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html).
+  For details, see
+  [Reading a resource's current state](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html).
 
   You can use this action to return information about an existing resource in your
-  account and Amazon Web Services Region, whether those resources were provisioned
-  using Cloud Control API.
+  account
+  and Amazon Web Services Region, whether those resources were provisioned using
+  Cloud Control API.
   """
   def get_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -94,8 +99,10 @@ defmodule AWS.CloudControl do
   @doc """
   Returns the current status of a resource operation request.
 
-  For more information, see [Tracking the progress of resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track)
-  in the *Amazon Web Services Cloud Control API User Guide*.
+  For more information, see
+  [Tracking the progress of resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track)
+  in the
+  *Amazon Web Services Cloud Control API User Guide*.
   """
   def get_resource_request_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -106,9 +113,10 @@ defmodule AWS.CloudControl do
   @doc """
   Returns existing resource operation requests.
 
-  This includes requests of all status types. For more information, see [Listing active resource operation
-  requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list)
-  in the *Amazon Web Services Cloud Control API User Guide*.
+  This includes requests of all status types.
+  For more information, see [Listing active resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list)
+  in the
+  *Amazon Web Services Cloud Control API User Guide*.
 
   Resource operation requests expire after 7 days.
   """
@@ -125,8 +133,9 @@ defmodule AWS.CloudControl do
   in the *Amazon Web Services Cloud Control API User Guide*.
 
   You can use this action to return information about existing resources in your
-  account and Amazon Web Services Region, whether those resources were provisioned
-  using Cloud Control API.
+  account and
+  Amazon Web Services Region, whether those resources were provisioned using Cloud
+  Control API.
   """
   def list_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -138,19 +147,25 @@ defmodule AWS.CloudControl do
   Updates the specified property values in the resource.
 
   You specify your resource property updates as a list of patch operations
-  contained in a JSON patch document that adheres to the [ *RFC 6902 - JavaScript Object Notation (JSON) Patch* ](https://datatracker.ietf.org/doc/html/rfc6902)
-  standard.
+  contained in a
+  JSON patch document that adheres to the [
+  *RFC 6902 - JavaScript Object
+  Notation (JSON) Patch*
+  ](https://datatracker.ietf.org/doc/html/rfc6902) standard.
 
   For details on how Cloud Control API performs resource update operations, see
   [Updating a resource](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html)
   in the *Amazon Web Services Cloud Control API User Guide*.
 
   After you have initiated a resource update request, you can monitor the progress
-  of your request by calling
-  [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html) using the `RequestToken` of the `ProgressEvent` returned by `UpdateResource`.
+  of your
+  request by calling
+  [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html) using the `RequestToken` of the
+  `ProgressEvent` returned by `UpdateResource`.
 
   For more information about the properties of a specific resource, refer to the
-  related topic for the resource in the [Resource and property types
+  related
+  topic for the resource in the [Resource and property types
   reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
   in the *CloudFormation Users Guide*.
   """

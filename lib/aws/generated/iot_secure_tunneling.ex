@@ -8,7 +8,8 @@ defmodule AWS.IoTSecureTunneling do
   IoT Secure Tunneling creates remote connections to devices deployed in the
   field.
 
-  For more information about how IoT Secure Tunneling works, see [IoT Secure Tunneling](https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html).
+  For more information about how IoT Secure Tunneling works, see [IoT Secure
+  Tunneling](https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html).
   """
 
   alias AWS.Client
@@ -16,7 +17,6 @@ defmodule AWS.IoTSecureTunneling do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-10-05",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -25,7 +25,7 @@ defmodule AWS.IoTSecureTunneling do
       protocol: "json",
       service_id: "IoTSecureTunneling",
       signature_version: "v4",
-      signing_name: "IoTSecuredTunneling",
+      signing_name: "tunneling.iot",
       target_prefix: "IoTSecuredTunneling"
     }
   end
@@ -33,8 +33,10 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   Closes a tunnel identified by the unique tunnel id.
 
-  When a `CloseTunnel` request is received, we close the WebSocket connections
-  between the client and proxy server so no data can be transmitted.
+  When a `CloseTunnel`
+  request is received, we close the WebSocket connections between the client and
+  proxy
+  server so no data can be transmitted.
 
   Requires permission to access the
   [CloseTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -71,8 +73,8 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   List all tunnels for an Amazon Web Services account.
 
-  Tunnels are listed by creation time in descending order, newer tunnels will be
-  listed before older tunnels.
+  Tunnels are listed by creation time in
+  descending order, newer tunnels will be listed before older tunnels.
 
   Requires permission to access the
   [ListTunnels](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -109,7 +111,8 @@ defmodule AWS.IoTSecureTunneling do
   Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel
   duration is 12 hours and the tunnel has already been open for 4 hours. When you
   rotate the access tokens, the new tokens that are generated can only be used for
-  the remaining 8 hours.
+  the
+  remaining 8 hours.
   """
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -3,13 +3,16 @@
 
 defmodule AWS.IoTTwinMaker do
   @moduledoc """
-  IoT TwinMaker is a service with which you can build operational digital twins of
-  physical systems.
+  IoT TwinMaker is a service with which you can
+  build operational digital twins of physical systems.
 
-  IoT TwinMaker overlays measurements and analysis from real-world sensors,
-  cameras, and enterprise applications so you can create data visualizations to
-  monitor your physical factory, building, or industrial plant. You can use this
-  real-world data to monitor operations and diagnose and repair errors.
+  IoT TwinMaker overlays measurements
+  and analysis from real-world sensors, cameras, and enterprise applications so
+  you can
+  create data visualizations to monitor your physical factory, building, or
+  industrial plant.
+  You can use this real-world data to monitor operations and diagnose and repair
+  errors.
   """
 
   alias AWS.Client
@@ -17,7 +20,6 @@ defmodule AWS.IoTTwinMaker do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-11-29",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -440,8 +442,8 @@ defmodule AWS.IoTTwinMaker do
   @doc """
   Gets the property values for a component, component type, entity, or workspace.
 
-  You must specify a value for either `componentName`, `componentTypeId`,
-  `entityId`, or `workspaceId`.
+  You must specify a value for either `componentName`,
+  `componentTypeId`, `entityId`, or `workspaceId`.
   """
   def get_property_value(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/value"
@@ -465,11 +467,12 @@ defmodule AWS.IoTTwinMaker do
 
   @doc """
   Retrieves information about the history of a time series property value for a
-  component, component type, entity, or workspace.
+  component,
+  component type, entity, or workspace.
 
-  You must specify a value for `workspaceId`. For entity-specific queries, specify
-  values for `componentName` and `entityId`. For cross-entity quries, specify a
-  value for `componentTypeId`.
+  You must specify a value for `workspaceId`. For entity-specific queries,
+  specify values for `componentName` and `entityId`. For cross-entity
+  quries, specify a value for `componentTypeId`.
   """
   def get_property_value_history(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/history"

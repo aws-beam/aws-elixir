@@ -20,7 +20,6 @@ defmodule AWS.CloudSearchDomain do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2013-01-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -42,11 +41,14 @@ defmodule AWS.CloudSearchDomain do
 
     * `simple`: search all `text` and `text-array` fields for the
   specified string. Search for phrases, individual terms, and prefixes.
+
     * `structured`: search specific fields, construct compound queries
   using Boolean operators, and use advanced features such as term boosting and
   proximity searching.
+
     * `lucene`: specify search criteria using the Apache Lucene query
   parser syntax.
+
     * `dismax`: specify search criteria using the simplified subset of
   the Apache Lucene query parser syntax defined by the DisMax query parser.
 
@@ -181,7 +183,7 @@ defmodule AWS.CloudSearchDomain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -232,7 +234,7 @@ defmodule AWS.CloudSearchDomain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -256,8 +258,8 @@ defmodule AWS.CloudSearchDomain do
 
   For more information about formatting your data for Amazon CloudSearch, see
   [Preparing Your Data](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html)
-  in the *Amazon CloudSearch Developer Guide*. For more information about
-  uploading data for indexing, see [Uploading Data](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html)
+  in the *Amazon CloudSearch Developer Guide*.
+  For more information about uploading data for indexing, see [Uploading Data](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
   def upload_documents(%Client{} = client, input, options \\ []) do
@@ -282,7 +284,7 @@ defmodule AWS.CloudSearchDomain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

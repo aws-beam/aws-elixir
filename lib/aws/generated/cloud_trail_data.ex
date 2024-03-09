@@ -4,14 +4,17 @@
 defmodule AWS.CloudTrailData do
   @moduledoc """
   The CloudTrail Data Service lets you ingest events into CloudTrail from any
-  source in your hybrid environments, such as in-house or SaaS applications hosted
-  on-premises or in the cloud, virtual machines, or containers.
+  source in your
+  hybrid environments, such as in-house or SaaS applications hosted on-premises or
+  in the cloud,
+  virtual machines, or containers.
 
-  You can store, access, analyze, troubleshoot and take action on this data
-  without maintaining multiple log aggregators and reporting tools. After you run
+  You can store, access, analyze, troubleshoot and take action on
+  this data without maintaining multiple log aggregators and reporting tools.
+  After you run
   `PutAuditEvents` to ingest your application activity into CloudTrail, you can
-  use CloudTrail Lake to search, query, and analyze the data that is logged from
-  your applications.
+  use CloudTrail Lake to search, query, and analyze the data that is logged
+  from your applications.
   """
 
   alias AWS.Client
@@ -19,7 +22,6 @@ defmodule AWS.CloudTrailData do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-08-11",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -36,9 +38,11 @@ defmodule AWS.CloudTrailData do
   @doc """
   Ingests your application events into CloudTrail Lake.
 
-  A required parameter, `auditEvents`, accepts the JSON records (also called
-  *payload*) of events that you want CloudTrail to ingest. You can add up to 100
-  of these events (or up to 1 MB) per `PutAuditEvents` request.
+  A required parameter,
+  `auditEvents`, accepts the JSON records (also called
+  *payload*) of events that you want CloudTrail to ingest. You
+  can add up to 100 of these events (or up to 1 MB) per `PutAuditEvents`
+  request.
   """
   def put_audit_events(%Client{} = client, input, options \\ []) do
     url_path = "/PutAuditEvents"

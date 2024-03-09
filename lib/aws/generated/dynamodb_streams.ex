@@ -6,11 +6,13 @@ defmodule AWS.DynamoDBStreams do
   Amazon DynamoDB
 
   Amazon DynamoDB Streams provides API actions for accessing streams and
-  processing stream records.
+  processing
+  stream records.
 
   To learn more about application development with Streams, see [Capturing Table Activity with DynamoDB
   Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html)
-  in the Amazon DynamoDB Developer Guide.
+  in the Amazon DynamoDB Developer
+  Guide.
   """
 
   alias AWS.Client
@@ -18,7 +20,6 @@ defmodule AWS.DynamoDBStreams do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2012-08-10",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -27,7 +28,7 @@ defmodule AWS.DynamoDBStreams do
       protocol: "json",
       service_id: "DynamoDB Streams",
       signature_version: "v4",
-      signing_name: "dynamodb",
+      signing_name: "streams.dynamodb",
       target_prefix: "DynamoDBStreams_20120810"
     }
   end
@@ -42,8 +43,9 @@ defmodule AWS.DynamoDBStreams do
   Each shard in the stream has a `SequenceNumberRange` associated with it. If the
   `SequenceNumberRange` has a `StartingSequenceNumber` but no
   `EndingSequenceNumber`, then the shard is still open (able to receive more
-  stream records). If both `StartingSequenceNumber` and `EndingSequenceNumber` are
-  present, then that shard is closed and can no longer receive more data.
+  stream
+  records). If both `StartingSequenceNumber` and `EndingSequenceNumber`
+  are present, then that shard is closed and can no longer receive more data.
   """
   def describe_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -56,10 +58,11 @@ defmodule AWS.DynamoDBStreams do
 
   Specify a shard iterator using the `ShardIterator` parameter. The shard iterator
   specifies the position in the shard from which you want to start reading stream
-  records sequentially. If there are no stream records available in the portion of
-  the shard that the iterator points to, `GetRecords` returns an empty list. Note
-  that it might take multiple calls to get to a portion of the shard that contains
-  stream records.
+  records
+  sequentially. If there are no stream records available in the portion of the
+  shard that the
+  iterator points to, `GetRecords` returns an empty list. Note that it might take
+  multiple calls to get to a portion of the shard that contains stream records.
 
   `GetRecords` can retrieve a maximum of 1 MB of data or 1000 stream records,
   whichever comes first.
@@ -73,9 +76,11 @@ defmodule AWS.DynamoDBStreams do
   @doc """
   Returns a shard iterator.
 
-  A shard iterator provides information about how to retrieve the stream records
-  from within a shard. Use the shard iterator in a subsequent `GetRecords` request
-  to read the stream records from the shard.
+  A shard iterator provides information
+  about how to retrieve the stream records from within a shard. Use
+  the shard iterator in a subsequent
+  `GetRecords` request to read the stream records
+  from the shard.
 
   A shard iterator expires 15 minutes after it is returned to the requester.
   """
@@ -89,7 +94,8 @@ defmodule AWS.DynamoDBStreams do
   Returns an array of stream ARNs associated with the current account and
   endpoint.
 
-  If the `TableName` parameter is present, then `ListStreams` will return only the
+  If the
+  `TableName` parameter is present, then `ListStreams` will return only the
   streams ARNs for that table.
 
   You can call `ListStreams` at a maximum rate of 5 times per second.

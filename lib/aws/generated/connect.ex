@@ -4,20 +4,27 @@
 defmodule AWS.Connect do
   @moduledoc """
   Amazon Connect is a cloud-based contact center solution that you use to set up
-  and manage a customer contact center and provide reliable customer engagement at
-  any scale.
+  and
+  manage a customer contact center and provide reliable customer engagement at any
+  scale.
 
   Amazon Connect provides metrics and real-time reporting that enable you to
-  optimize contact routing. You can also resolve customer issues more efficiently
-  by getting customers in touch with the appropriate agents.
+  optimize
+  contact routing. You can also resolve customer issues more efficiently by
+  getting customers in
+  touch with the appropriate agents.
 
   There are limits to the number of Amazon Connect resources that you can create.
-  There are also limits to the number of requests that you can make per second.
-  For more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator Guide*.
+  There
+  are also limits to the number of requests that you can make per second. For more
+  information, see
+  [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the *Amazon Connect Administrator
+  Guide*.
 
   You can connect programmatically to an Amazon Web Services service by using an
-  endpoint. For a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  endpoint. For
+  a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
 
   alias AWS.Client
@@ -25,7 +32,6 @@ defmodule AWS.Connect do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-08-08",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -42,8 +48,9 @@ defmodule AWS.Connect do
   @doc """
   Activates an evaluation form in the specified Amazon Connect instance.
 
-  After the evaluation form is activated, it is available to start new evaluations
-  based on the form.
+  After the
+  evaluation form is activated, it is available to start new evaluations based on
+  the form.
   """
   def activate_evaluation_form(
         %Client{} = client,
@@ -69,7 +76,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -77,7 +84,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates the specified dataset for a Amazon Connect instance with the target
-  account. You can associate only one dataset in a single call.
+  account.
+  You can associate only one dataset in a single call.
   """
   def associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
@@ -86,7 +94,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -101,7 +109,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -117,14 +125,14 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates an existing vocabulary as the default.
 
-  Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time
-  analysis sessions for the given language.
+  Contact Lens for Amazon Connect uses the vocabulary in post-call
+  and real-time analysis sessions for the given language.
   """
   def associate_default_vocabulary(
         %Client{} = client,
@@ -141,7 +149,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -154,20 +162,23 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates a storage resource type for the first time. You can only associate
-  one type of storage configuration in a single call. This means, for example,
-  that you can't define an instance with multiple S3 buckets for storing chat
-  transcripts.
+  one type of
+  storage configuration in a single call. This means, for example, that you can't
+  define an
+  instance with multiple S3 buckets for storing chat transcripts.
 
   This API does not create a resource that doesn't exist. It only associates it to
-  the instance. Ensure that the resource being specified in the storage
-  configuration, like an S3 bucket, exists when being used for association.
+  the
+  instance. Ensure that the resource being specified in the storage configuration,
+  like an S3
+  bucket, exists when being used for association.
   """
   def associate_instance_storage_config(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config"
@@ -176,7 +187,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -192,7 +203,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -208,20 +219,25 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates a flow with a phone number claimed to your Amazon Connect instance.
 
   If the number is claimed to a traffic distribution group, and you are calling
-  this API using an instance in the Amazon Web Services Region where the traffic
-  distribution group was created, you can use either a full phone number ARN or
-  UUID value for the `PhoneNumberId` URI request parameter. However, if the number
-  is claimed to a traffic distribution group and you are calling this API using an
-  instance in the alternate Amazon Web Services Region associated with the traffic
-  distribution group, you must provide a full phone number ARN. If a UUID is
-  provided in this scenario, you will receive a `ResourceNotFoundException`.
+  this API using an instance in the
+  Amazon Web Services Region where the traffic distribution group was created, you
+  can use either a full phone number
+  ARN or UUID value for the `PhoneNumberId` URI request parameter. However, if the
+  number is claimed to a traffic distribution group and you are calling this API
+  using an instance in the alternate
+  Amazon Web Services Region associated with the traffic distribution group, you
+  must provide a full phone number ARN.
+  If a UUID is provided
+  in
+  this scenario, you will receive a
+  `ResourceNotFoundException`.
   """
   def associate_phone_number_contact_flow(
         %Client{} = client,
@@ -235,7 +251,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -267,7 +283,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -298,7 +314,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -314,7 +330,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -334,7 +350,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -358,7 +374,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -366,7 +382,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates a list of analytics datasets for a given Amazon Connect instance to a
-  target account. You can associate multiple datasets in a single call.
+  target
+  account. You can associate multiple datasets in a single call.
   """
   def batch_associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
@@ -375,14 +392,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Removes a list of analytics datasets associated with a given Amazon Connect
-  instance. You can disassociate multiple datasets in a single call.
+  instance.
+  You can disassociate multiple datasets in a single call.
   """
   def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
@@ -400,7 +418,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -423,21 +441,26 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Only the Amazon Connect outbound campaigns service principal is allowed to
-  assume a role in your account and call this API.
+  assume a
+  role in your account and call this API.
 
   Allows you to create a batch of contacts in Amazon Connect. The outbound
-  campaigns capability ingests dial requests via the
+  campaigns
+  capability ingests dial requests via the
   [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html)
-  API. It then uses BatchPutContact to create contacts corresponding to those dial
-  requests. If agents are available, the dial requests are dialed out, which
-  results in a voice call. The resulting voice call uses the same contactId that
-  was created by BatchPutContact.
+  API. It then uses BatchPutContact to create contacts corresponding
+  to those dial requests. If agents are available, the dial requests are dialed
+  out, which results
+  in a voice call. The resulting voice call uses the same contactId that was
+  created by
+  BatchPutContact.
   """
   def batch_put_contact(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact/batch/#{AWS.Util.encode_uri(instance_id)}"
@@ -446,23 +469,27 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Claims an available phone number to your Amazon Connect instance or traffic
-  distribution group.
+  distribution
+  group.
 
   You can call this API only in the same Amazon Web Services Region where the
   Amazon Connect instance or traffic distribution group was created.
 
   For more information about how to use this operation, see [Claim a phone number in your
   country](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html)
-  and [Claim phone numbers to traffic distribution groups](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html)
-  in the *Amazon Connect Administrator Guide*.
+  and [Claim phone numbers to traffic distribution
+  groups](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html)
+  in the *Amazon Connect Administrator
+  Guide*.
 
   You can call the
-  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html) API for available phone numbers that you can claim. Call the
+  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html) API for available phone numbers that you can claim. Call
+  the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
   API to verify the status of a previous
   [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
@@ -470,20 +497,25 @@ defmodule AWS.Connect do
 
   If you plan to claim and release numbers frequently during a 30 day period,
   contact us for a service quota exception. Otherwise, it is possible you will be
-  blocked from claiming and releasing any more numbers until 30 days past the
-  oldest number released has expired.
+  blocked from
+  claiming and releasing any more numbers until 30 days past the oldest number
+  released has expired.
 
   By default you can claim and release up to 200% of your maximum number of active
   phone numbers during any 30 day period. If you claim and release phone numbers
-  using the UI or API during a rolling 30 day cycle that exceeds 200% of your
-  phone number service level quota, you will be blocked from claiming any more
-  numbers until 30 days past the oldest number released has expired.
+  using
+  the UI or API during a rolling 30 day cycle that exceeds 200% of your phone
+  number
+  service level quota, you will be blocked from claiming any more numbers until 30
+  days past the oldest number released has expired.
 
   For example, if you already have 99 claimed numbers and a service level quota of
-  99 phone numbers, and in any 30 day period you release 99, claim 99, and then
-  release 99, you will have exceeded the 200% limit. At that point you are blocked
-  from claiming any more numbers until you open an Amazon Web Services support
-  ticket.
+  99 phone numbers, and in any 30
+  day period you release 99, claim 99, and then release 99, you will have exceeded
+  the
+  200% limit. At that point you are blocked from claiming any more numbers until
+  you
+  open an Amazon Web Services support ticket.
   """
   def claim_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/claim"
@@ -501,7 +533,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -517,13 +549,14 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a flow for the specified Amazon Connect instance.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
@@ -532,7 +565,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -545,15 +578,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an evaluation form in the specified Amazon Connect instance.
 
-  The form can be used to define questions related to agent performance, and
-  create sections to organize such questions. Question and section identifiers
-  cannot be duplicated within the same evaluation form.
+  The form can be
+  used to define questions related to agent performance, and create sections to
+  organize such
+  questions. Question and section identifiers cannot be duplicated within the same
+  evaluation
+  form.
   """
   def create_evaluation_form(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
@@ -562,7 +598,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -577,22 +613,25 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Initiates an Amazon Connect instance with all the supported channels enabled. It
-  does not attach any storage, such as Amazon Simple Storage Service (Amazon S3)
-  or Amazon Kinesis. It also does not allow for any configurations on features,
-  such as Contact Lens for Amazon Connect.
+  does
+  not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or
+  Amazon Kinesis. It
+  also does not allow for any configurations on features, such as Contact Lens for
+  Amazon Connect.
 
   Amazon Connect enforces a limit on the total number of instances that you can
-  create or delete in 30 days. If you exceed this limit, you will get an error
-  message indicating there has been an excessive number of attempts at creating or
-  deleting instances. You must wait 30 days before you can restart creating and
-  deleting instances in your account.
+  create or delete in 30 days.
+  If you exceed this limit, you will get an error message indicating there has
+  been an excessive number of attempts at creating or deleting instances.
+  You must wait 30 days before you can restart creating and deleting instances in
+  your account.
   """
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/instance"
@@ -601,7 +640,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -615,13 +654,14 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds a new participant into an on-going chat contact.
 
-  For more information, see [Customize chat flow experiences by integrating custom participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html).
+  For more information, see [Customize chat flow experiences by integrating custom
+  participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html).
   """
   def create_participant(%Client{} = client, input, options \\ []) do
     url_path = "/contact/create-participant"
@@ -639,15 +679,17 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Enables rehydration of chats for the lifespan of a contact.
 
-  For more information about chat rehydration, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
-  in the *Amazon Connect Administrator Guide*.
+  For more information about chat
+  rehydration, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   def create_persistent_contact_association(
         %Client{} = client,
@@ -673,7 +715,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -687,15 +729,16 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a prompt.
 
-  For more information about prompts, such as supported file types and maximum
-  length, see [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
-  the *Amazon Connect Administrator's Guide*.
+  For more information about prompts, such as supported file types and
+  maximum length, see [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
+  the *Amazon Connect Administrator's
+  Guide*.
   """
   def create_prompt(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}"
@@ -704,7 +747,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -712,24 +755,31 @@ defmodule AWS.Connect do
 
   Creates a new queue for the specified Amazon Connect instance.
 
-     If the phone number is claimed to a traffic distribution group that
-  was created in the same Region as the Amazon Connect instance where you are
-  calling this API, then you can use a full phone number ARN or a UUID for
-  `OutboundCallerIdNumberId`. However, if the phone number is claimed to a traffic
-  distribution group that is in one Region, and you are calling this API from an
-  instance in another Amazon Web Services Region that is associated with the
-  traffic distribution group, you must provide a full phone number ARN. If a UUID
-  is provided in this scenario, you will receive a `ResourceNotFoundException`.
+    
+  If the phone number is claimed to a traffic distribution group that was created
+  in the
+  same Region as the Amazon Connect instance where you are calling this API, then
+  you can use a
+  full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the
+  phone number is claimed
+  to a traffic distribution group that is in one Region, and you are calling this
+  API from an instance in another Amazon Web Services Region that is associated
+  with the traffic distribution group, you must provide a full phone number ARN.
+  If a
+  UUID is provided in this scenario, you will receive a
+  `ResourceNotFoundException`.
 
-     Only use the phone number ARN format that doesn't contain
-  `instance` in the path, for example,
-  `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN
-  format that is returned when you call the
+    
+  Only use the phone number ARN format that doesn't contain `instance` in the
+  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
+  This
+  is the same ARN format that is returned when you call the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 
-     If you plan to use IAM policies to allow/deny access to this API
-  for phone number resources claimed to a traffic distribution group, see [Allow
-  or Deny queue API actions for phone numbers in a replica
+    
+  If you plan to use IAM policies to allow/deny access to this API for phone
+  number resources claimed to a traffic distribution group, see [Allow or Deny
+  queue API actions for phone numbers in a replica
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
   def create_queue(%Client{} = client, instance_id, input, options \\ []) do
@@ -739,7 +789,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -752,7 +802,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -765,14 +815,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a rule for the specified Amazon Connect instance.
 
   Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
-  to code conditions for the rule.
+  to
+  code conditions for the rule.
   """
   def create_rule(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
@@ -790,7 +841,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -804,7 +855,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -817,23 +868,25 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a traffic distribution group given an Amazon Connect instance that has
   been replicated.
 
-  The `SignInConfig` distribution is available only on a default
-  `TrafficDistributionGroup` (see the `IsDefault` parameter in the
-  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html) data type). If you call `UpdateTrafficDistribution` with a modified
-  `SignInConfig` and a non-default `TrafficDistributionGroup`, an
-  `InvalidRequestException` is returned.
+  The `SignInConfig` distribution is available only on a
+  default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
+  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html)  data type). If you call
+  `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default
+  `TrafficDistributionGroup`,
+  an `InvalidRequestException` is returned.
 
   For more information about creating traffic distribution groups, see [Set up
   traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html)
-  in the *Amazon Connect Administrator Guide*.
+  in
+  the *Amazon Connect Administrator Guide*.
   """
   def create_traffic_distribution_group(%Client{} = client, input, options \\ []) do
     url_path = "/traffic-distribution-group"
@@ -842,7 +895,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -863,16 +916,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a user account for the specified Amazon Connect instance.
 
   Certain
-  [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters are required in some situations. For example, `Email` is required if
-  you are using SAML for identity management. `FirstName` and `LastName` are
-  required if you are using Amazon Connect or SAML for identity management.
+  [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters
+  are required in some situations. For example, `Email` is required if you are
+  using
+  SAML for identity management. `FirstName` and `LastName` are required if
+  you are using Amazon Connect or SAML for identity management.
 
   For information about how to create users using the Amazon Connect admin
   website, see [Add
@@ -886,7 +941,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -899,19 +954,22 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates a new view with the possible status of `SAVED` or `PUBLISHED`.
+  Creates a new view with the possible status of `SAVED` or
+  `PUBLISHED`.
 
   The views will have a unique name for each connect instance.
 
   It performs basic content validation if the status is `SAVED` or full content
   validation if the status is set to `PUBLISHED`. An error is returned if
-  validation fails. It associates either the `$SAVED` qualifier or both of the
-  `$SAVED` and `$LATEST` qualifiers with the provided view content based on the
-  status. The view is idempotent if ClientToken is provided.
+  validation
+  fails. It associates either the `$SAVED` qualifier or both of the `$SAVED`
+  and `$LATEST` qualifiers with the provided view content based on the status. The
+  view
+  is idempotent if ClientToken is provided.
   """
   def create_view(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
@@ -920,7 +978,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -929,8 +987,10 @@ defmodule AWS.Connect do
   Versions are immutable and monotonically increasing.
 
   It returns the highest version if there is no change in content compared to that
-  version. An error is displayed if the supplied ViewContentSha256 is different
-  from the ViewContentSha256 of the `$LATEST` alias.
+  version. An
+  error is displayed if the supplied ViewContentSha256 is different from the
+  ViewContentSha256 of
+  the `$LATEST` alias.
   """
   def create_view_version(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path =
@@ -941,15 +1001,17 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a custom vocabulary associated with your Amazon Connect instance.
 
-  You can set a custom vocabulary to be your default vocabulary for a given
-  language. Contact Lens for Amazon Connect uses the default vocabulary in
-  post-call and real-time contact analysis sessions for that language.
+  You can set a
+  custom vocabulary to be your default vocabulary for a given language. Contact
+  Lens for Amazon Connect uses the default
+  vocabulary in post-call and real-time contact analysis sessions for that
+  language.
   """
   def create_vocabulary(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/vocabulary/#{AWS.Util.encode_uri(instance_id)}"
@@ -967,15 +1029,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deactivates an evaluation form in the specified Amazon Connect instance.
 
-  After a form is deactivated, it is no longer available for users to start new
-  evaluations based on the form.
+  After a form is deactivated,
+  it is no longer available for users to start new evaluations based on the form.
   """
   def deactivate_evaluation_form(
         %Client{} = client,
@@ -1001,7 +1063,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1032,7 +1094,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1057,7 +1119,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1088,18 +1150,20 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an evaluation form in the specified Amazon Connect instance.
 
-    * If the version property is provided, only the specified version of
-  the evaluation form is deleted.
-
-    * If no version is provided, then the full form (all versions) is
+    *
+  If the version property is provided, only the specified version of the
+  evaluation form is
   deleted.
+
+    *
+  If no version is provided, then the full form (all versions) is deleted.
   """
   def delete_evaluation_form(
         %Client{} = client,
@@ -1130,7 +1194,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1163,7 +1227,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1173,10 +1237,11 @@ defmodule AWS.Connect do
   Deletes the Amazon Connect instance.
 
   Amazon Connect enforces a limit on the total number of instances that you can
-  create or delete in 30 days. If you exceed this limit, you will get an error
-  message indicating there has been an excessive number of attempts at creating or
-  deleting instances. You must wait 30 days before you can restart creating and
-  deleting instances in your account.
+  create or delete in 30 days.
+  If you exceed this limit, you will get an error message indicating there has
+  been an excessive number of attempts at creating or deleting instances.
+  You must wait 30 days before you can restart creating and deleting instances in
+  your account.
   """
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
@@ -1194,7 +1259,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1202,7 +1267,8 @@ defmodule AWS.Connect do
   Deletes an Amazon Web Services resource association from an Amazon Connect
   instance.
 
-  The association must not have any use cases associated with it.
+  The
+  association must not have any use cases associated with it.
   """
   def delete_integration_association(
         %Client{} = client,
@@ -1228,7 +1294,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1253,7 +1319,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1276,7 +1342,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1299,7 +1365,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1330,7 +1396,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1361,7 +1427,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1384,7 +1450,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1415,7 +1481,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1446,7 +1512,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1454,11 +1520,13 @@ defmodule AWS.Connect do
   Deletes a traffic distribution group.
 
   This API can be called only in the Region where the traffic distribution group
-  is created.
+  is
+  created.
 
   For more information about deleting traffic distribution groups, see [Delete traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html)
-  in the *Amazon Connect Administrator Guide*.
+  in
+  the *Amazon Connect Administrator Guide*.
   """
   def delete_traffic_distribution_group(
         %Client{} = client,
@@ -1481,7 +1549,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1513,7 +1581,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1521,8 +1589,11 @@ defmodule AWS.Connect do
   Deletes a user account from the specified Amazon Connect instance.
 
   For information about what happens to a user's data when their account is
-  deleted, see [Delete Users from Your Amazon Connect Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
-  in the *Amazon Connect Administrator Guide*.
+  deleted, see
+  [Delete Users from Your Amazon Connect
+  Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
+  in the *Amazon Connect Administrator
+  Guide*.
   """
   def delete_user(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
@@ -1540,14 +1611,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an existing user hierarchy group.
 
-  It must not be associated with any agents or have any active child groups.
+  It must not be associated with any agents or have
+  any active child groups.
   """
   def delete_user_hierarchy_group(
         %Client{} = client,
@@ -1573,14 +1645,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the view entirely.
 
-  It deletes the view and all associated qualifiers (versions and aliases).
+  It deletes the view and all associated qualifiers (versions and
+  aliases).
   """
   def delete_view(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
@@ -1598,7 +1671,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1630,7 +1703,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1655,7 +1728,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1673,7 +1746,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1682,9 +1755,11 @@ defmodule AWS.Connect do
   Describes the specified contact.
 
   Contact information remains available in Amazon Connect for 24 months, and then
-  it is deleted.
+  it is
+  deleted.
 
-  Only data from November 12, 2021, and later is returned by this API.
+  Only data from November 12, 2021, and later is returned by this
+  API.
   """
   def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
@@ -1693,7 +1768,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1708,13 +1783,14 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the specified flow.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
@@ -1725,7 +1801,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1745,14 +1821,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes an evaluation form in the specified Amazon Connect instance.
 
-  If the version property is not provided, the latest version of the evaluation
-  form is described.
+  If the version
+  property is not provided, the latest version of the evaluation form is
+  described.
   """
   def describe_evaluation_form(
         %Client{} = client,
@@ -1776,7 +1853,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1798,18 +1875,21 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns the current state of the specified instance identifier. It tracks the
-  instance while it is being created and returns an error status, if applicable.
+  instance while
+  it is being created and returns an error status, if applicable.
 
   If an instance is not created successfully, the instance status reason field
-  returns details relevant to the reason. The instance in a failed state is
-  returned only for 24 hours after the CreateInstance API was invoked.
+  returns details
+  relevant to the reason. The instance in a failed state is returned only for 24
+  hours after the
+  CreateInstance API was invoked.
   """
   def describe_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
@@ -1818,7 +1898,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1835,14 +1915,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Retrieves the current storage configurations for the specified resource type,
-  association ID, and instance ID.
+  association
+  ID, and instance ID.
   """
   def describe_instance_storage_config(
         %Client{} = client,
@@ -1866,20 +1947,26 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets details and status of a phone number that’s claimed to your Amazon Connect
-  instance or traffic distribution group.
+  instance
+  or traffic distribution group.
 
   If the number is claimed to a traffic distribution group, and you are calling in
-  the Amazon Web Services Region where the traffic distribution group was created,
-  you can use either a phone number ARN or UUID value for the `PhoneNumberId` URI
-  request parameter. However, if the number is claimed to a traffic distribution
-  group and you are calling this API in the alternate Amazon Web Services Region
-  associated with the traffic distribution group, you must provide a full phone
-  number ARN. If a UUID is provided in this scenario, you will receive a
+  the Amazon Web Services Region
+  where the traffic distribution group was created, you can use either a phone
+  number ARN or UUID value for the
+  `PhoneNumberId` URI request parameter. However, if the number is claimed to a
+  traffic distribution group
+  and you are calling this API in the alternate Amazon Web Services Region
+  associated with the
+  traffic distribution group, you must provide a full phone number ARN. If a UUID
+  is provided
+  in
+  this scenario, you will receive a
   `ResourceNotFoundException`.
   """
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
@@ -1889,7 +1976,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1904,7 +1991,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1917,7 +2004,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1932,7 +2019,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1947,7 +2034,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1962,7 +2049,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1975,7 +2062,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1995,7 +2082,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2012,15 +2099,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the specified user.
 
   You can [find the instance ID in the Amazon Connect console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
-  (it’s the final part of the ARN). The console does not display the user IDs.
-  Instead, list the users and note the IDs provided in the output.
+  (it’s the final part of the ARN). The console does not display the
+  user IDs. Instead, list the users and note the IDs provided in the output.
   """
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
@@ -2029,7 +2116,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2049,7 +2136,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2062,7 +2149,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2074,11 +2161,12 @@ defmodule AWS.Connect do
   `$SAVED` needs to be supplied if a view is unpublished.
 
   The view identifier can contain an optional qualifier, for example,
-  `<view-id>:$SAVED`, which is either an actual version number or an Amazon
-  Connect managed qualifier `$SAVED | $LATEST`. If it is not supplied, then
+  `:$SAVED`, which is either an actual version number or an Amazon Connect managed
+  qualifier `$SAVED | $LATEST`. If it is not supplied, then
   `$LATEST` is assumed for customer managed views and an error is returned if
-  there is no published content available. Version 1 is assumed for Amazon Web
-  Services managed views.
+  there is
+  no published content available. Version 1 is assumed for Amazon Web Services
+  managed views.
   """
   def describe_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
@@ -2087,7 +2175,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2102,7 +2190,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2126,7 +2214,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2156,7 +2244,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2164,7 +2252,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Revokes authorization from the specified instance to access the specified Amazon
-  Lex or Amazon Lex V2 bot.
+  Lex or Amazon Lex V2
+  bot.
   """
   def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
@@ -2182,7 +2271,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2214,7 +2303,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2222,7 +2311,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Removes the storage type configurations for the specified resource type and
-  association ID.
+  association
+  ID.
   """
   def disassociate_instance_storage_config(
         %Client{} = client,
@@ -2253,7 +2343,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2284,7 +2374,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2292,7 +2382,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Revokes authorization from the specified instance to access the specified Amazon
-  Lex bot.
+  Lex
+  bot.
   """
   def disassociate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
@@ -2316,7 +2407,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2325,13 +2416,16 @@ defmodule AWS.Connect do
   instance.
 
   If the number is claimed to a traffic distribution group, and you are calling
-  this API using an instance in the Amazon Web Services Region where the traffic
-  distribution group was created, you can use either a full phone number ARN or
-  UUID value for the `PhoneNumberId` URI request parameter. However, if the number
-  is claimed to a traffic distribution group and you are calling this API using an
-  instance in the alternate Amazon Web Services Region associated with the traffic
-  distribution group, you must provide a full phone number ARN. If a UUID is
-  provided in this scenario, you will receive a `ResourceNotFoundException`.
+  this API using an instance in the
+  Amazon Web Services Region where the traffic distribution group was created, you
+  can use either a full phone number
+  ARN or UUID value for the `PhoneNumberId` URI request parameter. However, if the
+  number is claimed to a traffic distribution group and you are calling this API
+  using an instance in the alternate
+  Amazon Web Services Region associated with the traffic distribution group, you
+  must provide a full phone number ARN.
+  If a UUID is provided in this scenario, you will receive a
+  `ResourceNotFoundException`.
   """
   def disassociate_phone_number_contact_flow(
         %Client{} = client,
@@ -2359,7 +2453,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2392,7 +2486,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2423,7 +2517,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2456,7 +2550,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2492,7 +2586,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2523,16 +2617,19 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Dismisses contacts from an agent’s CCP and returns the agent to an available
-  state, which allows the agent to receive a new routed contact.
+  state, which
+  allows the agent to receive a new routed contact.
 
-  Contacts can only be dismissed if they are in a `MISSED`, `ERROR`, `ENDED`, or
-  `REJECTED` state in the [Agent Event Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
+  Contacts can only be dismissed if they are in a
+  `MISSED`, `ERROR`, `ENDED`, or `REJECTED` state in
+  the [Agent Event
+  Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
   """
   def dismiss_user_contact(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -2552,7 +2649,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2568,7 +2665,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2593,7 +2690,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2616,25 +2713,30 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Supports SAML sign-in for Amazon Connect.
 
-  Retrieves a token for federation. The token is for the Amazon Connect user which
-  corresponds to the IAM credentials that were used to invoke this action.
+  Retrieves a token for federation. The token is
+  for the Amazon Connect user which corresponds to the IAM credentials that were
+  used to invoke this action.
 
   For more information about how SAML sign-in works in Amazon Connect, see
-  [Configure SAML with IAM for Amazon Connect in the *Amazon Connect Administrator Guide*.](https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html
+  [Configure SAML with IAM for Amazon Connect in the *Amazon Connect Administrator
+  Guide*.](https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html
   )
 
   This API doesn't support root users. If you try to invoke GetFederationToken
-  with root credentials, an error message similar to the following one appears:
+  with root
+  credentials, an error message similar to the following one appears:
 
-  `Provided identity: Principal: .... User: .... cannot be used for federation
-  with Amazon Connect`
+  ```
+  Provided identity: Principal: .... User: .... cannot be used for federation with
+  Amazon Connect
+  ```
   """
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user/federate/#{AWS.Util.encode_uri(instance_id)}"
@@ -2643,7 +2745,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2664,7 +2766,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2675,12 +2777,17 @@ defmodule AWS.Connect do
 
   We recommend using the
   [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html)
-  API. It provides more flexibility, features, and the ability to query longer
-  time ranges than `GetMetricData`. Use it to retrieve historical agent and
-  contact metrics for the last 3 months, at varying intervals. You can also use it
-  to build custom dashboards to measure historical queue and agent performance.
-  For example, you can track the number of incoming contacts for the last 7 days,
-  with data split by day, to see how contact volume changed per day of the week.
+  API. It
+  provides more flexibility, features, and the ability to query longer time ranges
+  than
+  `GetMetricData`. Use it to retrieve historical agent and contact metrics for the
+  last 3 months, at varying intervals. You can also use it to build custom
+  dashboards to measure
+  historical queue and agent performance. For example, you can track the number of
+  incoming
+  contacts for the last 7 days, with data split by day, to see how contact volume
+  changed per day
+  of the week.
   """
   def get_metric_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/historical/#{AWS.Util.encode_uri(instance_id)}"
@@ -2698,7 +2805,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2706,10 +2813,13 @@ defmodule AWS.Connect do
   Gets metric data from the specified Amazon Connect instance.
 
   `GetMetricDataV2` offers more features than
-  [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous version of this API. It has new metrics, offers filtering at a
-  metric level, and offers the ability to filter and group data by channels,
-  queues, routing profiles, agents, and agent hierarchy levels. It can retrieve
-  historical data for the last 3 months, at varying intervals.
+  [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous
+  version of this API. It has new metrics, offers filtering at a metric level, and
+  offers the
+  ability to filter and group data by channels, queues, routing profiles, agents,
+  and agent
+  hierarchy levels. It can retrieve historical data for the last 3 months, at
+  varying intervals.
 
   For a description of the historical metrics that are supported by
   `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
@@ -2732,7 +2842,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2748,7 +2858,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2777,7 +2887,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2791,15 +2901,16 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Imports a claimed phone number from an external service, such as Amazon
-  Pinpoint, into an Amazon Connect instance.
+  Pinpoint, into an
+  Amazon Connect instance.
 
-  You can call this API only in the same Amazon Web Services Region where the
-  Amazon Connect instance was created.
+  You can call this API only in the same Amazon Web Services Region
+  where the Amazon Connect instance was created.
   """
   def import_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/import"
@@ -2817,7 +2928,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2861,7 +2972,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2905,7 +3016,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2940,7 +3051,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2985,7 +3096,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3018,7 +3129,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3060,17 +3171,19 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about the flows for the specified Amazon Connect instance.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   For more information about flows, see
   [Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   def list_contact_flows(
         %Client{} = client,
@@ -3107,7 +3220,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3146,7 +3259,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3168,7 +3281,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3205,7 +3318,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3238,7 +3351,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3279,12 +3392,13 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about the hours of operation for the specified Amazon
-  Connect instance.
+  Connect
+  instance.
 
   For more information about hours of operation, see [Set the Hours of Operation for a
   Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html)
@@ -3317,7 +3431,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3352,14 +3466,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of storage configs for the identified instance and
-  resource type.
+  resource
+  type.
   """
   def list_instance_storage_configs(
         %Client{} = client,
@@ -3396,16 +3511,17 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Return a list of instances which are in active state, creation-in-progress
-  state, and failed state. Instances that aren't successfully created (they are in
-  a failed state) are returned only for 24 hours after the CreateInstance API was
-  invoked.
+  state, and failed
+  state. Instances that aren't successfully created (they are in a failed state)
+  are returned only
+  for 24 hours after the CreateInstance API was invoked.
   """
   def list_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/instance"
@@ -3428,12 +3544,13 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides summary information about the Amazon Web Services resource associations
-  for the specified Amazon Connect instance.
+  for the
+  specified Amazon Connect instance.
   """
   def list_integration_associations(
         %Client{} = client,
@@ -3478,14 +3595,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of all Lambda functions that display in the dropdown
-  options in the relevant flow blocks.
+  options in the
+  relevant flow blocks.
   """
   def list_lambda_functions(
         %Client{} = client,
@@ -3514,14 +3632,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of all the Amazon Lex V1 bots currently associated with
-  the instance. To return both Amazon Lex V1 and V2 bots, use the
+  the
+  instance. To return both Amazon Lex V1 and V2 bots, use the
   [ListBots](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html)
   API.
   """
@@ -3552,7 +3671,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3561,20 +3680,25 @@ defmodule AWS.Connect do
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator
+  Guide*.
 
-     We recommend using
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) to return phone number types. ListPhoneNumbers doesn't support number types
-  `UIFN`, `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it returns
-  numbers of those types, it incorrectly lists them as `TOLL_FREE` or `DID`.
+    
+  We recommend using
+  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) to
+  return phone number types. ListPhoneNumbers doesn't support number types `UIFN`,
+  `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it
+  returns numbers of those types, it incorrectly lists them as `TOLL_FREE` or
+  `DID`.
 
-     The phone number `Arn` value that is returned from each of the
-  items in the
+    
+  The phone number `Arn` value that is returned from each of the items in the
   [PhoneNumberSummaryList](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList)
-  cannot be used to tag phone number resources. It will fail with a
-  `ResourceNotFoundException`. Instead, use the
+  cannot be used to tag phone number resources. It will fail
+  with a `ResourceNotFoundException`. Instead, use the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
-  API. It returns the new phone number ARN that can be used to tag phone number
+  API.
+  It returns the new phone number ARN that can be used to tag phone number
   resources.
   """
   def list_phone_numbers(
@@ -3620,26 +3744,31 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists phone numbers claimed to your Amazon Connect instance or traffic
   distribution group.
 
-  If the provided `TargetArn` is a traffic distribution group, you can call this
-  API in both Amazon Web Services Regions associated with traffic distribution
-  group.
+  If the provided
+  `TargetArn` is a traffic distribution group, you can call this API in both
+  Amazon Web Services Regions
+  associated with traffic distribution group.
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator
+  Guide*.
 
-     When given an instance ARN, `ListPhoneNumbersV2` returns only the
-  phone numbers claimed to the instance.
+    
+  When given an instance ARN, `ListPhoneNumbersV2` returns only the phone
+  numbers claimed to the instance.
 
-     When given a traffic distribution group ARN `ListPhoneNumbersV2`
-  returns only the phone numbers claimed to the traffic distribution group.
+    
+  When given a traffic distribution group ARN `ListPhoneNumbersV2` returns only
+  the phone numbers
+  claimed to the traffic distribution group.
   """
   def list_phone_numbers_v2(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/list"
@@ -3657,7 +3786,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3691,7 +3820,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3725,7 +3854,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3763,16 +3892,18 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about the queues for the specified Amazon Connect instance.
 
-  If you do not specify a `QueueTypes` parameter, both standard and agent queues
-  are returned. This might cause an unexpected truncation of results if you have
-  more than 1000 agents and you limit the number of results of the API call in
-  code.
+  If you do not specify a `QueueTypes`
+  parameter, both standard and agent queues are returned. This might cause an
+  unexpected truncation
+  of results if you have more than 1000 agents and you limit the number of results
+  of the API call
+  in code.
 
   For more information about queues, see [Queues: Standard and Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
   in the *Amazon Connect Administrator Guide*.
@@ -3812,7 +3943,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3854,7 +3985,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3884,7 +4015,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3921,12 +4052,13 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides summary information about the routing profiles for the specified Amazon
-  Connect instance.
+  Connect
+  instance.
 
   For more information about routing profiles, see [Routing Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html)
   and [Create a Routing Profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
@@ -3959,7 +4091,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4008,7 +4140,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4043,7 +4175,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4079,7 +4211,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4115,7 +4247,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4123,7 +4255,8 @@ defmodule AWS.Connect do
   Amazon Connect instance.
 
   For more information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   def list_security_profiles(
         %Client{} = client,
@@ -4152,14 +4285,16 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags for the specified resource.
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator Guide*.
+  For sample policies that use tags, see [Amazon Connect Identity-Based Policy
+  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Amazon Connect Administrator
+  Guide*.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4168,7 +4303,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4217,7 +4352,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4252,7 +4387,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4292,7 +4427,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4328,15 +4463,17 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides summary information about the hierarchy groups for the specified Amazon
-  Connect instance.
+  Connect
+  instance.
 
   For more information about agent hierarchies, see [Set Up Agent Hierarchies](https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   def list_user_hierarchy_groups(
         %Client{} = client,
@@ -4365,7 +4502,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4401,7 +4538,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4435,12 +4572,13 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all the available versions for the specified Amazon Connect instance and
-  view identifier.
+  view
+  identifier.
 
   Results will be sorted from highest to lowest.
   """
@@ -4474,7 +4612,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4517,14 +4655,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Initiates silent monitoring of a contact.
 
-  The Contact Control Panel (CCP) of the user specified by *userId* will be set to
-  silent monitoring mode on the contact.
+  The Contact Control Panel (CCP) of the user
+  specified by *userId* will be set to silent monitoring mode on the
+  contact.
   """
   def monitor_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/monitor"
@@ -4542,7 +4681,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4565,14 +4704,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Changes the current status of a user or agent in Amazon Connect.
 
-  If the agent is currently handling a contact, this sets the agent's next status.
+  If the agent is
+  currently handling a contact, this sets the agent's next status.
 
   For more information, see [Agent status](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html)
   and [Set your next status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
@@ -4585,40 +4725,48 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Releases a phone number previously claimed to an Amazon Connect instance or
   traffic distribution group.
 
-  You can call this API only in the Amazon Web Services Region where the number
-  was claimed.
+  You
+  can call this API only in the Amazon Web Services Region where the number was
+  claimed.
 
   To release phone numbers from a traffic distribution group, use the
-  `ReleasePhoneNumber` API, not the Amazon Connect admin website.
+  `ReleasePhoneNumber` API, not the
+  Amazon Connect admin website.
 
   After releasing a phone number, the phone number enters into a cooldown period
-  of 30 days. It cannot be searched for or claimed again until the period has
-  ended. If you accidentally release a phone number, contact Amazon Web Services
-  Support.
+  of 30 days.
+  It cannot be searched for or claimed again until the period has ended. If you
+  accidentally
+  release a phone number, contact Amazon Web Services Support.
 
   If you plan to claim and release numbers frequently during a 30 day period,
   contact us for a service quota exception. Otherwise, it is possible you will be
-  blocked from claiming and releasing any more numbers until 30 days past the
-  oldest number released has expired.
+  blocked from
+  claiming and releasing any more numbers until 30 days past the oldest number
+  released has expired.
 
   By default you can claim and release up to 200% of your maximum number of active
   phone numbers during any 30 day period. If you claim and release phone numbers
-  using the UI or API during a rolling 30 day cycle that exceeds 200% of your
-  phone number service level quota, you will be blocked from claiming any more
-  numbers until 30 days past the oldest number released has expired.
+  using
+  the UI or API during a rolling 30 day cycle that exceeds 200% of your phone
+  number
+  service level quota, you will be blocked from claiming any more numbers until 30
+  days past the oldest number released has expired.
 
   For example, if you already have 99 claimed numbers and a service level quota of
-  99 phone numbers, and in any 30 day period you release 99, claim 99, and then
-  release 99, you will have exceeded the 200% limit. At that point you are blocked
-  from claiming any more numbers until you open an Amazon Web Services support
-  ticket.
+  99 phone numbers, and in any 30
+  day period you release 99, claim 99, and then release 99, you will have exceeded
+  the
+  200% limit. At that point you are blocked from claiming any more numbers until
+  you
+  open an Amazon Web Services support ticket.
   """
   def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -4641,18 +4789,20 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Replicates an Amazon Connect instance in the specified Amazon Web Services
-  Region and copies configuration information for Amazon Connect resources across
-  Amazon Web Services Regions.
+  Region and
+  copies configuration information for Amazon Connect resources across Amazon Web
+  Services Regions.
 
   For more information about replicating an Amazon Connect instance, see [Create a replica of your existing Amazon Connect
   instance](https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect
+  Administrator Guide*.
   """
   def replicate_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
@@ -4670,7 +4820,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4693,17 +4843,18 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   When a contact is being recorded, and the recording has been suspended using
   SuspendContactRecording, this API resumes recording whatever recording is
-  selected in the flow configuration: call, screen, or both.
+  selected in the flow
+  configuration: call, screen, or both.
 
-  If only call recording or only screen recording is enabled, then it would
-  resume.
+  If only call recording or only screen recording is enabled,
+  then it would resume.
 
   Voice and screen recordings are supported.
   """
@@ -4723,17 +4874,18 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Searches for available phone numbers that you can claim to your Amazon Connect
-  instance or traffic distribution group.
+  instance
+  or traffic distribution group.
 
   If the provided `TargetArn` is a traffic distribution group, you can call this
-  API in both Amazon Web Services Regions associated with the traffic distribution
-  group.
+  API in both
+  Amazon Web Services Regions associated with the traffic distribution group.
   """
   def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/search-available"
@@ -4751,7 +4903,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4774,7 +4926,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4798,7 +4950,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4821,7 +4973,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4844,7 +4996,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4867,7 +5019,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4890,7 +5042,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4913,7 +5065,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4937,7 +5089,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4961,7 +5113,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4986,7 +5138,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5010,25 +5162,30 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Processes chat integration events from Amazon Web Services or external
-  integrations to Amazon Connect.
+  integrations to
+  Amazon Connect.
 
   A chat integration event includes:
 
-    * SourceId, DestinationId, and Subtype: a set of identifiers,
-  uniquely representing a chat
+    *
+  SourceId, DestinationId, and Subtype: a set of identifiers, uniquely
+  representing a
+  chat
 
-    * ChatEvent: details of the chat action to perform such as sending a
-  message, event, or disconnecting from a chat
+    *
+  ChatEvent: details of the chat action to perform such as sending a message,
+  event, or
+  disconnecting from a chat
 
   When a chat integration event is sent with chat identifiers that do not map to
-  an active chat contact, a new chat contact is also created before handling chat
-  action.
+  an active
+  chat contact, a new chat contact is also created before handling chat action.
 
   Access to this API is currently restricted to Amazon Pinpoint for supporting SMS
   integration.
@@ -5049,37 +5206,43 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Initiates a flow to start a new chat for the customer.
 
-  Response of this API provides a token required to obtain credentials from the
+  Response of this API provides a token
+  required to obtain credentials from the
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Amazon Connect Participant Service.
 
   When a new chat contact is successfully created, clients must subscribe to the
-  participant’s connection for the created chat within 5 minutes. This is achieved
-  by invoking
+  participant’s
+  connection for the created chat within 5 minutes. This is achieved by invoking
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
   with WEBSOCKET and CONNECTION_CREDENTIALS.
 
   A 429 error occurs in the following situations:
 
-    * API rate limit is exceeded. API TPS throttling returns a
-  `TooManyRequests` exception.
+    *
+  API rate limit is exceeded. API TPS throttling returns a `TooManyRequests`
+  exception.
 
-    * The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  is exceeded. Active chat throttling returns a `LimitExceededException`.
+    *
+  The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  is exceeded. Active chat throttling returns a
+  `LimitExceededException`.
 
   If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
   account may not support the ability to configure custom chat durations. For more
-  information, contact Amazon Web Services Support.
+  information,
+  contact Amazon Web Services Support.
 
   For more information about chat, see
   [Chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat.html) in the
-  *Amazon Connect Administrator Guide*.
+  *Amazon Connect
+  Administrator Guide*.
   """
   def start_chat_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/chat"
@@ -5088,19 +5251,22 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts an empty evaluation in the specified Amazon Connect instance, using the
-  given evaluation form for the particular contact.
+  given
+  evaluation form for the particular contact.
 
-  The evaluation form version used for the contact evaluation corresponds to the
-  currently activated version. If no version is activated for the evaluation form,
-  the contact evaluation cannot be started.
+  The evaluation form version used for the contact
+  evaluation corresponds to the currently activated version. If no version is
+  activated for the
+  evaluation form, the contact evaluation cannot be started.
 
   Evaluations created through the public API do not contain answer values
-  suggested from automation.
+  suggested from
+  automation.
   """
   def start_contact_evaluation(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
@@ -5109,23 +5275,28 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts recording the contact:
 
-    * If the API is called *before* the agent joins the call, recording
+    *
+  If the API is called *before* the agent joins the call, recording
   starts when the agent joins the call.
 
-    * If the API is called *after* the agent joins the call, recording
-  starts at the time of the API call.
+    *
+  If the API is called *after* the agent joins the call, recording starts
+  at the time of the API call.
 
   StartContactRecording is a one-time action. For example, if you use
-  StopContactRecording to stop recording an ongoing call, you can't use
-  StartContactRecording to restart it. For scenarios where the recording has
-  started and you want to suspend and resume it, such as when collecting sensitive
-  information (for example, a credit card number), use SuspendContactRecording and
+  StopContactRecording to
+  stop recording an ongoing call, you can't use StartContactRecording to restart
+  it. For scenarios
+  where the recording has started and you want to suspend and resume it, such as
+  when collecting
+  sensitive information (for example, a credit card number), use
+  SuspendContactRecording and
   ResumeContactRecording.
 
   You can use this API to override the recording behavior configured in the [Set recording
@@ -5150,7 +5321,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5176,31 +5347,37 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Places an outbound call to a contact, and then initiates the flow.
 
-  It performs the actions in the flow that's specified (in `ContactFlowId`).
+  It performs the actions
+  in the flow that's specified (in `ContactFlowId`).
 
   Agents do not initiate the outbound API, which means that they do not dial the
-  contact. If the flow places an outbound call to a contact, and then puts the
-  contact in queue, the call is then routed to the agent, like any other inbound
-  case.
+  contact. If
+  the flow places an outbound call to a contact, and then puts the contact in
+  queue, the call is
+  then routed to the agent, like any other inbound case.
 
   There is a 60-second dialing timeout for this operation. If the call is not
-  connected after 60 seconds, it fails.
+  connected after
+  60 seconds, it fails.
 
   UK numbers with a 447 prefix are not allowed by default. Before you can dial
-  these UK mobile numbers, you must submit a service quota increase request. For
-  more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator Guide*.
+  these UK
+  mobile numbers, you must submit a service quota increase request. For more
+  information, see
+  [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the *Amazon Connect Administrator
+  Guide*.
 
   Campaign calls are not allowed by default. Before you can make a call with
-  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase request to
-  the quota [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
+  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase
+  request to the quota [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
   """
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-voice"
@@ -5209,51 +5386,68 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Initiates a flow to start a new task contact.
 
-  For more information about task contacts, see [Concepts: Tasks in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
+  For more information about task contacts, see
+  [Concepts: Tasks in Amazon
+  Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
   the *Amazon Connect Administrator Guide*.
 
-  When using `PreviousContactId` and `RelatedContactId` input parameters, note the
-  following:
+  When using `PreviousContactId` and `RelatedContactId` input
+  parameters, note the following:
 
-    * `PreviousContactId`
+    *
 
-      * Any updates to user-defined task contact attributes on
-  any contact linked through the same `PreviousContactId` will affect every
-  contact in the chain.
+  `PreviousContactId`
 
-      * There can be a maximum of 12 linked task contacts in a
-  chain. That is, 12 task contacts can be created that share the same
-  `PreviousContactId`.
+      *
+  Any updates to user-defined task contact attributes on any contact linked
+  through the
+  same `PreviousContactId` will affect every contact in the chain.
 
-    * `RelatedContactId`
+      *
+  There can be a maximum of 12 linked task contacts in a chain. That is, 12 task
+  contacts
+  can be created that share the same `PreviousContactId`.
 
-      * Copies contact attributes from the related task
-  contact to the new contact.
+    *
 
-      * Any update on attributes in a new task contact does
-  not update attributes on previous contact.
+  `RelatedContactId`
 
-      * There’s no limit on the number of task contacts that
-  can be created that use the same `RelatedContactId`.
+      *
+  Copies contact attributes from the related task contact to the new contact.
+
+      *
+  Any update on attributes in a new task contact does not update attributes on
+  previous
+  contact.
+
+      *
+  There’s no limit on the number of task contacts that can be created that use the
+  same
+  `RelatedContactId`.
 
   In addition, when calling StartTaskContact include only one of these parameters:
-  `ContactFlowID`, `QuickConnectID`, or `TaskTemplateID`. Only one parameter is
-  required as long as the task template has a flow configured to run it. If more
+  `ContactFlowID`, `QuickConnectID`, or `TaskTemplateID`. Only
+  one parameter is required as long as the task template has a flow configured to
+  run it. If more
   than one parameter is specified, or only the `TaskTemplateID` is specified but
-  it does not have a flow configured, the request returns an error because Amazon
-  Connect cannot identify the unique flow to run when the task is created.
+  it does
+  not have a flow configured, the request returns an error because Amazon Connect
+  cannot
+  identify the unique flow to run when the task is created.
 
   A `ServiceQuotaExceededException` occurs when the number of open tasks exceeds
   the active tasks quota or there are already 12 tasks referencing the same
   `PreviousContactId`. For more information about service quotas for task
-  contacts, see [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator Guide*.
+  contacts, see
+  [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the *Amazon Connect Administrator
+  Guide*.
   """
   def start_task_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/task"
@@ -5262,14 +5456,15 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Places an inbound in-app, web, or video call to a contact, and then initiates
   the flow.
 
-  It performs the actions in the flow that are specified (in ContactFlowId) and
+  It
+  performs the actions in the flow that are specified (in ContactFlowId) and
   present in the Amazon Connect instance (specified as InstanceId).
   """
   def start_web_r_t_c_contact(%Client{} = client, input, options \\ []) do
@@ -5279,23 +5474,27 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Ends the specified contact.
 
-  This call does not work for voice contacts that use the following initiation
-  methods:
+  This call does not work for voice contacts that use the
+  following initiation methods:
 
-    * DISCONNECT
+    *
+  DISCONNECT
 
-    * TRANSFER
+    *
+  TRANSFER
 
-    * QUEUE_TRANSFER
+    *
+  QUEUE_TRANSFER
 
   Chat and task contacts, however, can be terminated in any state, regardless of
-  initiation method.
+  initiation
+  method.
   """
   def stop_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop"
@@ -5313,17 +5512,20 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Stops recording a call when a contact is being recorded.
 
-  StopContactRecording is a one-time action. If you use StopContactRecording to
-  stop recording an ongoing call, you can't use StartContactRecording to restart
-  it. For scenarios where the recording has started and you want to suspend it for
-  sensitive information (for example, to collect a credit card number), and then
+  StopContactRecording is a one-time
+  action. If you use StopContactRecording to stop recording an ongoing call, you
+  can't use
+  StartContactRecording to restart it. For scenarios where the recording has
+  started and you want
+  to suspend it for sensitive information (for example, to collect a credit card
+  number), and then
   restart it, use SuspendContactRecording and ResumeContactRecording.
 
   Only voice recordings are supported at this time.
@@ -5344,14 +5546,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Ends message streaming on a specified contact.
 
-  To restart message streaming on that contact, call the
+  To restart message streaming on that
+  contact, call the
   [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html)
   API.
   """
@@ -5371,20 +5574,23 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Submits a contact evaluation in the specified Amazon Connect instance.
 
-  Answers included in the request are merged with existing answers for the given
-  evaluation. If no answers or notes are passed, the evaluation is submitted with
-  the existing answers and notes. You can delete an answer or note by passing an
-  empty object (`{}`) to the question identifier.
+  Answers included
+  in the request are merged with existing answers for the given evaluation. If no
+  answers or notes
+  are passed, the evaluation is submitted with the existing answers and notes. You
+  can delete an
+  answer or note by passing an empty object (`{}`) to the question identifier.
 
   If a contact evaluation is already in submitted state, this operation will
-  trigger a resubmission.
+  trigger a
+  resubmission.
   """
   def submit_contact_evaluation(
         %Client{} = client,
@@ -5410,21 +5616,25 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   When a contact is being recorded, this API suspends recording whatever is
-  selected in the flow configuration: call, screen, or both.
+  selected in the
+  flow configuration: call, screen, or both.
 
-  If only call recording or only screen recording is enabled, then it would be
-  suspended. For example, you might suspend the screen recording while collecting
-  sensitive information, such as a credit card number. Then use
-  ResumeContactRecording to restart recording the screen.
+  If only call recording or only screen recording is
+  enabled, then it would be suspended. For example, you might suspend the screen
+  recording while
+  collecting sensitive information, such as a credit card number. Then use
+  ResumeContactRecording
+  to restart recording the screen.
 
   The period of time that the recording is suspended is filled with silence in the
-  final recording.
+  final
+  recording.
 
   Voice and screen recordings are supported.
   """
@@ -5444,14 +5654,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds the specified tags to the contact resource.
 
-  For more information about this API is used, see [Set up granular billing for a detailed view of your Amazon Connect
+  For more information about this API is
+  used, see [Set up granular billing for a detailed view of your Amazon Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
   def tag_contact(%Client{} = client, input, options \\ []) do
@@ -5470,7 +5681,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5478,12 +5689,15 @@ defmodule AWS.Connect do
   Adds the specified tags to the specified resource.
 
   Some of the supported resource types are agents, routing profiles, queues, quick
-  connects, contact flows, agent statuses, hours of operation, phone numbers,
-  security profiles, and task templates. For a complete list, see [Tagging resources in Amazon
-  Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+  connects,
+  contact flows, agent statuses, hours of operation, phone numbers, security
+  profiles, and task
+  templates. For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator Guide*.
+  For sample policies that use tags, see [Amazon Connect Identity-Based Policy
+  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Amazon Connect Administrator
+  Guide*.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5501,31 +5715,40 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Transfers contacts from one agent or queue to another agent or queue at any
-  point after a contact is created.
+  point after a
+  contact is created.
 
   You can transfer a contact to another queue by providing the flow which
   orchestrates the contact to the destination queue. This gives you more control
-  over contact handling and helps you adhere to the service level agreement (SLA)
-  guaranteed to your customers.
+  over contact
+  handling and helps you adhere to the service level agreement (SLA) guaranteed to
+  your
+  customers.
 
   Note the following requirements:
 
-    * Transfer is supported for only `TASK` contacts.
+    *
+  Transfer is supported for only `TASK` contacts.
 
-    * Do not use both `QueueId` and `UserId` in the same call.
+    *
+  Do not use both `QueueId` and `UserId` in the same call.
 
-    * The following flow types are supported: Inbound flow, Transfer to
-  agent flow, and Transfer to queue flow.
+    *
+  The following flow types are supported: Inbound flow, Transfer to agent flow,
+  and Transfer
+  to queue flow.
 
-    * The `TransferContact` API can be called only on active contacts.
+    *
+  The `TransferContact` API can be called only on active contacts.
 
-    * A contact cannot be transferred more than 11 times.
+    *
+  A contact cannot be transferred more than 11 times.
   """
   def transfer_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/transfer"
@@ -5543,14 +5766,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes the specified tags from the contact resource.
 
-  For more information about this API is used, see [Set up granular billing for a detailed view of your Amazon Connect
+  For more information about this API is
+  used, see [Set up granular billing for a detailed view of your Amazon Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
   def untag_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
@@ -5576,7 +5800,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5604,7 +5828,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5631,7 +5855,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5639,10 +5863,12 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Adds or updates user-defined contact information associated with the specified
-  contact. At least one field to be updated must be present in the request.
+  contact. At
+  least one field to be updated must be present in the request.
 
   You can add or update user-defined contact information for both ongoing and
-  completed contacts.
+  completed
+  contacts.
   """
   def update_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
@@ -5660,26 +5886,34 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Creates or updates user-defined contact attributes associated with the specified
-  contact.
+  Creates or updates
+  user-defined contact attributes
+  associated with the specified contact.
 
   You can create or update user-defined attributes for both ongoing and completed
-  contacts. For example, while the call is active, you can update the customer's
-  name or the reason the customer called. You can add notes about steps that the
-  agent took during the call that display to the next agent that takes the call.
-  You can also update attributes for a contact using data from your CRM
-  application and save the data with the contact in Amazon Connect. You could also
-  flag calls for additional analysis, such as legal review or to identify abusive
+  contacts.
+  For example, while the call is active, you can update the customer's name or the
+  reason the
+  customer called. You can add notes about steps that the agent took during the
+  call that display
+  to the next agent that takes the call. You can also update attributes for a
+  contact using data
+  from your CRM application and save the data with the contact in Amazon Connect.
+  You could
+  also flag calls for additional analysis, such as legal review or to identify
+  abusive
   callers.
 
   Contact attributes are available in Amazon Connect for 24 months, and are then
-  deleted. For information about contact record retention and the maximum size of
-  the contact record attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
+  deleted.
+  For information about contact record retention and the maximum size of the
+  contact record
+  attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
   in the *Amazon Connect Administrator Guide*.
   """
   def update_contact_attributes(%Client{} = client, input, options \\ []) do
@@ -5698,7 +5932,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5706,9 +5940,12 @@ defmodule AWS.Connect do
   Updates details about a contact evaluation in the specified Amazon Connect
   instance.
 
-  A contact evaluation must be in draft state. Answers included in the request are
-  merged with existing answers for the given evaluation. An answer or note can be
-  deleted by passing an empty object (`{}`) to the question identifier.
+  A
+  contact evaluation must be in draft state. Answers included in the request are
+  merged with
+  existing answers for the given evaluation. An answer or note can be deleted by
+  passing an empty
+  object (`{}`) to the question identifier.
   """
   def update_contact_evaluation(
         %Client{} = client,
@@ -5734,14 +5971,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the specified flow.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def update_contact_flow_content(
         %Client{} = client,
@@ -5767,7 +6005,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5798,7 +6036,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5829,7 +6067,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5860,14 +6098,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   The name of the flow.
 
-  You can also create and update flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+  You can also create and update flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   def update_contact_flow_name(
         %Client{} = client,
@@ -5893,7 +6132,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5901,15 +6140,20 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Updates routing priority and age on the contact (**QueuePriority** and
-  **QueueTimeAdjustmentInSeconds**). These properties can be used to change a
-  customer's position in the queue. For example, you can move a contact to the
-  back of the queue by setting a lower routing priority relative to other contacts
-  in queue; or you can move a contact to the front of the queue by increasing the
-  routing age which will make the contact look artificially older and therefore
-  higher up in the first-in-first-out routing order. Note that adjusting the
-  routing age of a contact affects only its position in queue, and not its actual
-  queue wait time as reported through metrics. These properties can also be
-  updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
+  **QueueTimeAdjustmentInSeconds**).
+  These properties can be used to change a customer's position in the queue. For
+  example, you can
+  move a contact to the back of the queue by setting a lower routing priority
+  relative to other
+  contacts in queue; or you can move a contact to the front of the queue by
+  increasing the routing
+  age which will make the contact look artificially older and therefore higher up
+  in the
+  first-in-first-out routing order. Note that adjusting the routing age of a
+  contact affects only
+  its position in queue, and not its actual queue wait time as reported through
+  metrics. These
+  properties can also be updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
   """
   def update_contact_routing_data(
         %Client{} = client,
@@ -5935,7 +6179,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5958,19 +6202,21 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates details about a specific evaluation form version in the specified Amazon
-  Connect instance.
+  Connect
+  instance.
 
   Question and section identifiers cannot be duplicated within the same evaluation
   form.
 
   This operation does not support partial updates. Instead it does a full update
-  of evaluation form content.
+  of evaluation
+  form content.
   """
   def update_evaluation_form(
         %Client{} = client,
@@ -5987,7 +6233,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -6019,7 +6265,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6052,7 +6298,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6090,26 +6336,31 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates timeouts for when human chat participants are to be considered idle, and
-  when agents are automatically disconnected from a chat due to idleness.
+  when agents
+  are automatically disconnected from a chat due to idleness.
 
   You can set four timers:
 
-    * Customer idle timeout
+    *
+  Customer idle timeout
 
-    * Customer auto-disconnect timeout
+    *
+  Customer auto-disconnect timeout
 
-    * Agent idle timeout
+    *
+  Agent idle timeout
 
-    * Agent auto-disconnect timeout
+    *
+  Agent auto-disconnect timeout
 
-  For more information about how chat timeouts work, see [Set up chat timeouts for human
-  participants](https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html).
+  For more information about how chat timeouts work, see
+  [Set up chat timeouts for human participants](https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html).
   """
   def update_participant_role_config(
         %Client{} = client,
@@ -6126,22 +6377,26 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates your claimed phone number from its current Amazon Connect instance or
-  traffic distribution group to another Amazon Connect instance or traffic
-  distribution group in the same Amazon Web Services Region.
+  traffic distribution group to
+  another Amazon Connect instance or traffic distribution group in the same Amazon
+  Web Services Region.
 
   After using this API, you must verify that the phone number is attached to the
-  correct flow in the target instance or traffic distribution group. You need to
-  do this because the API switches only the phone number to a new instance or
-  traffic distribution group. It doesn't migrate the flow configuration of the
-  phone number, too.
+  correct flow
+  in the target instance or traffic distribution group. You need to do this
+  because the API
+  switches only the phone number to a new instance or traffic distribution group.
+  It doesn't
+  migrate the flow configuration of the phone number, too.
 
   You can call
-  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API to verify the status of a previous
+  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API
+  to verify the status of a previous
   [UpdatePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html)
   operation.
   """
@@ -6152,7 +6407,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -6169,7 +6424,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -6193,7 +6448,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6216,7 +6471,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6249,7 +6504,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6257,7 +6512,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Updates the maximum number of contacts allowed in a queue before it is
-  considered full.
+  considered
+  full.
   """
   def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path =
@@ -6277,7 +6533,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6303,7 +6559,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6311,26 +6567,34 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Updates the outbound caller ID name, number, and outbound whisper flow for a
-  specified queue.
+  specified
+  queue.
 
-     If the phone number is claimed to a traffic distribution group that
-  was created in the same Region as the Amazon Connect instance where you are
-  calling this API, then you can use a full phone number ARN or a UUID for
-  `OutboundCallerIdNumberId`. However, if the phone number is claimed to a traffic
-  distribution group that is in one Region, and you are calling this API from an
-  instance in another Amazon Web Services Region that is associated with the
-  traffic distribution group, you must provide a full phone number ARN. If a UUID
-  is provided in this scenario, you will receive a `ResourceNotFoundException`.
+    
+  If the phone number is claimed to a traffic distribution group that was created
+  in the
+  same Region as the Amazon Connect instance where you are calling this API, then
+  you can use a
+  full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the
+  phone number is claimed
+  to a traffic distribution group that is in one Region, and you are calling this
+  API from an instance in another Amazon Web Services Region that is associated
+  with the traffic distribution group, you must provide a full phone number ARN.
+  If a
+  UUID is provided in this scenario, you will receive a
+  `ResourceNotFoundException`.
 
-     Only use the phone number ARN format that doesn't contain
-  `instance` in the path, for example,
-  `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN
-  format that is returned when you call the
+    
+  Only use the phone number ARN format that doesn't contain `instance` in the
+  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
+  This
+  is the same ARN format that is returned when you call the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 
-     If you plan to use IAM policies to allow/deny access to this API
-  for phone number resources claimed to a traffic distribution group, see [Allow
-  or Deny queue API actions for phone numbers in a replica
+    
+  If you plan to use IAM policies to allow/deny access to this API for phone
+  number resources claimed to a traffic distribution group, see [Allow or Deny
+  queue API actions for phone numbers in a replica
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
   def update_queue_outbound_caller_config(
@@ -6357,7 +6621,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6384,7 +6648,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6415,7 +6679,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6449,13 +6713,14 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Whether agents with this routing profile will have their routing order
-  calculated based on *time since their last inbound contact* or *longest idle
+  calculated based on
+  *time since their last inbound contact* or *longest idle
   time*.
   """
   def update_routing_profile_agent_availability_timer(
@@ -6482,13 +6747,14 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the channels that agents can handle in the Contact Control Panel (CCP)
-  for a routing profile.
+  for a routing
+  profile.
   """
   def update_routing_profile_concurrency(
         %Client{} = client,
@@ -6514,7 +6780,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6545,15 +6811,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the name and description of a routing profile.
 
-  The request accepts the following data in JSON format. At least `Name` or
-  `Description` must be provided.
+  The request accepts the following data in JSON format.
+  At least `Name` or `Description` must be provided.
   """
   def update_routing_profile_name(
         %Client{} = client,
@@ -6579,7 +6845,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6610,7 +6876,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6618,7 +6884,8 @@ defmodule AWS.Connect do
   Updates a rule for the specified Amazon Connect instance.
 
   Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
-  to code conditions for the rule.
+  to
+  code conditions for the rule.
   """
   def update_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
@@ -6627,7 +6894,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -6657,7 +6924,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6666,7 +6933,8 @@ defmodule AWS.Connect do
   instance.
 
   This operation does not support partial updates. Instead it does a full update
-  of template content.
+  of template
+  content.
   """
   def update_task_template(
         %Client{} = client,
@@ -6692,21 +6960,23 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the traffic distribution for a given traffic distribution group.
 
-  The `SignInConfig` distribution is available only on a default
-  `TrafficDistributionGroup` (see the `IsDefault` parameter in the
-  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html) data type). If you call `UpdateTrafficDistribution` with a modified
-  `SignInConfig` and a non-default `TrafficDistributionGroup`, an
-  `InvalidRequestException` is returned.
+  The `SignInConfig` distribution is available only on a
+  default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
+  [TrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html)  data type). If you call
+  `UpdateTrafficDistribution` with a modified `SignInConfig` and a non-default
+  `TrafficDistributionGroup`,
+  an `InvalidRequestException` is returned.
 
   For more information about updating a traffic distribution group, see [Update
-  telephony traffic distribution across Amazon Web Services Regions
+  telephony
+  traffic distribution across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -6717,7 +6987,7 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -6741,7 +7011,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6772,7 +7042,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6796,7 +7066,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6805,11 +7075,15 @@ defmodule AWS.Connect do
 
   We strongly recommend limiting who has the ability to invoke
   `UpdateUserIdentityInfo`. Someone with that ability can change the login
-  credentials of other users by changing their email address. This poses a
-  security risk to your organization. They can change the email address of a user
-  to the attacker's email address, and then reset the password through email. For
-  more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
-  in the *Amazon Connect Administrator Guide*.
+  credentials
+  of other users by changing their email address. This poses a security risk to
+  your organization.
+  They can change the email address of a user to the attacker's email address, and
+  then reset the
+  password through email. For more information, see [Best Practices for Security
+  Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
+  in the *Amazon Connect Administrator
+  Guide*.
   """
   def update_user_identity_info(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -6829,7 +7103,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6854,7 +7128,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6879,7 +7153,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6904,7 +7178,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6935,18 +7209,19 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the view content of the given view identifier in the specified Amazon
-  Connect instance.
+  Connect
+  instance.
 
-  It performs content validation if `Status` is set to `SAVED` and performs full
-  content validation if `Status` is `PUBLISHED`. Note that the `$SAVED` alias'
-  content will always be updated, but the `$LATEST` alias' content will only be
-  updated if `Status` is `PUBLISHED`.
+  It performs content validation if `Status` is set to `SAVED` and
+  performs full content validation if `Status` is `PUBLISHED`. Note that the
+  `$SAVED` alias' content will always be updated, but the `$LATEST` alias'
+  content will only be updated if `Status` is `PUBLISHED`.
   """
   def update_view_content(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
@@ -6964,14 +7239,15 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the view metadata.
 
-  Note that either `Name` or `Description` must be provided.
+  Note that either `Name` or `Description`
+  must be provided.
   """
   def update_view_metadata(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path =
@@ -6991,7 +7267,7 @@ defmodule AWS.Connect do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

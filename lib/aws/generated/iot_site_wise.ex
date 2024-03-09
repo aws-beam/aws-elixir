@@ -8,7 +8,8 @@ defmodule AWS.IoTSiteWise do
   IoT SiteWise is an Amazon Web Services service that connects [Industrial Internet of Things
   (IIoT)](https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications)
   devices to the power of the Amazon Web Services Cloud. For more information, see
-  the [IoT SiteWise User Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
+  the
+  [IoT SiteWise User Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
   information about IoT SiteWise quotas, see
   [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html)
   in the *IoT SiteWise User Guide*.
@@ -19,7 +20,6 @@ defmodule AWS.IoTSiteWise do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-12-02",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -35,10 +35,12 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Associates a child asset with the given parent asset through a hierarchy defined
-  in the parent asset's model.
+  in the
+  parent asset's model.
 
   For more information, see [Associating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html)
-  in the *IoT SiteWise User Guide*.
+  in the
+  *IoT SiteWise User Guide*.
   """
   def associate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/associate"
@@ -56,7 +58,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -64,7 +66,7 @@ defmodule AWS.IoTSiteWise do
   Associates a time series (data stream) with an asset property.
   """
   def associate_time_series_to_asset_property(%Client{} = client, input, options \\ []) do
-    url_path = "/timeseries/associate/"
+    url_path = "/timeseries/associate"
     headers = []
 
     {query_params, input} =
@@ -86,7 +88,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -138,10 +140,12 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Gets aggregated values (for example, average, minimum, and maximum) for one or
-  more asset properties.
+  more asset
+  properties.
 
   For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
-  in the *IoT SiteWise User Guide*.
+  in the
+  *IoT SiteWise User Guide*.
   """
   def batch_get_asset_property_aggregates(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/aggregates"
@@ -159,14 +163,15 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Gets the current value for one or more asset properties.
 
-  For more information, see [Querying current values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
+  For more information, see [Querying current
+  values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
   in the *IoT SiteWise User Guide*.
   """
   def batch_get_asset_property_value(%Client{} = client, input, options \\ []) do
@@ -185,14 +190,15 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Gets the historical values for one or more asset properties.
 
-  For more information, see [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
+  For more information, see
+  [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
   in the *IoT SiteWise User Guide*.
   """
   def batch_get_asset_property_value_history(%Client{} = client, input, options \\ []) do
@@ -211,38 +217,46 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Sends a list of asset property values to IoT SiteWise.
 
-  Each value is a timestamp-quality-value (TQV) data point. For more information,
-  see [Ingesting data using the API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
-  in the *IoT SiteWise User Guide*.
+  Each value is a timestamp-quality-value
+  (TQV) data point. For more information, see [Ingesting data using the API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
+  in the
+  *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
-    * The `assetId` and `propertyId` of an asset property.
+    *
+  The `assetId` and `propertyId` of an asset property.
 
-    * A `propertyAlias`, which is a data stream alias (for example,
+    *
+  A `propertyAlias`, which is a data stream alias (for example,
   `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
   alias, see
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html). 
 
   With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a
-  timestamp of no more than 7 days in the past and no more than 10 minutes in the
-  future. IoT SiteWise rejects timestamps outside of the inclusive range of [-7
-  days, +10 minutes] and returns a `TimestampOutOfRangeException` error.
+  timestamp of no more
+  than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise
+  rejects timestamps
+  outside of the inclusive range of [-7 days, +10 minutes] and returns a
+  `TimestampOutOfRangeException` error.
 
   For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps
-  unless the newer TQV has a different quality. For example, if you store a TQV
-  `{T1, GOOD, V1}`, then storing `{T1, GOOD, V2}` replaces the existing TQV.
+  unless the newer
+  TQV has a different quality. For example, if you store a TQV `{T1, GOOD, V1}`,
+  then storing `{T1, GOOD, V2}` replaces the existing TQV.
 
   IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry
-  individually. For more information, see [BatchPutAssetPropertyValue authorization](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action)
-  in the *IoT SiteWise User Guide*.
+  individually.
+  For more information, see [BatchPutAssetPropertyValue authorization](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action)
+  in the
+  *IoT SiteWise User Guide*.
   """
   def batch_put_asset_property_value(%Client{} = client, input, options \\ []) do
     url_path = "/properties"
@@ -260,14 +274,15 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an access policy that grants the specified identity (IAM Identity Center
-  user, IAM Identity Center group, or IAM user) access to the specified IoT
-  SiteWise Monitor portal or project resource.
+  user, IAM Identity Center group, or
+  IAM user) access to the specified IoT SiteWise Monitor portal or project
+  resource.
   """
   def create_access_policy(%Client{} = client, input, options \\ []) do
     url_path = "/access-policies"
@@ -293,7 +308,8 @@ defmodule AWS.IoTSiteWise do
   Creates an asset from an existing asset model.
 
   For more information, see [Creating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html)
-  in the *IoT SiteWise User Guide*.
+  in the
+  *IoT SiteWise User Guide*.
   """
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
@@ -318,20 +334,27 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates an asset model from specified property and hierarchy definitions.
 
-  You create assets from asset models. With asset models, you can easily create
-  assets of the same type that have standardized definitions. Each asset created
-  from a model inherits the asset model's property and hierarchy definitions. For
-  more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
-  in the *IoT SiteWise User Guide*.
+  You create
+  assets from asset models. With asset models, you can easily create assets of the
+  same type
+  that have standardized definitions. Each asset created from a model inherits the
+  asset model's
+  property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
+  in the
+  *IoT SiteWise User Guide*.
 
   You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL`.
 
-    * **ASSET_MODEL** – (default) An asset model that you can use to
-  create assets. Can't be included as a component in another asset model.
+    *
 
-    * **COMPONENT_MODEL** – A reusable component that you can include in
-  the composite models of other asset models. You can't create assets directly
-  from this type of asset model.
+  **ASSET_MODEL** – (default) An asset model that you can use to create assets.
+  Can't be included as a component in another asset model.
+
+    *
+
+  **COMPONENT_MODEL** – A reusable component that you can include in the composite
+  models of other asset models. You can't create assets directly from this type of
+  asset model.
   """
   def create_asset_model(%Client{} = client, input, options \\ []) do
     url_path = "/asset-models"
@@ -357,20 +380,24 @@ defmodule AWS.IoTSiteWise do
   Creates a custom composite model from specified property and hierarchy
   definitions.
 
-  There are two types of custom composite models, `inline` and
-  `component-model-based`.
+  There are two types of custom composite models,
+  `inline` and `component-model-based`.
 
   Use component-model-based custom composite models to define standard, reusable
-  components. A component-model-based custom composite model consists of a name, a
-  description, and the ID of the component model it references. A
+  components. A component-model-based custom composite model consists of a name,
+  a description, and the ID of the component model it references. A
   component-model-based custom composite model has no properties of its own; its
-  referenced component model provides its associated properties to any created
-  assets. For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
-  in the *IoT SiteWise User Guide*.
+  referenced
+  component model provides its associated properties to any created assets. For
+  more information, see
+  [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  in the
+  *IoT SiteWise User Guide*.
 
   Use inline custom composite models to organize the properties of an asset model.
   The properties of inline custom composite models are local to the asset model
-  where they are included and can't be used to create multiple assets.
+  where they are
+  included and can't be used to create multiple assets.
 
   To create a component-model-based model, specify the `composedAssetModelId` of
   an existing asset model with `assetModelType` of `COMPONENT_MODEL`.
@@ -401,16 +428,18 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Defines a job to ingest data to IoT SiteWise from Amazon S3.
 
-  For more information, see [Create a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
+  For more information, see [Create a bulk import job
+  (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
 
   Before you create a bulk import job, you must enable IoT SiteWise warm tier or
-  IoT SiteWise cold tier. For more information about how to configure storage
-  settings, see
+  IoT SiteWise cold tier.
+  For more information about how to configure storage settings, see
   [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
 
   Bulk import is designed to store historical data to IoT SiteWise. It does not
-  trigger computations or notifications on IoT SiteWise warm or cold tier storage.
+  trigger computations or notifications on
+  IoT SiteWise warm or cold tier storage.
   """
   def create_bulk_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -457,10 +486,12 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a gateway, which is a virtual or edge device that delivers industrial
-  data streams from local servers to IoT SiteWise.
+  data streams
+  from local servers to IoT SiteWise.
 
   For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html)
-  in the *IoT SiteWise User Guide*.
+  in the
+  *IoT SiteWise User Guide*.
   """
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/20200301/gateways"
@@ -485,11 +516,12 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates a portal, which can contain projects and dashboards.
 
-  IoT SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal
-  users and manage user permissions.
+  IoT SiteWise Monitor uses IAM Identity Center or IAM
+  to authenticate portal users and manage user permissions.
 
   Before you can sign in to a new portal, you must add at least one identity to
-  that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins)
+  that
+  portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins)
   in the *IoT SiteWise User Guide*.
   """
   def create_portal(%Client{} = client, input, options \\ []) do
@@ -540,9 +572,11 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes an access policy that grants the specified identity access to the
-  specified IoT SiteWise Monitor resource.
+  specified
+  IoT SiteWise Monitor resource.
 
-  You can use this operation to revoke access to an IoT SiteWise Monitor resource.
+  You can use this operation to revoke access to an IoT SiteWise Monitor
+  resource.
   """
   def delete_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
@@ -607,12 +641,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes an asset model.
 
-  This action can't be undone. You must delete all assets created from an asset
-  model before you can delete the model. Also, you can't delete an asset model if
+  This action can't be undone. You must delete all assets created
+  from an asset model before you can delete the model. Also, you can't delete an
+  asset model if
   a parent asset model exists that contains a property formula expression that
-  depends on the asset model that you want to delete. For more information, see
-  [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
+  depends on the
+  asset model that you want to delete. For more information, see [Deleting assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
+  in the
+  *IoT SiteWise User Guide*.
   """
   def delete_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
@@ -642,12 +679,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a composite model.
 
-  This action can't be undone. You must delete all assets created from a composite
-  model before you can delete the model. Also, you can't delete a composite model
-  if a parent asset model exists that contains a property formula expression that
-  depends on the asset model that you want to delete. For more information, see
-  [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
+  This action can't be undone. You must delete all assets created
+  from a composite model before you can delete the model. Also, you can't delete a
+  composite model if
+  a parent asset model exists that contains a property formula expression that
+  depends on the
+  asset model that you want to delete. For more information, see [Deleting assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
+  in the
+  *IoT SiteWise User Guide*.
   """
   def delete_asset_model_composite_model(
         %Client{} = client,
@@ -713,8 +753,8 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a gateway from IoT SiteWise.
 
-  When you delete a gateway, some of the gateway's files remain in your gateway's
-  file system.
+  When you delete a gateway, some of the gateway's files remain
+  in your gateway's file system.
   """
   def delete_gateway(%Client{} = client, gateway_id, input, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
@@ -732,7 +772,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -795,25 +835,29 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a time series (data stream).
 
-  If you delete a time series that's associated with an asset property, the asset
-  property still exists, but the time series will no longer be associated with
-  this asset property.
+  If you delete a time series that's associated with an
+  asset property, the asset property still exists, but the time series will no
+  longer be
+  associated with this asset property.
 
   To identify a time series, do one of the following:
 
-    * If the time series isn't associated with an asset property,
+    *
+  If the time series isn't associated with an asset property,
   specify the `alias` of the time series.
 
-    * If the time series is associated with an asset property, specify
-  one of the following:
+    *
+  If the time series is associated with an asset property,
+  specify one of the following:
 
-      * The `alias` of the time series.
+      *
+  The `alias` of the time series.
 
-      * The `assetId` and `propertyId` that identifies the
-  asset property.
+      *
+  The `assetId` and `propertyId` that identifies the asset property.
   """
   def delete_time_series(%Client{} = client, input, options \\ []) do
-    url_path = "/timeseries/delete/"
+    url_path = "/timeseries/delete"
     headers = []
 
     {query_params, input} =
@@ -835,13 +879,14 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Describes an access policy, which specifies an identity's access to an IoT
-  SiteWise Monitor portal or project.
+  SiteWise Monitor portal or
+  project.
   """
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
@@ -863,7 +908,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -883,7 +928,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -908,7 +953,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -933,7 +978,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -957,19 +1002,21 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about an asset property.
 
   When you call this operation for an attribute property, this response includes
-  the default attribute value that you define in the asset model. If you update
-  the default value in the model, this operation's response includes the new
-  default value.
+  the
+  default attribute value that you define in the asset model. If you update the
+  default value
+  in the model, this operation's response includes the new default value.
 
   This operation doesn't return the value of the asset property. To get the value
-  of an asset property, use
+  of an
+  asset property, use
   [GetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html).
   """
   def describe_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
@@ -981,13 +1028,14 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a bulk import job request.
 
-  For more information, see [Describe a bulk import job (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
+  For more information, see [Describe a bulk import job
+  (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
   """
   def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
@@ -997,7 +1045,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1015,10 +1063,12 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves information about the default encryption configuration for the Amazon
-  Web Services account in the default or specified Region.
+  Web Services account in
+  the default or specified Region.
 
   For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in the *IoT SiteWise User Guide*.
+  in the
+  *IoT SiteWise User Guide*.
   """
   def describe_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -1027,7 +1077,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1040,17 +1090,19 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a gateway capability configuration.
 
   Each gateway capability defines data sources for a gateway. A capability
-  configuration can contain multiple data source configurations. If you define
-  OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA
-  sources are stored in one capability configuration. To list all capability
-  configurations for a gateway, use
+  configuration
+  can contain multiple data source configurations. If you define OPC-UA sources
+  for a gateway in
+  the IoT SiteWise console, all of your OPC-UA sources are stored in one
+  capability configuration. To
+  list all capability configurations for a gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
   """
   def describe_gateway_capability_configuration(
@@ -1067,7 +1119,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1080,7 +1132,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1119,7 +1171,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1127,16 +1179,19 @@ defmodule AWS.IoTSiteWise do
 
   To identify a time series, do one of the following:
 
-    * If the time series isn't associated with an asset property,
+    *
+  If the time series isn't associated with an asset property,
   specify the `alias` of the time series.
 
-    * If the time series is associated with an asset property, specify
-  one of the following:
+    *
+  If the time series is associated with an asset property,
+  specify one of the following:
 
-      * The `alias` of the time series.
+      *
+  The `alias` of the time series.
 
-      * The `assetId` and `propertyId` that identifies the
-  asset property.
+      *
+  The `assetId` and `propertyId` that identifies the asset property.
   """
   def describe_time_series(
         %Client{} = client,
@@ -1145,7 +1200,7 @@ defmodule AWS.IoTSiteWise do
         property_id \\ nil,
         options \\ []
       ) do
-    url_path = "/timeseries/describe/"
+    url_path = "/timeseries/describe"
     headers = []
     query_params = []
 
@@ -1172,12 +1227,13 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Disassociates a child asset from the given parent asset through a hierarchy
-  defined in the parent asset's model.
+  defined in the
+  parent asset's model.
   """
   def disassociate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
@@ -1195,7 +1251,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1203,7 +1259,7 @@ defmodule AWS.IoTSiteWise do
   Disassociates a time series (data stream) from an asset property.
   """
   def disassociate_time_series_from_asset_property(%Client{} = client, input, options \\ []) do
-    url_path = "/timeseries/disassociate/"
+    url_path = "/timeseries/disassociate"
     headers = []
 
     {query_params, input} =
@@ -1225,7 +1281,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1272,7 +1328,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1284,9 +1340,11 @@ defmodule AWS.IoTSiteWise do
 
   To identify an asset property, you must specify one of the following:
 
-    * The `assetId` and `propertyId` of an asset property.
+    *
+  The `assetId` and `propertyId` of an asset property.
 
-    * A `propertyAlias`, which is a data stream alias (for example,
+    *
+  A `propertyAlias`, which is a data stream alias (for example,
   `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
   alias, see
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
@@ -1389,20 +1447,23 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an asset property's current value.
 
-  For more information, see [Querying current values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
+  For more information, see [Querying current
+  values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
   in the *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
-    * The `assetId` and `propertyId` of an asset property.
+    *
+  The `assetId` and `propertyId` of an asset property.
 
-    * A `propertyAlias`, which is a data stream alias (for example,
+    *
+  A `propertyAlias`, which is a data stream alias (for example,
   `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
   alias, see
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
@@ -1441,20 +1502,23 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the history of an asset property's values.
 
-  For more information, see [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
+  For more information, see [Querying historical
+  values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
   in the *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
-    * The `assetId` and `propertyId` of an asset property.
+    *
+  The `assetId` and `propertyId` of an asset property.
 
-    * A `propertyAlias`, which is a data stream alias (for example,
+    *
+  A `propertyAlias`, which is a data stream alias (for example,
   `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
   alias, see
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
@@ -1541,24 +1605,28 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get interpolated values for an asset property for a specified time interval,
-  during a period of time.
+  during a
+  period of time.
 
   If your time series is missing data points during the specified time interval,
   you can use interpolation to estimate the missing data.
 
   For example, you can use this operation to return the interpolated temperature
-  values for a wind turbine every 24 hours over a duration of 7 days.
+  values for
+  a wind turbine every 24 hours over a duration of 7 days.
 
   To identify an asset property, you must specify one of the following:
 
-    * The `assetId` and `propertyId` of an asset property.
+    *
+  The `assetId` and `propertyId` of an asset property.
 
-    * A `propertyAlias`, which is a data stream alias (for example,
+    *
+  A `propertyAlias`, which is a data stream alias (for example,
   `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
   alias, see
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
@@ -1677,13 +1745,14 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of access policies for an identity (an IAM Identity
-  Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise
-  Monitor resource (a portal or project).
+  Center user, an IAM Identity Center
+  group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or
+  project).
   """
   def list_access_policies(
         %Client{} = client,
@@ -1799,7 +1868,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1832,14 +1901,15 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of properties associated with an asset model.
 
   If you update properties associated with the model before you finish listing all
-  the properties, you need to start all over again.
+  the properties,
+  you need to start all over again.
   """
   def list_asset_model_properties(
         %Client{} = client,
@@ -1876,7 +1946,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1916,14 +1986,15 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of properties associated with an asset.
 
   If you update properties associated with the model before you finish listing all
-  the properties, you need to start all over again.
+  the properties,
+  you need to start all over again.
   """
   def list_asset_properties(
         %Client{} = client,
@@ -1960,14 +2031,16 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of asset relationships for an asset.
 
-  You can use this operation to identify an asset's root asset and all associated
-  assets between that asset and its root.
+  You can use this operation
+  to identify an asset's root asset and all associated assets between that asset
+  and its
+  root.
   """
   def list_asset_relationships(
         %Client{} = client,
@@ -2004,7 +2077,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2012,15 +2085,18 @@ defmodule AWS.IoTSiteWise do
 
   You can use this operation to do the following:
 
-    * List assets based on a specific asset model.
+    *
+  List assets based on a specific asset model.
 
-    * List top-level assets.
+    *
+  List top-level assets.
 
   You can't use this operation to list all assets. To retrieve summaries for all
-  of your assets, use
+  of your
+  assets, use
   [ListAssetModels](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html)
-  to get all of your asset model IDs. Then, use ListAssets to get all assets for
-  each asset model.
+  to get all of your asset model IDs. Then, use ListAssets to get all
+  assets for each asset model.
   """
   def list_assets(
         %Client{} = client,
@@ -2064,7 +2140,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2072,10 +2148,11 @@ defmodule AWS.IoTSiteWise do
 
   You can use this operation to do the following:
 
-    * List child assets associated to a parent asset by a hierarchy that
-  you specify.
+    *
+  List child assets associated to a parent asset by a hierarchy that you specify.
 
-    * List an asset's parent asset.
+    *
+  List an asset's parent asset.
   """
   def list_associated_assets(
         %Client{} = client,
@@ -2120,13 +2197,14 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of bulk import job requests.
 
-  For more information, see [List bulk import jobs (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
+  For more information, see [List bulk import jobs
+  (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
   in the *IoT SiteWise User Guide*.
   """
   def list_bulk_import_jobs(
@@ -2163,7 +2241,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2197,7 +2275,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2264,7 +2342,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2385,7 +2463,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2400,7 +2478,7 @@ defmodule AWS.IoTSiteWise do
         time_series_type \\ nil,
         options \\ []
       ) do
-    url_path = "/timeseries/"
+    url_path = "/timeseries"
     headers = []
     query_params = []
 
@@ -2441,14 +2519,16 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sets the default encryption configuration for the Amazon Web Services account.
 
-  For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in the *IoT SiteWise User Guide*.
+  For more information, see
+  [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
+  in
+  the *IoT SiteWise User Guide*.
   """
   def put_default_encryption_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -2466,7 +2546,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2480,7 +2560,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2502,15 +2582,15 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds tags to an IoT SiteWise resource.
 
-  If a tag already exists for the resource, this operation updates the tag's
-  value.
+  If a tag already exists for the resource, this operation
+  updates the tag's value.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -2533,7 +2613,7 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2562,13 +2642,14 @@ defmodule AWS.IoTSiteWise do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates an existing access policy that specifies an identity's access to an IoT
-  SiteWise Monitor portal or project resource.
+  SiteWise Monitor
+  portal or project resource.
   """
   def update_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
@@ -2584,7 +2665,8 @@ defmodule AWS.IoTSiteWise do
   Updates an asset's name.
 
   For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
+  in the
+  *IoT SiteWise User Guide*.
   """
   def update_asset(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -2599,20 +2681,27 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an asset model and all of the assets that were created from the model.
 
-  Each asset created from the model inherits the updated asset model's property
-  and hierarchy definitions. For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
+  Each asset
+  created from the model inherits the updated asset model's property and hierarchy
+  definitions.
+  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the
+  *IoT SiteWise User Guide*.
 
   This operation overwrites the existing model with the provided model. To avoid
-  deleting your asset model's properties or hierarchies, you must include their
-  IDs and definitions in the updated asset model payload. For more information,
-  see
+  deleting
+  your asset model's properties or hierarchies, you must include their IDs and
+  definitions in
+  the updated asset model payload. For more information, see
   [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html).
 
   If you remove a property from an asset model, IoT SiteWise deletes all previous
-  data for that property. If you remove a hierarchy definition from an asset
-  model, IoT SiteWise disassociates every asset associated with that hierarchy.
-  You can't change the type or data type of an existing property.
+  data for that
+  property. If you remove a hierarchy definition from an asset model, IoT SiteWise
+  disassociates every
+  asset associated with that hierarchy. You can't change the type or data type of
+  an existing
+  property.
   """
   def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
@@ -2628,9 +2717,12 @@ defmodule AWS.IoTSiteWise do
   Updates a composite model and all of the assets that were created from the
   model.
 
-  Each asset created from the model inherits the updated asset model's property
-  and hierarchy definitions. For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
+  Each asset
+  created from the model inherits the updated asset model's property and hierarchy
+  definitions.
+  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the
+  *IoT SiteWise User Guide*.
 
   If you remove a property from a composite asset model, IoT SiteWise deletes all
   previous data for that property. You can’t change the type or data type of an
@@ -2639,12 +2731,14 @@ defmodule AWS.IoTSiteWise do
   To replace an existing composite asset model property with a new one with the
   same `name`, do the following:
 
-     Submit an `UpdateAssetModelCompositeModel` request with the entire
-  existing property removed.
+    
+  Submit an `UpdateAssetModelCompositeModel` request with the entire existing
+  property removed.
 
-     Submit a second `UpdateAssetModelCompositeModel` request that
-  includes the new property. The new asset property will have the same `name` as
-  the previous one and IoT SiteWise will generate a new unique `id`.
+    
+  Submit a second `UpdateAssetModelCompositeModel` request that includes the new
+  property. The new asset property will have the same
+  `name` as the previous one and IoT SiteWise will generate a new unique `id`.
   """
   def update_asset_model_composite_model(
         %Client{} = client,
@@ -2668,9 +2762,10 @@ defmodule AWS.IoTSiteWise do
   Updates an asset property's alias and notification state.
 
   This operation overwrites the property's existing alias and notification state.
-  To keep your existing property's alias or notification state, you must include
-  the existing values in the UpdateAssetProperty request. For more information,
-  see
+  To keep
+  your existing property's alias or notification state, you must include the
+  existing values
+  in the UpdateAssetProperty request. For more information, see
   [DescribeAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html).
   """
   def update_asset_property(%Client{} = client, asset_id, property_id, input, options \\ []) do
@@ -2682,7 +2777,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2708,7 +2803,7 @@ defmodule AWS.IoTSiteWise do
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2716,10 +2811,12 @@ defmodule AWS.IoTSiteWise do
   configuration.
 
   Each gateway capability defines data sources for a gateway. A capability
-  configuration can contain multiple data source configurations. If you define
-  OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA
-  sources are stored in one capability configuration. To list all capability
-  configurations for a gateway, use
+  configuration
+  can contain multiple data source configurations. If you define OPC-UA sources
+  for a gateway in
+  the IoT SiteWise console, all of your OPC-UA sources are stored in one
+  capability configuration. To
+  list all capability configurations for a gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
   """
   def update_gateway_capability_configuration(

@@ -7,13 +7,15 @@ defmodule AWS.DirectConnect do
   standard Ethernet fiber-optic cable.
 
   One end of the cable is connected to your router, the other to an Direct Connect
-  router. With this connection in place, you can create virtual interfaces
-  directly to the Amazon Web Services Cloud (for example, to Amazon EC2 and Amazon
-  S3) and to Amazon VPC, bypassing Internet service providers in your network
-  path. A connection provides access to all Amazon Web Services Regions except the
-  China (Beijing) and (China) Ningxia Regions. Amazon Web Services resources in
-  the China Regions can only be accessed through locations associated with those
-  Regions.
+  router. With this connection
+  in place, you can create virtual interfaces directly to the Amazon Web Services
+  Cloud (for example, to Amazon EC2
+  and Amazon S3) and to Amazon VPC, bypassing Internet service providers in your
+  network path. A
+  connection provides access to all Amazon Web Services Regions except the China
+  (Beijing) and (China) Ningxia Regions.
+  Amazon Web Services resources in the China Regions can only be accessed through
+  locations associated with those Regions.
   """
 
   alias AWS.Client
@@ -21,7 +23,6 @@ defmodule AWS.DirectConnect do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2012-10-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -92,8 +93,9 @@ defmodule AWS.DirectConnect do
   Services account.
 
   Virtual interfaces created using this action must be confirmed by the owner
-  using `ConfirmPrivateVirtualInterface`. Until then, the virtual interface is in
-  the `Confirming` state and is not available to handle traffic.
+  using `ConfirmPrivateVirtualInterface`.
+  Until then, the virtual interface is in the `Confirming` state and is not
+  available to handle traffic.
   """
   def allocate_private_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -109,13 +111,13 @@ defmodule AWS.DirectConnect do
   interface to be owned by the specified Amazon Web Services account.
 
   Virtual interfaces created using this function must be confirmed by the owner
-  using `ConfirmPublicVirtualInterface`. Until this step has been completed, the
-  virtual interface is in the `confirming` state and is not available to handle
-  traffic.
+  using `ConfirmPublicVirtualInterface`.
+  Until this step has been completed, the virtual interface is in the `confirming`
+  state and is not available to handle traffic.
 
   When creating an IPv6 public virtual interface, omit the Amazon address and
-  customer address. IPv6 addresses are automatically assigned from the Amazon pool
-  of IPv6 addresses; you cannot specify custom IPv6 addresses.
+  customer address. IPv6 addresses are automatically assigned from
+  the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
   """
   def allocate_public_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -147,22 +149,30 @@ defmodule AWS.DirectConnect do
   @doc """
   Associates an existing connection with a link aggregation group (LAG).
 
-  The connection is interrupted and re-established as a member of the LAG
-  (connectivity to Amazon Web Services is interrupted). The connection must be
-  hosted on the same Direct Connect endpoint as the LAG, and its bandwidth must
-  match the bandwidth for the LAG. You can re-associate a connection that's
+  The connection
+  is interrupted and re-established as a member of the LAG (connectivity to Amazon
+  Web Services is
+  interrupted). The connection must be hosted on the same Direct Connect endpoint
+  as the LAG, and its
+  bandwidth must match the bandwidth for the LAG. You can re-associate a
+  connection that's
   currently associated with a different LAG; however, if removing the connection
-  would cause the original LAG to fall below its setting for minimum number of
-  operational connections, the request fails.
+  would cause
+  the original LAG to fall below its setting for minimum number of operational
+  connections,
+  the request fails.
 
   Any virtual interfaces that are directly associated with the connection are
   automatically re-associated with the LAG. If the connection was originally
-  associated with a different LAG, the virtual interfaces remain associated with
-  the original LAG.
+  associated
+  with a different LAG, the virtual interfaces remain associated with the original
+  LAG.
 
   For interconnects, any hosted connections are automatically re-associated with
-  the LAG. If the interconnect was originally associated with a different LAG, the
-  hosted connections remain associated with the original LAG.
+  the
+  LAG. If the interconnect was originally associated with a different LAG, the
+  hosted
+  connections remain associated with the original LAG.
   """
   def associate_connection_with_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -172,12 +182,15 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Associates a hosted connection and its virtual interfaces with a link
-  aggregation group (LAG) or interconnect.
+  aggregation
+  group (LAG) or interconnect.
 
-  If the target interconnect or LAG has an existing hosted connection with a
-  conflicting VLAN number or IP address, the operation fails. This action
-  temporarily interrupts the hosted connection's connectivity to Amazon Web
-  Services as it is being migrated.
+  If the target interconnect or LAG has an existing hosted
+  connection with a conflicting VLAN number or IP address, the operation fails.
+  This
+  action temporarily interrupts the hosted connection's connectivity to Amazon Web
+  Services
+  as it is being migrated.
 
   Intended for use by Direct Connect Partners only.
   """
@@ -209,18 +222,22 @@ defmodule AWS.DirectConnect do
   connection.
 
   Connectivity to Amazon Web Services is temporarily interrupted as the virtual
-  interface is being migrated. If the target connection or LAG has an associated
-  virtual interface with a conflicting VLAN number or a conflicting IP address,
-  the operation fails.
+  interface is
+  being migrated. If the target connection or LAG has an associated virtual
+  interface with
+  a conflicting VLAN number or a conflicting IP address, the operation fails.
 
   Virtual interfaces associated with a hosted connection cannot be associated with
-  a LAG; hosted connections must be migrated along with their virtual interfaces
+  a
+  LAG; hosted connections must be migrated along with their virtual interfaces
   using `AssociateHostedConnection`.
 
   To reassociate a virtual interface to a new connection or LAG, the requester
   must own either the virtual interface itself or the connection to which the
-  virtual interface is currently associated. Additionally, the requester must own
-  the connection or LAG for the association.
+  virtual
+  interface is currently associated. Additionally, the requester must own the
+  connection
+  or LAG for the association.
   """
   def associate_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -242,6 +259,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+
   The confirmation of the terms of agreement when creating the connection/link
   aggregation group (LAG).
   """
@@ -257,7 +275,8 @@ defmodule AWS.DirectConnect do
 
   After the virtual interface owner makes this call, the virtual interface is
   created and attached to the specified virtual private gateway or Direct Connect
-  gateway, and is made available to handle traffic.
+  gateway, and is
+  made available to handle traffic.
   """
   def confirm_private_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -270,7 +289,8 @@ defmodule AWS.DirectConnect do
   Services account.
 
   After the virtual interface owner makes this call, the specified virtual
-  interface is created and made available to handle traffic.
+  interface is
+  created and made available to handle traffic.
   """
   def confirm_public_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -295,22 +315,28 @@ defmodule AWS.DirectConnect do
   Creates a BGP peer on the specified virtual interface.
 
   You must create a BGP peer for the corresponding address family (IPv4/IPv6) in
-  order to access Amazon Web Services resources that also use that address family.
+  order to
+  access Amazon Web Services resources that also use that address family.
 
   If logical redundancy is not supported by the connection, interconnect, or LAG,
-  the BGP peer cannot be in the same address family as an existing BGP peer on the
-  virtual interface.
+  the BGP peer cannot
+  be in the same address family as an existing BGP peer on the virtual interface.
 
   When creating a IPv6 BGP peer, omit the Amazon address and customer address.
-  IPv6 addresses are automatically assigned from the Amazon pool of IPv6
-  addresses; you cannot specify custom IPv6 addresses.
+  IPv6 addresses are automatically assigned from
+  the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
 
   If you let Amazon Web Services auto-assign IPv4 addresses, a /30 CIDR will be
-  allocated from 169.254.0.0/16. Amazon Web Services does not recommend this
-  option if you intend to use the customer router peer IP address as the source
-  and destination for traffic. Instead you should use RFC 1918 or other
-  addressing, and specify the address yourself. For more information about RFC
-  1918 see [ Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918).
+  allocated
+  from 169.254.0.0/16. Amazon Web Services does not recommend this option if you
+  intend to use
+  the customer router peer IP address as the source and destination for traffic.
+  Instead you
+  should use RFC 1918 or other addressing, and specify the address yourself. For
+  more
+  information about RFC 1918 see [
+  Address Allocation for Private
+  Internets](https://datatracker.ietf.org/doc/html/rfc1918).
 
   For a public virtual interface, the Autonomous System Number (ASN) must be
   private or already on the allow list for the virtual interface.
@@ -326,16 +352,19 @@ defmodule AWS.DirectConnect do
   location.
 
   A connection links your internal network to an Direct Connect location over a
-  standard Ethernet fiber-optic cable. One end of the cable is connected to your
-  router, the other to an Direct Connect router.
+  standard Ethernet fiber-optic
+  cable. One end of the cable is connected to your router, the other to an Direct
+  Connect router.
 
   To find the locations for your Region, use `DescribeLocations`.
 
   You can automatically add the new connection to a link aggregation group (LAG)
-  by specifying a LAG ID in the request. This ensures that the new connection is
-  allocated on the same Direct Connect endpoint that hosts the specified LAG. If
-  there are no available ports on the endpoint, the request fails and no
-  connection is created.
+  by
+  specifying a LAG ID in the request. This ensures that the new connection is
+  allocated on the
+  same Direct Connect endpoint that hosts the specified LAG. If there are no
+  available ports on the endpoint,
+  the request fails and no connection is created.
   """
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -345,14 +374,17 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Creates a Direct Connect gateway, which is an intermediate object that enables
-  you to connect a set of virtual interfaces and virtual private gateways.
+  you to connect a set
+  of virtual interfaces and virtual private gateways.
 
-  A Direct Connect gateway is global and visible in any Amazon Web Services Region
-  after it is created. The virtual interfaces and virtual private gateways that
+  A Direct Connect gateway is global and visible in any
+  Amazon Web Services Region after it is created. The virtual interfaces and
+  virtual private gateways that
   are connected through a Direct Connect gateway can be in different Amazon Web
-  Services Regions. This enables you to connect to a VPC in any Region, regardless
-  of the Region in which the virtual interfaces are located, and pass traffic
-  between them.
+  Services Regions. This enables you to
+  connect to a VPC in any Region, regardless of the Region in which the virtual
+  interfaces
+  are located, and pass traffic between them.
   """
   def create_direct_connect_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -364,8 +396,9 @@ defmodule AWS.DirectConnect do
   Creates an association between a Direct Connect gateway and a virtual private
   gateway.
 
-  The virtual private gateway must be attached to a VPC and must not be associated
-  with another Direct Connect gateway.
+  The virtual
+  private gateway must be attached to a VPC and must not be associated with
+  another Direct Connect gateway.
   """
   def create_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -397,22 +430,29 @@ defmodule AWS.DirectConnect do
   specific Direct Connect location.
 
   An interconnect is a connection that is capable of hosting other connections.
-  The Direct Connect Partner can use an interconnect to provide Direct Connect
-  hosted connections to customers through their own network services. Like a
-  standard connection, an interconnect links the partner's network to an Direct
-  Connect location over a standard Ethernet fiber-optic cable. One end is
-  connected to the partner's router, the other to an Direct Connect router.
+  The
+  Direct Connect Partner can use an interconnect to provide Direct Connect hosted
+  connections to customers through their own network services. Like a standard
+  connection, an
+  interconnect links the partner's network to an Direct Connect location over a
+  standard Ethernet
+  fiber-optic cable. One end is connected to the partner's router, the other to an
+  Direct Connect
+  router.
 
   You can automatically add the new interconnect to a link aggregation group (LAG)
-  by specifying a LAG ID in the request. This ensures that the new interconnect is
-  allocated on the same Direct Connect endpoint that hosts the specified LAG. If
-  there are no available ports on the endpoint, the request fails and no
-  interconnect is created.
+  by
+  specifying a LAG ID in the request. This ensures that the new interconnect is
+  allocated on
+  the same Direct Connect endpoint that hosts the specified LAG. If there are no
+  available ports on the
+  endpoint, the request fails and no interconnect is created.
 
   For each end customer, the Direct Connect Partner provisions a connection on
-  their interconnect by calling `AllocateHostedConnection`. The end customer can
-  then connect to Amazon Web Services resources by creating a virtual interface on
-  their connection, using the VLAN assigned to them by the Direct Connect Partner.
+  their interconnect by calling `AllocateHostedConnection`.
+  The end customer can then connect to Amazon Web Services resources by creating a
+  virtual interface on their connection, using the VLAN assigned to them by the
+  Direct Connect Partner.
 
   Intended for use by Direct Connect Partners only.
   """
@@ -435,21 +475,28 @@ defmodule AWS.DirectConnect do
   and must terminate at the same Direct Connect endpoint.
 
   You can have up to 10 dedicated connections per LAG. Regardless of this limit,
-  if you request more connections for the LAG than Direct Connect can allocate on
-  a single endpoint, no LAG is created.
+  if you
+  request more connections for the LAG than Direct Connect can allocate on a
+  single endpoint, no LAG is
+  created.
 
   You can specify an existing physical dedicated connection or interconnect to
-  include in the LAG (which counts towards the total number of connections). Doing
-  so interrupts the current physical dedicated connection, and re-establishes them
-  as a member of the LAG. The LAG will be created on the same Direct Connect
-  endpoint to which the dedicated connection terminates. Any virtual interfaces
-  associated with the dedicated connection are automatically disassociated and
-  re-associated with the LAG. The connection ID does not change.
+  include in
+  the LAG (which counts towards the total number of connections). Doing so
+  interrupts the
+  current physical dedicated connection, and re-establishes them as a member of
+  the LAG. The LAG
+  will be created on the same Direct Connect endpoint to which the dedicated
+  connection terminates. Any
+  virtual interfaces associated with the dedicated connection are automatically
+  disassociated
+  and re-associated with the LAG. The connection ID does not change.
 
   If the Amazon Web Services account used to create a LAG is a registered Direct
-  Connect Partner, the LAG is automatically enabled to host sub-connections. For a
-  LAG owned by a partner, any associated virtual interfaces cannot be directly
-  configured.
+  Connect Partner, the LAG is
+  automatically enabled to host sub-connections. For a LAG owned by a partner, any
+  associated virtual
+  interfaces cannot be directly configured.
   """
   def create_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -460,21 +507,25 @@ defmodule AWS.DirectConnect do
   @doc """
   Creates a private virtual interface.
 
-  A virtual interface is the VLAN that transports Direct Connect traffic. A
-  private virtual interface can be connected to either a Direct Connect gateway or
-  a Virtual Private Gateway (VGW). Connecting the private virtual interface to a
-  Direct Connect gateway enables the possibility for connecting to multiple VPCs,
-  including VPCs in different Amazon Web Services Regions. Connecting the private
-  virtual interface to a VGW only provides access to a single VPC within the same
-  Region.
+  A virtual interface is the VLAN that transports Direct Connect traffic.
+  A private virtual interface can be connected to either a Direct Connect gateway
+  or a Virtual Private Gateway (VGW).
+  Connecting the private virtual interface to a Direct Connect gateway enables the
+  possibility for connecting to multiple
+  VPCs, including VPCs in different Amazon Web Services Regions. Connecting the
+  private virtual interface
+  to a VGW only provides access to a single VPC within the same Region.
 
   Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an
-  update to the underlying physical connection if it wasn't updated to support
-  jumbo frames. Updating the connection disrupts network connectivity for all
-  virtual interfaces associated with the connection for up to 30 seconds. To check
-  whether your connection supports jumbo frames, call `DescribeConnections`. To
-  check whether your virtual interface supports jumbo frames, call
-  `DescribeVirtualInterfaces`.
+  update to
+  the underlying physical connection if it wasn't updated to support jumbo frames.
+  Updating
+  the connection disrupts network connectivity for all virtual interfaces
+  associated with
+  the connection for up to 30 seconds. To check whether your connection supports
+  jumbo
+  frames, call `DescribeConnections`. To check whether your virtual
+  interface supports jumbo frames, call `DescribeVirtualInterfaces`.
   """
   def create_private_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -485,13 +536,14 @@ defmodule AWS.DirectConnect do
   @doc """
   Creates a public virtual interface.
 
-  A virtual interface is the VLAN that transports Direct Connect traffic. A public
-  virtual interface supports sending traffic to public services of Amazon Web
-  Services such as Amazon S3.
+  A virtual interface is the VLAN that transports Direct Connect traffic.
+  A public virtual interface supports sending traffic to public services of Amazon
+  Web Services such as Amazon S3.
 
   When creating an IPv6 public virtual interface (`addressFamily` is `ipv6`),
-  leave the `customer` and `amazon` address fields blank to use auto-assigned IPv6
-  space. Custom IPv6 addresses are not supported.
+  leave the `customer`
+  and `amazon` address fields blank to use auto-assigned IPv6 space. Custom IPv6
+  addresses are not supported.
   """
   def create_public_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -514,13 +566,16 @@ defmodule AWS.DirectConnect do
   request fails.
 
   A jumbo MTU value must be either 1500 or 8500. No other values will be accepted.
-  Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an
-  update to the underlying physical connection if it wasn't updated to support
-  jumbo frames. Updating the connection disrupts network connectivity for all
-  virtual interfaces associated with the connection for up to 30 seconds. To check
-  whether your connection supports jumbo frames, call `DescribeConnections`. To
-  check whether your virtual interface supports jumbo frames, call
-  `DescribeVirtualInterfaces`.
+  Setting
+  the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the
+  underlying
+  physical connection if it wasn't updated to support jumbo frames. Updating the
+  connection
+  disrupts network connectivity for all virtual interfaces associated with the
+  connection for up
+  to 30 seconds. To check whether your connection supports jumbo frames, call
+  `DescribeConnections`. To check whether your virtual interface supports jumbo
+  frames, call `DescribeVirtualInterfaces`.
   """
   def create_transit_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -544,8 +599,10 @@ defmodule AWS.DirectConnect do
   Deletes the specified connection.
 
   Deleting a connection only stops the Direct Connect port hour and data transfer
-  charges. If you are partnering with any third parties to connect with the Direct
-  Connect location, you must cancel your service with them separately.
+  charges.
+  If you are partnering with any third parties to connect with the Direct Connect
+  location,
+  you must cancel your service with them separately.
   """
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -556,9 +613,10 @@ defmodule AWS.DirectConnect do
   @doc """
   Deletes the specified Direct Connect gateway.
 
-  You must first delete all virtual interfaces that are attached to the Direct
-  Connect gateway and disassociate all virtual private gateways associated with
-  the Direct Connect gateway.
+  You must first delete all virtual interfaces that are
+  attached to the Direct Connect gateway and disassociate all virtual private
+  gateways associated
+  with the Direct Connect gateway.
   """
   def delete_direct_connect_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -600,7 +658,8 @@ defmodule AWS.DirectConnect do
   @doc """
   Deletes the specified interconnect.
 
-  Intended for use by Direct Connect Partners only.
+  Intended for use
+  by Direct Connect Partners only.
   """
   def delete_interconnect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -611,8 +670,8 @@ defmodule AWS.DirectConnect do
   @doc """
   Deletes the specified link aggregation group (LAG).
 
-  You cannot delete a LAG if it has active virtual interfaces or hosted
-  connections.
+  You cannot delete a LAG if it has active
+  virtual interfaces or hosted connections.
   """
   def delete_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -637,9 +696,11 @@ defmodule AWS.DirectConnect do
   Gets the LOA-CFA for a connection.
 
   The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
-  document that your APN partner or service provider uses when establishing your
-  cross connect to Amazon Web Services at the colocation facility. For more
-  information, see [Requesting Cross Connects at Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
+  document that your APN partner or
+  service provider uses when establishing your cross connect to Amazon Web
+  Services at the colocation facility. For more information,
+  see [Requesting Cross Connects at Direct Connect
+  Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *Direct Connect User Guide*.
   """
   def describe_connection_loa(%Client{} = client, input, options \\ []) do
@@ -708,25 +769,30 @@ defmodule AWS.DirectConnect do
 
   You must specify one of the following:
 
-    * A Direct Connect gateway
+    *
+  A Direct Connect gateway
 
   The response contains all virtual private gateways and transit gateways
   associated with the Direct Connect gateway.
 
-    * A virtual private gateway
+    *
+  A virtual private gateway
 
   The response contains the Direct Connect gateway.
 
-    * A transit gateway
+    *
+  A transit gateway
 
   The response contains the Direct Connect gateway.
 
-    * A Direct Connect gateway and a virtual private gateway
+    *
+  A Direct Connect gateway and a virtual private gateway
 
   The response contains the association between the Direct Connect gateway and
   virtual private gateway.
 
-    * A Direct Connect gateway and a transit gateway
+    *
+  A Direct Connect gateway and a transit gateway
 
   The response contains the association between the Direct Connect gateway and
   transit gateway.
@@ -741,12 +807,15 @@ defmodule AWS.DirectConnect do
   Lists the attachments between your Direct Connect gateways and virtual
   interfaces.
 
-  You must specify a Direct Connect gateway, a virtual interface, or both. If you
-  specify a Direct Connect gateway, the response contains all virtual interfaces
-  attached to the Direct Connect gateway. If you specify a virtual interface, the
+  You must specify
+  a Direct Connect gateway, a virtual interface, or both. If you specify a Direct
+  Connect gateway, the response contains
+  all virtual interfaces attached to the Direct Connect gateway. If you specify a
+  virtual interface, the
   response contains all Direct Connect gateways attached to the virtual interface.
-  If you specify both, the response contains the attachment between the Direct
-  Connect gateway and the virtual interface.
+  If you specify both,
+  the response contains the attachment between the Direct Connect gateway and the
+  virtual interface.
   """
   def describe_direct_connect_gateway_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -787,8 +856,8 @@ defmodule AWS.DirectConnect do
 
   The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
   document that is used when establishing your cross connect to Amazon Web
-  Services at the colocation facility. For more information, see [Requesting Cross Connects at Direct Connect
-  Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
+  Services at the colocation facility.
+  For more information, see [Requesting Cross Connects at Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *Direct Connect User Guide*.
   """
   def describe_interconnect_loa(%Client{} = client, input, options \\ []) do
@@ -821,9 +890,9 @@ defmodule AWS.DirectConnect do
   (LAG).
 
   The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
-  document that is used when establishing your cross connect to Amazon Web
-  Services at the colocation facility. For more information, see [Requesting Cross Connects at Direct Connect
-  Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
+  document that is used when establishing
+  your cross connect to Amazon Web Services at the colocation facility. For more
+  information, see [Requesting Cross Connects at Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *Direct Connect User Guide*.
   """
   def describe_loa(%Client{} = client, input, options \\ []) do
@@ -835,8 +904,8 @@ defmodule AWS.DirectConnect do
   @doc """
   Lists the Direct Connect locations in the current Amazon Web Services Region.
 
-  These are the locations that can be selected when calling `CreateConnection` or
-  `CreateInterconnect`.
+  These are the locations that can be selected when calling
+  `CreateConnection` or `CreateInterconnect`.
   """
   def describe_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -845,6 +914,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+
   Details about the router.
   """
   def describe_router_configuration(%Client{} = client, input, options \\ []) do
@@ -877,10 +947,12 @@ defmodule AWS.DirectConnect do
   @doc """
   Displays all virtual interfaces for an Amazon Web Services account.
 
-  Virtual interfaces deleted fewer than 15 minutes before you make the request are
-  also returned. If you specify a connection ID, only the virtual interfaces
-  associated with the connection are returned. If you specify a virtual interface
-  ID, then only a single virtual interface is returned.
+  Virtual interfaces deleted fewer
+  than 15 minutes before you make the request are also returned. If you specify a
+  connection ID, only the virtual interfaces associated with the connection are
+  returned.
+  If you specify a virtual interface ID, then only a single virtual interface is
+  returned.
 
   A virtual interface (VLAN) transmits the traffic between the Direct Connect
   location and the customer network.
@@ -894,16 +966,21 @@ defmodule AWS.DirectConnect do
   @doc """
   Disassociates a connection from a link aggregation group (LAG).
 
-  The connection is interrupted and re-established as a standalone connection (the
-  connection is not deleted; to delete the connection, use the `DeleteConnection`
-  request). If the LAG has associated virtual interfaces or hosted connections,
-  they remain associated with the LAG. A disassociated connection owned by an
-  Direct Connect Partner is automatically converted to an interconnect.
+  The connection is
+  interrupted and re-established as a standalone connection (the connection is not
+  deleted; to delete the connection, use the `DeleteConnection` request).
+  If the LAG has associated virtual interfaces or hosted connections, they remain
+  associated with the LAG. A disassociated connection owned by an Direct Connect
+  Partner is
+  automatically converted to an interconnect.
 
   If disassociating the connection would cause the LAG to fall below its setting
-  for minimum number of operational connections, the request fails, except when
-  it's the last member of the LAG. If all connections are disassociated, the LAG
-  continues to exist as an empty LAG with no physical connections.
+  for
+  minimum number of operational connections, the request fails, except when it's
+  the last
+  member of the LAG. If all connections are disassociated, the LAG continues to
+  exist as
+  an empty LAG with no physical connections.
   """
   def disassociate_connection_from_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -988,9 +1065,11 @@ defmodule AWS.DirectConnect do
 
   You can update the following parameters for a connection:
 
-    * The connection name
+    *
+  The connection name
 
-    * The connection's MAC Security (MACsec) encryption mode.
+    *
+  The connection's MAC Security (MACsec) encryption mode.
   """
   def update_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1023,21 +1102,26 @@ defmodule AWS.DirectConnect do
 
   You can update the following LAG attributes:
 
-    * The name of the LAG.
+    *
+  The name of the LAG.
 
-    * The value for the minimum number of connections that must be
-  operational for the LAG itself to be operational.
+    *
+  The value for the minimum number of connections that must be operational
+  for the LAG itself to be operational.
 
-    * The LAG's MACsec encryption mode.
+    *
+  The LAG's MACsec encryption mode.
 
   Amazon Web Services assigns this value to each connection which is part of the
   LAG.
 
-    * The tags
+    *
+  The tags
 
   If you adjust the threshold value for the minimum number of operational
-  connections, ensure that the new value does not cause the LAG to fall below the
-  threshold and become non-operational.
+  connections, ensure
+  that the new value does not cause the LAG to fall below the threshold and become
+  non-operational.
   """
   def update_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1049,12 +1133,15 @@ defmodule AWS.DirectConnect do
   Updates the specified attributes of the specified virtual private interface.
 
   Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an
-  update to the underlying physical connection if it wasn't updated to support
-  jumbo frames. Updating the connection disrupts network connectivity for all
-  virtual interfaces associated with the connection for up to 30 seconds. To check
-  whether your connection supports jumbo frames, call `DescribeConnections`. To
-  check whether your virtual interface supports jumbo frames, call
-  `DescribeVirtualInterfaces`.
+  update to
+  the underlying physical connection if it wasn't updated to support jumbo frames.
+  Updating
+  the connection disrupts network connectivity for all virtual interfaces
+  associated with
+  the connection for up to 30 seconds. To check whether your connection supports
+  jumbo
+  frames, call `DescribeConnections`. To check whether your virtual
+  interface supports jumbo frames, call `DescribeVirtualInterfaces`.
   """
   def update_virtual_interface_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()

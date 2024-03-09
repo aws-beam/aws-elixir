@@ -5,12 +5,16 @@ defmodule AWS.FMS do
   @moduledoc """
   This is the *Firewall Manager API Reference*.
 
-  This guide is for developers who need detailed information about the Firewall
-  Manager API actions, data types, and errors. For detailed information about
-  Firewall Manager features, see the [Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
+  This guide is for
+  developers who need detailed information about the Firewall Manager API actions,
+  data
+  types, and errors. For detailed information about Firewall Manager features, see
+  the
+  [Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
 
   Some API actions require explicit resource permissions. For information, see the
-  developer guide topic [Service roles for Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service).
+  developer guide topic
+  [Service roles for Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service).
   """
 
   alias AWS.Client
@@ -18,7 +22,6 @@ defmodule AWS.FMS do
 
   def metadata do
     %{
-      abbreviation: "FMS",
       api_version: "2018-01-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -161,8 +164,8 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Returns the Organizations account that is associated with Firewall Manager as
-  the Firewall Manager default administrator.
+  Returns the Organizations account that is associated with Firewall Manager
+  as the Firewall Manager default administrator.
   """
   def get_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -194,24 +197,33 @@ defmodule AWS.FMS do
   @doc """
   Returns detailed compliance information about the specified member account.
 
-  Details include resources that are in and out of compliance with the specified
-  policy.
+  Details
+  include resources that are in and out of compliance with the specified policy.
 
-    * Resources are considered noncompliant for WAF and Shield Advanced
-  policies if the specified policy has not been applied to them.
+    *
+  Resources are
+  considered noncompliant for WAF and Shield Advanced policies if the specified
+  policy has
+  not been applied to them.
 
-    * Resources are considered noncompliant for security group policies
-  if they are in scope of the policy, they violate one or more of the policy
-  rules, and remediation is disabled or not possible.
+    *
+  Resources are considered noncompliant for security group policies if
+  they are in scope of the policy, they violate one or more of the policy rules,
+  and remediation
+  is disabled or not possible.
 
-    * Resources are considered noncompliant for Network Firewall
-  policies if a firewall is missing in the VPC, if the firewall endpoint isn't set
-  up in an expected Availability Zone and subnet, if a subnet created by the
-  Firewall Manager doesn't have the expected route table, and for modifications to
-  a firewall policy that violate the Firewall Manager policy's rules.
+    *
+  Resources are considered noncompliant for Network Firewall policies
+  if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an
+  expected Availability Zone and subnet,
+  if a subnet created by the Firewall Manager doesn't have the expected route
+  table,
+  and for modifications to a firewall policy that violate the Firewall Manager
+  policy's rules.
 
-    * Resources are considered noncompliant for DNS Firewall policies if
-  a DNS Firewall rule group is missing from the rule group associations for the
+    *
+  Resources are considered noncompliant for DNS Firewall policies
+  if a DNS Firewall rule group is missing from the rule group associations for the
   VPC.
   """
   def get_compliance_detail(%Client{} = client, input, options \\ []) do
@@ -221,8 +233,9 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Information about the Amazon Simple Notification Service (SNS) topic that is
-  used to record Firewall Manager SNS logs.
+  Information
+  about the Amazon Simple Notification Service (SNS) topic that is used to
+  record Firewall Manager SNS logs.
   """
   def get_notification_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -241,7 +254,8 @@ defmodule AWS.FMS do
 
   @doc """
   If you created a Shield Advanced policy, returns policy-level attack summary
-  information in the event of a potential DDoS attack.
+  information
+  in the event of a potential DDoS attack.
 
   Other policy types are currently unsupported.
   """
@@ -327,8 +341,9 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of `PolicyComplianceStatus` objects.
 
-  Use `PolicyComplianceStatus` to get a summary of which member accounts are
-  protected by the specified policy.
+  Use
+  `PolicyComplianceStatus` to get a summary of which member accounts are protected
+  by the specified policy.
   """
   def list_compliance_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -424,7 +439,8 @@ defmodule AWS.FMS do
   is already a delegated administrator within Organizations. If the account isn't
   a delegated administrator, Firewall Manager calls Organizations to delegate the
   account within Organizations. For more information about administrator accounts
-  within Organizations, see [Managing the Amazon Web Services Accounts in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+  within Organizations, see
+  [Managing the Amazon Web Services Accounts in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
   """
   def put_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -450,8 +466,8 @@ defmodule AWS.FMS do
   `SnsRoleName` provided is a role other than the `AWSServiceRoleForFMS`
   service-linked role, this role must have a trust relationship configured to
   allow the Firewall Manager service principal `fms.amazonaws.com` to assume this
-  role. For information about configuring an SNS access policy, see [Service roles for Firewall
-  Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service)
+  role. For information about configuring an SNS access policy, see
+  [Service roles for Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service)
   in the *Firewall Manager Developer Guide*.
   """
   def put_notification_channel(%Client{} = client, input, options \\ []) do
@@ -464,38 +480,56 @@ defmodule AWS.FMS do
   Creates an Firewall Manager policy.
 
   A Firewall Manager policy is specific to the individual policy type. If you want
-  to enforce multiple policy types across accounts, you can create multiple
-  policies. You can create more than one policy for each type.
+  to enforce multiple
+  policy types across accounts, you can create multiple policies. You can create
+  more than one
+  policy for each type.
 
   If you add a new account to an organization that you created with Organizations,
-  Firewall Manager automatically applies the policy to the resources in that
-  account that are within scope of the policy.
+  Firewall Manager
+  automatically applies the policy to the resources in that account that are
+  within scope of
+  the policy.
 
   Firewall Manager provides the following types of policies:
 
-    * **Shield Advanced policy** - This policy applies Shield Advanced
+    *
+
+  **Shield Advanced policy** - This policy applies Shield Advanced
   protection to specified accounts and resources.
 
-    * **Security Groups policy** - This type of policy gives you control
-  over security groups that are in use throughout your organization in
+    *
+
+  **Security Groups policy** - This type of policy gives you
+  control over security groups that are in use throughout your organization in
   Organizations and lets you enforce a baseline set of rules across your
   organization.
 
-    * **Network Firewall policy** - This policy applies Network Firewall
-  protection to your organization's VPCs.
+    *
 
-    * **DNS Firewall policy** - This policy applies Amazon Route 53
-  Resolver DNS Firewall protections to your organization's VPCs.
+  **Network Firewall policy** - This policy applies
+  Network Firewall protection to your organization's VPCs.
 
-    * **Third-party firewall policy** - This policy applies third-party
-  firewall protections. Third-party firewalls are available by subscription
-  through the Amazon Web Services Marketplace console at [Amazon Web Services Marketplace](https://aws.amazon.com/marketplace).
+    *
 
-      * **Palo Alto Networks Cloud NGFW policy** - This policy
-  applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and
-  Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
+  **DNS Firewall policy** - This policy applies
+  Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
 
-      * **Fortigate CNF policy** - This policy applies
+    *
+
+  **Third-party firewall policy** - This policy applies third-party firewall
+  protections. Third-party firewalls are available by subscription through the
+  Amazon Web Services Marketplace console at [Amazon Web Services Marketplace](https://aws.amazon.com/marketplace).
+
+      *
+
+  **Palo Alto Networks Cloud NGFW policy** - This policy applies Palo Alto
+  Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto
+  Networks Cloud NGFW rulestacks to your organization's VPCs.
+
+      *
+
+  **Fortigate CNF policy** - This policy applies
   Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a
   cloud-centered solution that blocks Zero-Day threats and secures cloud
   infrastructures with industry-leading advanced threat prevention, smart web

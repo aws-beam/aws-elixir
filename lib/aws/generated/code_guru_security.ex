@@ -3,17 +3,24 @@
 
 defmodule AWS.CodeGuruSecurity do
   @moduledoc """
-  Amazon CodeGuru Security is in preview release and is subject to change.
+
+  Amazon CodeGuru Security is in preview release and is subject to
+  change.
 
   This section provides documentation for the Amazon CodeGuru Security API
-  operations. CodeGuru Security is a service that uses program analysis and
-  machine learning to detect security policy violations and vulnerabilities, and
-  recommends ways to address these security risks.
+  operations.
+  CodeGuru Security is a service that uses program analysis and machine learning
+  to detect
+  security policy violations and vulnerabilities, and recommends ways to address
+  these security
+  risks.
 
   By proactively detecting and providing recommendations for addressing security
-  risks, CodeGuru Security improves the overall security of your application code.
-  For more information about CodeGuru Security, see the [Amazon CodeGuru Security User
-  Guide](https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html).
+  risks,
+  CodeGuru Security improves the overall security of your application code. For
+  more information
+  about CodeGuru Security, see the
+  [Amazon CodeGuru Security User Guide](https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html).
   """
 
   alias AWS.Client
@@ -21,7 +28,6 @@ defmodule AWS.CodeGuruSecurity do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -85,7 +91,8 @@ defmodule AWS.CodeGuruSecurity do
   Generates a pre-signed URL and request headers used to upload a code resource.
 
   You can upload your code resource to the URL and add the request headers using
-  any HTTP client.
+  any HTTP
+  client.
   """
   def create_upload_url(%Client{} = client, input, options \\ []) do
     url_path = "/uploadUrl"
@@ -163,8 +170,10 @@ defmodule AWS.CodeGuruSecurity do
 
   @doc """
   Returns top level metrics about an account from a specified date, including
-  number of open findings, the categories with most findings, the scans with most
-  open findings, and scans with most open critical findings.
+  number of open
+  findings, the categories with most findings, the scans with most open findings,
+  and scans with
+  most open critical findings.
   """
   def get_metrics_summary(%Client{} = client, date, options \\ []) do
     url_path = "/metrics/summary"
@@ -254,7 +263,8 @@ defmodule AWS.CodeGuruSecurity do
   @doc """
   Returns a list of all the standard scans in an account.
 
-  Does not return express scans.
+  Does not return express
+  scans.
   """
   def list_scans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/scans"

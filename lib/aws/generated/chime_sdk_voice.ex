@@ -7,8 +7,9 @@ defmodule AWS.ChimeSDKVoice do
   PSTN calling solutions that use Amazon Chime SDK Voice Connectors, and Amazon
   Chime SDK SIP media applications.
 
-  Developers can also order and manage phone numbers, create and manage Voice
-  Connectors and SIP media applications, and run voice analytics.
+  Developers can
+  also order and manage phone numbers, create and manage Voice Connectors and SIP
+  media applications, and run voice analytics.
   """
 
   alias AWS.Client
@@ -16,7 +17,6 @@ defmodule AWS.ChimeSDKVoice do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-08-03",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -92,13 +92,15 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Moves phone numbers into the **Deletion queue**.
+
+  Moves phone numbers into the
+  **Deletion queue**.
 
   Phone numbers must be disassociated from any users or Amazon Chime SDK Voice
   Connectors before they can be deleted.
 
-  Phone numbers remain in the **Deletion queue** for 7 days before they are
-  deleted permanently.
+  Phone numbers remain in the
+  **Deletion queue** for 7 days before they are deleted permanently.
   """
   def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
@@ -196,7 +198,8 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Creates a SIP media application.
 
-  For more information about SIP media applications, see [Managing SIP media applications and
+  For more information about SIP media applications, see [Managing SIP media applications
+  and
   rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
   in the *Amazon Chime SDK Administrator Guide*.
   """
@@ -221,8 +224,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an outbound call to a phone number from the phone number specified in
-  the request, and it invokes the endpoint of the specified
+  Creates an outbound call to a phone number from the phone number specified
+  in the request, and it invokes the endpoint of the specified
   `sipMediaApplicationId`.
   """
   def create_sip_media_application_call(
@@ -254,7 +257,8 @@ defmodule AWS.ChimeSDKVoice do
   Creates a SIP rule, which can be used to run a SIP media application as a target
   for a specific trigger type.
 
-  For more information about SIP rules, see [Managing SIP media applications and rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
+  For more information about SIP rules, see [Managing SIP media applications and
+  rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
   in the *Amazon Chime SDK Administrator Guide*.
   """
   def create_sip_rule(%Client{} = client, input, options \\ []) do
@@ -280,9 +284,11 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Creates an Amazon Chime SDK Voice Connector.
 
-  For more information about Voice Connectors, see [Managing Amazon Chime SDK Voice Connector
-  groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html)
-  in the *Amazon Chime SDK Administrator Guide*.
+  For more information about
+  Voice Connectors,
+  see [Managing Amazon Chime SDK Voice Connector groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html)
+  in the *Amazon Chime SDK
+  Administrator Guide*.
   """
   def create_voice_connector(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connectors"
@@ -305,14 +311,16 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS
-  account.
+  Creates an Amazon Chime SDK Voice Connector group under the administrator's
+  AWS account.
 
-  You can associate Amazon Chime SDK Voice Connectors with the Voice Connector
-  group by including `VoiceConnectorItems` in the request.
+  You can associate Amazon Chime SDK Voice Connectors with the
+  Voice Connector group by including `VoiceConnectorItems` in the
+  request.
 
-  You can include Voice Connectors from different AWS Regions in your group. This
-  creates a fault tolerant mechanism for fallback in case of availability events.
+  You can include Voice Connectors from different AWS Regions in your group.
+  This creates a fault tolerant mechanism for fallback in case of availability
+  events.
   """
   def create_voice_connector_group(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connector-groups"
@@ -340,9 +348,11 @@ defmodule AWS.ChimeSDKVoice do
 
   Before creating any voice profiles, you must provide all notices and obtain all
   consents from the speaker as required under applicable privacy and biometrics
-  laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  laws, and as required under the
+  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
 
-  For more information about voice profiles and voice analytics, see [Using Amazon Chime SDK Voice
+  For more information about voice profiles and voice analytics, see [Using Amazon
+  Chime SDK Voice
   Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
   in the *Amazon Chime SDK Developer Guide*.
   """
@@ -372,9 +382,11 @@ defmodule AWS.ChimeSDKVoice do
 
   Before creating any voice profiles, you must provide all notices and obtain all
   consents from the speaker as required under applicable privacy and biometrics
-  laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  laws, and as required under the
+  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
 
-  For more information about voice profile domains, see [Using Amazon Chime SDK Voice
+  For more information about voice profile domains, see [Using Amazon Chime SDK
+  Voice
   Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
   in the *Amazon Chime SDK Developer Guide*.
   """
@@ -399,12 +411,16 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Moves the specified phone number into the **Deletion queue**.
+  Moves the specified phone number into the
+  **Deletion queue**.
 
-  A phone number must be disassociated from any users or Amazon Chime SDK Voice
-  Connectors before it can be deleted.
+  A phone number must
+  be disassociated from any users or Amazon Chime SDK Voice Connectors before it
+  can be
+  deleted.
 
-  Deleted phone numbers remain in the **Deletion queue** queue for 7 days before
+  Deleted phone numbers remain in the
+  **Deletion queue** queue for 7 days before
   they are deleted permanently.
   """
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
@@ -513,8 +529,10 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes an Amazon Chime SDK Voice Connector.
 
-  Any phone numbers associated with the Amazon Chime SDK Voice Connector must be
-  disassociated from it before it can be deleted.
+  Any phone numbers associated
+  with the Amazon Chime SDK Voice Connector must be disassociated from it before
+  it
+  can be deleted.
   """
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -570,8 +588,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes an Amazon Chime SDK Voice Connector group.
 
-  Any `VoiceConnectorItems` and phone numbers associated with the group must be
-  removed before it can be deleted.
+  Any `VoiceConnectorItems`
+  and phone numbers associated with the group must be removed before it can be
+  deleted.
   """
   def delete_voice_connector_group(
         %Client{} = client,
@@ -602,8 +621,8 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the origination settings for the specified Amazon Chime SDK Voice
   Connector.
 
-  If emergency calling is configured for the Voice Connector, it must be deleted
-  prior to deleting the origination settings.
+  If emergency calling is configured for the Voice Connector, it must be
+  deleted prior to deleting the origination settings.
   """
   def delete_voice_connector_origination(
         %Client{} = client,
@@ -690,8 +709,8 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the termination settings for the specified Amazon Chime SDK Voice
   Connector.
 
-  If emergency calling is configured for the Voice Connector, it must be deleted
-  prior to deleting the termination settings.
+  If emergency calling is configured for the Voice Connector, it must be
+  deleted prior to deleting the termination settings.
   """
   def delete_voice_connector_termination(
         %Client{} = client,
@@ -719,8 +738,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes the specified SIP credentials used by your equipment to authenticate
-  during call termination.
+  Deletes the specified SIP credentials used by your equipment to
+  authenticate during call termination.
   """
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
@@ -805,8 +824,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Disassociates the specified phone numbers from the specified Amazon Chime SDK
-  Voice Connector.
+  Disassociates the specified phone numbers from the specified
+  Amazon Chime SDK Voice Connector.
   """
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
@@ -837,7 +856,8 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime SDK
-  Voice Connector group.
+  Voice
+  Connector group.
   """
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
@@ -891,13 +911,13 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves details for the specified phone number order, such as the order
-  creation timestamp, phone numbers in E.164 format, product type, and order
-  status.
+  creation timestamp, phone numbers in E.164 format, product type, and
+  order status.
   """
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
@@ -910,8 +930,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves the phone number settings for the administrator's AWS account, such as
-  the default outbound calling name.
+  Retrieves the phone number settings for the administrator's AWS account,
+  such as the default outbound calling name.
   """
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
@@ -940,8 +960,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves the information for a SIP media application, including name, AWS
-  Region, and endpoints.
+  Retrieves the information for a SIP media application, including name,
+  AWS Region, and endpoints.
   """
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
@@ -1060,8 +1080,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves details for the specified Amazon Chime SDK Voice Connector group, such
-  as timestamps,name, and associated `VoiceConnectorItems`.
+  Retrieves details for the specified Amazon Chime SDK Voice Connector group,
+  such as timestamps,name, and associated `VoiceConnectorItems`.
   """
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
@@ -1110,7 +1130,8 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Retrieves the proxy configuration details for the specified Amazon Chime SDK
-  Voice Connector.
+  Voice
+  Connector.
   """
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
@@ -1128,8 +1149,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the streaming configuration details for the specified Amazon Chime SDK
   Voice Connector.
 
-  Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
-  shows the retention period, in hours, for the Amazon Kinesis data.
+  Shows whether media streaming is enabled for sending to Amazon
+  Kinesis. It also shows the retention period, in hours, for the Amazon Kinesis
+  data.
   """
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -1161,8 +1183,10 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves information about the last time a `SIP OPTIONS` ping was received from
-  your SIP infrastructure for the specified Amazon Chime SDK Voice Connector.
+  Retrieves information about the last time a `SIP OPTIONS` ping
+  was received from your SIP infrastructure for the specified Amazon Chime SDK
+  Voice
+  Connector.
   """
   def get_voice_connector_termination_health(
         %Client{} = client,
@@ -1279,9 +1303,10 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Lists the phone numbers for the specified Amazon Chime SDK account, Amazon Chime
-  SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice Connector
-  group.
+  Lists the phone numbers for the specified Amazon Chime SDK account,
+  Amazon Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK
+  Voice
+  Connector group.
   """
   def list_phone_numbers(
         %Client{} = client,
@@ -1341,7 +1366,7 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1494,7 +1519,7 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1550,7 +1575,8 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Lists the Amazon Chime SDK Voice Connectors in the administrators AWS account.
+  Lists the Amazon Chime SDK Voice Connectors in the administrators
+  AWS account.
   """
   def list_voice_connectors(
         %Client{} = client,
@@ -1764,7 +1790,7 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1935,7 +1961,7 @@ defmodule AWS.ChimeSDKVoice do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1943,7 +1969,9 @@ defmodule AWS.ChimeSDKVoice do
 
   Before starting any speaker search tasks, you must provide all notices and
   obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  biometrics laws, and as required under the
+  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
+  SDK.
   """
   def start_speaker_search_task(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks"
@@ -1968,13 +1996,15 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Starts a voice tone analysis task.
 
-  For more information about voice tone analysis, see [Using Amazon Chime SDK voice
-  analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
+  For more information about voice tone analysis, see
+  [Using Amazon Chime SDK voice analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
   in the *Amazon Chime SDK Developer Guide*.
 
   Before starting any voice tone analysis tasks, you must provide all notices and
   obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  biometrics laws, and as required under the
+  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
+  SDK.
   """
   def start_voice_tone_analysis_task(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
@@ -2124,14 +2154,16 @@ defmodule AWS.ChimeSDKVoice do
   Updates phone number details, such as product type or calling name, for the
   specified phone number ID.
 
-  You can update one phone number detail at a time. For example, you can update
-  either the product type or the calling name in one action.
+  You can update one phone number detail at a time. For
+  example, you can update either the product type or the calling name in one
+  action.
 
   For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
   Application Dial-In product type.
 
-  Updates to outbound calling names can take 72 hours to complete. Pending updates
-  to outbound calling names must be complete before you can request another
+  Updates to outbound calling names can take 72 hours to complete. Pending
+  updates to outbound calling names must be complete before you can request
+  another
   update.
   """
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
@@ -2155,11 +2187,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates the phone number settings for the administrator's AWS account, such as
-  the default outbound calling name.
+  Updates the phone number settings for the administrator's AWS account, such
+  as the default outbound calling name.
 
-  You can update the default outbound calling name once every seven days. Outbound
-  calling names can take up to 72 hours to update.
+  You can update the default outbound calling
+  name once every seven days. Outbound calling names can take up to 72 hours to
+  update.
   """
   def update_phone_number_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings/phone-number"
@@ -2224,7 +2257,8 @@ defmodule AWS.ChimeSDKVoice do
   Invokes the AWS Lambda function associated with the SIP media application and
   transaction ID in an update request.
 
-  The Lambda function can then return a new set of actions.
+  The Lambda function can then return a new set
+  of actions.
   """
   def update_sip_media_application_call(
         %Client{} = client,
@@ -2303,16 +2337,19 @@ defmodule AWS.ChimeSDKVoice do
   timestamp.
 
   As a condition of using this feature, you acknowledge that the collection, use,
-  storage, and retention of your caller’s biometric identifiers and biometric
-  information (“biometric data”) in the form of a digital voiceprint requires the
-  caller’s informed consent via a written release. Such consent is required under
-  various state laws, including biometrics laws in Illinois, Texas, Washington and
-  other state privacy laws.
+  storage, and retention of
+  your caller’s biometric identifiers and biometric information (“biometric data”)
+  in the form of a digital voiceprint
+  requires the caller’s informed consent via a written release. Such consent is
+  required under various state laws,
+  including biometrics laws in Illinois, Texas, Washington and other state privacy
+  laws.
 
   You must provide a written release to each caller through a process that clearly
-  reflects each caller’s informed consent before using Amazon Chime SDK Voice
-  Insights service, as required under the terms of your agreement with AWS
-  governing your use of the service.
+  reflects each caller’s informed
+  consent before using Amazon Chime SDK Voice Insights service, as required under
+  the terms of your agreement
+  with AWS governing your use of the service.
   """
   def update_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
@@ -2346,8 +2383,9 @@ defmodule AWS.ChimeSDKVoice do
   Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
   Connectors.
 
-  You can use validated addresses in a Presence Information Data Format Location
-  Object file that you include in SIP requests. That helps ensure that addresses
+  You can use validated addresses in a Presence Information Data Format
+  Location Object file that you include in SIP requests. That helps ensure that
+  addresses
   are routed to the appropriate Public Safety Answering Point.
   """
   def validate_e911_address(%Client{} = client, input, options \\ []) do

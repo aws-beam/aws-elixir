@@ -9,13 +9,16 @@ defmodule AWS.RedshiftServerless do
   you can use to manage Amazon Redshift Serverless.
 
   Amazon Redshift Serverless automatically provisions data warehouse capacity and
-  intelligently scales the underlying resources based on workload demands. Amazon
-  Redshift Serverless adjusts capacity in seconds to deliver consistently high
+  intelligently scales the
+  underlying resources based on workload demands. Amazon Redshift Serverless
+  adjusts capacity in seconds to deliver consistently high
   performance and simplified operations for even the most demanding and volatile
-  workloads. Amazon Redshift Serverless lets you focus on using your data to
-  acquire new insights for your business and customers.
+  workloads. Amazon Redshift Serverless lets you
+  focus on using your data to acquire new insights for your business and
+  customers.
 
-  To learn more about Amazon Redshift Serverless, see [What is Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
+  To learn more about Amazon Redshift Serverless,
+  see [What is Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
   """
 
   alias AWS.Client
@@ -23,7 +26,6 @@ defmodule AWS.RedshiftServerless do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-04-21",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -40,8 +42,8 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Converts a recovery point to a snapshot.
 
-  For more information about recovery points and snapshots, see [Working with snapshots and recovery
-  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
+  For more information about recovery points and snapshots,
+  see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   def convert_recovery_point_to_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -79,8 +81,8 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates a scheduled action.
 
-  A scheduled action contains a schedule and an Amazon Redshift API action. For
-  example, you can create a schedule of when to run the `CreateSnapshot` API
+  A scheduled action contains a schedule and an Amazon Redshift API action.
+  For example, you can create a schedule of when to run the `CreateSnapshot` API
   operation.
   """
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
@@ -92,7 +94,10 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates a snapshot of all databases in a namespace.
 
-  For more information about snapshots, see [ Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
+  For more information about snapshots, see
+  [
+  Working with snapshots and recovery
+  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -215,21 +220,19 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Returns a database user name and temporary password with temporary authorization
-  to log in to Amazon Redshift Serverless.
+  Returns a database user name and temporary password with
+  temporary authorization to log in to Amazon Redshift Serverless.
 
-  By default, the temporary credentials expire in 900 seconds. You can optionally
-  specify a duration between 900 seconds (15 minutes) and 3600 seconds (60
-  minutes).
+  By default, the temporary credentials expire in 900 seconds.
+  You can optionally specify a duration between 900 seconds (15 minutes) and 3600
+  seconds (60 minutes).
 
-  ` The Identity and Access Management (IAM) user or role that runs GetCredentials
-  must have an IAM policy attached that allows access to all necessary actions and
-  resources.
+  The Identity and Access Management (IAM) user or role that runs
+  GetCredentials must have an IAM policy attached that allows access to all
+  necessary actions and resources.
 
-  If the `DbName` parameter is specified, the IAM policy must allow access to the
-  resource dbname for the specified database name.
-
-  `
+  If the `DbName` parameter is specified, the IAM policy must
+  allow access to the resource dbname for the specified database name.
   """
   def get_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -473,7 +476,8 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Restores a table from a snapshot to your Amazon Redshift Serverless instance.
 
-  You can't use this operation to restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
+  You can't use this operation to
+  restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
   """
   def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -522,9 +526,10 @@ defmodule AWS.RedshiftServerless do
   Updates a namespace with the specified settings.
 
   Unless required, you can't update multiple parameters in one request. For
-  example, you must specify both `adminUsername` and `adminUserPassword` to update
-  either field, but you can't update both `kmsKeyId` and `logExports` in a single
-  request.
+  example,
+  you must specify both `adminUsername` and `adminUserPassword` to update either
+  field, but you can't update both `kmsKeyId`
+  and `logExports` in a single request.
   """
   def update_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -573,9 +578,9 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Updates a workgroup with the specified configuration settings.
 
-  You can't update multiple parameters in one request. For example, you can update
-  `baseCapacity` or `port` in a single request, but you can't update both in the
-  same request.
+  You can't update multiple parameters in one request. For example,
+  you can update `baseCapacity` or `port` in a single request, but you can't
+  update both in the same request.
   """
   def update_workgroup(%Client{} = client, input, options \\ []) do
     meta = metadata()

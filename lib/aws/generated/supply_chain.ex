@@ -3,6 +3,7 @@
 
 defmodule AWS.SupplyChain do
   @moduledoc """
+
   AWS Supply Chain is a cloud-based application that works with your enterprise
   resource planning (ERP) and supply chain management systems.
 
@@ -23,7 +24,6 @@ defmodule AWS.SupplyChain do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2024-01-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

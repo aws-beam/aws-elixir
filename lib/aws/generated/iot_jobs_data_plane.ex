@@ -4,23 +4,27 @@
 defmodule AWS.IoTJobsDataPlane do
   @moduledoc """
   AWS IoT Jobs is a service that allows you to define a set of jobs — remote
-  operations that are sent to and executed on one or more devices connected to AWS
-  IoT.
+  operations that are sent to
+  and executed on one or more devices connected to AWS IoT.
 
-  For example, you can define a job that instructs a set of devices to download
-  and install application or firmware updates, reboot, rotate certificates, or
-  perform remote troubleshooting operations.
+  For example, you can define a job that instructs a
+  set of devices to download and install application or firmware updates, reboot,
+  rotate certificates, or perform
+  remote troubleshooting operations.
 
   To create a job, you make a job document which is a description of the remote
-  operations to be performed, and you specify a list of targets that should
-  perform the operations. The targets can be individual things, thing groups or
-  both.
+  operations to be
+  performed, and you specify a list of targets that should perform the operations.
+  The targets can be individual
+  things, thing groups or both.
 
   AWS IoT Jobs sends a message to inform the targets that a job is available. The
-  target starts the execution of the job by downloading the job document,
-  performing the operations it specifies, and reporting its progress to AWS IoT.
-  The Jobs service provides commands to track the progress of a job on a specific
-  target and for all the targets of the job
+  target starts the
+  execution of the job by downloading the job document, performing the operations
+  it specifies, and reporting its
+  progress to AWS IoT. The Jobs service provides commands to track the progress of
+  a job on a specific target and
+  for all the targets of the job
   """
 
   alias AWS.Client
@@ -28,7 +32,6 @@ defmodule AWS.IoTJobsDataPlane do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-09-29",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -73,7 +76,7 @@ defmodule AWS.IoTJobsDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -86,7 +89,7 @@ defmodule AWS.IoTJobsDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -100,7 +103,7 @@ defmodule AWS.IoTJobsDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -122,7 +125,7 @@ defmodule AWS.IoTJobsDataPlane do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

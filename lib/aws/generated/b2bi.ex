@@ -9,16 +9,18 @@ defmodule AWS.B2bi do
   of the B2BI API actions.
 
   B2BI enables automated exchange of EDI (electronic data interchange) based
-  business-critical transactions at cloud scale, with elasticity and pay-as-you-go
-  pricing. Businesses use EDI documents to exchange transactional data with
-  trading partners, such as suppliers and end customers, using standardized
-  formats such as X12.
+  business-critical transactions at cloud
+  scale, with elasticity and pay-as-you-go pricing. Businesses use EDI documents
+  to exchange
+  transactional data with trading partners, such as suppliers and end customers,
+  using
+  standardized formats such as X12.
 
   Rather than actually running a command, you can use the
-  `--generate-cli-skeleton` parameter with any API call to generate and display a
-  parameter template. You can then use the generated template to customize and use
-  as input on a later command. For details, see [Generate and use a parameter skeleton
-  file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html#cli-usage-skeleton-generate).
+  `--generate-cli-skeleton` parameter with any API call to generate and display
+  a parameter template. You can then use the generated template to customize and
+  use as input
+  on a later command. For details, see [Generate and use a parameter skeleton file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html#cli-usage-skeleton-generate).
   """
 
   alias AWS.Client
@@ -26,7 +28,6 @@ defmodule AWS.B2bi do
 
   def metadata do
     %{
-      abbreviation: "AWS B2BI",
       api_version: "2022-06-23",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -57,7 +58,8 @@ defmodule AWS.B2bi do
   supplied parameters.
 
   A partnership represents the connection between you and your trading partner. It
-  ties together a profile and one or more trading capabilities.
+  ties
+  together a profile and one or more trading capabilities.
   """
   def create_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -69,8 +71,8 @@ defmodule AWS.B2bi do
   Creates a customer profile.
 
   You can have up to five customer profiles, each representing a distinct private
-  network. A profile is the mechanism used to create the concept of a private
-  network.
+  network. A profile is the mechanism used to create the concept of
+  a private network.
   """
   def create_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -81,8 +83,9 @@ defmodule AWS.B2bi do
   @doc """
   Creates a transformer.
 
-  A transformer describes how to process the incoming EDI documents and extract
-  the necessary information to the output file.
+  A transformer
+  describes how to process the incoming EDI documents and extract the necessary
+  information to the output file.
   """
   def create_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -106,7 +109,8 @@ defmodule AWS.B2bi do
   Deletes the specified partnership.
 
   A partnership represents the connection between you and your trading partner. It
-  ties together a profile and one or more trading capabilities.
+  ties
+  together a profile and one or more trading capabilities.
   """
   def delete_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -117,7 +121,8 @@ defmodule AWS.B2bi do
   @doc """
   Deletes the specified profile.
 
-  A profile is the mechanism used to create the concept of a private network.
+  A profile is the mechanism used to create the concept of
+  a private network.
   """
   def delete_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -128,8 +133,9 @@ defmodule AWS.B2bi do
   @doc """
   Deletes the specified transformer.
 
-  A transformer describes how to process the incoming EDI documents and extract
-  the necessary information to the output file.
+  A transformer
+  describes how to process the incoming EDI documents and extract the necessary
+  information to the output file.
   """
   def delete_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -154,7 +160,8 @@ defmodule AWS.B2bi do
   specified.
 
   A partnership represents the connection between you and your trading partner. It
-  ties together a profile and one or more trading capabilities.
+  ties
+  together a profile and one or more trading capabilities.
   """
   def get_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -165,7 +172,8 @@ defmodule AWS.B2bi do
   @doc """
   Retrieves the details for the profile specified by the profile ID.
 
-  A profile is the mechanism used to create the concept of a private network.
+  A profile is the mechanism used to create the concept of
+  a private network.
   """
   def get_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -176,8 +184,9 @@ defmodule AWS.B2bi do
   @doc """
   Retrieves the details for the transformer specified by the transformer ID.
 
-  A transformer describes how to process the incoming EDI documents and extract
-  the necessary information to the output file.
+  A transformer
+  describes how to process the incoming EDI documents and extract the necessary
+  information to the output file.
   """
   def get_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -212,7 +221,8 @@ defmodule AWS.B2bi do
   current or specified region.
 
   A partnership represents the connection between you and your trading partner. It
-  ties together a profile and one or more trading capabilities.
+  ties
+  together a profile and one or more trading capabilities.
   """
   def list_partnerships(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -224,7 +234,8 @@ defmodule AWS.B2bi do
   Lists the profiles associated with your Amazon Web Services account for your
   current or specified region.
 
-  A profile is the mechanism used to create the concept of a private network.
+  A profile is the mechanism used to create the concept of
+  a private network.
   """
   def list_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -247,8 +258,9 @@ defmodule AWS.B2bi do
   @doc """
   Lists the available transformers.
 
-  A transformer describes how to process the incoming EDI documents and extract
-  the necessary information to the output file.
+  A transformer
+  describes how to process the incoming EDI documents and extract the necessary
+  information to the output file.
   """
   def list_transformers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -262,9 +274,9 @@ defmodule AWS.B2bi do
   Data Interchange.
 
   If you only want to transform EDI (electronic data interchange) documents, you
-  don't need to create profiles, partnerships or capabilities. Just create and
-  configure a transformer, and then run the `StartTransformerJob` API to process
-  your files.
+  don't need to create profiles, partnerships or capabilities. Just
+  create and configure a transformer, and then run the `StartTransformerJob` API
+  to process your files.
   """
   def start_transformer_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -339,7 +351,8 @@ defmodule AWS.B2bi do
   partner.
 
   A partnership represents the connection between you and your trading partner. It
-  ties together a profile and one or more trading capabilities.
+  ties
+  together a profile and one or more trading capabilities.
   """
   def update_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -350,7 +363,8 @@ defmodule AWS.B2bi do
   @doc """
   Updates the specified parameters for a profile.
 
-  A profile is the mechanism used to create the concept of a private network.
+  A profile is the mechanism used to create the concept of
+  a private network.
   """
   def update_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -361,8 +375,9 @@ defmodule AWS.B2bi do
   @doc """
   Updates the specified parameters for a transformer.
 
-  A transformer describes how to process the incoming EDI documents and extract
-  the necessary information to the output file.
+  A transformer
+  describes how to process the incoming EDI documents and extract the necessary
+  information to the output file.
   """
   def update_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()

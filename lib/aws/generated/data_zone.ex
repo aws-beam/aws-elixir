@@ -4,11 +4,14 @@
 defmodule AWS.DataZone do
   @moduledoc """
   Amazon DataZone is a data management service that enables you to catalog,
-  discover, govern, share, and analyze your data.
+  discover,
+  govern, share, and analyze your data.
 
-  With Amazon DataZone, you can share and access your data across accounts and
-  supported regions. Amazon DataZone simplifies your experience across Amazon Web
-  Services services, including, but not limited to, Amazon Redshift, Amazon
+  With Amazon DataZone, you can share and access your
+  data across accounts and supported regions. Amazon DataZone simplifies your
+  experience
+  across Amazon Web Services services, including, but not limited to, Amazon
+  Redshift, Amazon
   Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.
   """
 
@@ -17,7 +20,6 @@ defmodule AWS.DataZone do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -33,7 +35,8 @@ defmodule AWS.DataZone do
 
   @doc """
   Accepts automatically generated business-friendly metadata for your Amazon
-  DataZone assets.
+  DataZone
+  assets.
   """
   def accept_predictions(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -2389,7 +2392,8 @@ defmodule AWS.DataZone do
 
   @doc """
   Rejects automatically generated business-friendly metadata for your Amazon
-  DataZone assets.
+  DataZone
+  assets.
   """
   def reject_predictions(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =

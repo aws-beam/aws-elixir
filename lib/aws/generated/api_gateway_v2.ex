@@ -11,7 +11,6 @@ defmodule AWS.ApiGatewayV2 do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-11-29",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -587,6 +586,8 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a route request parameter.
+
+  Supported only for WebSocket APIs.
   """
   def delete_route_request_parameter(
         %Client{} = client,
@@ -727,9 +728,6 @@ defmodule AWS.ApiGatewayV2 do
     )
   end
 
-  @doc """
-  Exports a definition of an API in a particular output format and specification.
-  """
   def export_api(
         %Client{} = client,
         api_id,
@@ -1400,9 +1398,9 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Resets all authorizer cache entries for the specified stage.
+  Resets all authorizer cache entries on a stage.
 
-  Supported only for HTTP API Lambda authorizers.
+  Supported only for HTTP APIs.
   """
   def reset_authorizers_cache(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path =

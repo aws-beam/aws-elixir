@@ -11,7 +11,6 @@ defmodule AWS.Bedrock do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2023-04-20",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -30,14 +29,17 @@ defmodule AWS.Bedrock do
 
   You specify the base foundation model and the location of the training data.
   After the model-customization job completes successfully, your custom model
-  resource will be ready to use. Training data contains input and output text for
-  each record in a JSONL format. Optionally, you can specify validation data in
-  the same format as the training data. Amazon Bedrock returns validation loss
-  metrics and output generations after the job completes.
+  resource will be ready to use. Training data
+  contains input and output text for each record in a JSONL format. Optionally,
+  you can specify validation data
+  in the same format as the training data. Amazon Bedrock returns validation loss
+  metrics and output generations
+  after the job completes.
 
   Model-customization jobs are asynchronous and the completion time depends on the
-  base model and the training/validation data size. To monitor a job, use the
-  `GetModelCustomizationJob` operation to retrieve the job status.
+  base model and the training/validation data size.
+  To monitor a job, use the `GetModelCustomizationJob` operation to retrieve the
+  job status.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Bedrock User Guide.
@@ -389,7 +391,8 @@ defmodule AWS.Bedrock do
   @doc """
   Returns a list of model customization jobs that you have submitted.
 
-  You can filter the jobs to return based on one or more criteria.
+  You can filter the jobs to return based on
+  one or more criteria.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Bedrock User Guide.

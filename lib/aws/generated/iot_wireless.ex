@@ -4,22 +4,29 @@
 defmodule AWS.IoTWireless do
   @moduledoc """
   AWS IoT Wireless provides bi-directional communication between
-  internet-connected wireless devices and the AWS Cloud.
+  internet-connected
+  wireless devices and the AWS Cloud.
 
-  To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the IoT Wireless
-  API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
-  communication protocol to communicate with AWS IoT.
+  To onboard both LoRaWAN and Sidewalk devices to AWS
+  IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide
+  Area
+  Networking (LPWAN) communication protocol to communicate with AWS IoT.
 
   Using the API, you can perform create, read, update, and delete operations for
-  your wireless devices, gateways, destinations, and profiles. After onboarding
-  your devices, you can use the API operations to set log levels and monitor your
-  devices with CloudWatch.
+  your
+  wireless devices, gateways, destinations, and profiles. After onboarding your
+  devices,
+  you can use the API operations to set log levels and monitor your devices with
+  CloudWatch.
 
   You can also use the API operations to create multicast groups and schedule a
   multicast session for sending a downlink message to devices in the group. By
-  using Firmware Updates Over-The-Air (FUOTA) API operations, you can create a
-  FUOTA task and schedule a session to update the firmware of individual devices
-  or an entire group of devices in a multicast group.
+  using
+  Firmware Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA
+  task and
+  schedule a session to update the firmware of individual devices or an entire
+  group of
+  devices in a multicast group.
   """
 
   alias AWS.Client
@@ -27,7 +34,6 @@ defmodule AWS.IoTWireless do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-11-22",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -60,7 +66,7 @@ defmodule AWS.IoTWireless do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -126,7 +132,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -662,8 +668,8 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a wireless gateway task definition.
 
-  Deleting this task definition does not affect tasks that are currently in
-  progress.
+  Deleting this task definition does not
+  affect tasks that are currently in progress.
   """
   def delete_wireless_gateway_task_definition(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
@@ -709,15 +715,16 @@ defmodule AWS.IoTWireless do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Disassociates your AWS account from a partner account.
 
-  If `PartnerAccountId` and `PartnerType` are `null`, disassociates your AWS
-  account from all partner accounts.
+  If
+  `PartnerAccountId` and `PartnerType` are `null`,
+  disassociates your AWS account from all partner accounts.
   """
   def disassociate_aws_account_from_partner_account(
         %Client{} = client,
@@ -921,7 +928,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -934,7 +941,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -947,7 +954,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -960,14 +967,15 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns current default log levels or log levels by resource types.
 
-  Based on resource types, log levels can be for wireless device log options or
-  wireless gateway log options.
+  Based on resource
+  types, log levels can be for wireless device log options or wireless gateway log
+  options.
   """
   def get_log_levels_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
@@ -989,7 +997,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1002,7 +1010,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1021,8 +1029,8 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a partner account.
 
-  If `PartnerAccountId` and `PartnerType` are `null`, returns all partner
-  accounts.
+  If `PartnerAccountId` and
+  `PartnerType` are `null`, returns all partner accounts.
   """
   def get_partner_account(%Client{} = client, partner_account_id, partner_type, options \\ []) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
@@ -1038,7 +1046,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1063,7 +1071,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1099,8 +1107,9 @@ defmodule AWS.IoTWireless do
   @doc """
   Get estimated position information as a payload in GeoJSON format.
 
-  The payload measurement data is resolved using solvers that are provided by
-  third-party vendors.
+  The payload
+  measurement data is resolved using solvers that are provided by third-party
+  vendors.
   """
   def get_position_estimate(%Client{} = client, input, options \\ []) do
     url_path = "/position-estimate"
@@ -1118,7 +1127,7 @@ defmodule AWS.IoTWireless do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1152,14 +1161,15 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Fetches the log-level override, if any, for a given resource-ID and
   resource-type.
 
-  It can be used for a wireless device or a wireless gateway.
+  It
+  can be used for a wireless device or a wireless gateway.
   """
   def get_resource_log_level(
         %Client{} = client,
@@ -1203,12 +1213,13 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the account-specific endpoint for Configuration and Update Server (CUPS)
-  protocol or LoRaWAN Network Server (LNS) connections.
+  protocol
+  or LoRaWAN Network Server (LNS) connections.
   """
   def get_service_endpoint(%Client{} = client, service_type \\ nil, options \\ []) do
     url_path = "/service-endpoint"
@@ -1224,7 +1235,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1237,7 +1248,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1257,7 +1268,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1271,7 +1282,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1304,7 +1315,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1318,7 +1329,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1331,7 +1342,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1357,7 +1368,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1370,7 +1381,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1397,7 +1408,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1437,7 +1448,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1485,7 +1496,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1525,7 +1536,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1552,7 +1563,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1584,7 +1595,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1617,7 +1628,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1649,7 +1660,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1681,14 +1692,15 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List position configurations for a given resource, such as positioning solvers.
 
   This action is no longer supported. Calls to retrieve position information
-  should use the
+  should
+  use the
   [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
   API operation instead.
   """
@@ -1767,7 +1779,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1799,7 +1811,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1819,7 +1831,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1851,7 +1863,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1931,7 +1943,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1971,7 +1983,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2003,7 +2015,7 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2032,8 +2044,10 @@ defmodule AWS.IoTWireless do
   @doc """
   Sets the log-level override for a resource-ID and resource-type.
 
-  This option can be specified for a wireless gateway or a wireless device. A
-  limit of 200 log level override can be set per account.
+  This option can be
+  specified for a wireless gateway or a wireless device. A limit of 200 log level
+  override
+  can be set per account.
   """
   def put_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -2052,7 +2066,8 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Removes the log-level overrides for all resources; both wireless devices and
-  wireless gateways.
+  wireless
+  gateways.
   """
   def reset_all_resource_log_levels(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
@@ -2311,7 +2326,8 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Simulates a provisioned device by sending an uplink data payload of `Hello`.
+  Simulates a provisioned device by sending an uplink data payload of
+  `Hello`.
   """
   def test_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/test"
@@ -2434,8 +2450,10 @@ defmodule AWS.IoTWireless do
   @doc """
   Set default log level, or log levels by resource types.
 
-  This can be for wireless device log options or wireless gateways log options and
-  is used to control the log messages that'll be displayed in CloudWatch.
+  This can be for wireless
+  device log options or wireless gateways log options and is used to control the
+  log
+  messages that'll be displayed in CloudWatch.
   """
   def update_log_levels_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"

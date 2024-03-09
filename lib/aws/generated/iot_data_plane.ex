@@ -6,19 +6,22 @@ defmodule AWS.IoTDataPlane do
   IoT data
 
   IoT data enables secure, bi-directional communication between Internet-connected
-  things (such as sensors, actuators, embedded devices, or smart appliances) and
-  the Amazon Web Services cloud.
+  things (such as sensors,
+  actuators, embedded devices, or smart appliances) and the Amazon Web Services
+  cloud.
 
-  It implements a broker for applications and things to publish messages over HTTP
-  (Publish) and retrieve, update, and delete shadows. A shadow is a persistent
-  representation of your things and their state in the Amazon Web Services cloud.
+  It implements a broker for applications and
+  things to publish messages over HTTP (Publish) and retrieve, update, and delete
+  shadows. A shadow is a
+  persistent representation of your things and their state in the Amazon Web
+  Services cloud.
 
   Find the endpoint address for actions in IoT data by running this CLI command:
 
   `aws iot describe-endpoint --endpoint-type iot:Data-ATS`
 
-  The service name used by [Amazon Web ServicesSignature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
-  sign requests is: *iotdevicegateway*.
+  The service name used by [Amazon Web ServicesSignature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
+  to sign requests is: *iotdevicegateway*.
   """
 
   alias AWS.Client
@@ -26,7 +29,6 @@ defmodule AWS.IoTDataPlane do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2015-05-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -71,16 +73,18 @@ defmodule AWS.IoTDataPlane do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Gets the details of a single retained message for the specified topic.
 
-  This action returns the message payload of the retained message, which can incur
-  messaging costs. To list only the topic names of the retained messages, call
-  [ListRetainedMessages](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html).  Requires permission to access the
+  This action returns the message payload of the retained message, which can
+  incur messaging costs. To list only the topic names of the retained messages,
+  call
+  [ListRetainedMessages](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html). 
+  Requires permission to access the
   [GetRetainedMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
   action.
 
@@ -93,7 +97,7 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -104,7 +108,8 @@ defmodule AWS.IoTDataPlane do
 
   For more information, see
   [GetThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html)
-  in the IoT Developer Guide.
+  in the
+  IoT Developer Guide.
   """
   def get_thing_shadow(%Client{} = client, thing_name, shadow_name \\ nil, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
@@ -120,7 +125,7 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -157,7 +162,7 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -165,10 +170,11 @@ defmodule AWS.IoTDataPlane do
 
   This action returns only the topic names of the retained messages. It doesn't
   return any message payloads. Although this action doesn't return a message
-  payload, it can still incur messaging costs.
+  payload,
+  it can still incur messaging costs.
 
   To get the message payload of a retained message, call
-  [GetRetainedMessage](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html) with the topic name of the retained message.
+  [GetRetainedMessage](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html)  with the topic name of the retained message.
 
   Requires permission to access the
   [ListRetainedMessages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions)
@@ -202,7 +208,7 @@ defmodule AWS.IoTDataPlane do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -211,8 +217,9 @@ defmodule AWS.IoTDataPlane do
   Requires permission to access the
   [Publish](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 
-  For more information about MQTT messages, see [MQTT
-  Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html) in the
+  For more information about MQTT messages, see
+  [MQTT Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html)
+  in the
   IoT Developer Guide.
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
@@ -249,7 +256,7 @@ defmodule AWS.IoTDataPlane do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -261,7 +268,8 @@ defmodule AWS.IoTDataPlane do
 
   For more information, see
   [UpdateThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html)
-  in the IoT Developer Guide.
+  in the
+  IoT Developer Guide.
   """
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
@@ -284,7 +292,7 @@ defmodule AWS.IoTDataPlane do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

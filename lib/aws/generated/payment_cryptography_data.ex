@@ -23,7 +23,6 @@ defmodule AWS.PaymentCryptographyData do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-02-03",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -72,10 +71,16 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `EncryptData`
+    *
+
+  `EncryptData`
 
     *
-  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html)     *
+
+  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html) 
+
+    *
+
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
   """
   def decrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
@@ -113,7 +118,7 @@ defmodule AWS.PaymentCryptographyData do
   asymmetric encryption, plaintext is encrypted using public component. You can
   import the public component of an asymmetric key pair created outside Amazon Web
   Services Payment Cryptography by calling
-  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html).  For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography
+  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html).   For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography
   supports `TDES` and `AES` algorithms. For EMV encryption, Amazon Web Services
   Payment Cryptography supports `TDES` algorithms.For asymmetric encryption,
   Amazon Web Services Payment Cryptography supports `RSA`.
@@ -138,13 +143,21 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `DecryptData`
+    *
+
+  `DecryptData`
 
     *
-  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html)     *
+
+  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html) 
+
+    *
+
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
 
-    * `ReEncryptData`
+    *
+
+  `ReEncryptData`
   """
   def encrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/encrypt"
@@ -195,9 +208,12 @@ defmodule AWS.PaymentCryptographyData do
   ## Related operations:
 
     *
+
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
 
-    * `VerifyCardValidationData`
+    *
+
+  `VerifyCardValidationData`
   """
   def generate_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/generate"
@@ -245,7 +261,9 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `VerifyMac`
+    *
+
+  `VerifyMac`
   """
   def generate_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/generate"
@@ -289,11 +307,17 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `GenerateCardValidationData`
+    *
 
-    * `TranslatePinData`
+  `GenerateCardValidationData`
 
-    * `VerifyPinData`
+    *
+
+  `TranslatePinData`
+
+    *
+
+  `VerifyPinData`
   """
   def generate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/generate"
@@ -345,12 +369,20 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `DecryptData`
+    *
 
-    * `EncryptData`
+  `DecryptData`
 
     *
-  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html)     *
+
+  `EncryptData`
+
+    *
+
+  [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html) 
+
+    *
+
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
   """
   def re_encrypt_data(%Client{} = client, incoming_key_identifier, input, options \\ []) do
@@ -406,9 +438,13 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `GeneratePinData`
+    *
 
-    * `VerifyPinData`
+  `GeneratePinData`
+
+    *
+
+  `VerifyPinData`
   """
   def translate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/translate"
@@ -459,9 +495,13 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `VerifyCardValidationData`
+    *
 
-    * `VerifyPinData`
+  `VerifyCardValidationData`
+
+    *
+
+  `VerifyPinData`
   """
   def verify_auth_request_cryptogram(%Client{} = client, input, options \\ []) do
     url_path = "/cryptogram/verify"
@@ -509,11 +549,17 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `GenerateCardValidationData`
+    *
 
-    * `VerifyAuthRequestCryptogram`
+  `GenerateCardValidationData`
 
-    * `VerifyPinData`
+    *
+
+  `VerifyAuthRequestCryptogram`
+
+    *
+
+  `VerifyPinData`
   """
   def verify_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/verify"
@@ -553,7 +599,9 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `GenerateMac`
+    *
+
+  `GenerateMac`
   """
   def verify_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/verify"
@@ -598,9 +646,13 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Related operations:
 
-    * `GeneratePinData`
+    *
 
-    * `TranslatePinData`
+  `GeneratePinData`
+
+    *
+
+  `TranslatePinData`
   """
   def verify_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/verify"

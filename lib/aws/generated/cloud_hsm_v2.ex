@@ -11,7 +11,6 @@ defmodule AWS.CloudHSMV2 do
 
   def metadata do
     %{
-      abbreviation: "CloudHSM V2",
       api_version: "2017-04-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -20,7 +19,7 @@ defmodule AWS.CloudHSMV2 do
       protocol: "json",
       service_id: "CloudHSM V2",
       signature_version: "v4",
-      signing_name: "cloudhsm",
+      signing_name: "cloudhsmv2",
       target_prefix: "BaldrApiService"
     }
   end
@@ -56,8 +55,10 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Deletes a specified AWS CloudHSM backup.
 
-  A backup can be restored up to 7 days after the DeleteBackup request is made.
-  For more information on restoring a backup, see `RestoreBackup`.
+  A backup can be restored up to 7 days
+  after the DeleteBackup request is made. For more information on restoring a
+  backup, see
+  `RestoreBackup`.
   """
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -68,9 +69,9 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Deletes the specified AWS CloudHSM cluster.
 
-  Before you can delete a cluster, you must delete all HSMs in the cluster. To see
-  if the cluster contains any HSMs, use `DescribeClusters`. To delete an HSM, use
-  `DeleteHsm`.
+  Before you can delete a cluster, you must
+  delete all HSMs in the cluster. To see if the cluster contains any HSMs, use
+  `DescribeClusters`. To delete an HSM, use `DeleteHsm`.
   """
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -81,9 +82,10 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Deletes the specified HSM.
 
-  To specify an HSM, you can use its identifier (ID), the IP address of the HSM's
-  elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify
-  only one of these values. To find these values, use `DescribeClusters`.
+  To specify an HSM, you can use its identifier (ID), the IP
+  address of the HSM's elastic network interface (ENI), or the ID of the HSM's
+  ENI. You need to
+  specify only one of these values. To find these values, use `DescribeClusters`.
   """
   def delete_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -95,11 +97,13 @@ defmodule AWS.CloudHSMV2 do
   Gets information about backups of AWS CloudHSM clusters.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the backups. When the response contains only a subset of
-  backups, it includes a `NextToken` value. Use this value in a subsequent
-  `DescribeBackups` request to get more backups. When you receive a response with
-  no `NextToken` (or an empty or null value), that means there are no more backups
-  to get.
+  a
+  subset of all the backups. When the response contains only a subset of backups,
+  it includes a
+  `NextToken` value. Use this value in a subsequent `DescribeBackups`
+  request to get more backups. When you receive a response with no `NextToken` (or
+  an
+  empty or null value), that means there are no more backups to get.
   """
   def describe_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -111,11 +115,13 @@ defmodule AWS.CloudHSMV2 do
   Gets information about AWS CloudHSM clusters.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the clusters. When the response contains only a subset of
-  clusters, it includes a `NextToken` value. Use this value in a subsequent
-  `DescribeClusters` request to get more clusters. When you receive a response
-  with no `NextToken` (or an empty or null value), that means there are no more
-  clusters to get.
+  a
+  subset of all the clusters. When the response contains only a subset of
+  clusters, it includes
+  a `NextToken` value. Use this value in a subsequent `DescribeClusters`
+  request to get more clusters. When you receive a response with no `NextToken`
+  (or
+  an empty or null value), that means there are no more clusters to get.
   """
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -125,11 +131,13 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by
-  your issuing certificate authority (CA) and the CA's root certificate.
+  your
+  issuing certificate authority (CA) and the CA's root certificate.
 
-  Before you can claim a cluster, you must sign the cluster's certificate signing
-  request (CSR) with your issuing CA. To get the cluster's CSR, use
-  `DescribeClusters`.
+  Before you can claim a
+  cluster, you must sign the cluster's certificate signing request (CSR) with your
+  issuing CA.
+  To get the cluster's CSR, use `DescribeClusters`.
   """
   def initialize_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -141,10 +149,13 @@ defmodule AWS.CloudHSMV2 do
   Gets a list of tags for the specified AWS CloudHSM cluster.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the tags. When the response contains only a subset of tags, it
-  includes a `NextToken` value. Use this value in a subsequent `ListTags` request
-  to get more tags. When you receive a response with no `NextToken` (or an empty
-  or null value), that means there are no more tags to get.
+  a
+  subset of all the tags. When the response contains only a subset of tags, it
+  includes a
+  `NextToken` value. Use this value in a subsequent `ListTags` request to
+  get more tags. When you receive a response with no `NextToken` (or an empty or
+  null
+  value), that means there are no more tags to get.
   """
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -171,10 +182,11 @@ defmodule AWS.CloudHSMV2 do
   end
 
   @doc """
-  Restores a specified AWS CloudHSM backup that is in the `PENDING_DELETION`
-  state.
+  Restores a specified AWS CloudHSM backup that is in the
+  `PENDING_DELETION` state.
 
-  For mor information on deleting a backup, see `DeleteBackup`.
+  For mor information on deleting a backup, see
+  `DeleteBackup`.
   """
   def restore_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()

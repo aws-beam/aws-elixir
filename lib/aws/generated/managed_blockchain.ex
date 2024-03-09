@@ -28,7 +28,6 @@ defmodule AWS.ManagedBlockchain do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-09-24",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -64,7 +63,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -89,7 +88,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -114,7 +113,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -139,7 +138,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -167,20 +166,23 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an accessor that your Amazon Web Services account owns.
 
-  An accessor object is a container that has the information required for token
-  based access to your Ethereum nodes including, the `BILLING_TOKEN`. After an
-  accessor is deleted, the status of the accessor changes from `AVAILABLE` to
-  `PENDING_DELETION`. An accessor in the `PENDING_DELETION` state can’t be used
-  for new WebSocket requests or HTTP requests. However, WebSocket connections that
-  were initiated while the accessor was in the `AVAILABLE` state remain open until
-  they expire (up to 2 hours).
+  An accessor object is a container that has the
+  information required for token based access to your Ethereum nodes including,
+  the
+  `BILLING_TOKEN`. After an accessor is deleted, the status of the accessor
+  changes
+  from `AVAILABLE` to `PENDING_DELETION`. An accessor in the
+  `PENDING_DELETION` state can’t be used for new WebSocket requests or
+  HTTP requests. However, WebSocket connections that were initiated while the
+  accessor was in the
+  `AVAILABLE` state remain open until they expire (up to 2 hours).
   """
   def delete_accessor(%Client{} = client, accessor_id, input, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
@@ -198,7 +200,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -233,7 +235,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -267,15 +269,15 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns detailed information about an accessor.
 
-  An accessor object is a container that has the information required for token
-  based access to your Ethereum nodes.
+  An accessor object is a container that has the
+  information required for token based access to your Ethereum nodes.
   """
   def get_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
@@ -284,7 +286,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -301,7 +303,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -316,7 +318,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -340,7 +342,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -357,14 +359,14 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the accessors and their properties.
 
-  Accessor objects are containers that have the information required for token
-  based access to your Ethereum nodes.
+  Accessor objects are containers that have the
+  information required for token based access to your Ethereum nodes.
   """
   def list_accessors(
         %Client{} = client,
@@ -400,7 +402,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -429,7 +431,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -489,7 +491,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -548,7 +550,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -599,7 +601,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -638,7 +640,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -673,7 +675,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -692,7 +694,7 @@ defmodule AWS.ManagedBlockchain do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -719,7 +721,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -755,7 +757,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -787,7 +789,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -814,7 +816,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -841,7 +843,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -871,7 +873,7 @@ defmodule AWS.ManagedBlockchain do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

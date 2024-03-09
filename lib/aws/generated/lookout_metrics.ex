@@ -5,8 +5,9 @@ defmodule AWS.LookoutMetrics do
   @moduledoc """
   This is the *Amazon Lookout for Metrics API Reference*.
 
-  For an introduction to the service with tutorials for getting started, visit
-  [Amazon Lookout for Metrics Developer Guide](https://docs.aws.amazon.com/lookoutmetrics/latest/dev).
+  For an introduction to the service
+  with tutorials for getting started, visit [Amazon Lookout for Metrics Developer
+  Guide](https://docs.aws.amazon.com/lookoutmetrics/latest/dev).
   """
 
   alias AWS.Client
@@ -14,7 +15,6 @@ defmodule AWS.LookoutMetrics do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-07-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -47,7 +47,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -70,7 +70,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -93,7 +93,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -116,7 +116,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -139,7 +139,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -162,7 +162,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -185,7 +185,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -193,7 +193,8 @@ defmodule AWS.LookoutMetrics do
   Deletes a detector.
 
   Deleting an anomaly detector will delete all of its corresponding resources
-  including any configured datasets and alerts.
+  including any
+  configured datasets and alerts.
   """
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteAnomalyDetector"
@@ -211,7 +212,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -219,8 +220,9 @@ defmodule AWS.LookoutMetrics do
   Describes an alert.
 
   Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource immediately after creating or modifying it, use
-  retries to allow time for the write operation to complete.
+  read operation on a resource
+  immediately after creating or modifying it, use retries to allow time for the
+  write operation to complete.
   """
   def describe_alert(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAlert"
@@ -238,7 +240,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -261,7 +263,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -269,8 +271,9 @@ defmodule AWS.LookoutMetrics do
   Describes a detector.
 
   Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource immediately after creating or modifying it, use
-  retries to allow time for the write operation to complete.
+  read operation on a resource
+  immediately after creating or modifying it, use retries to allow time for the
+  write operation to complete.
   """
   def describe_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAnomalyDetector"
@@ -288,7 +291,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -296,8 +299,9 @@ defmodule AWS.LookoutMetrics do
   Describes a dataset.
 
   Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource immediately after creating or modifying it, use
-  retries to allow time for the write operation to complete.
+  read operation on a resource
+  immediately after creating or modifying it, use retries to allow time for the
+  write operation to complete.
   """
   def describe_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeMetricSet"
@@ -315,7 +319,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -338,7 +342,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -361,7 +365,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -384,7 +388,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -407,7 +411,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -430,7 +434,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -438,8 +442,9 @@ defmodule AWS.LookoutMetrics do
   Lists the alerts attached to a detector.
 
   Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource immediately after creating or modifying it, use
-  retries to allow time for the write operation to complete.
+  read operation on a resource
+  immediately after creating or modifying it, use retries to allow time for the
+  write operation to complete.
   """
   def list_alerts(%Client{} = client, input, options \\ []) do
     url_path = "/ListAlerts"
@@ -457,7 +462,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -465,8 +470,9 @@ defmodule AWS.LookoutMetrics do
   Lists the detectors in the current AWS Region.
 
   Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource immediately after creating or modifying it, use
-  retries to allow time for the write operation to complete.
+  read operation on a resource
+  immediately after creating or modifying it, use retries to allow time for the
+  write operation to complete.
   """
   def list_anomaly_detectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyDetectors"
@@ -484,13 +490,13 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Returns a list of measures that are potential causes or effects of an anomaly
-  group.
+  Returns a list of measures that are potential causes or effects of an
+  anomaly group.
   """
   def list_anomaly_group_related_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupRelatedMetrics"
@@ -508,7 +514,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -531,7 +537,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -554,7 +560,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -562,8 +568,9 @@ defmodule AWS.LookoutMetrics do
   Lists the datasets in the current AWS Region.
 
   Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource immediately after creating or modifying it, use
-  retries to allow time for the write operation to complete.
+  read operation on a resource
+  immediately after creating or modifying it, use retries to allow time for the
+  write operation to complete.
   """
   def list_metric_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListMetricSets"
@@ -581,7 +588,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -619,7 +626,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -697,7 +704,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -723,7 +730,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -746,7 +753,7 @@ defmodule AWS.LookoutMetrics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

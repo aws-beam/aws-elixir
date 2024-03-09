@@ -4,16 +4,22 @@
 defmodule AWS.SSMIncidents do
   @moduledoc """
   Systems Manager Incident Manager is an incident management console designed to
-  help users mitigate and recover from incidents affecting their Amazon Web
-  Services-hosted applications.
+  help users
+  mitigate and recover from incidents affecting their Amazon Web Services-hosted
+  applications.
 
-  An incident is any unplanned interruption or reduction in quality of services.
+  An
+  incident is any unplanned interruption or reduction in quality of services.
 
   Incident Manager increases incident resolution by notifying responders of
-  impact, highlighting relevant troubleshooting data, and providing collaboration
-  tools to get services back up and running. To achieve the primary goal of
-  reducing the time-to-resolution of critical incidents, Incident Manager
-  automates response plans and enables responder team escalation.
+  impact,
+  highlighting relevant troubleshooting data, and providing collaboration tools to
+  get services
+  back up and running. To achieve the primary goal of reducing the
+  time-to-resolution of
+  critical incidents, Incident Manager automates response plans and enables
+  responder
+  team escalation.
   """
 
   alias AWS.Client
@@ -21,7 +27,6 @@ defmodule AWS.SSMIncidents do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -39,9 +44,11 @@ defmodule AWS.SSMIncidents do
   Retrieves details about all specified findings for an incident, including
   descriptive details about each finding.
 
-  A finding represents a recent application environment change made by an
-  CodeDeploy deployment or an CloudFormation stack creation or update that can be
-  investigated as a potential cause of the incident.
+  A finding
+  represents a recent application environment change made by an CodeDeploy
+  deployment or an CloudFormation stack creation or update that can be
+  investigated as a
+  potential cause of the incident.
   """
   def batch_get_incident_findings(%Client{} = client, input, options \\ []) do
     url_path = "/batchGetIncidentFindings"
@@ -65,7 +72,8 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   A replication set replicates and encrypts your data to the provided Regions with
-  the provided KMS key.
+  the
+  provided KMS key.
   """
   def create_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/createReplicationSet"
@@ -90,8 +98,10 @@ defmodule AWS.SSMIncidents do
   @doc """
   Creates a response plan that automates the initial response to incidents.
 
-  A response plan engages contacts, starts chat channel collaboration, and
-  initiates runbooks at the beginning of an incident.
+  A response plan
+  engages contacts, starts chat channel collaboration, and initiates runbooks at
+  the beginning
+  of an incident.
   """
   def create_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/createResponsePlan"
@@ -118,8 +128,10 @@ defmodule AWS.SSMIncidents do
   record.
 
   Incident Manager automatically creates timeline events that mark key moments
-  during an incident. You can create custom timeline events to mark important
-  events that Incident Manager can detect automatically.
+  during an incident.
+  You can create custom timeline events to mark important events that Incident
+  Manager can detect
+  automatically.
   """
   def create_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/createTimelineEvent"
@@ -167,7 +179,8 @@ defmodule AWS.SSMIncidents do
   @doc """
   Deletes all Regions in your replication set.
 
-  Deleting the replication set deletes all Incident Manager data.
+  Deleting the replication set deletes all
+  Incident Manager data.
   """
   def delete_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/deleteReplicationSet"
@@ -196,7 +209,8 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Deletes the resource policy that Resource Access Manager uses to share your
-  Incident Manager resource.
+  Incident Manager
+  resource.
   """
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/deleteResourcePolicy"
@@ -222,7 +236,8 @@ defmodule AWS.SSMIncidents do
   Deletes the specified response plan.
 
   Deleting a response plan stops all linked CloudWatch alarms and EventBridge
-  events from creating an incident with this response plan.
+  events from creating an incident with this response
+  plan.
   """
   def delete_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/deleteResponsePlan"
@@ -384,11 +399,12 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Retrieves a list of the IDs of findings, plus their last modified times, that
-  have been identified for a specified incident.
+  have been
+  identified for a specified incident.
 
-  A finding represents a recent application environment change made by an
-  CloudFormation stack creation or update or an CodeDeploy deployment that can be
-  investigated as a potential cause of the incident.
+  A finding represents a recent application environment
+  change made by an CloudFormation stack creation or update or an CodeDeploy
+  deployment that can be investigated as a potential cause of the incident.
   """
   def list_incident_findings(%Client{} = client, input, options \\ []) do
     url_path = "/listIncidentFindings"
@@ -413,8 +429,8 @@ defmodule AWS.SSMIncidents do
   @doc """
   Lists all incident records in your account.
 
-  Use this command to retrieve the Amazon Resource Name (ARN) of the incident
-  record you want to update.
+  Use this command to retrieve the Amazon
+  Resource Name (ARN) of the incident record you want to update.
   """
   def list_incident_records(%Client{} = client, input, options \\ []) do
     url_path = "/listIncidentRecords"
@@ -544,9 +560,10 @@ defmodule AWS.SSMIncidents do
   @doc """
   Adds a resource policy to the specified response plan.
 
-  The resource policy is used to share the response plan using Resource Access
-  Manager (RAM). For more information about cross-account sharing, see
-  [Cross-Region and cross-account incident management](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html).
+  The resource policy is used to
+  share the response plan using Resource Access Manager (RAM). For more
+  information about cross-account sharing, see [Cross-Region and cross-account incident
+  management](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html).
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/putResourcePolicy"
@@ -645,7 +662,8 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Update deletion protection to either allow or deny deletion of the final Region
-  in a replication set.
+  in a
+  replication set.
   """
   def update_deletion_protection(%Client{} = client, input, options \\ []) do
     url_path = "/updateDeletionProtection"
@@ -670,9 +688,10 @@ defmodule AWS.SSMIncidents do
   @doc """
   Update the details of an incident record.
 
-  You can use this operation to update an incident record from the defined chat
-  channel. For more information about using actions in chat channels, see
-  [Interacting through chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
+  You can use this operation to update an incident
+  record from the defined chat channel. For more information about using actions
+  in chat
+  channels, see [Interacting through chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
   """
   def update_incident_record(%Client{} = client, input, options \\ []) do
     url_path = "/updateIncidentRecord"

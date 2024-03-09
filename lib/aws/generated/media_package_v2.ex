@@ -3,22 +3,24 @@
 
 defmodule AWS.MediaPackageV2 do
   @moduledoc """
+
   This guide is intended for creating AWS Elemental MediaPackage resources in
   MediaPackage Version 2 (v2) starting from May 2023.
 
   To get started with MediaPackage v2, create your MediaPackage resources. There
-  isn't an automated process to migrate your resources from MediaPackage v1 to
-  MediaPackage v2.
+  isn't an automated process to
+  migrate your resources from MediaPackage v1 to MediaPackage v2.
 
   The names of the entities that you use to access this API, like URLs and ARNs,
-  all have the versioning information added, like "v2", to distinguish from the
-  prior version. If you used MediaPackage prior to this release, you can't use the
-  MediaPackage v2 CLI or the MediaPackage v2 API to access any MediaPackage v1
+  all have the versioning information
+  added, like "v2", to distinguish from the prior version. If you used
+  MediaPackage prior to this release, you can't use
+  the MediaPackage v2 CLI or the MediaPackage v2 API to access any MediaPackage v1
   resources.
 
   If you created resources in MediaPackage v1, use video on demand (VOD)
-  workflows, and aren't looking to migrate to MediaPackage v2 yet, see the
-  [MediaPackage v1 Live API Reference](https://docs.aws.amazon.com/mediapackage/latest/apireference/what-is.html).
+  workflows, and aren't looking to migrate to MediaPackage v2 yet,
+  see the [MediaPackage v1 Live API Reference](https://docs.aws.amazon.com/mediapackage/latest/apireference/what-is.html).
 
   This is the AWS Elemental MediaPackage v2 Live REST API Reference. It describes
   all the MediaPackage API operations for live content in detail, and provides
@@ -35,7 +37,6 @@ defmodule AWS.MediaPackageV2 do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-12-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -594,12 +595,15 @@ defmodule AWS.MediaPackageV2 do
   resource.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user permissions, by granting a user permission to access or change
-  only resources with certain tag values. You can use the TagResource operation
-  with a resource that already has tags. If you specify a new tag key for the
-  resource, this tag is appended to the list of tags associated with the resource.
-  If you specify a tag key that is already associated with the resource, the new
-  tag value that you specify replaces the previous value for that tag.
+  to scope user
+  permissions, by granting a user permission to access or change only resources
+  with certain tag values.
+  You can use the TagResource operation with a resource that already has tags. If
+  you specify a new tag
+  key for the resource, this tag is appended to the list of tags associated with
+  the resource. If you
+  specify a tag key that is already associated with the resource, the new tag
+  value that you specify replaces the previous value for that tag.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

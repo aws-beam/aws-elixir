@@ -4,7 +4,8 @@
 defmodule AWS.Fis do
   @moduledoc """
   Fault Injection Simulator is a managed service that enables you to perform fault
-  injection experiments on your Amazon Web Services workloads.
+  injection
+  experiments on your Amazon Web Services workloads.
 
   For more information, see the [Fault Injection Simulator User Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
   """
@@ -14,7 +15,6 @@ defmodule AWS.Fis do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-12-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -33,17 +33,24 @@ defmodule AWS.Fis do
 
   An experiment template includes the following components:
 
-    * **Targets**: A target can be a specific resource in your Amazon
-  Web Services environment, or one or more resources that match criteria that you
+    *
+
+  **Targets**: A target can be a specific resource in
+  your Amazon Web Services environment, or one or more resources that match
+  criteria that you
   specify, for example, resources that have specific tags.
 
-    * **Actions**: The actions to carry out on the target. You can
-  specify multiple actions, the duration of each action, and when to start each
-  action during an experiment.
+    *
 
-    * **Stop conditions**: If a stop condition is triggered while an
-  experiment is running, the experiment is automatically stopped. You can define a
-  stop condition as a CloudWatch alarm.
+  **Actions**: The actions to carry out on the
+  target. You can specify multiple actions, the duration of each action, and when
+  to start each action during an experiment.
+
+    *
+
+  **Stop conditions**: If a stop condition is
+  triggered while an experiment is running, the experiment is automatically
+  stopped. You can define a stop condition as a CloudWatch alarm.
 
   For more information, see [experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html)
   in the *Fault Injection Simulator User Guide*.
@@ -71,9 +78,10 @@ defmodule AWS.Fis do
   @doc """
   Creates a target account configuration for the experiment template.
 
-  A target account configuration is required when `accountTargeting` of
-  `experimentOptions` is set to `multi-account`. For more information, see
-  [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
+  A target account configuration
+  is required when `accountTargeting` of `experimentOptions` is set to
+  `multi-account`.
+  For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
   in the *Fault Injection Simulator User Guide*.
   """
   def create_target_account_configuration(

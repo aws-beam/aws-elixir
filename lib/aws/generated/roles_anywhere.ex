@@ -4,24 +4,29 @@
 defmodule AWS.RolesAnywhere do
   @moduledoc """
   Identity and Access Management Roles Anywhere provides a secure way for your
-  workloads such as servers, containers, and applications that run outside of
-  Amazon Web Services to obtain temporary Amazon Web Services credentials.
+  workloads such as
+  servers, containers, and applications that run outside of Amazon Web Services to
+  obtain
+  temporary Amazon Web Services credentials.
 
   Your workloads can use the same IAM policies and roles you have for native
   Amazon Web Services applications to access Amazon Web Services resources. Using
-  IAM Roles Anywhere eliminates the need to manage long-term credentials for
-  workloads running outside of Amazon Web Services.
+  IAM Roles Anywhere eliminates the need to
+  manage long-term credentials for workloads running outside of Amazon Web
+  Services.
 
-  To use IAM Roles Anywhere, your workloads must use X.509 certificates issued by
-  their certificate authority (CA). You register the CA with IAM Roles Anywhere as
-  a trust anchor to establish trust between your public key infrastructure (PKI)
-  and IAM Roles Anywhere. If you don't manage your own PKI system, you can use
-  Private Certificate Authority to create a CA and then use that to establish
-  trust with IAM Roles Anywhere.
+  To use IAM Roles Anywhere, your workloads must use X.509 certificates
+  issued by their certificate authority (CA). You register the CA with IAM
+  Roles Anywhere as a trust anchor to establish trust between your public key
+  infrastructure
+  (PKI) and IAM Roles Anywhere. If you don't manage your own PKI system, you
+  can use Private Certificate Authority to create a CA and then use that to
+  establish trust with
+  IAM Roles Anywhere.
 
   This guide describes the IAM Roles Anywhere operations that you can call
-  programmatically. For more information about IAM Roles Anywhere, see the [IAM Roles Anywhere User
-  Guide](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html).
+  programmatically. For more information about IAM Roles Anywhere, see the
+  [IAM Roles Anywhere User Guide](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html).
   """
 
   alias AWS.Client
@@ -29,7 +34,6 @@ defmodule AWS.RolesAnywhere do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -49,7 +53,8 @@ defmodule AWS.RolesAnywhere do
 
   You use profiles to intersect permissions with IAM managed policies.
 
-  **Required permissions: ** `rolesanywhere:CreateProfile`.
+  ## Required permissions: 
+  `rolesanywhere:CreateProfile`.
   """
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profiles"
@@ -72,15 +77,16 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Creates a trust anchor to establish trust between IAM Roles Anywhere and your
-  certificate authority (CA).
+  Creates a trust anchor to establish trust between IAM Roles Anywhere and
+  your certificate authority (CA).
 
   You can define a trust anchor as a reference to an Private Certificate Authority
   (Private CA) or by uploading a CA certificate. Your Amazon Web Services
   workloads can authenticate with the trust anchor using certificates issued by
   the CA in exchange for temporary Amazon Web Services credentials.
 
-  **Required permissions: ** `rolesanywhere:CreateTrustAnchor`.
+  ## Required permissions: 
+  `rolesanywhere:CreateTrustAnchor`.
   """
   def create_trust_anchor(%Client{} = client, input, options \\ []) do
     url_path = "/trustanchors"
@@ -105,7 +111,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a certificate revocation list (CRL).
 
-  **Required permissions: ** `rolesanywhere:DeleteCrl`.
+  ## Required permissions: 
+  `rolesanywhere:DeleteCrl`.
   """
   def delete_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
@@ -130,7 +137,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a profile.
 
-  **Required permissions: ** `rolesanywhere:DeleteProfile`.
+  ## Required permissions: 
+  `rolesanywhere:DeleteProfile`.
   """
   def delete_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -155,7 +163,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a trust anchor.
 
-  **Required permissions: ** `rolesanywhere:DeleteTrustAnchor`.
+  ## Required permissions: 
+  `rolesanywhere:DeleteTrustAnchor`.
   """
   def delete_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
@@ -180,7 +189,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Disables a certificate revocation list (CRL).
 
-  **Required permissions: ** `rolesanywhere:DisableCrl`.
+  ## Required permissions: 
+  `rolesanywhere:DisableCrl`.
   """
   def disable_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/disable"
@@ -207,7 +217,8 @@ defmodule AWS.RolesAnywhere do
 
   When disabled, temporary credential requests with this profile fail.
 
-  **Required permissions: ** `rolesanywhere:DisableProfile`.
+  ## Required permissions: 
+  `rolesanywhere:DisableProfile`.
   """
   def disable_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/disable"
@@ -235,7 +246,8 @@ defmodule AWS.RolesAnywhere do
   When disabled, temporary credential requests specifying this trust anchor are
   unauthorized.
 
-  **Required permissions: ** `rolesanywhere:DisableTrustAnchor`.
+  ## Required permissions: 
+  `rolesanywhere:DisableTrustAnchor`.
   """
   def disable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/disable"
@@ -263,7 +275,8 @@ defmodule AWS.RolesAnywhere do
   When enabled, certificates stored in the CRL are unauthorized to receive session
   credentials.
 
-  **Required permissions: ** `rolesanywhere:EnableCrl`.
+  ## Required permissions: 
+  `rolesanywhere:EnableCrl`.
   """
   def enable_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/enable"
@@ -288,7 +301,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Enables temporary credential requests for a profile.
 
-  **Required permissions: ** `rolesanywhere:EnableProfile`.
+  ## Required permissions: 
+  `rolesanywhere:EnableProfile`.
   """
   def enable_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/enable"
@@ -316,7 +330,8 @@ defmodule AWS.RolesAnywhere do
   When enabled, certificates in the trust anchor chain are authorized for trust
   validation.
 
-  **Required permissions: ** `rolesanywhere:EnableTrustAnchor`.
+  ## Required permissions: 
+  `rolesanywhere:EnableTrustAnchor`.
   """
   def enable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/enable"
@@ -341,7 +356,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a certificate revocation list (CRL).
 
-  **Required permissions: ** `rolesanywhere:GetCrl`.
+  ## Required permissions: 
+  `rolesanywhere:GetCrl`.
   """
   def get_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
@@ -356,7 +372,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a profile.
 
-  **Required permissions: ** `rolesanywhere:GetProfile`.
+  ## Required permissions: 
+  `rolesanywhere:GetProfile`.
   """
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -369,14 +386,16 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Gets a *subject*, which associates a certificate identity with authentication
-  attempts.
+  Gets a *subject*, which associates a certificate identity with
+  authentication attempts.
 
-  The subject stores auditing information such as the status of the last
-  authentication attempt, the certificate data used in the attempt, and the last
-  time the associated identity attempted authentication.
+  The subject stores auditing information such as the status
+  of the last authentication attempt, the certificate data used in the attempt,
+  and the
+  last time the associated identity attempted authentication.
 
-  **Required permissions: ** `rolesanywhere:GetSubject`.
+  ## Required permissions: 
+  `rolesanywhere:GetSubject`.
   """
   def get_subject(%Client{} = client, subject_id, options \\ []) do
     url_path = "/subject/#{AWS.Util.encode_uri(subject_id)}"
@@ -391,7 +410,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a trust anchor.
 
-  **Required permissions: ** `rolesanywhere:GetTrustAnchor`.
+  ## Required permissions: 
+  `rolesanywhere:GetTrustAnchor`.
   """
   def get_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
@@ -406,11 +426,12 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Imports the certificate revocation list (CRL).
 
-  A CRL is a list of certificates that have been revoked by the issuing
-  certificate Authority (CA). IAM Roles Anywhere validates against the CRL before
-  issuing credentials.
+  A CRL is a list of certificates that have
+  been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere
+  validates against the CRL before issuing credentials.
 
-  **Required permissions: ** `rolesanywhere:ImportCrl`.
+  ## Required permissions: 
+  `rolesanywhere:ImportCrl`.
   """
   def import_crl(%Client{} = client, input, options \\ []) do
     url_path = "/crls"
@@ -436,7 +457,8 @@ defmodule AWS.RolesAnywhere do
   Lists all certificate revocation lists (CRL) in the authenticated account and
   Amazon Web Services Region.
 
-  **Required permissions: ** `rolesanywhere:ListCrls`.
+  ## Required permissions: 
+  `rolesanywhere:ListCrls`.
   """
   def list_crls(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/crls"
@@ -465,7 +487,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists all profiles in the authenticated account and Amazon Web Services Region.
 
-  **Required permissions: ** `rolesanywhere:ListProfiles`.
+  ## Required permissions: 
+  `rolesanywhere:ListProfiles`.
   """
   def list_profiles(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/profiles"
@@ -494,7 +517,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the subjects in the authenticated account and Amazon Web Services Region.
 
-  **Required permissions: ** `rolesanywhere:ListSubjects`.
+  ## Required permissions: 
+  `rolesanywhere:ListSubjects`.
   """
   def list_subjects(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/subjects"
@@ -523,7 +547,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the tags attached to the resource.
 
-  **Required permissions: ** `rolesanywhere:ListTagsForResource`.
+  ## Required permissions: 
+  `rolesanywhere:ListTagsForResource`.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -546,7 +571,8 @@ defmodule AWS.RolesAnywhere do
   Lists the trust anchors in the authenticated account and Amazon Web Services
   Region.
 
-  **Required permissions: ** `rolesanywhere:ListTrustAnchors`.
+  ## Required permissions: 
+  `rolesanywhere:ListTrustAnchors`.
   """
   def list_trust_anchors(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/trustanchors"
@@ -576,9 +602,11 @@ defmodule AWS.RolesAnywhere do
   Attaches a list of *notification settings* to a trust anchor.
 
   A notification setting includes information such as event name, threshold,
-  status of the notification setting, and the channel to notify.
+  status of
+  the notification setting, and the channel to notify.
 
-  **Required permissions: ** `rolesanywhere:PutNotificationSettings`.
+  ## Required permissions: 
+  `rolesanywhere:PutNotificationSettings`.
   """
   def put_notification_settings(%Client{} = client, input, options \\ []) do
     url_path = "/put-notifications-settings"
@@ -603,7 +631,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Resets the *custom notification setting* to IAM Roles Anywhere default setting.
 
-  **Required permissions: ** `rolesanywhere:ResetNotificationSettings`.
+  ## Required permissions: 
+  `rolesanywhere:ResetNotificationSettings`.
   """
   def reset_notification_settings(%Client{} = client, input, options \\ []) do
     url_path = "/reset-notifications-settings"
@@ -628,7 +657,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Attaches tags to a resource.
 
-  **Required permissions: ** `rolesanywhere:TagResource`.
+  ## Required permissions: 
+  `rolesanywhere:TagResource`.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -653,7 +683,8 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Removes tags from the resource.
 
-  **Required permissions: ** `rolesanywhere:UntagResource`.
+  ## Required permissions: 
+  `rolesanywhere:UntagResource`.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
@@ -678,11 +709,12 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Updates the certificate revocation list (CRL).
 
-  A CRL is a list of certificates that have been revoked by the issuing
-  certificate authority (CA). IAM Roles Anywhere validates against the CRL before
-  issuing credentials.
+  A CRL is a list of certificates that have
+  been revoked by the issuing certificate authority (CA). IAM Roles Anywhere
+  validates against the CRL before issuing credentials.
 
-  **Required permissions: ** `rolesanywhere:UpdateCrl`.
+  ## Required permissions: 
+  `rolesanywhere:UpdateCrl`.
   """
   def update_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
@@ -705,12 +737,14 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates a *profile*, a list of the roles that IAM Roles Anywhere service is
-  trusted to assume.
+  Updates a *profile*, a list of the roles that IAM
+  Roles Anywhere service is trusted to assume.
 
-  You use profiles to intersect permissions with IAM managed policies.
+  You use profiles to intersect permissions with
+  IAM managed policies.
 
-  **Required permissions: ** `rolesanywhere:UpdateProfile`.
+  ## Required permissions: 
+  `rolesanywhere:UpdateProfile`.
   """
   def update_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -735,14 +769,19 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Updates a trust anchor.
 
-  You establish trust between IAM Roles Anywhere and your certificate authority
-  (CA) by configuring a trust anchor. You can define a trust anchor as a reference
-  to an Private Certificate Authority (Private CA) or by uploading a CA
-  certificate. Your Amazon Web Services workloads can authenticate with the trust
-  anchor using certificates issued by the CA in exchange for temporary Amazon Web
-  Services credentials.
+  You establish trust between IAM Roles Anywhere
+  and your certificate authority (CA) by configuring a trust anchor. You can
+  define a trust
+  anchor as a reference to an Private Certificate Authority (Private CA) or by
+  uploading a
+  CA certificate. Your Amazon Web Services workloads can authenticate with the
+  trust anchor
+  using certificates issued by the CA in exchange for temporary Amazon Web
+  Services
+  credentials.
 
-  **Required permissions: ** `rolesanywhere:UpdateTrustAnchor`.
+  ## Required permissions: 
+  `rolesanywhere:UpdateTrustAnchor`.
   """
   def update_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"

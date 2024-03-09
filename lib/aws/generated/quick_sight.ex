@@ -6,11 +6,13 @@ defmodule AWS.QuickSight do
   Amazon QuickSight API Reference
 
   Amazon QuickSight is a fully managed, serverless business intelligence service
-  for the Amazon Web Services Cloud that makes it easy to extend data and insights
-  to every user in your organization.
+  for the
+  Amazon Web Services Cloud that makes it easy to extend data and insights to
+  every user in your
+  organization.
 
-  This API reference contains documentation for a programming interface that you
-  can use to manage Amazon QuickSight.
+  This API reference contains documentation for a programming interface that
+  you can use to manage Amazon QuickSight.
   """
 
   alias AWS.Client
@@ -18,7 +20,6 @@ defmodule AWS.QuickSight do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-04-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -60,7 +61,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -69,25 +70,41 @@ defmodule AWS.QuickSight do
   Region.
 
   Currently, you can add a custom default theme by using the
-  `CreateAccountCustomization` or `UpdateAccountCustomization` API operation. To
-  further customize Amazon QuickSight by removing Amazon QuickSight sample assets
-  and videos for all new users, see [Customizing Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
+  `CreateAccountCustomization` or `UpdateAccountCustomization`
+  API operation. To further customize Amazon QuickSight by removing Amazon
+  QuickSight
+  sample assets and videos for all new users, see [Customizing Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
   in the *Amazon QuickSight User Guide.*
 
   You can create customizations for your Amazon Web Services account or, if you
-  specify a namespace, for a QuickSight namespace instead. Customizations that
-  apply to a namespace always override customizations that apply to an Amazon Web
-  Services account. To find out which customizations apply, use the
-  `DescribeAccountCustomization` API operation.
+  specify a namespace, for
+  a QuickSight namespace instead. Customizations that apply to a namespace always
+  override
+  customizations that apply to an Amazon Web Services account. To find out which
+  customizations apply, use
+  the `DescribeAccountCustomization` API operation.
 
-  Before you use the `CreateAccountCustomization` API operation to add a theme as
-  the namespace default, make sure that you first share the theme with the
-  namespace. If you don't share it with the namespace, the theme isn't visible to
-  your users even if you make it the default theme. To check if the theme is
-  shared, view the current permissions by using the `
-  [DescribeThemePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html) ` API operation. To share the theme, grant permissions by using the `
+  Before you use the `CreateAccountCustomization` API operation to add a theme
+  as the namespace default, make sure that you first share the theme with the
+  namespace.
+  If you don't share it with the namespace, the theme isn't visible to your users
+  even if you make it the default theme.
+  To check if the theme is shared, view the current permissions by using the
+
+  ```
+
+  [DescribeThemePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html)   ```
+
+  API operation.
+  To share the theme, grant permissions by using the
+
+  ```
+
   [UpdateThemePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html)
-  ` API operation.
+
+  ```
+
+  API operation.
   """
   def create_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
@@ -110,7 +127,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -118,31 +135,41 @@ defmodule AWS.QuickSight do
   Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.
 
   The Amazon Web Services Region for the account is derived from what is
-  configured in the CLI or SDK.
+  configured in the
+  CLI or SDK.
 
   Before you use this operation, make sure that you can connect to an existing
   Amazon Web Services account. If you don't have an Amazon Web Services account,
-  see [Sign up for Amazon Web Services](https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html)
-  in the *Amazon QuickSight User Guide*. The person who signs up for Amazon
-  QuickSight needs to have the correct Identity and Access Management (IAM)
-  permissions. For more information, see [IAM Policy Examples for Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
-  in the *Amazon QuickSight User Guide*.
+  see [Sign up for Amazon Web
+  Services](https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html)
+  in the *Amazon QuickSight User
+  Guide*. The person who signs up for Amazon QuickSight needs to have the
+  correct Identity and Access Management (IAM) permissions. For more information,
+  see [IAM Policy Examples for Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html)
+  in the
+  *Amazon QuickSight User Guide*.
 
-  If your IAM policy includes both the `Subscribe` and `CreateAccountSubscription`
-  actions, make sure that both actions are set to `Allow`. If either action is set
-  to `Deny`, the `Deny` action prevails and your API call fails.
+  If your IAM policy includes both the `Subscribe` and
+  `CreateAccountSubscription` actions, make sure that both actions are set
+  to `Allow`. If either action is set to `Deny`, the
+  `Deny` action prevails and your API call fails.
 
   You can't pass an existing IAM role to access other Amazon Web Services services
-  using this API operation. To pass your existing IAM role to Amazon QuickSight,
-  see [Passing IAM roles to Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
-  in the *Amazon QuickSight User Guide*.
+  using this API operation. To pass your existing IAM role to
+  Amazon QuickSight, see [Passing IAM roles to Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role)
+  in the
+  *Amazon QuickSight User Guide*.
 
   You can't set default resource access on the new account from the Amazon
-  QuickSight API. Instead, add default resource access from the Amazon QuickSight
-  console. For more information about setting default resource access to Amazon
-  Web Services services, see [Setting default resource access to Amazon Web Services
+  QuickSight
+  API. Instead, add default resource access from the Amazon QuickSight console.
+  For more
+  information about setting default resource access to Amazon Web Services
+  services, see
+  [Setting default resource access to Amazon Web Services
   services](https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html)
-  in the *Amazon QuickSight User Guide*.
+  in the *Amazon QuickSight
+  User Guide*.
   """
   def create_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
@@ -160,7 +187,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -187,7 +214,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -195,15 +222,24 @@ defmodule AWS.QuickSight do
   Creates a dashboard from either a template or directly with a
   `DashboardDefinition`.
 
-  To first create a template, see the `
+  To first create a template, see the
+
+  ```
+
   [CreateTemplate](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html)
-  ` API operation.
+
+  ```
+
+  API operation.
 
   A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight
-  reports, created from analyses. You can share Amazon QuickSight dashboards. With
-  the right permissions, you can create scheduled email reports from them. If you
-  have the correct permissions, you can create a dashboard from a template that
-  exists in a different Amazon Web Services account.
+  reports, created
+  from analyses. You can share Amazon QuickSight dashboards. With the right
+  permissions, you can
+  create scheduled email reports from them. If you have the correct permissions,
+  you can
+  create a dashboard from a template that exists in a different Amazon Web
+  Services account.
   """
   def create_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
     url_path =
@@ -223,7 +259,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -248,7 +284,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -271,7 +307,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -296,7 +332,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -320,7 +356,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -330,8 +366,13 @@ defmodule AWS.QuickSight do
   than 10,000 groups in a namespace, contact Amazon Web Services Support.
 
   The permissions resource is
-  `arn:aws:quicksight:<your-region>:*<relevant-aws-account-id>*:group/default/*<group-name>*
-  `.
+
+  ```
+  arn:aws:quicksight::## :group/default/
+
+  ```
+
+  .
 
   The response is a group object.
   """
@@ -353,7 +394,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -377,16 +418,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Creates an assignment with one specified IAM policy, identified by its Amazon
-  Resource Name (ARN).
+  Creates an assignment with one specified IAM policy, identified by its
+  Amazon Resource Name (ARN).
 
-  This policy assignment is attached to the specified groups or users of Amazon
-  QuickSight. Assignment names are unique per Amazon Web Services account. To
-  avoid overwriting rules in other namespaces, use assignment names that are
+  This policy assignment is attached to the specified groups
+  or users of Amazon QuickSight. Assignment names are unique per Amazon Web
+  Services
+  account. To avoid overwriting rules in other namespaces, use assignment names
+  that are
   unique.
   """
   def create_iam_policy_assignment(
@@ -397,7 +440,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/"
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments"
 
     headers = []
     query_params = []
@@ -413,20 +456,23 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates and starts a new SPICE ingestion for a dataset.
 
-  You can manually refresh datasets in an Enterprise edition account 32 times in a
-  24-hour period. You can manually refresh datasets in a Standard edition account
-  8 times in a 24-hour period. Each 24-hour period is measured starting 24 hours
-  before the current date and time.
+  You can manually refresh datasets in
+  an Enterprise edition account 32 times in a 24-hour period. You can manually
+  refresh
+  datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour
+  period
+  is measured starting 24 hours before the current date and time.
 
   Any ingestions operating on tagged datasets inherit the same tags automatically
-  for use in access control. For an example, see [How do I create an IAM policy to control access to Amazon EC2 resources using
+  for use in
+  access control. For an example, see [How do I create an IAM policy to control access to Amazon EC2 resources using
   tags?](http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/)
   in the Amazon Web Services Knowledge Center. Tags are visible on the tagged
   dataset, but not on the ingestion resource.
@@ -447,7 +493,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -455,13 +501,17 @@ defmodule AWS.QuickSight do
   QuickSight.
 
   A namespace allows you to isolate the Amazon QuickSight users and groups that
-  are registered for that namespace. Users that access the namespace can share
-  assets only with other users or groups in the same namespace. They can't see
-  users and groups in other namespaces. You can create a namespace after your
-  Amazon Web Services account is subscribed to Amazon QuickSight. The namespace
-  must be unique within the Amazon Web Services account. By default, there is a
+  are registered
+  for that namespace. Users that access the namespace can share assets only with
+  other
+  users or groups in the same namespace. They can't see users and groups in other
+  namespaces. You can create a namespace after your Amazon Web Services account is
+  subscribed to
+  Amazon QuickSight. The namespace must be unique within the Amazon Web Services
+  account. By default, there is a
   limit of 100 namespaces per Amazon Web Services account. To increase your limit,
-  create a ticket with Amazon Web Services Support.
+  create a ticket with
+  Amazon Web Services Support.
   """
   def create_namespace(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
@@ -479,7 +529,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -512,7 +562,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -546,7 +596,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -554,15 +604,19 @@ defmodule AWS.QuickSight do
   Creates a template either from a `TemplateDefinition` or from an existing Amazon
   QuickSight analysis or template.
 
-  You can use the resulting template to create additional dashboards, templates,
-  or analyses.
+  You can use the resulting
+  template to create additional dashboards, templates, or analyses.
 
   A *template* is an entity in Amazon QuickSight that encapsulates the metadata
   required to create an analysis and that you can use to create s dashboard. A
-  template adds a layer of abstraction by using placeholders to replace the
-  dataset associated with the analysis. You can use templates to create dashboards
-  by replacing dataset placeholders with datasets that follow the same schema that
-  was used to create the source analysis and template.
+  template adds
+  a layer of abstraction by using placeholders to replace the dataset associated
+  with the
+  analysis. You can use templates to create dashboards by replacing dataset
+  placeholders
+  with datasets that follow the same schema that was used to create the source
+  analysis
+  and template.
   """
   def create_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
     url_path =
@@ -582,7 +636,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -614,15 +668,16 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a theme.
 
-  A *theme* is set of configuration options for color and layout. Themes apply to
-  analyses and dashboards. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html)
+  A *theme* is set of configuration options for color and layout.
+  Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon
+  QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html)
   in the *Amazon QuickSight User Guide*.
   """
   def create_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
@@ -643,7 +698,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -675,7 +730,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -698,7 +753,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -729,7 +784,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -752,13 +807,14 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes all Amazon QuickSight customizations in this Amazon Web Services Region
-  for the specified Amazon Web Services account and Amazon QuickSight namespace.
+  for the specified
+  Amazon Web Services account and Amazon QuickSight namespace.
   """
   def delete_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
@@ -781,7 +837,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -811,27 +867,32 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an analysis from Amazon QuickSight.
 
-  You can optionally include a recovery window during which you can restore the
-  analysis. If you don't specify a recovery window value, the operation defaults
-  to 30 days. Amazon QuickSight attaches a `DeletionTime` stamp to the response
-  that specifies the end of the recovery window. At the end of the recovery
+  You can optionally include a recovery window during
+  which you can restore the analysis. If you don't specify a recovery window
+  value, the
+  operation defaults to 30 days. Amazon QuickSight attaches a `DeletionTime` stamp
+  to
+  the response that specifies the end of the recovery window. At the end of the
+  recovery
   window, Amazon QuickSight deletes the analysis permanently.
 
-  At any time before recovery window ends, you can use the `RestoreAnalysis` API
-  operation to remove the `DeletionTime` stamp and cancel the deletion of the
-  analysis. The analysis remains visible in the API until it's deleted, so you can
+  At any time before recovery window ends, you can use the `RestoreAnalysis`
+  API operation to remove the `DeletionTime` stamp and cancel the deletion of
+  the analysis. The analysis remains visible in the API until it's deleted, so you
+  can
   describe it but you can't make a template from it.
 
   An analysis that's scheduled for deletion isn't accessible in the Amazon
-  QuickSight console. To access it in the console, restore it. Deleting an
-  analysis doesn't delete the dashboards that you publish from it.
+  QuickSight console.
+  To access it in the console, restore it. Deleting an analysis doesn't delete the
+  dashboards that you publish from it.
   """
   def delete_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
@@ -857,7 +918,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -887,7 +948,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -912,7 +973,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -943,14 +1004,15 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the data source permanently.
 
-  This operation breaks all the datasets that reference the deleted data source.
+  This operation breaks
+  all the datasets that reference the deleted data source.
   """
   def delete_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
     url_path =
@@ -970,7 +1032,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -995,7 +1057,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1028,7 +1090,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1060,7 +1122,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1093,7 +1155,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1125,7 +1187,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1160,7 +1222,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1169,8 +1231,9 @@ defmodule AWS.QuickSight do
   namespace.
 
   This is an asynchronous process. Assets including dashboards, analyses, datasets
-  and data sources are not deleted. To delete these assets, you use the API
-  operations for the relevant asset.
+  and data sources are not
+  deleted. To delete these assets, you use the API operations for the relevant
+  asset.
   """
   def delete_namespace(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
@@ -1190,7 +1253,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1222,7 +1285,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1254,7 +1317,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1287,7 +1350,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1317,15 +1380,15 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the item that the specified template alias points to.
 
-  If you provide a specific alias, you delete the version of the template that the
-  alias points to.
+  If you provide a specific
+  alias, you delete the version of the template that the alias points to.
   """
   def delete_template_alias(
         %Client{} = client,
@@ -1352,7 +1415,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1382,15 +1445,15 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the version of the theme that the specified theme alias points to.
 
-  If you provide a specific alias, you delete the version of the theme that the
-  alias points to.
+  If you provide a specific alias, you delete the version of the theme
+  that the alias points to.
   """
   def delete_theme_alias(
         %Client{} = client,
@@ -1417,7 +1480,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1442,7 +1505,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1474,7 +1537,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1482,7 +1545,8 @@ defmodule AWS.QuickSight do
   Deletes the Amazon QuickSight user that is associated with the identity of the
   IAM user or role that's making the call.
 
-  The IAM user isn't deleted as a result of this call.
+  The IAM user
+  isn't deleted as a result of this call.
   """
   def delete_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
@@ -1502,7 +1566,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1534,7 +1598,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1565,60 +1629,82 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Describes the customizations associated with the provided Amazon Web Services
-  account and Amazon Amazon QuickSight namespace in an Amazon Web Services Region.
+  account and Amazon
+  Amazon QuickSight namespace in an Amazon Web Services Region.
 
-  The Amazon QuickSight console evaluates which customizations to apply by running
-  this API operation with the `Resolved` flag included.
+  The Amazon QuickSight console evaluates which
+  customizations to apply by running this API operation with the `Resolved` flag
+  included.
 
   To determine what customizations display when you run this command, it can help
-  to visualize the relationship of the entities involved.
+  to
+  visualize the relationship of the entities involved.
 
-    * `Amazon Web Services account` - The Amazon Web Services account
-  exists at the top of the hierarchy. It has the potential to use all of the
-  Amazon Web Services Regions and Amazon Web Services Services. When you subscribe
-  to Amazon QuickSight, you choose one Amazon Web Services Region to use as your
-  home Region. That's where your free SPICE capacity is located. You can use
-  Amazon QuickSight in any supported Amazon Web Services Region.
+    *
 
-    * `Amazon Web Services Region` - In each Amazon Web Services Region
-  where you sign in to Amazon QuickSight at least once, Amazon QuickSight acts as
-  a separate instance of the same service. If you have a user directory, it
-  resides in us-east-1, which is the US East (N. Virginia). Generally speaking,
-  these users have access to Amazon QuickSight in any Amazon Web Services Region,
-  unless they are constrained to a namespace.
+  `Amazon Web Services account` - The Amazon Web Services account exists at the
+  top of the hierarchy.
+  It has the potential to use all of the Amazon Web Services Regions and Amazon
+  Web Services Services. When you
+  subscribe to Amazon QuickSight, you choose one Amazon Web Services Region to use
+  as your home Region.
+  That's where your free SPICE capacity is located. You can use Amazon QuickSight
+  in any
+  supported Amazon Web Services Region.
+
+    *
+
+  `Amazon Web Services Region` - In each Amazon Web Services Region where you sign
+  in to Amazon QuickSight
+  at least once, Amazon QuickSight acts as a separate instance of the same
+  service. If
+  you have a user directory, it resides in us-east-1, which is the US East (N.
+  Virginia). Generally speaking, these users have access to Amazon QuickSight in
+  any
+  Amazon Web Services Region, unless they are constrained to a namespace.
 
   To run the command in a different Amazon Web Services Region, you change your
-  Region settings. If you're using the CLI, you can use one of the following
-  options:
+  Region settings.
+  If you're using the CLI, you can use one of the following options:
 
-      * Use [command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html).
+      *
+  Use [command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html).
 
-      * Use [named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
+      *
+  Use [named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
 
-      * Run `aws configure` to change your default Amazon Web
-  Services Region. Use Enter to key the same settings for your keys. For more
-  information, see [Configuring the CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+      *
+  Run `aws configure` to change your default Amazon Web Services Region. Use
+  Enter to key the same settings for your keys. For more information, see
+  [Configuring the CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
-    * `Namespace` - A QuickSight namespace is a partition that contains
+    *
+
+  `Namespace` - A QuickSight namespace is a partition that contains
   users and assets (data sources, datasets, dashboards, and so on). To access
   assets that are in a specific namespace, users and groups must also be part of
   the same namespace. People who share a namespace are completely isolated from
   users and assets in other namespaces, even if they are in the same Amazon Web
-  Services account and Amazon Web Services Region.
+  Services account
+  and Amazon Web Services Region.
 
-    * `Applied customizations` - Within an Amazon Web Services Region, a
-  set of Amazon QuickSight customizations can apply to an Amazon Web Services
-  account or to a namespace. Settings that you apply to a namespace override
-  settings that you apply to an Amazon Web Services account. All settings are
-  isolated to a single Amazon Web Services Region. To apply them in other Amazon
-  Web Services Regions, run the `CreateAccountCustomization` command in each
-  Amazon Web Services Region where you want to apply the same customizations.
+    *
+
+  `Applied customizations` - Within an Amazon Web Services Region, a set of
+  Amazon QuickSight customizations can apply to an Amazon Web Services account or
+  to a namespace.
+  Settings that you apply to a namespace override settings that you apply to an
+  Amazon Web Services account. All settings are isolated to a single Amazon Web
+  Services Region. To apply them in
+  other Amazon Web Services Regions, run the `CreateAccountCustomization` command
+  in
+  each Amazon Web Services Region where you want to apply the same customizations.
   """
   def describe_account_customization(
         %Client{} = client,
@@ -1647,12 +1733,13 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Describes the settings that were used when your Amazon QuickSight subscription
-  was first created in this Amazon Web Services account.
+  was first
+  created in this Amazon Web Services account.
   """
   def describe_account_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
@@ -1661,7 +1748,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1679,7 +1766,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1694,15 +1781,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides a detailed description of the definition of an analysis.
 
   If you do not need to know details about the content of an Analysis, for
-  instance if you are trying to check the status of a recently created or updated
-  Analysis, use the [ `DescribeAnalysis`
+  instance if you
+  are trying to check the status of a recently created or updated Analysis, use
+  the
+  [
+  `DescribeAnalysis`
   ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html)
   instead.
   """
@@ -1715,7 +1805,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1735,7 +1825,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1762,7 +1852,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1785,7 +1875,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1821,15 +1911,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides a detailed description of the definition of a dashboard.
 
   If you do not need to know details about the content of a dashboard, for
-  instance if you are trying to check the status of a recently created or updated
-  dashboard, use the [ `DescribeDashboard`
+  instance if you
+  are trying to check the status of a recently created or updated dashboard, use
+  the
+  [
+  `DescribeDashboard`
   ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html)
   instead.
   """
@@ -1863,7 +1956,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1883,7 +1976,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1907,7 +2000,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1917,8 +2010,7 @@ defmodule AWS.QuickSight do
   poll the job with a `DescribeDashboardSnapshotJob` API call.
 
   If the job has not finished running, this operation returns a message that says
-  `Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal
-  state.`.
+  `Dashboard Snapshot Job with id has not reached a terminal state.`.
   """
   def describe_dashboard_snapshot_job_result(
         %Client{} = client,
@@ -1935,7 +2027,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1952,7 +2044,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1975,7 +2067,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1995,7 +2087,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2010,7 +2102,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2030,7 +2122,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2045,7 +2137,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2089,7 +2181,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2136,7 +2228,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2151,15 +2243,15 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Use the `DescribeGroupMembership` operation to determine if a user is a member
-  of the specified group.
+  Use the `DescribeGroupMembership` operation to determine if a user is a
+  member of the specified group.
 
-  If the user exists and is a member of the specified group, an associated
-  `GroupMember` object is returned.
+  If the user exists and is a member of the specified
+  group, an associated `GroupMember` object is returned.
   """
   def describe_group_membership(
         %Client{} = client,
@@ -2177,12 +2269,12 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Describes an existing IAM policy assignment, as specified by the assignment
-  name.
+  Describes an existing IAM policy assignment, as specified by the
+  assignment name.
   """
   def describe_iam_policy_assignment(
         %Client{} = client,
@@ -2199,7 +2291,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2220,7 +2312,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2233,7 +2325,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2248,7 +2340,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2269,7 +2361,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2290,7 +2382,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2326,7 +2418,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2347,15 +2439,18 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides a detailed description of the definition of a template.
 
   If you do not need to know details about the content of a template, for instance
-  if you are trying to check the status of a recently created or updated template,
-  use the [ `DescribeTemplate`
+  if you
+  are trying to check the status of a recently created or updated template, use
+  the
+  [
+  `DescribeTemplate`
   ](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTemplate.html)
   instead.
   """
@@ -2389,7 +2484,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2409,7 +2504,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2445,7 +2540,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2466,7 +2561,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2481,7 +2576,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2496,7 +2591,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2511,7 +2606,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2532,7 +2627,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2553,7 +2648,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2568,7 +2663,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2588,7 +2683,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2600,21 +2695,29 @@ defmodule AWS.QuickSight do
 
   The following rules apply to the generated URL:
 
-    * It contains a temporary bearer token. It is valid for 5 minutes
-  after it is generated. Once redeemed within this period, it cannot be re-used
-  again.
+    *
+  It contains a temporary bearer token. It is valid for 5 minutes after it is
+  generated. Once redeemed within this period, it cannot be re-used again.
 
-    * The URL validity period should not be confused with the actual
-  session lifetime that can be customized using the `
-  [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes) ` parameter. The resulting user session is valid for 15 minutes (minimum) to 10
+    *
+  The URL validity period should not be confused with the actual session lifetime
+  that can be customized using the
+
+  ```
+
+  [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes)   ```
+
+  parameter. The resulting user session is valid for 15 minutes (minimum) to 10
   hours (maximum). The default session duration is 10 hours.
 
-    * You are charged only when the URL is used or there is interaction
-  with Amazon QuickSight.
+    *
+  You are charged only when the URL is used or there is interaction with Amazon
+  QuickSight.
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
-  in the *Amazon QuickSight User Guide*.
+  in the *Amazon QuickSight User
+  Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
@@ -2641,7 +2744,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2650,28 +2753,37 @@ defmodule AWS.QuickSight do
   in your website.
 
   This action can be used for any type of user registered in an Amazon QuickSight
-  account. Before you use this action, make sure that you have configured the
-  relevant Amazon QuickSight resource and permissions.
+  account.
+  Before you use this action, make sure that you have configured the relevant
+  Amazon QuickSight resource and permissions.
 
   The following rules apply to the generated URL:
 
-    * It contains a temporary bearer token. It is valid for 5 minutes
-  after it is generated. Once redeemed within this period, it cannot be re-used
-  again.
+    *
+  It contains a temporary bearer token. It is valid for 5 minutes after it is
+  generated. Once redeemed within this period, it cannot be re-used again.
 
-    * The URL validity period should not be confused with the actual
-  session lifetime that can be customized using the `
-  [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes) ` parameter.
+    *
+  The URL validity period should not be confused with the actual session lifetime
+  that can be customized using the
+
+  ```
+
+  [SessionLifetimeInMinutes](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes)   ```
+
+  parameter.
 
   The resulting user session is valid for 15 minutes (minimum) to 10 hours
   (maximum). The default session duration is 10 hours.
 
-    * You are charged only when the URL is used or there is interaction
-  with Amazon QuickSight.
+    *
+  You are charged only when the URL is used or there is interaction with Amazon
+  QuickSight.
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
-  in the *Amazon QuickSight User Guide*.
+  in the *Amazon QuickSight User
+  Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
@@ -2698,7 +2810,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2713,21 +2825,27 @@ defmodule AWS.QuickSight do
   Currently, you can use `GetDashboardEmbedURL` only from the server, not from the
   user's browser. The following rules apply to the generated URL:
 
-    * They must be used together.
+    *
+  They must be used together.
 
-    * They can be used one time only.
+    *
+  They can be used one time only.
 
-    * They are valid for 5 minutes after you run this command.
+    *
+  They are valid for 5 minutes after you run this command.
 
-    * You are charged only when the URL is used or there is interaction
-  with Amazon QuickSight.
+    *
+  You are charged only when the URL is used or there is interaction with Amazon
+  QuickSight.
 
-    * The resulting user session is valid for 15 minutes (default) up to
-  10 hours (maximum). You can use the optional `SessionLifetimeInMinutes`
-  parameter to customize session duration.
+    *
+  The resulting user session is valid for 15 minutes (default) up to 10 hours
+  (maximum). You can use the optional `SessionLifetimeInMinutes` parameter to
+  customize session duration.
 
   For more information, see [Embedding Analytics Using GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
-  in the *Amazon QuickSight User Guide*.
+  in the *Amazon QuickSight User
+  Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive demo of the ways you can customize embedding, visit the [Amazon QuickSight Developer
@@ -2811,27 +2929,47 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Generates a session URL and authorization code that you can use to embed the
-  Amazon Amazon QuickSight console in your web server code.
+  Amazon
+  Amazon QuickSight console in your web server code.
 
-  Use `GetSessionEmbedUrl` where you want to provide an authoring portal that
-  allows users to create data sources, datasets, analyses, and dashboards. The
-  users who access an embedded Amazon QuickSight console need belong to the author
-  or admin security cohort. If you want to restrict permissions to some of these
-  features, add a custom permissions profile to the user with the `
-  [UpdateUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html) ` API operation. Use `
+  Use `GetSessionEmbedUrl` where
+  you want to provide an authoring portal that allows users to create data
+  sources,
+  datasets, analyses, and dashboards. The users who access an embedded Amazon
+  QuickSight console
+  need belong to the author or admin security cohort. If you want to restrict
+  permissions
+  to some of these features, add a custom permissions profile to the user with the
+
+  ```
+
+  [UpdateUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html)   ```
+
+  API operation. Use
+
+  ```
+
   [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html)
-  ` API operation to add a new user with a custom permission profile attached. For
-  more information, see the following sections in the *Amazon QuickSight User
+
+  ```
+
+  API operation to add a new user with a custom permission profile attached. For
+  more
+  information, see the following sections in the *Amazon QuickSight User
   Guide*:
 
-    * [Embedding Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
+    *
 
-    * [Customizing Access to the Amazon QuickSight Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
+  [Embedding Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
+
+    *
+
+  [Customizing Access to the Amazon QuickSight Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
   """
   def get_session_embed_url(
         %Client{} = client,
@@ -2868,7 +3006,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2902,7 +3040,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2940,7 +3078,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2977,7 +3115,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3013,7 +3151,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3046,7 +3184,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3083,7 +3221,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3117,7 +3255,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3153,7 +3291,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3186,7 +3324,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3223,7 +3361,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3259,11 +3397,13 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the IAM policy assignments in the current Amazon QuickSight account.
+  Lists the
+  IAM policy assignments in the current Amazon QuickSight
+  account.
   """
   def list_iam_policy_assignments(
         %Client{} = client,
@@ -3303,13 +3443,17 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all of the IAM policy assignments, including the Amazon Resource Names
-  (ARNs), for the IAM policies assigned to the specified user and group, or groups
-  that the user belongs to.
+  Lists all of
+  the IAM policy assignments, including the Amazon
+  Resource Names
+  (ARNs),
+  for the IAM policies assigned to the specified user and
+  group,
+  or groups that the user belongs to.
   """
   def list_iam_policy_assignments_for_user(
         %Client{} = client,
@@ -3342,7 +3486,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3379,7 +3523,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3415,7 +3559,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3450,7 +3594,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3467,7 +3611,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3504,7 +3648,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3517,7 +3661,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3553,7 +3697,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3590,7 +3734,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3623,7 +3767,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3659,7 +3803,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3695,7 +3839,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3736,7 +3880,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3751,7 +3895,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3784,7 +3928,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3822,7 +3966,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3858,12 +4002,13 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the VPC connections in the current set Amazon Web Services Region
-  of an Amazon Web Services account.
+  of an
+  Amazon Web Services account.
   """
   def list_vpc_connections(
         %Client{} = client,
@@ -3892,7 +4037,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3913,7 +4058,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -3946,7 +4091,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3971,7 +4116,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3997,7 +4142,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4023,7 +4168,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4047,7 +4192,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4071,7 +4216,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4094,7 +4239,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4126,7 +4271,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4160,7 +4305,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4194,7 +4339,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4203,11 +4348,14 @@ defmodule AWS.QuickSight do
 
   You can request one of the following format configurations per API call.
 
-    * 1 paginated PDF
+    *
+  1 paginated PDF
 
-    * 1 Excel workbook
+    *
+  1 Excel workbook
 
-    * 5 CSVs
+    *
+  5 CSVs
 
   Poll job descriptions with a `DescribeDashboardSnapshotJob` API call. Once the
   job succeeds, use the `DescribeDashboardSnapshotJobResult` API to obtain the
@@ -4237,7 +4385,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4246,25 +4394,32 @@ defmodule AWS.QuickSight do
   resource.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user permissions, by granting a user permission to access or change
-  only resources with certain tag values. You can use the `TagResource` operation
-  with a resource that already has tags. If you specify a new tag key for the
-  resource, this tag is appended to the list of tags associated with the resource.
-  If you specify a tag key that is already associated with the resource, the new
-  tag value that you specify replaces the previous value for that tag.
+  to
+  scope user permissions, by granting a user permission to access or change only
+  resources
+  with certain tag values. You can use the `TagResource` operation with a
+  resource that already has tags. If you specify a new tag key for the resource,
+  this tag
+  is appended to the list of tags associated with the resource. If you specify a
+  tag key
+  that is already associated with the resource, the new tag value that you specify
+  replaces the previous value for that tag.
 
   You can associate as many as 50 tags with a resource. Amazon QuickSight supports
-  tagging on data set, data source, dashboard, template, topic, and user.
+  tagging on data
+  set, data source, dashboard, template, topic, and user.
 
   Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon
-  Web Services services, except for the following:
+  Web Services services, except for
+  the following:
 
-    * Tags are used to track costs for users in Amazon QuickSight. You
-  can't tag other resources that Amazon QuickSight costs are based on, such as
-  storage capacoty (SPICE), session usage, alert consumption, or reporting units.
+    *
+  Tags are used to track costs for users in Amazon QuickSight. You can't tag other
+  resources that Amazon QuickSight costs are based on, such as storage capacoty
+  (SPICE), session usage, alert consumption, or reporting units.
 
-    * Amazon QuickSight doesn't currently support the tag editor for
-  Resource Groups.
+    *
+  Amazon QuickSight doesn't currently support the tag editor for Resource Groups.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
@@ -4282,7 +4437,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4310,7 +4465,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4321,10 +4476,12 @@ defmodule AWS.QuickSight do
   Currently, the only customization that you can use is a theme.
 
   You can use customizations for your Amazon Web Services account or, if you
-  specify a namespace, for a Amazon QuickSight namespace instead. Customizations
-  that apply to a namespace override customizations that apply to an Amazon Web
-  Services account. To find out which customizations apply, use the
-  `DescribeAccountCustomization` API operation.
+  specify a namespace, for a
+  Amazon QuickSight namespace instead. Customizations that apply to a namespace
+  override
+  customizations that apply to an Amazon Web Services account. To find out which
+  customizations apply, use
+  the `DescribeAccountCustomization` API operation.
   """
   def update_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
@@ -4338,7 +4495,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4351,7 +4508,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4366,7 +4523,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4387,17 +4544,24 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a dashboard in an Amazon Web Services account.
 
   Updating a Dashboard creates a new dashboard version but does not immediately
-  publish the new version. You can update the published version of a dashboard by
-  using the `
+  publish
+  the new version. You can update the published version of a dashboard by
+  using the
+
+  ```
+
   [UpdateDashboardPublishedVersion](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html)
-  ` API operation.
+
+  ```
+
+  API operation.
   """
   def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
     url_path =
@@ -4408,7 +4572,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4429,7 +4593,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4450,7 +4614,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4472,7 +4636,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4490,7 +4654,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4523,7 +4687,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4539,7 +4703,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4569,7 +4733,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4585,7 +4749,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4606,7 +4770,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4628,15 +4792,16 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an existing IAM policy assignment.
 
-  This operation updates only the optional parameter or parameters that are
-  specified in the request. This overwrites all of the users included in
-  `Identities`.
+  This operation updates only
+  the optional parameter or parameters that are specified in the request. This
+  overwrites
+  all of the users included in `Identities`.
   """
   def update_iam_policy_assignment(
         %Client{} = client,
@@ -4654,7 +4819,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4688,15 +4853,17 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the content and status of IP rules.
 
-  To use this operation, you must provide the entire map of rules. You can use the
-  `DescribeIpRestriction` operation to get the current rule map.
+  To use this operation, you
+  must
+  provide the entire map of rules. You can use the `DescribeIpRestriction`
+  operation to get the current rule map.
   """
   def update_ip_restriction(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
@@ -4714,7 +4881,7 @@ defmodule AWS.QuickSight do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -4723,13 +4890,17 @@ defmodule AWS.QuickSight do
   public sharing settings of an Amazon QuickSight dashboard.
 
   To use this operation, turn on session capacity pricing for your Amazon
-  QuickSight account.
+  QuickSight
+  account.
 
   Before you can turn on public sharing on your account, make sure to give public
-  sharing permissions to an administrative user in the Identity and Access
-  Management (IAM) console. For more information on using IAM with Amazon
-  QuickSight, see [Using Amazon QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
-  in the *Amazon QuickSight User Guide*.
+  sharing
+  permissions to an administrative user in the Identity and Access Management
+  (IAM)
+  console. For more information on using IAM with Amazon QuickSight, see
+  [Using Amazon QuickSight with IAM](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)
+  in the *Amazon QuickSight
+  User Guide*.
   """
   def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
@@ -4738,7 +4909,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4759,7 +4930,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4781,7 +4952,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4797,7 +4968,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4819,7 +4990,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4840,7 +5011,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4855,7 +5026,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4877,53 +5048,87 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the resource permissions for a theme.
 
-  Permissions apply to the action to grant or revoke permissions on, for example
-  `"quicksight:DescribeTheme"`.
+  Permissions apply to the action to grant or
+  revoke permissions on, for example `"quicksight:DescribeTheme"`.
 
   Theme permissions apply in groupings. Valid groupings include the following for
-  the three levels of permissions, which are user, owner, or no permissions:
+  the three
+  levels of permissions, which are user, owner, or no permissions:
 
-    * User
+    *
+  User
 
-      * `"quicksight:DescribeTheme"`
+      *
 
-      * `"quicksight:DescribeThemeAlias"`
+  `"quicksight:DescribeTheme"`
 
-      * `"quicksight:ListThemeAliases"`
+      *
 
-      * `"quicksight:ListThemeVersions"`
+  `"quicksight:DescribeThemeAlias"`
 
-    * Owner
+      *
 
-      * `"quicksight:DescribeTheme"`
+  `"quicksight:ListThemeAliases"`
 
-      * `"quicksight:DescribeThemeAlias"`
+      *
 
-      * `"quicksight:ListThemeAliases"`
+  `"quicksight:ListThemeVersions"`
 
-      * `"quicksight:ListThemeVersions"`
+    *
+  Owner
 
-      * `"quicksight:DeleteTheme"`
+      *
 
-      * `"quicksight:UpdateTheme"`
+  `"quicksight:DescribeTheme"`
 
-      * `"quicksight:CreateThemeAlias"`
+      *
 
-      * `"quicksight:DeleteThemeAlias"`
+  `"quicksight:DescribeThemeAlias"`
 
-      * `"quicksight:UpdateThemeAlias"`
+      *
 
-      * `"quicksight:UpdateThemePermissions"`
+  `"quicksight:ListThemeAliases"`
 
-      * `"quicksight:DescribeThemePermissions"`
+      *
 
-    * To specify no permissions, omit the permissions list.
+  `"quicksight:ListThemeVersions"`
+
+      *
+
+  `"quicksight:DeleteTheme"`
+
+      *
+
+  `"quicksight:UpdateTheme"`
+
+      *
+
+  `"quicksight:CreateThemeAlias"`
+
+      *
+
+  `"quicksight:DeleteThemeAlias"`
+
+      *
+
+  `"quicksight:UpdateThemeAlias"`
+
+      *
+
+  `"quicksight:UpdateThemePermissions"`
+
+      *
+
+  `"quicksight:DescribeThemePermissions"`
+
+    *
+  To specify no permissions, omit the permissions list.
   """
   def update_theme_permissions(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
     url_path =
@@ -4934,7 +5139,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4949,7 +5154,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4964,7 +5169,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -4986,7 +5191,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -5001,7 +5206,7 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -5022,6 +5227,6 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

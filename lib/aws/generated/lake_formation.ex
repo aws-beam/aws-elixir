@@ -13,7 +13,6 @@ defmodule AWS.LakeFormation do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-03-31",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -46,7 +45,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -56,8 +55,8 @@ defmodule AWS.LakeFormation do
 
   This decoration allows Lake Formation to enforce access policies against the
   SAML users and groups. This API operation requires SAML federation setup in the
-  caller’s account as it can only be called with valid SAML assertions. Lake
-  Formation does not scope down the permission of the assumed role. All
+  caller’s account as it can only be called with valid SAML assertions.
+  Lake Formation does not scope down the permission of the assumed role. All
   permissions attached to the role via the SAML federation setup will be included
   in the role session.
 
@@ -84,7 +83,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -107,7 +106,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -130,7 +129,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -155,7 +154,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -181,7 +180,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -205,7 +204,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -228,7 +227,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -256,7 +255,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -280,7 +279,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -303,7 +302,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -332,7 +331,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -359,7 +358,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -383,21 +382,22 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   For a specific governed table, provides a list of Amazon S3 objects that will be
-  written during the current transaction and that can be automatically deleted if
-  the transaction is canceled.
+  written during the current transaction and that can be automatically deleted
+  if the transaction is canceled.
 
   Without this call, no Amazon S3 objects are automatically deleted when a
   transaction cancels.
 
   The Glue ETL library function `write_dynamic_frame.from_catalog()` includes an
-  option to automatically call `DeleteObjectsOnCancel` before writes. For more
-  information, see [Rolling Back Amazon S3 Writes](https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes).
+  option to automatically
+  call `DeleteObjectsOnCancel` before writes. For more information, see
+  [Rolling Back Amazon S3 Writes](https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes).
   """
   def delete_objects_on_cancel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteObjectsOnCancel"
@@ -415,7 +415,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -441,7 +441,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -468,7 +468,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -492,7 +492,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -515,7 +515,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -542,7 +542,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -565,7 +565,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -589,13 +589,14 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns the Lake Formation permissions for a specified table or database
-  resource located at a path in Amazon S3.
+  resource located
+  at a path in Amazon S3.
 
   `GetEffectivePermissionsForPath` will not return databases and tables if the
   catalog is encrypted.
@@ -616,7 +617,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -639,7 +640,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -712,7 +713,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -737,7 +738,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -764,7 +765,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -792,7 +793,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -867,7 +868,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -890,7 +891,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -913,7 +914,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -937,7 +938,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -969,7 +970,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -992,7 +993,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1016,7 +1017,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1045,7 +1046,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1075,7 +1076,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1093,7 +1094,10 @@ defmodule AWS.LakeFormation do
   The following request registers a new location and gives Lake Formation
   permission to use the service-linked role to access that location.
 
-  `ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true`
+  ```
+  ResourceArn = arn:aws:s3:::my-bucket
+  UseServiceLinkedRole = true
+  ```
 
   If `UseServiceLinkedRole` is not set to true, you must provide or set the
   `RoleArn`:
@@ -1116,7 +1120,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1142,7 +1146,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1166,7 +1170,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1194,7 +1198,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1222,7 +1226,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1274,7 +1278,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1297,7 +1301,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1326,7 +1330,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1353,7 +1357,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1377,7 +1381,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1401,7 +1405,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1424,7 +1428,7 @@ defmodule AWS.LakeFormation do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

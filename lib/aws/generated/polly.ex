@@ -3,12 +3,13 @@
 
 defmodule AWS.Polly do
   @moduledoc """
-  Amazon Polly is a web service that makes it easy to synthesize speech from text.
+  Amazon Polly is a web service that makes it easy to synthesize speech from
+  text.
 
-  The Amazon Polly service provides API operations for synthesizing high-quality
-  speech from plain text and Speech Synthesis Markup Language (SSML), along with
-  managing pronunciations lexicons that enable you to get the best results for
-  your application domain.
+  The Amazon Polly service provides API operations for synthesizing
+  high-quality speech from plain text and Speech Synthesis Markup Language
+  (SSML), along with managing pronunciations lexicons that enable you to get
+  the best results for your application domain.
   """
 
   alias AWS.Client
@@ -16,7 +17,6 @@ defmodule AWS.Polly do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2016-06-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -34,8 +34,9 @@ defmodule AWS.Polly do
   Deletes the specified pronunciation lexicon stored in an Amazon Web Services
   Region.
 
-  A lexicon which has been deleted is not available for speech synthesis, nor is
-  it possible to retrieve it using either the `GetLexicon` or `ListLexicon` APIs.
+  A lexicon which has been deleted is not available for
+  speech synthesis, nor is it possible to retrieve it using either the
+  `GetLexicon` or `ListLexicon` APIs.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
@@ -60,26 +61,28 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the list of voices that are available for use when requesting speech
-  synthesis.
+  Returns the list of voices that are available for use when
+  requesting speech synthesis.
 
-  Each voice speaks a specified language, is either male or female, and is
-  identified by an ID, which is the ASCII version of the voice name.
+  Each voice speaks a specified language, is
+  either male or female, and is identified by an ID, which is the ASCII
+  version of the voice name.
 
-  When synthesizing speech ( `SynthesizeSpeech` ), you provide the voice ID for
-  the voice you want from the list of voices returned by `DescribeVoices`.
+  When synthesizing speech ( `SynthesizeSpeech` ), you
+  provide the voice ID for the voice you want from the list of voices
+  returned by `DescribeVoices`.
 
-  For example, you want your news reader application to read news in a specific
-  language, but giving a user the option to choose the voice. Using the
-  `DescribeVoices` operation you can provide the user with a list of available
-  voices to select from.
+  For example, you want your news reader application to read news in
+  a specific language, but giving a user the option to choose the voice.
+  Using the `DescribeVoices` operation you can provide the user
+  with a list of available voices to select from.
 
-  You can optionally specify a language code to filter the available voices. For
-  example, if you specify `en-US`, the operation returns a list of all available
-  US English voices.
+  You can optionally specify a language code to filter the available
+  voices. For example, if you specify `en-US`, the operation
+  returns a list of all available US English voices.
 
-  This operation requires permissions to perform the `polly:DescribeVoices`
-  action.
+  This operation requires permissions to perform the
+  `polly:DescribeVoices` action.
   """
   def describe_voices(
         %Client{} = client,
@@ -127,8 +130,8 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the content of the specified pronunciation lexicon stored in an Amazon
-  Web Services Region.
+  Returns the content of the specified pronunciation lexicon stored
+  in an Amazon Web Services Region.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
@@ -146,8 +149,8 @@ defmodule AWS.Polly do
   Retrieves a specific SpeechSynthesisTask object based on its TaskID.
 
   This object contains information about the given speech synthesis task,
-  including the status of the task, and a link to the S3 bucket containing the
-  output of the task.
+  including the status of the task, and a link to the S3 bucket containing
+  the output of the task.
   """
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
@@ -183,10 +186,11 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns a list of SpeechSynthesisTask objects ordered by their creation date.
+  Returns a list of SpeechSynthesisTask objects ordered by their
+  creation date.
 
-  This operation can filter the tasks by their status, for example, allowing users
-  to list only tasks that are completed.
+  This operation can filter the tasks by their status, for
+  example, allowing users to list only tasks that are completed.
   """
   def list_speech_synthesis_tasks(
         %Client{} = client,
@@ -228,10 +232,11 @@ defmodule AWS.Polly do
   @doc """
   Stores a pronunciation lexicon in an Amazon Web Services Region.
 
-  If a lexicon with the same name already exists in the region, it is overwritten
-  by the new lexicon. Lexicon operations have eventual consistency, therefore, it
-  might take some time before the lexicon is available to the SynthesizeSpeech
-  operation.
+  If
+  a lexicon with the same name already exists in the region, it is
+  overwritten by the new lexicon. Lexicon operations have eventual
+  consistency, therefore, it might take some time before the lexicon is
+  available to the SynthesizeSpeech operation.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
@@ -246,16 +251,18 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Allows the creation of an asynchronous synthesis task, by starting a new
-  `SpeechSynthesisTask`.
+  Allows the creation of an asynchronous synthesis task, by starting a
+  new `SpeechSynthesisTask`.
 
-  This operation requires all the standard information needed for speech
-  synthesis, plus the name of an Amazon S3 bucket for the service to store the
-  output of the synthesis task and two optional parameters (`OutputS3KeyPrefix`
-  and `SnsTopicArn`). Once the synthesis task is created, this operation will
-  return a `SpeechSynthesisTask` object, which will include an identifier of this
-  task as well as the current status. The `SpeechSynthesisTask` object is
-  available for 72 hours after starting the asynchronous synthesis task.
+  This operation requires all the
+  standard information needed for speech synthesis, plus the name of an
+  Amazon S3 bucket for the service to store the output of the synthesis task
+  and two optional parameters (`OutputS3KeyPrefix` and
+  `SnsTopicArn`). Once the synthesis task is created, this
+  operation will return a `SpeechSynthesisTask` object, which
+  will include an identifier of this task as well as the current status. The
+  `SpeechSynthesisTask` object is available for 72 hours after
+  starting the asynchronous synthesis task.
   """
   def start_speech_synthesis_task(%Client{} = client, input, options \\ []) do
     url_path = "/v1/synthesisTasks"
@@ -281,9 +288,9 @@ defmodule AWS.Polly do
   Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
 
   SSML input must be valid, well-formed SSML. Some alphabets might not be
-  available with all the voices (for example, Cyrillic might not be read at all by
-  English voices) unless phoneme mapping is used. For more information, see [How it
-  Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+  available with all the voices (for example, Cyrillic might not be read at
+  all by English voices) unless phoneme mapping is used. For more
+  information, see [How it Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
   """
   def synthesize_speech(%Client{} = client, input, options \\ []) do
     url_path = "/v1/speech"

@@ -15,7 +15,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-06-24",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -31,10 +30,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Associates an attribute group with an application to augment the application's
-  metadata with the group's attributes.
+  metadata
+  with the group's attributes.
 
-  This feature enables applications to be described with user-defined details that
-  are machine-readable, such as third-party integrations.
+  This feature enables applications to be described with
+  user-defined details that are machine-readable, such as third-party
+  integrations.
   """
   def associate_attribute_group(
         %Client{} = client,
@@ -51,36 +52,49 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+
   Associates a resource with an application.
 
-  The resource can be specified by its ARN or name. The application can be
-  specified by ARN, ID, or name.
+  The resource can be specified by its ARN or name.
+  The application can be specified by ARN, ID, or name.
 
   ## Minimum permissions
 
   You must have the following permissions to associate a resource using the
   `OPTIONS` parameter set to `APPLY_APPLICATION_TAG`.
 
-    * `tag:GetResources`
+    *
 
-    * `tag:TagResources`
+  `tag:GetResources`
+
+    *
+
+  `tag:TagResources`
 
   You must also have these additional permissions if you don't use the
-  `AWSServiceCatalogAppRegistryFullAccess` policy. For more information, see
+  `AWSServiceCatalogAppRegistryFullAccess` policy.
+  For more information, see
   [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html) in the AppRegistry Administrator Guide.
 
-    * `resource-groups:AssociateResource`
+    *
 
-    * `cloudformation:UpdateStack`
+  `resource-groups:AssociateResource`
 
-    * `cloudformation:DescribeStacks`
+    *
+
+  `cloudformation:UpdateStack`
+
+    *
+
+  `cloudformation:DescribeStacks`
 
   In addition, you must have the tagging permission defined by the Amazon Web
-  Services service that creates the resource. For more information, see
+  Services service that creates the resource.
+  For more information, see
   [TagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html)
   in the *Resource Groups Tagging API Reference*.
   """
@@ -100,7 +114,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -130,9 +144,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Creates a new attribute group as a container for user-defined attributes.
 
-  This feature enables users to have full control over their cloud application's
-  metadata in a rich machine-readable format to facilitate integration with
-  automated workflows and third-party tools.
+  This feature
+  enables users to have full control over their cloud application's metadata in a
+  rich
+  machine-readable format to facilitate integration with automated workflows and
+  third-party
+  tools.
   """
   def create_attribute_group(%Client{} = client, input, options \\ []) do
     url_path = "/attribute-groups"
@@ -177,7 +194,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -201,7 +218,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -235,11 +252,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Disassociates a resource from application.
 
   Both the resource and the application can be specified either by ID or name.
@@ -248,23 +266,37 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   You must have the following permissions to remove a resource that's been
   associated with an application using the `APPLY_APPLICATION_TAG` option for
-  [AssociateResource](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html).    * `tag:GetResources`
+  [AssociateResource](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html). 
 
-    * `tag:UntagResources`
+    *
+
+  `tag:GetResources`
+
+    *
+
+  `tag:UntagResources`
 
   You must also have the following permissions if you don't use the
-  `AWSServiceCatalogAppRegistryFullAccess` policy. For more information, see
+  `AWSServiceCatalogAppRegistryFullAccess` policy.
+  For more information, see
   [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html)
   in the AppRegistry Administrator Guide.
 
-    * `resource-groups:DisassociateResource`
+    *
 
-    * `cloudformation:UpdateStack`
+  `resource-groups:DisassociateResource`
 
-    * `cloudformation:DescribeStacks`
+    *
+
+  `cloudformation:UpdateStack`
+
+    *
+
+  `cloudformation:DescribeStacks`
 
   In addition, you must have the tagging permission defined by the Amazon Web
-  Services service that creates the resource. For more information, see
+  Services service that creates the resource.
+  For more information, see
   [UntagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_UntTagResources.html)
   in the *Resource Groups Tagging API Reference*.
   """
@@ -293,18 +325,31 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Retrieves metadata information about one of your applications.
 
-  The application can be specified by its ARN, ID, or name (which is unique within
-  one account in one region at a given point in time). Specify by ARN or ID in
-  automated workflows if you want to make sure that the exact same application is
-  returned or a `ResourceNotFoundException` is thrown, avoiding the ABA addressing
-  problem.
+  Retrieves metadata information
+  about one
+  of your applications.
+
+  The application can be specified
+  by its ARN, ID, or name
+  (which is unique
+  within one account
+  in one region
+  at a given point
+  in time).
+  Specify
+  by ARN or ID
+  in automated workflows
+  if you want
+  to make sure
+  that the exact same application is returned or a `ResourceNotFoundException` is
+  thrown,
+  avoiding the ABA addressing problem.
   """
   def get_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
@@ -313,7 +358,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -358,13 +403,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves an attribute group by its ARN, ID, or name.
 
-  The attribute group can be specified by its ARN, ID, or name.
+  Retrieves an attribute group
+  by its ARN, ID, or name.
+
+  The attribute group can be specified
+  by its ARN, ID, or name.
   """
   def get_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
@@ -373,11 +421,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves a `TagKey` configuration from an account.
+
+  Retrieves a `TagKey` configuration
+  from an account.
   """
   def get_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
@@ -386,7 +436,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -415,7 +465,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -450,17 +500,28 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists all of the resources that are associated with the specified application.
+
+  Lists all
+  of the resources
+  that are associated
+  with the specified application.
 
   Results are paginated.
 
-  If you share an application, and a consumer account associates a tag query to
-  the application, all of the users who can access the application can also view
-  the tag values in all accounts that are associated with it using this API.
+  If you share an application,
+  and a consumer account associates a tag query
+  to the application,
+  all of the users
+  who can access the application
+  can also view the tag values
+  in all accounts
+  that are associated
+  with it
+  using this API.
   """
   def list_associated_resources(
         %Client{} = client,
@@ -489,7 +550,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -523,7 +584,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -559,7 +620,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -572,11 +633,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Associates a `TagKey` configuration to an account.
+
+  Associates a `TagKey` configuration
+  to an account.
   """
   def put_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration"
@@ -585,7 +648,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -612,7 +675,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -640,7 +703,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -670,7 +733,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -693,7 +756,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -716,7 +779,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

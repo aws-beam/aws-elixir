@@ -11,7 +11,6 @@ defmodule AWS.IoT1ClickProjects do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-14",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -44,7 +43,7 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -66,15 +65,15 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an empty project with a placement template.
 
-  A project contains zero or more placements that adhere to the placement template
-  defined in the project.
+  A project contains zero or more
+  placements that adhere to the placement template defined in the project.
   """
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
@@ -92,14 +91,15 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes a placement.
 
-  To delete a placement, it must not have any devices associated with it.
+  To delete a placement, it must not have any devices associated with
+  it.
 
   When you delete a placement, all associated data becomes irretrievable.
   """
@@ -121,14 +121,15 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes a project.
 
-  To delete a project, it must not have any placements associated with it.
+  To delete a project, it must not have any placements associated with
+  it.
 
   When you delete a project, all associated data becomes irretrievable.
   """
@@ -148,7 +149,7 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -164,7 +165,7 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -177,7 +178,7 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -208,7 +209,7 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -224,7 +225,7 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -257,7 +258,7 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -285,7 +286,7 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -299,14 +300,14 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates or modifies tags for a resource.
 
-  Tags are key/value pairs (metadata) that can be used to manage a resource. For
-  more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
+  Tags are key/value pairs (metadata) that can be
+  used to manage a resource. For more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -324,7 +325,7 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -352,14 +353,15 @@ defmodule AWS.IoT1ClickProjects do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates a placement with the given attributes.
 
-  To clear an attribute, pass an empty value (i.e., "").
+  To clear an attribute, pass an empty value
+  (i.e., "").
   """
   def update_placement(%Client{} = client, placement_name, project_name, input, options \\ []) do
     url_path =
@@ -370,15 +372,18 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a project associated with your AWS account and region.
 
-  With the exception of device template names, you can pass just the values that
-  need to be updated because the update request will change only the values that
-  are provided. To clear a value, pass the empty string (i.e., `""`).
+  With the exception of
+  device template names, you can pass just the values that need to be updated
+  because the update
+  request will change only the values that are provided. To clear a value, pass
+  the empty string
+  (i.e., `""`).
   """
   def update_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
@@ -387,6 +392,6 @@ defmodule AWS.IoT1ClickProjects do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

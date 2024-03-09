@@ -5,9 +5,11 @@ defmodule AWS.ChimeSDKMeetings do
   @moduledoc """
   The Amazon Chime SDK meetings APIs in this section allow software developers to
   create Amazon Chime SDK meetings, set the Amazon Web Services Regions for
-  meetings, create and manage users, and send and receive meeting notifications.
+  meetings, create and manage users, and send and
+  receive meeting notifications.
 
-  For more information about the meeting APIs, see [Amazon Chime SDK meetings](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html).
+  For more information about the meeting APIs, see
+  [Amazon Chime SDK meetings](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html).
   """
 
   alias AWS.Client
@@ -15,7 +17,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-07-15",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -32,7 +33,8 @@ defmodule AWS.ChimeSDKMeetings do
   @doc """
   Creates up to 100 attendees for an active Amazon Chime SDK meeting.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
@@ -51,7 +53,7 @@ defmodule AWS.ChimeSDKMeetings do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -65,30 +67,38 @@ defmodule AWS.ChimeSDKMeetings do
 
   When using capabilities, be aware of these corner cases:
 
-    * If you specify `MeetingFeatures:Video:MaxResolution:None` when you
-  create a meeting, all API requests that include `SendReceive`, `Send`, or
-  `Receive` for `AttendeeCapabilities:Video` will be rejected with
-  `ValidationError 400`.
+    *
+  If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a
+  meeting, all API requests
+  that include `SendReceive`, `Send`, or `Receive` for
+  `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
 
-    * If you specify `MeetingFeatures:Content:MaxResolution:None` when
-  you create a meeting, all API requests that include `SendReceive`, `Send`, or
+    *
+  If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a
+  meeting, all API requests that include `SendReceive`, `Send`, or
   `Receive` for `AttendeeCapabilities:Content` will be rejected with
   `ValidationError 400`.
 
-    * You can't set `content` capabilities to `SendReceive` or `Receive`
-  unless you also set `video` capabilities to `SendReceive` or `Receive`. If you
-  don't set the `video` capability to receive, the response will contain an HTTP
-  400 Bad Request status code. However, you can set your `video` capability to
-  receive and you set your `content` capability to not receive.
+    *
+  You can't set `content` capabilities to `SendReceive` or `Receive` unless you
+  also set `video` capabilities to `SendReceive`
+  or `Receive`. If you don't set the `video` capability to receive, the response
+  will contain an HTTP 400 Bad Request status code. However, you can set your
+  `video` capability
+  to receive and you set your `content` capability to not receive.
 
-    * When you change an `audio` capability from `None` or `Receive` to
-  `Send` or `SendReceive` , and if the attendee left their microphone unmuted,
-  audio will flow from the attendee to the other meeting participants.
+    *
+  When you change an `audio` capability from `None` or `Receive` to `Send` or
+  `SendReceive` ,
+  and if the attendee left their microphone unmuted, audio will flow from the
+  attendee to the other meeting participants.
 
-    * When you change a `video` or `content` capability from `None` or
-  `Receive` to `Send` or `SendReceive` , and if the attendee turned on their video
-  or content streams, remote attendees can receive those streams, but only after
-  media renegotiation between the client and the Amazon Chime back-end server.
+    *
+  When you change a `video` or `content` capability from `None` or `Receive` to
+  `Send` or `SendReceive` ,
+  and if the attendee turned on their video or content streams, remote attendees
+  can receive those streams, but only after media renegotiation between the client
+  and the Amazon Chime back-end server.
   """
   def batch_update_attendee_capabilities_except(
         %Client{} = client,
@@ -108,9 +118,12 @@ defmodule AWS.ChimeSDKMeetings do
   end
 
   @doc """
+
   Creates a new attendee for an active Amazon Chime SDK meeting.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the
   *Amazon Chime Developer Guide*.
   """
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
@@ -129,7 +142,7 @@ defmodule AWS.ChimeSDKMeetings do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -137,9 +150,12 @@ defmodule AWS.ChimeSDKMeetings do
   Creates a new Amazon Chime SDK meeting in the specified media Region with no
   initial attendees.
 
-  For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
+  For more information about specifying media Regions, see
+  [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
   in the *Amazon Chime Developer Guide*. For more information about the Amazon
-  Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the
   *Amazon Chime Developer Guide*.
   """
   def create_meeting(%Client{} = client, input, options \\ []) do
@@ -158,18 +174,21 @@ defmodule AWS.ChimeSDKMeetings do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates a new Amazon Chime SDK meeting in the specified media Region, with
   attendees.
 
-  For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
+  For more information about specifying media Regions, see
+  [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
   in the *Amazon Chime Developer Guide*. For more information about the Amazon
-  Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the *Amazon Chime Developer Guide*.
   """
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
@@ -187,17 +206,19 @@ defmodule AWS.ChimeSDKMeetings do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an attendee from the specified Amazon Chime SDK meeting and deletes
-  their `JoinToken`.
+  their
+  `JoinToken`.
 
   Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the *Amazon Chime Developer Guide*.
   """
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
@@ -225,8 +246,9 @@ defmodule AWS.ChimeSDKMeetings do
   Deletes the specified Amazon Chime SDK meeting.
 
   The operation deletes all attendees, disconnects all clients, and prevents new
-  clients from joining the meeting. For more information about the Amazon Chime
-  SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  clients from
+  joining the meeting. For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
@@ -250,11 +272,13 @@ defmodule AWS.ChimeSDKMeetings do
   end
 
   @doc """
+
   Gets the Amazon Chime SDK attendee details for a specified meeting ID and
   attendee ID.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the *Amazon Chime Developer Guide*.
   """
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
@@ -265,14 +289,15 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Amazon Chime SDK meeting details for the specified meeting ID.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the *Amazon Chime Developer Guide*.
   """
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
@@ -281,14 +306,16 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists the attendees for the specified Amazon Chime SDK meeting.
 
-  For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  For more information about the Amazon Chime SDK, see
+  [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+  in the *Amazon Chime Developer Guide*.
   """
   def list_attendees(
         %Client{} = client,
@@ -343,7 +370,8 @@ defmodule AWS.ChimeSDKMeetings do
   @doc """
   Starts transcription for the specified `meetingId`.
 
-  For more information, refer to [ Using Amazon Chime SDK live transcription
+  For more information, refer to [
+  Using Amazon Chime SDK live transcription
   ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
   the *Amazon Chime SDK Developer Guide*.
 
@@ -351,20 +379,23 @@ defmodule AWS.ChimeSDKMeetings do
   with the contents of the `BadRequestException` generated by Amazon Transcribe.
   For more information on each parameter and which combinations are valid, refer
   to the
-  [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API in the *Amazon Transcribe Developer Guide*.
+  [StartStreamTranscription](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html) API in the
+  *Amazon Transcribe Developer Guide*.
 
   By default, Amazon Transcribe may use and store audio content processed by the
-  service to develop and improve Amazon Web Services AI/ML services as further
-  described in section 50 of the [Amazon Web Services Service
-  Terms](https://aws.amazon.com/service-terms/). Using Amazon Transcribe may be
-  subject to federal and state laws or regulations regarding the recording or
-  interception of electronic communications. It is your and your end users’
+  service to develop and improve Amazon Web Services AI/ML services as
+  further described in section 50 of the [Amazon Web Services Service
+  Terms](https://aws.amazon.com/service-terms/). Using Amazon Transcribe
+  may be subject to federal and state laws or regulations regarding the recording
+  or interception of electronic communications. It is your and your end users’
   responsibility to comply with all applicable laws regarding the recording,
   including properly notifying all participants in a recorded session or
-  communication that the session or communication is being recorded, and obtaining
-  all necessary consents. You can opt out from Amazon Web Services using audio
-  content to develop and improve AWS AI/ML services by configuring an AI services
-  opt out policy using Amazon Web Services Organizations.
+  communication
+  that the session or communication is being recorded, and obtaining all necessary
+  consents. You can opt out from Amazon Web Services using audio content to
+  develop and
+  improve AWS AI/ML services by configuring an AI services opt out policy using
+  Amazon Web Services Organizations.
   """
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
@@ -389,21 +420,24 @@ defmodule AWS.ChimeSDKMeetings do
   @doc """
   Stops transcription for the specified `meetingId`.
 
-  For more information, refer to [ Using Amazon Chime SDK live transcription
+  For more information, refer to [
+  Using Amazon Chime SDK live transcription
   ](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in
   the *Amazon Chime SDK Developer Guide*.
 
   By default, Amazon Transcribe may use and store audio content processed by the
-  service to develop and improve Amazon Web Services AI/ML services as further
-  described in section 50 of the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/). Using Amazon Transcribe may be
-  subject to federal and state laws or regulations regarding the recording or
-  interception of electronic communications. It is your and your end users’
+  service to develop and improve Amazon Web Services AI/ML services as
+  further described in section 50 of the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/). Using Amazon Transcribe
+  may be subject to federal and state laws or regulations regarding the recording
+  or interception of electronic communications. It is your and your end users’
   responsibility to comply with all applicable laws regarding the recording,
   including properly notifying all participants in a recorded session or
-  communication that the session or communication is being recorded, and obtaining
-  all necessary consents. You can opt out from Amazon Web Services using audio
-  content to develop and improve Amazon Web Services AI/ML services by configuring
-  an AI services opt out policy using Amazon Web Services Organizations.
+  communication
+  that the session or communication is being recorded, and obtaining all necessary
+  consents. You can opt out from Amazon Web Services using audio content to
+  develop and
+  improve Amazon Web Services AI/ML services by configuring an AI services opt out
+  policy using Amazon Web Services Organizations.
   """
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
@@ -452,24 +486,27 @@ defmodule AWS.ChimeSDKMeetings do
   Removes the specified tags from the specified resources.
 
   When you specify a tag key, the action removes both that key and its associated
-  value. The operation succeeds even if you attempt to remove tags from a resource
-  that were already removed. Note the following:
+  value. The operation succeeds even if you
+  attempt to remove tags from a resource that were already removed. Note the
+  following:
 
-    * To remove tags from a resource, you need the necessary permissions
-  for the service that the resource belongs to as well as permissions for removing
-  tags. For more information, see the documentation for the service whose resource
-  you want to untag.
+    *
+  To remove tags from a resource, you need the necessary permissions for the
+  service that the resource belongs to as well as permissions for removing tags.
+  For more information,
+  see the documentation for the service whose resource you want to untag.
 
-    * You can only tag resources that are located in the specified
-  Amazon Web Services Region for the calling Amazon Web Services account.
+    *
+  You can only tag resources that are located in the specified Amazon Web Services
+  Region for the calling Amazon Web Services account.
 
   ## Minimum permissions
 
   In addition to the `tag:UntagResources` permission required by this operation,
   you must also have the remove tags permission defined by the service that
-  created the resource. For example, to remove the tags from an Amazon EC2
-  instance using the `UntagResources` operation, you must have both of the
-  following permissions:
+  created the resource.
+  For example, to remove the tags from an Amazon EC2 instance using the
+  `UntagResources` operation, you must have both of the following permissions:
 
   `tag:UntagResource`
 
@@ -504,30 +541,38 @@ defmodule AWS.ChimeSDKMeetings do
 
   When using capabilities, be aware of these corner cases:
 
-    * If you specify `MeetingFeatures:Video:MaxResolution:None` when you
-  create a meeting, all API requests that include `SendReceive`, `Send`, or
-  `Receive` for `AttendeeCapabilities:Video` will be rejected with
-  `ValidationError 400`.
+    *
+  If you specify `MeetingFeatures:Video:MaxResolution:None` when you create a
+  meeting, all API requests
+  that include `SendReceive`, `Send`, or `Receive` for
+  `AttendeeCapabilities:Video` will be rejected with `ValidationError 400`.
 
-    * If you specify `MeetingFeatures:Content:MaxResolution:None` when
-  you create a meeting, all API requests that include `SendReceive`, `Send`, or
+    *
+  If you specify `MeetingFeatures:Content:MaxResolution:None` when you create a
+  meeting, all API requests that include `SendReceive`, `Send`, or
   `Receive` for `AttendeeCapabilities:Content` will be rejected with
   `ValidationError 400`.
 
-    * You can't set `content` capabilities to `SendReceive` or `Receive`
-  unless you also set `video` capabilities to `SendReceive` or `Receive`. If you
-  don't set the `video` capability to receive, the response will contain an HTTP
-  400 Bad Request status code. However, you can set your `video` capability to
-  receive and you set your `content` capability to not receive.
+    *
+  You can't set `content` capabilities to `SendReceive` or `Receive` unless you
+  also set `video` capabilities to `SendReceive`
+  or `Receive`. If you don't set the `video` capability to receive, the response
+  will contain an HTTP 400 Bad Request status code. However, you can set your
+  `video` capability
+  to receive and you set your `content` capability to not receive.
 
-    * When you change an `audio` capability from `None` or `Receive` to
-  `Send` or `SendReceive` , and if the attendee left their microphone unmuted,
-  audio will flow from the attendee to the other meeting participants.
+    *
+  When you change an `audio` capability from `None` or `Receive` to `Send` or
+  `SendReceive` ,
+  and if the attendee left their microphone unmuted, audio will flow from the
+  attendee to the other meeting participants.
 
-    * When you change a `video` or `content` capability from `None` or
-  `Receive` to `Send` or `SendReceive` , and if the attendee turned on their video
-  or content streams, remote attendees can receive those streams, but only after
-  media renegotiation between the client and the Amazon Chime back-end server.
+    *
+  When you change a `video` or `content` capability from `None` or `Receive` to
+  `Send` or `SendReceive` ,
+  and if the attendee turned on their video or content streams, remote attendees
+  can receive those streams, but only after media renegotiation between the client
+  and the Amazon Chime back-end server.
   """
   def update_attendee_capabilities(
         %Client{} = client,
@@ -544,6 +589,6 @@ defmodule AWS.ChimeSDKMeetings do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

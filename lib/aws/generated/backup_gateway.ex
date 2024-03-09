@@ -5,16 +5,18 @@ defmodule AWS.BackupGateway do
   @moduledoc """
   Backup gateway
 
-  Backup gateway connects Backup to your hypervisor, so you can create, store, and
-  restore backups of your virtual machines (VMs) anywhere, whether on-premises or
-  in the VMware Cloud (VMC) on Amazon Web Services.
+  Backup gateway connects Backup to your hypervisor, so you can
+  create, store, and restore backups of your virtual machines (VMs) anywhere,
+  whether
+  on-premises or in the VMware Cloud (VMC) on Amazon Web Services.
 
   Add on-premises resources by connecting to a hypervisor through a gateway.
   Backup will automatically discover the resources in your hypervisor.
 
   Use Backup to assign virtual or on-premises resources to a backup plan, or run
   on-demand backups. Once you have backed up your resources, you can view them and
-  restore them like any resource supported by Backup.
+  restore them
+  like any resource supported by Backup.
 
   To download the Amazon Web Services software to get started, navigate to the
   Backup console, choose **Gateways**, then choose **Create gateway**.
@@ -25,7 +27,6 @@ defmodule AWS.BackupGateway do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-01-01",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -42,8 +43,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Associates a backup gateway with your server.
 
-  After you complete the association process, you can back up and restore your VMs
-  through the gateway.
+  After you complete the association process,
+  you can back up and restore your VMs through the gateway.
   """
   def associate_gateway_to_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -54,8 +55,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Creates a backup gateway.
 
-  After you create a gateway, you can associate it with a server using the
-  `AssociateGatewayToServer` operation.
+  After you create a gateway, you can associate it with a server
+  using the `AssociateGatewayToServer` operation.
   """
   def create_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -84,8 +85,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Disassociates a backup gateway from the specified server.
 
-  After the disassociation process finishes, the gateway can no longer access the
-  virtual machines on the server.
+  After the disassociation process
+  finishes, the gateway can no longer access the virtual machines on the server.
   """
   def disassociate_gateway_from_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -96,9 +97,9 @@ defmodule AWS.BackupGateway do
   @doc """
   Retrieves the bandwidth rate limit schedule for a specified gateway.
 
-  By default, gateways do not have bandwidth rate limit schedules, which means no
-  bandwidth rate limiting is in effect. Use this to get a gateway's bandwidth rate
-  limit schedule.
+  By default, gateways do not have bandwidth rate limit schedules, which means
+  no bandwidth rate limiting is in effect. Use this to get a gateway's
+  bandwidth rate limit schedule.
   """
   def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -107,7 +108,8 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  By providing the ARN (Amazon Resource Name), this API returns the gateway.
+  By providing the ARN (Amazon Resource Name), this
+  API returns the gateway.
   """
   def get_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -120,7 +122,8 @@ defmodule AWS.BackupGateway do
   gateway will connect.
 
   A hypervisor is hardware, software, or firmware that creates and manages virtual
-  machines, and allocates resources to them.
+  machines,
+  and allocates resources to them.
   """
   def get_hypervisor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -203,9 +206,9 @@ defmodule AWS.BackupGateway do
   @doc """
   This action sets the bandwidth rate limit schedule for a specified gateway.
 
-  By default, gateways do not have a bandwidth rate limit schedule, which means no
-  bandwidth rate limiting is in effect. Use this to initiate a gateway's bandwidth
-  rate limit schedule.
+  By default, gateways do not have a bandwidth rate limit schedule, which means
+  no bandwidth rate limiting is in effect. Use this to initiate a
+  gateway's bandwidth rate limit schedule.
   """
   def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -256,7 +259,8 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Tests your hypervisor configuration to validate that backup gateway can connect
-  with the hypervisor and its resources.
+  with the
+  hypervisor and its resources.
   """
   def test_hypervisor_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -276,8 +280,8 @@ defmodule AWS.BackupGateway do
   @doc """
   Updates a gateway's name.
 
-  Specify which gateway to update using the Amazon Resource Name (ARN) of the
-  gateway in your request.
+  Specify which gateway to update using the Amazon Resource Name
+  (ARN) of the gateway in your request.
   """
   def update_gateway_information(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -290,8 +294,9 @@ defmodule AWS.BackupGateway do
 
   The request immediately triggers the software update.
 
-  When you make this request, you get a `200 OK` success response immediately.
-  However, it might take some time for the update to complete.
+  When you make this request, you get a `200 OK`
+  success response immediately. However, it might take some
+  time for the update to complete.
   """
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -302,8 +307,10 @@ defmodule AWS.BackupGateway do
   @doc """
   Updates a hypervisor metadata, including its host, username, and password.
 
-  Specify which hypervisor to update using the Amazon Resource Name (ARN) of the
-  hypervisor in your request.
+  Specify which
+  hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in
+  your
+  request.
   """
   def update_hypervisor(%Client{} = client, input, options \\ []) do
     meta = metadata()

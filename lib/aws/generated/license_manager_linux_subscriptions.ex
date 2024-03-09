@@ -4,7 +4,8 @@
 defmodule AWS.LicenseManagerLinuxSubscriptions do
   @moduledoc """
   With License Manager, you can discover and track your commercial Linux
-  subscriptions on running Amazon EC2 instances.
+  subscriptions on running
+  Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -12,7 +13,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -51,7 +51,8 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Lists the running Amazon EC2 instances that were discovered with commercial
-  Linux subscriptions.
+  Linux
+  subscriptions.
   """
   def list_linux_subscription_instances(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptionInstances"
@@ -76,8 +77,10 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Lists the Linux subscriptions that have been discovered.
 
-  If you have linked your organization, the returned results will include data
-  aggregated across your accounts in Organizations.
+  If you have linked your
+  organization, the returned results will include data aggregated across your
+  accounts in
+  Organizations.
   """
   def list_linux_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptions"

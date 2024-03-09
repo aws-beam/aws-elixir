@@ -4,12 +4,13 @@
 defmodule AWS.PrivateNetworks do
   @moduledoc """
   Amazon Web Services Private 5G is a managed service that makes it easy to
-  deploy, operate, and scale your own private mobile network at your on-premises
-  location.
+  deploy, operate, and scale
+  your own private mobile network at your on-premises location.
 
-  Private 5G provides the pre-configured hardware and software for mobile
-  networks, helps automate setup, and scales capacity on demand to support
-  additional devices as needed.
+  Private 5G provides the
+  pre-configured hardware and software for mobile networks, helps automate setup,
+  and
+  scales capacity on demand to support additional devices as needed.
   """
 
   alias AWS.Client
@@ -17,7 +18,6 @@ defmodule AWS.PrivateNetworks do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-12-03",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -104,9 +104,12 @@ defmodule AWS.PrivateNetworks do
   Configures the specified network resource.
 
   Use this action to specify the geographic position of the hardware. You must
-  provide Certified Professional Installer (CPI) credentials in the request so
-  that we can obtain spectrum grants. For more information, see [Radio units](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html)
-  in the *Amazon Web Services Private 5G User Guide*.
+  provide
+  Certified Professional Installer (CPI) credentials in the request so that we can
+  obtain
+  spectrum grants. For more information, see [Radio units](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html)
+  in the
+  *Amazon Web Services Private 5G User Guide*.
   """
   def configure_access_point(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources/configure"
@@ -200,10 +203,11 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Deletes the specified network.
 
-  You must delete network sites before you delete the network. For more
-  information, see
+  You must delete network sites before you delete the
+  network. For more information, see
   [DeleteNetworkSite](https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html)
-  in the *API Reference for Amazon Web Services Private 5G*.
+  in the *API Reference for Amazon Web Services Private
+  5G*.
   """
   def delete_network(%Client{} = client, network_arn, input, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
@@ -233,9 +237,11 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Deletes the specified network site.
 
-  Return the hardware after you delete the network site. You are responsible for
-  minimum charges. For more information, see [Hardware returns](https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html)
-  in the *Amazon Web Services Private 5G User Guide*.
+  Return the hardware after you delete the network
+  site. You are responsible for minimum charges. For more information, see
+  [Hardware returns](https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html)
+  in the *Amazon Web Services Private 5G User
+  Guide*.
   """
   def delete_network_site(%Client{} = client, network_site_arn, input, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
@@ -330,9 +336,10 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Lists device identifiers.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match the Amazon Resource Name (ARN) of an order, the status of
-  device identifiers, or the ARN of the traffic group.
+  Add filters to your request to return a more specific list
+  of results. Use filters to match the Amazon Resource Name (ARN) of an order, the
+  status
+  of device identifiers, or the ARN of the traffic group.
 
   If you specify multiple filters, filters are joined with an OR, and the request
   returns results that match all of the specified filters.
@@ -360,9 +367,10 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Lists network resources.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match the Amazon Resource Name (ARN) of an order or the status of
-  network resources.
+  Add filters to your request to return a more specific list of
+  results. Use filters to match the Amazon Resource Name (ARN) of an order or the
+  status
+  of network resources.
 
   If you specify multiple filters, filters are joined with an OR, and the request
   returns results that match all of the specified filters.
@@ -390,8 +398,8 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Lists network sites.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match the status of the network site.
+  Add filters to your request to return a more specific list of
+  results. Use filters to match the status of the network site.
   """
   def list_network_sites(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/list"
@@ -416,8 +424,8 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Lists networks.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match the status of the network.
+  Add filters to your request to return a more specific list of results.
+  Use filters to match the status of the network.
   """
   def list_networks(%Client{} = client, input, options \\ []) do
     url_path = "/v1/networks/list"
@@ -442,9 +450,10 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Lists orders.
 
-  Add filters to your request to return a more specific list of results. Use
-  filters to match the Amazon Resource Name (ARN) of the network site or the
-  status of the order.
+  Add filters to your request to return a more specific list of results.
+  Use filters to match the Amazon Resource Name (ARN) of the network site or the
+  status of
+  the order.
 
   If you specify multiple filters, filters are joined with an OR, and the request
   returns results that match all of the specified filters.
@@ -498,20 +507,24 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Use this action to do the following tasks:
 
-    * Update the duration and renewal status of the commitment period
-  for a radio unit.
+    *
+  Update the duration and renewal status of the commitment period for a radio
+  unit.
 
   The update goes into effect immediately.
 
-    * Request a replacement for a network resource.
+    *
+  Request a replacement for a network resource.
 
-    * Request that you return a network resource.
+    *
+  Request that you return a network resource.
 
   After you submit a request to replace or return a network resource, the status
-  of the network resource changes to `CREATING_SHIPPING_LABEL`. The shipping label
-  is available when the status of the network resource is `PENDING_RETURN`. After
-  the network resource is successfully returned, its status changes to `DELETED`.
-  For more information, see [Return a radio unit](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit).
+  of the
+  network resource changes to `CREATING_SHIPPING_LABEL`. The shipping label is
+  available when the status of the network resource is `PENDING_RETURN`. After
+  the network resource is successfully returned, its status changes to
+  `DELETED`. For more information, see [Return a radio unit](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit).
   """
   def start_network_resource_update(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources/update"

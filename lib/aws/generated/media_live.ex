@@ -11,7 +11,6 @@ defmodule AWS.MediaLive do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-10-14",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -626,13 +625,6 @@ defmodule AWS.MediaLive do
           {"ETag", "ETag"},
           {"Last-Modified", "LastModified"}
         ]
-      )
-
-    options =
-      Keyword.put(
-        options,
-        :receive_body_as_binary?,
-        true
       )
 
     meta = metadata()

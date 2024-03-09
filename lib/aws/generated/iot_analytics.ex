@@ -7,26 +7,36 @@ defmodule AWS.IoTAnalytics do
   messages, and store them.
 
   You can then query the data and run sophisticated analytics on it. IoT Analytics
-  enables advanced data exploration through integration with Jupyter Notebooks and
-  data visualization through integration with Amazon QuickSight.
+  enables advanced
+  data exploration through integration with Jupyter Notebooks and data
+  visualization through integration
+  with Amazon QuickSight.
 
   Traditional analytics and business intelligence tools are designed to process
-  structured data. IoT data often comes from devices that record noisy processes
-  (such as temperature, motion, or sound). As a result the data from these devices
-  can have significant gaps, corrupted messages, and false readings that must be
+  structured data. IoT data
+  often comes from devices that record noisy processes (such as temperature,
+  motion, or sound). As a result
+  the data from these devices can have significant gaps, corrupted messages, and
+  false readings that must be
   cleaned up before analysis can occur. Also, IoT data is often only meaningful in
-  the context of other data from external sources.
+  the context of other data
+  from external sources.
 
   IoT Analytics automates the steps required to analyze data from IoT devices. IoT
-  Analytics filters, transforms, and enriches IoT data before storing it in a
-  time-series data store for analysis. You can set up the service to collect only
-  the data you need from your devices, apply mathematical transforms to process
-  the data, and enrich the data with device-specific metadata such as device type
-  and location before storing it. Then, you can analyze your data by running
-  queries using the built-in SQL query engine, or perform more complex analytics
-  and machine learning inference. IoT Analytics includes pre-built models for
-  common IoT use cases so you can answer questions like which devices are about to
-  fail or which customers are at risk of abandoning their wearable devices.
+  Analytics
+  filters, transforms, and enriches IoT data before storing it in a time-series
+  data store for analysis. You
+  can set up the service to collect only the data you need from your devices,
+  apply mathematical transforms
+  to process the data, and enrich the data with device-specific metadata such as
+  device type and location
+  before storing it. Then, you can analyze your data by running queries using the
+  built-in SQL query engine,
+  or perform more complex analytics and machine learning inference. IoT Analytics
+  includes pre-built models
+  for common IoT use cases so you can answer questions like which devices are
+  about to fail or which customers
+  are at risk of abandoning their wearable devices.
   """
 
   alias AWS.Client
@@ -34,7 +44,6 @@ defmodule AWS.IoTAnalytics do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-11-27",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -98,15 +107,15 @@ defmodule AWS.IoTAnalytics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Used to create a channel.
 
-  A channel collects data from an MQTT topic and archives the raw, unprocessed
-  messages before publishing the data to a pipeline.
+  A channel collects data from an MQTT topic and archives the raw,
+  unprocessed messages before publishing the data to a pipeline.
   """
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -131,11 +140,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Used to create a dataset.
 
-  A dataset stores data retrieved from a data store by applying a `queryAction` (a
-  SQL query) or a `containerAction` (executing a containerized application). This
-  operation creates the skeleton of a dataset. The dataset can be populated
-  manually by calling `CreateDatasetContent` or automatically according to a
-  trigger you specify.
+  A dataset stores data retrieved from a data store by applying a
+  `queryAction` (a SQL query) or a `containerAction` (executing a
+  containerized application). This operation creates the skeleton of a dataset.
+  The dataset can
+  be populated manually by calling `CreateDatasetContent` or automatically
+  according
+  to a trigger you specify.
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
@@ -177,7 +188,7 @@ defmodule AWS.IoTAnalytics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -207,10 +218,12 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Creates a pipeline.
 
-  A pipeline consumes messages from a channel and allows you to process the
-  messages before storing them in a data store. You must specify both a `channel`
+  A pipeline consumes messages from a channel and allows you to process
+  the messages before storing them in a data store. You must specify both a
+  `channel`
   and a `datastore` activity and, optionally, as many as 23 additional activities
-  in the `pipelineActivities` array.
+  in
+  the `pipelineActivities` array.
   """
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/pipelines"
@@ -372,7 +385,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -385,7 +398,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -410,7 +423,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -423,7 +436,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -436,7 +449,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -456,7 +469,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -483,7 +496,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -532,7 +545,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -559,7 +572,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -586,7 +599,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -613,7 +626,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -633,16 +646,17 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sets or updates the IoT Analytics logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one minute
-  for the change to take effect. Also, if you change the policy attached to the
-  role you specified in the `roleArn` field (for example, to correct an invalid
-  policy), it takes up to five minutes for that change to take effect.
+  If you update the value of any `loggingOptions` field, it takes up to one
+  minute for the change to take effect. Also, if you change the policy attached to
+  the role you
+  specified in the `roleArn` field (for example, to correct an invalid policy), it
+  takes up to five minutes for that change to take effect.
   """
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
@@ -651,7 +665,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -673,13 +687,14 @@ defmodule AWS.IoTAnalytics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Retrieves a sample of messages from the specified channel ingested during the
-  specified timeframe.
+  specified
+  timeframe.
 
   Up to 10 messages can be retrieved.
   """
@@ -718,7 +733,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -740,14 +755,15 @@ defmodule AWS.IoTAnalytics do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds to or modifies the tags of the given resource.
 
-  Tags are metadata that can be used to manage a resource.
+  Tags are metadata that can be used to
+  manage a resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -813,7 +829,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -826,7 +842,7 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -839,14 +855,15 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the settings of a pipeline.
 
-  You must specify both a `channel` and a `datastore` activity and, optionally, as
-  many as 23 additional activities in the `pipelineActivities` array.
+  You must specify both a `channel` and a
+  `datastore` activity and, optionally, as many as 23 additional activities in the
+  `pipelineActivities` array.
   """
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -855,6 +872,6 @@ defmodule AWS.IoTAnalytics do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

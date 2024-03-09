@@ -9,14 +9,18 @@ defmodule AWS.MarketplaceEntitlement do
   API.
 
   AWS Marketplace Entitlement Service is used to determine the entitlement of a
-  customer to a given product. An entitlement represents capacity in a product
-  owned by the customer. For example, a customer might own some number of users or
-  seats in an SaaS application or some amount of data capacity in a multi-tenant
-  database.
+  customer to
+  a given product. An entitlement represents capacity in a product owned by the
+  customer. For
+  example, a customer might own some number of users or seats in an SaaS
+  application or some
+  amount of data capacity in a multi-tenant database.
 
   ## Getting Entitlement Records
 
-    * *GetEntitlements*- Gets the entitlements for a Marketplace
+    *
+
+  *GetEntitlements*- Gets the entitlements for a Marketplace
   product.
   """
 
@@ -25,7 +29,6 @@ defmodule AWS.MarketplaceEntitlement do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-01-11",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -34,7 +37,7 @@ defmodule AWS.MarketplaceEntitlement do
       protocol: "json",
       service_id: "Marketplace Entitlement Service",
       signature_version: "v4",
-      signing_name: "aws-marketplace",
+      signing_name: "entitlement.marketplace",
       target_prefix: "AWSMPEntitlementService"
     }
   end
@@ -42,7 +45,8 @@ defmodule AWS.MarketplaceEntitlement do
   @doc """
   GetEntitlements retrieves entitlement values for a given product.
 
-  The results can be filtered based on customer identifier or product dimensions.
+  The results can be
+  filtered based on customer identifier or product dimensions.
   """
   def get_entitlements(%Client{} = client, input, options \\ []) do
     meta = metadata()

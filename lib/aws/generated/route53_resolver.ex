@@ -4,11 +4,13 @@
 defmodule AWS.Route53Resolver do
   @moduledoc """
   When you create a VPC using Amazon VPC, you automatically get DNS resolution
-  within the VPC from Route 53 Resolver.
+  within the VPC
+  from Route 53 Resolver.
 
-  By default, Resolver answers DNS queries for VPC domain names such as domain
-  names for EC2 instances or Elastic Load Balancing load balancers. Resolver
-  performs recursive lookups against public name servers for all other domain
+  By default, Resolver answers DNS queries for VPC domain names
+  such as domain names for EC2 instances or Elastic Load Balancing load balancers.
+  Resolver performs recursive lookups against public name servers for all other
+  domain
   names.
 
   You can also configure DNS resolution between your VPC and your network over a
@@ -17,28 +19,35 @@ defmodule AWS.Route53Resolver do
   ## Forward DNS queries from resolvers on your network to Route 53 Resolver
 
   DNS resolvers on your network can forward DNS queries to Resolver in a specified
-  VPC. This allows your DNS resolvers to easily resolve domain names for Amazon
-  Web Services resources such as EC2 instances or records in a Route 53 private
-  hosted zone. For more information, see [How DNS Resolvers on Your Network Forward DNS Queries to Route 53
+  VPC. This allows your DNS resolvers
+  to easily resolve domain names for Amazon Web Services resources such as EC2
+  instances or records in a Route 53 private hosted zone.
+  For more information, see
+  [How DNS Resolvers on Your Network Forward DNS Queries to Route 53
   Resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc)
   in the *Amazon Route 53 Developer Guide*.
 
   ## Conditionally forward queries from a VPC to resolvers on your network
 
   You can configure Resolver to forward queries that it receives from EC2
-  instances in your VPCs to DNS resolvers on your network. To forward selected
-  queries, you create Resolver rules that specify the domain names for the DNS
-  queries that you want to forward (such as example.com), and the IP addresses of
-  the DNS resolvers on your network that you want to forward the queries to. If a
-  query matches multiple rules (example.com, acme.example.com), Resolver chooses
-  the rule with the most specific match (acme.example.com) and forwards the query
-  to the IP addresses that you specified in that rule. For more information, see
-  [How Route 53 Resolver Forwards DNS Queries from Your VPCs to Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network)
+  instances in your VPCs to DNS resolvers on your network.
+  To forward selected queries, you create Resolver rules that specify the domain
+  names for the DNS queries that you want to forward
+  (such as example.com), and the IP addresses of the DNS resolvers on your network
+  that you want to forward the queries to.
+  If a query matches multiple rules (example.com, acme.example.com), Resolver
+  chooses the rule with the most specific match
+  (acme.example.com) and forwards the query to the IP addresses that you specified
+  in that rule. For more information, see
+  [How Route 53 Resolver Forwards DNS Queries from Your VPCs to Your
+  Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network)
   in the *Amazon Route 53 Developer Guide*.
 
   Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you
-  can choose whether to forward queries from your VPCs to your network (outbound
-  queries), from your network to your VPCs (inbound queries), or both.
+  can choose
+  whether to forward queries from your VPCs to your network (outbound queries),
+  from your
+  network to your VPCs (inbound queries), or both.
   """
 
   alias AWS.Client
@@ -46,7 +55,6 @@ defmodule AWS.Route53Resolver do
 
   def metadata do
     %{
-      abbreviation: "Route53Resolver",
       api_version: "2018-04-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -73,8 +81,8 @@ defmodule AWS.Route53Resolver do
   @doc """
   Adds IP addresses to an inbound or an outbound Resolver endpoint.
 
-  If you want to add more than one IP address, submit one
-  `AssociateResolverEndpointIpAddress` request for each IP address.
+  If you want to add more than one IP address,
+  submit one `AssociateResolverEndpointIpAddress` request for each IP address.
 
   To remove an IP address from an endpoint, see
   [DisassociateResolverEndpointIpAddress](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html).
@@ -88,9 +96,10 @@ defmodule AWS.Route53Resolver do
   @doc """
   Associates an Amazon VPC with a specified query logging configuration.
 
-  Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs that
-  are associated with a specified query logging configuration. To associate more
-  than one VPC with a configuration, submit one `AssociateResolverQueryLogConfig`
+  Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs
+  that are associated with a specified query logging configuration. To associate
+  more than one VPC with a configuration, submit one
+  `AssociateResolverQueryLogConfig`
   request for each VPC.
 
   The VPCs that you associate with a query logging configuration must be in the
@@ -108,10 +117,11 @@ defmodule AWS.Route53Resolver do
   @doc """
   Associates a Resolver rule with a VPC.
 
-  When you associate a rule with a VPC, Resolver forwards all DNS queries for the
-  domain name that is specified in the rule and that originate in the VPC. The
-  queries are forwarded to the IP addresses for the DNS resolvers that are
-  specified in the rule. For more information about rules, see
+  When you associate a rule with a VPC, Resolver forwards all DNS queries
+  for the domain name that is specified in the rule and that originate in the VPC.
+  The queries are forwarded to the
+  IP addresses for the DNS resolvers that are specified in the rule. For more
+  information about rules, see
   [CreateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html).
   """
   def associate_resolver_rule(%Client{} = client, input, options \\ []) do
@@ -146,7 +156,8 @@ defmodule AWS.Route53Resolver do
   Creates an empty DNS Firewall rule group for filtering DNS network traffic in a
   VPC.
 
-  You can add rules to the new rule group by calling `CreateFirewallRule`.
+  You can add rules to the new rule group
+  by calling `CreateFirewallRule`.
   """
   def create_firewall_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -168,11 +179,14 @@ defmodule AWS.Route53Resolver do
 
   There are two types of Resolver endpoints, inbound and outbound:
 
-    * An *inbound Resolver endpoint* forwards DNS queries to the DNS
-  service for a VPC from your network.
+    *
+  An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC
+  from your network.
 
-    * An *outbound Resolver endpoint* forwards DNS queries from the DNS
-  service for a VPC to your network.
+    *
+  An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a
+  VPC
+  to your network.
   """
   def create_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -192,10 +206,10 @@ defmodule AWS.Route53Resolver do
   [AssociateResolverQueryLogConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html).
 
   You can optionally use Resource Access Manager (RAM) to share a query logging
-  configuration with other Amazon Web Services accounts. The other accounts can
-  then associate VPCs with the configuration. The query logs that Resolver creates
-  for a configuration include all DNS queries that originate in all VPCs that are
-  associated with the configuration.
+  configuration with other Amazon Web Services accounts. The other accounts
+  can then associate VPCs with the configuration. The query logs that Resolver
+  creates for a configuration include all DNS queries that originate in all
+  VPCs that are associated with the configuration.
   """
   def create_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -205,8 +219,9 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   For DNS queries that originate in your VPCs, specifies which Resolver endpoint
-  the queries pass through, one domain name that you want to forward to your
-  network, and the IP addresses of the DNS resolvers in your network.
+  the queries pass through,
+  one domain name that you want to forward to your network, and the IP addresses
+  of the DNS resolvers in your network.
   """
   def create_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -254,13 +269,17 @@ defmodule AWS.Route53Resolver do
   Deletes a Resolver endpoint.
 
   The effect of deleting a Resolver endpoint depends on whether it's an inbound or
-  an outbound Resolver endpoint:
+  an outbound
+  Resolver endpoint:
 
-    * **Inbound**: DNS queries from your network are no longer routed to
-  the DNS service for the specified VPC.
+    *
 
-    * **Outbound**: DNS queries from a VPC are no longer routed to your
-  network.
+  **Inbound**: DNS queries from your network are no longer routed
+  to the DNS service for the specified VPC.
+
+    *
+
+  **Outbound**: DNS queries from a VPC are no longer routed to your network.
   """
   def delete_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -272,21 +291,22 @@ defmodule AWS.Route53Resolver do
   Deletes a query logging configuration.
 
   When you delete a configuration, Resolver stops logging DNS queries for all of
-  the Amazon VPCs that are associated with the configuration. This also applies if
-  the query logging configuration is shared with other Amazon Web Services
-  accounts, and the other accounts have associated VPCs with the shared
-  configuration.
+  the Amazon VPCs that are
+  associated with the configuration. This also applies if the query logging
+  configuration is shared with other Amazon Web Services accounts, and
+  the other accounts have associated VPCs with the shared configuration.
 
   Before you can delete a query logging configuration, you must first disassociate
   all VPCs from the configuration. See
   [DisassociateResolverQueryLogConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html).
 
   If you used Resource Access Manager (RAM) to share a query logging configuration
-  with other accounts, you must stop sharing the configuration before you can
-  delete a configuration. The accounts that you shared the configuration with can
-  first disassociate VPCs that they associated with the configuration, but that's
-  not necessary. If you stop sharing the configuration, those VPCs are
-  automatically disassociated from the configuration.
+  with other accounts, you must stop sharing
+  the configuration before you can delete a configuration. The accounts that you
+  shared the configuration with can first disassociate VPCs
+  that they associated with the configuration, but that's not necessary. If you
+  stop sharing the configuration, those VPCs are automatically
+  disassociated from the configuration.
   """
   def delete_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -298,7 +318,8 @@ defmodule AWS.Route53Resolver do
   Deletes a Resolver rule.
 
   Before you can delete a Resolver rule, you must disassociate it from all the
-  VPCs that you associated the Resolver rule with. For more information, see
+  VPCs that you
+  associated the Resolver rule with. For more information, see
   [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html).
   """
   def delete_resolver_rule(%Client{} = client, input, options \\ []) do
@@ -320,8 +341,8 @@ defmodule AWS.Route53Resolver do
   @doc """
   Removes IP addresses from an inbound or an outbound Resolver endpoint.
 
-  If you want to remove more than one IP address, submit one
-  `DisassociateResolverEndpointIpAddress` request for each IP address.
+  If you want to remove more than one IP address,
+  submit one `DisassociateResolverEndpointIpAddress` request for each IP address.
 
   To add an IP address to an endpoint, see
   [AssociateResolverEndpointIpAddress](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html).
@@ -336,14 +357,18 @@ defmodule AWS.Route53Resolver do
   Disassociates a VPC from a query logging configuration.
 
   Before you can delete a query logging configuration, you must first disassociate
-  all VPCs from the configuration. If you used Resource Access Manager (RAM) to
-  share a query logging configuration with other accounts, VPCs can be
-  disassociated from the configuration in the following ways:
+  all VPCs
+  from the configuration. If you used Resource Access Manager (RAM) to share a
+  query logging configuration with other accounts, VPCs can be disassociated from
+  the
+  configuration in the following ways:
 
-     The accounts that you shared the configuration with can
-  disassociate VPCs from the configuration.
+    
+  The accounts that you shared the configuration with can disassociate VPCs from
+  the configuration.
 
-     You can stop sharing the configuration.
+    
+  You can stop sharing the configuration.
   """
   def disassociate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -355,7 +380,8 @@ defmodule AWS.Route53Resolver do
   Removes the association between a specified Resolver rule and a specified VPC.
 
   If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS
-  queries for the domain name that you specified in the Resolver rule.
+  queries for the
+  domain name that you specified in the Resolver rule.
   """
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -365,7 +391,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Retrieves the configuration of the firewall behavior provided by DNS Firewall
-  for a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
+  for a
+  single VPC from Amazon Virtual Private Cloud (Amazon VPC).
   """
   def get_firewall_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -406,7 +433,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Returns the Identity and Access Management (Amazon Web Services IAM) policy for
-  sharing the specified rule group.
+  sharing the
+  specified rule group.
 
   You can use the policy to share the rule group using Resource Access Manager
   (RAM).
@@ -419,7 +447,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Gets information about a specified Resolver on the Outpost, such as its instance
-  count and type, name, and the current status of the Resolver.
+  count and
+  type, name, and the current status of the Resolver.
   """
   def get_outpost_resolver(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -429,7 +458,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Retrieves the behavior configuration of Route 53 Resolver behavior for a single
-  VPC from Amazon Virtual Private Cloud.
+  VPC from
+  Amazon Virtual Private Cloud.
   """
   def get_resolver_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -448,8 +478,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Gets information about a specified Resolver endpoint, such as whether it's an
-  inbound or an outbound Resolver endpoint, and the current status of the
-  endpoint.
+  inbound or an outbound Resolver endpoint, and the
+  current status of the endpoint.
   """
   def get_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -459,8 +489,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Gets information about a specified Resolver query logging configuration, such as
-  the number of VPCs that the configuration is logging queries for and the
-  location that logs are sent to.
+  the number of VPCs that the configuration
+  is logging queries for and the location that logs are sent to.
   """
   def get_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -472,8 +502,9 @@ defmodule AWS.Route53Resolver do
   Gets information about a specified association between a Resolver query logging
   configuration and an Amazon VPC.
 
-  When you associate a VPC with a query logging configuration, Resolver logs DNS
-  queries that originate in that VPC.
+  When you associate a VPC
+  with a query logging configuration, Resolver logs DNS queries that originate in
+  that VPC.
   """
   def get_resolver_query_log_config_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -484,9 +515,9 @@ defmodule AWS.Route53Resolver do
   @doc """
   Gets information about a query logging policy.
 
-  A query logging policy specifies the Resolver query logging operations and
-  resources that you want to allow another Amazon Web Services account to be able
-  to use.
+  A query logging policy specifies the Resolver query logging
+  operations and resources that you want to allow another Amazon Web Services
+  account to be able to use.
   """
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -496,8 +527,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Gets information about a specified Resolver rule, such as the domain name that
-  the rule forwards DNS queries for and the ID of the outbound Resolver endpoint
-  that the rule is associated with.
+  the rule forwards DNS queries for and the ID of the
+  outbound Resolver endpoint that the rule is associated with.
   """
   def get_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -521,9 +552,9 @@ defmodule AWS.Route53Resolver do
   @doc """
   Gets information about the Resolver rule policy for a specified rule.
 
-  A Resolver rule policy includes the rule that you want to share with another
-  account, the account that you want to share the rule with, and the Resolver
-  operations that you want to allow the account to use.
+  A Resolver rule policy includes the rule that you want to share
+  with another account, the account that you want to share the rule with, and the
+  Resolver operations that you want to allow the account to use.
   """
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -538,12 +569,16 @@ defmodule AWS.Route53Resolver do
   Each domain specification in your domain list must satisfy the following
   requirements:
 
-    * It can optionally start with `*` (asterisk).
+    *
+  It can optionally start with `*` (asterisk).
 
-    * With the exception of the optional starting asterisk, it must only
-  contain the following characters: `A-Z`, `a-z`, `0-9`, `-` (hyphen).
+    *
+  With the exception of the optional starting asterisk, it must only contain
+  the following characters: `A-Z`, `a-z`,
+  `0-9`, `-` (hyphen).
 
-    * It must be from 1-255 characters in length.
+    *
+  It must be from 1-255 characters in length.
   """
   def import_firewall_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -700,8 +735,8 @@ defmodule AWS.Route53Resolver do
   @doc """
   Lists information about the specified query logging configurations.
 
-  Each configuration defines where you want Resolver to save DNS query logs and
-  specifies the VPCs that you want to log queries for.
+  Each configuration defines where you want Resolver to save
+  DNS query logs and specifies the VPCs that you want to log queries for.
   """
   def list_resolver_query_log_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -740,7 +775,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Attaches an Identity and Access Management (Amazon Web Services IAM) policy for
-  sharing the rule group.
+  sharing the rule
+  group.
 
   You can use the policy to share the rule group using Resource Access Manager
   (RAM).
@@ -753,8 +789,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Specifies an Amazon Web Services account that you want to share a query logging
-  configuration with, the query logging configuration that you want to share, and
-  the operations that you want the account to be able to perform on the
+  configuration with, the query logging configuration that you want to share,
+  and the operations that you want the account to be able to perform on the
   configuration.
   """
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
@@ -765,8 +801,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Specifies an Amazon Web Services rule that you want to share with another
-  account, the account that you want to share the rule with, and the operations
-  that you want the account to be able to perform on the rule.
+  account, the account that you want to share the rule with,
+  and the operations that you want the account to be able to perform on the rule.
   """
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -794,7 +830,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Updates the configuration of the firewall behavior provided by DNS Firewall for
-  a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
+  a single
+  VPC from Amazon Virtual Private Cloud (Amazon VPC).
   """
   def update_firewall_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -843,7 +880,8 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Updates the behavior configuration of Route 53 Resolver behavior for a single
-  VPC from Amazon Virtual Private Cloud.
+  VPC from
+  Amazon Virtual Private Cloud.
   """
   def update_resolver_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -878,8 +916,8 @@ defmodule AWS.Route53Resolver do
   @doc """
   Updates settings for a specified Resolver rule.
 
-  `ResolverRuleId` is required, and all other parameters are optional. If you
-  don't specify a parameter, it retains its current value.
+  `ResolverRuleId` is required, and all other parameters are optional.
+  If you don't specify a parameter, it retains its current value.
   """
   def update_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()

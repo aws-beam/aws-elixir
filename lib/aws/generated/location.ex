@@ -12,7 +12,6 @@ defmodule AWS.Location do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-11-19",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -29,8 +28,9 @@ defmodule AWS.Location do
   @doc """
   Creates an association between a geofence collection and a tracker resource.
 
-  This allows the tracker resource to communicate location data to the linked
-  geofence collection.
+  This
+  allows the tracker resource to communicate location data to the linked geofence
+  collection.
 
   You can associate up to five geofence collections to each tracker resource.
 
@@ -113,15 +113,20 @@ defmodule AWS.Location do
   collection.
 
   This operation always returns an empty response because geofences are
-  asynchronously evaluated. The evaluation determines if the device has entered or
-  exited a geofenced area, and then publishes one of the following events to
-  Amazon EventBridge:
+  asynchronously
+  evaluated. The evaluation determines if the device has entered or exited a
+  geofenced
+  area, and then publishes one of the following events to Amazon EventBridge:
 
-    * `ENTER` if Amazon Location determines that the tracked device has
-  entered a geofenced area.
+    *
 
-    * `EXIT` if Amazon Location determines that the tracked device has
-  exited a geofenced area.
+  `ENTER` if Amazon Location determines that the tracked device has entered
+  a geofenced area.
+
+    *
+
+  `EXIT` if Amazon Location determines that the tracked device has exited a
+  geofenced area.
 
   The last geofence that a device was observed within is tracked for 30 days after
   the most recent device position update.
@@ -129,8 +134,8 @@ defmodule AWS.Location do
   Geofence evaluation uses the given device position. It does not account for the
   optional `Accuracy` of a `DevicePositionUpdate`.
 
-  The `DeviceID` is used as a string to represent the device. You do not need to
-  have a `Tracker` associated with the `DeviceID`.
+  The `DeviceID` is used as a string to represent the device. You do not
+  need to have a `Tracker` associated with the `DeviceID`.
   """
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
@@ -177,8 +182,9 @@ defmodule AWS.Location do
 
   @doc """
   A batch request for storing geofence geometries into a given geofence
-  collection, or updates the geometry of an existing geofence if a geofence ID is
-  included in the request.
+  collection, or
+  updates the geometry of an existing geofence if a geofence ID is included in the
+  request.
   """
   def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
@@ -202,29 +208,33 @@ defmodule AWS.Location do
 
   @doc """
   Uploads position update data for one or more devices to a tracker resource (up
-  to 10 devices per batch).
+  to
+  10 devices per batch).
 
-  Amazon Location uses the data when it reports the last known device position and
-  position history. Amazon Location retains location data for 30 days.
+  Amazon Location uses the data when it reports the last known device
+  position and position history. Amazon Location retains location data for 30
+  days.
 
-  Position updates are handled based on the `PositionFiltering` property of the
-  tracker. When `PositionFiltering` is set to `TimeBased`, updates are evaluated
-  against linked geofence collections, and location data is stored at a maximum of
-  one position per 30 second interval. If your update frequency is more often than
-  every 30 seconds, only one update per 30 seconds is stored for each unique
-  device ID.
+  Position updates are handled based on the `PositionFiltering`
+  property of the tracker. When `PositionFiltering` is set to
+  `TimeBased`, updates are evaluated against linked geofence collections,
+  and location data is stored at a maximum of one position per 30 second interval.
+  If your update frequency is more often than every 30 seconds, only one update
+  per
+  30 seconds is stored for each unique device ID.
 
-  When `PositionFiltering` is set to `DistanceBased` filtering, location data is
-  stored and evaluated against linked geofence collections only if the device has
-  moved more than 30 m (98.4 ft).
+  When `PositionFiltering` is set to `DistanceBased`
+  filtering, location data is stored and evaluated against linked geofence
+  collections only if the device has moved more than 30 m (98.4 ft).
 
-  When `PositionFiltering` is set to `AccuracyBased` filtering, location data is
-  stored and evaluated against linked geofence collections only if the device has
-  moved more than the measured accuracy. For example, if two consecutive updates
-  from a device have a horizontal accuracy of 5 m and 10 m, the second update is
-  neither stored or evaluated if the device has moved less than 15 m. If
-  `PositionFiltering` is set to `AccuracyBased` filtering, Amazon Location uses
-  the default value `{ "Horizontal": 0}` when accuracy is not provided on a
+  When `PositionFiltering` is set to `AccuracyBased`
+  filtering, location data is stored and evaluated against linked geofence
+  collections only if the device has moved more than the measured accuracy. For
+  example, if two consecutive updates from a device have a horizontal accuracy of
+  5 m and 10 m, the second update is neither stored or evaluated if the device has
+  moved less than 15 m. If `PositionFiltering` is set to
+  `AccuracyBased` filtering, Amazon Location uses the default value
+  `{ "Horizontal": 0}` when accuracy is not provided on a
   `DevicePositionUpdate`.
   """
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
@@ -248,31 +258,43 @@ defmodule AWS.Location do
   end
 
   @doc """
-  [Calculates a route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
-  given the following required parameters: `DeparturePosition` and
-  `DestinationPosition`.
 
-  Requires that you first [create a route calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
+  [Calculates a route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
+  given the following required parameters:
+  `DeparturePosition` and `DestinationPosition`.
+
+  Requires that
+  you first [create a route calculator
+  resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
 
   By default, a request that doesn't specify a departure time uses the best time
-  of day to travel with the best traffic conditions when calculating the route.
+  of day
+  to travel with the best traffic conditions when calculating the route.
 
   Additional options include:
 
-    * [Specifying a departure time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
-  using either `DepartureTime` or `DepartNow`. This calculates a route based on
-  predictive traffic data at the given time.
+    *
 
-  You can't specify both `DepartureTime` and `DepartNow` in a single request.
-  Specifying both parameters returns a validation error.
+  [Specifying a departure
+  time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
+  using either `DepartureTime` or
+  `DepartNow`. This calculates a route based on predictive traffic
+  data at the given time.
 
-    * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
-  using TravelMode sets the transportation mode used to calculate the routes. This
-  also lets you specify additional route preferences in `CarModeOptions` if
-  traveling by `Car`, or `TruckModeOptions` if traveling by `Truck`.
+  You can't specify both `DepartureTime` and
+  `DepartNow` in a single request. Specifying both parameters
+  returns a validation error.
 
-  If you specify `walking` for the travel mode and your data provider is Esri, the
-  start and destination must be within 40km.
+    *
+
+  [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
+  using TravelMode sets the transportation mode used to calculate
+  the routes. This also lets you specify additional route preferences in
+  `CarModeOptions` if traveling by `Car`, or
+  `TruckModeOptions` if traveling by `Truck`.
+
+  If you specify `walking` for the travel mode and your data
+  provider is Esri, the start and destination must be within 40km.
   """
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
@@ -300,38 +322,52 @@ defmodule AWS.Location do
   end
 
   @doc """
+
   [ Calculates a route matrix](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html)
-  given the following required parameters: `DeparturePositions` and
-  `DestinationPositions`.
+  given the following required parameters:
+  `DeparturePositions` and `DestinationPositions`.
 
-  `CalculateRouteMatrix` calculates routes and returns the travel time and travel
-  distance from each departure position to each destination position in the
+  `CalculateRouteMatrix` calculates routes and returns the travel time and
+  travel distance from each departure position to each destination position in the
   request. For example, given departure positions A and B, and destination
-  positions X and Y, `CalculateRouteMatrix` will return time and distance for
-  routes from A to X, A to Y, B to X, and B to Y (in that order). The number of
-  results returned (and routes calculated) will be the number of
-  `DeparturePositions` times the number of `DestinationPositions`.
+  positions X and
+  Y, `CalculateRouteMatrix` will return time and distance for routes from A to
+  X, A to Y, B to X, and B to Y (in that order). The number of results returned
+  (and
+  routes calculated) will be the number of `DeparturePositions` times the
+  number of `DestinationPositions`.
 
-  Your account is charged for each route calculated, not the number of requests.
+  Your account is charged for each route calculated, not the number of
+  requests.
 
-  Requires that you first [create a route calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
+  Requires that you first [create a route calculator
+  resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
 
   By default, a request that doesn't specify a departure time uses the best time
-  of day to travel with the best traffic conditions when calculating routes.
+  of day
+  to travel with the best traffic conditions when calculating routes.
 
   Additional options include:
 
-    * [ Specifying a departure time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
-  using either `DepartureTime` or `DepartNow`. This calculates routes based on
-  predictive traffic data at the given time.
+    *
 
-  You can't specify both `DepartureTime` and `DepartNow` in a single request.
-  Specifying both parameters returns a validation error.
+  [ Specifying a departure
+  time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
+  using either `DepartureTime` or
+  `DepartNow`. This calculates routes based on predictive traffic
+  data at the given time.
 
-    * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
-  using TravelMode sets the transportation mode used to calculate the routes. This
-  also lets you specify additional route preferences in `CarModeOptions` if
-  traveling by `Car`, or `TruckModeOptions` if traveling by `Truck`.
+  You can't specify both `DepartureTime` and
+  `DepartNow` in a single request. Specifying both parameters
+  returns a validation error.
+
+    *
+
+  [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
+  using TravelMode sets the transportation mode used to calculate
+  the routes. This also lets you specify additional route preferences in
+  `CarModeOptions` if traveling by `Car`, or
+  `TruckModeOptions` if traveling by `Truck`.
   """
   def calculate_route_matrix(%Client{} = client, calculator_name, input, options \\ []) do
     url_path =
@@ -385,7 +421,8 @@ defmodule AWS.Location do
 
   @doc """
   Creates an API key resource in your Amazon Web Services account, which lets you
-  grant actions for Amazon Location resources to the API key bearer.
+  grant
+  actions for Amazon Location resources to the API key bearer.
 
   For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
   """
@@ -411,7 +448,8 @@ defmodule AWS.Location do
 
   @doc """
   Creates a map resource in your Amazon Web Services account, which provides map
-  tiles of different styles sourced from global location data providers.
+  tiles of different
+  styles sourced from global location data providers.
 
   If your application is tracking or routing assets you use in your business, such
   as delivery vehicles or employees, you must not use Esri as your geolocation
@@ -440,10 +478,11 @@ defmodule AWS.Location do
   @doc """
   Creates a place index resource in your Amazon Web Services account.
 
-  Use a place index resource to geocode addresses and other text queries by using
-  the `SearchPlaceIndexForText` operation, and reverse geocode coordinates by
-  using the `SearchPlaceIndexForPosition` operation, and enable autosuggestions by
-  using the `SearchPlaceIndexForSuggestions` operation.
+  Use a place index resource to
+  geocode addresses and other text queries by using the
+  `SearchPlaceIndexForText` operation, and reverse geocode coordinates by
+  using the `SearchPlaceIndexForPosition` operation, and enable autosuggestions
+  by using the `SearchPlaceIndexForSuggestions` operation.
 
   If your application is tracking or routing assets you use in your business, such
   as delivery vehicles or employees, you must not use Esri as your geolocation
@@ -474,7 +513,8 @@ defmodule AWS.Location do
 
   You can send requests to a route calculator resource to estimate travel time,
   distance, and get directions. A route calculator sources traffic and road
-  network data from your chosen data provider.
+  network data
+  from your chosen data provider.
 
   If your application is tracking or routing assets you use in your business, such
   as delivery vehicles or employees, you must not use Esri as your geolocation
@@ -502,7 +542,8 @@ defmodule AWS.Location do
 
   @doc """
   Creates a tracker resource in your Amazon Web Services account, which lets you
-  retrieve current and historical location of devices.
+  retrieve current and
+  historical location of devices.
   """
   def create_tracker(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/trackers"
@@ -528,7 +569,8 @@ defmodule AWS.Location do
   Deletes a geofence collection from your Amazon Web Services account.
 
   This operation deletes the resource permanently. If the geofence collection is
-  the target of a tracker resource, the devices will no longer be monitored.
+  the
+  target of a tracker resource, the devices will no longer be monitored.
   """
   def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
@@ -553,7 +595,8 @@ defmodule AWS.Location do
   @doc """
   Deletes the specified API key.
 
-  The API key must have been deactivated more than 90 days previously.
+  The API key must have been deactivated more than
+  90 days previously.
   """
   def delete_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
@@ -584,7 +627,8 @@ defmodule AWS.Location do
   Deletes a map resource from your Amazon Web Services account.
 
   This operation deletes the resource permanently. If the map is being used in an
-  application, the map may not render.
+  application,
+  the map may not render.
   """
   def delete_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
@@ -660,8 +704,10 @@ defmodule AWS.Location do
   Deletes a tracker resource from your Amazon Web Services account.
 
   This operation deletes the resource permanently. If the tracker resource is in
-  use, you may encounter an error. Make sure that the target resource isn't a
-  dependency for your applications.
+  use, you may
+  encounter an error. Make sure that the target resource isn't a dependency for
+  your
+  applications.
   """
   def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
@@ -814,7 +860,8 @@ defmodule AWS.Location do
 
   @doc """
   Retrieves the device position history from a tracker resource within a specified
-  range of time.
+  range
+  of time.
 
   Device positions are deleted after 30 days.
   """
@@ -900,8 +947,10 @@ defmodule AWS.Location do
   @doc """
   Retrieves the sprite sheet corresponding to a map resource.
 
-  The sprite sheet is a PNG image paired with a JSON document describing the
-  offsets of individual icons that will be displayed on a rendered map.
+  The sprite sheet is a PNG
+  image paired with a JSON document describing the offsets of individual icons
+  that will
+  be displayed on a rendered map.
   """
   def get_map_sprites(%Client{} = client, file_name, map_name, key \\ nil, options \\ []) do
     url_path =
@@ -934,7 +983,8 @@ defmodule AWS.Location do
 
   The style descriptor contains speciﬁcations on how features render on a map. For
   example, what data to display, what order to display the data in, and the style
-  for the data. Style descriptors follow the Mapbox Style Specification.
+  for the
+  data. Style descriptors follow the Mapbox Style Specification.
   """
   def get_map_style_descriptor(%Client{} = client, map_name, key \\ nil, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
@@ -963,13 +1013,15 @@ defmodule AWS.Location do
   @doc """
   Retrieves a vector data tile from the map resource.
 
-  Map tiles are used by clients to render a map. they're addressed using a grid
-  arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
+  Map tiles are used by clients to
+  render a map. they're addressed using a grid arrangement with an X coordinate, Y
+  coordinate, and Z (zoom) level.
 
   The origin (0, 0) is the top left of the map. Increasing the zoom level by 1
-  doubles both the X and Y dimensions, so a tile containing data for the entire
-  world at (0/0/0) will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0,
-  1/1/1).
+  doubles
+  both the X and Y dimensions, so a tile containing data for the entire world at
+  (0/0/0)
+  will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).
   """
   def get_map_tile(%Client{} = client, map_name, x, y, z, key \\ nil, options \\ []) do
     url_path =
@@ -1000,16 +1052,20 @@ defmodule AWS.Location do
   @doc """
   Finds a place by its unique ID.
 
-  A `PlaceId` is returned by other search operations.
+  A `PlaceId` is returned by other search
+  operations.
 
   A PlaceId is valid only if all of the following are the same in the original
   search request and the call to `GetPlace`.
 
-     Customer Amazon Web Services account
+    
+  Customer Amazon Web Services account
 
-     Amazon Web Services Region
+    
+  Amazon Web Services Region
 
-     Data provider specified in the place index resource
+    
+  Data provider specified in the place index resource
   """
   def get_place(
         %Client{} = client,
@@ -1267,7 +1323,8 @@ defmodule AWS.Location do
 
   @doc """
   Stores a geofence geometry in a given geofence collection, or updates the
-  geometry of an existing geofence if a geofence ID is included in the request.
+  geometry of
+  an existing geofence if a geofence ID is included in the request.
   """
   def put_geofence(%Client{} = client, collection_name, geofence_id, input, options \\ []) do
     url_path =
@@ -1284,7 +1341,8 @@ defmodule AWS.Location do
   @doc """
   Reverse geocodes a given coordinate and returns a legible address.
 
-  Allows you to search for Places or points of interest near a given position.
+  Allows you to
+  search for Places or points of interest near a given position.
   """
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
@@ -1315,15 +1373,18 @@ defmodule AWS.Location do
   Generates suggestions for addresses and points of interest based on partial or
   misspelled free-form text.
 
-  This operation is also known as autocomplete, autosuggest, or fuzzy matching.
+  This operation is also known as autocomplete, autosuggest, or
+  fuzzy matching.
 
   Optional parameters let you narrow your search results by bounding box or
-  country, or bias your search toward a specific position on the globe.
+  country, or
+  bias your search toward a specific position on the globe.
 
   You can search for suggested place names near a specified position by using
-  `BiasPosition`, or filter results within a bounding box by using `FilterBBox`.
-  These parameters are mutually exclusive; using both `BiasPosition` and
-  `FilterBBox` in the same command returns an error.
+  `BiasPosition`, or filter results within a bounding box by using
+  `FilterBBox`. These parameters are mutually exclusive; using both
+  `BiasPosition` and `FilterBBox` in the same command
+  returns an error.
   """
   def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
@@ -1352,14 +1413,16 @@ defmodule AWS.Location do
 
   @doc """
   Geocodes free-form text, such as an address, name, city, or region to allow you
-  to search for Places or points of interest.
+  to
+  search for Places or points of interest.
 
   Optional parameters let you narrow your search results by bounding box or
-  country, or bias your search toward a specific position on the globe.
+  country, or
+  bias your search toward a specific position on the globe.
 
-  You can search for places near a given position using `BiasPosition`, or filter
-  results within a bounding box using `FilterBBox`. Providing both parameters
-  simultaneously returns an error.
+  You can search for places near a given position using `BiasPosition`,
+  or filter results within a bounding box using `FilterBBox`. Providing
+  both parameters simultaneously returns an error.
 
   Search results are returned in order of highest to lowest relevance.
   """
@@ -1390,17 +1453,23 @@ defmodule AWS.Location do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified Amazon Location
-  Service resource.
+  Service
+  resource.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user permissions, by granting a user permission to access or change
-  only resources with certain tag values.
+  to
+  scope user permissions, by granting a user permission to access or change only
+  resources
+  with certain tag values.
 
-  You can use the `TagResource` operation with an Amazon Location Service resource
-  that already has tags. If you specify a new tag key for the resource, this tag
+  You can use the `TagResource` operation with an Amazon Location Service
+  resource that already has tags. If you specify a new tag key for the resource,
+  this tag
   is appended to the tags already associated with the resource. If you specify a
-  tag key that's already associated with the resource, the new tag value that you
-  specify replaces the previous value for that tag.
+  tag key
+  that's already associated with the resource, the new tag value that you specify
+  replaces
+  the previous value for that tag.
 
   You can associate up to 50 tags with a resource.
   """

@@ -11,7 +11,6 @@ defmodule AWS.TrustedAdvisor do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-09-15",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -28,7 +27,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Get a specific recommendation within an AWS Organizations organization.
 
-  This API supports only prioritized recommendations.
+  This API supports only prioritized
+  recommendations.
   """
   def get_organization_recommendation(
         %Client{} = client,
@@ -127,7 +127,8 @@ defmodule AWS.TrustedAdvisor do
   Lists the accounts that own the resources for an organization aggregate
   recommendation.
 
-  This API only supports prioritized recommendations.
+  This API only
+  supports prioritized recommendations.
   """
   def list_organization_recommendation_accounts(
         %Client{} = client,
@@ -172,7 +173,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List Resources of a Recommendation within an Organization.
 
-  This API only supports prioritized recommendations.
+  This API only supports prioritized
+  recommendations.
   """
   def list_organization_recommendation_resources(
         %Client{} = client,
@@ -233,7 +235,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List a filterable set of Recommendations within an Organization.
 
-  This API only supports prioritized recommendations.
+  This API only supports prioritized
+  recommendations.
   """
   def list_organization_recommendations(
         %Client{} = client,
@@ -476,7 +479,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Update the lifecyle of a Recommendation within an Organization.
 
-  This API only supports prioritized recommendations.
+  This API only supports prioritized
+  recommendations.
   """
   def update_organization_recommendation_lifecycle(
         %Client{} = client,

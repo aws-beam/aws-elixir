@@ -5,15 +5,21 @@ defmodule AWS.AppConfig do
   @moduledoc """
   AppConfig feature flags and dynamic configurations help software builders
   quickly and securely adjust application behavior in production environments
-  without full code deployments.
+  without full
+  code deployments.
 
-  AppConfig speeds up software release frequency, improves application resiliency,
-  and helps you address emergent issues more quickly. With feature flags, you can
-  gradually release new capabilities to users and measure the impact of those
+  AppConfig speeds up software release frequency, improves
+  application resiliency, and helps you address emergent issues more quickly. With
+  feature
+  flags, you can gradually release new capabilities to users and measure the
+  impact of those
   changes before fully deploying the new capabilities to all users. With
-  operational flags and dynamic configurations, you can update block lists, allow
-  lists, throttling limits, logging verbosity, and perform other operational
-  tuning to quickly respond to issues in production environments.
+  operational flags
+  and dynamic configurations, you can update block lists, allow lists, throttling
+  limits,
+  logging verbosity, and perform other operational tuning to quickly respond to
+  issues in
+  production environments.
 
   AppConfig is a capability of Amazon Web Services Systems Manager.
 
@@ -21,21 +27,31 @@ defmodule AWS.AppConfig do
   application to application, AppConfig supports the following use cases, which
   cover a broad spectrum of customer needs:
 
-    * **Feature flags and toggles** - Safely release new capabilities to
-  your customers in a controlled environment. Instantly roll back changes if you
-  experience a problem.
+    *
 
-    * **Application tuning** - Carefully introduce application changes
-  while testing the impact of those changes with users in production environments.
+  **Feature flags and toggles** - Safely release new
+  capabilities to your customers in a controlled environment. Instantly roll back
+  changes if you experience a problem.
 
-    * **Allow list or block list** - Control access to premium features
-  or instantly block specific users without deploying new code.
+    *
 
-    * **Centralized configuration storage** - Keep your configuration
-  data organized and consistent across all of your workloads. You can use
-  AppConfig to deploy configuration data stored in the AppConfig hosted
-  configuration store, Secrets Manager, Systems Manager, Parameter Store, or
-  Amazon S3.
+  **Application tuning** - Carefully introduce
+  application changes while testing the impact of those changes with users in
+  production environments.
+
+    *
+
+  **Allow list or block list** - Control access to
+  premium features or instantly block specific users without deploying new code.
+
+    *
+
+  **Centralized configuration storage** - Keep your
+  configuration data organized and consistent across all of your workloads. You
+  can use
+  AppConfig to deploy configuration data stored in the AppConfig
+  hosted configuration store, Secrets Manager, Systems Manager, Parameter
+  Store, or Amazon S3.
 
   ## How AppConfig works
 
@@ -46,10 +62,12 @@ defmodule AWS.AppConfig do
 
   ### 1. Identify configuration values in code you want to manage in the cloud
 
-  Before you start creating AppConfig artifacts, we recommend you identify
-  configuration data in your code that you want to dynamically manage using
-  AppConfig. Good examples include feature flags or toggles, allow and block
-  lists, logging verbosity, service limits, and throttling rules, to name a few.
+  Before you start creating AppConfig artifacts, we recommend you
+  identify configuration data in your code that you want to dynamically manage
+  using
+  AppConfig. Good examples include feature flags or toggles, allow and
+  block lists, logging verbosity, service limits, and throttling rules, to name a
+  few.
 
   If your configuration data already exists in the cloud, you can take advantage
   of AppConfig validation, deployment, and extension features to further
@@ -57,80 +75,98 @@ defmodule AWS.AppConfig do
 
   ### 2. Create an application namespace
 
-  To create a namespace, you create an AppConfig artifact called an application.
-  An application is simply an organizational construct like a folder.
+  To create a namespace, you create an AppConfig artifact called an
+  application. An application is simply an organizational construct like a
+  folder.
 
   ### 3. Create environments
 
-  For each AppConfig application, you define one or more environments. An
-  environment is a logical grouping of targets, such as applications in a `Beta`
-  or `Production` environment, Lambda functions, or containers. You can also
-  define environments for application subcomponents, such as the `Web`, `Mobile`,
-  and `Back-end`.
+  For each AppConfig application, you define one or more environments.
+  An environment is a logical grouping of targets, such as applications in a
+  `Beta` or `Production` environment, Lambda functions,
+  or containers. You can also define environments for application subcomponents,
+  such as the `Web`, `Mobile`, and
+  `Back-end`.
 
   You can configure Amazon CloudWatch alarms for each environment. The system
-  monitors alarms during a configuration deployment. If an alarm is triggered, the
-  system rolls back the configuration.
+  monitors
+  alarms during a configuration deployment. If an alarm is triggered, the system
+  rolls back the configuration.
 
   ### 4. Create a configuration profile
 
   A configuration profile includes, among other things, a URI that enables
-  AppConfig to locate your configuration data in its stored location and a profile
-  type. AppConfig supports two configuration profile types: feature flags and
-  freeform configurations. Feature flag configuration profiles store their data in
-  the AppConfig hosted configuration store and the URI is simply `hosted`. For
-  freeform configuration profiles, you can store your data in the AppConfig hosted
-  configuration store or any Amazon Web Services service that integrates with
-  AppConfig, as described in [Creating a free form configuration profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html)
+  AppConfig to locate your configuration data in its stored location
+  and a profile type. AppConfig supports two configuration profile types:
+  feature flags and freeform configurations. Feature flag configuration profiles
+  store their data in the AppConfig hosted configuration store and the URI
+  is simply `hosted`. For freeform configuration profiles, you can store
+  your data in the AppConfig hosted configuration store or any Amazon Web Services
+  service that integrates with AppConfig, as described in [Creating a free form configuration
+  profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html)
   in the the *AppConfig User Guide*.
 
   A configuration profile can also include optional validators to ensure your
-  configuration data is syntactically and semantically correct. AppConfig performs
-  a check using the validators when you start a deployment. If any errors are
-  detected, the deployment rolls back to the previous configuration data.
+  configuration data is syntactically and semantically correct. AppConfig
+  performs a check using the validators when you start a deployment. If any errors
+  are detected, the deployment rolls back to the previous configuration data.
 
   ### 5. Deploy configuration data
 
   When you create a new deployment, you specify the following:
 
-     An application ID
+    
+  An application ID
 
-     A configuration profile ID
+    
+  A configuration profile ID
 
-     A configuration version
+    
+  A configuration version
 
-     An environment ID where you want to deploy the configuration data
+    
+  An environment ID where you want to deploy the configuration data
 
-     A deployment strategy ID that defines how fast you want the changes
-  to take effect
+    
+  A deployment strategy ID that defines how fast you want the changes to
+  take effect
 
   When you call the
-  [StartDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API action, AppConfig performs the following tasks:
+  [StartDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API action, AppConfig performs the following
+  tasks:
 
-     Retrieves the configuration data from the underlying data store by
-  using the location URI in the configuration profile.
+    
+  Retrieves the configuration data from the underlying data store by using
+  the location URI in the configuration profile.
 
-     Verifies the configuration data is syntactically and semantically
-  correct by using the validators you specified when you created your
-  configuration profile.
+    
+  Verifies the configuration data is syntactically and semantically correct
+  by using the validators you specified when you created your configuration
+  profile.
 
-     Caches a copy of the data so it is ready to be retrieved by your
-  application. This cached copy is called the *deployed data*.
+    
+  Caches a copy of the data so it is ready to be retrieved by your
+  application. This cached copy is called the *deployed
+  data*.
 
   ### 6. Retrieve the configuration
 
-  You can configure AppConfig Agent as a local host and have the agent poll
-  AppConfig for configuration updates. The agent calls the
+  You can configure AppConfig Agent as a local host and have the agent
+  poll AppConfig for configuration updates. The agent calls the
   [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html)
   and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API actions and caches your configuration data locally. To retrieve the data,
-  your application makes an HTTP call to the localhost server. AppConfig Agent
-  supports several use cases, as described in [Simplified retrieval
+  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API actions and caches your configuration data
+  locally. To retrieve the data, your application makes an HTTP call to the
+  localhost server. AppConfig Agent supports several use cases, as
+  described in [Simplified
+  retrieval
   methods](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html)
-  in the the *AppConfig User Guide*.
+  in the the *AppConfig User
+  Guide*.
 
-  If AppConfig Agent isn't supported for your use case, you can configure your
-  application to poll AppConfig for configuration updates by directly calling the
+  If AppConfig Agent isn't supported for your use case, you can
+  configure your application to poll AppConfig for configuration updates
+  by directly calling the
   [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
   [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
   API actions.
@@ -143,7 +179,6 @@ defmodule AWS.AppConfig do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-10-09",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -160,10 +195,13 @@ defmodule AWS.AppConfig do
   @doc """
   Creates an application.
 
-  In AppConfig, an application is simply an organizational construct like a
-  folder. This organizational construct has a relationship with some unit of
-  executable code. For example, you could create an application called MyMobileApp
-  to organize and manage configuration data for a mobile application installed by
+  In AppConfig, an application is simply an
+  organizational construct like a folder. This organizational construct has a
+  relationship
+  with some unit of executable code. For example, you could create an application
+  called
+  MyMobileApp to organize and manage configuration data for a mobile application
+  installed by
   your users.
   """
   def create_application(%Client{} = client, input, options \\ []) do
@@ -187,39 +225,52 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a configuration profile, which is information that enables AppConfig to
-  access the configuration source.
+  Creates a configuration profile, which is information that enables AppConfig
+  to access the configuration source.
 
-  Valid configuration sources include the following:
+  Valid configuration sources include the
+  following:
 
-    * Configuration data in YAML, JSON, and other formats stored in the
-  AppConfig hosted configuration store
+    *
+  Configuration data in YAML, JSON, and other formats stored in the AppConfig
+  hosted configuration store
 
-    * Configuration data stored as objects in an Amazon Simple Storage
-  Service (Amazon S3) bucket
+    *
+  Configuration data stored as objects in an Amazon Simple Storage Service (Amazon
+  S3)
+  bucket
 
-    * Pipelines stored in CodePipeline
+    *
+  Pipelines stored in CodePipeline
 
-    * Secrets stored in Secrets Manager
+    *
+  Secrets stored in Secrets Manager
 
-    * Standard and secure string parameters stored in Amazon Web
-  Services Systems Manager Parameter Store
+    *
+  Standard and secure string parameters stored in Amazon Web Services Systems
+  Manager Parameter Store
 
-    * Configuration data in SSM documents stored in the Systems Manager
-  document store
+    *
+  Configuration data in SSM documents stored in the Systems Manager document store
 
   A configuration profile includes the following information:
 
-    * The URI location of the configuration data.
+    *
+  The URI location of the configuration data.
 
-    * The Identity and Access Management (IAM) role that provides access
-  to the configuration data.
+    *
+  The Identity and Access Management (IAM) role that provides access to the
+  configuration data.
 
-    * A validator for the configuration data. Available validators
-  include either a JSON Schema or an Amazon Web Services Lambda function.
+    *
+  A validator for the configuration data. Available validators include either a
+  JSON
+  Schema or an Amazon Web Services Lambda function.
 
-  For more information, see [Create a Configuration and a Configuration Profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html)
-  in the *AppConfig User Guide*.
+  For more information, see [Create a Configuration and a Configuration
+  Profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html)
+  in the *AppConfig
+  User Guide*.
   """
   def create_configuration_profile(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
@@ -243,11 +294,13 @@ defmodule AWS.AppConfig do
 
   @doc """
   Creates a deployment strategy that defines important criteria for rolling out
-  your configuration to the designated targets.
+  your
+  configuration to the designated targets.
 
-  A deployment strategy includes the overall duration required, a percentage of
-  targets to receive the deployment during each interval, an algorithm that
-  defines how percentage grows, and bake time.
+  A deployment strategy includes the overall
+  duration required, a percentage of targets to receive the deployment during each
+  interval,
+  an algorithm that defines how percentage grows, and bake time.
   """
   def create_deployment_strategy(%Client{} = client, input, options \\ []) do
     url_path = "/deploymentstrategies"
@@ -272,13 +325,16 @@ defmodule AWS.AppConfig do
   @doc """
   Creates an environment.
 
-  For each application, you define one or more environments. An environment is a
-  deployment group of AppConfig targets, such as applications in a `Beta` or
-  `Production` environment. You can also define environments for application
-  subcomponents such as the `Web`, `Mobile` and `Back-end` components for your
-  application. You can configure Amazon CloudWatch alarms for each environment.
-  The system monitors alarms during a configuration deployment. If an alarm is
-  triggered, the system rolls back the configuration.
+  For each application, you define one or more environments. An
+  environment is a deployment group of AppConfig targets, such as applications in
+  a
+  `Beta` or `Production` environment. You can also define
+  environments for application subcomponents such as the `Web`,
+  `Mobile` and `Back-end` components for your application. You can
+  configure Amazon CloudWatch alarms for each environment. The system monitors
+  alarms during a
+  configuration deployment. If an alarm is triggered, the system rolls back the
+  configuration.
   """
   def create_environment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
@@ -303,24 +359,32 @@ defmodule AWS.AppConfig do
   @doc """
   Creates an AppConfig extension.
 
-  An extension augments your ability to inject logic or behavior at different
-  points during the AppConfig workflow of creating or deploying a configuration.
+  An extension augments your ability to inject
+  logic or behavior at different points during the AppConfig workflow of creating
+  or deploying a configuration.
 
   You can create your own extensions or use the Amazon Web Services authored
-  extensions provided by AppConfig. For an AppConfig extension that uses Lambda,
-  you must create a Lambda function to perform any computation and processing
+  extensions provided by
+  AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda
+  function to perform any computation and processing
   defined in the extension. If you plan to create custom versions of the Amazon
-  Web Services authored notification extensions, you only need to specify an
-  Amazon Resource Name (ARN) in the `Uri` field for the new extension version.
+  Web Services
+  authored notification extensions, you only need to specify an Amazon Resource
+  Name (ARN) in
+  the `Uri` field for the new extension version.
 
-    * For a custom EventBridge notification extension, enter the ARN of
-  the EventBridge default events in the `Uri` field.
+    *
+  For a custom EventBridge notification extension, enter the ARN of the
+  EventBridge
+  default events in the `Uri` field.
 
-    * For a custom Amazon SNS notification extension, enter the ARN of
-  an Amazon SNS topic in the `Uri` field.
+    *
+  For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
+  topic in the `Uri` field.
 
-    * For a custom Amazon SQS notification extension, enter the ARN of
-  an Amazon SQS message queue in the `Uri` field.
+    *
+  For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
+  message queue in the `Uri` field.
 
   For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
@@ -353,17 +417,27 @@ defmodule AWS.AppConfig do
 
   @doc """
   When you create an extension or configure an Amazon Web Services authored
-  extension, you associate the extension with an AppConfig application,
-  environment, or configuration profile.
+  extension, you
+  associate the extension with an AppConfig application, environment, or
+  configuration profile.
 
-  For example, you can choose to run the `AppConfig deployment events to Amazon
-  SNS` Amazon Web Services authored extension and receive notifications on an
-  Amazon SNS topic anytime a configuration deployment is started for a specific
-  application. Defining which extension to associate with an AppConfig resource is
-  called an *extension association*. An extension association is a specified
+  For example, you can choose to run the
+
+  ```
+  AppConfig
+  deployment events to Amazon SNS
+  ```
+
+  Amazon Web Services authored extension and receive notifications on an Amazon
+  SNS
+  topic anytime a configuration deployment is started for a specific application.
+  Defining
+  which extension to associate with an AppConfig resource is called an
+  *extension association*. An extension association is a specified
   relationship between an extension and an AppConfig resource, such as an
   application or a configuration profile. For more information about extensions
-  and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  and
+  associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
   def create_extension_association(%Client{} = client, input, options \\ []) do
@@ -387,7 +461,8 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a new configuration in the AppConfig hosted configuration store.
+  Creates a new configuration in the AppConfig hosted configuration
+  store.
   """
   def create_hosted_configuration_version(
         %Client{} = client,
@@ -443,7 +518,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes an application.
 
-  Deleting an application does not delete a configuration from a host.
+  Deleting an application does not delete a configuration from a
+  host.
   """
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -468,7 +544,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes a configuration profile.
 
-  Deleting a configuration profile does not delete a configuration from a host.
+  Deleting a configuration profile does not delete a
+  configuration from a host.
   """
   def delete_configuration_profile(
         %Client{} = client,
@@ -501,7 +578,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes a deployment strategy.
 
-  Deleting a deployment strategy does not delete a configuration from a host.
+  Deleting a deployment strategy does not delete a
+  configuration from a host.
   """
   def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
     url_path = "/deployementstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
@@ -526,7 +604,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes an environment.
 
-  Deleting an environment does not delete a configuration from a host.
+  Deleting an environment does not delete a configuration from a
+  host.
   """
   def delete_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
@@ -553,8 +632,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes an AppConfig extension.
 
-  You must delete all associations to an extension before you delete the
-  extension.
+  You must delete all associations to an
+  extension before you delete the extension.
   """
   def delete_extension(%Client{} = client, extension_identifier, input, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
@@ -584,7 +663,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes an extension association.
 
-  This action doesn't delete extensions defined in the association.
+  This action doesn't delete extensions defined in the
+  association.
   """
   def delete_extension_association(
         %Client{} = client,
@@ -662,13 +742,16 @@ defmodule AWS.AppConfig do
 
   Note the following important information.
 
-     This API action is deprecated. Calls to receive configuration data
-  should use the
+    
+  This API action is deprecated. Calls to receive configuration data should use
+  the
   [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
   [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
   APIs instead.
 
-     `GetConfiguration` is a priced call. For more information, see
+    
+
+  `GetConfiguration` is a priced call. For more information, see
   [Pricing](https://aws.amazon.com/systems-manager/pricing/).
   """
   def get_configuration(
@@ -759,11 +842,14 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about a deployment strategy.
 
-  A deployment strategy defines important criteria for rolling out your
-  configuration to the designated targets. A deployment strategy includes the
-  overall duration required, a percentage of targets to receive the deployment
-  during each interval, an algorithm that defines how percentage grows, and bake
-  time.
+  A deployment strategy defines
+  important criteria for rolling out your configuration to the designated targets.
+  A
+  deployment strategy includes the overall duration required, a percentage of
+  targets to
+  receive the deployment during each interval, an algorithm that defines how
+  percentage
+  grows, and bake time.
   """
   def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
@@ -778,11 +864,13 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about an environment.
 
-  An environment is a deployment group of AppConfig applications, such as
-  applications in a `Production` environment or in an `EU_Region` environment.
-  Each configuration deployment targets an environment. You can enable one or more
-  Amazon CloudWatch alarms for an environment. If an alarm is triggered during a
-  deployment, AppConfig roles back the configuration.
+  An environment is a deployment group of
+  AppConfig applications, such as applications in a `Production`
+  environment or in an `EU_Region` environment. Each configuration deployment
+  targets an environment. You can enable one or more Amazon CloudWatch alarms for
+  an environment. If
+  an alarm is triggered during a deployment, AppConfig roles back the
+  configuration.
   """
   def get_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
@@ -824,7 +912,8 @@ defmodule AWS.AppConfig do
   @doc """
   Returns information about an AppConfig extension association.
 
-  For more information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  For more
+  information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
   def get_extension_association(%Client{} = client, extension_association_id, options \\ []) do
@@ -1045,7 +1134,8 @@ defmodule AWS.AppConfig do
   @doc """
   Lists all AppConfig extension associations in the account.
 
-  For more information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  For more
+  information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
   def list_extension_associations(
@@ -1231,8 +1321,9 @@ defmodule AWS.AppConfig do
   @doc """
   Stops a deployment.
 
-  This API action works only on deployments that have a status of `DEPLOYING`.
-  This action moves the deployment to a status of `ROLLED_BACK`.
+  This API action works only on deployments that have a status of
+  `DEPLOYING`. This action moves the deployment to a status of
+  `ROLLED_BACK`.
   """
   def stop_deployment(
         %Client{} = client,
@@ -1266,9 +1357,9 @@ defmodule AWS.AppConfig do
   @doc """
   Assigns metadata to an AppConfig resource.
 
-  Tags help organize and categorize your AppConfig resources. Each tag consists of
-  a key and an optional value, both of which you define. You can specify a maximum
-  of 50 tags for a resource.
+  Tags help organize and categorize
+  your AppConfig resources. Each tag consists of a key and an optional value, both
+  of which you define. You can specify a maximum of 50 tags for a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1423,7 +1514,8 @@ defmodule AWS.AppConfig do
   @doc """
   Updates an AppConfig extension.
 
-  For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  For more information about extensions, see
+  [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
   def update_extension(%Client{} = client, extension_identifier, input, options \\ []) do
@@ -1449,7 +1541,8 @@ defmodule AWS.AppConfig do
   @doc """
   Updates an association.
 
-  For more information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  For more information about extensions and associations, see
+  [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
   def update_extension_association(

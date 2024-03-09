@@ -4,7 +4,8 @@
 defmodule AWS.XRay do
   @moduledoc """
   Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving
-  service maps and other data created by processing those traces.
+  service maps
+  and other data created by processing those traces.
   """
 
   alias AWS.Client
@@ -12,7 +13,6 @@ defmodule AWS.XRay do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2016-04-12",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -29,8 +29,10 @@ defmodule AWS.XRay do
   @doc """
   Retrieves a list of traces specified by ID.
 
-  Each trace is a collection of segment documents that originates from a single
-  request. Use `GetTraceSummaries` to get a list of trace IDs.
+  Each trace is a collection of segment
+  documents that originates from a single request. Use `GetTraceSummaries` to get
+  a
+  list of trace IDs.
   """
   def batch_get_traces(%Client{} = client, input, options \\ []) do
     url_path = "/Traces"
@@ -48,7 +50,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -71,20 +73,25 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a rule to control sampling behavior for instrumented applications.
 
-  Services retrieve rules with
-  [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending order of *priority* for each request. If a
-  rule matches, the service records a trace, borrowing it from the reservoir size.
-  After 10 seconds, the service reports back to X-Ray with
+  Services
+  retrieve rules with
+  [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending
+  order of *priority* for each request. If a rule matches, the service
+  records a trace, borrowing it from the reservoir size. After 10 seconds, the
+  service
+  reports back to X-Ray with
   [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html)
-  to get updated versions of each in-use rule. The updated rule contains a trace
-  quota that the service can use instead of borrowing from the reservoir.
+  to get updated versions of
+  each in-use rule. The updated rule contains a trace quota that the service can
+  use instead
+  of borrowing from the reservoir.
   """
   def create_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSamplingRule"
@@ -102,7 +109,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -125,7 +132,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -148,7 +155,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -171,7 +178,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -194,7 +201,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -217,7 +224,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -240,16 +247,17 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Retrieves the summary information of an insight.
 
-  This includes impact to clients and root cause services, the top anomalous
-  services, the category, the state of the insight, and the start and end time of
-  the insight.
+  This includes impact to clients and
+  root cause services, the top anomalous services, the category, the state of the
+  insight,
+  and the start and end time of the insight.
   """
   def get_insight(%Client{} = client, input, options \\ []) do
     url_path = "/Insight"
@@ -267,16 +275,18 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   X-Ray reevaluates insights periodically until they're resolved, and records each
-  intermediate state as an event.
+  intermediate state as an
+  event.
 
   You can review an insight's events in the Impact Timeline on the Inspect page in
-  the X-Ray console.
+  the X-Ray
+  console.
   """
   def get_insight_events(%Client{} = client, input, options \\ []) do
     url_path = "/InsightEvents"
@@ -294,15 +304,16 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Retrieves a service graph structure filtered by the specified insight.
 
-  The service graph is limited to only structural information. For a complete
-  service graph, use this API with the GetServiceGraph API.
+  The service graph is limited to only
+  structural information. For a complete service graph, use this API with the
+  GetServiceGraph API.
   """
   def get_insight_impact_graph(%Client{} = client, input, options \\ []) do
     url_path = "/InsightImpactGraph"
@@ -320,7 +331,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -344,7 +355,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -367,7 +378,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -390,7 +401,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -414,7 +425,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -422,9 +433,11 @@ defmodule AWS.XRay do
   Retrieves a document that describes services that process incoming requests, and
   downstream services that they call as a result.
 
-  Root services process incoming requests and make calls to downstream services.
-  Root services are applications that use the [Amazon Web Services X-Ray SDK](https://docs.aws.amazon.com/xray/index.html). Downstream services can be
-  other applications, Amazon Web Services resources, HTTP web APIs, or SQL
+  Root services process incoming requests and
+  make calls to downstream services. Root services are applications that use the
+  [Amazon Web Services X-Ray SDK](https://docs.aws.amazon.com/xray/index.html).
+  Downstream services can be other applications, Amazon Web Services resources,
+  HTTP web APIs, or SQL
   databases.
   """
   def get_service_graph(%Client{} = client, input, options \\ []) do
@@ -443,12 +456,13 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Get an aggregation of service statistics defined by a specific time range.
+  Get an aggregation of service statistics defined by a specific time
+  range.
   """
   def get_time_series_service_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/TimeSeriesServiceStatistics"
@@ -466,7 +480,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -489,29 +503,34 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Retrieves IDs and annotations for traces available for a specified time frame
-  using an optional filter.
+  using an
+  optional filter.
 
-  To get the full traces, pass the trace IDs to `BatchGetTraces`.
+  To get the full traces, pass the trace IDs to
+  `BatchGetTraces`.
 
   A filter expression can target traced requests that hit specific service nodes
-  or edges, have errors, or come from a known user. For example, the following
-  filter expression targets traces that pass through `api.example.com`:
+  or
+  edges, have errors, or come from a known user. For example, the following filter
+  expression
+  targets traces that pass through `api.example.com`:
 
   `service("api.example.com")`
 
-  This filter expression finds traces that have an annotation named `account` with
-  the value `12345`:
+  This filter expression finds traces that have an annotation named `account`
+  with the value `12345`:
 
   `annotation.account = "12345"`
 
   For a full list of indexed fields and keywords that you can use in filter
-  expressions, see [Using Filter Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
+  expressions,
+  see [Using Filter Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
   in the *Amazon Web Services X-Ray Developer Guide*.
   """
   def get_trace_summaries(%Client{} = client, input, options \\ []) do
@@ -530,7 +549,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -553,7 +572,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -577,7 +596,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -600,18 +619,21 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Sets the resource policy to grant one or more Amazon Web Services services and
-  accounts permissions to access X-Ray.
+  accounts permissions to
+  access X-Ray.
 
   Each resource policy will be associated with a specific Amazon Web Services
-  account. Each Amazon Web Services account can have a maximum of 5 resource
-  policies, and each policy name must be unique within that account. The maximum
-  size of each resource policy is 5KB.
+  account.
+  Each Amazon Web Services account can have a maximum of 5 resource policies, and
+  each policy name must be
+  unique within that account. The maximum size of each resource policy is 5KB.
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
@@ -629,7 +651,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -652,59 +674,83 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Uploads segment documents to Amazon Web Services X-Ray.
 
-  The [X-Ray SDK](https://docs.aws.amazon.com/xray/index.html) generates segment documents and sends them to the X-Ray daemon, which uploads them in batches. A
-  segment document can be a completed segment, an in-progress segment, or an array
-  of subsegments.
+  The [X-Ray SDK](https://docs.aws.amazon.com/xray/index.html) generates segment documents and sends them to the X-Ray daemon, which uploads them in
+  batches. A segment document can be a completed segment, an in-progress segment,
+  or an array of
+  subsegments.
 
   Segments must include the following fields. For the full segment document
-  schema, see [Amazon Web Services X-Ray Segment
+  schema, see
+  [Amazon Web Services X-Ray
+  Segment
   Documents](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html)
   in the *Amazon Web Services X-Ray Developer Guide*.
 
   ## Required segment document fields
 
-    * `name` - The name of the service that handled the request.
+    *
 
-    * `id` - A 64-bit identifier for the segment, unique among segments
-  in the same trace, in 16 hexadecimal digits.
+  `name` - The name of the service that handled the request.
 
-    * `trace_id` - A unique identifier that connects all segments and
-  subsegments originating from a single client request.
+    *
 
-    * `start_time` - Time the segment or subsegment was created, in
-  floating point seconds in epoch time, accurate to milliseconds. For example,
-  `1480615200.010` or `1.480615200010E9`.
+  `id` - A 64-bit identifier for the segment, unique among segments in the same
+  trace, in 16
+  hexadecimal digits.
 
-    * `end_time` - Time the segment or subsegment was closed. For
-  example, `1480615200.090` or `1.480615200090E9`. Specify either an `end_time` or
+    *
+
+  `trace_id` - A unique identifier that connects all segments and subsegments
+  originating from
+  a single client request.
+
+    *
+
+  `start_time` - Time the segment or subsegment was created, in floating point
+  seconds in
+  epoch time, accurate to milliseconds. For example, `1480615200.010` or
+  `1.480615200010E9`.
+
+    *
+
+  `end_time` - Time the segment or subsegment was closed. For example,
+  `1480615200.090` or `1.480615200090E9`. Specify either an `end_time` or
   `in_progress`.
 
-    * `in_progress` - Set to `true` instead of specifying an `end_time`
-  to record that a segment has been started, but is not complete. Send an
-  in-progress segment when your application receives a request that will take a
-  long time to serve, to trace that the request was received. When the response is
-  sent, send the complete segment to overwrite the in-progress segment.
+    *
+
+  `in_progress` - Set to `true` instead of specifying an `end_time` to
+  record that a segment has been started, but is not complete. Send an in-progress
+  segment when your application
+  receives a request that will take a long time to serve, to trace that the
+  request was received. When the
+  response is sent, send the complete segment to overwrite the in-progress
+  segment.
 
   A `trace_id` consists of three numbers separated by hyphens. For example,
   1-58406520-a006649127e371903a2de979. This includes:
 
   ## Trace ID Format
 
-    * The version number, for instance, `1`.
+    *
+  The version number, for instance, `1`.
 
-    * The time of the original request, in Unix epoch time, in 8
-  hexadecimal digits. For example, 10:00AM December 2nd, 2016 PST in epoch time is
-  `1480615200` seconds, or `58406520` in hexadecimal.
+    *
+  The time of the original request, in Unix epoch time, in 8 hexadecimal digits.
+  For
+  example, 10:00AM December 2nd, 2016 PST in epoch time is `1480615200` seconds,
+  or `58406520` in hexadecimal.
 
-    * A 96-bit identifier for the trace, globally unique, in 24
-  hexadecimal digits.
+    *
+  A 96-bit identifier for the trace, globally unique, in 24 hexadecimal
+  digits.
   """
   def put_trace_segments(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSegments"
@@ -722,7 +768,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -745,14 +791,15 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes tags from an Amazon Web Services X-Ray group or sampling rule.
 
-  You cannot edit or delete system tags (those with an `aws:` prefix).
+  You cannot edit or delete system
+  tags (those with an `aws:` prefix).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
@@ -770,7 +817,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -793,7 +840,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -816,7 +863,7 @@ defmodule AWS.XRay do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

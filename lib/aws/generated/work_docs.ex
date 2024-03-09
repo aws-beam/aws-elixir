@@ -5,46 +5,63 @@ defmodule AWS.WorkDocs do
   @moduledoc """
   The Amazon WorkDocs API is designed for the following use cases:
 
-    * File Migration: File migration applications are supported for
-  users who want to migrate their files from an on-premises or off-premises file
-  system or service.
+    *
+  File Migration: File migration applications are supported for users who
+  want to migrate their files from an on-premises or off-premises file system or
+  service.
 
-  Users can insert files into a user directory structure, as well as allow for
-  basic metadata changes, such as modifications to the permissions of files.
+  Users can insert files into a user directory structure, as well as
+  allow for basic metadata changes, such as modifications to the permissions of
+  files.
 
-    * Security: Support security applications are supported for users
-  who have additional security needs, such as antivirus or data loss prevention.
-  The API actions, along with CloudTrail, allow these applications to detect when
+    *
+  Security: Support security applications are supported for users who have
+  additional security needs, such as antivirus or data loss prevention. The API
+  actions, along with CloudTrail, allow these applications to detect when
   changes occur in Amazon WorkDocs. Then, the application can take the necessary
   actions and replace the target file. If the target file violates the policy, the
   application can also choose to email the user.
 
-    * eDiscovery/Analytics: General administrative applications are
-  supported, such as eDiscovery and analytics. These applications can choose to
-  mimic or record the actions in an Amazon WorkDocs site, along with CloudTrail,
-  to replicate data for eDiscovery, backup, or analytical applications.
+    *
+  eDiscovery/Analytics: General administrative applications are supported,
+  such as eDiscovery and analytics. These applications can choose to mimic or
+  record the actions in an Amazon WorkDocs site, along with CloudTrail, to
+  replicate data for eDiscovery, backup, or analytical applications.
 
   All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
   They not only require the use of the Amazon Web Services SDK, but also allow for
-  the exclusive use of IAM users and roles to help facilitate access, trust, and
-  permission policies. By creating a role and allowing an IAM user to access the
-  Amazon WorkDocs site, the IAM user gains full administrative visibility into the
-  entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is
-  not limited to, the ability to modify file permissions and upload any file to
-  any user. This allows developers to perform the three use cases above, as well
-  as give users the ability to grant access on a selective basis using the IAM
-  model.
+  the exclusive use of
+  IAM users and roles to help facilitate access, trust, and permission policies.
+  By
+  creating a role and allowing an IAM user to access the Amazon WorkDocs site, the
+  IAM user gains full administrative visibility into the entire Amazon WorkDocs
+  site (or as
+  set in the IAM policy). This includes, but is not limited to, the ability to
+  modify file
+  permissions and upload any file to any user. This allows developers to perform
+  the three
+  use cases above, as well as give users the ability to grant access on a
+  selective basis
+  using the IAM model.
 
   The pricing for Amazon WorkDocs APIs varies depending on the API call type for
   these actions:
 
-     `READ (Get*)`
+    
 
-     `WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)`
+  `READ (Get*)`
 
-     `LIST (Describe*)`
+    
 
-     `DELETE*, CANCEL`
+  `WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)`
+
+    
+
+  `LIST (Describe*)`
+
+    
+
+  `DELETE*, CANCEL`
 
   For information about Amazon WorkDocs API pricing, see [Amazon WorkDocs Pricing](https://aws.amazon.com/workdocs/pricing/).
   """
@@ -54,7 +71,6 @@ defmodule AWS.WorkDocs do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2016-05-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -70,10 +86,12 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Aborts the upload of the specified document version that was previously
-  initiated by `InitiateDocumentVersionUpload`.
+  initiated
+  by `InitiateDocumentVersionUpload`.
 
-  The client should make this call only when it no longer intends to upload the
-  document version, or fails to do so.
+  The client should make this call
+  only when it no longer intends to upload the document version, or fails to do
+  so.
   """
   def abort_document_version_upload(
         %Client{} = client,
@@ -111,7 +129,8 @@ defmodule AWS.WorkDocs do
   @doc """
   Activates the specified user.
 
-  Only active users can access Amazon WorkDocs.
+  Only active users can access Amazon
+  WorkDocs.
   """
   def activate_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
@@ -142,8 +161,9 @@ defmodule AWS.WorkDocs do
   @doc """
   Creates a set of permissions for the specified folder or document.
 
-  The resource permissions are overwritten if the principals already have
-  different permissions.
+  The resource
+  permissions are overwritten if the principals already have different
+  permissions.
   """
   def add_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
@@ -203,7 +223,8 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Adds one or more custom properties to the specified resource (a folder,
-  document, or version).
+  document,
+  or version).
   """
   def create_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
@@ -255,7 +276,8 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Adds the specified list of labels to the given resource (a document or folder)
+  Adds the specified list of labels to the given resource (a document or
+  folder)
   """
   def create_labels(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
@@ -276,10 +298,12 @@ defmodule AWS.WorkDocs do
   @doc """
   Configure Amazon WorkDocs to use Amazon SNS notifications.
 
-  The endpoint receives a confirmation message, and must confirm the subscription.
+  The endpoint receives a
+  confirmation message, and must confirm the subscription.
 
   For more information, see [Setting up notifications for an IAM user or role](https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html)
-  in the *Amazon WorkDocs Developer Guide*.
+  in the *Amazon WorkDocs Developer
+  Guide*.
   """
   def create_notification_subscription(%Client{} = client, organization_id, input, options \\ []) do
     url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
@@ -304,8 +328,8 @@ defmodule AWS.WorkDocs do
   @doc """
   Creates a user in a Simple AD or Microsoft AD directory.
 
-  The status of a newly created user is "ACTIVE". New users can access Amazon
-  WorkDocs.
+  The status of a newly
+  created user is "ACTIVE". New users can access Amazon WorkDocs.
   """
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/users"
@@ -861,7 +885,8 @@ defmodule AWS.WorkDocs do
 
   By default, Amazon WorkDocs returns the first 100 active document and folder
   metadata items. If there are more results, the response includes a marker that
-  you can use to request the next set of results. You can also request initialized
+  you can
+  use to request the next set of results. You can also request initialized
   documents.
   """
   def describe_folder_contents(
@@ -938,7 +963,8 @@ defmodule AWS.WorkDocs do
   @doc """
   Describes the groups specified by the query.
 
-  Groups are defined by the underlying Active Directory.
+  Groups are defined by the underlying
+  Active Directory.
   """
   def describe_groups(
         %Client{} = client,
@@ -1081,14 +1107,17 @@ defmodule AWS.WorkDocs do
   Describes the current user's special folders; the `RootFolder` and the
   `RecycleBin`.
 
-  `RootFolder` is the root of user's files and folders and `RecycleBin` is the
-  root of recycled items. This is not a valid action for SigV4 (administrative
-  API) clients.
+  `RootFolder` is the root of user's files and
+  folders and `RecycleBin` is the root of recycled items. This is not a valid
+  action for SigV4 (administrative API) clients.
 
   This action requires an authentication token. To get an authentication token,
   register an application with Amazon WorkDocs. For more information, see
-  [Authentication and Access Control for User Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
-  in the *Amazon WorkDocs Developer Guide*.
+  [Authentication and Access Control for User
+  Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
+  in the
+  *Amazon
+  WorkDocs Developer Guide*.
   """
   def describe_root_folders(
         %Client{} = client,
@@ -1131,12 +1160,14 @@ defmodule AWS.WorkDocs do
   @doc """
   Describes the specified users.
 
-  You can describe all users or filter the results (for example, by status or
-  organization).
+  You can describe all users or filter the results
+  (for example, by status or organization).
 
   By default, Amazon WorkDocs returns the first 24 active or pending users. If
-  there are more results, the response includes a marker that you can use to
-  request the next set of results.
+  there
+  are more results, the response includes a marker that you can use to request the
+  next
+  set of results.
   """
   def describe_users(
         %Client{} = client,
@@ -1240,8 +1271,11 @@ defmodule AWS.WorkDocs do
 
   This action requires an authentication token. To get an authentication token,
   register an application with Amazon WorkDocs. For more information, see
-  [Authentication and Access Control for User Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
-  in the *Amazon WorkDocs Developer Guide*.
+  [Authentication and Access Control for User
+  Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
+  in the
+  *Amazon
+  WorkDocs Developer Guide*.
   """
   def get_current_user(%Client{} = client, authentication_token, options \\ []) do
     url_path = "/api/v1/me"
@@ -1301,8 +1335,9 @@ defmodule AWS.WorkDocs do
 
   By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
   requested document and only includes the IDs of the parent folders in the path.
-  You can limit the maximum number of levels. You can also request the names of
-  the parent folders.
+  You can
+  limit the maximum number of levels. You can also request the names of the parent
+  folders.
   """
   def get_document_path(
         %Client{} = client,
@@ -1436,8 +1471,9 @@ defmodule AWS.WorkDocs do
 
   By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
   requested folder and only includes the IDs of the parent folders in the path.
-  You can limit the maximum number of levels. You can also request the parent
-  folder names.
+  You can
+  limit the maximum number of levels. You can also request the parent folder
+  names.
   """
   def get_folder_path(
         %Client{} = client,
@@ -1489,7 +1525,8 @@ defmodule AWS.WorkDocs do
   @doc """
   Retrieves a collection of resources, including folders and documents.
 
-  The only `CollectionType` supported is `SHARED_WITH_ME`.
+  The only
+  `CollectionType` supported is `SHARED_WITH_ME`.
   """
   def get_resources(
         %Client{} = client,
@@ -1549,9 +1586,12 @@ defmodule AWS.WorkDocs do
   Creates a new document object and version object.
 
   The client specifies the parent folder ID and name of the document to upload.
-  The ID is optionally specified when creating a new version of an existing
-  document. This is the first step to upload a document. Next, upload the document
-  to the URL returned from the call, and then call `UpdateDocumentVersion`.
+  The
+  ID is optionally specified when creating a new version of an existing document.
+  This is
+  the first step to upload a document. Next, upload the document to the URL
+  returned from
+  the call, and then call `UpdateDocumentVersion`.
 
   To cancel the document upload, call `AbortDocumentVersionUpload`.
   """
@@ -1611,7 +1651,8 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Removes the permission for the specified principal from the specified resource.
+  Removes the permission for the specified principal from the specified
+  resource.
   """
   def remove_resource_permission(
         %Client{} = client,
@@ -1712,8 +1753,8 @@ defmodule AWS.WorkDocs do
   @doc """
   Updates the specified attributes of a document.
 
-  The user must have access to both the document and its parent folder, if
-  applicable.
+  The user must have access to both
+  the document and its parent folder, if applicable.
   """
   def update_document(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
@@ -1745,8 +1786,10 @@ defmodule AWS.WorkDocs do
   Changes the status of the document version to ACTIVE.
 
   Amazon WorkDocs also sets its document container to ACTIVE. This is the last
-  step in a document upload, after the client uploads the document to an
-  S3-presigned URL returned by `InitiateDocumentVersionUpload`.
+  step
+  in a document upload, after the client uploads the document to an S3-presigned
+  URL
+  returned by `InitiateDocumentVersionUpload`.
   """
   def update_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
@@ -1778,8 +1821,8 @@ defmodule AWS.WorkDocs do
   @doc """
   Updates the specified attributes of the specified folder.
 
-  The user must have access to both the folder and its parent folder, if
-  applicable.
+  The user must have access
+  to both the folder and its parent folder, if applicable.
   """
   def update_folder(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"

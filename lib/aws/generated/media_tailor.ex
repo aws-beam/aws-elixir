@@ -23,7 +23,6 @@ defmodule AWS.MediaTailor do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-04-23",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

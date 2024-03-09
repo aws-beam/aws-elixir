@@ -8,9 +8,10 @@ defmodule AWS.Shield do
   This is the *Shield Advanced API Reference*.
 
   This guide is for developers who need detailed information about the Shield
-  Advanced API actions, data types, and errors. For detailed information about WAF
-  and Shield Advanced features and an overview of how to use the WAF and Shield
-  Advanced APIs, see the [WAF and Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  Advanced API actions,
+  data types, and errors. For detailed information about WAF and Shield Advanced
+  features and an overview of how to use the WAF and Shield Advanced APIs, see the
+  [WAF and Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
 
   alias AWS.Client
@@ -18,7 +19,6 @@ defmodule AWS.Shield do
 
   def metadata do
     %{
-      abbreviation: "AWS Shield",
       api_version: "2016-06-02",
       content_type: "application/x-amz-json-1.1",
       credential_scope: "us-east-1",
@@ -65,8 +65,8 @@ defmodule AWS.Shield do
   request. You can access this policy in the IAM console at
   [AWSShieldDRTAccessPolicy](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy). For more information see [Adding and removing IAM identity
   permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
-  The role must also trust the service principal `drt.shield.amazonaws.com`. For
-  more information, see [IAM JSON policy elements: Principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html).
+  The role must also trust the service principal
+  `drt.shield.amazonaws.com`. For more information, see [IAM JSON policy elements: Principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html).
 
   The SRT will have access only to your WAF and Shield resources. By submitting
   this request, you authorize the SRT to inspect your WAF and Shield configuration
@@ -138,9 +138,10 @@ defmodule AWS.Shield do
   addresses.
 
   You can add protection to only a single resource with each `CreateProtection`
-  request. You can add protection to multiple resources at once through the Shield
-  Advanced console at
-  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information see [Getting Started with Shield
+  request. You can add protection to multiple resources
+  at once through the Shield Advanced console at
+  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information see
+  [Getting Started with Shield
   Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html)
   and [Adding Shield Advanced protection to Amazon Web Services resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
   """
@@ -167,8 +168,8 @@ defmodule AWS.Shield do
   Activates Shield Advanced for an account.
 
   For accounts that are members of an Organizations organization, Shield Advanced
-  subscriptions are billed against the organization's payer account, regardless of
-  whether the payer account itself is subscribed.
+  subscriptions are billed against the organization's payer account,
+  regardless of whether the payer account itself is subscribed.
 
   When you initially create a subscription, your subscription is set to be
   automatically renewed at the end of the existing subscription period. You can
@@ -293,7 +294,8 @@ defmodule AWS.Shield do
   Disable the Shield Advanced automatic application layer DDoS mitigation feature
   for the protected resource.
 
-  This stops Shield Advanced from creating, verifying, and applying WAF rules for
+  This
+  stops Shield Advanced from creating, verifying, and applying WAF rules for
   attacks that it detects for the resource.
   """
   def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
@@ -359,10 +361,12 @@ defmodule AWS.Shield do
   Load Balancers only.
 
   This causes Shield Advanced to create, verify, and apply WAF rules for DDoS
-  attacks that it detects for the resource. Shield Advanced applies the rules in a
-  Shield rule group inside the web ACL that you've associated with the resource.
-  For information about how automatic mitigation works and the requirements for
-  using it, see [Shield Advanced automatic application layer DDoS mitigation](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html).
+  attacks that it detects for the
+  resource. Shield Advanced applies the rules in a Shield rule group inside the
+  web ACL that you've associated
+  with the resource. For information about how automatic mitigation works and the
+  requirements for using it, see
+  [Shield Advanced automatic application layer DDoS mitigation](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html).
 
   Don't use this action to make changes to automatic mitigation settings when it's
   already enabled for a resource. Instead, use
@@ -370,12 +374,15 @@ defmodule AWS.Shield do
 
   To use this feature, you must associate a web ACL with the protected resource.
   The web ACL must be created using the latest version of WAF (v2). You can
-  associate the web ACL through the Shield Advanced console at
-  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information, see [Getting Started with Shield
+  associate the web ACL through the Shield Advanced console
+  at
+  [https://console.aws.amazon.com/wafv2/shieldv2#/](https://console.aws.amazon.com/wafv2/shieldv2#/). For more information,
+  see [Getting Started with Shield
   Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html).
   You can also associate the web ACL to the resource through the WAF console or
   the WAF API, but you must manage Shield Advanced automatic mitigation through
-  Shield Advanced. For information about WAF, see [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  Shield Advanced. For information about WAF, see
+  [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -416,8 +423,9 @@ defmodule AWS.Shield do
   @doc """
   Retrieves `ProtectionGroup` objects for the account.
 
-  You can retrieve all protection groups or you can provide filtering criteria and
-  retrieve just the subset of protection groups that match the criteria.
+  You can retrieve all protection groups or you can provide
+  filtering criteria and retrieve just the subset of protection groups that match
+  the criteria.
   """
   def list_protection_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -428,8 +436,9 @@ defmodule AWS.Shield do
   @doc """
   Retrieves `Protection` objects for the account.
 
-  You can retrieve all protections or you can provide filtering criteria and
-  retrieve just the subset of protections that match the criteria.
+  You can retrieve all protections or you can provide
+  filtering criteria and retrieve just the subset of protections that match the
+  criteria.
   """
   def list_protections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -516,8 +525,8 @@ defmodule AWS.Shield do
   updated.
 
   For accounts that are members of an Organizations organization, Shield Advanced
-  subscriptions are billed against the organization's payer account, regardless of
-  whether the payer account itself is subscribed.
+  subscriptions are billed against the organization's payer account,
+  regardless of whether the payer account itself is subscribed.
   """
   def update_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -5,8 +5,8 @@ defmodule AWS.Omics do
   @moduledoc """
   This is the *AWS HealthOmics API Reference*.
 
-  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the *AWS
-  HealthOmics User Guide*.
+  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the
+  *AWS HealthOmics User Guide*.
   """
 
   alias AWS.Client
@@ -14,7 +14,6 @@ defmodule AWS.Omics do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-11-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -29,6 +28,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Stops a multipart upload.
   """
   def abort_multipart_read_set_upload(
@@ -60,6 +60,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Accepts a share for an analytics store.
   """
   def accept_share(%Client{} = client, share_id, input, options \\ []) do
@@ -175,6 +176,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Concludes a multipart upload once you have uploaded all the components.
   """
   def complete_multipart_read_set_upload(
@@ -229,6 +231,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Creates a new version of an annotation store.
   """
   def create_annotation_store_version(%Client{} = client, name, input, options \\ []) do
@@ -252,6 +255,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Begins a multipart read set upload.
   """
   def create_multipart_read_set_upload(
@@ -349,6 +353,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Creates a share offer that can be accepted outside the account by a subscriber.
 
   The share is created by the owner and accepted by the principal subscriber.
@@ -448,6 +453,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Deletes one or multiple versions of an annotation store.
   """
   def delete_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
@@ -593,6 +599,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Deletes a share of an analytics store.
   """
   def delete_share(%Client{} = client, share_id, input, options \\ []) do
@@ -693,6 +700,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Retrieves the metadata for an annotation store version.
   """
   def get_annotation_store_version(%Client{} = client, name, version_name, options \\ []) do
@@ -951,6 +959,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Retrieves the metadata for a share.
   """
   def get_share(%Client{} = client, share_id, options \\ []) do
@@ -1046,6 +1055,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Lists the versions of an annotation store.
   """
   def list_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
@@ -1104,6 +1114,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Lists multipart read set uploads and for in progress uploads.
 
   Once the upload is completed, a read set is created and the upload will no
@@ -1223,6 +1234,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   This operation will list all parts in a requested multipart upload for a
   sequence store.
   """
@@ -1543,6 +1555,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Lists all shares associated with an account.
   """
   def list_shares(%Client{} = client, input, options \\ []) do
@@ -1716,7 +1729,8 @@ defmodule AWS.Omics do
   @doc """
   Activates an archived read set.
 
-  To reduce storage charges, Amazon Omics archives unused read sets after 30 days.
+  To reduce storage charges, Amazon Omics archives unused read
+  sets after 30 days.
   """
   def start_read_set_activation_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob"
@@ -1810,13 +1824,14 @@ defmodule AWS.Omics do
   @doc """
   Starts a workflow run.
 
-  To duplicate a run, specify the run's ID and a role ARN. The remaining
-  parameters are copied from the previous run.
+  To duplicate a run, specify the run's ID and a role ARN. The
+  remaining parameters are copied from the previous run.
 
   The total number of runs in your account is subject to a quota per Region. To
-  avoid needing to delete runs manually, you can set the retention mode to
-  `REMOVE`. Runs with this setting are deleted automatically when the run quoata
-  is exceeded.
+  avoid
+  needing to delete runs manually, you can set the retention mode to `REMOVE`.
+  Runs with this setting are deleted automatically when the run quoata is
+  exceeded.
   """
   def start_run(%Client{} = client, input, options \\ []) do
     url_path = "/run"
@@ -1936,6 +1951,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   Updates the description of an annotation store version.
   """
   def update_annotation_store_version(
@@ -2036,6 +2052,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
+
   This operation uploads a specific part of a read set.
 
   If you upload a new part using a previously used part number, the previously

@@ -3,15 +3,19 @@
 
 defmodule AWS.WorkLink do
   @moduledoc """
-  Amazon WorkLink is a cloud-based service that provides secure access to internal
-  websites and web apps from iOS and Android phones.
+  Amazon WorkLink is a cloud-based service that provides secure access
+  to internal websites and web apps from iOS and Android phones.
 
-  In a single step, your users, such as employees, can access internal websites as
-  efficiently as they access any other public website. They enter a URL in their
-  web browser, or choose a link to an internal website in an email. Amazon
-  WorkLink authenticates the user's access and securely renders authorized
-  internal web content in a secure rendering service in the AWS cloud. Amazon
-  WorkLink doesn't download or store any internal web content on mobile devices.
+  In a single step, your users, such as
+  employees, can access internal websites as efficiently as they access any other
+  public website.
+  They enter a URL in their web browser, or choose a link to an internal website
+  in an email. Amazon WorkLink
+  authenticates the user's access and securely renders authorized internal web
+  content in a secure
+  rendering service in the AWS cloud. Amazon WorkLink doesn't download or store
+  any internal web content on
+  mobile devices.
   """
 
   alias AWS.Client
@@ -19,7 +23,6 @@ defmodule AWS.WorkLink do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-09-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -52,7 +55,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -78,7 +81,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -102,15 +105,16 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a fleet.
 
-  A fleet consists of resources and the configuration that delivers associated
-  websites to authorized users who download and set up the Amazon WorkLink app.
+  A fleet consists of resources and the configuration that delivers
+  associated websites to authorized users who download and set up the Amazon
+  WorkLink app.
   """
   def create_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/createFleet"
@@ -128,7 +132,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -153,7 +157,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -177,13 +181,14 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Describes the networking configuration to access the internal websites
-  associated with the specified fleet.
+  associated with
+  the specified fleet.
   """
   def describe_company_network_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeCompanyNetworkConfiguration"
@@ -201,7 +206,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -224,7 +229,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -247,7 +252,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -270,7 +275,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -294,7 +299,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -317,7 +322,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -340,7 +345,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -365,15 +370,17 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Disassociates a website authorization provider from a specified fleet.
 
-  After the disassociation, users can't load any associated websites that require
-  this authorization provider.
+  After the
+  disassociation, users can't load any associated websites that require this
+  authorization
+  provider.
   """
   def disassociate_website_authorization_provider(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateWebsiteAuthorizationProvider"
@@ -391,7 +398,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -414,7 +421,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -437,7 +444,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -460,7 +467,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -483,7 +490,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -497,7 +504,7 @@ defmodule AWS.WorkLink do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -520,7 +527,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -544,7 +551,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -567,7 +574,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -590,14 +597,15 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Signs the user out from all of their devices.
 
-  The user can sign in again if they have valid credentials.
+  The user can sign in again if they have
+  valid credentials.
   """
   def sign_out_user(%Client{} = client, input, options \\ []) do
     url_path = "/signOutUser"
@@ -615,7 +623,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -641,7 +649,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -669,7 +677,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -692,7 +700,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -715,7 +723,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -738,7 +746,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -761,7 +769,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -784,7 +792,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -807,7 +815,7 @@ defmodule AWS.WorkLink do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

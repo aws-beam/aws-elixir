@@ -4,7 +4,8 @@
 defmodule AWS.MediaStoreData do
   @moduledoc """
   An AWS Elemental MediaStore asset is an object, similar to an object in the
-  Amazon S3 service.
+  Amazon S3
+  service.
 
   Objects are the fundamental entities that are stored in AWS Elemental
   MediaStore.
@@ -15,7 +16,6 @@ defmodule AWS.MediaStoreData do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-09-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -48,7 +48,7 @@ defmodule AWS.MediaStoreData do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -84,7 +84,7 @@ defmodule AWS.MediaStoreData do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -130,7 +130,7 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -171,7 +171,7 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -203,6 +203,6 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

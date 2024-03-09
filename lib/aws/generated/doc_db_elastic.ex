@@ -14,15 +14,16 @@ defmodule AWS.DocDBElastic do
 
   Amazon DocumentDB elastic-clusters were created to:
 
-    * provide a solution for customers looking for a database that
-  provides virtually limitless scale with rich query capabilities and MongoDB API
-  compatibility.
+    *
+  provide a solution for customers looking for a database that provides virtually
+  limitless scale with rich query capabilities and MongoDB API compatibility.
 
-    * give customers higher connection limits, and to reduce downtime
-  from patching.
+    *
+  give customers higher connection limits, and to reduce downtime from patching.
 
-    * continue investing in a cloud-native, elastic, and class leading
-  architecture for JSON workloads.
+    *
+  continue investing in a cloud-native, elastic, and class leading architecture
+  for JSON workloads.
   """
 
   alias AWS.Client
@@ -30,7 +31,6 @@ defmodule AWS.DocDBElastic do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-11-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -399,8 +399,8 @@ defmodule AWS.DocDBElastic do
   @doc """
   Modifies an elastic cluster.
 
-  This includes updating admin-username/password, upgrading the API version, and
-  setting up a backup window and maintenance window
+  This includes updating admin-username/password,
+  upgrading the API version, and setting up a backup window and maintenance window
   """
   def update_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"

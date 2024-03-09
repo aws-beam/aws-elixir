@@ -3,16 +3,7 @@
 
 defmodule AWS.Macie2 do
   @moduledoc """
-  Amazon Macie is a fully managed data security and data privacy service that uses
-  machine learning and pattern matching to help you discover and protect your
-  sensitive data in AWS.
-
-  Macie automates the discovery of sensitive data, such as PII and intellectual
-  property, to provide you with insight into the data that your organization
-  stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which
-  it continually monitors for you. If Macie detects sensitive data or potential
-  data access issues, it generates detailed findings for you to review and act
-  upon as necessary.
+  Amazon Macie
   """
 
   alias AWS.Client
@@ -20,7 +11,6 @@ defmodule AWS.Macie2 do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-01-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

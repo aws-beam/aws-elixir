@@ -8,8 +8,9 @@ defmodule AWS.Backup do
   Backup is a unified backup service designed to protect Amazon Web Services
   services and their associated data.
 
-  Backup simplifies the creation, migration, restoration, and deletion of backups,
-  while also providing reporting and auditing.
+  Backup simplifies the creation, migration,
+  restoration, and deletion of backups, while also providing reporting and
+  auditing.
   """
 
   alias AWS.Client
@@ -17,7 +18,6 @@ defmodule AWS.Backup do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-11-15",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -65,20 +65,21 @@ defmodule AWS.Backup do
   @doc """
   Creates a backup plan using a backup plan name and backup rules.
 
-  A backup plan is a document that contains information that Backup uses to
-  schedule tasks that create recovery points for resources.
+  A backup plan is a
+  document that contains information that Backup uses to schedule tasks that
+  create recovery points for resources.
 
-  If you call `CreateBackupPlan` with a plan that already exists, you receive an
-  `AlreadyExistsException` exception.
+  If you call `CreateBackupPlan` with a plan that already exists, you receive
+  an `AlreadyExistsException` exception.
   """
   def create_backup_plan(%Client{} = client, input, options \\ []) do
-    url_path = "/backup/plans/"
+    url_path = "/backup/plans"
     headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -88,20 +89,22 @@ defmodule AWS.Backup do
   For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
   """
   def create_backup_selection(%Client{} = client, backup_plan_id, input, options \\ []) do
-    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
     headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a logical container where backups are stored.
 
-  A `CreateBackupVault` request includes a name, optionally one or more resource
-  tags, an encryption key, and a request ID.
+  A `CreateBackupVault`
+  request includes a name, optionally one or more resource tags, an encryption
+  key, and a
+  request ID.
 
   Do not include sensitive data, such as passport numbers, in the name of a backup
   vault.
@@ -113,16 +116,18 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a framework with one or more controls.
 
-  A framework is a collection of controls that you can use to evaluate your backup
-  practices. By using pre-built customizable controls to define your policies, you
-  can evaluate whether your backup practices comply with your policies and which
-  resources are not yet in compliance.
+  A framework is a collection of controls
+  that you can use to evaluate your backup practices. By using pre-built
+  customizable
+  controls to define your policies, you can evaluate whether your backup practices
+  comply
+  with your policies and which resources are not yet in compliance.
   """
   def create_framework(%Client{} = client, input, options \\ []) do
     url_path = "/audit/frameworks"
@@ -140,20 +145,22 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   This action creates a legal hold on a recovery point (backup).
 
-  A legal hold is a restraint on altering or deleting a backup until an authorized
-  user cancels the legal hold. Any actions to delete or disassociate a recovery
-  point will fail with an error if one or more active legal holds are on the
-  recovery point.
+  A legal hold
+  is a restraint on altering or deleting a backup until an authorized user cancels
+  the
+  legal hold. Any actions to delete or disassociate a recovery point will fail
+  with
+  an error if one or more active legal holds are on the recovery point.
   """
   def create_legal_hold(%Client{} = client, input, options \\ []) do
-    url_path = "/legal-holds/"
+    url_path = "/legal-holds"
     headers = []
     query_params = []
 
@@ -168,7 +175,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -176,8 +183,10 @@ defmodule AWS.Backup do
   This request creates a logical container to where backups may be copied.
 
   This request includes a name, the Region, the maximum number of retention days,
-  the minimum number of retention days, and optionally can include tags and a
-  creator request ID.
+  the
+  minimum number of retention days, and optionally can include tags and a creator
+  request
+  ID.
 
   Do not include sensitive data, such as passport numbers, in the name of a backup
   vault.
@@ -194,17 +203,17 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a report plan.
 
-  A report plan is a document that contains information about the contents of the
-  report and where Backup will deliver it.
+  A report plan is a document that contains information about the
+  contents of the report and where Backup will deliver it.
 
-  If you call `CreateReportPlan` with a plan that already exists, you receive an
-  `AlreadyExistsException` exception.
+  If you call `CreateReportPlan` with a plan that already exists, you receive
+  an `AlreadyExistsException` exception.
   """
   def create_report_plan(%Client{} = client, input, options \\ []) do
     url_path = "/audit/report-plans"
@@ -222,17 +231,17 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  This is the first of two steps to create a restore testing plan; once this
-  request is successful, finish the procedure with request
-  CreateRestoreTestingSelection.
+  This is the first of two steps to create a restore testing
+  plan; once this request is successful, finish the procedure with
+  request CreateRestoreTestingSelection.
 
-  You must include the parameter RestoreTestingPlan. You may optionally include
-  CreatorRequestId and Tags.
+  You must include the parameter RestoreTestingPlan. You may
+  optionally include CreatorRequestId and Tags.
   """
   def create_restore_testing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/restore-testing/plans"
@@ -245,28 +254,32 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This request can be sent after CreateRestoreTestingPlan request returns
-  successfully.
+  This request can be sent after CreateRestoreTestingPlan request
+  returns successfully.
 
-  This is the second part of creating a resource testing plan, and it must be
-  completed sequentially.
+  This is the second part of creating a resource testing
+  plan, and it must be completed sequentially.
 
-  This consists of `RestoreTestingSelectionName`, `ProtectedResourceType`, and one
-  of the following:
+  This consists of `RestoreTestingSelectionName`,
+  `ProtectedResourceType`, and one of the following:
 
-    * `ProtectedResourceArns`
+    *
 
-    * `ProtectedResourceConditions`
+  `ProtectedResourceArns`
+
+    *
+
+  `ProtectedResourceConditions`
 
   Each protected resource type can have one single value.
 
   A restore testing selection can include a wildcard value ("*") for
-  `ProtectedResourceArns` along with `ProtectedResourceConditions`. Alternatively,
-  you can include up to 30 specific protected resource ARNs in
+  `ProtectedResourceArns` along with `ProtectedResourceConditions`.
+  Alternatively, you can include up to 30 specific protected resource ARNs in
   `ProtectedResourceArns`.
 
-  Cannot select by both protected resource types AND specific ARNs. Request will
-  fail if both are included.
+  Cannot select by both protected resource types AND specific ARNs.
+  Request will fail if both are included.
   """
   def create_restore_testing_selection(
         %Client{} = client,
@@ -288,8 +301,9 @@ defmodule AWS.Backup do
   @doc """
   Deletes a backup plan.
 
-  A backup plan can only be deleted after all associated selections of resources
-  have been deleted. Deleting a backup plan deletes the current version of a
+  A backup plan can only be deleted after all associated selections
+  of resources have been deleted. Deleting a backup plan deletes the current
+  version of a
   backup plan. Previous versions, if any, will still exist.
   """
   def delete_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
@@ -308,13 +322,14 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the resource selection associated with a backup plan that is specified
-  by the `SelectionId`.
+  by the
+  `SelectionId`.
   """
   def delete_backup_selection(
         %Client{} = client,
@@ -340,14 +355,15 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the backup vault identified by its name.
 
-  A vault can be deleted only if it is empty.
+  A vault can be deleted only if it is
+  empty.
   """
   def delete_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
@@ -365,7 +381,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -393,17 +409,20 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Deletes Backup Vault Lock from a backup vault specified by a backup vault name.
+  Deletes Backup Vault Lock from a backup vault specified by a backup vault
+  name.
 
   If the Vault Lock configuration is immutable, then you cannot delete Vault Lock
-  using API operations, and you will receive an `InvalidRequestException` if you
-  attempt to do so. For more information, see [Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) in
-  the *Backup Developer Guide*.
+  using
+  API operations, and you will receive an `InvalidRequestException` if you attempt
+  to do so. For more information, see [Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) in
+  the
+  *Backup Developer Guide*.
   """
   def delete_backup_vault_lock_configuration(
         %Client{} = client,
@@ -426,7 +445,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -456,7 +475,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -479,7 +498,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -487,18 +506,24 @@ defmodule AWS.Backup do
   Deletes the recovery point specified by a recovery point ID.
 
   If the recovery point ID belongs to a continuous backup, calling this endpoint
-  deletes the existing continuous backup and stops future continuous backup.
+  deletes
+  the existing continuous backup and stops future continuous backup.
 
   When an IAM role's permissions are insufficient to call this API, the service
-  sends back an HTTP 200 response with an empty HTTP body, but the recovery point
-  is not deleted. Instead, it enters an `EXPIRED` state.
+  sends back
+  an HTTP 200 response with an empty HTTP body, but the recovery point is not
+  deleted.
+  Instead, it enters an `EXPIRED` state.
 
-  `EXPIRED` recovery points can be deleted with this API once the IAM role has the
-  `iam:CreateServiceLinkedRole` action. To learn more about adding this role, see
-  [ Troubleshooting manual deletions](https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting).
+  `EXPIRED` recovery points can be deleted with this API once the IAM role
+  has the `iam:CreateServiceLinkedRole` action. To learn more about adding this
+  role, see
+  [
+  Troubleshooting manual
+  deletions](https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting).
 
-  If the user or role is deleted or the permission within the role is removed, the
-  deletion will not be successful and will enter an `EXPIRED` state.
+  If the user or role is deleted or the permission within the role is removed,
+  the deletion will not be successful and will enter an `EXPIRED` state.
   """
   def delete_recovery_point(
         %Client{} = client,
@@ -524,7 +549,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -547,15 +572,15 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   This request deletes the specified restore testing plan.
 
-  Deletion can only successfully occur if all associated restore testing
-  selections are deleted first.
+  Deletion can only successfully occur if all associated
+  restore testing selections are deleted first.
   """
   def delete_restore_testing_plan(
         %Client{} = client,
@@ -583,10 +608,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Input the Restore Testing Plan name and Restore Testing Selection name.
+  Input the Restore Testing Plan name and Restore Testing Selection
+  name.
 
-  All testing selections associated with a restore testing plan must be deleted
-  before the restore testing plan can be deleted.
+  All testing selections associated with a restore testing plan must
+  be deleted before the restore testing plan can be deleted.
   """
   def delete_restore_testing_selection(
         %Client{} = client,
@@ -626,7 +652,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -651,7 +677,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -664,7 +690,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -677,7 +703,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -685,7 +711,8 @@ defmodule AWS.Backup do
   backup.
 
   Returns an error if the account is not a member of an Organizations
-  organization. Example: `describe-global-settings --region us-west-2`
+  organization.
+  Example: `describe-global-settings --region us-west-2`
   """
   def describe_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
@@ -694,13 +721,15 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a saved resource, including the last time it was
-  backed up, its Amazon Resource Name (ARN), and the Amazon Web Services service
-  type of the saved resource.
+  backed up,
+  its Amazon Resource Name (ARN), and the Amazon Web Services service type of the
+  saved
+  resource.
   """
   def describe_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}"
@@ -709,12 +738,13 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata associated with a recovery point, including ID, status,
-  encryption, and lifecycle.
+  encryption, and
+  lifecycle.
   """
   def describe_recovery_point(
         %Client{} = client,
@@ -738,16 +768,18 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the current service opt-in settings for the Region.
 
-  If service opt-in is enabled for a service, Backup tries to protect that
-  service's resources in this Region, when the resource is included in an
-  on-demand backup or scheduled backup plan. Otherwise, Backup does not try to
-  protect that service's resources in this Region.
+  If service opt-in is enabled
+  for a service, Backup tries to protect that service's resources in this Region,
+  when the resource is included in an on-demand backup or scheduled backup plan.
+  Otherwise,
+  Backup does not try to protect that service's resources in this
+  Region.
   """
   def describe_region_settings(%Client{} = client, options \\ []) do
     url_path = "/account-settings"
@@ -756,7 +788,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -770,7 +802,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -784,7 +816,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -797,15 +829,17 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Deletes the specified continuous backup recovery point from Backup and releases
-  control of that continuous backup to the source service, such as Amazon RDS.
+  Deletes the specified continuous backup recovery point from Backup and
+  releases control of that continuous backup to the source service, such as Amazon
+  RDS.
 
   The source service will continue to create and retain continuous backups using
-  the lifecycle that you specified in your original backup plan.
+  the
+  lifecycle that you specified in your original backup plan.
 
   Does not support snapshot backup recovery points.
   """
@@ -833,7 +867,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -873,23 +907,24 @@ defmodule AWS.Backup do
   Returns the backup plan that is specified by the plan ID as a backup template.
   """
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
-    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/toTemplate/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/toTemplate"
     headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns `BackupPlan` details for the specified `BackupPlanId`.
 
-  The details are the body of a backup plan in JSON format, in addition to plan
+  The
+  details are the body of a backup plan in JSON format, in addition to plan
   metadata.
   """
   def get_backup_plan(%Client{} = client, backup_plan_id, version_id \\ nil, options \\ []) do
-    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
     headers = []
     query_params = []
 
@@ -902,7 +937,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -924,7 +959,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -938,12 +973,13 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns selection metadata and a document in JSON format that specifies a list
-  of resources that are associated with a backup plan.
+  of
+  resources that are associated with a backup plan.
   """
   def get_backup_selection(%Client{} = client, backup_plan_id, selection_id, options \\ []) do
     url_path =
@@ -954,7 +990,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -968,7 +1004,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -983,23 +1019,23 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This action returns details for a specified legal hold.
 
-  The details are the body of a legal hold in JSON format, in addition to
-  metadata.
+  The details are the
+  body of a legal hold in JSON format, in addition to metadata.
   """
   def get_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
-    url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}/"
+    url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
     headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1027,7 +1063,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1040,14 +1076,15 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This request returns the minimal required set of metadata needed to start a
-  restore job with secure default settings.
+  This request returns the minimal required set of metadata needed to
+  start a restore job with secure default settings.
 
-  `BackupVaultName` and `RecoveryPointArn` are required parameters.
+  `BackupVaultName`
+  and `RecoveryPointArn` are required parameters.
   `BackupVaultAccountId` is an optional parameter.
   """
   def get_restore_testing_inferred_metadata(
@@ -1088,10 +1125,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns `RestoreTestingPlan` details for the specified `RestoreTestingPlanName`.
+  Returns `RestoreTestingPlan` details for the specified
+  `RestoreTestingPlanName`.
 
-  The details are the body of a restore testing plan in JSON format, in addition
-  to plan metadata.
+  The details are the body of a restore testing plan
+  in JSON format, in addition to plan metadata.
   """
   def get_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
@@ -1104,8 +1142,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns RestoreTestingSelection, which displays resources and elements of the
-  restore testing plan.
+  Returns RestoreTestingSelection, which displays resources
+  and elements of the restore testing plan.
   """
   def get_restore_testing_selection(
         %Client{} = client,
@@ -1134,18 +1172,21 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This is a request for a summary of backup jobs created or running within the
-  most recent 30 days.
+  This is a request for a summary of backup jobs created
+  or running within the most recent 30 days.
 
-  You can include parameters AccountID, State, ResourceType, MessageCategory,
-  AggregationPeriod, MaxResults, or NextToken to filter results.
+  You can
+  include parameters AccountID, State, ResourceType, MessageCategory,
+  AggregationPeriod, MaxResults, or NextToken to filter
+  results.
 
-  This request returns a summary that contains Region, Account, State,
-  ResourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+  This request returns a summary that contains
+  Region, Account, State, ResourceType, MessageCategory,
+  StartTime, EndTime, and Count of included jobs.
   """
   def list_backup_job_summaries(
         %Client{} = client,
@@ -1213,12 +1254,13 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of existing backup jobs for an authenticated account for the last
-  30 days.
+  30
+  days.
 
   For a longer period of time, consider using these [monitoring tools](https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html).
   """
@@ -1239,7 +1281,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup-jobs/"
+    url_path = "/backup-jobs"
     headers = []
     query_params = []
 
@@ -1336,12 +1378,13 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns metadata of your saved backup plan templates, including the template ID,
-  name, and the creation and deletion dates.
+  name,
+  and the creation and deletion dates.
   """
   def list_backup_plan_templates(
         %Client{} = client,
@@ -1369,13 +1412,13 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns version metadata of your backup plans, including Amazon Resource Names
-  (ARNs), backup plan IDs, creation and deletion dates, plan names, and version
-  IDs.
+  (ARNs),
+  backup plan IDs, creation and deletion dates, plan names, and version IDs.
   """
   def list_backup_plan_versions(
         %Client{} = client,
@@ -1384,7 +1427,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/versions/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/versions"
     headers = []
     query_params = []
 
@@ -1404,14 +1447,16 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all active backup plans for an authenticated account.
 
-  The list contains information such as Amazon Resource Names (ARNs), plan IDs,
-  creation and deletion dates, version IDs, plan names, and creator request IDs.
+  The list
+  contains information such as Amazon Resource Names (ARNs), plan IDs, creation
+  and deletion
+  dates, version IDs, plan names, and creator request IDs.
   """
   def list_backup_plans(
         %Client{} = client,
@@ -1420,7 +1465,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup/plans/"
+    url_path = "/backup/plans"
     headers = []
     query_params = []
 
@@ -1447,12 +1492,13 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an array containing metadata of the resources associated with the target
-  backup plan.
+  backup
+  plan.
   """
   def list_backup_selections(
         %Client{} = client,
@@ -1461,7 +1507,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/"
+    url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
     headers = []
     query_params = []
 
@@ -1481,7 +1527,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1496,7 +1542,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup-vaults/"
+    url_path = "/backup-vaults"
     headers = []
     query_params = []
 
@@ -1530,18 +1576,21 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This request obtains a list of copy jobs created or running within the the most
-  recent 30 days.
+  This request obtains a list of copy jobs created
+  or running within the the most recent 30 days.
 
-  You can include parameters AccountID, State, ResourceType, MessageCategory,
-  AggregationPeriod, MaxResults, or NextToken to filter results.
+  You can
+  include parameters AccountID, State, ResourceType, MessageCategory,
+  AggregationPeriod, MaxResults, or NextToken to filter
+  results.
 
-  This request returns a summary that contains Region, Account, State,
-  RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+  This request returns a summary that contains
+  Region, Account, State, RestourceType, MessageCategory,
+  StartTime, EndTime, and Count of included jobs.
   """
   def list_copy_job_summaries(
         %Client{} = client,
@@ -1609,7 +1658,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1632,7 +1681,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/copy-jobs/"
+    url_path = "/copy-jobs"
     headers = []
     query_params = []
 
@@ -1729,7 +1778,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1757,14 +1806,14 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This action returns metadata about active and previous legal holds.
   """
   def list_legal_holds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    url_path = "/legal-holds/"
+    url_path = "/legal-holds"
     headers = []
     query_params = []
 
@@ -1784,13 +1833,14 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns an array of resources successfully backed up by Backup, including the
-  time the resource was saved, an Amazon Resource Name (ARN) of the resource, and
-  a resource type.
+  Returns an array of resources successfully backed up by Backup, including
+  the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
+  and a
+  resource type.
   """
   def list_protected_resources(
         %Client{} = client,
@@ -1798,7 +1848,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/resources/"
+    url_path = "/resources"
     headers = []
     query_params = []
 
@@ -1818,7 +1868,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1832,7 +1882,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/resources/"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/resources"
     headers = []
     query_params = []
 
@@ -1859,7 +1909,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1879,7 +1929,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/"
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points"
     headers = []
     query_params = []
 
@@ -1948,12 +1998,12 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This action returns recovery point ARNs (Amazon Resource Names) of the specified
-  legal hold.
+  This action returns recovery point ARNs (Amazon Resource Names) of the
+  specified legal hold.
   """
   def list_recovery_points_by_legal_hold(
         %Client{} = client,
@@ -1982,15 +2032,16 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns detailed information about all the recovery points of the type specified
-  by a resource Amazon Resource Name (ARN).
+  by a
+  resource Amazon Resource Name (ARN).
 
-  For Amazon EFS and Amazon EC2, this action only lists recovery points created by
-  Backup.
+  For Amazon EFS and Amazon EC2, this action only lists recovery points
+  created by Backup.
   """
   def list_recovery_points_by_resource(
         %Client{} = client,
@@ -1999,7 +2050,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/recovery-points/"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/recovery-points"
     headers = []
     query_params = []
 
@@ -2019,7 +2070,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2083,13 +2134,14 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of your report plans.
 
-  For detailed information about a single report plan, use `DescribeReportPlan`.
+  For detailed information about a single report
+  plan, use `DescribeReportPlan`.
   """
   def list_report_plans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/audit/report-plans"
@@ -2112,18 +2164,21 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  This request obtains a summary of restore jobs created or running within the the
-  most recent 30 days.
+  This request obtains a summary of restore jobs created
+  or running within the the most recent 30 days.
 
-  You can include parameters AccountID, State, ResourceType, AggregationPeriod,
-  MaxResults, or NextToken to filter results.
+  You can
+  include parameters AccountID, State, ResourceType,
+  AggregationPeriod, MaxResults, or NextToken to filter
+  results.
 
-  This request returns a summary that contains Region, Account, State,
-  RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+  This request returns a summary that contains
+  Region, Account, State, RestourceType, MessageCategory,
+  StartTime, EndTime, and Count of included jobs.
   """
   def list_restore_job_summaries(
         %Client{} = client,
@@ -2183,7 +2238,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2204,7 +2259,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/restore-jobs/"
+    url_path = "/restore-jobs"
     headers = []
     query_params = []
 
@@ -2280,14 +2335,15 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   This returns restore jobs that contain the specified protected resource.
 
-  You must include `ResourceArn`. You can optionally include `NextToken`,
-  `ByStatus`, `MaxResults`, `ByRecoveryPointCreationDateAfter` , and
+  You must include `ResourceArn`. You can optionally include
+  `NextToken`, `ByStatus`, `MaxResults`,
+  `ByRecoveryPointCreationDateAfter` , and
   `ByRecoveryPointCreationDateBefore`.
   """
   def list_restore_jobs_by_protected_resource(
@@ -2300,7 +2356,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/restore-jobs/"
+    url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/restore-jobs"
     headers = []
     query_params = []
 
@@ -2344,7 +2400,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2382,7 +2438,8 @@ defmodule AWS.Backup do
   @doc """
   Returns a list of restore testing selections.
 
-  Can be filtered by `MaxResults` and `RestoreTestingPlanName`.
+  Can be filtered
+  by `MaxResults` and `RestoreTestingPlanName`.
   """
   def list_restore_testing_selections(
         %Client{} = client,
@@ -2418,11 +2475,13 @@ defmodule AWS.Backup do
 
   @doc """
   Returns a list of key-value pairs assigned to a target recovery point, backup
-  plan, or backup vault.
+  plan, or
+  backup vault.
 
-  `ListTags` only works for resource types that support full Backup management of
-  their backups. Those resource types are listed in the "Full Backup management"
-  section of the [ Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
+  `ListTags` only works for resource types that support full Backup
+  management of their backups. Those resource types are listed in the "Full Backup
+  management" section of the [ Feature availability by
+  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
   table.
   """
   def list_tags(
@@ -2432,7 +2491,7 @@ defmodule AWS.Backup do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}/"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2452,14 +2511,16 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Sets a resource-based policy that is used to manage access permissions on the
-  target backup vault.
+  target
+  backup vault.
 
-  Requires a backup vault name and an access policy document in JSON format.
+  Requires a backup vault name and an access policy document in JSON
+  format.
   """
   def put_backup_vault_access_policy(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
@@ -2468,22 +2529,27 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Applies Backup Vault Lock to a backup vault, preventing attempts to delete any
-  recovery point stored in or created in a backup vault.
+  Applies Backup Vault Lock to a backup vault, preventing attempts to delete
+  any recovery point stored in or created in a backup vault.
 
-  Vault Lock also prevents attempts to update the lifecycle policy that controls
-  the retention period of any recovery point currently stored in a backup vault.
-  If specified, Vault Lock enforces a minimum and maximum retention period for
-  future backup and copy jobs that target a backup vault.
+  Vault Lock also prevents
+  attempts to update the lifecycle policy that controls the retention period of
+  any recovery
+  point currently stored in a backup vault. If specified, Vault Lock enforces a
+  minimum and
+  maximum retention period for future backup and copy jobs that target a backup
+  vault.
 
   Backup Vault Lock has been assessed by Cohasset Associates for use in
-  environments that are subject to SEC 17a-4, CFTC, and FINRA regulations. For
-  more information about how Backup Vault Lock relates to these regulations, see
-  the [Cohasset Associates Compliance Assessment.](samples/cohassetreport.zip)
+  environments
+  that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information
+  about
+  how Backup Vault Lock relates to these regulations, see the
+  [Cohasset Associates Compliance Assessment.](samples/cohassetreport.zip)
   """
   def put_backup_vault_lock_configuration(
         %Client{} = client,
@@ -2497,7 +2563,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2512,14 +2578,15 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  This request allows you to send your independent self-run restore test
-  validation results.
+  This request allows you to send your independent self-run
+  restore test validation results.
 
-  `RestoreJobId` and `ValidationStatus` are required. Optionally, you can input a
+  `RestoreJobId` and `ValidationStatus`
+  are required. Optionally, you can input a
   `ValidationStatusMessage`.
   """
   def put_restore_validation_result(%Client{} = client, restore_job_id, input, options \\ []) do
@@ -2542,7 +2609,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2557,7 +2624,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2579,7 +2646,7 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2593,16 +2660,17 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Attempts to cancel a job to create a one-time backup of a resource.
 
-  This action is not supported for the following services: Amazon FSx for Windows
-  File Server, Amazon FSx for Lustre, FSx for ONTAP , Amazon FSx for OpenZFS,
-  Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora, and
-  Amazon Neptune.
+  This action is not supported for the following services:
+  Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
+  , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon
+  RDS, Amazon Aurora,
+  and Amazon Neptune.
   """
   def stop_backup_job(%Client{} = client, backup_job_id, input, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
@@ -2620,13 +2688,14 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Assigns a set of key-value pairs to a recovery point, backup plan, or backup
-  vault identified by an Amazon Resource Name (ARN).
+  vault
+  identified by an Amazon Resource Name (ARN).
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2644,13 +2713,14 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes a set of key-value pairs from a recovery point, backup plan, or backup
-  vault identified by an Amazon Resource Name (ARN)
+  vault
+  identified by an Amazon Resource Name (ARN)
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/untag/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2668,15 +2738,16 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Updates an existing backup plan identified by its `backupPlanId` with the input
-  document in JSON format.
+  Updates an existing backup plan identified by its `backupPlanId` with the
+  input document in JSON format.
 
-  The new version is uniquely identified by a `VersionId`.
+  The new version is uniquely identified by a
+  `VersionId`.
   """
   def update_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
@@ -2694,13 +2765,13 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Updates an existing framework identified by its `FrameworkName` with the input
-  document in JSON format.
+  Updates an existing framework identified by its `FrameworkName` with the
+  input document in JSON format.
   """
   def update_framework(%Client{} = client, framework_name, input, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
@@ -2709,7 +2780,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2717,7 +2788,8 @@ defmodule AWS.Backup do
   backup.
 
   Returns an error if the account is not an Organizations management account. Use
-  the `DescribeGlobalSettings` API to determine the current settings.
+  the
+  `DescribeGlobalSettings` API to determine the current settings.
   """
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"
@@ -2726,24 +2798,32 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Sets the transition lifecycle of a recovery point.
 
   The lifecycle defines when a protected resource is transitioned to cold storage
-  and when it expires. Backup transitions and expires backups automatically
-  according to the lifecycle that you define.
+  and when
+  it expires. Backup transitions and expires backups automatically according to
+  the lifecycle that you define.
 
   Backups transitioned to cold storage must be stored in cold storage for a
-  minimum of 90 days. Therefore, the “retention” setting must be 90 days greater
-  than the “transition to cold after days” setting. The “transition to cold after
-  days” setting cannot be changed after a backup has been transitioned to cold.
+  minimum of 90
+  days. Therefore, the “retention” setting must be 90 days greater than the
+  “transition to
+  cold after days” setting. The “transition to cold after days” setting cannot be
+  changed
+  after a backup has been transitioned to cold.
 
   Resource types that are able to be transitioned to cold storage are listed in
-  the "Lifecycle to cold storage" section of the [ Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
-  table. Backup ignores this expression for other resource types.
+  the "Lifecycle to cold storage"
+  section of the [
+  Feature availability by
+  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
+  table. Backup ignores this expression for
+  other resource types.
 
   This operation does not support continuous backups.
   """
@@ -2771,14 +2851,15 @@ defmodule AWS.Backup do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the current service opt-in settings for the Region.
 
-  Use the `DescribeRegionSettings` API to determine the resource types that are
+  Use
+  the `DescribeRegionSettings` API to determine the resource types that are
   supported.
   """
   def update_region_settings(%Client{} = client, input, options \\ []) do
@@ -2788,7 +2869,7 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2802,25 +2883,37 @@ defmodule AWS.Backup do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  This request will send changes to your specified restore testing plan.
+  This request will send changes to your specified restore testing
+  plan.
 
-  `RestoreTestingPlanName` cannot be updated after it is created.
+  `RestoreTestingPlanName`
+  cannot be updated after it is created.
 
   `RecoveryPointSelection` can contain:
 
-    * `Algorithm`
+    *
 
-    * `ExcludeVaults`
+  `Algorithm`
 
-    * `IncludeVaults`
+    *
 
-    * `RecoveryPointTypes`
+  `ExcludeVaults`
 
-    * `SelectionWindowDays`
+    *
+
+  `IncludeVaults`
+
+    *
+
+  `RecoveryPointTypes`
+
+    *
+
+  `SelectionWindowDays`
   """
   def update_restore_testing_plan(
         %Client{} = client,
@@ -2838,12 +2931,14 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Most elements except the `RestoreTestingSelectionName` can be updated with this
-  request.
+  Most elements except the `RestoreTestingSelectionName`
+  can be updated with this request.
 
-  `RestoreTestingSelection` can use either protected resource ARNs or conditions,
-  but not both. That is, if your selection has `ProtectedResourceArns`, requesting
-  an update with the parameter `ProtectedResourceConditions` will be unsuccessful.
+  `RestoreTestingSelection` can use either protected
+  resource ARNs or conditions, but not both. That is, if your selection
+  has `ProtectedResourceArns`, requesting an update with the
+  parameter `ProtectedResourceConditions` will be
+  unsuccessful.
   """
   def update_restore_testing_selection(
         %Client{} = client,

@@ -4,13 +4,15 @@
 defmodule AWS.IoTEventsData do
   @moduledoc """
   IoT Events monitors your equipment or device fleets for failures or changes in
-  operation, and triggers actions when such events occur.
+  operation, and
+  triggers actions when such events occur.
 
-  You can use IoT Events Data API commands to send inputs to detectors, list
-  detectors, and view or update a detector's status.
+  You can use IoT Events Data API commands to send inputs to
+  detectors, list detectors, and view or update a detector's status.
 
   For more information, see [What is IoT Events?](https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html)
-  in the *IoT Events Developer Guide*.
+  in the
+  *IoT Events Developer Guide*.
   """
 
   alias AWS.Client
@@ -18,7 +20,6 @@ defmodule AWS.IoTEventsData do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-10-23",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -35,7 +36,8 @@ defmodule AWS.IoTEventsData do
   @doc """
   Acknowledges one or more alarms.
 
-  The alarms change to the `ACKNOWLEDGED` state after you acknowledge them.
+  The alarms change to the `ACKNOWLEDGED` state
+  after you acknowledge them.
   """
   def batch_acknowledge_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/acknowledge"
@@ -89,7 +91,8 @@ defmodule AWS.IoTEventsData do
   @doc """
   Disables one or more alarms.
 
-  The alarms change to the `DISABLED` state after you disable them.
+  The alarms change to the `DISABLED` state after
+  you disable them.
   """
   def batch_disable_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/disable"
@@ -114,7 +117,8 @@ defmodule AWS.IoTEventsData do
   @doc """
   Enables one or more alarms.
 
-  The alarms change to the `NORMAL` state after you enable them.
+  The alarms change to the `NORMAL` state after you
+  enable them.
   """
   def batch_enable_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/enable"
@@ -139,10 +143,13 @@ defmodule AWS.IoTEventsData do
   @doc """
   Sends a set of messages to the IoT Events system.
 
-  Each message payload is transformed into the input you specify (`"inputName"`)
-  and ingested into any detectors that monitor that input. If multiple messages
-  are sent, the order in which the messages are processed isn't guaranteed. To
-  guarantee ordering, you must send messages one at a time and wait for a
+  Each message payload is transformed into
+  the input you specify (`"inputName"`) and ingested into any detectors that
+  monitor
+  that input. If multiple messages are sent, the order in which the messages are
+  processed isn't
+  guaranteed. To guarantee ordering, you must send messages one at a time and wait
+  for a
   successful response.
   """
   def batch_put_message(%Client{} = client, input, options \\ []) do
@@ -168,7 +175,8 @@ defmodule AWS.IoTEventsData do
   @doc """
   Resets one or more alarms.
 
-  The alarms return to the `NORMAL` state after you reset them.
+  The alarms return to the `NORMAL` state after you
+  reset them.
   """
   def batch_reset_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/reset"
@@ -193,8 +201,8 @@ defmodule AWS.IoTEventsData do
   @doc """
   Changes one or more alarms to the snooze mode.
 
-  The alarms change to the `SNOOZE_DISABLED` state after you set them to the
-  snooze mode.
+  The alarms change to the
+  `SNOOZE_DISABLED` state after you set them to the snooze mode.
   """
   def batch_snooze_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/snooze"
@@ -244,7 +252,7 @@ defmodule AWS.IoTEventsData do
   Retrieves information about an alarm.
   """
   def describe_alarm(%Client{} = client, alarm_model_name, key_value \\ nil, options \\ []) do
-    url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}/keyValues/"
+    url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}/keyValues"
     headers = []
     query_params = []
 
@@ -257,14 +265,14 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the specified detector (instance).
   """
   def describe_detector(%Client{} = client, detector_model_name, key_value \\ nil, options \\ []) do
-    url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}/keyValues/"
+    url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}/keyValues"
     headers = []
     query_params = []
 
@@ -277,13 +285,14 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists one or more alarms.
 
-  The operation returns only the metadata associated with each alarm.
+  The operation returns only the metadata associated with each
+  alarm.
   """
   def list_alarms(
         %Client{} = client,
@@ -312,7 +321,7 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -353,6 +362,6 @@ defmodule AWS.IoTEventsData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 end

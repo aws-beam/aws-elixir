@@ -4,40 +4,52 @@
 defmodule AWS.ResourceGroups do
   @moduledoc """
   Resource Groups lets you organize Amazon Web Services resources such as Amazon
-  Elastic Compute Cloud instances, Amazon Relational Database Service databases,
-  and Amazon Simple Storage Service buckets into groups using criteria that you
-  define as tags.
+  Elastic Compute Cloud instances, Amazon Relational Database Service
+  databases, and Amazon Simple Storage Service buckets into groups using criteria
+  that you define as tags.
 
-  A resource group is a collection of resources that match the resource types
-  specified in a query, and share one or more tags or portions of tags. You can
-  create a group of resources based on their roles in your cloud infrastructure,
-  lifecycle stages, regions, application layers, or virtually any criteria.
-  Resource Groups enable you to automate management tasks, such as those in Amazon
-  Web Services Systems Manager Automation documents, on tag-related resources in
+  A
+  resource group is a collection of resources that match the resource types
+  specified in a
+  query, and share one or more tags or portions of tags. You can create a group of
+  resources based on their roles in your cloud infrastructure, lifecycle stages,
+  regions,
+  application layers, or virtually any criteria. Resource Groups enable you to
+  automate management
+  tasks, such as those in Amazon Web Services Systems Manager Automation
+  documents, on tag-related resources in
   Amazon Web Services Systems Manager. Groups of tagged resources also let you
-  quickly view a custom console in Amazon Web Services Systems Manager that shows
-  Config compliance and other monitoring data about member resources.
+  quickly view a custom console in
+  Amazon Web Services Systems Manager that shows Config compliance and other
+  monitoring data about member
+  resources.
 
   To create a resource group, build a resource query, and specify tags that
-  identify the criteria that members of the group have in common. Tags are
-  key-value pairs.
+  identify the
+  criteria that members of the group have in common. Tags are key-value pairs.
 
   For more information about Resource Groups, see the [Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html).
 
   Resource Groups uses a REST-compliant API that you can use to perform the
-  following types of operations.
+  following types of
+  operations.
 
-    * Create, Read, Update, and Delete (CRUD) operations on resource
-  groups and resource query entities
+    *
+  Create, Read, Update, and Delete (CRUD) operations on resource groups and
+  resource query entities
 
-    * Applying, editing, and removing tags from resource groups
+    *
+  Applying, editing, and removing tags from resource groups
 
-    * Resolving resource group member ARNs so they can be returned as
-  search results
+    *
+  Resolving resource group member ARNs so they can be returned as search
+  results
 
-    * Getting data about resources that are members of a group
+    *
+  Getting data about resources that are members of a group
 
-    * Searching Amazon Web Services resources based on a resource query
+    *
+  Searching Amazon Web Services resources based on a resource query
   """
 
   alias AWS.Client
@@ -45,7 +57,6 @@ defmodule AWS.ResourceGroups do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-11-27",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -62,17 +73,22 @@ defmodule AWS.ResourceGroups do
   @doc """
   Creates a resource group with the specified name and description.
 
-  You can optionally include either a resource query or a service configuration.
-  For more information about constructing a resource query, see [Build queries and groups in Resource
+  You can optionally
+  include either a resource query or a service configuration. For more information
+  about
+  constructing a resource query, see [Build queries and groups in Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html)
-  in the *Resource Groups User Guide*. For more information about service-linked
-  groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+  in the *Resource Groups User Guide*. For more information
+  about service-linked groups and service configurations, see [Service configurations for Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:CreateGroup`
+    *
+
+  `resource-groups:CreateGroup`
   """
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
@@ -90,21 +106,23 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified resource group.
 
-  Deleting a resource group does not delete any resources that are members of the
-  group; it only deletes the group structure.
+  Deleting a resource group does not delete any
+  resources that are members of the group; it only deletes the group structure.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:DeleteGroup`
+    *
+
+  `resource-groups:DeleteGroup`
   """
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-group"
@@ -122,7 +140,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -145,7 +163,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -156,7 +174,9 @@ defmodule AWS.ResourceGroups do
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:GetGroup`
+    *
+
+  `resource-groups:GetGroup`
   """
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/get-group"
@@ -174,7 +194,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -182,14 +202,17 @@ defmodule AWS.ResourceGroups do
   Retrieves the service configuration associated with the specified resource
   group.
 
-  For details about the service configuration syntax, see [Service configurations for Resource
+  For
+  details about the service configuration syntax, see [Service configurations for Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:GetGroupConfiguration`
+    *
+
+  `resource-groups:GetGroupConfiguration`
   """
   def get_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-configuration"
@@ -207,21 +230,24 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Retrieves the resource query associated with the specified resource group.
 
-  For more information about resource queries, see [Create a tag-based group in Resource
+  For more
+  information about resource queries, see [Create a tag-based group in Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:GetGroupQuery`
+    *
+
+  `resource-groups:GetGroupQuery`
   """
   def get_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-query"
@@ -239,19 +265,22 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns a list of tags that are associated with a resource group, specified by
-  an ARN.
+  an
+  ARN.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:GetTags`
+    *
+
+  `resource-groups:GetTags`
   """
   def get_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
@@ -260,18 +289,23 @@ defmodule AWS.ResourceGroups do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Adds the specified resources to the specified group.
 
   You can use this operation with only resource groups that are configured with
-  the following types:
+  the
+  following types:
 
-     `AWS::EC2::HostManagement`
+    
 
-     `AWS::EC2::CapacityReservationPool`
+  `AWS::EC2::HostManagement`
+
+    
+
+  `AWS::EC2::CapacityReservationPool`
 
   Other resource group type and resource types aren't currently supported by this
   operation.
@@ -280,7 +314,9 @@ defmodule AWS.ResourceGroups do
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:GroupResources`
+    *
+
+  `resource-groups:GroupResources`
   """
   def group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/group-resources"
@@ -298,7 +334,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -310,13 +346,21 @@ defmodule AWS.ResourceGroups do
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:ListGroupResources`
+    *
 
-    * `cloudformation:DescribeStacks`
+  `resource-groups:ListGroupResources`
 
-    * `cloudformation:ListStackResources`
+    *
 
-    * `tag:GetResources`
+  `cloudformation:DescribeStacks`
+
+    *
+
+  `cloudformation:ListStackResources`
+
+    *
+
+  `tag:GetResources`
   """
   def list_group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-group-resources"
@@ -334,7 +378,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -345,7 +389,9 @@ defmodule AWS.ResourceGroups do
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:ListGroups`
+    *
+
+  `resource-groups:ListGroups`
   """
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups-list"
@@ -369,21 +415,24 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Attaches a service configuration to the specified group.
 
-  This occurs asynchronously, and can take time to complete. You can use
-  `GetGroupConfiguration` to check the status of the update.
+  This occurs asynchronously,
+  and can take time to complete. You can use `GetGroupConfiguration` to
+  check the status of the update.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:PutGroupConfiguration`
+    *
+
+  `resource-groups:PutGroupConfiguration`
   """
   def put_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/put-group-configuration"
@@ -409,20 +458,29 @@ defmodule AWS.ResourceGroups do
   Returns a list of Amazon Web Services resource identifiers that matches the
   specified query.
 
-  The query uses the same format as a resource query in a `CreateGroup` or
+  The
+  query uses the same format as a resource query in a `CreateGroup` or
   `UpdateGroupQuery` operation.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:SearchResources`
+    *
 
-    * `cloudformation:DescribeStacks`
+  `resource-groups:SearchResources`
 
-    * `cloudformation:ListStackResources`
+    *
 
-    * `tag:GetResources`
+  `cloudformation:DescribeStacks`
+
+    *
+
+  `cloudformation:ListStackResources`
+
+    *
+
+  `tag:GetResources`
   """
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resources/search"
@@ -440,26 +498,29 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds tags to a resource group with the specified ARN.
 
-  Existing tags on a resource group are not changed if they are not specified in
-  the request parameters.
+  Existing tags on a resource
+  group are not changed if they are not specified in the request parameters.
 
   Do not store personally identifiable information (PII) or other confidential or
   sensitive information in tags. We use tags to provide you with billing and
   administration services. Tags are not intended to be used for private or
-  sensitive data.
+  sensitive
+  data.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:Tag`
+    *
+
+  `resource-groups:Tag`
   """
   def tag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
@@ -468,21 +529,25 @@ defmodule AWS.ResourceGroups do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Removes the specified resources from the specified group.
 
-  This operation works only with static groups that you populated using the
-  `GroupResources` operation. It doesn't work with any resource groups that are
-  automatically populated by tag-based or CloudFormation stack-based queries.
+  This operation works only
+  with static groups that you populated using the `GroupResources`
+  operation. It doesn't work with any resource groups that are automatically
+  populated by
+  tag-based or CloudFormation stack-based queries.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:UngroupResources`
+    *
+
+  `resource-groups:UngroupResources`
   """
   def ungroup_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ungroup-resources"
@@ -500,7 +565,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -511,7 +576,9 @@ defmodule AWS.ResourceGroups do
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:Untag`
+    *
+
+  `resource-groups:Untag`
   """
   def untag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
@@ -529,7 +596,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -537,8 +604,10 @@ defmodule AWS.ResourceGroups do
   Turns on or turns off optional features in Resource Groups.
 
   The preceding example shows that the request to turn on group lifecycle events
-  is `IN_PROGRESS`. You can call the `GetAccountSettings` operation to check for
-  completion by looking for `GroupLifecycleEventsStatus` to change to `ACTIVE`.
+  is
+  `IN_PROGRESS`. You can call the `GetAccountSettings`
+  operation to check for completion by looking for `GroupLifecycleEventsStatus`
+  to change to `ACTIVE`.
   """
   def update_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-account-settings"
@@ -556,20 +625,23 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the description for an existing group.
 
-  You cannot update the name of a resource group.
+  You cannot update the name of a
+  resource group.
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:UpdateGroup`
+    *
+
+  `resource-groups:UpdateGroup`
   """
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-group"
@@ -587,21 +659,23 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the resource query of a group.
 
-  For more information about resource queries, see [Create a tag-based group in Resource
-  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+  For more information about resource queries,
+  see [Create a tag-based group in Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
 
   ## Minimum permissions
 
   To run this command, you must have the following permissions:
 
-    * `resource-groups:UpdateGroupQuery`
+    *
+
+  `resource-groups:UpdateGroupQuery`
   """
   def update_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/update-group-query"
@@ -619,7 +693,7 @@ defmodule AWS.ResourceGroups do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

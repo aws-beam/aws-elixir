@@ -5,36 +5,52 @@ defmodule AWS.AuditManager do
   @moduledoc """
   Welcome to the Audit Manager API reference.
 
-  This guide is for developers who need detailed information about the Audit
-  Manager API operations, data types, and errors.
+  This guide is for developers who
+  need detailed information about the Audit Manager API operations, data types,
+  and
+  errors.
 
   Audit Manager is a service that provides automated evidence collection so that
-  you can continually audit your Amazon Web Services usage. You can use it to
-  assess the effectiveness of your controls, manage risk, and simplify compliance.
+  you
+  can continually audit your Amazon Web Services usage. You can use it to assess
+  the
+  effectiveness of your controls, manage risk, and simplify compliance.
 
   Audit Manager provides prebuilt frameworks that structure and automate
-  assessments for a given compliance standard. Frameworks include a prebuilt
-  collection of controls with descriptions and testing procedures. These controls
-  are grouped according to the requirements of the specified compliance standard
-  or regulation. You can also customize frameworks and controls to support
-  internal audits with specific requirements.
+  assessments
+  for a given compliance standard. Frameworks include a prebuilt collection of
+  controls with
+  descriptions and testing procedures. These controls are grouped according to the
+  requirements of the specified compliance standard or regulation. You can also
+  customize
+  frameworks and controls to support internal audits with specific requirements.
 
   Use the following links to get started with the Audit Manager API:
 
     *
-  [Actions](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html): An alphabetical list of all Audit Manager API operations.
 
-    * [Data
+  [Actions](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html): An
+  alphabetical list of all Audit Manager API operations.
+
+    *
+
+  [Data
   types](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html):
-  An alphabetical list of all Audit Manager data types.
+  An alphabetical list of all Audit Manager data
+  types.
 
-    * [Common parameters](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html):
+    *
+
+  [Common parameters](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html):
   Parameters that all operations can use.
 
-    * [Common errors](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html):
+    *
+
+  [Common errors](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html):
   Client and server errors that all operations can return.
 
-  If you're new to Audit Manager, we recommend that you review the [ Audit Manager User
+  If you're new to Audit Manager, we recommend that you review the [
+  Audit Manager User
   Guide](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html).
   """
 
@@ -43,7 +59,6 @@ defmodule AWS.AuditManager do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-07-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -73,7 +88,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -94,7 +109,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -121,7 +136,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -140,7 +155,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -160,26 +175,34 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds one or more pieces of evidence to a control in an Audit Manager assessment.
 
   You can import manual evidence from any S3 bucket by specifying the S3 URI of
-  the object. You can also upload a file from your browser, or enter plain text in
-  response to a risk assessment question.
+  the
+  object. You can also upload a file from your browser, or enter plain text in
+  response to a
+  risk assessment question.
 
   The following restrictions apply to this action:
 
-    * `manualEvidence` can be only one of the following:
-  `evidenceFileName`, `s3ResourcePath`, or `textResponse`
+    *
 
-    * Maximum size of an individual evidence file: 100 MB
+  `manualEvidence` can be only one of the following:
+  `evidenceFileName`, `s3ResourcePath`, or
+  `textResponse`
 
-    * Number of daily manual evidence uploads per control: 100
+    *
+  Maximum size of an individual evidence file: 100 MB
 
-    * Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
+    *
+  Number of daily manual evidence uploads per control: 100
+
+    *
+  Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
   in the *Audit Manager User Guide*
 
   For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
@@ -210,7 +233,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -233,7 +256,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -256,7 +279,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -279,7 +302,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -302,7 +325,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -325,7 +348,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -348,7 +371,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -376,34 +399,47 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an assessment report in Audit Manager.
 
-  When you run the `DeleteAssessmentReport` operation, Audit Manager attempts to
-  delete the following data:
+  When you run the `DeleteAssessmentReport` operation, Audit Manager
+  attempts to delete the following data:
 
-    1. The specified assessment report that’s stored in your S3 bucket
+    1.
+  The specified assessment report that’s stored in your S3 bucket
 
-    2. The associated metadata that’s stored in Audit Manager
+    2.
+  The associated metadata that’s stored in Audit Manager
 
   If Audit Manager can’t access the assessment report in your S3 bucket, the
-  report isn’t deleted. In this event, the `DeleteAssessmentReport` operation
-  doesn’t fail. Instead, it proceeds to delete the associated metadata only. You
-  must then delete the assessment report from the S3 bucket yourself.
+  report
+  isn’t deleted. In this event, the `DeleteAssessmentReport` operation doesn’t
+  fail. Instead, it proceeds to delete the associated metadata only. You must then
+  delete the
+  assessment report from the S3 bucket yourself.
 
-  This scenario happens when Audit Manager receives a `403 (Forbidden)` or `404
-  (Not Found)` error from Amazon S3. To avoid this, make sure that your S3 bucket
-  is available, and that you configured the correct permissions for Audit Manager
-  to delete resources in your S3 bucket. For an example permissions policy that
+  This scenario happens when Audit Manager receives a `403 (Forbidden)` or
+  `404 (Not Found)` error from Amazon S3. To avoid this, make sure that
+  your S3 bucket is available, and that you configured the correct permissions for
+  Audit Manager to delete resources in your S3 bucket. For an example permissions
+  policy that
   you can use, see [Assessment report destination permissions](https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination)
   in the *Audit Manager User Guide*. For information about the issues that could
-  cause a `403 (Forbidden)` or `404 (Not Found`) error from Amazon S3, see [List of Error
-  Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList)
-  in the *Amazon Simple Storage Service API Reference*.
+  cause a
+
+  ```
+  403
+  (Forbidden)
+  ```
+
+  or `404 (Not Found`) error from Amazon S3, see
+  [List of Error Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList)
+  in the *Amazon Simple Storage Service API
+  Reference*.
   """
   def delete_assessment_report(
         %Client{} = client,
@@ -429,7 +465,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -437,10 +473,11 @@ defmodule AWS.AuditManager do
   Deletes a custom control in Audit Manager.
 
   When you invoke this operation, the custom control is deleted from any
-  frameworks or assessments that it’s currently part of. As a result, Audit
-  Manager will stop collecting evidence for that custom control in all of your
-  assessments. This includes assessments that you previously created before you
-  deleted the custom control.
+  frameworks or
+  assessments that it’s currently part of. As a result, Audit Manager will stop
+  collecting evidence for that custom control in all of your assessments. This
+  includes
+  assessments that you previously created before you deleted the custom control.
   """
   def delete_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
@@ -458,7 +495,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -466,9 +503,11 @@ defmodule AWS.AuditManager do
   Deregisters an account in Audit Manager.
 
   Before you deregister, you can use the
-  [UpdateSettings](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html) API operation to set your preferred data retention policy. By default, Audit
-  Manager retains your data. If you want to delete your data, you can use the
-  `DeregistrationPolicy` attribute to request the deletion of your data.
+  [UpdateSettings](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html) API operation to set your preferred data retention policy. By
+  default, Audit Manager retains your data. If you want to delete your data, you
+  can
+  use the `DeregistrationPolicy` attribute to request the deletion of your
+  data.
 
   For more information about data retention, see [Data
   Protection](https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html)
@@ -490,74 +529,98 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes the specified Amazon Web Services account as a delegated administrator
-  for Audit Manager.
+  for
+  Audit Manager.
 
   When you remove a delegated administrator from your Audit Manager settings, you
   continue to have access to the evidence that you previously collected under that
-  account. This is also the case when you deregister a delegated administrator
-  from Organizations. However, Audit Manager stops collecting and attaching
-  evidence to that delegated administrator account moving forward.
+  account.
+  This is also the case when you deregister a delegated administrator from
+  Organizations. However, Audit Manager stops collecting and attaching evidence to
+  that delegated administrator account moving forward.
 
   Keep in mind the following cleanup task if you use evidence finder:
 
   Before you use your management account to remove a delegated administrator, make
-  sure that the current delegated administrator account signs in to Audit Manager
-  and disables evidence finder first. Disabling evidence finder automatically
-  deletes the event data store that was created in their account when they enabled
-  evidence finder. If this task isn’t completed, the event data store remains in
-  their account. In this case, we recommend that the original delegated
-  administrator goes to CloudTrail Lake and manually [deletes the event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html).
+  sure
+  that the current delegated administrator account signs in to Audit Manager and
+  disables evidence finder first. Disabling evidence finder automatically deletes
+  the
+  event data store that was created in their account when they enabled evidence
+  finder. If
+  this task isn’t completed, the event data store remains in their account. In
+  this case,
+  we recommend that the original delegated administrator goes to CloudTrail Lake
+  and manually [deletes the event data
+  store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html).
 
   This cleanup task is necessary to ensure that you don't end up with multiple
-  event data stores. Audit Manager ignores an unused event data store after you
-  remove or change a delegated administrator account. However, the unused event
-  data store continues to incur storage costs from CloudTrail Lake if you don't
-  delete it.
+  event
+  data stores. Audit Manager ignores an unused event data store after you remove
+  or
+  change a delegated administrator account. However, the unused event data store
+  continues
+  to incur storage costs from CloudTrail Lake if you don't delete it.
 
   When you deregister a delegated administrator account for Audit Manager, the
-  data for that account isn’t deleted. If you want to delete resource data for a
-  delegated administrator account, you must perform that task separately before
-  you deregister the account. Either, you can do this in the Audit Manager
-  console. Or, you can use one of the delete API operations that are provided by
-  Audit Manager.
+  data
+  for that account isn’t deleted. If you want to delete resource data for a
+  delegated
+  administrator account, you must perform that task separately before you
+  deregister the
+  account. Either, you can do this in the Audit Manager console. Or, you can use
+  one of
+  the delete API operations that are provided by Audit Manager.
 
   To delete your Audit Manager resource data, see the following instructions:
 
     *
+
   [DeleteAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html) (see also: [Deleting an
   assessment](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html)
-  in the *Audit Manager User Guide*)
+  in the *Audit Manager User
+  Guide*)
 
     *
-  [DeleteAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html) (see also: [Deleting a custom
+
+  [DeleteAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html) (see also: [Deleting a
+  custom
   framework](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html)
-  in the *Audit Manager User Guide*)
+  in the *Audit Manager User
+  Guide*)
 
     *
+
   [DeleteAssessmentFrameworkShare](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html) (see also: [Deleting a share
   request](https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html)
-  in the *Audit Manager User Guide*)
+  in the *Audit Manager User
+  Guide*)
 
     *
+
   [DeleteAssessmentReport](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html) (see also: [Deleting an assessment
   report](https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps)
-  in the *Audit Manager User Guide*)
+  in the *Audit Manager User
+  Guide*)
 
     *
+
   [DeleteControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html) (see also: [Deleting a custom
   control](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html)
-  in the *Audit Manager User Guide*)
+  in the *Audit Manager User
+  Guide*)
 
   At this time, Audit Manager doesn't provide an option to delete evidence for a
   specific delegated administrator. Instead, when your management account
   deregisters Audit Manager, we perform a cleanup for the current delegated
-  administrator account at the time of deregistration.
+  administrator account at the
+  time of deregistration.
   """
   def deregister_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterOrganizationAdminAccount"
@@ -575,7 +638,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -597,7 +660,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -610,7 +673,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -623,7 +686,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -636,7 +699,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -656,7 +719,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -705,7 +768,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -718,7 +781,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -745,7 +808,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -767,7 +830,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -804,7 +867,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -813,15 +876,19 @@ defmodule AWS.AuditManager do
 
   For instructions on how to use this operation, see [Upload a file from your browser
   ](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files)
-  in the *Audit Manager User Guide*.
+  in the *Audit Manager User
+  Guide*.
 
   The following restrictions apply to this operation:
 
-    * Maximum size of an individual evidence file: 100 MB
+    *
+  Maximum size of an individual evidence file: 100 MB
 
-    * Number of daily manual evidence uploads per control: 100
+    *
+  Number of daily manual evidence uploads per control: 100
 
-    * Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
+    *
+  Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
   in the *Audit Manager User Guide*
 
   For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
@@ -841,7 +908,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -862,7 +929,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -895,12 +962,13 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of evidence folders that are associated with a specified control in
-  an Audit Manager assessment.
+  an
+  Audit Manager assessment.
   """
   def get_evidence_folders_by_assessment_control(
         %Client{} = client,
@@ -933,7 +1001,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -946,7 +1014,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -959,12 +1027,13 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the name of the delegated Amazon Web Services administrator account for a
-  specified organization.
+  specified
+  organization.
   """
   def get_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/organizationAdminAccount"
@@ -973,7 +1042,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -981,7 +1050,8 @@ defmodule AWS.AuditManager do
   your assessment.
 
   When you [create an assessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html),
-  specify which of these services you want to include to narrow the assessment's
+  specify which of these services you want to include to
+  narrow the assessment's
   [scope](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html).
   """
   def get_services_in_scope(%Client{} = client, options \\ []) do
@@ -991,7 +1061,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1004,16 +1074,19 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the latest analytics data for controls within a specific control domain
-  and a specific active assessment.
+  and a
+  specific active assessment.
 
   Control insights are listed only if the control belongs to the control domain
-  and assessment that was specified. Moreover, the control must have collected
-  evidence on the `lastUpdated` date of `controlInsightsByAssessment`. If neither
+  and
+  assessment that was specified. Moreover, the control must have collected
+  evidence on the
+  `lastUpdated` date of `controlInsightsByAssessment`. If neither
   of these conditions are met, no data is listed for that control.
   """
   def list_assessment_control_insights_by_control_domain(
@@ -1058,7 +1131,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1099,12 +1172,13 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the frameworks that are available in the Audit Manager
-  framework library.
+  framework
+  library.
   """
   def list_assessment_frameworks(
         %Client{} = client,
@@ -1140,7 +1214,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1172,7 +1246,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1212,7 +1286,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1220,8 +1294,10 @@ defmodule AWS.AuditManager do
   assessments.
 
   A control domain is listed only if at least one of the controls within that
-  domain collected evidence on the `lastUpdated` date of `controlDomainInsights`.
-  If this condition isn’t met, no data is listed for that control domain.
+  domain
+  collected evidence on the `lastUpdated` date of
+  `controlDomainInsights`. If this condition isn’t met, no data is listed
+  for that control domain.
   """
   def list_control_domain_insights(
         %Client{} = client,
@@ -1249,15 +1325,17 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists analytics data for control domains within a specified active assessment.
 
   A control domain is listed only if at least one of the controls within that
-  domain collected evidence on the `lastUpdated` date of `controlDomainInsights`.
-  If this condition isn’t met, no data is listed for that domain.
+  domain
+  collected evidence on the `lastUpdated` date of
+  `controlDomainInsights`. If this condition isn’t met, no data is listed
+  for that domain.
   """
   def list_control_domain_insights_by_assessment(
         %Client{} = client,
@@ -1293,17 +1371,19 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the latest analytics data for controls within a specific control domain
-  across all active assessments.
+  across all
+  active assessments.
 
   Control insights are listed only if the control belongs to the control domain
-  that was specified and the control collected evidence on the `lastUpdated` date
-  of `controlInsightsMetadata`. If neither of these conditions are met, no data is
-  listed for that control.
+  that
+  was specified and the control collected evidence on the `lastUpdated` date of
+  `controlInsightsMetadata`. If neither of these conditions are met, no data
+  is listed for that control.
   """
   def list_control_insights_by_control_domain(
         %Client{} = client,
@@ -1339,7 +1419,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1379,7 +1459,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1420,7 +1500,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1447,7 +1527,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1460,7 +1540,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1482,7 +1562,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1506,7 +1586,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1514,43 +1594,55 @@ defmodule AWS.AuditManager do
   Creates a share request for a custom framework in Audit Manager.
 
   The share request specifies a recipient and notifies them that a custom
-  framework is available. Recipients have 120 days to accept or decline the
-  request. If no action is taken, the share request expires.
+  framework is
+  available. Recipients have 120 days to accept or decline the request. If no
+  action is
+  taken, the share request expires.
 
   When you create a share request, Audit Manager stores a snapshot of your custom
   framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager
-  also stores a backup of the same snapshot in the US West (Oregon) Amazon Web
-  Services Region.
+  also
+  stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services
+  Region.
 
   Audit Manager deletes the snapshot and the backup snapshot when one of the
-  following events occurs:
+  following
+  events occurs:
 
-    * The sender revokes the share request.
+    *
+  The sender revokes the share request.
 
-    * The recipient declines the share request.
+    *
+  The recipient declines the share request.
 
-    * The recipient encounters an error and doesn't successfully accept
-  the share request.
-
-    * The share request expires before the recipient responds to the
+    *
+  The recipient encounters an error and doesn't successfully accept the share
   request.
 
+    *
+  The share request expires before the recipient responds to the request.
+
   When a sender [resends a share request](https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend),
-  the snapshot is replaced with an updated version that corresponds with the
-  latest version of the custom framework.
+  the snapshot is replaced with an updated version that
+  corresponds with the latest version of the custom framework.
 
   When a recipient accepts a share request, the snapshot is replicated into their
   Amazon Web Services account under the Amazon Web Services Region that was
-  specified in the share request.
+  specified in the share
+  request.
 
-  When you invoke the `StartAssessmentFrameworkShare` API, you are about to share
-  a custom framework with another Amazon Web Services account. You may not share a
+  When you invoke the `StartAssessmentFrameworkShare` API, you are about to
+  share a custom framework with another Amazon Web Services account. You may not
+  share a
   custom framework that is derived from a standard framework if the standard
-  framework is designated as not eligible for sharing by Amazon Web Services,
-  unless you have obtained permission to do so from the owner of the standard
-  framework. To learn more about which standard frameworks are eligible for
-  sharing, see [Framework sharing eligibility](https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility)
-  in the *Audit Manager User Guide*.
+  framework is
+  designated as not eligible for sharing by Amazon Web Services, unless you have
+  obtained
+  permission to do so from the owner of the standard framework. To learn more
+  about which
+  standard frameworks are eligible for sharing, see [Framework sharing eligibility](https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility)
+  in the *Audit Manager User
+  Guide*.
   """
   def start_assessment_framework_share(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}/shareRequests"
@@ -1568,7 +1660,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1591,7 +1683,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1619,7 +1711,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1633,7 +1725,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1655,7 +1747,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1676,7 +1768,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1689,7 +1781,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1702,7 +1794,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1715,7 +1807,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1728,7 +1820,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1741,7 +1833,7 @@ defmodule AWS.AuditManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1763,7 +1855,7 @@ defmodule AWS.AuditManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

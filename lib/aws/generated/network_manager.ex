@@ -13,7 +13,6 @@ defmodule AWS.NetworkManager do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-07-05",
       content_type: "application/x-amz-json-1.1",
       credential_scope: "us-west-2",
@@ -31,7 +30,8 @@ defmodule AWS.NetworkManager do
   Accepts a core network attachment request.
 
   Once the attachment request is accepted by a core network owner, the attachment
-  is created and connected to a core network.
+  is
+  created and connected to a core network.
   """
   def accept_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/accept"
@@ -49,7 +49,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -58,8 +58,10 @@ defmodule AWS.NetworkManager do
   link.
 
   If you specify a link, it must be associated with the specified device. You can
-  only associate core network Connect peers that have been created on a core
-  network Connect attachment on a core network.
+  only
+  associate core network Connect peers that have been created on a core network
+  Connect
+  attachment on a core network.
   """
   def associate_connect_peer(%Client{} = client, global_network_id, input, options \\ []) do
     url_path =
@@ -79,22 +81,28 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Associates a customer gateway with a device and optionally, with a link.
 
-  If you specify a link, it must be associated with the specified device.
+  If you
+  specify a link, it must be associated with the specified device.
 
   You can only associate customer gateways that are connected to a VPN attachment
-  on a transit gateway or core network registered in your global network. When you
-  register a transit gateway or core network, customer gateways that are connected
-  to the transit gateway are automatically included in the global network. To list
-  customer gateways that are connected to a transit gateway, use the
+  on a
+  transit gateway or core network registered in your global network. When you
+  register a
+  transit gateway or core network, customer gateways that are connected to the
+  transit
+  gateway are automatically included in the global network. To list customer
+  gateways
+  that are connected to a transit gateway, use the
   [DescribeVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html)
-  EC2 API and filter by `transit-gateway-id`.
+  EC2 API and filter by
+  `transit-gateway-id`.
 
   You cannot associate a customer gateway with more than one device and link.
   """
@@ -116,7 +124,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -143,7 +151,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -151,7 +159,8 @@ defmodule AWS.NetworkManager do
   Associates a transit gateway Connect peer with a device, and optionally, with a
   link.
 
-  If you specify a link, it must be associated with the specified device.
+  If you
+  specify a link, it must be associated with the specified device.
 
   You can only associate transit gateway Connect peers that have been created on a
   transit gateway that's registered in your global network.
@@ -182,7 +191,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -191,9 +200,11 @@ defmodule AWS.NetworkManager do
   attachment.
 
   A core network Connect attachment is a GRE-based tunnel attachment that you can
-  use to establish a connection between a core network and an appliance. A core
-  network Connect attachment uses an existing VPC attachment as the underlying
-  transport mechanism.
+  use to
+  establish a connection between a core network and an appliance. A core network
+  Connect
+  attachment uses an existing VPC attachment as the underlying transport
+  mechanism.
   """
   def create_connect_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/connect-attachments"
@@ -211,7 +222,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -238,7 +249,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -265,7 +276,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -289,15 +300,16 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new device in a global network.
 
-  If you specify both a site ID and a location, the location of the site is used
-  for visualization in the Network Manager console.
+  If you specify both a site ID and a
+  location, the location of the site is used for visualization in the Network
+  Manager console.
   """
   def create_device(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
@@ -315,7 +327,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -338,7 +350,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -361,7 +373,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -384,7 +396,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -408,7 +420,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -431,7 +443,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -454,7 +466,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -477,7 +489,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -502,7 +514,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -525,7 +537,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -556,7 +568,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -581,7 +593,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -614,14 +626,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an existing device.
 
-  You must first disassociate the device from any links and customer gateways.
+  You must first disassociate the device from any links and
+  customer gateways.
   """
   def delete_device(%Client{} = client, device_id, global_network_id, input, options \\ []) do
     url_path =
@@ -641,15 +654,16 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an existing global network.
 
-  You must first delete all global network objects (devices, links, and sites),
-  deregister all transit gateways, and delete any core networks.
+  You must first delete all global network objects
+  (devices, links, and sites), deregister all transit gateways, and delete any
+  core networks.
   """
   def delete_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
@@ -667,14 +681,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an existing link.
 
-  You must first disassociate the link from any devices and customer gateways.
+  You must first disassociate the link from any devices and
+  customer gateways.
   """
   def delete_link(%Client{} = client, global_network_id, link_id, input, options \\ []) do
     url_path =
@@ -694,7 +709,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -717,7 +732,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -742,7 +757,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -769,15 +784,16 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deregisters a transit gateway from your global network.
 
-  This action does not delete your transit gateway, or modify any of its
-  attachments. This action removes any customer gateway associations.
+  This action does not delete
+  your transit gateway, or modify any of its attachments. This action removes any
+  customer gateway associations.
   """
   def deregister_transit_gateway(
         %Client{} = client,
@@ -803,17 +819,18 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Describes one or more global networks.
 
-  By default, all global networks are described. To describe the objects in your
-  global network, you must use the appropriate `Get*` action. For example, to list
-  the transit gateways in your global network, use
-  `GetTransitGatewayRegistrations`.
+  By default, all global networks are
+  described. To describe the objects in your global network, you must use the
+  appropriate
+  `Get*` action. For example, to list the transit gateways in your global
+  network, use `GetTransitGatewayRegistrations`.
   """
   def describe_global_networks(
         %Client{} = client,
@@ -849,7 +866,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -879,7 +896,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -910,15 +927,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Disassociates an existing device from a link.
 
-  You must first disassociate any customer gateways that are associated with the
-  link.
+  You must first disassociate any customer
+  gateways that are associated with the link.
   """
   def disassociate_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
@@ -942,7 +959,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -973,7 +990,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1006,7 +1023,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1020,7 +1037,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1033,7 +1050,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1076,7 +1093,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1125,7 +1142,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1138,7 +1155,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1174,7 +1191,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1211,7 +1228,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1247,7 +1264,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1291,7 +1308,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1340,13 +1357,14 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the link associations for a device or a link.
 
-  Either the device ID or the link ID must be specified.
+  Either the device ID or the link ID
+  must be specified.
   """
   def get_link_associations(
         %Client{} = client,
@@ -1391,7 +1409,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1459,7 +1477,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1501,7 +1519,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1584,7 +1602,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1668,7 +1686,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1690,7 +1708,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1772,7 +1790,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1785,7 +1803,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1800,7 +1818,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1813,7 +1831,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1854,7 +1872,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1898,7 +1916,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1911,12 +1929,12 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Gets information about the transit gateway registrations in a specified global
-  network.
+  Gets information about the transit gateway registrations in a specified
+  global network.
   """
   def get_transit_gateway_registrations(
         %Client{} = client,
@@ -1955,7 +1973,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1968,7 +1986,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1981,7 +1999,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2045,7 +2063,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2093,7 +2111,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2128,7 +2146,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2155,7 +2173,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2188,7 +2206,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2252,7 +2270,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2265,7 +2283,7 @@ defmodule AWS.NetworkManager do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2290,7 +2308,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2313,20 +2331,20 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Registers a transit gateway in your global network.
 
-  Not all Regions support transit gateways for global networks. For a list of the
-  supported Regions, see [Region Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions)
-  in the *Amazon Web Services Transit Gateways for Global Networks User Guide*.
-  The transit gateway can be in any of the supported Amazon Web Services Regions,
-  but it must be owned by the same Amazon Web Services account that owns the
-  global network. You cannot register a transit gateway in more than one global
-  network.
+  Not all Regions support transit
+  gateways for global networks. For a list of the supported Regions, see [Region Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions)
+  in the *Amazon Web Services Transit Gateways for Global
+  Networks User Guide*. The transit gateway can be in any of the supported
+  Amazon Web Services Regions, but it must be owned by the same Amazon Web
+  Services account that owns the global
+  network. You cannot register a transit gateway in more than one global network.
   """
   def register_transit_gateway(%Client{} = client, global_network_id, input, options \\ []) do
     url_path =
@@ -2346,7 +2364,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2369,7 +2387,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2404,7 +2422,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2429,14 +2447,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Starts analyzing the routing path between the specified source and destination.
 
-  For more information, see [Route Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
+  For more information,
+  see [Route Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
   """
   def start_route_analysis(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/route-analyses"
@@ -2454,7 +2473,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2477,7 +2496,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2505,14 +2524,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the information for an existing connection.
 
-  To remove information for any of the parameters, specify an empty string.
+  To remove information for any of the parameters,
+  specify an empty string.
   """
   def update_connection(
         %Client{} = client,
@@ -2538,7 +2558,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2561,14 +2581,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the details for an existing device.
 
-  To remove information for any of the parameters, specify an empty string.
+  To remove information for any of the
+  parameters, specify an empty string.
   """
   def update_device(%Client{} = client, device_id, global_network_id, input, options \\ []) do
     url_path =
@@ -2588,14 +2609,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates an existing global network.
 
-  To remove information for any of the parameters, specify an empty string.
+  To remove information for any of the parameters,
+  specify an empty string.
   """
   def update_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
@@ -2613,14 +2635,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the details for an existing link.
 
-  To remove information for any of the parameters, specify an empty string.
+  To remove information for any of the
+  parameters, specify an empty string.
   """
   def update_link(%Client{} = client, global_network_id, link_id, input, options \\ []) do
     url_path =
@@ -2640,7 +2663,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2671,14 +2694,15 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the information for an existing site.
 
-  To remove information for any of the parameters, specify an empty string.
+  To remove information for any of the
+  parameters, specify an empty string.
   """
   def update_site(%Client{} = client, global_network_id, site_id, input, options \\ []) do
     url_path =
@@ -2698,7 +2722,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2721,7 +2745,7 @@ defmodule AWS.NetworkManager do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

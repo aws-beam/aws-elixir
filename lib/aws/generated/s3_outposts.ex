@@ -11,7 +11,6 @@ defmodule AWS.S3Outposts do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-07-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -33,7 +32,11 @@ defmodule AWS.S3Outposts do
   Related actions include:
 
     *
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)     *
+
+  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html) 
+
+    *
+
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
   """
   def create_endpoint(%Client{} = client, input, options \\ []) do
@@ -52,7 +55,7 @@ defmodule AWS.S3Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -64,7 +67,11 @@ defmodule AWS.S3Outposts do
   Related actions include:
 
     *
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
+
+  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
+
+    *
+
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
   """
   def delete_endpoint(%Client{} = client, input, options \\ []) do
@@ -89,7 +96,7 @@ defmodule AWS.S3Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -99,7 +106,11 @@ defmodule AWS.S3Outposts do
   Related actions include:
 
     *
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
+
+  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
+
+    *
+
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
   """
   def list_endpoints(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -123,7 +134,7 @@ defmodule AWS.S3Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -131,7 +142,8 @@ defmodule AWS.S3Outposts do
   account.
 
   Includes S3 on Outposts that you have access to as the Outposts owner, or as a
-  shared user from Resource Access Manager (RAM).
+  shared user
+  from Resource Access Manager (RAM).
   """
   def list_outposts_with_s3(
         %Client{} = client,
@@ -159,7 +171,7 @@ defmodule AWS.S3Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -169,7 +181,11 @@ defmodule AWS.S3Outposts do
   Related actions include:
 
     *
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
+
+  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
+
+    *
+
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
   """
   def list_shared_endpoints(
@@ -206,6 +222,6 @@ defmodule AWS.S3Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 end

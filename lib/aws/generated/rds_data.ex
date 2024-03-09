@@ -8,15 +8,19 @@ defmodule AWS.RDSData do
   Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
   DB cluster.
 
-  To run these statements, you use the RDS Data API (Data API).
+  To run these
+  statements, you use the RDS Data API (Data API).
 
   Data API is available with the following types of Aurora databases:
 
-    * Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned
+    *
+  Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned
 
-    * Aurora MySQL - Serverless v1 only
+    *
+  Aurora MySQL - Serverless v1 only
 
-  For more information about the Data API, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
+  For more information about the Data API, see
+  [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
   in the *Amazon Aurora User Guide*.
   """
 
@@ -25,7 +29,6 @@ defmodule AWS.RDSData do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-08-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -44,19 +47,21 @@ defmodule AWS.RDSData do
 
   You can run bulk update and insert operations for multiple records using a DML
   statement with different parameter sets. Bulk operations can provide a
-  significant performance improvement over individual insert and update
-  operations.
+  significant
+  performance improvement over individual insert and update operations.
 
   If a call isn't part of a transaction because it doesn't include the
-  `transactionID` parameter, changes that result from the call are committed
-  automatically.
+  `transactionID` parameter,
+  changes that result from the call are committed automatically.
 
   There isn't a fixed upper limit on the number of parameter sets. However, the
-  maximum size of the HTTP request submitted through the Data API is 4 MiB. If the
-  request exceeds this limit, the Data API returns an error and doesn't process
-  the request. This 4-MiB limit includes the size of the HTTP headers and the JSON
-  notation in the request. Thus, the number of parameter sets that you can include
-  depends on a combination of factors, such as the size of the SQL statement and
+  maximum size of the HTTP request
+  submitted through the Data API is 4 MiB. If the request exceeds this limit, the
+  Data API returns an error and doesn't
+  process the request. This 4-MiB limit includes the size of the HTTP headers and
+  the JSON notation in the request. Thus, the
+  number of parameter sets that you can include depends on a combination of
+  factors, such as the size of the SQL statement and
   the size of each parameter set.
 
   The response size limit is 1 MiB. If the call returns more than 1 MiB of
@@ -86,14 +91,16 @@ defmodule AWS.RDSData do
   Starts a SQL transaction.
 
   A transaction can run for a maximum of 24 hours. A transaction is terminated and
-  rolled back automatically after 24 hours.
+  rolled back automatically after 24
+  hours.
 
   A transaction times out if no calls use its transaction ID in three minutes. If
-  a transaction times out before it's committed, it's rolled back automatically.
+  a transaction times out before it's
+  committed, it's rolled back automatically.
 
   DDL statements inside a transaction cause an implicit commit. We recommend that
-  you run each DDL statement in a separate `ExecuteStatement` call with
-  `continueAfterTimeout` enabled.
+  you run each DDL statement in a separate
+  `ExecuteStatement` call with `continueAfterTimeout` enabled.
   """
   def begin_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/BeginTransaction"
@@ -116,8 +123,8 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Ends a SQL transaction started with the `BeginTransaction` operation and commits
-  the changes.
+  Ends a SQL transaction started with the `BeginTransaction` operation and
+  commits the changes.
   """
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
@@ -143,8 +150,9 @@ defmodule AWS.RDSData do
   Runs one or more SQL statements.
 
   This operation isn't supported for Aurora PostgreSQL Serverless v2 and
-  provisioned DB clusters, and for Aurora Serverless v1 DB clusters, the operation
-  is deprecated. Use the `BatchExecuteStatement` or `ExecuteStatement` operation.
+  provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
+  the operation is deprecated. Use the `BatchExecuteStatement` or
+  `ExecuteStatement` operation.
   """
   def execute_sql(%Client{} = client, input, options \\ []) do
     url_path = "/ExecuteSql"
@@ -170,8 +178,8 @@ defmodule AWS.RDSData do
   Runs a SQL statement against a database.
 
   If a call isn't part of a transaction because it doesn't include the
-  `transactionID` parameter, changes that result from the call are committed
-  automatically.
+  `transactionID` parameter, changes that result from the call are
+  committed automatically.
 
   If the binary response data from the database is more than 1 MB, the call is
   terminated.

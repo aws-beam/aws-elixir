@@ -7,7 +7,6 @@ defmodule AWS.PersonalizeRuntime do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-22",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -25,8 +24,9 @@ defmodule AWS.PersonalizeRuntime do
   Returns a list of recommended actions in sorted in descending order by
   prediction score.
 
-  Use the `GetActionRecommendations` API if you have a custom campaign that
-  deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
+  Use the `GetActionRecommendations` API if you have a custom
+  campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS
+  recipe.
 
   For more information about PERSONALIZED_ACTIONS recipes, see
   [PERSONALIZED_ACTIONS recipes](https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html).
@@ -48,15 +48,15 @@ defmodule AWS.PersonalizeRuntime do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Re-ranks a list of recommended items for the given user.
 
-  The first item in the list is deemed the most likely item to be of interest to
-  the user.
+  The first item in the list is
+  deemed the most likely item to be of interest to the user.
 
   The solution backing the campaign must have been created using a recipe of type
   PERSONALIZED_RANKING.
@@ -77,7 +77,7 @@ defmodule AWS.PersonalizeRuntime do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -85,20 +85,22 @@ defmodule AWS.PersonalizeRuntime do
   Returns a list of recommended items.
 
   For campaigns, the campaign's Amazon Resource Name (ARN) is required and the
-  required user and item input depends on the recipe type used to create the
-  solution backing the campaign as follows:
+  required user and item input depends on the recipe type used to
+  create the solution backing the campaign as follows:
 
-    * USER_PERSONALIZATION - `userId` required, `itemId` not used
+    *
+  USER_PERSONALIZATION - `userId` required, `itemId` not used
 
-    * RELATED_ITEMS - `itemId` required, `userId` not used
+    *
+  RELATED_ITEMS - `itemId` required, `userId` not used
 
   Campaigns that are backed by a solution created using a recipe of type
   PERSONALIZED_RANKING use the API.
 
   For recommenders, the recommender's ARN is required and the required item and
   user input depends on the use case (domain-based recipe) backing the
-  recommender. For information on use case requirements see [Choosing recommender use
-  cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html).
+  recommender.
+  For information on use case requirements see [Choosing recommender use cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html).
   """
   def get_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/recommendations"
@@ -116,7 +118,7 @@ defmodule AWS.PersonalizeRuntime do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

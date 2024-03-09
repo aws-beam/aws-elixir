@@ -16,7 +16,6 @@ defmodule AWS.IoT1ClickDevices do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-14",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

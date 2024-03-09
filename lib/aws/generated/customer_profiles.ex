@@ -6,10 +6,13 @@ defmodule AWS.CustomerProfiles do
   Amazon Connect Customer Profiles
 
   Amazon Connect Customer Profiles is a unified customer profile for your contact
-  center that has pre-built connectors powered by AppFlow that make it easy to
-  combine customer information from third party applications, such as Salesforce
-  (CRM), ServiceNow (ITSM), and your enterprise resource planning (ERP), with
-  contact history from your Amazon Connect contact center.
+  center that has
+  pre-built connectors powered by AppFlow that make it easy to combine customer
+  information
+  from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and
+  your
+  enterprise resource planning (ERP), with contact history from your Amazon
+  Connect contact center.
 
   If you're new to Amazon Connect, you might find it helpful to review the [Amazon Connect Administrator
   Guide](https://docs.aws.amazon.com/connect/latest/adminguide/).
@@ -20,7 +23,6 @@ defmodule AWS.CustomerProfiles do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-08-15",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -39,7 +41,8 @@ defmodule AWS.CustomerProfiles do
   ContactId.
 
   A profile object can have a single unique key and any number of additional keys
-  that can be used to identify the profile that it belongs to.
+  that can
+  be used to identify the profile that it belongs to.
   """
   def add_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
@@ -57,19 +60,23 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new calculated attribute definition.
 
-  After creation, new object data ingested into Customer Profiles will be included
-  in the calculated attribute, which can be retrieved for a profile using the
+  After creation, new object data ingested
+  into Customer Profiles will be included in the calculated attribute, which can
+  be retrieved
+  for a profile using the
   [GetCalculatedAttributeForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html)
-  API. Defining a calculated attribute makes it available for all profiles within
-  a domain. Each calculated attribute can only reference one `ObjectType` and at
-  most, two fields from that `ObjectType`.
+  API.
+  Defining a calculated attribute makes it available for all profiles within a
+  domain. Each
+  calculated attribute can only reference one `ObjectType` and at most, two fields
+  from that `ObjectType`.
   """
   def create_calculated_attribute_definition(
         %Client{} = client,
@@ -95,28 +102,32 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a domain, which is a container for all customer data, such as customer
-  profile attributes, object types, profile keys, and encryption keys.
+  profile
+  attributes, object types, profile keys, and encryption keys.
 
-  You can create multiple domains, and each domain can have multiple third-party
-  integrations.
+  You can create multiple
+  domains, and each domain can have multiple third-party integrations.
 
   Each Amazon Connect instance can be associated with only one domain. Multiple
-  Amazon Connect instances can be associated with one domain.
+  Amazon Connect instances can
+  be associated with one domain.
 
   Use this API or
-  [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) to enable [identity
+  [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) to
+  enable [identity
   resolution](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html):
   set `Matching` to true.
 
   To prevent cross-service impersonation when you call this API, see
   [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
-  for sample policies that you should apply.
+  for sample policies that you should
+  apply.
   """
   def create_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -134,17 +145,18 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an event stream, which is a subscription to real-time events, such as
-  when profiles are created and updated through Amazon Connect Customer Profiles.
+  when profiles are created and
+  updated through Amazon Connect Customer Profiles.
 
   Each event stream can be associated with only one Kinesis Data Stream
-  destination in the same region and Amazon Web Services account as the customer
-  profiles domain
+  destination in the same region and
+  Amazon Web Services account as the customer profiles domain
   """
   def create_event_stream(
         %Client{} = client,
@@ -170,11 +182,12 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates an integration workflow.
 
   An integration workflow is an async process which ingests historic data and sets
@@ -197,7 +210,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -205,7 +218,8 @@ defmodule AWS.CustomerProfiles do
   Creates a standard profile.
 
   A standard profile represents the following attributes for a customer profile in
-  a domain.
+  a
+  domain.
   """
   def create_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
@@ -223,15 +237,16 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an existing calculated attribute definition.
 
-  Note that deleting a default calculated attribute is possible, however once
-  deleted, you will be unable to undo that action and will need to recreate it on
+  Note that deleting a default calculated attribute
+  is possible, however once deleted, you will be unable to undo that action and
+  will need to recreate it on
   your own using the CreateCalculatedAttributeDefinition API if you want it back.
   """
   def delete_calculated_attribute_definition(
@@ -258,7 +273,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -282,7 +297,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -313,7 +328,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -336,7 +351,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -359,7 +374,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -382,7 +397,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -405,7 +420,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -413,9 +428,10 @@ defmodule AWS.CustomerProfiles do
   Removes a ProfileObjectType from a specific domain as well as removes all the
   ProfileObjects of that type.
 
-  It also disables integrations from this specific ProfileObjectType. In addition,
-  it scrubs all of the fields of the standard profile that were populated from
-  this ProfileObjectType.
+  It also disables integrations from this specific
+  ProfileObjectType. In addition, it scrubs all of the fields of the standard
+  profile that
+  were populated from this ProfileObjectType.
   """
   def delete_profile_object_type(
         %Client{} = client,
@@ -441,7 +457,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -468,7 +484,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -491,7 +507,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -499,19 +515,23 @@ defmodule AWS.CustomerProfiles do
   Tests the auto-merging settings of your Identity Resolution Job without merging
   your data.
 
-  It randomly selects a sample of matching groups from the existing matching
-  results, and applies the automerging settings that you provided. You can then
-  view the number of profiles in the sample, the number of matches, and the number
-  of profiles identified to be merged. This enables you to evaluate the accuracy
-  of the attributes in your matching list.
+  It randomly
+  selects a sample of matching groups from the existing matching results, and
+  applies the
+  automerging settings that you provided. You can then view the number of profiles
+  in the
+  sample, the number of matches, and the number of profiles identified to be
+  merged. This
+  enables you to evaluate the accuracy of the attributes in your matching list.
 
   You can't view which profiles are matched and would be merged.
 
   We strongly recommend you use this API to do a dry run of the automerging
-  process before running the Identity Resolution Job. Include **at least** two
-  matching attributes. If your matching list includes too few attributes (such as
-  only `FirstName` or only `LastName`), there may be a large number of matches.
-  This increases the chances of erroneous merges.
+  process
+  before running the Identity Resolution Job. Include **at least** two matching
+  attributes. If your matching list includes too few attributes (such as only
+  `FirstName` or only `LastName`), there may be a large number of
+  matches. This increases the chances of erroneous merges.
   """
   def get_auto_merging_preview(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -531,7 +551,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -553,7 +573,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -574,7 +594,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -587,7 +607,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -602,14 +622,15 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an Identity Resolution Job in a specific domain.
 
   Identity Resolution Jobs are set up using the Amazon Connect admin console. For
-  more information, see [Use Identity Resolution to consolidate similar profiles](https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html).
+  more information, see [Use Identity Resolution to consolidate similar
+  profiles](https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html).
   """
   def get_identity_resolution_job(%Client{} = client, domain_name, job_id, options \\ []) do
     url_path =
@@ -620,7 +641,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -642,7 +663,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -650,47 +671,58 @@ defmodule AWS.CustomerProfiles do
   Before calling this API, use
   [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) or
   [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html)
-  to enable identity resolution: set `Matching` to true.
+  to
+  enable identity resolution: set `Matching` to true.
 
   GetMatches returns potentially matching profiles, based on the results of the
-  latest run of a machine learning process.
+  latest run
+  of a machine learning process.
 
   The process of matching duplicate profiles. If `Matching` = `true`, Amazon
-  Connect Customer Profiles starts a weekly batch process called Identity
-  Resolution Job. If you do not specify a date and time for Identity Resolution
-  Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate
-  profiles in your domains.
+  Connect Customer Profiles starts a weekly
+  batch process called Identity Resolution Job. If you do not specify a date and
+  time for Identity Resolution Job to run, by default it runs every
+  Saturday at 12AM UTC to detect duplicate profiles in your domains.
 
   After the Identity Resolution Job completes, use the
   [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html)
+
   API to return and review the results. Or, if you have configured
   `ExportingConfig` in the `MatchingRequest`, you can download the results from
   S3.
 
   Amazon Connect uses the following profile attributes to identify matches:
 
-    * PhoneNumber
+    *
+  PhoneNumber
 
-    * HomePhoneNumber
+    *
+  HomePhoneNumber
 
-    * BusinessPhoneNumber
+    *
+  BusinessPhoneNumber
 
-    * MobilePhoneNumber
+    *
+  MobilePhoneNumber
 
-    * EmailAddress
+    *
+  EmailAddress
 
-    * PersonalEmailAddress
+    *
+  PersonalEmailAddress
 
-    * BusinessEmailAddress
+    *
+  BusinessEmailAddress
 
-    * FullName
+    *
+  FullName
 
   For example, two or more profiles—with spelling mistakes such as ## John Doe
-  and **Jhn Doe**, or different casing email addresses such as
-  **JOHN_DOE@ANYCOMPANY.COM** and **johndoe@anycompany.com**, or different phone
-  number formats such as **555-010-0000** and **+1-555-010-0000**—can be detected
-  as belonging to the same customer **John Doe** and merged into a unified
-  profile.
+  and **Jhn Doe**, or different casing
+  email addresses such as **JOHN_DOE@ANYCOMPANY.COM** and
+  **johndoe@anycompany.com**, or different phone number
+  formats such as **555-010-0000** and **+1-555-010-0000**—can be detected as
+  belonging to the same customer **John Doe** and merged into a unified profile.
   """
   def get_matches(
         %Client{} = client,
@@ -719,7 +751,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -734,7 +766,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -742,8 +774,10 @@ defmodule AWS.CustomerProfiles do
 
   A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
   “Salesforce-Contact.” When a user sends a ProfileObject, using the
-  PutProfileObject API, with an ObjectTypeName that matches one of the
-  TemplateIds, it uses the mappings from the template.
+  PutProfileObject API,
+  with an ObjectTypeName that matches one of the TemplateIds, it uses the mappings
+  from the
+  template.
   """
   def get_profile_object_type_template(%Client{} = client, template_id, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -752,15 +786,17 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a set of profiles that belong to the same matching group using the
-  `matchId` or `profileId`.
+  `matchId` or
+  `profileId`.
 
   You can also specify the type of matching that you want for finding similar
-  profiles using either `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
+  profiles using
+  either `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
   """
   def get_similar_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
@@ -784,7 +820,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -800,7 +836,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -836,7 +872,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -865,7 +901,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -899,7 +935,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -935,7 +971,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -962,7 +998,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -995,13 +1031,14 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all of the Identity Resolution Jobs in your domain.
 
-  The response sorts the list by `JobStartTime`.
+  The response sorts the list by
+  `JobStartTime`.
   """
   def list_identity_resolution_jobs(
         %Client{} = client,
@@ -1030,7 +1067,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1071,7 +1108,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1103,7 +1140,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1136,7 +1173,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1165,7 +1202,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1199,14 +1236,15 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the tags associated with an Amazon Connect Customer Profiles resource.
 
-  In Connect Customer Profiles, domains, profile object types, and integrations
-  can be tagged.
+  In Connect
+  Customer Profiles, domains, profile object types, and integrations can be
+  tagged.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1215,7 +1253,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1243,7 +1281,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1252,35 +1290,44 @@ defmodule AWS.CustomerProfiles do
 
     1.
 
-  All the profileKeys in the `ProfileToBeMerged` will be moved to the main
-  profile.
-
-    2. All the objects in the `ProfileToBeMerged` will be moved to the
+  All the profileKeys in the `ProfileToBeMerged` will be moved to the
   main profile.
 
-    3. All the `ProfileToBeMerged` will be deleted at the end.
+    2.
+  All the objects in the `ProfileToBeMerged` will be moved to the main
+  profile.
 
-    4. All the profileKeys in the `ProfileIdsToBeMerged` will be moved
-  to the main profile.
+    3.
+  All the `ProfileToBeMerged` will be deleted at the end.
 
-    5. Standard fields are merged as follows:
+    4.
+  All the profileKeys in the `ProfileIdsToBeMerged` will be moved to the
+  main profile.
 
-      1. Fields are always "union"-ed if there are no
-  conflicts in standard fields or attributeKeys.
+    5.
+  Standard fields are merged as follows:
 
-      2. When there are conflicting fields:
+      1.
+  Fields are always "union"-ed if there are no conflicts in standard fields or
+  attributeKeys.
 
-        1. If no `SourceProfileIds` entry is
-  specified, the main Profile value is always taken.
+      2.
+  When there are conflicting fields:
 
-        2. If a `SourceProfileIds` entry is
-  specified, the specified profileId is always taken, even if it is a NULL value.
+        1.
+  If no `SourceProfileIds` entry is specified, the main
+  Profile value is always taken.
+
+        2.
+  If a `SourceProfileIds` entry is specified, the specified
+  profileId is always taken, even if it is a NULL value.
 
   You can use MergeProfiles together with
   [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html),
-  which returns potentially matching profiles, or use it with the results of
-  another matching system. After profiles have been merged, they cannot be
-  separated (unmerged).
+  which
+  returns potentially matching profiles, or use it with the results of another
+  matching
+  system. After profiles have been merged, they cannot be separated (unmerged).
   """
   def merge_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/merge"
@@ -1298,18 +1345,20 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds an integration between the service and a third-party service, which
-  includes Amazon AppFlow and Amazon Connect.
+  includes
+  Amazon AppFlow and Amazon Connect.
 
   An integration can belong to only one domain.
 
   To add or remove tags on an existing Integration, see [ TagResource
   ](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[
+
   UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
   """
   def put_integration(%Client{} = client, domain_name, input, options \\ []) do
@@ -1319,20 +1368,23 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds additional objects to customer profiles of a given ObjectType.
 
   When adding a specific profile object, like a Contact Record, an inferred
-  profile can get created if it is not mapped to an existing profile. The
-  resulting profile will only have a phone number populated in the standard
-  ProfileObject. Any additional Contact Records with the same phone number will be
-  mapped to the same inferred profile.
+  profile can
+  get created if it is not mapped to an existing profile. The resulting profile
+  will only
+  have a phone number populated in the standard ProfileObject. Any additional
+  Contact Records
+  with the same phone number will be mapped to the same inferred profile.
 
   When a ProfileObject is created and if a ProfileObjectType already exists for
-  the ProfileObject, it will provide data to a standard profile depending on the
+  the
+  ProfileObject, it will provide data to a standard profile depending on the
   ProfileObjectType definition.
 
   PutProfileObject needs an ObjectType, which can be created using
@@ -1345,7 +1397,7 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1369,18 +1421,21 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Searches for profiles within a specific domain using one or more predefined
-  search keys (e.g., _fullName, _phone, _email, _account, etc.) and/or
-  custom-defined search keys.
+  search keys
+  (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search
+  keys.
 
-  A search key is a data type pair that consists of a `KeyName` and `Values` list.
+  A search key
+  is a data type pair that consists of a `KeyName` and `Values` list.
 
   This operation supports searching for profiles with a minimum of 1 key-value(s)
-  pair and up to 5 key-value(s) pairs using either `AND` or `OR` logic.
+  pair and up to
+  5 key-value(s) pairs using either `AND` or `OR` logic.
   """
   def search_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/search"
@@ -1404,27 +1459,33 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified Amazon Connect
-  Customer Profiles resource.
+  Customer Profiles
+  resource.
 
   Tags can help you organize and categorize your resources. You can also use them
   to scope user permissions by granting a user permission to access or change only
-  resources with certain tag values. In Connect Customer Profiles, domains,
-  profile object types, and integrations can be tagged.
+  resources
+  with certain tag values. In Connect Customer Profiles, domains, profile object
+  types, and
+  integrations can be tagged.
 
   Tags don't have any semantic meaning to AWS and are interpreted strictly as
-  strings of characters.
+  strings of
+  characters.
 
   You can use the TagResource action with a resource that already has tags. If you
-  specify a new tag key, this tag is appended to the list of tags associated with
-  the resource. If you specify a tag key that is already associated with the
-  resource, the new tag value that you specify replaces the previous value for
-  that tag.
+  specify
+  a new tag key, this tag is appended to the list of tags associated with the
+  resource. If
+  you specify a tag key that is already associated with the resource, the new tag
+  value that
+  you specify replaces the previous value for that tag.
 
   You can associate as many as 50 tags with a resource.
   """
@@ -1444,7 +1505,7 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1452,8 +1513,9 @@ defmodule AWS.CustomerProfiles do
   Removes one or more tags from the specified Amazon Connect Customer Profiles
   resource.
 
-  In Connect Customer Profiles, domains, profile object types, and integrations
-  can be tagged.
+  In Connect
+  Customer Profiles, domains, profile object types, and integrations can be
+  tagged.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1476,16 +1538,17 @@ defmodule AWS.CustomerProfiles do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates an existing calculated attribute definition.
 
-  When updating the Conditions, note that increasing the date range of a
-  calculated attribute will not trigger inclusion of historical data greater than
-  the current date range.
+  When updating the Conditions, note that increasing
+  the date range of a calculated attribute will not trigger inclusion of
+  historical data greater than the
+  current date range.
   """
   def update_calculated_attribute_definition(
         %Client{} = client,
@@ -1502,23 +1565,26 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the properties of a domain, including creating or selecting a dead
-  letter queue or an encryption key.
+  letter queue
+  or an encryption key.
 
   After a domain is created, the name can’t be changed.
 
   Use this API or
-  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) to enable [identity
+  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) to
+  enable [identity
   resolution](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html):
   set `Matching` to true.
 
   To prevent cross-service impersonation when you call this API, see
   [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
-  for sample policies that you should apply.
+  for sample policies that you should
+  apply.
 
   To add or remove tags on an existing Domain, see
   [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
@@ -1530,17 +1596,20 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the properties of a profile.
 
-  The ProfileId is required for updating a customer profile.
+  The ProfileId is required for updating a customer
+  profile.
 
   When calling the UpdateProfile API, specifying an empty string value means that
-  any existing value will be removed. Not specifying a string value means that any
-  value already there will be kept.
+  any
+  existing value will be removed. Not specifying a string value means that any
+  value already
+  there will be kept.
   """
   def update_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
@@ -1549,6 +1618,6 @@ defmodule AWS.CustomerProfiles do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

@@ -4,14 +4,17 @@
 defmodule AWS.WorkSpacesWeb do
   @moduledoc """
   WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to
-  facilitate secure, web-based workloads.
+  facilitate
+  secure, web-based workloads.
 
-  WorkSpaces Web makes it easy for customers to safely provide their employees
-  with access to internal websites and SaaS web applications without the
+  WorkSpaces Web makes it easy for customers to safely provide
+  their employees with access to internal websites and SaaS web applications
+  without the
   administrative burden of appliances or specialized client software. WorkSpaces
-  Web provides simple policy tools tailored for user interactions, while
-  offloading common tasks like capacity management, scaling, and maintaining
-  browser images.
+  Web provides
+  simple policy tools tailored for user interactions, while offloading common
+  tasks like
+  capacity management, scaling, and maintaining browser images.
   """
 
   alias AWS.Client
@@ -19,7 +22,6 @@ defmodule AWS.WorkSpacesWeb do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-07-08",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -146,8 +148,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a browser settings resource that can be associated with a web portal.
 
-  Once associated with a web portal, browser settings control how the browser will
-  behave once a user starts a streaming session for the web portal.
+  Once
+  associated with a web portal, browser settings control how the browser will
+  behave once a
+  user starts a streaming session for the web portal.
   """
   def create_browser_settings(%Client{} = client, input, options \\ []) do
     url_path = "/browserSettings"
@@ -218,8 +222,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a network settings resource that can be associated with a web portal.
 
-  Once associated with a web portal, network settings define how streaming
-  instances will connect with your specified VPC.
+  Once
+  associated with a web portal, network settings define how streaming instances
+  will connect
+  with your specified VPC.
   """
   def create_network_settings(%Client{} = client, input, options \\ []) do
     url_path = "/networkSettings"
@@ -267,11 +273,14 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a trust store that can be associated with a web portal.
 
-  A trust store contains certificate authority (CA) certificates. Once associated
-  with a web portal, the browser in a streaming session will recognize
-  certificates that have been issued using any of the CAs in the trust store. If
-  your organization has internal websites that use certificates issued by private
-  CAs, you should add the private CA certificate to the trust store.
+  A trust store contains
+  certificate authority (CA) certificates. Once associated with a web portal, the
+  browser in
+  a streaming session will recognize certificates that have been issued using any
+  of the CAs
+  in the trust store. If your organization has internal websites that use
+  certificates issued
+  by private CAs, you should add the private CA certificate to the trust store.
   """
   def create_trust_store(%Client{} = client, input, options \\ []) do
     url_path = "/trustStores"
@@ -320,8 +329,10 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a user settings resource that can be associated with a web portal.
 
-  Once associated with a web portal, user settings control how users can transfer
-  data between a streaming session and the their local devices.
+  Once
+  associated with a web portal, user settings control how users can transfer data
+  between a
+  streaming session and the their local devices.
   """
   def create_user_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userSettings"

@@ -4,85 +4,114 @@
 defmodule AWS.SecurityHub do
   @moduledoc """
   Security Hub provides you with a comprehensive view of your security state in
-  Amazon Web Services and helps you assess your Amazon Web Services environment
-  against security industry standards and best practices.
+  Amazon Web Services and helps
+  you assess your Amazon Web Services environment against security industry
+  standards and best practices.
 
   Security Hub collects security data across Amazon Web Services accounts, Amazon
-  Web Services, and supported third-party products and helps you analyze your
-  security trends and identify the highest priority security issues.
+  Web Services, and
+  supported third-party products and helps you analyze your security trends and
+  identify the highest priority security
+  issues.
 
   To help you manage the security state of your organization, Security Hub
-  supports multiple security standards. These include the Amazon Web Services
-  Foundational Security Best Practices (FSBP) standard developed by Amazon Web
-  Services, and external compliance frameworks such as the Center for Internet
-  Security (CIS), the Payment Card Industry Data Security Standard (PCI DSS), and
-  the National Institute of Standards and Technology (NIST). Each standard
-  includes several security controls, each of which represents a security best
-  practice. Security Hub runs checks against security controls and generates
-  control findings to help you assess your compliance against security best
-  practices.
+  supports multiple security standards.
+  These include the Amazon Web Services Foundational Security Best Practices
+  (FSBP) standard developed by Amazon Web Services,
+  and external compliance frameworks such as the Center for Internet Security
+  (CIS), the Payment Card Industry Data
+  Security Standard (PCI DSS), and the National Institute of Standards and
+  Technology (NIST). Each standard includes
+  several security controls, each of which represents a security best practice.
+  Security Hub runs checks against
+  security controls and generates control findings to help you assess your
+  compliance against security best practices.
 
   In addition to generating control findings, Security Hub also receives findings
-  from other Amazon Web Services, such as Amazon GuardDuty and Amazon Inspector,
-  and supported third-party products. This gives you a single pane of glass into a
-  variety of security-related issues. You can also send Security Hub findings to
-  other Amazon Web Services and supported third-party products.
+  from other Amazon Web Services,
+  such as Amazon GuardDuty and Amazon Inspector, and
+  supported third-party products. This gives you a single pane of glass into a
+  variety of security-related issues. You
+  can also send Security Hub findings to other Amazon Web Services and supported
+  third-party products.
 
   Security Hub offers automation features that help you triage and remediate
-  security issues. For example, you can use automation rules to automatically
-  update critical findings when a security check fails. You can also leverage the
-  integration with Amazon EventBridge to trigger automatic responses to specific
-  findings.
+  security issues. For example,
+  you can use automation rules to automatically update critical findings when a
+  security check fails. You can also leverage the integration with
+  Amazon EventBridge to trigger automatic responses to specific findings.
 
-  This guide, the *Security Hub API Reference*, provides information about the
-  Security Hub API. This includes supported resources, HTTP methods, parameters,
+  This guide, the *Security Hub API Reference*, provides
+  information about the Security Hub API. This includes supported resources, HTTP
+  methods, parameters,
   and schemas. If you're new to Security Hub, you might find it helpful to also
-  review the [ *Security Hub User Guide*
+  review the [
+  *Security Hub User Guide*
   ](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
-  The user guide explains key concepts and provides procedures that demonstrate
-  how to use Security Hub features. It also provides information about topics such
-  as integrating Security Hub with other Amazon Web Services.
+  The
+  user guide explains key concepts and provides procedures
+  that demonstrate how to use Security Hub features. It also provides information
+  about topics such as
+  integrating Security Hub with other Amazon Web Services.
 
   In addition to interacting with Security Hub by making calls to the Security Hub
-  API, you can use a current version of an Amazon Web Services command line tool
-  or SDK. Amazon Web Services provides tools and SDKs that consist of libraries
-  and sample code for various languages and platforms, such as PowerShell, Java,
-  Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic
-  access to Security Hub and other Amazon Web Services . They also handle tasks
-  such as signing requests, managing errors, and retrying requests automatically.
-  For information about installing and using the Amazon Web Services tools and
-  SDKs, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/).
+  API, you can
+  use a current version of an Amazon Web Services command line tool or SDK. Amazon
+  Web Services provides tools
+  and SDKs that consist of libraries and sample code for various languages and
+  platforms, such as PowerShell,
+  Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient,
+  programmatic access to
+  Security Hub and other Amazon Web Services . They also handle tasks such as
+  signing requests,
+  managing errors, and retrying requests automatically. For information about
+  installing and using the Amazon Web Services tools
+  and SDKs, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/).
 
   With the exception of operations that are related to central configuration,
-  Security Hub API requests are executed only in the Amazon Web Services Region
-  that is currently active or in the specific Amazon Web Services Region that you
-  specify in your request. Any configuration or settings change that results from
-  the operation is applied only to that Region. To make the same change in other
-  Regions, call the same API operation in each Region in which you want to apply
-  the change. When you use central configuration, API requests for enabling
-  Security Hub, standards, and controls are executed in the home Region and all
-  linked Regions. For a list of central configuration operations, see the [Central configuration terms and
+  Security Hub API requests are executed only in
+  the Amazon Web Services Region that is currently active or in the specific
+  Amazon Web Services Region that you specify in your request. Any configuration
+  or settings change
+  that results from the operation is applied only to that Region. To make the same
+  change in
+  other Regions, call the same API operation in each Region in which you want to
+  apply the change. When you use central configuration,
+  API requests for enabling Security Hub, standards, and controls are executed in
+  the home Region and all linked Regions. For a list of
+  central configuration operations, see the [Central configuration terms and
   concepts](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts)
   section of the *Security Hub User Guide*.
 
   The following throttling limits apply to Security Hub API operations.
 
-    * `BatchEnableStandards` - `RateLimit` of 1 request per second.
-  `BurstLimit` of 1 request per second.
+    *
 
-    * `GetFindings` - `RateLimit` of 3 requests per second. `BurstLimit`
-  of 6 requests per second.
+  `BatchEnableStandards` - `RateLimit` of 1 request per
+  second. `BurstLimit` of 1 request per second.
 
-    * `BatchImportFindings` - `RateLimit` of 10 requests per second.
+    *
+
+  `GetFindings` - `RateLimit` of 3 requests per second.
+  `BurstLimit` of 6 requests per second.
+
+    *
+
+  `BatchImportFindings` - `RateLimit` of 10 requests per second.
   `BurstLimit` of 30 requests per second.
 
-    * `BatchUpdateFindings` - `RateLimit` of 10 requests per second.
+    *
+
+  `BatchUpdateFindings` - `RateLimit` of 10 requests per second.
   `BurstLimit` of 30 requests per second.
 
-    * `UpdateStandardsControl` - `RateLimit` of 1 request per second.
-  `BurstLimit` of 5 requests per second.
+    *
 
-    * All other operations - `RateLimit` of 10 requests per second.
+  `UpdateStandardsControl` - `RateLimit` of 1 request per
+  second. `BurstLimit` of 5 requests per second.
+
+    *
+  All other operations - `RateLimit` of 10 requests per second.
   `BurstLimit` of 30 requests per second.
   """
 
@@ -91,7 +120,6 @@ defmodule AWS.SecurityHub do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-10-26",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -107,13 +135,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator account that the invitation was sent from.
+  Hub administrator
+  account that the invitation was sent from.
 
   This operation is only used by member accounts that are not added through
   Organizations.
 
   When the member account accepts the invitation, permission is granted to the
-  administrator account to view findings generated in the member account.
+  administrator
+  account to view findings generated in the member account.
   """
   def accept_administrator_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/administrator"
@@ -131,7 +161,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -148,13 +178,15 @@ defmodule AWS.SecurityHub do
   begins to use `AcceptAdministratorInvitation`.
 
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator account that the invitation was sent from.
+  Hub administrator
+  account that the invitation was sent from.
 
   This operation is only used by member accounts that are not added through
   Organizations.
 
   When the member account accepts the invitation, permission is granted to the
-  administrator account to view findings generated in the member account.
+  administrator
+  account to view findings generated in the member account.
   """
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/master"
@@ -172,11 +204,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes one or more automation rules.
   """
   def batch_delete_automation_rules(%Client{} = client, input, options \\ []) do
@@ -195,15 +228,17 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Disables the standards specified by the provided `StandardsSubscriptionArns`.
+  Disables the standards specified by the provided
+  `StandardsSubscriptionArns`.
 
   For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User Guide*.
+  section of the *Security Hub User
+  Guide*.
   """
   def batch_disable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/deregister"
@@ -221,14 +256,16 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Enables the standards specified by the provided `StandardsArn`.
 
-  To obtain the ARN for a standard, use the `DescribeStandards` operation.
+  To obtain the
+  ARN for a standard, use the `DescribeStandards`
+  operation.
 
   For more information, see the [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
   section of the *Security Hub User Guide*.
@@ -249,13 +286,15 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Retrieves a list of details for automation rules based on rule Amazon Resource
-  Names (ARNs).
+  Names
+  (ARNs).
   """
   def batch_get_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/get"
@@ -273,17 +312,18 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Returns associations between an Security Hub configuration and a batch of target
   accounts, organizational units, or the root.
 
   Only the Security Hub delegated administrator can invoke this operation from the
-  home Region. A configuration can refer to a configuration policy or to a
-  self-managed configuration.
+  home Region. A configuration
+  can refer to a configuration policy or to a self-managed configuration.
   """
   def batch_get_configuration_policy_associations(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/batchget"
@@ -301,11 +341,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Provides details about a batch of security controls for the current Amazon Web
   Services account and Amazon Web Services Region.
   """
@@ -325,11 +366,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   For a batch of security controls and standards, identifies whether each control
   is currently enabled or disabled in a standard.
   """
@@ -349,7 +391,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -361,45 +403,70 @@ defmodule AWS.SecurityHub do
 
   `BatchImportFindings` must be called by one of the following:
 
-    * The Amazon Web Services account that is associated with a finding
-  if you are using the [default product ARN](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs)
+    *
+  The Amazon Web Services account that is associated with a finding if you are
+  using
+  the [default product ARN](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs)
   or are a partner sending findings from within a customer's Amazon Web Services
-  account. In these cases, the identifier of the account that you are calling
-  `BatchImportFindings` from needs to be the same as the `AwsAccountId` attribute
-  for the finding.
+  account.
+  In these cases, the identifier of the account that you are calling
+  `BatchImportFindings`
+  from needs to be the same as the `AwsAccountId` attribute for the finding.
 
-    * An Amazon Web Services account that Security Hub has allow-listed
-  for an official partner integration. In this case, you can call
-  `BatchImportFindings` from the allow-listed account and send findings from
-  different customer accounts in the same batch.
+    *
+  An Amazon Web Services account that Security Hub has allow-listed for an
+  official partner
+  integration. In this case, you can call `BatchImportFindings` from the
+  allow-listed
+  account and send findings from different customer accounts in the same batch.
 
   The maximum allowed size for a finding is 240 Kb. An error is returned for any
-  finding larger than 240 Kb.
+  finding
+  larger than 240 Kb.
 
-  After a finding is created, `BatchImportFindings` cannot be used to update the
-  following finding fields and objects, which Security Hub customers use to manage
-  their investigation workflow.
+  After a finding is created, `BatchImportFindings` cannot be used to update
+  the following finding fields and objects, which Security Hub customers use to
+  manage their
+  investigation workflow.
 
-    * `Note`
+    *
 
-    * `UserDefinedFields`
+  `Note`
 
-    * `VerificationState`
+    *
 
-    * `Workflow`
+  `UserDefinedFields`
+
+    *
+
+  `VerificationState`
+
+    *
+
+  `Workflow`
 
   Finding providers also should not use `BatchImportFindings` to update the
   following attributes.
 
-    * `Confidence`
+    *
 
-    * `Criticality`
+  `Confidence`
 
-    * `RelatedFindings`
+    *
 
-    * `Severity`
+  `Criticality`
 
-    * `Types`
+    *
+
+  `RelatedFindings`
+
+    *
+
+  `Severity`
+
+    *
+
+  `Types`
 
   Instead, finding providers use `FindingProviderFields` to provide values for
   these attributes.
@@ -420,11 +487,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
   and input parameters.
   """
@@ -444,7 +512,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -453,37 +521,60 @@ defmodule AWS.SecurityHub do
   into a finding.
 
   Requested by administrator accounts or member accounts. Administrator accounts
-  can update findings for their account and their member accounts. Member accounts
-  can update findings for their account.
+  can update findings for
+  their account and their member accounts. Member accounts can update findings for
+  their
+  account.
 
-  Updates from `BatchUpdateFindings` do not affect the value of `UpdatedAt` for a
-  finding.
+  Updates from `BatchUpdateFindings` do not affect the value of
+  `UpdatedAt` for a finding.
 
   Administrator and member accounts can use `BatchUpdateFindings` to update the
   following finding fields and objects.
 
-    * `Confidence`
+    *
 
-    * `Criticality`
+  `Confidence`
 
-    * `Note`
+    *
 
-    * `RelatedFindings`
+  `Criticality`
 
-    * `Severity`
+    *
 
-    * `Types`
+  `Note`
 
-    * `UserDefinedFields`
+    *
 
-    * `VerificationState`
+  `RelatedFindings`
 
-    * `Workflow`
+    *
+
+  `Severity`
+
+    *
+
+  `Types`
+
+    *
+
+  `UserDefinedFields`
+
+    *
+
+  `VerificationState`
+
+    *
+
+  `Workflow`
 
   You can configure IAM policies to restrict access to fields and field values.
-  For example, you might not want member accounts to be able to suppress findings
-  or change the finding severity. See [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
-  in the *Security Hub User Guide*.
+  For
+  example, you might not want member accounts to be able to suppress findings or
+  change the
+  finding severity. See [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
+  in the
+  *Security Hub User Guide*.
   """
   def batch_update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/batchupdate"
@@ -501,11 +592,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   For a batch of security controls and standards, this operation updates the
   enablement status of a control in a standard.
   """
@@ -525,7 +617,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -533,7 +625,8 @@ defmodule AWS.SecurityHub do
   Creates a custom action target in Security Hub.
 
   You can use custom actions on findings and insights in Security Hub to trigger
-  target actions in Amazon CloudWatch Events.
+  target actions
+  in Amazon CloudWatch Events.
   """
   def create_action_target(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets"
@@ -551,11 +644,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates an automation rule based on input parameters.
   """
   def create_automation_rule(%Client{} = client, input, options \\ []) do
@@ -574,15 +668,16 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates a configuration policy with the defined configuration.
 
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region.
+  Only the Security Hub delegated administrator
+  can invoke this operation from the home Region.
   """
   def create_configuration_policy(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicy/create"
@@ -600,7 +695,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -628,17 +723,18 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a custom insight in Security Hub.
 
-  An insight is a consolidation of findings that relate to a security issue that
-  requires attention or remediation.
+  An insight is a consolidation of findings that relate
+  to a security issue that requires attention or remediation.
 
-  To group the related findings in the insight, use the `GroupByAttribute`.
+  To group the related findings in the insight, use the
+  `GroupByAttribute`.
   """
   def create_insight(%Client{} = client, input, options \\ []) do
     url_path = "/insights"
@@ -656,16 +752,18 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a member association in Security Hub between the specified accounts and
-  the account used to make the request, which is the administrator account.
+  the account
+  used to make the request, which is the administrator account.
 
-  If you are integrated with Organizations, then the administrator account is
-  designated by the organization management account.
+  If you are integrated with
+  Organizations, then the administrator account is designated by the organization
+  management account.
 
   `CreateMembers` is always used to add accounts that are not organization
   members.
@@ -673,34 +771,41 @@ defmodule AWS.SecurityHub do
   For accounts that are managed using Organizations, `CreateMembers` is only used
   in the following cases:
 
-    * Security Hub is not configured to automatically add new
-  organization accounts.
+    *
+  Security Hub is not configured to automatically add new organization accounts.
 
-    * The account was disassociated or deleted in Security Hub.
+    *
+  The account was disassociated or deleted in Security Hub.
 
   This action can only be used by an account that has Security Hub enabled. To
-  enable Security Hub, you can use the `EnableSecurityHub` operation.
+  enable Security Hub, you
+  can use the `EnableSecurityHub` operation.
 
   For accounts that are not organization members, you create the account
-  association and then send an invitation to the member account. To send the
-  invitation, you use the `InviteMembers` operation. If the account owner accepts
+  association and
+  then send an invitation to the member account. To send the invitation, you use
+  the
+  `InviteMembers` operation. If the account owner accepts
   the invitation, the account becomes a member account in Security Hub.
 
   Accounts that are managed using Organizations do not receive an invitation. They
   automatically become a member account in Security Hub.
 
-    * If the organization account does not have Security Hub enabled,
-  then Security Hub and the default standards are automatically enabled. Note that
-  Security Hub cannot be enabled automatically for the organization management
-  account. The organization management account must enable Security Hub before the
+    *
+  If the organization account does not have Security Hub enabled, then Security
+  Hub and the default standards are automatically enabled. Note that Security Hub
+  cannot be enabled automatically for the organization management account. The
+  organization management account must enable Security Hub before the
   administrator account enables it as a member account.
 
-    * For organization accounts that already have Security Hub enabled,
-  Security Hub does not make any other changes to those accounts. It does not
-  change their enabled standards or controls.
+    *
+  For organization accounts that already have Security Hub enabled, Security Hub
+  does not make any other changes to those accounts. It does not change their
+  enabled standards or controls.
 
   A permissions policy is added that permits the administrator account to view the
-  findings generated in the member account.
+  findings
+  generated in the member account.
 
   To remove the association between the administrator and member accounts, use the
   `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
@@ -721,7 +826,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -732,7 +837,8 @@ defmodule AWS.SecurityHub do
   become a member.
 
   This operation is only called by member accounts that aren't part of an
-  organization. Organization accounts don't receive invitations.
+  organization.
+  Organization accounts don't receive invitations.
   """
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/decline"
@@ -750,7 +856,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -758,7 +864,8 @@ defmodule AWS.SecurityHub do
   Deletes a custom action target from Security Hub.
 
   Deleting a custom action target does not affect any findings or insights that
-  were already sent to Amazon CloudWatch Events using the custom action.
+  were
+  already sent to Amazon CloudWatch Events using the custom action.
   """
   def delete_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
@@ -776,17 +883,19 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes a configuration policy.
 
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region. For the deletion to succeed, you must first disassociate a
-  configuration policy from target accounts, organizational units, or the root by
-  invoking the `StartConfigurationPolicyDisassociation` operation.
+  Only the Security Hub delegated administrator can invoke this operation
+  from the home Region. For the deletion to succeed, you must first disassociate a
+  configuration policy from target accounts,
+  organizational units, or the root by invoking the
+  `StartConfigurationPolicyDisassociation` operation.
   """
   def delete_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
@@ -804,7 +913,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -835,7 +944,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -858,7 +967,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -870,8 +979,8 @@ defmodule AWS.SecurityHub do
   invitations sent to one or more member accounts.
 
   This operation is only used to delete invitations that are sent to member
-  accounts that aren't part of an organization. Organization accounts don't
-  receive invitations.
+  accounts that aren't part of an organization.
+  Organization accounts don't receive invitations.
   """
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/delete"
@@ -889,7 +998,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -897,8 +1006,8 @@ defmodule AWS.SecurityHub do
   Deletes the specified member accounts from Security Hub.
 
   You can invoke this API only to delete accounts that became members through
-  invitation. You can't invoke this API to delete accounts that belong to an
-  Organizations organization.
+  invitation. You can't invoke this
+  API to delete accounts that belong to an Organizations organization.
   """
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/delete"
@@ -916,7 +1025,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -939,13 +1048,13 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Returns details about the Hub resource in your account, including the `HubArn`
-  and the time when you enabled Security Hub.
+  Returns details about the Hub resource in your account, including the
+  `HubArn` and the time when you enabled Security Hub.
   """
   def describe_hub(%Client{} = client, hub_arn \\ nil, options \\ []) do
     url_path = "/accounts"
@@ -961,14 +1070,15 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the way your organization is configured in Security
   Hub.
 
-  Only the Security Hub administrator account can invoke this operation.
+  Only the
+  Security Hub administrator account can invoke this operation.
   """
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
@@ -977,17 +1087,19 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about product integrations in Security Hub.
 
   You can optionally provide an integration ARN. If you provide an integration
-  ARN, then the results only include that integration.
+  ARN, then
+  the results only include that integration.
 
   If you do not provide an integration ARN, then the results include all of the
-  available product integrations.
+  available
+  product integrations.
   """
   def describe_products(
         %Client{} = client,
@@ -1023,7 +1135,7 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1053,14 +1165,15 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of security standards controls.
 
   For each control, the results include information about whether it is currently
-  enabled, the severity, and a link to remediation information.
+  enabled,
+  the severity, and a link to remediation information.
   """
   def describe_standards_controls(
         %Client{} = client,
@@ -1091,14 +1204,14 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Disables the integration of the specified product with Security Hub.
 
-  After the integration is disabled, findings from that product are no longer sent
-  to Security Hub.
+  After the integration is
+  disabled, findings from that product are no longer sent to Security Hub.
   """
   def disable_import_findings_for_product(
         %Client{} = client,
@@ -1123,14 +1236,15 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Disables a Security Hub administrator account.
 
-  Can only be called by the organization management account.
+  Can only be called by the organization
+  management account.
   """
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/organization/admin/disable"
@@ -1148,7 +1262,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1156,19 +1270,23 @@ defmodule AWS.SecurityHub do
   Disables Security Hub in your account only in the current Amazon Web Services
   Region.
 
-  To disable Security Hub in all Regions, you must submit one request per Region
-  where you have enabled Security Hub.
+  To disable Security Hub in all
+  Regions, you must submit one request per Region where you have enabled Security
+  Hub.
 
   You can't disable Security Hub in an account that is currently the Security Hub
   administrator.
 
   When you disable Security Hub, your existing findings and insights and any
-  Security Hub configuration settings are deleted after 90 days and cannot be
-  recovered. Any standards that were enabled are disabled, and your administrator
-  and member account associations are removed.
+  Security Hub configuration
+  settings are deleted after 90 days and cannot be recovered. Any standards that
+  were enabled
+  are disabled, and your administrator and member account associations are
+  removed.
 
   If you want to save your existing findings, you must export them before you
-  disable Security Hub.
+  disable
+  Security Hub.
   """
   def disable_security_hub(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
@@ -1186,17 +1304,19 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Disassociates the current Security Hub member account from the associated
-  administrator account.
+  administrator
+  account.
 
   This operation is only used by accounts that are not part of an organization.
-  For organization accounts, only the administrator account can disassociate a
-  member account.
+  For
+  organization accounts, only the administrator account can
+  disassociate a member account.
   """
   def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
     url_path = "/administrator/disassociate"
@@ -1214,7 +1334,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1232,11 +1352,13 @@ defmodule AWS.SecurityHub do
   `DisassociateFromAdministratorAccount`.
 
   Disassociates the current Security Hub member account from the associated
-  administrator account.
+  administrator
+  account.
 
   This operation is only used by accounts that are not part of an organization.
-  For organization accounts, only the administrator account can disassociate a
-  member account.
+  For
+  organization accounts, only the administrator account can
+  disassociate a member account.
   """
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
@@ -1254,7 +1376,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1263,7 +1385,8 @@ defmodule AWS.SecurityHub do
   account.
 
   Can be used to disassociate both accounts that are managed using Organizations
-  and accounts that were invited manually.
+  and accounts that
+  were invited manually.
   """
   def disassociate_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/disassociate"
@@ -1281,17 +1404,19 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Enables the integration of a partner product with Security Hub.
 
-  Integrated products send findings to Security Hub.
+  Integrated products send
+  findings to Security Hub.
 
   When you enable a product integration, a permissions policy that grants
-  permission for the product to send findings to Security Hub is applied.
+  permission for
+  the product to send findings to Security Hub is applied.
   """
   def enable_import_findings_for_product(%Client{} = client, input, options \\ []) do
     url_path = "/productSubscriptions"
@@ -1309,14 +1434,15 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Designates the Security Hub administrator account for an organization.
 
-  Can only be called by the organization management account.
+  Can only be called by
+  the organization management account.
   """
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/organization/admin/enable"
@@ -1334,30 +1460,33 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Enables Security Hub for your account in the current Region or the Region you
-  specify in the request.
+  specify in the
+  request.
 
   When you enable Security Hub, you grant to Security Hub the permissions
-  necessary to gather findings from other services that are integrated with
-  Security Hub.
+  necessary to gather findings
+  from other services that are integrated with Security Hub.
 
   When you use the `EnableSecurityHub` operation to enable Security Hub, you also
   automatically enable the following standards:
 
-    * Center for Internet Security (CIS) Amazon Web Services Foundations
-  Benchmark v1.2.0
+    *
+  Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark
+  v1.2.0
 
-    * Amazon Web Services Foundational Security Best Practices
+    *
+  Amazon Web Services Foundational Security Best Practices
 
   Other standards are not automatically enabled.
 
-  To opt out of automatically enabled standards, set `EnableDefaultStandards` to
-  `false`.
+  To opt out of automatically enabled standards, set
+  `EnableDefaultStandards` to `false`.
 
   After you enable Security Hub, to enable a standard, use the
   `BatchEnableStandards` operation. To disable a standard, use the
@@ -1382,7 +1511,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1391,7 +1520,8 @@ defmodule AWS.SecurityHub do
   member account.
 
   Can be used by both member accounts that are managed using Organizations and
-  accounts that were invited manually.
+  accounts that were
+  invited manually.
   """
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
@@ -1400,14 +1530,15 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Provides information about a configuration policy.
 
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region.
+  Only the Security Hub delegated administrator can invoke
+  this operation from the home Region.
   """
   def get_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/get/#{AWS.Util.encode_uri(identifier)}"
@@ -1416,16 +1547,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Returns the association between a configuration and a target account,
   organizational unit, or the root.
 
-  The configuration can be a configuration policy or self-managed behavior. Only
-  the Security Hub delegated administrator can invoke this operation from the home
-  Region.
+  The
+  configuration can be a configuration policy or self-managed behavior. Only the
+  Security Hub delegated administrator can
+  invoke this operation from the home Region.
   """
   def get_configuration_policy_association(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/get"
@@ -1443,7 +1576,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1466,7 +1599,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1482,14 +1615,15 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Returns history for a Security Hub finding in the last 90 days.
 
-  The history includes changes made to any fields in the Amazon Web Services
-  Security Finding Format (ASFF).
+  The history includes changes made to any fields in
+  the Amazon Web Services Security Finding Format (ASFF).
   """
   def get_finding_history(%Client{} = client, input, options \\ []) do
     url_path = "/findingHistory/get"
@@ -1507,7 +1641,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1534,7 +1668,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1548,7 +1682,7 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1570,13 +1704,14 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns the count of all Security Hub membership invitations that were sent to
-  the current member account, not including the currently accepted invitation.
+  the
+  current member account, not including the currently accepted invitation.
   """
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
@@ -1585,7 +1720,7 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1604,7 +1739,8 @@ defmodule AWS.SecurityHub do
   member account.
 
   Can be used by both member accounts that are managed using Organizations and
-  accounts that were invited manually.
+  accounts that were
+  invited manually.
   """
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
@@ -1613,7 +1749,7 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1621,11 +1757,12 @@ defmodule AWS.SecurityHub do
   account IDs.
 
   An administrator account can be either the delegated Security Hub administrator
-  account for an organization or an administrator account that enabled Security
-  Hub manually.
+  account for an
+  organization or an administrator account that enabled Security Hub manually.
 
   The results include both member accounts that are managed using Organizations
-  and accounts that were invited manually.
+  and accounts that
+  were invited manually.
   """
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/get"
@@ -1643,11 +1780,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Retrieves the definition of a security control.
 
   The definition includes the control title, description, Region availability,
@@ -1667,22 +1805,25 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Invites other Amazon Web Services accounts to become member accounts for the
-  Security Hub administrator account that the invitation is sent from.
+  Security Hub administrator account that
+  the invitation is sent from.
 
   This operation is only used to invite accounts that do not belong to an
-  organization. Organization accounts do not receive invitations.
+  organization.
+  Organization accounts do not receive invitations.
 
   Before you can use this action to invite a member, you must first use the
   `CreateMembers` action to create the member account in Security Hub.
 
   When the account owner enables Security Hub and accepts the invitation to become
-  a member account, the administrator account can view the findings generated from
-  the member account.
+  a member
+  account, the administrator account can view the findings generated from the
+  member account.
   """
   def invite_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/invite"
@@ -1700,11 +1841,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   A list of automation rules and their metadata for the calling account.
   """
   def list_automation_rules(
@@ -1733,12 +1875,14 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists the configuration policies that the Security Hub delegated administrator
-  has created for your organization.
+  has created for your
+  organization.
 
   Only the delegated administrator can invoke this operation from the home Region.
   """
@@ -1768,15 +1912,17 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Provides information about the associations for your configuration policies and
   self-managed behavior.
 
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region.
+  Only the
+  Security Hub delegated administrator can invoke this operation from the home
+  Region.
   """
   def list_configuration_policy_associations(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/list"
@@ -1794,13 +1940,14 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Lists all findings-generating solutions (products) that you are subscribed to
-  receive findings from in Security Hub.
+  receive
+  findings from in Security Hub.
   """
   def list_enabled_products_for_import(
         %Client{} = client,
@@ -1828,7 +1975,7 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1863,16 +2010,16 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all Security Hub membership invitations that were sent to the current
   Amazon Web Services account.
 
-  This operation is only used by accounts that are managed by invitation. Accounts
-  that are managed using the integration with Organizations do not receive
-  invitations.
+  This operation is only used by accounts that are managed by invitation.
+  Accounts that are managed using the integration with Organizations do not
+  receive invitations.
   """
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -1895,15 +2042,17 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists details about all member accounts for the current Security Hub
-  administrator account.
+  administrator
+  account.
 
   The results include both member accounts that belong to an organization and
-  member accounts that were invited manually.
+  member
+  accounts that were invited manually.
   """
   def list_members(
         %Client{} = client,
@@ -1939,13 +2088,14 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Security Hub administrator accounts.
 
-  Can only be called by the organization management account.
+  Can only be called by the organization
+  management account.
   """
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -1973,10 +2123,11 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists all of the security controls that apply to a specified standard.
   """
   def list_security_control_definitions(
@@ -2013,10 +2164,11 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Specifies whether a control is currently enabled or disabled in each enabled
   standard in the calling account.
   """
@@ -2054,7 +2206,7 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2067,16 +2219,18 @@ defmodule AWS.SecurityHub do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Associates a target account, organizational unit, or the root with a specified
   configuration.
 
-  The target can be associated with a configuration policy or self-managed
-  behavior. Only the Security Hub delegated administrator can invoke this
-  operation from the home Region.
+  The target can be
+  associated with a configuration policy or self-managed behavior. Only the
+  Security Hub delegated administrator can
+  invoke this operation from the home Region.
   """
   def start_configuration_policy_association(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/associate"
@@ -2094,20 +2248,23 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Disassociates a target account, organizational unit, or the root from a
   specified configuration.
 
-  When you disassociate a configuration from its target, the target inherits the
-  configuration of the closest parent. If there’s no configuration to inherit, the
-  target retains its settings but becomes a self-managed account. A target can be
-  disassociated from a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can invoke this operation from the home
-  Region.
+  When you
+  disassociate a configuration from its target, the target inherits the
+  configuration of the closest parent. If there’s no
+  configuration to inherit, the target retains its settings but becomes a
+  self-managed account. A target can be disassociated from
+  a configuration policy or self-managed behavior. Only the Security Hub delegated
+  administrator can invoke this
+  operation from the home Region.
   """
   def start_configuration_policy_disassociation(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/disassociate"
@@ -2125,7 +2282,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2148,7 +2305,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2176,7 +2333,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2199,15 +2356,16 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Updates a configuration policy.
 
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region.
+  Only the Security Hub delegated
+  administrator can invoke this operation from the home Region.
   """
   def update_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
@@ -2225,7 +2383,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2254,17 +2412,20 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   `UpdateFindings` is deprecated.
 
-  Instead of `UpdateFindings`, use `BatchUpdateFindings`.
+  Instead of `UpdateFindings`, use
+  `BatchUpdateFindings`.
 
-  Updates the `Note` and `RecordState` of the Security Hub-aggregated findings
-  that the filter attributes specify. Any member account that can view the finding
+  Updates the `Note` and `RecordState` of the Security Hub-aggregated
+  findings that the filter attributes specify. Any member account that can view
+  the finding
   also sees the update to the finding.
   """
   def update_findings(%Client{} = client, input, options \\ []) do
@@ -2283,7 +2444,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2306,14 +2467,15 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the configuration of your organization in Security Hub.
 
-  Only the Security Hub administrator account can invoke this operation.
+  Only the
+  Security Hub administrator account can invoke this operation.
   """
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organization/configuration"
@@ -2331,11 +2493,12 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Updates the properties of a security control.
   """
   def update_security_control(%Client{} = client, input, options \\ []) do
@@ -2354,7 +2517,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2377,7 +2540,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2401,7 +2564,7 @@ defmodule AWS.SecurityHub do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

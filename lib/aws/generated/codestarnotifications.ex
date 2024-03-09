@@ -4,54 +4,81 @@
 defmodule AWS.Codestarnotifications do
   @moduledoc """
   This AWS CodeStar Notifications API Reference provides descriptions and usage
-  examples of the operations and data types for the AWS CodeStar Notifications
-  API.
+  examples of the
+  operations and data types for the AWS CodeStar Notifications API.
 
-  You can use the AWS CodeStar Notifications API to work with the following
-  objects:
+  You can use the AWS CodeStar Notifications API
+  to work with the following objects:
 
   Notification rules, by calling the following:
 
-    * `CreateNotificationRule`, which creates a notification rule for a
+    *
+
+  `CreateNotificationRule`, which creates a notification rule for a
   resource in your account.
 
-    * `DeleteNotificationRule`, which deletes a notification rule.
+    *
 
-    * `DescribeNotificationRule`, which provides information about a
+  `DeleteNotificationRule`, which deletes a notification rule.
+
+    *
+
+  `DescribeNotificationRule`, which provides information about a notification
+  rule.
+
+    *
+
+  `ListNotificationRules`, which lists the notification rules associated with
+  your account.
+
+    *
+
+  `UpdateNotificationRule`, which changes the name, events, or targets associated
+  with a
   notification rule.
 
-    * `ListNotificationRules`, which lists the notification rules
-  associated with your account.
+    *
 
-    * `UpdateNotificationRule`, which changes the name, events, or
-  targets associated with a notification rule.
+  `Subscribe`, which subscribes a target to a notification rule.
 
-    * `Subscribe`, which subscribes a target to a notification rule.
+    *
 
-    * `Unsubscribe`, which removes a target from a notification rule.
+  `Unsubscribe`, which removes a target from a notification rule.
 
   Targets, by calling the following:
 
-    * `DeleteTarget`, which removes a notification rule target from a
+    *
+
+  `DeleteTarget`, which removes a notification rule target from a
   notification rule.
 
-    * `ListTargets`, which lists the targets associated with a
+    *
+
+  `ListTargets`, which lists the targets associated with a
   notification rule.
 
   Events, by calling the following:
 
-    * `ListEventTypes`, which lists the event types you can include in a
-  notification rule.
+    *
+
+  `ListEventTypes`, which lists the event types you can include in
+  a notification rule.
 
   Tags, by calling the following:
 
-    * `ListTagsForResource`, which lists the tags already associated
+    *
+
+  `ListTagsForResource`, which lists the tags already associated
   with a notification rule in your account.
 
-    * `TagResource`, which associates a tag you provide with a
+    *
+
+  `TagResource`, which associates a tag you provide with a
   notification rule in your account.
 
-    * `UntagResource`, which removes a tag from a notification rule in
+    *
+
+  `UntagResource`, which removes a tag from a notification rule in
   your account.
 
   For information about how to use AWS CodeStar Notifications, see the [Amazon Web Services Developer Tools Console User
@@ -63,7 +90,6 @@ defmodule AWS.Codestarnotifications do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-10-15",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -80,9 +106,10 @@ defmodule AWS.Codestarnotifications do
   @doc """
   Creates a notification rule for a resource.
 
-  The rule specifies the events you want notifications about and the targets (such
-  as Chatbot topics or Chatbot clients configured for Slack) where you want to
-  receive them.
+  The rule specifies the events you want
+  notifications about and the targets (such as Chatbot topics or Chatbot clients
+  configured for Slack) where you want to receive
+  them.
   """
   def create_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/createNotificationRule"
@@ -100,7 +127,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -123,7 +150,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -146,7 +173,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -169,7 +196,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -193,7 +220,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -216,7 +243,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -239,7 +266,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -263,14 +290,16 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an association between a notification rule and an Chatbot topic or
-  Chatbot client so that the associated target can receive notifications when the
-  events described in the rule are triggered.
+  Chatbot client so that the
+  associated target can receive notifications when the events described in the
+  rule are
+  triggered.
   """
   def subscribe(%Client{} = client, input, options \\ []) do
     url_path = "/subscribe"
@@ -288,7 +317,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -311,14 +340,15 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes an association between a notification rule and an Chatbot topic so that
   subscribers to that topic stop receiving notifications when the events described
-  in the rule are triggered.
+  in the
+  rule are triggered.
   """
   def unsubscribe(%Client{} = client, input, options \\ []) do
     url_path = "/unsubscribe"
@@ -336,7 +366,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -365,15 +395,16 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates a notification rule for a resource.
 
-  You can change the events that trigger the notification rule, the status of the
-  rule, and the targets that receive the notifications.
+  You can change the events that trigger the
+  notification rule, the status of the rule, and the targets that receive the
+  notifications.
 
   To add or remove tags for a notification rule, you must use `TagResource` and
   `UntagResource`.
@@ -394,7 +425,7 @@ defmodule AWS.Codestarnotifications do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

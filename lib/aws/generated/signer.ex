@@ -4,26 +4,34 @@
 defmodule AWS.Signer do
   @moduledoc """
   AWS Signer is a fully managed code-signing service to help you ensure the trust
-  and integrity of your code.
+  and
+  integrity of your code.
 
   Signer supports the following applications:
 
   With code signing for AWS Lambda, you can sign [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/) deployment packages.
   Integrated support is provided for [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/gsg/), [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and
-  [AWS CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/). In order to sign code, you create a signing profile and then use Signer to sign
-  Lambda zip files in S3.
+  [AWS CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/). In order
+  to sign code, you create a signing profile and then use Signer to sign Lambda
+  zip
+  files in S3.
 
   With code signing for IoT, you can sign code for any IoT device that is
-  supported by AWS. IoT code signing is available for [Amazon
+  supported by AWS.
+  IoT code signing is available for [Amazon
   FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
   is integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
-  you import a third-party code-signing certificate using ACM, and use that to
-  sign updates in Amazon FreeRTOS and AWS IoT Device Management.
+  you import a third-party code-signing
+  certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS
+  IoT Device Management.
 
   With Signer and the Notation CLI from the [Notary Project](https://notaryproject.dev/), you can sign container images stored in a
-  container registry such as Amazon Elastic Container Registry (ECR). The
-  signatures are stored in the registry alongside the images, where they are
-  available for verifying image authenticity and integrity.
+  container registry such
+  as Amazon Elastic Container Registry (ECR). The signatures are stored in the
+  registry
+  alongside the images, where they are available for verifying image authenticity
+  and
+  integrity.
 
   For more information about Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
   """
@@ -33,7 +41,6 @@ defmodule AWS.Signer do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-08-25",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -66,15 +73,16 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Changes the state of an `ACTIVE` signing profile to `CANCELED`.
 
-  A canceled profile is still viewable with the `ListSigningProfiles` operation,
-  but it cannot perform new signing jobs, and is deleted two years after
+  A canceled profile is still viewable with the `ListSigningProfiles`
+  operation, but it cannot perform new signing jobs, and is deleted two years
+  after
   cancelation.
   """
   def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
@@ -93,15 +101,16 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns information about a specific code signing job.
 
-  You specify the job by using the `jobId` value that is returned by the
-  `StartSigningJob` operation.
+  You specify the job by using the
+  `jobId` value that is returned by the `StartSigningJob`
+  operation.
   """
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -110,12 +119,13 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the revocation status of one or more of the signing profile, signing
-  job, and signing certificate.
+  job,
+  and signing certificate.
   """
   def get_revocation_status(
         %Client{} = client,
@@ -167,7 +177,7 @@ defmodule AWS.Signer do
 
     meta = metadata() |> Map.put_new(:host_prefix, "verification.")
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -180,7 +190,7 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -200,7 +210,7 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -220,19 +230,20 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all your signing jobs.
 
-  You can use the `maxResults` parameter to limit the number of signing jobs that
-  are returned in the response. If additional jobs remain to be listed, AWS Signer
-  returns a `nextToken` value. Use this value in subsequent calls to
-  `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with new values that
-  Signer returns in the `nextToken` parameter until all of your signing jobs have
-  been returned.
+  You can use the `maxResults` parameter to limit the
+  number of signing jobs that are returned in the response. If additional jobs
+  remain to
+  be listed, AWS Signer returns a `nextToken` value. Use this value in
+  subsequent calls to `ListSigningJobs` to fetch the remaining values. You can
+  continue calling `ListSigningJobs` with your `maxResults`
+  parameter and with new values that Signer returns in the `nextToken`
+  parameter until all of your signing jobs have been returned.
   """
   def list_signing_jobs(
         %Client{} = client,
@@ -316,18 +327,20 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all signing platforms available in AWS Signer that match the request
   parameters.
 
-  If additional jobs remain to be listed, Signer returns a `nextToken` value. Use
-  this value in subsequent calls to `ListSigningJobs` to fetch the remaining
-  values. You can continue calling `ListSigningJobs` with your `maxResults`
-  parameter and with new values that Signer returns in the `nextToken` parameter
-  until all of your signing jobs have been returned.
+  If
+  additional jobs remain to be listed, Signer returns a `nextToken` value.
+  Use this value in subsequent calls to `ListSigningJobs` to fetch the
+  remaining values. You can continue calling `ListSigningJobs` with your
+  `maxResults` parameter and with new values that Signer returns in the
+  `nextToken` parameter until all of your signing jobs have been
+  returned.
   """
   def list_signing_platforms(
         %Client{} = client,
@@ -379,19 +392,20 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all available signing profiles in your AWS account.
 
-  Returns only profiles with an `ACTIVE` status unless the `includeCanceled`
-  request field is set to `true`. If additional jobs remain to be listed, AWS
-  Signer returns a `nextToken` value. Use this value in subsequent calls to
+  Returns only profiles with an
+  `ACTIVE` status unless the `includeCanceled` request field is
+  set to `true`. If additional jobs remain to be listed, AWS Signer returns a
+  `nextToken` value. Use this value in subsequent calls to
   `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with new values that
-  Signer returns in the `nextToken` parameter until all of your signing jobs have
-  been returned.
+  `ListSigningJobs` with your `maxResults` parameter and with
+  new values that Signer returns in the `nextToken` parameter until all of
+  your signing jobs have been returned.
   """
   def list_signing_profiles(
         %Client{} = client,
@@ -443,7 +457,7 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -456,14 +470,14 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Creates a signing profile.
 
-  A signing profile is a code-signing template that can be used to carry out a
-  pre-defined signing job.
+  A signing profile is a code-signing template that can be used to
+  carry out a pre-defined signing job.
   """
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
@@ -472,7 +486,7 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -507,14 +521,15 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Changes the state of a signing job to REVOKED.
 
-  This indicates that the signature is no longer valid.
+  This indicates that the signature is no
+  longer valid.
   """
   def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
@@ -523,14 +538,15 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Changes the state of a signing profile to REVOKED.
 
-  This indicates that signatures generated using the signing profile after an
-  effective start date are no longer valid.
+  This indicates that signatures
+  generated using the signing profile after an effective start date are no longer
+  valid.
   """
   def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
@@ -539,7 +555,7 @@ defmodule AWS.Signer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -561,33 +577,40 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Initiates a signing job to be performed on the code provided.
 
-  Signing jobs are viewable by the `ListSigningJobs` operation for two years after
-  they are performed. Note the following requirements:
+  Signing jobs are
+  viewable by the `ListSigningJobs` operation for two years after they are
+  performed. Note the following requirements:
 
-    * You must create an Amazon S3 source bucket. For more information,
-  see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in
-  the *Amazon S3 Getting Started Guide*.
+    *
+  You must create an Amazon S3 source bucket. For more information, see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
+  in the
+  *Amazon S3 Getting Started Guide*.
 
-    * Your S3 source bucket must be version enabled.
+    *
+  Your S3 source bucket must be version enabled.
 
-    * You must create an S3 destination bucket. AWS Signer uses your S3
-  destination bucket to write your signed code.
+    *
+  You must create an S3 destination bucket. AWS Signer uses your S3 destination
+  bucket to
+  write your signed code.
 
-    * You specify the name of the source and destination buckets when
-  calling the `StartSigningJob` operation.
+    *
+  You specify the name of the source and destination buckets when calling the
+  `StartSigningJob` operation.
 
-    * You must also specify a request token that identifies your request
-  to Signer.
+    *
+  You must also specify a request token that identifies your request to Signer.
 
   You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after
-  you call `StartSigningJob`.
+  you call
+  `StartSigningJob`.
 
   For a Java example that shows how to use this action, see
   [StartSigningJob](https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html).
@@ -608,17 +631,19 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds one or more tags to a signing profile.
 
-  Tags are labels that you can use to identify and organize your AWS resources.
-  Each tag consists of a key and an optional value. To specify the signing
-  profile, use its Amazon Resource Name (ARN). To specify the tag, use a key-value
-  pair.
+  Tags are labels that you can use to
+  identify and organize your AWS resources. Each tag consists of a key and an
+  optional
+  value. To specify the signing profile, use its Amazon Resource Name (ARN). To
+  specify
+  the tag, use a key-value pair.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -636,14 +661,15 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes one or more tags from a signing profile.
 
-  To remove the tags, specify a list of tag keys.
+  To remove the tags, specify a list of
+  tag keys.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -666,7 +692,7 @@ defmodule AWS.Signer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

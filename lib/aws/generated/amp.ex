@@ -4,14 +4,17 @@
 defmodule AWS.Amp do
   @moduledoc """
   Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible
-  monitoring service for container metrics that makes it easier to securely
-  monitor container environments at scale.
+  monitoring service for
+  container metrics that makes it easier to securely monitor container
+  environments at
+  scale.
 
   With Amazon Managed Service for Prometheus, you can use the same open-source
-  Prometheus data model and query language that you use today to monitor the
-  performance of your containerized workloads, and also enjoy improved
-  scalability, availability, and security without having to manage the underlying
-  infrastructure.
+  Prometheus data
+  model and query language that you use today to monitor the performance of your
+  containerized workloads, and also enjoy improved scalability, availability, and
+  security
+  without having to manage the underlying infrastructure.
 
   For more information about Amazon Managed Service for Prometheus, see the
   [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
@@ -19,12 +22,15 @@ defmodule AWS.Amp do
 
   Amazon Managed Service for Prometheus includes two APIs.
 
-    * Use the Amazon Web Services API described in this guide to manage
-  Amazon Managed Service for Prometheus resources, such as workspaces, rule
-  groups, and alert managers.
+    *
+  Use the Amazon Web Services API described in this guide to manage Amazon Managed
+  Service for Prometheus resources, such as workspaces, rule groups, and alert
+  managers.
 
-    * Use the [Prometheus-compatible API](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis)
-  to work within your Prometheus workspace.
+    *
+  Use the [Prometheus-compatible API](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis)
+  to work within your Prometheus
+  workspace.
   """
 
   alias AWS.Client
@@ -32,7 +38,6 @@ defmodule AWS.Amp do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-08-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -50,8 +55,9 @@ defmodule AWS.Amp do
   The `CreateAlertManagerDefinition` operation creates the alert manager
   definition in a workspace.
 
-  If a workspace already has an alert manager definition, don't use this operation
-  to update it. Instead, use `PutAlertManagerDefinition`.
+  If a workspace already has an alert manager definition, don't
+  use this operation to update it. Instead, use
+  `PutAlertManagerDefinition`.
   """
   def create_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
@@ -74,11 +80,11 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateLoggingConfiguration` operation creates a logging configuration for
-  the workspace.
+  The `CreateLoggingConfiguration` operation creates a logging configuration
+  for the workspace.
 
-  Use this operation to set the CloudWatch log group to which the logs will be
-  published to.
+  Use this operation to set the CloudWatch log group to which
+  the logs will be published to.
   """
   def create_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
@@ -101,14 +107,15 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace within
-  a workspace.
+  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace
+  within a workspace.
 
-  A rule groups namespace is associated with exactly one rules file. A workspace
-  can have multiple rule groups namespaces.
+  A rule groups namespace is associated with exactly one rules file. A
+  workspace can have multiple rule groups namespaces.
 
   Use this operation only to create new rule groups namespaces. To update an
-  existing rule groups namespace, use `PutRuleGroupsNamespace`.
+  existing
+  rule groups namespace, use `PutRuleGroupsNamespace`.
   """
   def create_rule_groups_namespace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
@@ -133,25 +140,31 @@ defmodule AWS.Amp do
   @doc """
   The `CreateScraper` operation creates a scraper to collect metrics.
 
-  A scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
+  A
+  scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
   cluster, and sends them to your Amazon Managed Service for Prometheus workspace.
-  You can configure the scraper to control what metrics are collected, and what
-  transformations are applied prior to sending them to your workspace.
+  You can configure the
+  scraper to control what metrics are collected, and what transformations are
+  applied
+  prior to sending them to your workspace.
 
   If needed, an IAM role will be created for you that gives Amazon Managed Service
   for Prometheus access to the metrics in your cluster. For more information, see
   [Using roles for scraping metrics from EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper)
-  in the *Amazon Managed Service for Prometheus User Guide*.
+  in the *Amazon Managed Service for Prometheus User
+  Guide*.
 
   You cannot update a scraper. If you want to change the configuration of the
-  scraper, create a new scraper and delete the old one.
+  scraper,
+  create a new scraper and delete the old one.
 
-  The `scrapeConfiguration` parameter contains the base64-encoded version of the
-  YAML configuration file.
+  The `scrapeConfiguration` parameter contains the base64-encoded version of
+  the YAML configuration file.
 
   For more information about collectors, including what metrics are collected, and
   how to configure the scraper, see [Amazon Web Services managed collectors](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html)
-  in the *Amazon Managed Service for Prometheus User Guide*.
+  in the *Amazon Managed Service for Prometheus User
+  Guide*.
   """
   def create_scraper(%Client{} = client, input, options \\ []) do
     url_path = "/scrapers"
@@ -176,9 +189,10 @@ defmodule AWS.Amp do
   @doc """
   Creates a Prometheus workspace.
 
-  A workspace is a logical space dedicated to the storage and querying of
-  Prometheus metrics. You can have one or more workspaces in each Region in your
-  account.
+  A workspace is a logical space dedicated to the
+  storage and querying of Prometheus metrics. You can have one or more workspaces
+  in each
+  Region in your account.
   """
   def create_workspace(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces"
@@ -377,7 +391,8 @@ defmodule AWS.Amp do
   @doc """
   Returns complete information about one rule groups namespace.
 
-  To retrieve a list of rule groups namespaces, use `ListRuleGroupsNamespaces`.
+  To retrieve a list of
+  rule groups namespaces, use `ListRuleGroupsNamespaces`.
   """
   def describe_rule_groups_namespace(%Client{} = client, name, workspace_id, options \\ []) do
     url_path =
@@ -392,7 +407,8 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `DescribeScraper` operation displays information about an existing scraper.
+  The `DescribeScraper` operation displays information about an existing
+  scraper.
   """
   def describe_scraper(%Client{} = client, scraper_id, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
@@ -418,8 +434,8 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `GetDefaultScraperConfiguration` operation returns the default scraper
-  configuration used when Amazon EKS creates a scraper for you.
+  The `GetDefaultScraperConfiguration` operation returns the default
+  scraper configuration used when Amazon EKS creates a scraper for you.
   """
   def get_default_scraper_configuration(%Client{} = client, options \\ []) do
     url_path = "/scraperconfiguration"
@@ -473,10 +489,11 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `ListScrapers` operation lists all of the scrapers in your account.
+  The `ListScrapers` operation lists all of the scrapers in
+  your account.
 
-  This includes scrapers being created or deleted. You can optionally filter the
-  returned list.
+  This includes scrapers being created or deleted. You can optionally
+  filter the returned list.
   """
   def list_scrapers(
         %Client{} = client,
@@ -505,7 +522,7 @@ defmodule AWS.Amp do
 
     query_params =
       if !is_nil(filters) do
-        [{"", filters} | query_params]
+        [{"filters", filters} | query_params]
       else
         query_params
       end
@@ -516,11 +533,11 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated with an
-  Amazon Managed Service for Prometheus resource.
+  The `ListTagsForResource` operation returns the tags that are associated
+  with an Amazon Managed Service for Prometheus resource.
 
-  Currently, the only resources that can be tagged are workspaces and rule groups
-  namespaces.
+  Currently, the only resources that can be
+  tagged are workspaces and rule groups namespaces.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -536,7 +553,8 @@ defmodule AWS.Amp do
   Lists all of the Amazon Managed Service for Prometheus workspaces in your
   account.
 
-  This includes workspaces being created or deleted.
+  This includes
+  workspaces being created or deleted.
   """
   def list_workspaces(
         %Client{} = client,
@@ -578,8 +596,9 @@ defmodule AWS.Amp do
   @doc """
   Updates an existing alert manager definition in a workspace.
 
-  If the workspace does not already have an alert manager definition, don't use
-  this operation to create it. Instead, use `CreateAlertManagerDefinition`.
+  If the workspace does not
+  already have an alert manager definition, don't use this operation to create it.
+  Instead, use `CreateAlertManagerDefinition`.
   """
   def put_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
@@ -594,11 +613,14 @@ defmodule AWS.Amp do
   @doc """
   Updates an existing rule groups namespace within a workspace.
 
-  A rule groups namespace is associated with exactly one rules file. A workspace
-  can have multiple rule groups namespaces.
+  A rule groups namespace
+  is associated with exactly one rules file. A workspace can have multiple rule
+  groups
+  namespaces.
 
   Use this operation only to update existing rule groups namespaces. To create a
-  new rule groups namespace, use `CreateRuleGroupsNamespace`.
+  new
+  rule groups namespace, use `CreateRuleGroupsNamespace`.
 
   You can't use this operation to add tags to an existing rule groups namespace.
   Instead, use `TagResource`.
@@ -617,14 +639,19 @@ defmodule AWS.Amp do
 
   @doc """
   The `TagResource` operation associates tags with an Amazon Managed Service for
-  Prometheus resource.
+  Prometheus
+  resource.
 
-  The only resources that can be tagged are workspaces and rule groups namespaces.
+  The only resources that can be tagged are workspaces and rule groups
+  namespaces.
 
   If you specify a new tag key for the resource, this tag is appended to the list
-  of tags associated with the resource. If you specify a tag key that is already
-  associated with the resource, the new tag value that you specify replaces the
-  previous value for that tag.
+  of
+  tags associated with the resource. If you specify a tag key that is already
+  associated
+  with the resource, the new tag value that you specify replaces the previous
+  value for
+  that tag.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -650,7 +677,8 @@ defmodule AWS.Amp do
   Removes the specified tags from an Amazon Managed Service for Prometheus
   resource.
 
-  The only resources that can be tagged are workspaces and rule groups namespaces.
+  The only resources
+  that can be tagged are workspaces and rule groups namespaces.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

@@ -4,8 +4,8 @@
 defmodule AWS.VoiceID do
   @moduledoc """
   Amazon Connect Voice ID provides real-time caller authentication and fraud risk
-  detection, which make voice interactions in contact centers more secure and
-  efficient.
+  detection, which
+  make voice interactions in contact centers more secure and efficient.
   """
 
   alias AWS.Client
@@ -13,7 +13,6 @@ defmodule AWS.VoiceID do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-09-27",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -38,7 +37,8 @@ defmodule AWS.VoiceID do
 
   @doc """
   Creates a domain that contains all Amazon Connect Voice ID data, such as
-  speakers, fraudsters, customer audio, and voiceprints.
+  speakers, fraudsters,
+  customer audio, and voiceprints.
 
   Every domain is created with a default watchlist that fraudsters can be a part
   of.
@@ -90,9 +90,11 @@ defmodule AWS.VoiceID do
   @doc """
   Deletes the specified watchlist from Voice ID.
 
-  This API throws an exception when there are fraudsters in the watchlist that you
-  are trying to delete. You must delete the fraudsters, and then delete the
-  watchlist. Every domain has a default watchlist which cannot be deleted.
+  This API throws an exception when
+  there are fraudsters in the watchlist that you are trying to delete. You must
+  delete the
+  fraudsters, and then delete the watchlist. Every domain has a default watchlist
+  which cannot be deleted.
   """
   def delete_watchlist(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -157,7 +159,8 @@ defmodule AWS.VoiceID do
   @doc """
   Disassociates the fraudsters from the watchlist specified.
 
-  Voice ID always expects a fraudster to be a part of at least one watchlist. If
+  Voice ID always expects a
+  fraudster to be a part of at least one watchlist. If
   you try to disassociate a fraudster from its only watchlist, a
   `ValidationException` is thrown.
   """
@@ -190,8 +193,8 @@ defmodule AWS.VoiceID do
   Lists all the fraudster registration jobs in the domain with the given
   `JobStatus`.
 
-  If `JobStatus` is not provided, this lists all fraudster registration jobs in
-  the given domain.
+  If `JobStatus` is not provided, this lists all
+  fraudster registration jobs in the given domain.
   """
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -212,8 +215,8 @@ defmodule AWS.VoiceID do
   Lists all the speaker enrollment jobs in the domain with the specified
   `JobStatus`.
 
-  If `JobStatus` is not provided, this lists all jobs with all possible speaker
-  enrollment job statuses.
+  If `JobStatus` is not provided, this lists all
+  jobs with all possible speaker enrollment job statuses.
   """
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -251,10 +254,13 @@ defmodule AWS.VoiceID do
   @doc """
   Opts out a speaker from Voice ID.
 
-  A speaker can be opted out regardless of whether or not they already exist in
-  Voice ID. If they don't yet exist, a new speaker is created in an opted out
-  state. If they already exist, their existing status is overridden and they are
-  opted out. Enrollment and evaluation authentication requests are rejected for
+  A speaker can be opted out regardless of whether or
+  not they already exist in Voice ID. If they don't yet exist, a new speaker is
+  created
+  in an opted out state. If they already exist, their existing status is
+  overridden and
+  they are opted out. Enrollment and evaluation authentication requests are
+  rejected for
   opted out speakers, and opted out speakers have no voice embeddings stored in
   Voice ID.
   """
@@ -303,9 +309,10 @@ defmodule AWS.VoiceID do
   @doc """
   Updates the specified domain.
 
-  This API has clobber behavior, and clears and replaces all attributes. If an
-  optional field, such as 'Description' is not provided, it is removed from the
-  domain.
+  This API has clobber behavior, and clears and replaces
+  all attributes. If an optional field, such as 'Description' is not provided, it
+  is
+  removed from the domain.
   """
   def update_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()

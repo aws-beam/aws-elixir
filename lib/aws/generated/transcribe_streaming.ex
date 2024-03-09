@@ -4,19 +4,29 @@
 defmodule AWS.TranscribeStreaming do
   @moduledoc """
   Amazon Transcribe streaming offers three main types of real-time transcription:
-  **Standard**, **Medical**, and **Call Analytics**.
+  **Standard**, **Medical**, and
+  **Call Analytics**.
 
-    * **Standard transcriptions** are the most common option. Refer to
+    *
+
+  **Standard transcriptions** are the most common option. Refer
+  to for details.
+
+    *
+
+  **Medical transcriptions** are tailored to medical professionals
+  and incorporate medical terms. A common use case for this service is
+  transcribing doctor-patient
+  dialogue in real time, so doctors can focus on their patient instead of taking
+  notes. Refer to
   for details.
 
-    * **Medical transcriptions** are tailored to medical professionals
-  and incorporate medical terms. A common use case for this service is
-  transcribing doctor-patient dialogue in real time, so doctors can focus on their
-  patient instead of taking notes. Refer to for details.
+    *
 
-    * **Call Analytics transcriptions** are designed for use with call
+  **Call Analytics transcriptions** are designed for use with call
   center audio on two different channels; if you're looking for insight into
-  customer service calls, use this option. Refer to for details.
+  customer service calls, use this
+  option. Refer to for details.
   """
 
   alias AWS.Client
@@ -24,7 +34,6 @@ defmodule AWS.TranscribeStreaming do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-10-26",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -43,16 +52,23 @@ defmodule AWS.TranscribeStreaming do
   Amazon Transcribe and the transcription results are streamed to your
   application.
 
-  Use this operation for [Call Analytics](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html)
+  Use this operation
+  for [Call Analytics](https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html)
   transcriptions.
 
   The following parameters are required:
 
-    * `language-code`
+    *
 
-    * `media-encoding`
+  `language-code`
 
-    * `sample-rate`
+    *
+
+  `media-encoding`
+
+    *
+
+  `sample-rate`
 
   For more information on streaming with Amazon Transcribe, see [Transcribing streaming
   audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
@@ -115,7 +131,7 @@ defmodule AWS.TranscribeStreaming do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -126,14 +142,21 @@ defmodule AWS.TranscribeStreaming do
 
   The following parameters are required:
 
-    * `language-code`
+    *
 
-    * `media-encoding`
+  `language-code`
 
-    * `sample-rate`
+    *
+
+  `media-encoding`
+
+    *
+
+  `sample-rate`
 
   For more information on streaming with Amazon Transcribe Medical, see
-  [Transcribing streaming audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
+  [Transcribing streaming
+  audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
   """
   def start_medical_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/medical-stream-transcription"
@@ -187,7 +210,7 @@ defmodule AWS.TranscribeStreaming do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -198,12 +221,17 @@ defmodule AWS.TranscribeStreaming do
 
   The following parameters are required:
 
-    * `language-code` or `identify-language` or
-  `identify-multiple-language`
+    *
 
-    * `media-encoding`
+  `language-code` or `identify-language` or `identify-multiple-language`
 
-    * `sample-rate`
+    *
+
+  `media-encoding`
+
+    *
+
+  `sample-rate`
 
   For more information on streaming with Amazon Transcribe, see [Transcribing streaming
   audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
@@ -284,7 +312,7 @@ defmodule AWS.TranscribeStreaming do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

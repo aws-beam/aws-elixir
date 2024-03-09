@@ -12,32 +12,54 @@ defmodule AWS.MWAA do
 
   ## Endpoints
 
-    * `api.airflow.{region}.amazonaws.com` - This endpoint is used for
-  environment management.
+    *
+
+  `api.airflow.{region}.amazonaws.com` - This endpoint is used for environment
+  management.
 
       *
-  [CreateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html)       *
+
+  [CreateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html) 
+
+      *
+
   [DeleteEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_DeleteEnvironment.html)
 
       *
-  [GetEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html)       *
+
+  [GetEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html) 
+
+      *
+
   [ListEnvironments](https://docs.aws.amazon.com/mwaa/latest/API/API_ListEnvironments.html)
 
       *
-  [ListTagsForResource](https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html)       *
+
+  [ListTagsForResource](https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html) 
+
+      *
+
   [TagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_TagResource.html)
 
       *
-  [UntagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html)       *
-  [UpdateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html)
 
-    * `env.airflow.{region}.amazonaws.com` - This endpoint is used to
-  operate the Airflow environment.
+  [UntagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html) 
 
       *
+
+  [UpdateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html)
+
+    *
+
+  `env.airflow.{region}.amazonaws.com` - This endpoint is used to operate the
+  Airflow environment.
+
+      *
+
   [CreateCliToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html )
 
       *
+
   [CreateWebLoginToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html)
 
   ## Regions
@@ -51,7 +73,6 @@ defmodule AWS.MWAA do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-07-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -208,6 +229,7 @@ defmodule AWS.MWAA do
   end
 
   @doc """
+
   **Internal only**.
 
   Publishes environment health metrics to Amazon CloudWatch.

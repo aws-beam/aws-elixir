@@ -4,32 +4,38 @@
 defmodule AWS.InternetMonitor do
   @moduledoc """
   Amazon CloudWatch Internet Monitor provides visibility into how internet issues
-  impact the performance and availability between your applications hosted on
-  Amazon Web Services and your end users.
+  impact the performance and availability
+  between your applications hosted on Amazon Web Services and your end users.
 
-  It can reduce the time it takes for you to diagnose internet issues from days to
-  minutes. Internet Monitor uses the connectivity data that Amazon Web Services
-  captures from its global networking footprint to calculate a baseline of
-  performance and availability for internet traffic. This is the same data that
-  Amazon Web Services uses to monitor internet uptime and availability. With those
-  measurements as a baseline, Internet Monitor raises awareness for you when there
-  are significant problems for your end users in the different geographic
-  locations where your application runs.
+  It can reduce the time it takes for you to diagnose
+  internet issues from days to minutes. Internet Monitor uses the connectivity
+  data that Amazon Web Services captures from its global
+  networking footprint to calculate a baseline of performance and availability for
+  internet traffic. This
+  is the same data that Amazon Web Services uses to monitor internet uptime and
+  availability. With those measurements
+  as a baseline, Internet Monitor raises awareness for you when there are
+  significant problems for your
+  end users in the different geographic locations where your application runs.
 
   Internet Monitor publishes internet measurements to CloudWatch Logs and
-  CloudWatch Metrics, to easily support using CloudWatch tools with health
-  information for geographies and networks specific to your application. Internet
-  Monitor sends health events to Amazon EventBridge so that you can set up
-  notifications. If an issue is caused by the Amazon Web Services network, you
-  also automatically receive an Amazon Web Services Health Dashboard notification
-  with the steps that Amazon Web Services is taking to mitigate the problem.
+  CloudWatch Metrics,
+  to easily support using CloudWatch tools with health information for geographies
+  and networks specific to your application.
+  Internet Monitor sends health events to Amazon EventBridge so that you can set
+  up notifications. If an issue is caused by the Amazon Web Services network,
+  you also automatically receive an Amazon Web Services Health Dashboard
+  notification with the steps that Amazon Web Services is taking to mitigate the
+  problem.
 
   To use Internet Monitor, you create a *monitor* and associate your application's
-  resources with it - VPCs, NLBs, CloudFront distributions, or WorkSpaces
-  directories - so Internet Monitor can determine where your application's
-  internet traffic is. Internet Monitor then provides internet measurements from
-  Amazon Web Services that are specific to the locations and ASNs (typically,
-  internet service providers or ISPs) that communicate with your application.
+  resources
+  with it - VPCs, NLBs, CloudFront distributions, or WorkSpaces directories - so
+  Internet Monitor can determine
+  where your application's internet traffic is. Internet Monitor then provides
+  internet measurements from Amazon Web Services that are specific to
+  the locations and ASNs (typically, internet service providers or ISPs) that
+  communicate with your application.
 
   For more information, see [Using Amazon CloudWatch Internet Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html)
   in the *Amazon CloudWatch User Guide*.
@@ -40,7 +46,6 @@ defmodule AWS.InternetMonitor do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-06-03",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -58,22 +63,25 @@ defmodule AWS.InternetMonitor do
   Creates a monitor in Amazon CloudWatch Internet Monitor.
 
   A monitor is built based on information from the application resources that you
-  add: VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, and
-  Amazon WorkSpaces directories. Internet Monitor then publishes internet
-  measurements from Amazon Web Services that are specific to the *city-networks*.
-  That is, the locations and ASNs (typically internet service providers or ISPs),
+  add: VPCs,
+  Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon
+  WorkSpaces directories. Internet Monitor then publishes internet measurements
+  from Amazon Web Services
+  that are specific to the *city-networks*. That is, the locations and ASNs
+  (typically internet service providers or ISPs),
   where clients access your application. For more information, see [Using Amazon CloudWatch Internet
   Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html)
-  in the *Amazon CloudWatch User Guide*.
+  in the *Amazon CloudWatch User
+  Guide*.
 
   When you create a monitor, you choose the percentage of traffic that you want to
-  monitor. You can also set a maximum limit for the number of city-networks where
-  client traffic is monitored, that caps the total traffic that Internet Monitor
-  monitors. A city-network maximum is the limit of city-networks, but you only pay
-  for the number of city-networks that are actually monitored. You can update your
-  monitor at any time to change the percentage of traffic to monitor or the
-  city-networks maximum. For more information, see [Choosing a city-network maximum
-  value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
+  monitor. You can also set a maximum limit for the
+  number of city-networks where client traffic is monitored, that caps the total
+  traffic that Internet Monitor monitors. A city-network
+  maximum is the limit of city-networks, but you only pay for the number of
+  city-networks that are actually monitored. You can update your monitor
+  at any time to change the percentage of traffic to monitor or the city-networks
+  maximum. For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
   in the *Amazon CloudWatch User Guide*.
   """
   def create_monitor(%Client{} = client, input, options \\ []) do
@@ -123,12 +131,12 @@ defmodule AWS.InternetMonitor do
   Gets information the Amazon CloudWatch Internet Monitor has created and stored
   about a health event for a specified monitor.
 
-  This information includes the impacted locations, and all the information
-  related to the event, by location.
+  This information includes the impacted locations,
+  and all the information related to the event, by location.
 
   The information returned includes the impact on performance, availability, and
-  round-trip time, information about the network providers (ASNs), the event type,
-  and so on.
+  round-trip time, information about the network providers (ASNs),
+  the event type, and so on.
 
   Information rolled up at the global traffic level is also returned, including
   the impact type and total traffic impact.
@@ -166,8 +174,8 @@ defmodule AWS.InternetMonitor do
   Return the data for a query with the Amazon CloudWatch Internet Monitor query
   interface.
 
-  Specify the query that you want to return results for by providing a `QueryId`
-  and a monitor name.
+  Specify the query that you want to return results for by providing
+  a `QueryId` and a monitor name.
 
   For more information about using the query interface, including examples, see
   [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
@@ -213,15 +221,25 @@ defmodule AWS.InternetMonitor do
   When you run a query, check the status to make sure that the query has
   `SUCCEEDED` before you review the results.
 
-    * `QUEUED`: The query is scheduled to run.
+    *
 
-    * `RUNNING`: The query is in progress but not complete.
+  `QUEUED`: The query is scheduled to run.
 
-    * `SUCCEEDED`: The query completed sucessfully.
+    *
 
-    * `FAILED`: The query failed due to an error.
+  `RUNNING`: The query is in progress but not complete.
 
-    * `CANCELED`: The query was canceled.
+    *
+
+  `SUCCEEDED`: The query completed sucessfully.
+
+    *
+
+  `FAILED`: The query failed due to an error.
+
+    *
+
+  `CANCELED`: The query was canceled.
   """
   def get_query_status(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
@@ -358,9 +376,11 @@ defmodule AWS.InternetMonitor do
   Start a query to return data for a specific query type for the Amazon CloudWatch
   Internet Monitor query interface.
 
-  Specify a time period for the data that you want returned by using `StartTime`
-  and `EndTime`. You filter the query results to return by providing parameters
-  that you specify with `FilterParameters`.
+  Specify a time period
+  for the data that you want returned by using `StartTime` and `EndTime`. You
+  filter the query
+  results to return by providing parameters that you specify with
+  `FilterParameters`.
 
   For more information about using the query interface, including examples, see
   [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
@@ -472,13 +492,13 @@ defmodule AWS.InternetMonitor do
   Updates a monitor.
 
   You can update a monitor to change the percentage of traffic to monitor or the
-  maximum number of city-networks (locations and ASNs), to add or remove
-  resources, or to change the status of the monitor. Note that you can't change
-  the name of a monitor.
+  maximum number of city-networks
+  (locations and ASNs), to add or remove resources, or to change the status of the
+  monitor. Note that you can't change the name of a monitor.
 
   The city-network maximum that you choose is the limit, but you only pay for the
-  number of city-networks that are actually monitored. For more information, see
-  [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
+  number of city-networks that are actually monitored.
+  For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
   in the *Amazon CloudWatch User Guide*.
   """
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do

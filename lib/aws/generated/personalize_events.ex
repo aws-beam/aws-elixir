@@ -4,10 +4,11 @@
 defmodule AWS.PersonalizeEvents do
   @moduledoc """
   Amazon Personalize can consume real-time user event data, such as *stream* or
-  *click* data, and use it for model training either alone or combined with
-  historical data.
+  *click* data, and use
+  it for model training either alone or combined with historical data.
 
-  For more information see [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
+  For more information see
+  [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
   """
 
   alias AWS.Client
@@ -15,7 +16,6 @@ defmodule AWS.PersonalizeEvents do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-03-22",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -56,14 +56,15 @@ defmodule AWS.PersonalizeEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds one or more actions to an Actions dataset.
 
-  For more information see [Importing actions individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html).
+  For more information see
+  [Importing actions individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html).
   """
   def put_actions(%Client{} = client, input, options \\ []) do
     url_path = "/actions"
@@ -81,14 +82,15 @@ defmodule AWS.PersonalizeEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Records item interaction event data.
 
-  For more information see [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
+  For more information see
+  [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
   """
   def put_events(%Client{} = client, input, options \\ []) do
     url_path = "/events"
@@ -106,14 +108,15 @@ defmodule AWS.PersonalizeEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds one or more items to an Items dataset.
 
-  For more information see [Importing items individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html).
+  For more information see
+  [Importing items individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html).
   """
   def put_items(%Client{} = client, input, options \\ []) do
     url_path = "/items"
@@ -131,14 +134,15 @@ defmodule AWS.PersonalizeEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds one or more users to a Users dataset.
 
-  For more information see [Importing users individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
+  For more information see
+  [Importing users individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
   """
   def put_users(%Client{} = client, input, options \\ []) do
     url_path = "/users"
@@ -156,7 +160,7 @@ defmodule AWS.PersonalizeEvents do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -6,13 +6,16 @@ defmodule AWS.MigrationHubStrategy do
   Migration Hub Strategy Recommendations
 
   This API reference provides descriptions, syntax, and other details about each
-  of the actions and data types for Migration Hub Strategy Recommendations
-  (Strategy Recommendations).
+  of the
+  actions and data types for Migration Hub Strategy Recommendations (Strategy
+  Recommendations).
 
-  The topic for each action shows the API request parameters and the response.
-  Alternatively, you can use one of the AWS SDKs to access an API that is tailored
-  to the programming language or platform that you're using. For more information,
-  see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
+  The topic for each action shows the API
+  request parameters and the response. Alternatively, you can use one of the AWS
+  SDKs to
+  access an API that is tailored to the programming language or platform that
+  you're using. For
+  more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
   """
 
   alias AWS.Client
@@ -20,7 +23,6 @@ defmodule AWS.MigrationHubStrategy do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-02-19",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -55,7 +57,8 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves a list of all the recommended strategies and tools for an application
-  component running on a server.
+  component
+  running on a server.
   """
   def get_application_component_strategies(
         %Client{} = client,
@@ -127,7 +130,8 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves overall summary including the number of servers to rehost and the
-  overall number of anti-patterns.
+  overall
+  number of anti-patterns.
   """
   def get_portfolio_summary(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-summary"

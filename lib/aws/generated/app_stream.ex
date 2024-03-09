@@ -21,9 +21,14 @@ defmodule AWS.AppStream do
 
   To learn more about AppStream 2.0, see the following resources:
 
-    * [Amazon AppStream 2.0 product page](http://aws.amazon.com/appstream2)
+    *
 
-    * [Amazon AppStream 2.0 documentation](http://aws.amazon.com/documentation/appstream2)
+  [Amazon AppStream 2.0 product page](http://aws.amazon.com/appstream2) 
+
+    *
+
+  [Amazon AppStream 2.0
+  documentation](http://aws.amazon.com/documentation/appstream2)
   """
 
   alias AWS.Client
@@ -31,7 +36,6 @@ defmodule AWS.AppStream do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2016-12-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -40,7 +44,7 @@ defmodule AWS.AppStream do
       protocol: "json",
       service_id: "AppStream",
       signature_version: "v4",
-      signing_name: "appstream",
+      signing_name: "appstream2",
       target_prefix: "PhotonAdminProxyService"
     }
   end
@@ -120,10 +124,14 @@ defmodule AWS.AppStream do
   Creates an app block.
 
   App blocks are an Amazon AppStream 2.0 resource that stores the details about
-  the virtual hard disk in an S3 bucket. It also stores the setup script with
-  details about how to mount the virtual hard disk. The virtual hard disk includes
-  the application binaries and other files necessary to launch your applications.
-  Multiple applications can be assigned to a single app block.
+  the
+  virtual hard disk in an S3 bucket. It also stores the setup script with details
+  about
+  how to mount the virtual hard disk. The virtual hard disk includes the
+  application
+  binaries and other files necessary to launch your applications. Multiple
+  applications
+  can be assigned to a single app block.
 
   This is only supported for Elastic fleets.
   """
@@ -155,11 +163,14 @@ defmodule AWS.AppStream do
   Creates an application.
 
   Applications are an Amazon AppStream 2.0 resource that stores the details about
-  how to launch applications on Elastic fleet streaming instances. An application
-  consists of the launch details, icon, and display name. Applications are
-  associated with an app block that contains the application binaries and other
-  files. The applications assigned to an Elastic fleet are the applications users
-  can launch.
+  how to
+  launch applications on Elastic fleet streaming instances. An application
+  consists of the
+  launch details, icon, and display name. Applications are associated with an app
+  block
+  that contains the application binaries and other files. The applications
+  assigned to an
+  Elastic fleet are the applications users can launch.
 
   This is only supported for Elastic fleets.
   """
@@ -184,12 +195,14 @@ defmodule AWS.AppStream do
   @doc """
   Creates a new entitlement.
 
-  Entitlements control access to specific applications within a stack, based on
-  user attributes. Entitlements apply to SAML 2.0 federated user identities.
-  Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
+  Entitlements control access to specific applications within
+  a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
+  identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled
+  to all
   applications in a stack. Entitlements don't apply to the desktop stream view
   application, or to applications managed by a dynamic app provider using the
-  Dynamic Application Framework.
+  Dynamic
+  Application Framework.
   """
   def create_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -260,8 +273,8 @@ defmodule AWS.AppStream do
   Creates a new image with the latest Windows operating system updates, driver
   updates, and AppStream 2.0 agent software.
 
-  For more information, see the "Update an Image by Using Managed AppStream 2.0
-  Image Updates" section in [Administer Your AppStream 2.0 Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html),
+  For more information, see the "Update an Image by Using
+  Managed AppStream 2.0 Image Updates" section in [Administer Your AppStream 2.0 Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html),
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def create_updated_image(%Client{} = client, input, options \\ []) do
@@ -353,8 +366,8 @@ defmodule AWS.AppStream do
   @doc """
   Deletes the specified image.
 
-  You cannot delete an image when it is in use. After you delete an image, you
-  cannot provision new capacity using the image.
+  You cannot delete an image when it is in use.
+  After you delete an image, you cannot provision new capacity using the image.
   """
   def delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -543,9 +556,10 @@ defmodule AWS.AppStream do
   Retrieves a list that describes the streaming sessions for a specified stack and
   fleet.
 
-  If a UserId is provided for the stack and fleet, only streaming sessions for
-  that user are described. If an authentication type is not provided, the default
-  is to authenticate users using a streaming URL.
+  If a UserId is provided for the stack and fleet,
+  only streaming sessions for that user are described. If an authentication type
+  is not provided,
+  the default is to authenticate users using a streaming URL.
   """
   def describe_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -579,10 +593,12 @@ defmodule AWS.AppStream do
 
   You must specify either or both of the following:
 
-    * The stack name
+    *
+  The stack name
 
-    * The user name (email address of the user associated with the
-  stack) and the authentication type for the user
+    *
+  The user name (email address of the user associated with the stack) and the
+  authentication type for the user
   """
   def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -712,10 +728,12 @@ defmodule AWS.AppStream do
   @doc """
   Starts an app block builder.
 
-  An app block builder can only be started when it's associated with an app block.
+  An app block builder can only be started when it's associated with an app
+  block.
 
   Starting an app block builder starts a new instance, which is equivalent to an
-  elastic fleet instance with application builder assistance functionality.
+  elastic
+  fleet instance with application builder assistance functionality.
   """
   def start_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -745,7 +763,8 @@ defmodule AWS.AppStream do
   Stops an app block builder.
 
   Stopping an app block builder terminates the instance, and the instance state is
-  not persisted.
+  not
+  persisted.
   """
   def stop_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -777,10 +796,11 @@ defmodule AWS.AppStream do
   You can tag AppStream 2.0 image builders, images, fleets, and stacks.
 
   Each tag consists of a key and an optional value. If a resource already has a
-  tag with the same key, this operation updates its value.
+  tag with the same key,
+  this operation updates its value.
 
-  To list the current tags for your resources, use `ListTagsForResource`. To
-  disassociate tags from your resources, use `UntagResource`.
+  To list the current tags for your resources, use `ListTagsForResource`.
+  To disassociate tags from your resources, use `UntagResource`.
 
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
@@ -809,10 +829,11 @@ defmodule AWS.AppStream do
   @doc """
   Updates an app block builder.
 
-  If the app block builder is in the `STARTING` or `STOPPING` state, you can't
-  update it. If the app block builder is in the `RUNNING` state, you can only
-  update the DisplayName and Description. If the app block builder is in the
-  `STOPPED` state, you can update any attribute except the Name.
+  If the app block builder is in the `STARTING` or `STOPPING`
+  state, you can't update it. If the app block builder is in the `RUNNING`
+  state, you can only update the DisplayName and Description. If the app block
+  builder is
+  in the `STOPPED` state, you can update any attribute except the Name.
   """
   def update_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -853,20 +874,25 @@ defmodule AWS.AppStream do
   @doc """
   Updates the specified fleet.
 
-  If the fleet is in the `STOPPED` state, you can update any attribute except the
-  fleet name.
+  If the fleet is in the `STOPPED` state, you can update any attribute except
+  the fleet name.
 
-  If the fleet is in the `RUNNING` state, you can update the following based on
-  the fleet type:
+  If the fleet is in the `RUNNING` state, you can update the following based
+  on the fleet type:
 
-    * Always-On and On-Demand fleet types
+    *
+  Always-On and On-Demand fleet types
 
-  You can update the `DisplayName`, `ComputeCapacity`, `ImageARN`, `ImageName`,
-  `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds` attributes.
+  You can update the `DisplayName`, `ComputeCapacity`,
+  `ImageARN`, `ImageName`,
+  `IdleDisconnectTimeoutInSeconds`, and
+  `DisconnectTimeoutInSeconds` attributes.
 
-    * Elastic fleet type
+    *
+  Elastic fleet type
 
-  You can update the `DisplayName`, `IdleDisconnectTimeoutInSeconds`,
+  You can update the `DisplayName`,
+  `IdleDisconnectTimeoutInSeconds`,
   `DisconnectTimeoutInSeconds`, `MaxConcurrentSessions`, `SessionScriptS3Location`
   and `UsbDeviceFilterStrings` attributes.
 

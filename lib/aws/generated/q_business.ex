@@ -3,45 +3,85 @@
 
 defmodule AWS.QBusiness do
   @moduledoc """
+
   Amazon Q is in preview release and is subject to change.
 
-  This is the *Amazon Q (for business use)* API Reference. Amazon Q is a fully
-  managed, generative-AI powered enterprise chat assistant that you can deploy
-  within your organization. Amazon Q enhances employee productivity by supporting
-  key tasks such as question-answering, knowledge discovery, writing email
+  This is the *Amazon Q (for business use)* API Reference.
+  Amazon Q is a fully managed, generative-AI powered enterprise chat assistant
+  that
+  you can deploy within your organization. Amazon Q enhances employee productivity
+  by
+  supporting key tasks such as question-answering, knowledge discovery, writing
+  email
   messages, summarizing text, drafting document outlines, and brainstorming ideas.
-  Users ask questions of Amazon Q and get answers that are presented in a
-  conversational manner. For an introduction to the service, see the [ *Amazon Q (for business use) Developer Guide*
+  Users
+  ask questions of Amazon Q and get answers that are presented in a conversational
+  manner. For an introduction to the service, see the [
+  *Amazon Q (for business use) Developer
+  Guide*
   ](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html).
 
   For an overview of the Amazon Q APIs, see [Overview of Amazon Q API operations](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview).
 
-  For information about the IAM access control permissions you need to use this
-  API, see [IAM roles for Amazon Q](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html) in
-  the *Amazon Q (for business use) Developer Guide*.
+  For information about the IAM access control permissions you need to
+  use this API, see [IAM roles for Amazon Q](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html) in
+  the
+  *Amazon Q (for business use) Developer Guide*.
 
   You can use the following AWS SDKs to access Amazon Q APIs:
 
-    * [AWS SDK for C++](https://docs.aws.amazon.com/sdk-for-cpp)     * [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go)
+    *
 
-    * [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java)     * [AWS SDK for
+  [AWS SDK for C++](https://docs.aws.amazon.com/sdk-for-cpp) 
+
+    *
+
+  [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go)
+
+    *
+
+  [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java) 
+
+    *
+
+  [AWS SDK for
   JavaScript](https://docs.aws.amazon.com/sdk-for-javascript)
 
-    * [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net)     * [AWS SDK for Python
+    *
+
+  [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net) 
+
+    *
+
+  [AWS SDK for Python
   (Boto3)](https://docs.aws.amazon.com/pythonsdk)
 
-    * [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby) 
+    *
+
+  [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby) 
 
   The following resources provide additional information about using the Amazon Q
   API:
 
-    * * [Setting up for Amazon
-  Q](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html) *
+    *
 
-    * * [Amazon Q CLI Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html)
+  *
+  [Setting up for
+  Amazon
+  Q](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html)
   *
 
-    * * [Amazon Web Services General Reference](https://docs.aws.amazon.com/general/latest/gr/amazonq.html) *
+    *
+
+  *
+  [Amazon Q CLI Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html)
+  *
+
+    *
+
+  *
+  [Amazon Web Services General Reference](https://docs.aws.amazon.com/general/latest/gr/amazonq.html)
+  *
   """
 
   alias AWS.Client
@@ -49,7 +89,6 @@ defmodule AWS.QBusiness do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2023-11-27",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -64,8 +103,8 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Asynchronously deletes one or more documents added using the `BatchPutDocument`
-  API from an Amazon Q index.
+  Asynchronously deletes one or more documents added using the
+  `BatchPutDocument` API from an Amazon Q index.
 
   You can see the progress of the deletion, and any error messages related to the
   process, by using CloudWatch.
@@ -97,13 +136,16 @@ defmodule AWS.QBusiness do
 
   You use this API to:
 
-    * ingest your structured and unstructured documents and documents
-  stored in an Amazon S3 bucket into an Amazon Q index.
+    *
+  ingest your structured and unstructured documents and documents stored in an
+  Amazon S3 bucket into an Amazon Q index.
 
-    * add custom attributes to documents in an Amazon Q index.
+    *
+  add custom attributes to documents in an Amazon Q index.
 
-    * attach an access control list to the documents added to an Amazon
-  Q index.
+    *
+  attach an access control list to the documents added to an Amazon Q
+  index.
 
   You can see the progress of the deletion, and any error messages related to the
   process, by using CloudWatch.
@@ -183,16 +225,45 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Creates a data source connector for an Amazon Q application.
+
+  `CreateDataSource` is a synchronous operation. The operation returns 200 if
+  the data source was successfully created. Otherwise, an exception is raised.
+  """
+  def create_data_source(%Client{} = client, application_id, index_id, input, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Amazon Q index.
 
-  To determine if index creation has completed, check the `Status` field returned
-  from a call to `DescribeIndex`. The `Status` field is set to `ACTIVE` when the
-  index is ready to use.
+  To determine if index creation has completed, check the `Status` field
+  returned from a call to `DescribeIndex`. The `Status` field is set
+  to `ACTIVE` when the index is ready to use.
 
   Once the index is active, you can index your documents using the [
   `BatchPutDocument`
   ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html)
-  API or the [ `CreateDataSource`
+  API or the [
+  `CreateDataSource`
   ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html)
   API.
   """
@@ -264,7 +335,8 @@ defmodule AWS.QBusiness do
 
   @doc """
   Creates a universally unique identifier (UUID) mapped to a list of local user
-  ids within an application.
+  ids
+  within an application.
   """
   def create_user(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/users"
@@ -394,8 +466,9 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q data source connector.
 
-  While the data source is being deleted, the `Status` field returned by a call to
-  the `DescribeDataSource` API is set to `DELETING`.
+  While the data source is being
+  deleted, the `Status` field returned by a call to the
+  `DescribeDataSource` API is set to `DELETING`.
   """
   def delete_data_source(
         %Client{} = client,
@@ -430,14 +503,19 @@ defmodule AWS.QBusiness do
   Deletes a group so that all users and sub groups that belong to the group can no
   longer access documents only available to that group.
 
-  For example, after deleting the group "Summer Interns", all interns who belonged
-  to that group no longer see intern-only documents in their chat results.
+  For example, after deleting the
+  group "Summer Interns", all interns who belonged to that group no longer see
+  intern-only
+  documents in their chat results.
 
   If you want to delete, update, or replace users or sub groups of a group, you
-  need to use the `PutGroup` operation. For example, if a user in the group
+  need to
+  use the `PutGroup` operation. For example, if a user in the group
   "Engineering" leaves the engineering team and another user takes their place,
-  you provide an updated list of users or sub groups that belong to the
-  "Engineering" group when calling `PutGroup`.
+  you
+  provide an updated list of users or sub groups that belong to the "Engineering"
+  group
+  when calling `PutGroup`.
   """
   def delete_group(%Client{} = client, application_id, group_name, index_id, input, options \\ []) do
     url_path =
@@ -719,7 +797,8 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Gets information about an existing retriever used by an Amazon Q application.
+  Gets information about an existing retriever used by an Amazon Q
+  application.
   """
   def get_retriever(%Client{} = client, application_id, retriever_id, options \\ []) do
     url_path =
@@ -735,7 +814,8 @@ defmodule AWS.QBusiness do
 
   @doc """
   Describes the universally unique identifier (UUID) associated with a local user
-  in a data source.
+  in a
+  data source.
   """
   def get_user(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
@@ -1171,7 +1251,8 @@ defmodule AWS.QBusiness do
   @doc """
   Gets a list of tags associated with a specified resource.
 
-  Amazon Q applications and data sources can have tags associated with them.
+  Amazon Q applications
+  and data sources can have tags associated with them.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1255,14 +1336,18 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Create, or updates, a mapping of users—who have access to a document—to groups.
+  Create, or updates, a mapping of users—who have access to a document—to
+  groups.
 
   You can also map sub groups to groups. For example, the group "Company
-  Intellectual Property Teams" includes sub groups "Research" and "Engineering".
-  These sub groups include their own list of users or people who work in these
-  teams. Only users who work in research and engineering, and therefore belong in
-  the intellectual property group, can see top-secret company documents in their
-  Amazon Q chat results.
+  Intellectual
+  Property Teams" includes sub groups "Research" and "Engineering". These sub
+  groups
+  include their own list of users or people who work in these teams. Only users
+  who work
+  in research and engineering, and therefore belong in the intellectual property
+  group,
+  can see top-secret company documents in their Amazon Q chat results.
   """
   def put_group(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -1279,8 +1364,8 @@ defmodule AWS.QBusiness do
   @doc """
   Starts a data source connector synchronization job.
 
-  If a synchronization job is already in progress, Amazon Q returns a
-  `ConflictException`.
+  If a synchronization job is
+  already in progress, Amazon Q returns a `ConflictException`.
   """
   def start_data_source_sync_job(
         %Client{} = client,
@@ -1312,7 +1397,8 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Stops an Amazon Q data source connector synchronization job already in progress.
+  Stops an Amazon Q data source connector synchronization job already in
+  progress.
   """
   def stop_data_source_sync_job(
         %Client{} = client,
@@ -1347,7 +1433,8 @@ defmodule AWS.QBusiness do
   Adds the specified tag to the specified Amazon Q application or data source
   resource.
 
-  If the tag already exists, the existing value is replaced with the new value.
+  If the tag already exists, the existing value is replaced with the new
+  value.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1411,7 +1498,8 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Updates an set of chat controls configured for an existing Amazon Q application.
+  Updates an set of chat controls configured for an existing Amazon Q
+  application.
   """
   def update_chat_controls_configuration(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"

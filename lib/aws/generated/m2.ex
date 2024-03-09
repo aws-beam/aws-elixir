@@ -4,13 +4,16 @@
 defmodule AWS.M2 do
   @moduledoc """
   Amazon Web Services Mainframe Modernization provides tools and resources to help
-  you plan and implement migration and modernization from mainframes to Amazon Web
-  Services managed runtime environments.
+  you plan and implement migration and
+  modernization from mainframes to Amazon Web Services managed runtime
+  environments.
 
-  It provides tools for analyzing existing mainframe applications, developing or
-  updating mainframe applications using COBOL or PL/I, and implementing an
-  automated pipeline for continuous integration and continuous delivery (CI/CD) of
-  the applications.
+  It provides tools for
+  analyzing existing mainframe applications, developing or updating mainframe
+  applications
+  using COBOL or PL/I, and implementing an automated pipeline for continuous
+  integration and
+  continuous delivery (CI/CD) of the applications.
   """
 
   alias AWS.Client
@@ -18,7 +21,6 @@ defmodule AWS.M2 do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-04-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -66,7 +68,8 @@ defmodule AWS.M2 do
   @doc """
   Creates a new application with given parameters.
 
-  Requires an existing runtime environment and application definition file.
+  Requires an existing runtime
+  environment and application definition file.
   """
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -185,11 +188,13 @@ defmodule AWS.M2 do
 
   @doc """
   Deletes a specific application from the specific runtime environment where it
-  was previously deployed.
+  was
+  previously deployed.
 
   You cannot delete a runtime environment using DeleteEnvironment if any
   application has ever been deployed to it. This API removes the association of
-  the application with the runtime environment so you can delete the environment
+  the
+  application with the runtime environment so you can delete the environment
   smoothly.
   """
   def delete_application_from_environment(
@@ -223,8 +228,10 @@ defmodule AWS.M2 do
   @doc """
   Deletes a specific runtime environment.
 
-  The environment cannot contain deployed applications. If it does, you must
-  delete those applications before you delete the environment.
+  The environment cannot contain deployed
+  applications. If it does, you must delete those applications before you delete
+  the
+  environment.
   """
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -402,8 +409,10 @@ defmodule AWS.M2 do
   @doc """
   Lists the applications associated with a specific Amazon Web Services account.
 
-  You can provide the unique identifier of a specific runtime environment in a
-  query parameter to see all applications associated with that environment.
+  You can provide the
+  unique identifier of a specific runtime environment in a query parameter to see
+  all
+  applications associated with that environment.
   """
   def list_applications(
         %Client{} = client,
@@ -452,9 +461,11 @@ defmodule AWS.M2 do
 
   @doc """
   Lists all the available batch job definitions based on the batch job resources
-  uploaded during the application creation.
+  uploaded
+  during the application creation.
 
-  You can use the batch job definitions in the list to start a batch job.
+  You can use the batch job definitions in the list to start
+  a batch job.
   """
   def list_batch_job_definitions(
         %Client{} = client,
@@ -604,10 +615,11 @@ defmodule AWS.M2 do
   @doc """
   Lists the data sets imported for a specific application.
 
-  In Amazon Web Services Mainframe Modernization, data sets are associated with
-  applications deployed on runtime environments. This is known as importing data
-  sets. Currently, Amazon Web Services Mainframe Modernization can import data
-  sets into catalogs using
+  In Amazon Web Services Mainframe Modernization, data sets are
+  associated with applications deployed on runtime environments. This is known as
+  importing
+  data sets. Currently, Amazon Web Services Mainframe Modernization can import
+  data sets into catalogs using
   [CreateDataSetImportTask](https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
   """
   def list_data_sets(
@@ -659,9 +671,10 @@ defmodule AWS.M2 do
   @doc """
   Returns a list of all deployments of a specific application.
 
-  A deployment is a combination of a specific application and a specific version
-  of that application. Each deployment is mapped to a particular application
-  version.
+  A deployment is a
+  combination of a specific application and a specific version of that
+  application. Each
+  deployment is mapped to a particular application version.
   """
   def list_deployments(
         %Client{} = client,

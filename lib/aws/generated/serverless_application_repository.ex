@@ -52,7 +52,6 @@ defmodule AWS.ServerlessApplicationRepository do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-09-08",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

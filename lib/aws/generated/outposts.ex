@@ -4,13 +4,16 @@
 defmodule AWS.Outposts do
   @moduledoc """
   Amazon Web Services Outposts is a fully managed service that extends Amazon Web
-  Services infrastructure, APIs, and tools to customer premises.
+  Services infrastructure, APIs, and tools to
+  customer premises.
 
   By providing local access to Amazon Web Services managed infrastructure, Amazon
-  Web Services Outposts enables customers to build and run applications on
-  premises using the same programming interfaces as in Amazon Web Services
-  Regions, while using local compute and storage resources for lower latency and
-  local data processing needs.
+  Web Services Outposts enables
+  customers to build and run applications on premises using the same programming
+  interfaces as
+  in Amazon Web Services Regions, while using local compute and storage resources
+  for lower latency and local
+  data processing needs.
   """
 
   alias AWS.Client
@@ -18,7 +21,6 @@ defmodule AWS.Outposts do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-12-03",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -51,7 +53,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -74,7 +76,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -99,7 +101,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -122,7 +124,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -145,7 +147,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -168,7 +170,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -182,18 +184,24 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
+
   Amazon Web Services uses this action to install Outpost servers.
 
   Gets information about the specified connection.
 
   Use CloudTrail to monitor this action or Amazon Web Services managed policy for
-  Amazon Web Services Outposts to secure it. For more information, see [ Amazon Web Services managed policies for Amazon Web Services
+  Amazon Web Services Outposts to secure it. For
+  more information, see [
+  Amazon Web Services managed policies for Amazon Web Services
   Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
-  and [ Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
+  and [
+  Logging Amazon Web Services Outposts API calls with Amazon Web Services
+  CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
   in the *Amazon Web Services Outposts User Guide*.
   """
   def get_connection(%Client{} = client, connection_id, options \\ []) do
@@ -203,7 +211,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -216,7 +224,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -229,7 +237,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -262,7 +270,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -275,7 +283,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -295,16 +303,17 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the hardware assets for the specified Outpost.
 
   Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match all of the specified filters. For
-  a filter where you can specify multiple values, the results include items that
-  match any of the values that you specify for the filter.
+  results include only the resources that match
+  all of the specified filters. For a filter where you can specify multiple
+  values, the results include
+  items that match any of the values that you specify for the filter.
   """
   def list_assets(
         %Client{} = client,
@@ -349,16 +358,17 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the items in the catalog.
 
   Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match all of the specified filters. For
-  a filter where you can specify multiple values, the results include items that
-  match any of the values that you specify for the filter.
+  results include only the resources that match
+  all of the specified filters. For a filter where you can specify multiple
+  values, the results include
+  items that match any of the values that you specify for the filter.
   """
   def list_catalog_items(
         %Client{} = client,
@@ -410,7 +420,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -450,16 +460,17 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Outposts for your Amazon Web Services account.
 
   Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match all of the specified filters. For
-  a filter where you can specify multiple values, the results include items that
-  match any of the values that you specify for the filter.
+  results include only the resources that match
+  all of the specified filters. For a filter where you can specify multiple
+  values, the results include
+  items that match any of the values that you specify for the filter.
   """
   def list_outposts(
         %Client{} = client,
@@ -511,18 +522,20 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the Outpost sites for your Amazon Web Services account.
 
-  Use filters to return specific results.
+  Use filters to return specific
+  results.
 
   Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match all of the specified filters. For
-  a filter where you can specify multiple values, the results include items that
-  match any of the values that you specify for the filter.
+  results include only the resources that match
+  all of the specified filters. For a filter where you can specify multiple
+  values, the results include
+  items that match any of the values that you specify for the filter.
   """
   def list_sites(
         %Client{} = client,
@@ -580,7 +593,7 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -593,18 +606,24 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
+
   Amazon Web Services uses this action to install Outpost servers.
 
   Starts the connection required for Outpost server installation.
 
   Use CloudTrail to monitor this action or Amazon Web Services managed policy for
-  Amazon Web Services Outposts to secure it. For more information, see [ Amazon Web Services managed policies for Amazon Web Services
+  Amazon Web Services Outposts to secure it. For
+  more information, see [
+  Amazon Web Services managed policies for Amazon Web Services
   Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
-  and [ Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
+  and [
+  Logging Amazon Web Services Outposts API calls with Amazon Web Services
+  CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
   in the *Amazon Web Services Outposts User Guide*.
   """
   def start_connection(%Client{} = client, input, options \\ []) do
@@ -623,7 +642,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -646,7 +665,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -674,7 +693,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -697,7 +716,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -720,7 +739,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -728,10 +747,12 @@ defmodule AWS.Outposts do
   Updates the address of the specified site.
 
   You can't update a site address if there is an order in progress. You must wait
-  for the order to complete or cancel the order.
+  for the
+  order to complete or cancel the order.
 
   You can update the operating address before you place an order at the site, or
-  after all Outposts that belong to the site have been deactivated.
+  after all
+  Outposts that belong to the site have been deactivated.
   """
   def update_site_address(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
@@ -740,18 +761,19 @@ defmodule AWS.Outposts do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Update the physical and logistical details for a rack at a site.
 
-  For more information about hardware requirements for racks, see [Network readiness
+  For more information
+  about hardware requirements for racks, see [Network readiness
   checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist)
   in the Amazon Web Services Outposts User Guide.
 
-  To update a rack at a site with an order of `IN_PROGRESS`, you must wait for the
-  order to complete or cancel the order.
+  To update a rack at a site with an order of `IN_PROGRESS`, you must wait for
+  the order to complete or cancel the order.
   """
   def update_site_rack_physical_properties(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/rackPhysicalProperties"
@@ -769,7 +791,7 @@ defmodule AWS.Outposts do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -4,7 +4,8 @@
 defmodule AWS.Identitystore do
   @moduledoc """
   The Identity Store service used by IAM Identity Center provides a single place
-  to retrieve all of your identities (users and groups).
+  to retrieve all of
+  your identities (users and groups).
 
   For more information, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
 
@@ -19,7 +20,6 @@ defmodule AWS.Identitystore do
 
   def metadata do
     %{
-      abbreviation: "IdentityStore",
       api_version: "2020-06-15",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -91,11 +91,14 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Retrieves the group metadata and attributes from `GroupId` in an identity store.
+  Retrieves the group metadata and attributes from `GroupId` in an identity
+  store.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def describe_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -108,8 +111,10 @@ defmodule AWS.Identitystore do
   store.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def describe_group_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -122,8 +127,10 @@ defmodule AWS.Identitystore do
   store.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def describe_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -135,8 +142,10 @@ defmodule AWS.Identitystore do
   Retrieves `GroupId` in an identity store.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def get_group_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -148,8 +157,10 @@ defmodule AWS.Identitystore do
   Retrieves the `MembershipId` in an identity store.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -161,8 +172,10 @@ defmodule AWS.Identitystore do
   Retrieves the `UserId` in an identity store.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def get_user_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -175,8 +188,10 @@ defmodule AWS.Identitystore do
   exists in all queried groups.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -189,8 +204,10 @@ defmodule AWS.Identitystore do
   `GroupMembership` objects and returns results in paginated form.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def list_group_memberships(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -203,8 +220,10 @@ defmodule AWS.Identitystore do
   all `GroupMembership` objects and returns results in paginated form.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -215,13 +234,15 @@ defmodule AWS.Identitystore do
   @doc """
   Lists all groups in the identity store.
 
-  Returns a paginated list of complete `Group` objects. Filtering for a `Group` by
-  the `DisplayName` attribute is deprecated. Instead, use the `GetGroupId` API
-  action.
+  Returns a paginated list of complete `Group` objects.
+  Filtering for a `Group` by the `DisplayName` attribute is deprecated. Instead,
+  use the `GetGroupId` API action.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -232,12 +253,15 @@ defmodule AWS.Identitystore do
   @doc """
   Lists all users in the identity store.
 
-  Returns a paginated list of complete `User` objects. Filtering for a `User` by
-  the `UserName` attribute is deprecated. Instead, use the `GetUserId` API action.
+  Returns a paginated list of complete `User` objects.
+  Filtering for a `User` by the `UserName` attribute is deprecated. Instead, use
+  the `GetUserId` API action.
 
   If you have administrator access to a member account, you can use this API from
-  the member account. Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the *Organizations User Guide*.
+  the member account.
+  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
+  in the
+  *Organizations User Guide*.
   """
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()

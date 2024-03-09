@@ -11,7 +11,6 @@ defmodule AWS.BackupStorage do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-04-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -46,7 +45,7 @@ defmodule AWS.BackupStorage do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -73,7 +72,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -100,7 +99,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -136,7 +135,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -201,7 +200,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -226,7 +225,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -248,7 +247,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -275,7 +274,7 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -290,6 +289,6 @@ defmodule AWS.BackupStorage do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

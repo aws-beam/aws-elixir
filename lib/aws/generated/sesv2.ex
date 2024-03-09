@@ -10,8 +10,9 @@ defmodule AWS.SESv2 do
   If you're new to Amazon SES API v2, you might find it helpful to review the
   [Amazon Simple Email Service Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/). The *Amazon SES
-  Developer Guide* provides information and code samples that demonstrate how to
-  use Amazon SES API v2 features programmatically.
+  Developer Guide* provides information
+  and code samples that demonstrate how to use Amazon SES API v2 features
+  programmatically.
   """
 
   alias AWS.Client
@@ -19,7 +20,6 @@ defmodule AWS.SESv2 do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-09-27",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -36,8 +36,8 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieves batches of metric data collected based on your sending activity.
 
-  You can execute this operation no more than 16 times per second, and with at
-  most 160 queries from the batches per second (cumulative).
+  You can execute this operation no more than 16 times per second,
+  and with at most 160 queries from the batches per second (cumulative).
   """
   def batch_get_metric_data(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/metrics/batch"
@@ -55,7 +55,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -69,17 +69,20 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Create a configuration set.
 
-  *Configuration sets* are groups of rules that you can apply to the emails that
-  you send. You apply a configuration set to an email by specifying the name of
-  the configuration set when you call the Amazon SES API v2. When you apply a
-  configuration set to an email, all of the rules in that configuration set are
-  applied to the email.
+  *Configuration sets* are groups of
+  rules that you can apply to the emails that you send. You apply a configuration
+  set to
+  an email by specifying the name of the configuration set when you call the
+  Amazon SES API v2. When
+  you apply a configuration set to an email, all of the rules in that
+  configuration set
+  are applied to the email.
   """
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/configuration-sets"
@@ -97,18 +100,21 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Create an event destination.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces, and
-  complaints. *Event destinations* are places that you can send information about
-  these events to. For example, you can send event data to Amazon SNS to receive
-  notifications when you receive bounces or complaints, or you can use Amazon
-  Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  *Events* include message sends,
+  deliveries, opens, clicks, bounces, and complaints. *Event
+  destinations* are places that you can send information about these events
+  to. For example, you can send event data to Amazon SNS to receive notifications
+  when you
+  receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to
+  stream data to Amazon S3 for long-term
+  storage.
 
   A single configuration set can include more than one event destination.
   """
@@ -135,13 +141,14 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a contact, which is an end-user who is receiving the email, and adds
-  them to a contact list.
+  them to a
+  contact list.
   """
   def create_contact(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
@@ -159,7 +166,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -182,7 +189,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -191,7 +198,8 @@ defmodule AWS.SESv2 do
 
   For more information about custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer Guide*.
+  in the *Amazon SES Developer
+  Guide*.
 
   You can execute this operation no more than once per second.
   """
@@ -211,17 +219,19 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Create a new pool of dedicated IP addresses.
 
-  A pool can include one or more dedicated IP addresses that are associated with
-  your Amazon Web Services account. You can associate a pool with a configuration
-  set. When you send an email that uses that configuration set, the message is
-  sent from one of the addresses in the associated pool.
+  A pool can include one or more dedicated
+  IP addresses that are associated with your Amazon Web Services account. You can
+  associate a pool with
+  a configuration set. When you send an email that uses that configuration set,
+  the
+  message is sent from one of the addresses in the associated pool.
   """
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
@@ -239,7 +249,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -247,12 +257,16 @@ defmodule AWS.SESv2 do
   Create a new predictive inbox placement test.
 
   Predictive inbox placement tests can help you predict how your messages will be
-  handled by various email providers around the world. When you perform a
-  predictive inbox placement test, you provide a sample message that contains the
-  content that you plan to send to your customers. Amazon SES then sends that
-  message to special email addresses spread across several major email providers.
-  After about 24 hours, the test is complete, and you can use the
-  `GetDeliverabilityTestReport` operation to view the results of the test.
+  handled
+  by various email providers around the world. When you perform a predictive inbox
+  placement test, you provide a
+  sample message that contains the content that you plan to send to your
+  customers. Amazon SES
+  then sends that message to special email addresses spread across several major
+  email
+  providers. After about 24 hours, the test is complete, and you can use the
+  `GetDeliverabilityTestReport` operation to view the results of the
+  test.
   """
   def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test"
@@ -270,41 +284,52 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Starts the process of verifying an email identity.
 
-  An *identity* is an email address or domain that you use when you send email.
-  Before you can use an identity to send email, you first have to verify it. By
-  verifying an identity, you demonstrate that you're the owner of the identity,
-  and that you've given Amazon SES API v2 permission to send email from the
-  identity.
+  An *identity* is
+  an email address or domain that you use when you send email. Before you can use
+  an
+  identity to send email, you first have to verify it. By verifying an identity,
+  you
+  demonstrate that you're the owner of the identity, and that you've given Amazon
+  SES API v2
+  permission to send email from the identity.
 
   When you verify an email address, Amazon SES sends an email to the address. Your
-  email address is verified as soon as you follow the link in the verification
-  email.
+  email
+  address is verified as soon as you follow the link in the verification email.
 
-  When you verify a domain without specifying the `DkimSigningAttributes` object,
-  this operation provides a set of DKIM tokens. You can convert these tokens into
+  When you verify a domain without specifying the `DkimSigningAttributes`
+  object, this operation provides a set of DKIM tokens. You can convert these
+  tokens into
   CNAME records, which you then add to the DNS configuration for your domain. Your
-  domain is verified when Amazon SES detects these records in the DNS
-  configuration for your domain. This verification method is known as [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
+  domain
+  is verified when Amazon SES detects these records in the DNS configuration for
+  your domain.
+  This verification method is known as [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
 
   Alternatively, you can perform the verification process by providing your own
   public-private key pair. This verification method is known as Bring Your Own
-  DKIM (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation
-  has to include the `DkimSigningAttributes` object. When you specify this object,
-  you provide a selector (a component of the DNS record name that identifies the
+  DKIM
+  (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation
+  has to include the `DkimSigningAttributes` object. When you specify this
+  object, you provide a selector (a component of the DNS record name that
+  identifies the
   public key to use for DKIM authentication) and a private key.
 
   When you verify a domain, this operation provides a set of DKIM tokens, which
-  you can convert into CNAME tokens. You add these CNAME tokens to the DNS
-  configuration for your domain. Your domain is verified when Amazon SES detects
-  these records in the DNS configuration for your domain. For some DNS providers,
-  it can take 72 hours or more to complete the domain verification process.
+  you can
+  convert into CNAME tokens. You add these CNAME tokens to the DNS configuration
+  for your
+  domain. Your domain is verified when Amazon SES detects these records in the DNS
+  configuration for your domain. For some DNS providers, it can take 72 hours or
+  more to
+  complete the domain verification process.
 
   Additionally, you can associate an existing configuration set with the email
   identity that you're verifying.
@@ -325,20 +350,23 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates the specified sending authorization policy for the given identity (an
-  email address or a domain).
+  email
+  address or a domain).
 
   This API is for the identity owner only. If you have not verified the identity,
   this API will return an error.
 
   Sending authorization is a feature that enables an identity owner to authorize
-  other senders to use its identities. For information about using sending
-  authorization, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  other
+  senders to use its identities. For information about using sending
+  authorization, see
+  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
 
   You can execute this operation no more than once per second.
   """
@@ -366,16 +394,16 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an email template.
 
-  Email templates enable you to send personalized email to one or more
-  destinations in a single API operation. For more information, see the [Amazon SES Developer
-  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+  Email templates enable you to send personalized email to
+  one or more destinations in a single API operation. For more information, see
+  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
   You can execute this operation no more than once per second.
   """
@@ -395,7 +423,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -420,7 +448,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -443,18 +471,19 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Delete an existing configuration set.
 
-  *Configuration sets* are groups of rules that you can apply to the emails you
-  send. You apply a configuration set to an email by including a reference to the
-  configuration set in the headers of the email. When you apply a configuration
-  set to an email, all of the rules in that configuration set are applied to the
-  email.
+  *Configuration sets* are groups of rules that you can apply to the
+  emails you send. You apply a configuration set to an email by including a
+  reference to
+  the configuration set in the headers of the email. When you apply a
+  configuration set to
+  an email, all of the rules in that configuration set are applied to the email.
   """
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -472,18 +501,20 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Delete an event destination.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces, and
-  complaints. *Event destinations* are places that you can send information about
-  these events to. For example, you can send event data to Amazon SNS to receive
-  notifications when you receive bounces or complaints, or you can use Amazon
-  Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  *Events* include message sends, deliveries, opens, clicks, bounces,
+  and complaints. *Event destinations* are places that you can send
+  information about these events to. For example, you can send event data to
+  Amazon SNS to
+  receive notifications when you receive bounces or complaints, or you can use
+  Amazon Kinesis Data Firehose to
+  stream data to Amazon S3 for long-term storage.
   """
   def delete_configuration_set_event_destination(
         %Client{} = client,
@@ -509,7 +540,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -534,7 +565,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -557,7 +588,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -566,7 +597,8 @@ defmodule AWS.SESv2 do
 
   For more information about custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer Guide*.
+  in the *Amazon SES Developer
+  Guide*.
 
   You can execute this operation no more than once per second.
   """
@@ -593,7 +625,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -616,14 +648,15 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes an email identity.
 
-  An identity can be either an email address or a domain name.
+  An identity can be either an email address or a domain
+  name.
   """
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
@@ -641,23 +674,26 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified sending authorization policy for the given identity (an
-  email address or a domain).
+  email
+  address or a domain).
 
-  This API returns successfully even if a policy with the specified name does not
-  exist.
+  This API returns successfully even if a policy with the specified
+  name does not exist.
 
   This API is for the identity owner only. If you have not verified the identity,
   this API will return an error.
 
   Sending authorization is a feature that enables an identity owner to authorize
-  other senders to use its identities. For information about using sending
-  authorization, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  other
+  senders to use its identities. For information about using sending
+  authorization, see
+  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
 
   You can execute this operation no more than once per second.
   """
@@ -685,7 +721,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -710,7 +746,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -733,13 +769,14 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Obtain information about the email-sending status and capabilities of your
-  Amazon SES account in the current Amazon Web Services Region.
+  Amazon SES
+  account in the current Amazon Web Services Region.
   """
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account"
@@ -748,7 +785,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -768,19 +805,21 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about an existing configuration set, including the dedicated IP
-  pool that it's associated with, whether or not it's enabled for sending email,
-  and more.
+  pool
+  that it's associated with, whether or not it's enabled for sending email, and
+  more.
 
-  *Configuration sets* are groups of rules that you can apply to the emails you
-  send. You apply a configuration set to an email by including a reference to the
-  configuration set in the headers of the email. When you apply a configuration
-  set to an email, all of the rules in that configuration set are applied to the
-  email.
+  *Configuration sets* are groups of rules that you can apply to the
+  emails you send. You apply a configuration set to an email by including a
+  reference to
+  the configuration set in the headers of the email. When you apply a
+  configuration set to
+  an email, all of the rules in that configuration set are applied to the email.
   """
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -789,18 +828,20 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of event destinations that are associated with a configuration
   set.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces, and
-  complaints. *Event destinations* are places that you can send information about
-  these events to. For example, you can send event data to Amazon SNS to receive
-  notifications when you receive bounces or complaints, or you can use Amazon
-  Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  *Events* include message sends, deliveries, opens, clicks, bounces,
+  and complaints. *Event destinations* are places that you can send
+  information about these events to. For example, you can send event data to
+  Amazon SNS to
+  receive notifications when you receive bounces or complaints, or you can use
+  Amazon Kinesis Data Firehose to
+  stream data to Amazon S3 for long-term storage.
   """
   def get_configuration_set_event_destinations(
         %Client{} = client,
@@ -815,7 +856,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -830,13 +871,14 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns contact list metadata.
 
-  It does not return any information about the contacts present in the list.
+  It does not return any information about the contacts
+  present in the list.
   """
   def get_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
@@ -845,7 +887,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -854,7 +896,8 @@ defmodule AWS.SESv2 do
 
   For more information about custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer Guide*.
+  in the *Amazon SES Developer
+  Guide*.
 
   You can execute this operation no more than once per second.
   """
@@ -867,13 +910,15 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Get information about a dedicated IP address, including the name of the
-  dedicated IP pool that it's associated with, as well information about the
-  automatic warm-up process for the address.
+  dedicated IP
+  pool that it's associated with, as well information about the automatic warm-up
+  process
+  for the address.
   """
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
@@ -882,7 +927,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -895,12 +940,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List the dedicated IP addresses that are associated with your Amazon Web
-  Services account.
+  Services
+  account.
   """
   def get_dedicated_ips(
         %Client{} = client,
@@ -936,21 +982,26 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve information about the status of the Deliverability dashboard for your
   account.
 
-  When the Deliverability dashboard is enabled, you gain access to reputation,
-  deliverability, and other metrics for the domains that you use to send email.
-  You also gain the ability to perform predictive inbox placement tests.
+  When
+  the Deliverability dashboard is enabled, you gain access to reputation,
+  deliverability, and other
+  metrics for the domains that you use to send email. You also gain the ability to
+  perform
+  predictive inbox placement tests.
 
   When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition to any other fees that you accrue by using Amazon SES and
-  other Amazon Web Services services. For more information about the features and
-  cost of a Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+  charge, in addition
+  to any other fees that you accrue by using Amazon SES and other Amazon Web
+  Services services. For more
+  information about the features and cost of a Deliverability dashboard
+  subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
   """
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
@@ -959,7 +1010,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -972,14 +1023,15 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve all the deliverability data for a specific campaign.
 
-  This data is available for a campaign only if the campaign sent email by using a
-  domain that the Deliverability dashboard is enabled for.
+  This data is available
+  for a campaign only if the campaign sent email by using a domain that the
+  Deliverability dashboard is enabled for.
   """
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
@@ -988,12 +1040,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve inbox placement and engagement rates for the domains that you use to
-  send email.
+  send
+  email.
   """
   def get_domain_statistics_report(
         %Client{} = client,
@@ -1024,13 +1077,15 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Provides information about a specific identity, including the identity's
-  verification status, sending authorization policies, its DKIM authentication
-  status, and its custom Mail-From settings.
+  verification
+  status, sending authorization policies, its DKIM authentication status, and its
+  custom
+  Mail-From settings.
   """
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
@@ -1039,22 +1094,25 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the requested sending authorization policies for the given identity (an
-  email address or a domain).
+  email
+  address or a domain).
 
-  The policies are returned as a map of policy names to policy contents. You can
-  retrieve a maximum of 20 policies at a time.
+  The policies are returned as a map of policy names to policy
+  contents. You can retrieve a maximum of 20 policies at a time.
 
   This API is for the identity owner only. If you have not verified the identity,
   this API will return an error.
 
   Sending authorization is a feature that enables an identity owner to authorize
-  other senders to use its identities. For information about using sending
-  authorization, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  other
+  senders to use its identities. For information about using sending
+  authorization, see
+  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
 
   You can execute this operation no more than once per second.
   """
@@ -1065,12 +1123,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the template object (which includes the subject line, HTML part and
-  text part) for the template you specify.
+  text
+  part) for the template you specify.
 
   You can execute this operation no more than once per second.
   """
@@ -1081,7 +1140,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1094,7 +1153,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1107,7 +1166,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1118,18 +1177,19 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
   """
   def get_message_insights(%Client{} = client, message_id, options \\ []) do
-    url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}/"
+    url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}"
     headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves information about a specific email address that's on the suppression
-  list for your account.
+  list
+  for your account.
   """
   def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
@@ -1138,18 +1198,19 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all of the configuration sets associated with your account in the current
   region.
 
-  *Configuration sets* are groups of rules that you can apply to the emails you
-  send. You apply a configuration set to an email by including a reference to the
-  configuration set in the headers of the email. When you apply a configuration
-  set to an email, all of the rules in that configuration set are applied to the
-  email.
+  *Configuration sets* are groups of rules that you can apply to the
+  emails you send. You apply a configuration set to an email by including a
+  reference to
+  the configuration set in the headers of the email. When you apply a
+  configuration set to
+  an email, all of the rules in that configuration set are applied to the email.
   """
   def list_configuration_sets(
         %Client{} = client,
@@ -1177,7 +1238,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1204,7 +1265,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1237,16 +1298,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the existing custom verification email templates for your account in the
-  current Amazon Web Services Region.
+  current
+  Amazon Web Services Region.
 
   For more information about custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer Guide*.
+  in the *Amazon SES Developer
+  Guide*.
 
   You can execute this operation no more than once per second.
   """
@@ -1276,12 +1339,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all of the dedicated IP pools that exist in your Amazon Web Services
-  account in the current Region.
+  account in the current
+  Region.
   """
   def list_dedicated_ip_pools(
         %Client{} = client,
@@ -1309,15 +1373,17 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Show a list of the predictive inbox placement tests that you've performed,
   regardless of their statuses.
 
-  For predictive inbox placement tests that are complete, you can use the
-  `GetDeliverabilityTestReport` operation to view the results.
+  For
+  predictive inbox placement tests that are complete, you can use the
+  `GetDeliverabilityTestReport`
+  operation to view the results.
   """
   def list_deliverability_test_reports(
         %Client{} = client,
@@ -1345,15 +1411,16 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve deliverability data for all the campaigns that used a specific domain
-  to send email during a specified time range.
+  to send
+  email during a specified time range.
 
-  This data is available for a domain only if you enabled the Deliverability
-  dashboard for the domain.
+  This data is available for a domain only if you
+  enabled the Deliverability dashboard for the domain.
   """
   def list_domain_deliverability_campaigns(
         %Client{} = client,
@@ -1400,16 +1467,18 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of all of the email identities that are associated with your
-  Amazon Web Services account.
+  Amazon Web Services
+  account.
 
   An identity can be either an email address or a domain. This operation returns
   identities that are verified as well as those that aren't. This operation
-  returns identities that are associated with Amazon SES and Amazon Pinpoint.
+  returns
+  identities that are associated with Amazon SES and Amazon Pinpoint.
   """
   def list_email_identities(
         %Client{} = client,
@@ -1437,12 +1506,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the email templates present in your Amazon SES account in the current
-  Amazon Web Services Region.
+  Amazon Web Services
+  Region.
 
   You can execute this operation no more than once per second.
   """
@@ -1467,7 +1537,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1489,7 +1559,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1517,7 +1587,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1542,7 +1612,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1600,17 +1670,20 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieve a list of the tags (keys and values) that are associated with a
-  specified resource.
+  specified
+  resource.
 
-  A *tag* is a label that you optionally define and associate with a resource.
-  Each tag consists of a required *tag key* and an optional associated *tag
-  value*. A tag key is a general label that acts as a category for more specific
-  tag values. A tag value acts as a descriptor within a tag key.
+  A *tag* is a label that you optionally define and associate
+  with a resource. Each tag consists of a required *tag key* and an
+  optional associated *tag value*. A tag key is a general label that
+  acts as a category for more specific tag values. A tag value acts as a
+  descriptor within
+  a tag key.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/email/tags"
@@ -1626,7 +1699,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1639,7 +1712,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1661,7 +1734,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1675,7 +1748,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1688,7 +1761,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1703,14 +1776,14 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associate a configuration set with a dedicated IP pool.
 
-  You can use dedicated IP pools to create groups of dedicated IP addresses for
-  sending specific types of email.
+  You can use dedicated IP pools
+  to create groups of dedicated IP addresses for sending specific types of email.
   """
   def put_configuration_set_delivery_options(
         %Client{} = client,
@@ -1726,12 +1799,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable collection of reputation metrics for emails that you send
-  using a particular configuration set in a specific Amazon Web Services Region.
+  using a
+  particular configuration set in a specific Amazon Web Services Region.
   """
   def put_configuration_set_reputation_options(
         %Client{} = client,
@@ -1747,12 +1821,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable email sending for messages that use a particular configuration
-  set in a specific Amazon Web Services Region.
+  set
+  in a specific Amazon Web Services Region.
   """
   def put_configuration_set_sending_options(
         %Client{} = client,
@@ -1768,7 +1843,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1788,12 +1863,13 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Specify a custom domain to use for open and click tracking elements in email
-  that you send.
+  that you
+  send.
   """
   def put_configuration_set_tracking_options(
         %Client{} = client,
@@ -1809,7 +1885,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1831,7 +1907,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1841,7 +1917,8 @@ defmodule AWS.SESv2 do
   associated with your Amazon Web Services account.
 
   The dedicated IP pool you specify must already exist. You can create a new pool
-  by using the `CreateDedicatedIpPool` operation.
+  by
+  using the `CreateDedicatedIpPool` operation.
   """
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
@@ -1850,7 +1927,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1870,7 +1947,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
@@ -1880,20 +1957,24 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Enable or disable the Deliverability dashboard.
 
-  When you enable the Deliverability dashboard, you gain access to reputation,
-  deliverability, and other metrics for the domains that you use to send email.
-  You also gain the ability to perform predictive inbox placement tests.
+  When you enable the Deliverability dashboard, you gain
+  access to reputation, deliverability, and other metrics for the domains that you
+  use to
+  send email. You also gain the ability to perform predictive inbox placement
+  tests.
 
   When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition to any other fees that you accrue by using Amazon SES and
-  other Amazon Web Services services. For more information about the features and
-  cost of a Deliverability dashboard subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
+  charge, in addition
+  to any other fees that you accrue by using Amazon SES and other Amazon Web
+  Services services. For more
+  information about the features and cost of a Deliverability dashboard
+  subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
   """
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
@@ -1902,7 +1983,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1920,7 +2001,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1933,7 +2014,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1942,18 +2023,24 @@ defmodule AWS.SESv2 do
 
   You can use this operation to do any of the following:
 
-    * Update the signing attributes for an identity that uses Bring Your
-  Own DKIM (BYODKIM).
+    *
+  Update the signing attributes for an identity that uses Bring Your Own DKIM
+  (BYODKIM).
 
-    * Update the key length that should be used for Easy DKIM.
+    *
+  Update the key length that should be used for Easy DKIM.
 
-    * Change from using no DKIM authentication to using Easy DKIM.
+    *
+  Change from using no DKIM authentication to using Easy DKIM.
 
-    * Change from using no DKIM authentication to using BYODKIM.
+    *
+  Change from using no DKIM authentication to using BYODKIM.
 
-    * Change from using Easy DKIM to using BYODKIM.
+    *
+  Change from using Easy DKIM to using BYODKIM.
 
-    * Change from using BYODKIM to using Easy DKIM.
+    *
+  Change from using BYODKIM to using Easy DKIM.
   """
   def put_email_identity_dkim_signing_attributes(
         %Client{} = client,
@@ -1967,23 +2054,29 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Used to enable or disable feedback forwarding for an identity.
 
-  This setting determines what happens when an identity is used to send an email
-  that results in a bounce or complaint event.
+  This setting determines
+  what happens when an identity is used to send an email that results in a bounce
+  or
+  complaint event.
 
-  If the value is `true`, you receive email notifications when bounce or complaint
-  events occur. These notifications are sent to the address that you specified in
-  the `Return-Path` header of the original email.
+  If the value is `true`, you receive email notifications when bounce or
+  complaint events occur. These notifications are sent to the address that you
+  specified
+  in the `Return-Path` header of the original email.
 
   You're required to have a method of tracking bounces and complaints. If you
-  haven't set up another mechanism for receiving bounce or complaint notifications
-  (for example, by setting up an event destination), you receive an email
-  notification when these events occur (even if this setting is disabled).
+  haven't
+  set up another mechanism for receiving bounce or complaint notifications (for
+  example,
+  by setting up an event destination), you receive an email notification when
+  these events
+  occur (even if this setting is disabled).
   """
   def put_email_identity_feedback_attributes(
         %Client{} = client,
@@ -1997,7 +2090,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2016,7 +2109,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2029,7 +2122,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2051,21 +2144,26 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Adds an email address to the list of identities for your Amazon SES account in
-  the current Amazon Web Services Region and attempts to verify it.
+  the current
+  Amazon Web Services Region and attempts to verify it.
 
-  As a result of executing this operation, a customized verification email is sent
-  to the specified address.
+  As a result of executing this
+  operation, a customized verification email is sent to the specified address.
 
   To use this operation, you must first create a custom verification email
-  template. For more information about creating and using custom verification
-  email templates, see [Using custom verification email templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer Guide*.
+  template. For
+  more information about creating and using custom verification email templates,
+  see
+  [Using custom verification email
+  templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
+  in the *Amazon SES Developer
+  Guide*.
 
   You can execute this operation no more than once per second.
   """
@@ -2085,27 +2183,36 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Sends an email message.
 
-  You can use the Amazon SES API v2 to send the following types of messages:
+  You can use the Amazon SES API v2 to send the following types of
+  messages:
 
-    * **Simple** – A standard email message. When you create this type
-  of message, you specify the sender, the recipient, and the message body, and
-  Amazon SES assembles the message for you.
+    *
 
-    * **Raw** – A raw, MIME-formatted email message. When you send this
-  type of email, you have to specify all of the message headers, as well as the
-  message body. You can use this message type to send messages that contain
-  attachments. The message that you specify has to be a valid MIME message.
+  **Simple** – A standard email message. When
+  you create this type of message, you specify the sender, the recipient, and the
+  message body, and Amazon SES assembles the message for you.
 
-    * **Templated** – A message that contains personalization tags. When
-  you send this type of email, Amazon SES API v2 automatically replaces the tags
-  with values that you specify.
+    *
+
+  **Raw** – A raw, MIME-formatted email
+  message. When you send this type of email, you have to specify all of the
+  message headers, as well as the message body. You can use this message type to
+  send messages that contain attachments. The message that you specify has to be a
+  valid MIME message.
+
+    *
+
+  **Templated** – A message that contains
+  personalization tags. When you send this type of email, Amazon SES API v2
+  automatically
+  replaces the tags with values that you specify.
   """
   def send_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-emails"
@@ -2123,21 +2230,26 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Add one or more tags (keys and values) to a specified resource.
 
-  A *tag* is a label that you optionally define and associate with a resource.
-  Tags can help you categorize and manage resources in different ways, such as by
-  purpose, owner, environment, or other criteria. A resource can have as many as
-  50 tags.
+  A
+  *tag* is a label that you optionally define and associate with a
+  resource. Tags can help you categorize and manage resources in different ways,
+  such as
+  by purpose, owner, environment, or other criteria. A resource can have as many
+  as 50
+  tags.
 
-  Each tag consists of a required *tag key* and an associated *tag value*, both of
-  which you define. A tag key is a general label that acts as a category for more
-  specific tag values. A tag value acts as a descriptor within a tag key.
+  Each tag consists of a required *tag key* and an
+  associated *tag value*, both of which you define. A tag key is a
+  general label that acts as a category for more specific tag values. A tag value
+  acts as
+  a descriptor within a tag key.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
@@ -2155,13 +2267,14 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a preview of the MIME content of an email when provided with a template
-  and a set of replacement data.
+  and a
+  set of replacement data.
 
   You can execute this operation no more than once per second.
   """
@@ -2181,7 +2294,7 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2210,18 +2323,20 @@ defmodule AWS.SESv2 do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Update the configuration of an event destination for a configuration set.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces, and
-  complaints. *Event destinations* are places that you can send information about
-  these events to. For example, you can send event data to Amazon SNS to receive
-  notifications when you receive bounces or complaints, or you can use Amazon
-  Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+  *Events* include message sends, deliveries, opens, clicks, bounces,
+  and complaints. *Event destinations* are places that you can send
+  information about these events to. For example, you can send event data to
+  Amazon SNS to
+  receive notifications when you receive bounces or complaints, or you can use
+  Amazon Kinesis Data Firehose to
+  stream data to Amazon S3 for long-term storage.
   """
   def update_configuration_set_event_destination(
         %Client{} = client,
@@ -2238,15 +2353,15 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a contact's preferences for a list.
 
-  You must specify all existing topic preferences in the `TopicPreferences`
-  object, not just the ones that need updating; otherwise, all your existing
-  preferences will be removed.
+  You must specify all existing topic preferences in the
+  `TopicPreferences` object, not just the ones that need updating;
+  otherwise, all your existing preferences will be removed.
   """
   def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
@@ -2257,7 +2372,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2272,7 +2387,7 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -2280,7 +2395,8 @@ defmodule AWS.SESv2 do
 
   For more information about custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer Guide*.
+  in the *Amazon SES Developer
+  Guide*.
 
   You can execute this operation no more than once per second.
   """
@@ -2298,22 +2414,25 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the specified sending authorization policy for the given identity (an
-  email address or a domain).
+  email
+  address or a domain).
 
-  This API returns successfully even if a policy with the specified name does not
-  exist.
+  This API returns successfully even if a policy with the specified
+  name does not exist.
 
   This API is for the identity owner only. If you have not verified the identity,
   this API will return an error.
 
   Sending authorization is a feature that enables an identity owner to authorize
-  other senders to use its identities. For information about using sending
-  authorization, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  other
+  senders to use its identities. For information about using sending
+  authorization, see
+  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
 
   You can execute this operation no more than once per second.
   """
@@ -2332,15 +2451,15 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates an email template.
 
-  Email templates enable you to send personalized email to one or more
-  destinations in a single API operation. For more information, see the [Amazon SES Developer
-  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+  Email templates enable you to send personalized email to
+  one or more destinations in a single API operation. For more information, see
+  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
   You can execute this operation no more than once per second.
   """
@@ -2351,6 +2470,6 @@ defmodule AWS.SESv2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

@@ -11,7 +11,6 @@ defmodule AWS.Finspacedata do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-07-13",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -53,7 +52,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -76,7 +75,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -99,7 +98,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -122,7 +121,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -146,7 +145,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -169,7 +168,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -197,7 +196,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -227,7 +226,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -250,7 +249,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -286,7 +285,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -309,7 +308,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -325,7 +324,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -340,7 +339,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -353,7 +352,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -361,10 +360,12 @@ defmodule AWS.Finspacedata do
 
   To call this API:
 
-    * You must retrieve the programmatic credentials.
+    *
+  You must retrieve the programmatic credentials.
 
-    * You must be a member of a FinSpace user group, where the dataset
-  that you want to access has `Read Dataset Data` permissions.
+    *
+  You must be a member of a FinSpace user group, where the dataset that you want
+  to access has `Read Dataset Data` permissions.
   """
   def get_external_data_view_access_details(
         %Client{} = client,
@@ -390,7 +391,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -404,7 +405,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -439,7 +440,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -452,12 +453,13 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   A temporary Amazon S3 location, where you can copy your files from a source
-  location to stage or use as a scratch space in FinSpace notebook.
+  location to stage or use
+  as a scratch space in FinSpace notebook.
   """
   def get_working_location(%Client{} = client, input, options \\ []) do
     url_path = "/workingLocationV1"
@@ -475,7 +477,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -509,7 +511,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -542,7 +544,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -569,7 +571,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -596,7 +598,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -629,7 +631,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -656,7 +658,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -689,7 +691,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -714,7 +716,7 @@ defmodule AWS.Finspacedata do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -730,7 +732,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -743,7 +745,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -758,7 +760,7 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -773,6 +775,6 @@ defmodule AWS.Finspacedata do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

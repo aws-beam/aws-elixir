@@ -7,19 +7,24 @@ defmodule AWS.IoT do
 
   IoT provides secure, bi-directional communication between Internet-connected
   devices (such as sensors, actuators, embedded devices, or smart appliances) and
-  the Amazon Web Services cloud.
+  the Amazon Web Services
+  cloud.
 
   You can discover your custom IoT-Data endpoint to communicate with, configure
   rules for data processing and integration with other services, organize
-  resources associated with each device (Registry), configure logging, and create
-  and manage policies and credentials to authenticate devices.
+  resources
+  associated with each device (Registry), configure logging, and create and manage
+  policies and credentials to authenticate devices.
 
-  The service endpoints that expose this API are listed in [Amazon Web Services IoT Core Endpoints and
-  Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html). You must
-  use the endpoint for the region that has the resources you want to access.
+  The service endpoints that expose this API are listed in
+  [Amazon Web Services IoT Core Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html).
+  You must use the endpoint for the region that has the resources you want to
+  access.
 
-  The service name used by [Amazon Web Services Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
-  sign the request is: *execute-api*.
+  The service name used by [Amazon Web Services Signature Version
+  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
+  sign the request is:
+  *execute-api*.
 
   For more information about how IoT works, see the [Developer Guide](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).
 
@@ -32,7 +37,6 @@ defmodule AWS.IoT do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2015-05-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -49,10 +53,11 @@ defmodule AWS.IoT do
   @doc """
   Accepts a pending certificate transfer.
 
-  The default state of the certificate is INACTIVE.
+  The default state of the certificate is
+  INACTIVE.
 
-  To check for pending certificate transfers, call `ListCertificates` to enumerate
-  your certificates.
+  To check for pending certificate transfers, call `ListCertificates`
+  to enumerate your certificates.
 
   Requires permission to access the
   [AcceptCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -79,7 +84,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -97,7 +102,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -114,7 +119,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -122,13 +127,15 @@ defmodule AWS.IoT do
 
   The following criteria must be met:
 
-    * The job must have been created with the `targetSelection` field
-  set to "CONTINUOUS".
+    *
+  The job must have been created with the `targetSelection` field set to
+  "CONTINUOUS".
 
-    * The job status must currently be "IN_PROGRESS".
+    *
+  The job status must currently be "IN_PROGRESS".
 
-    * The total number of targets associated with a job must not exceed
-  100.
+    *
+  The total number of targets associated with a job must not exceed 100.
 
   Requires permission to access the
   [AssociateTargetsWithJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -155,7 +162,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -174,15 +181,16 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Attaches the specified policy to the specified principal (certificate or other
   credential).
 
-  **Note:** This action is deprecated and works as expected for backward
-  compatibility, but we won't add enhancements. Use `AttachPolicy` instead.
+  **Note:** This action is deprecated and works as
+  expected for backward compatibility, but we won't add enhancements. Use
+  `AttachPolicy` instead.
 
   Requires permission to access the
   [AttachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -201,15 +209,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Associates a Device Defender security profile with a thing group or this
   account.
 
-  Each thing group or account can have up to five security profiles associated
-  with it.
+  Each
+  thing group or account can have up to five security profiles associated with it.
 
   Requires permission to access the
   [AttachSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -227,14 +235,14 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Attaches the specified principal to the specified thing.
 
-  A principal can be X.509 certificates, Amazon Cognito identities or federated
-  identities.
+  A principal can be X.509
+  certificates, Amazon Cognito identities or federated identities.
 
   Requires permission to access the
   [AttachThingPrincipal](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -253,13 +261,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancels a mitigation action task that is in progress.
 
-  If the task is not in progress, an InvalidRequestException occurs.
+  If the task
+  is not
+  in progress, an InvalidRequestException occurs.
 
   Requires permission to access the
   [CancelAuditMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -272,7 +282,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -292,20 +302,22 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Cancels a pending transfer for the specified certificate.
 
-  **Note** Only the transfer source account can use this operation to cancel a
-  transfer. (Transfer destinations can use `RejectCertificateTransfer` instead.)
-  After transfer, IoT returns the certificate to the source account in the
-  INACTIVE state. After the destination account has accepted the transfer, the
-  transfer cannot be cancelled.
+  **Note** Only the transfer source account can use this
+  operation to cancel a transfer. (Transfer destinations can use
+  `RejectCertificateTransfer` instead.) After transfer, IoT returns the
+  certificate to the source account in the INACTIVE state. After the destination
+  account has
+  accepted the transfer, the transfer cannot be cancelled.
 
   After a certificate transfer is cancelled, the status of the certificate changes
-  from PENDING_TRANSFER to INACTIVE.
+  from
+  PENDING_TRANSFER to INACTIVE.
 
   Requires permission to access the
   [CancelCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -327,11 +339,12 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Cancels a Device Defender ML Detect mitigation action.
 
   Requires permission to access the
@@ -345,7 +358,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -367,7 +380,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -391,7 +404,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -417,17 +430,18 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Confirms a topic rule destination.
 
-  When you create a rule requiring a destination, IoT sends a confirmation message
-  to the endpoint or base address you specify. The message includes a token which
-  you pass back when calling `ConfirmTopicRuleDestination` to confirm that you own
-  or have access to the endpoint.
+  When you create a rule requiring a destination, IoT
+  sends a confirmation message to the endpoint or base address you specify. The
+  message
+  includes a token which you pass back when calling `ConfirmTopicRuleDestination`
+  to confirm that you own or have access to the endpoint.
 
   Requires permission to access the
   [ConfirmTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -440,10 +454,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Creates a Device Defender audit suppression.
 
   Requires permission to access the
@@ -466,7 +481,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -493,7 +508,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -520,57 +535,75 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Creates an X.509 certificate using the specified certificate signing request.
+  Creates an X.509 certificate using the specified certificate signing
+  request.
 
   Requires permission to access the
   [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 
   The CSR must include a public key that is either an RSA key with a length of at
-  least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves.
-  For supported certificates, consult [ Certificate signing algorithms supported
-  by
+  least
+  2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves. For
+  supported
+  certificates, consult [ Certificate signing algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
 
-  Reusing the same certificate signing request (CSR) results in a distinct
-  certificate.
+  Reusing the same certificate signing request (CSR)
+  results in a distinct certificate.
 
   You can create multiple certificates in a batch by creating a directory, copying
   multiple `.csr` files into that directory, and then specifying that directory on
-  the command line. The following commands show how to create a batch of
-  certificates given a batch of CSRs. In the following commands, we assume that a
-  set of CSRs are located inside of the directory my-csr-directory:
+  the command
+  line. The following commands show how to create a batch of certificates given a
+  batch of
+  CSRs. In the following commands, we assume that a set of CSRs are located inside
+  of the
+  directory my-csr-directory:
 
   On Linux and OS X, the command is:
 
-  `$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/{}`
+  ```
+  $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
+  --certificate-signing-request file://my-csr-directory/{}
+  ```
 
   This command lists all of the CSRs in my-csr-directory and pipes each CSR file
-  name to the `aws iot create-certificate-from-csr` Amazon Web Services CLI
-  command to create a certificate for the corresponding CSR.
+  name
+  to the `aws iot create-certificate-from-csr` Amazon Web Services CLI command to
+  create a certificate for
+  the corresponding CSR.
 
-  You can also run the `aws iot create-certificate-from-csr` part of the command
-  in parallel to speed up the certificate creation process:
+  You can also run the `aws iot create-certificate-from-csr` part of the
+  command in parallel to speed up the certificate creation process:
 
-  `$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/{} `
+  ```
+  $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
+  --certificate-signing-request file://my-csr-directory/{}
+
+  ```
 
   On Windows PowerShell, the command to create certificates for all CSRs in
   my-csr-directory is:
 
-  `> ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/$_} `
+  ```
+  > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
+  --certificate-signing-request file://my-csr-directory/$_}
+
+  ```
 
   On a Windows command prompt, the command to create certificates for all CSRs in
   my-csr-directory is:
 
-  `> forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
-  --certificate-signing-request file://@path" `
+  ```
+  > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
+  --certificate-signing-request file://@path"
+
+  ```
   """
   def create_certificate_from_csr(%Client{} = client, input, options \\ []) do
     url_path = "/certificates"
@@ -593,18 +626,20 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates an Amazon Web Services IoT Core certificate provider.
 
-  You can use Amazon Web Services IoT Core certificate provider to customize how
-  to sign a certificate signing request (CSR) in IoT fleet provisioning. For more
-  information, see [Customizing certificate signing using Amazon Web Services IoT Core certificate
+  You can use Amazon Web Services IoT Core certificate provider to
+  customize how to sign a certificate signing request (CSR) in IoT fleet
+  provisioning. For
+  more information, see [Customizing certificate signing using Amazon Web Services IoT Core certificate
   provider](https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html)
-  from *Amazon Web Services IoT Core Developer Guide*.
+  from *Amazon Web Services IoT Core Developer
+  Guide*.
 
   Requires permission to access the
   [CreateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
@@ -612,9 +647,11 @@ defmodule AWS.IoT do
   After you create a certificate provider, the behavior of [
   `CreateCertificateFromCsr` API for fleet
   provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr)
-  will change and all API calls to `CreateCertificateFromCsr` will invoke the
+  will
+  change and all API calls to `CreateCertificateFromCsr` will invoke the
   certificate provider to create the certificates. It can take up to a few minutes
-  for this behavior to change after a certificate provider is created.
+  for
+  this behavior to change after a certificate provider is created.
   """
   def create_certificate_provider(
         %Client{} = client,
@@ -637,13 +674,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Use this API to define a Custom Metric published by your devices to Device
-  Defender.
+  Use this API to define a
+  Custom
+  Metric
+  published by your devices to Device Defender.
 
   Requires permission to access the
   [CreateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -665,7 +704,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -697,7 +736,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -729,7 +768,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -756,7 +795,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -774,7 +813,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -791,7 +830,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -808,18 +847,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
   public key.
 
-  You can also call `CreateKeysAndCertificate` over MQTT from a device, for more
-  information, see [Provisioning MQTT API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
+  You can also call `CreateKeysAndCertificate` over MQTT from a
+  device, for more information, see [Provisioning MQTT API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
 
-  **Note** This is the only time IoT issues the private key for this certificate,
-  so it is important to keep it in a secure location.
+  **Note** This is the only time IoT issues the private key
+  for this certificate, so it is important to keep it in a secure location.
 
   Requires permission to access the
   [CreateKeysAndCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -846,7 +885,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -878,7 +917,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -905,7 +944,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -961,8 +1000,9 @@ defmodule AWS.IoT do
   Creates an IoT policy.
 
   The created policy is the default version for the policy. This operation creates
-  a policy version with a version identifier of **1** and sets **1** as the
-  policy's default version.
+  a
+  policy version with a version identifier of **1** and sets
+  **1** as the policy's default version.
 
   Requires permission to access the
   [CreatePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -984,20 +1024,23 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new version of the specified IoT policy.
 
-  To update a policy, create a new policy version. A managed policy can have up to
-  five versions. If the policy has five versions, you must use
-  `DeletePolicyVersion` to delete an existing version before you create a new one.
+  To update a policy, create a
+  new policy version. A managed policy can have up to five versions. If the policy
+  has five
+  versions, you must use `DeletePolicyVersion` to delete an existing version
+  before you create a new one.
 
   Optionally, you can set the new version as the policy's default version. The
-  default version is the operative version (that is, the version that is in effect
-  for the certificates to which the policy is attached).
+  default
+  version is the operative version (that is, the version that is in effect for the
+  certificates to which the policy is attached).
 
   Requires permission to access the
   [CreatePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1024,7 +1067,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1051,7 +1094,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1078,7 +1121,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1115,7 +1158,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1142,12 +1185,13 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Creates a scheduled audit that is run at a specified time interval.
+  Creates a scheduled audit that is run at a specified
+  time interval.
 
   Requires permission to access the
   [CreateScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1169,7 +1213,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1196,15 +1240,17 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a stream for delivering one or more large files in chunks over MQTT.
 
-  A stream transports data bytes in chunks or blocks packaged as MQTT messages
-  from a source like S3. You can have one or more files associated with a stream.
+  A stream transports data
+  bytes in chunks or blocks packaged as MQTT messages from a source like S3. You
+  can have one or more files
+  associated with a stream.
 
   Requires permission to access the
   [CreateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1226,19 +1272,22 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a thing record in the registry.
 
-  If this call is made multiple times using the same thing name and configuration,
-  the call will succeed. If this call is made with the same thing name but
-  different configuration a `ResourceAlreadyExistsException` is thrown.
+  If this call is made multiple times using
+  the same thing name and configuration, the call will succeed. If this call is
+  made with
+  the same thing name but different configuration a
+  `ResourceAlreadyExistsException` is thrown.
 
   This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for information about authorizing control plane actions.
+  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for
+  information about authorizing control plane actions.
 
   Requires permission to access the
   [CreateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1260,7 +1309,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1268,7 +1317,8 @@ defmodule AWS.IoT do
   Create a thing group.
 
   This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for information about authorizing control plane actions.
+  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for
+  information about authorizing control plane actions.
 
   If the `ThingGroup` that you create has the exact same attributes as an existing
   `ThingGroup`, you will get a 200 success response.
@@ -1293,7 +1343,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1320,15 +1370,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a rule.
 
-  Creating rules is an administrator-level action. Any user who has permission to
-  create rules will be able to access data processed by the rule.
+  Creating rules is an administrator-level action. Any user who has
+  permission to create rules will be able to access data processed by the rule.
 
   Requires permission to access the
   [CreateTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1356,7 +1406,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1385,14 +1435,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Restores the default settings for Device Defender audits for this account.
 
-  Any configuration data you entered is deleted and all audit checks are reset to
+  Any
+  configuration data you entered is deleted and all audit checks are reset to
   disabled.
 
   Requires permission to access the
@@ -1420,11 +1471,12 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes a Device Defender audit suppression.
 
   Requires permission to access the
@@ -1447,7 +1499,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1474,7 +1526,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1506,7 +1558,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1533,7 +1585,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1541,9 +1593,11 @@ defmodule AWS.IoT do
   Deletes the specified certificate.
 
   A certificate cannot be deleted if it has a policy or IoT thing attached to it
-  or if its status is set to ACTIVE. To delete a certificate, first use the
+  or if
+  its status is set to ACTIVE. To delete a certificate, first use the
   `DetachPolicy` action to detach all policies. Next, use the `UpdateCertificate`
-  action to set the certificate to the INACTIVE status.
+  action to set the certificate to the INACTIVE
+  status.
 
   Requires permission to access the
   [DeleteCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1570,7 +1624,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1582,8 +1636,8 @@ defmodule AWS.IoT do
   action.
 
   If you delete the certificate provider resource, the behavior of
-  `CreateCertificateFromCsr` will resume, and IoT will create certificates signed
-  by IoT from a certificate signing request (CSR).
+  `CreateCertificateFromCsr` will resume, and IoT will create
+  certificates signed by IoT from a certificate signing request (CSR).
   """
   def delete_certificate_provider(
         %Client{} = client,
@@ -1606,19 +1660,23 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes a Device Defender detect custom metric.
 
   Requires permission to access the
   [DeleteCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 
   Before you can delete a custom metric, you must first remove the custom metric
-  from all security profiles it's a part of. The security profile associated with
-  the custom metric can be found using the
+  from all
+  security profiles it's a part of.
+  The
+  security
+  profile associated with the custom metric can be found using the
   [ListSecurityProfiles](https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html)
   API with `metricName` set to your custom metric name.
   """
@@ -1638,7 +1696,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1665,7 +1723,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1697,7 +1755,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1729,7 +1787,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1764,21 +1822,21 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes a job and its related job executions.
 
-  Deleting a job may take time, depending on the number of job executions created
-  for the job and various other factors. While the job is being deleted, the
-  status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete
-  or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an
-  error.
+  Deleting a job may take time, depending on the number of job
+  executions created for the job and various other factors. While the job
+  is being deleted, the status of the job will be shown as
+  "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
+  is already "DELETION_IN_PROGRESS" will result in an error.
 
-  Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a
-  LimitExceededException will occur.
+  Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
+  a LimitExceededException will occur.
 
   Requires permission to access the
   [DeleteJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -1806,7 +1864,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1848,7 +1906,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1871,7 +1929,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1898,7 +1956,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1931,7 +1989,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2007,18 +2065,21 @@ defmodule AWS.IoT do
   Deletes the specified policy.
 
   A policy cannot be deleted if it has non-default versions or it is attached to
-  any certificate.
+  any
+  certificate.
 
   To delete a policy, use the `DeletePolicyVersion` action to delete all
-  non-default versions of the policy; use the `DetachPolicy` action to detach the
-  policy from any certificate; and then use the DeletePolicy action to delete the
-  policy.
+  non-default
+  versions of the policy; use the `DetachPolicy` action to detach the policy from
+  any
+  certificate; and then use the DeletePolicy action to delete the policy.
 
   When a policy is deleted using DeletePolicy, its default version is deleted with
   it.
 
   Because of the distributed nature of Amazon Web Services, it can take up to five
-  minutes after a policy is detached before it's ready to be deleted.
+  minutes after
+  a policy is detached before it's ready to be deleted.
 
   Requires permission to access the
   [DeletePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2040,16 +2101,18 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified version of the specified policy.
 
-  You cannot delete the default version of a policy using this action. To delete
-  the default version of a policy, use `DeletePolicy`. To find out which version
-  of a policy is marked as the default version, use ListPolicyVersions.
+  You cannot delete the default
+  version of a policy using this action. To delete the default version of a
+  policy, use `DeletePolicy`. To find out which version of a policy is marked as
+  the default
+  version, use ListPolicyVersions.
 
   Requires permission to access the
   [DeletePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2079,7 +2142,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2106,7 +2169,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2141,7 +2204,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2168,7 +2231,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2195,7 +2258,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2222,7 +2285,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2254,7 +2317,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2281,15 +2344,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified thing.
 
-  Returns successfully with no error if the deletion is successful or you specify
-  a thing that doesn't exist.
+  Returns successfully with no error if the deletion is
+  successful or you specify a thing that doesn't exist.
 
   Requires permission to access the
   [DeleteThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2316,7 +2379,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2348,18 +2411,18 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deletes the specified thing type.
 
-  You cannot delete a thing type if it has things associated with it. To delete a
-  thing type, first mark it as deprecated by calling `DeprecateThingType`, then
-  remove any associated things by calling `UpdateThing` to change the thing type
-  on any associated thing, and finally use `DeleteThingType` to delete the thing
-  type.
+  You cannot delete a thing type if it has things
+  associated with it. To delete a thing type, first mark it as deprecated by
+  calling `DeprecateThingType`, then remove any associated things by calling
+  `UpdateThing` to change the thing type on any associated thing, and
+  finally use `DeleteThingType` to delete the thing type.
 
   Requires permission to access the
   [DeleteThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2381,7 +2444,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2408,7 +2471,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2435,7 +2498,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2468,14 +2531,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Deprecates a thing type.
 
-  You can not associate new things with deprecated thing type.
+  You can not associate new things with deprecated thing
+  type.
 
   Requires permission to access the
   [DeprecateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2497,7 +2561,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2518,14 +2582,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets information about a single audit finding.
 
-  Properties include the reason for noncompliance, the severity of the issue, and
-  the start time when the audit that returned the finding.
+  Properties include the reason for
+  noncompliance, the severity of the issue,
+  and the start time
+  when the audit that returned the
+  finding.
 
   Requires permission to access the
   [DescribeAuditFinding](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -2538,7 +2605,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2555,10 +2622,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Gets information about a Device Defender audit suppression.
   """
   def describe_audit_suppression(%Client{} = client, input, options \\ []) do
@@ -2577,7 +2645,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -2595,7 +2663,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2612,7 +2680,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2629,7 +2697,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2646,7 +2714,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2663,7 +2731,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2680,10 +2748,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Gets information about a Device Defender detect custom metric.
 
   Requires permission to access the
@@ -2697,7 +2766,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2714,10 +2783,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Gets information about a Device Defender ML Detect mitigation action.
 
   Requires permission to access the
@@ -2731,7 +2801,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2749,7 +2819,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2766,12 +2836,13 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns or creates a unique endpoint specific to the Amazon Web Services account
-  making the call.
+  making the
+  call.
 
   The first time `DescribeEndpoint` is called, an endpoint is created. All
   subsequent calls to `DescribeEndpoint` return the same endpoint.
@@ -2794,7 +2865,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2811,7 +2882,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2828,7 +2899,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2845,7 +2916,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2862,7 +2933,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2892,7 +2963,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2905,7 +2976,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2930,7 +3001,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2947,7 +3018,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2964,7 +3035,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2988,7 +3059,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3005,7 +3076,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3022,7 +3093,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3039,7 +3110,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3056,7 +3127,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3073,7 +3144,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3090,7 +3161,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3107,7 +3178,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3124,14 +3195,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Detaches a policy from the specified target.
 
   Because of the distributed nature of Amazon Web Services, it can take up to five
-  minutes after a policy is detached before it's ready to be deleted.
+  minutes after
+  a policy is detached before it's ready to be deleted.
 
   Requires permission to access the
   [DetachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3153,15 +3225,16 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Removes the specified policy from the specified certificate.
 
-  **Note:** This action is deprecated and works as expected for backward
-  compatibility, but we won't add enhancements. Use `DetachPolicy` instead.
+  **Note:** This action is deprecated and works as
+  expected for backward compatibility, but we won't add enhancements. Use
+  `DetachPolicy` instead.
 
   Requires permission to access the
   [DetachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3189,7 +3262,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3222,15 +3295,17 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Detaches the specified principal from the specified thing.
 
-  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
-  Cognito identities or federated identities.
+  A principal can be X.509
+  certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated
+  identities.
 
   This call is asynchronous. It might take several seconds for the detachment to
   propagate.
@@ -3261,7 +3336,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3288,7 +3363,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3315,11 +3390,12 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Returns a Device Defender's ML Detect Security Profile training model's status.
 
   Requires permission to access the
@@ -3360,7 +3436,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3386,7 +3462,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3413,13 +3489,14 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Gets a list of the policies that have an effect on the authorization behavior of
-  the specified device when it connects to the IoT device gateway.
+  the
+  specified device when it connects to the IoT device gateway.
 
   Requires permission to access the
   [GetEffectivePolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3446,7 +3523,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3464,7 +3541,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3481,13 +3558,14 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the logging options.
 
-  NOTE: use of this command is not recommended. Use `GetV2LoggingOptions` instead.
+  NOTE: use of this command is not recommended. Use `GetV2LoggingOptions`
+  instead.
 
   Requires permission to access the
   [GetLoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3500,7 +3578,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3517,7 +3595,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3576,15 +3654,20 @@ defmodule AWS.IoT do
   @doc """
   Groups the aggregated values that match the query into percentile groupings.
 
-  The default percentile groupings are: 1,5,25,50,75,95,99, although you can
-  specify your own when you call `GetPercentiles`. This function returns a value
-  for each percentile group specified (or the default percentile groupings). The
-  percentile group "1" contains the aggregated field value that occurs in
-  approximately one percent of the values that match the query. The percentile
-  group "5" contains the aggregated field value that occurs in approximately five
-  percent of the values that match the query, and so on. The result is an
-  approximation, the more values that match the query, the more accurate the
-  percentile values.
+  The default
+  percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
+  when you call `GetPercentiles`. This function returns a value for each
+  percentile group specified (or the default percentile groupings). The percentile
+  group
+  "1" contains the aggregated field value that occurs in approximately one percent
+  of the
+  values that match the query. The percentile group "5" contains the aggregated
+  field value
+  that occurs in approximately five percent of the values that match the query,
+  and so on.
+  The result is an approximation, the more values that match the query, the more
+  accurate
+  the percentile values.
 
   Requires permission to access the
   [GetPercentiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3606,13 +3689,14 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Gets information about the specified policy with the policy document of the
-  default version.
+  default
+  version.
 
   Requires permission to access the
   [GetPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3625,7 +3709,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3644,7 +3728,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3652,7 +3736,8 @@ defmodule AWS.IoT do
 
   IoT will create a registration code as part of this API call if the registration
   code doesn't exist or has been deleted. If you already have a registration code,
-  this API call will return the same registration code.
+  this API
+  call will return the same registration code.
 
   Requires permission to access the
   [GetRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3665,15 +3750,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the count, average, sum, minimum, maximum, sum of squares, variance, and
-  standard deviation for the specified aggregated field.
+  Returns the count, average, sum, minimum, maximum, sum of squares, variance,
+  and standard deviation for the specified aggregated field.
 
-  If the aggregation field is of type `String`, only the count statistic is
-  returned.
+  If the aggregation field is of type
+  `String`, only the count statistic is returned.
 
   Requires permission to access the
   [GetStatistics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3695,7 +3780,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3713,7 +3798,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3730,7 +3815,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3747,7 +3832,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3823,7 +3908,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3856,7 +3941,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -3886,12 +3971,13 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Gets the status of audit mitigation action tasks that were executed.
+  Gets the status of audit mitigation action tasks that were
+  executed.
 
   Requires permission to access the
   [ListAuditMitigationActionsExecutions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -3947,7 +4033,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4023,10 +4109,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists your Device Defender audit listings.
 
   Requires permission to access the
@@ -4049,13 +4136,13 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
-  Lists the Device Defender audits that have been performed during a given time
-  period.
+  Lists the Device Defender audits that have been performed during a given
+  time period.
 
   Requires permission to access the
   [ListAuditTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -4119,7 +4206,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4137,7 +4224,7 @@ defmodule AWS.IoT do
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/authorizers/"
+    url_path = "/authorizers"
     headers = []
     query_params = []
 
@@ -4171,7 +4258,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4215,14 +4302,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the CA certificates registered for your Amazon Web Services account.
 
   The results are paginated with a default page size of 25. You can use the
-  returned marker to retrieve additional results.
+  returned
+  marker to retrieve additional results.
 
   Requires permission to access the
   [ListCACertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -4270,7 +4358,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4286,7 +4374,7 @@ defmodule AWS.IoT do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/certificate-providers/"
+    url_path = "/certificate-providers"
     headers = []
     query_params = []
 
@@ -4306,14 +4394,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the certificates registered in your Amazon Web Services account.
 
   The results are paginated with a default page size of 25. You can use the
-  returned marker to retrieve additional results.
+  returned
+  marker to retrieve additional results.
 
   Requires permission to access the
   [ListCertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -4353,7 +4442,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4398,10 +4487,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists your Device Defender detect custom metrics.
 
   Requires permission to access the
@@ -4434,10 +4524,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists mitigation actions executions for a Device Defender ML Detect Security
   Profile.
 
@@ -4511,10 +4602,11 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   List of Device Defender ML Detect mitigation actions tasks.
 
   Requires permission to access the
@@ -4563,7 +4655,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4595,13 +4687,14 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of domain configurations for the user.
 
-  This list is sorted alphabetically by domain configuration name.
+  This list is sorted
+  alphabetically by domain configuration name.
 
   Requires permission to access the
   [ListDomainConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -4641,7 +4734,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4672,7 +4765,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4703,7 +4796,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4748,7 +4841,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4809,7 +4902,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4840,7 +4933,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4916,7 +5009,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4956,13 +5049,13 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the values reported for an IoT Device Defender metric (device-side metric,
-  cloud-side metric, or custom metric) by the given thing during the specified
-  time period.
+  cloud-side metric, or custom metric)
+  by the given thing during the specified time period.
   """
   def list_metric_values(
         %Client{} = client,
@@ -5038,7 +5131,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5082,7 +5175,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5126,7 +5219,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5170,7 +5263,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5290,15 +5383,15 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the principals associated with the specified policy.
 
-  **Note:** This action is deprecated and works as expected for backward
-  compatibility, but we won't add enhancements. Use `ListTargetsForPolicy`
-  instead.
+  **Note:** This action is deprecated and works as
+  expected for backward compatibility, but we won't add enhancements. Use
+  `ListTargetsForPolicy` instead.
 
   Requires permission to access the
   [ListPolicyPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5347,11 +5440,12 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the versions of the specified policy and identifies the default version.
+  Lists the versions of the specified policy and identifies the default
+  version.
 
   Requires permission to access the
   [ListPolicyVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5364,17 +5458,18 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the policies attached to the specified principal.
 
-  If you use an Cognito identity, the ID must be in [AmazonCognito Identity format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+  If you use an Cognito
+  identity, the ID must be in [AmazonCognito Identity format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
 
-  **Note:** This action is deprecated and works as expected for backward
-  compatibility, but we won't add enhancements. Use `ListAttachedPolicies`
-  instead.
+  **Note:** This action is deprecated and works as
+  expected for backward compatibility, but we won't add enhancements. Use
+  `ListAttachedPolicies` instead.
 
   Requires permission to access the
   [ListPrincipalPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5423,14 +5518,16 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the things associated with the specified principal.
 
-  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
-  Cognito identities or federated identities.
+  A principal can be X.509
+  certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated
+  identities.
 
   Requires permission to access the
   [ListPrincipalThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -5471,7 +5568,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5508,7 +5605,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5544,7 +5641,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5552,30 +5649,41 @@ defmodule AWS.IoT do
 
   The following resources can be returned from calling this API:
 
-    * DEVICE_CERTIFICATE
+    *
+  DEVICE_CERTIFICATE
 
-    * CA_CERTIFICATE
+    *
+  CA_CERTIFICATE
 
-    * IOT_POLICY
+    *
+  IOT_POLICY
 
-    * COGNITO_IDENTITY_POOL
+    *
+  COGNITO_IDENTITY_POOL
 
-    * CLIENT_ID
+    *
+  CLIENT_ID
 
-    * ACCOUNT_SETTINGS
+    *
+  ACCOUNT_SETTINGS
 
-    * ROLE_ALIAS
+    *
+  ROLE_ALIAS
 
-    * IAM_ROLE
+    *
+  IAM_ROLE
 
-    * ISSUER_CERTIFICATE
+    *
+  ISSUER_CERTIFICATE
 
   This API is similar to DescribeAuditFinding's
-  [RelatedResources](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) but provides pagination and is not limited to 10 resources. When calling
+  [RelatedResources](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) but provides pagination and is not limited to 10 resources.
+  When calling
   [DescribeAuditFinding](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html)
-  for the intermediate CA revoked for active device certificates check,
-  RelatedResources will not be populated. You must use this API,
-  ListRelatedResourcesForAuditFinding, to list the certificates.
+  for the intermediate CA revoked for
+  active device certificates check, RelatedResources will not be populated. You
+  must use this API, ListRelatedResourcesForAuditFinding, to list the
+  certificates.
   """
   def list_related_resources_for_audit_finding(
         %Client{} = client,
@@ -5611,7 +5719,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5655,7 +5763,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5691,11 +5799,13 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Lists the Device Defender security profiles you've created.
+  Lists the Device Defender security profiles
+  you've
+  created.
 
   You can filter security profiles by dimension or custom metric.
 
@@ -5747,7 +5857,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5799,7 +5909,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5843,7 +5953,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5874,7 +5984,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5906,7 +6016,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -5945,7 +6055,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6005,7 +6115,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6042,14 +6152,16 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the principals associated with the specified thing.
 
-  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
-  Cognito identities or federated identities.
+  A principal can be X.509
+  certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated
+  identities.
 
   Requires permission to access the
   [ListThingPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6082,7 +6194,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6123,7 +6235,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6167,7 +6279,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6211,17 +6323,20 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists your things.
 
   Use the **attributeName** and **attributeValue** parameters to filter your
-  things. For example, calling `ListThings` with attributeName=Color and
-  attributeValue=Red retrieves all things in the registry that contain an
-  attribute **Color** with the value **Red**. For more information, see [List Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
-  from the *Amazon Web Services IoT Core Developer Guide*.
+  things. For example,
+  calling `ListThings` with attributeName=Color and attributeValue=Red
+  retrieves all things in the registry that contain an attribute **Color** with
+  the value **Red**. For more
+  information, see [List Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
+  from the *Amazon Web Services IoT Core Developer
+  Guide*.
 
   Requires permission to access the
   [ListThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6289,7 +6404,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6326,7 +6441,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6371,7 +6486,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6407,7 +6522,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6459,7 +6574,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6503,7 +6618,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6511,7 +6626,8 @@ defmodule AWS.IoT do
   given time period.
 
   You can use filters to limit the results to those alerts issued for a particular
-  security profile, behavior, or thing (device).
+  security profile,
+  behavior, or thing (device).
 
   Requires permission to access the
   [ListViolationEvents](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6599,7 +6715,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6622,16 +6738,17 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Registers a CA certificate with Amazon Web Services IoT Core.
 
-  There is no limit to the number of CA certificates you can register in your
-  Amazon Web Services account. You can register up to 10 CA certificates with the
-  same `CA subject field` per Amazon Web Services account.
+  There is no limit to the number of CA
+  certificates you can register in your Amazon Web Services account. You can
+  register up to 10 CA
+  certificates with the same `CA subject field` per Amazon Web Services account.
 
   Requires permission to access the
   [RegisterCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6659,7 +6776,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6668,8 +6785,9 @@ defmodule AWS.IoT do
   as the signing CA.
 
   If you have more than one CA certificate that has the same subject field, you
-  must specify the CA certificate that was used to sign the device certificate
-  being registered.
+  must
+  specify the CA certificate that was used to sign the device certificate being
+  registered.
 
   Requires permission to access the
   [RegisterCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6696,14 +6814,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Register a certificate that does not have a certificate authority (CA).
 
-  For supported certificates, consult [ Certificate signing algorithms supported by
+  For supported certificates, consult [
+  Certificate signing algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
   """
   def register_certificate_without_ca(%Client{} = client, input, options \\ []) do
@@ -6722,17 +6841,19 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Provisions a thing in the device registry.
 
-  RegisterThing calls other IoT control plane APIs. These calls might exceed your
-  account level [ IoT Throttling Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
-  and cause throttle errors. Please contact [Amazon Web Services Customer Support](https://console.aws.amazon.com/support/home) to raise your throttling
-  limits if necessary.
+  RegisterThing calls other IoT control
+  plane APIs. These calls might exceed your account level [
+  IoT Throttling
+  Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
+  and cause throttle errors. Please contact [Amazon Web Services Customer Support](https://console.aws.amazon.com/support/home) to raise
+  your throttling limits if necessary.
 
   Requires permission to access the
   [RegisterThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6754,22 +6875,23 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Rejects a pending certificate transfer.
 
-  After IoT rejects a certificate transfer, the certificate status changes from
-  **PENDING_TRANSFER** to **INACTIVE**.
+  After IoT rejects a certificate transfer,
+  the certificate status changes from **PENDING_TRANSFER** to
+  **INACTIVE**.
 
-  To check for pending certificate transfers, call `ListCertificates` to enumerate
-  your certificates.
+  To check for pending certificate transfers, call `ListCertificates`
+  to enumerate your certificates.
 
   This operation can only be called by the transfer destination. After it is
-  called, the certificate will be returned to the source's account in the INACTIVE
-  state.
+  called,
+  the certificate will be returned to the source's account in the INACTIVE state.
 
   Requires permission to access the
   [RejectCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6791,7 +6913,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6812,15 +6934,16 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Remove the specified thing from the specified group.
 
-  You must specify either a `thingGroupArn` or a `thingGroupName` to identify the
-  thing group and either a `thingArn` or a `thingName` to identify the thing to
-  remove from the thing group.
+  You must specify either a `thingGroupArn` or a
+  `thingGroupName` to identify the thing group and
+  either a `thingArn` or a `thingName` to
+  identify the thing to remove from the thing group.
 
   Requires permission to access the
   [RemoveThingFromThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6833,15 +6956,16 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Replaces the rule.
 
-  You must specify all parameters for the new rule. Creating rules is an
-  administrator-level action. Any user who has permission to create rules will be
-  able to access data processed by the rule.
+  You must specify all parameters for the new rule. Creating rules
+  is an administrator-level action. Any user who has permission to create rules
+  will be able
+  to access data processed by the rule.
 
   Requires permission to access the
   [ReplaceTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6863,7 +6987,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6890,15 +7014,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Sets the default authorizer.
 
-  This will be used if a websocket connection is made without specifying an
-  authorizer.
+  This will be used if a websocket connection is made
+  without specifying an authorizer.
 
   Requires permission to access the
   [SetDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6920,7 +7044,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -6928,8 +7052,9 @@ defmodule AWS.IoT do
   Sets the specified version of the specified policy as the policy's default
   (operative) version.
 
-  This action affects all certificates to which the policy is attached. To list
-  the principals the policy is attached to, use the `ListPrincipalPolicies`
+  This action affects all certificates to which the policy is attached.
+  To list the principals the policy is attached to, use the
+  `ListPrincipalPolicies`
   action.
 
   Requires permission to access the
@@ -6960,14 +7085,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Sets the logging options.
 
-  NOTE: use of this command is not recommended. Use `SetV2LoggingOptions` instead.
+  NOTE: use of this command is not recommended. Use `SetV2LoggingOptions`
+  instead.
 
   Requires permission to access the
   [SetLoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -6989,7 +7115,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7016,7 +7142,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7043,7 +7169,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7070,11 +7196,12 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Starts a Device Defender ML Detect mitigation actions task.
 
   Requires permission to access the
@@ -7088,7 +7215,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -7114,7 +7241,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7141,7 +7268,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7159,13 +7286,14 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds to or modifies the tags of the given resource.
 
-  Tags are metadata which can be used to manage a resource.
+  Tags are metadata which can be
+  used to manage a resource.
 
   Requires permission to access the
   [TagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7187,7 +7315,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7195,8 +7323,8 @@ defmodule AWS.IoT do
   Tests if a specified principal is authorized to perform an IoT action on a
   specified resource.
 
-  Use this to test and debug the authorization behavior of devices that connect to
-  the IoT device gateway.
+  Use this to test and debug the authorization behavior of devices that
+  connect to the IoT device gateway.
 
   Requires permission to access the
   [TestAuthorization](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7223,15 +7351,17 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Tests a custom authorization behavior by invoking a specified custom authorizer.
 
-  Use this to test and debug the custom authorization behavior of devices that
-  connect to the IoT device gateway.
+  Use
+  this to test and debug the custom authorization behavior of devices that connect
+  to the IoT
+  device gateway.
 
   Requires permission to access the
   [TestInvokeAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7253,7 +7383,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7268,10 +7398,12 @@ defmodule AWS.IoT do
   You can cancel the transfer until it is acknowledged by the recipient.
 
   No notification is sent to the transfer destination's account. It is up to the
-  caller to notify the transfer target.
+  caller
+  to notify the transfer target.
 
   The certificate being transferred must not be in the ACTIVE state. You can use
-  the `UpdateCertificate` action to deactivate it.
+  the
+  `UpdateCertificate` action to deactivate it.
 
   The certificate must not have any policies attached to it. You can use the
   `DetachPolicy` action to detach them.
@@ -7297,7 +7429,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7324,7 +7456,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7354,11 +7486,12 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Updates a Device Defender audit suppression.
   """
   def update_audit_suppression(%Client{} = client, input, options \\ []) do
@@ -7377,7 +7510,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7395,7 +7528,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -7421,7 +7554,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7445,24 +7578,27 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates the status of the specified certificate.
 
-  This operation is idempotent.
+  This operation is
+  idempotent.
 
   Requires permission to access the
   [UpdateCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  Certificates must be in the ACTIVE state to authenticate devices that use a
-  certificate to connect to IoT.
+  Certificates must be in the ACTIVE state to authenticate devices that use
+  a certificate to connect to IoT.
 
   Within a few minutes of updating a certificate from the ACTIVE state to any
-  other state, IoT disconnects all devices that used that certificate to connect.
-  Devices cannot use a certificate that is not in the ACTIVE state to reconnect.
+  other
+  state, IoT disconnects all devices that used that certificate to connect.
+  Devices cannot
+  use a certificate that is not in the ACTIVE state to reconnect.
   """
   def update_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
@@ -7476,7 +7612,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -7498,11 +7634,12 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a Device Defender detect custom metric.
+  Updates a
+  Device Defender detect custom metric.
 
   Requires permission to access the
   [UpdateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7524,15 +7661,19 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates the definition for a dimension.
 
-  You cannot change the type of a dimension after it is created (you can delete it
-  and recreate it).
+  You
+  cannot
+  change the type of a dimension after
+  it is created (you can delete it and
+  recreate
+  it).
 
   Requires permission to access the
   [UpdateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7554,14 +7695,15 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Updates values stored in the domain configuration.
 
-  Domain configurations for default endpoints can't be updated.
+  Domain configurations for default
+  endpoints can't be updated.
 
   Requires permission to access the
   [UpdateDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7579,7 +7721,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -7605,7 +7747,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7632,7 +7774,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7659,7 +7801,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7686,7 +7828,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7718,7 +7860,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7745,7 +7887,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7873,7 +8015,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7891,12 +8033,12 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
-  Updates a scheduled audit, including which checks are performed and how often
-  the audit takes place.
+  Updates a scheduled audit, including which checks are performed and
+  how often the audit takes place.
 
   Requires permission to access the
   [UpdateScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -7918,7 +8060,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7950,7 +8092,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -7970,7 +8112,7 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -7996,7 +8138,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -8023,7 +8165,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -8041,14 +8183,14 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Updates a topic rule destination.
 
-  You use this to change the status, endpoint URL, or confirmation URL of the
-  destination.
+  You use this to change the status, endpoint URL, or
+  confirmation URL of the destination.
 
   Requires permission to access the
   [UpdateTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -8070,7 +8212,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -8097,7 +8239,7 @@ defmodule AWS.IoT do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

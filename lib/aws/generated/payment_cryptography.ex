@@ -36,7 +36,6 @@ defmodule AWS.PaymentCryptography do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-09-14",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -45,7 +44,7 @@ defmodule AWS.PaymentCryptography do
       protocol: "json",
       service_id: "Payment Cryptography",
       signature_version: "v4",
-      signing_name: "payment-cryptography",
+      signing_name: "controlplane.payment-cryptography",
       target_prefix: "PaymentCryptographyControlPlane"
     }
   end
@@ -74,13 +73,21 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `DeleteAlias`
+    *
 
-    * `GetAlias`
+  `DeleteAlias`
 
-    * `ListAliases`
+    *
 
-    * `UpdateAlias`
+  `GetAlias`
+
+    *
+
+  `ListAliases`
+
+    *
+
+  `UpdateAlias`
   """
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -119,11 +126,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `DeleteKey`
+    *
 
-    * `GetKey`
+  `DeleteKey`
 
-    * `ListKeys`
+    *
+
+  `GetKey`
+
+    *
+
+  `ListKeys`
   """
   def create_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -144,13 +157,21 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `CreateAlias`
+    *
 
-    * `GetAlias`
+  `CreateAlias`
 
-    * `ListAliases`
+    *
 
-    * `UpdateAlias`
+  `GetAlias`
+
+    *
+
+  `ListAliases`
+
+    *
+
+  `UpdateAlias`
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -182,11 +203,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `RestoreKey`
+    *
 
-    * `StartKeyUsage`
+  `RestoreKey`
 
-    * `StopKeyUsage`
+    *
+
+  `StartKeyUsage`
+
+    *
+
+  `StopKeyUsage`
   """
   def delete_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -261,25 +288,36 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    * `ExportAttributes`: Specify export attributes in case of IPEK
-  export. This parameter is optional for KEK export.
+    *
 
-    * `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of
-  IPEK) under export.
+  `ExportAttributes`: Specify export attributes in case of IPEK export. This
+  parameter is optional for KEK export.
 
-    * `KeyMaterial`: Use `Tr34KeyBlock` parameters.
+    *
 
-    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
-  certificate chain that signed the KRD wrapping key certificate.
+  `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of IPEK) under
+  export.
 
-    * `ExportToken`: Obtained from KDH by calling
-  `GetParametersForImport`.
+    *
 
-    * `WrappingKeyCertificate`: The public key certificate in PEM format
-  (base64 encoded) of the KRD wrapping key Amazon Web Services Payment
-  Cryptography uses for encryption of the TR-34 export payload. This certificate
-  must be signed by the root certificate (CertificateAuthorityPublicKeyIdentifier)
-  imported into Amazon Web Services Payment Cryptography.
+  `KeyMaterial`: Use `Tr34KeyBlock` parameters.
+
+    *
+
+  `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the certificate chain
+  that signed the KRD wrapping key certificate.
+
+    *
+
+  `ExportToken`: Obtained from KDH by calling `GetParametersForImport`.
+
+    *
+
+  `WrappingKeyCertificate`: The public key certificate in PEM format (base64
+  encoded) of the KRD wrapping key Amazon Web Services Payment Cryptography uses
+  for encryption of the TR-34 export payload. This certificate must be signed by
+  the root certificate (CertificateAuthorityPublicKeyIdentifier) imported into
+  Amazon Web Services Payment Cryptography.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
   returns the KEK or IPEK as a TR-34 WrappedKeyBlock.
@@ -295,16 +333,22 @@ defmodule AWS.PaymentCryptography do
 
   Next call `ExportKey` and set the following parameters:
 
-    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
-  certificate chain that signed wrapping key certificate.
+    *
 
-    * `KeyMaterial`: Set to `KeyCryptogram`.
+  `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the certificate chain
+  that signed wrapping key certificate.
 
-    * `WrappingKeyCertificate`: The public key certificate in PEM format
-  (base64 encoded) obtained by the receiving HSM and signed by the root
-  certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web
-  Services Payment Cryptography. The receiving HSM uses its private key component
-  to unwrap the WrappedKeyCryptogram.
+    *
+
+  `KeyMaterial`: Set to `KeyCryptogram`.
+
+    *
+
+  `WrappingKeyCertificate`: The public key certificate in PEM format (base64
+  encoded) obtained by the receiving HSM and signed by the root certificate
+  (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services
+  Payment Cryptography. The receiving HSM uses its private key component to unwrap
+  the WrappedKeyCryptogram.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
   returns the WrappedKeyCryptogram.
@@ -318,13 +362,19 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    * `ExportAttributes`: Specify export attributes in case of IPEK
-  export. This parameter is optional for KEK export.
+    *
 
-    * `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of
-  IPEK) under export.
+  `ExportAttributes`: Specify export attributes in case of IPEK export. This
+  parameter is optional for KEK export.
 
-    * `KeyMaterial`: Use `Tr31KeyBlock` parameters.
+    *
+
+  `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of IPEK) under
+  export.
+
+    *
+
+  `KeyMaterial`: Use `Tr31KeyBlock` parameters.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
   returns the working key or IPEK as a TR-31 WrappedKeyBlock.
@@ -334,9 +384,13 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `GetParametersForExport`
+    *
 
-    * `ImportKey`
+  `GetParametersForExport`
+
+    *
+
+  `ImportKey`
   """
   def export_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -352,13 +406,21 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `CreateAlias`
+    *
 
-    * `DeleteAlias`
+  `CreateAlias`
 
-    * `ListAliases`
+    *
 
-    * `UpdateAlias`
+  `DeleteAlias`
+
+    *
+
+  `ListAliases`
+
+    *
+
+  `UpdateAlias`
   """
   def get_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -375,11 +437,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `CreateKey`
+    *
 
-    * `DeleteKey`
+  `CreateKey`
 
-    * `ListKeys`
+    *
+
+  `DeleteKey`
+
+    *
+
+  `ListKeys`
   """
   def get_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -401,9 +469,13 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `ExportKey`
+    *
 
-    * `GetParametersForImport`
+  `ExportKey`
+
+    *
+
+  `GetParametersForImport`
   """
   def get_parameters_for_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -426,9 +498,13 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `GetParametersForExport`
+    *
 
-    * `ImportKey`
+  `GetParametersForExport`
+
+    *
+
+  `ImportKey`
   """
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -501,33 +577,51 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    * `KeyMaterial`: `RootCertificatePublicKey`
+    *
 
-    * `KeyClass`: `PUBLIC_KEY`
+  `KeyMaterial`: `RootCertificatePublicKey`
 
-    * `KeyModesOfUse`: `Verify`
+    *
 
-    * `KeyUsage`: `TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE`
+  `KeyClass`: `PUBLIC_KEY`
 
-    * `PublicKeyCertificate`: The public key certificate in PEM format
-  (base64 encoded) of the private root key under import.
+    *
+
+  `KeyModesOfUse`: `Verify`
+
+    *
+
+  `KeyUsage`: `TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE`
+
+    *
+
+  `PublicKeyCertificate`: The public key certificate in PEM format (base64
+  encoded) of the private root key under import.
 
   ## To import a trusted public key certificate
 
   The root public key certificate must be in place and operational before you
   import a trusted public key certificate. Set the following parameters:
 
-    * `KeyMaterial`: `TrustedCertificatePublicKey`
+    *
 
-    * `CertificateAuthorityPublicKeyIdentifier`: `KeyArn` of the
+  `KeyMaterial`: `TrustedCertificatePublicKey`
+
+    *
+
+  `CertificateAuthorityPublicKeyIdentifier`: `KeyArn` of the
   `RootCertificatePublicKey`.
 
-    * `KeyModesOfUse` and `KeyUsage`: Corresponding to the cryptographic
-  operations such as wrap, sign, or encrypt that you will allow the trusted public
-  key certificate to perform.
+    *
 
-    * `PublicKeyCertificate`: The trusted public key certificate in PEM
-  format (base64 encoded) under import.
+  `KeyModesOfUse` and `KeyUsage`: Corresponding to the cryptographic operations
+  such as wrap, sign, or encrypt that you will allow the trusted public key
+  certificate to perform.
+
+    *
+
+  `PublicKeyCertificate`: The trusted public key certificate in PEM format (base64
+  encoded) under import.
 
   ## To import initial keys (KEK or ZMK or similar) using TR-34
 
@@ -557,22 +651,31 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    * `KeyMaterial`: Use `Tr34KeyBlock` parameters.
+    *
 
-    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
-  certificate chain that signed the KDH signing key certificate.
+  `KeyMaterial`: Use `Tr34KeyBlock` parameters.
 
-    * `ImportToken`: Obtained from KRD by calling
-  `GetParametersForImport`.
+    *
 
-    * `WrappedKeyBlock`: The TR-34 wrapped key material from KDH. It
-  contains the KDH key under import, wrapped with KRD wrapping certificate and
-  signed by KDH signing private key. This TR-34 key block is typically generated
-  by the KDH Hardware Security Module (HSM) outside of Amazon Web Services Payment
+  `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the certificate chain
+  that signed the KDH signing key certificate.
+
+    *
+
+  `ImportToken`: Obtained from KRD by calling `GetParametersForImport`.
+
+    *
+
+  `WrappedKeyBlock`: The TR-34 wrapped key material from KDH. It contains the KDH
+  key under import, wrapped with KRD wrapping certificate and signed by KDH
+  signing private key. This TR-34 key block is typically generated by the KDH
+  Hardware Security Module (HSM) outside of Amazon Web Services Payment
   Cryptography.
 
-    * `SigningKeyCertificate`: The public key certificate in PEM format
-  (base64 encoded) of the KDH signing key generated under the root certificate
+    *
+
+  `SigningKeyCertificate`: The public key certificate in PEM format (base64
+  encoded) of the KDH signing key generated under the root certificate
   (CertificateAuthorityPublicKeyIdentifier) imported in Amazon Web Services
   Payment Cryptography.
 
@@ -598,23 +701,33 @@ defmodule AWS.PaymentCryptography do
   Payment Cryptography by using TR-34 key import or by using `CreateKey`. To
   initiate a TR-31 key import, set the following parameters:
 
-    * `KeyMaterial`: Use `Tr31KeyBlock` parameters.
+    *
 
-    * `WrappedKeyBlock`: The TR-31 wrapped key material. It contains the
-  key under import, encrypted using KEK. The TR-31 key block is typically
-  generated by a HSM outside of Amazon Web Services Payment Cryptography.
+  `KeyMaterial`: Use `Tr31KeyBlock` parameters.
 
-    * `WrappingKeyIdentifier`: The `KeyArn` of the KEK that Amazon Web
-  Services Payment Cryptography uses to decrypt or unwrap the key under import.
+    *
+
+  `WrappedKeyBlock`: The TR-31 wrapped key material. It contains the key under
+  import, encrypted using KEK. The TR-31 key block is typically generated by a HSM
+  outside of Amazon Web Services Payment Cryptography.
+
+    *
+
+  `WrappingKeyIdentifier`: The `KeyArn` of the KEK that Amazon Web Services
+  Payment Cryptography uses to decrypt or unwrap the key under import.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
-    * `ExportKey`
+    *
 
-    * `GetParametersForImport`
+  `ExportKey`
+
+    *
+
+  `GetParametersForImport`
   """
   def import_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -631,23 +744,31 @@ defmodule AWS.PaymentCryptography do
 
   This is a paginated operation, which means that each response might contain only
   a subset of all the aliases. When the response contains only a subset of
-  aliases, it includes a `NextToken` value. Use this value in a subsequent
-  `ListAliases` request to get more aliases. When you receive a response with no
-  NextToken (or an empty or null value), that means there are no more aliases to
-  get.
+  aliases, it includes a `NextToken` value.
+  Use this value in a subsequent `ListAliases` request to get more aliases. When
+  you receive a response with no NextToken (or an empty or null value), that means
+  there are no more aliases to get.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
-    * `CreateAlias`
+    *
 
-    * `DeleteAlias`
+  `CreateAlias`
 
-    * `GetAlias`
+    *
 
-    * `UpdateAlias`
+  `DeleteAlias`
+
+    *
+
+  `GetAlias`
+
+    *
+
+  `UpdateAlias`
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -662,21 +783,28 @@ defmodule AWS.PaymentCryptography do
   You can filter the list of keys.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the keys. When the response contains only a subset of keys, it
-  includes a `NextToken` value. Use this value in a subsequent `ListKeys` request
-  to get more keys. When you receive a response with no NextToken (or an empty or
-  null value), that means there are no more keys to get.
+  a subset of all the keys.
+  When the response contains only a subset of keys, it includes a `NextToken`
+  value. Use this value in a subsequent `ListKeys` request to get more keys.
+  When you receive a response with no NextToken (or an empty or null value), that
+  means there are no more keys to get.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
-    * `CreateKey`
+    *
 
-    * `DeleteKey`
+  `CreateKey`
 
-    * `GetKey`
+    *
+
+  `DeleteKey`
+
+    *
+
+  `GetKey`
   """
   def list_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -688,20 +816,25 @@ defmodule AWS.PaymentCryptography do
   Lists the tags for an Amazon Web Services resource.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the tags. When the response contains only a subset of tags, it
-  includes a `NextToken` value. Use this value in a subsequent
-  `ListTagsForResource` request to get more tags. When you receive a response with
-  no NextToken (or an empty or null value), that means there are no more tags to
-  get.
+  a subset of all the tags.
+  When the response contains only a subset of tags, it includes a `NextToken`
+  value. Use this value in a subsequent `ListTagsForResource` request to get more
+  tags.
+  When you receive a response with no NextToken (or an empty or null value), that
+  means there are no more tags to get.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
-    * `TagResource`
+    *
 
-    * `UntagResource`
+  `TagResource`
+
+    *
+
+  `UntagResource`
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -716,19 +849,26 @@ defmodule AWS.PaymentCryptography do
 
   During the waiting period, the `KeyState` is `DELETE_PENDING` and
   `deletePendingTimestamp` contains the date and time after which the `Key` will
-  be deleted. After `Key` is restored, the `KeyState` is `CREATE_COMPLETE`, and
-  the value for `deletePendingTimestamp` is removed.
+  be deleted.
+  After `Key` is restored, the `KeyState` is `CREATE_COMPLETE`, and the value for
+  `deletePendingTimestamp` is removed.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
-    * `DeleteKey`
+    *
 
-    * `StartKeyUsage`
+  `DeleteKey`
 
-    * `StopKeyUsage`
+    *
+
+  `StartKeyUsage`
+
+    *
+
+  `StopKeyUsage`
   """
   def restore_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -745,7 +885,9 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `StopKeyUsage`
+    *
+
+  `StopKeyUsage`
   """
   def start_key_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -765,9 +907,13 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `DeleteKey`
+    *
 
-    * `StartKeyUsage`
+  `DeleteKey`
+
+    *
+
+  `StartKeyUsage`
   """
   def stop_key_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -792,9 +938,13 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `ListTagsForResource`
+    *
 
-    * `UntagResource`
+  `ListTagsForResource`
+
+    *
+
+  `UntagResource`
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -813,9 +963,13 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `ListTagsForResource`
+    *
 
-    * `TagResource`
+  `ListTagsForResource`
+
+    *
+
+  `TagResource`
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -837,13 +991,21 @@ defmodule AWS.PaymentCryptography do
 
   ## Related operations:
 
-    * `CreateAlias`
+    *
 
-    * `DeleteAlias`
+  `CreateAlias`
 
-    * `GetAlias`
+    *
 
-    * `ListAliases`
+  `DeleteAlias`
+
+    *
+
+  `GetAlias`
+
+    *
+
+  `ListAliases`
   """
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()

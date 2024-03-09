@@ -6,17 +6,22 @@ defmodule AWS.QLDBSession do
   The transactional data APIs for Amazon QLDB
 
   Instead of interacting directly with this API, we recommend using the QLDB
-  driver or the QLDB shell to execute data transactions on a ledger.
+  driver
+  or the QLDB shell to execute data transactions on a ledger.
 
-     If you are working with an AWS SDK, use the QLDB driver. The driver
-  provides a high-level abstraction layer above this *QLDB Session* data plane and
-  manages `SendCommand` API calls for you. For information and a list of supported
-  programming languages, see [Getting started with the driver](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html)
-  in the *Amazon QLDB Developer Guide*.
+    
+  If you are working with an AWS SDK, use the QLDB driver. The driver provides
+  a high-level abstraction layer above this *QLDB Session* data
+  plane and manages `SendCommand` API calls for you. For information and
+  a list of supported programming languages, see [Getting started with the
+  driver](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html)
+  in the *Amazon QLDB Developer
+  Guide*.
 
-     If you are working with the AWS Command Line Interface (AWS CLI),
-  use the QLDB shell. The shell is a command line interface that uses the QLDB
-  driver to interact with a ledger. For information, see [Accessing Amazon QLDB using the QLDB
+    
+  If you are working with the AWS Command Line Interface (AWS CLI), use the
+  QLDB shell. The shell is a command line interface that uses the QLDB driver to
+  interact with a ledger. For information, see [Accessing Amazon QLDB using the QLDB
   shell](https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html).
   """
 
@@ -25,7 +30,6 @@ defmodule AWS.QLDBSession do
 
   def metadata do
     %{
-      abbreviation: "QLDB Session",
       api_version: "2019-07-11",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -34,7 +38,7 @@ defmodule AWS.QLDBSession do
       protocol: "json",
       service_id: "QLDB Session",
       signature_version: "v4",
-      signing_name: "qldb",
+      signing_name: "session.qldb",
       target_prefix: "QLDBSession"
     }
   end
@@ -43,17 +47,22 @@ defmodule AWS.QLDBSession do
   Sends a command to an Amazon QLDB ledger.
 
   Instead of interacting directly with this API, we recommend using the QLDB
-  driver or the QLDB shell to execute data transactions on a ledger.
+  driver
+  or the QLDB shell to execute data transactions on a ledger.
 
-     If you are working with an AWS SDK, use the QLDB driver. The driver
-  provides a high-level abstraction layer above this *QLDB Session* data plane and
-  manages `SendCommand` API calls for you. For information and a list of supported
-  programming languages, see [Getting started with the driver](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html)
-  in the *Amazon QLDB Developer Guide*.
+    
+  If you are working with an AWS SDK, use the QLDB driver. The driver provides
+  a high-level abstraction layer above this *QLDB Session* data
+  plane and manages `SendCommand` API calls for you. For information and
+  a list of supported programming languages, see [Getting started with the
+  driver](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-driver.html)
+  in the *Amazon QLDB Developer
+  Guide*.
 
-     If you are working with the AWS Command Line Interface (AWS CLI),
-  use the QLDB shell. The shell is a command line interface that uses the QLDB
-  driver to interact with a ledger. For information, see [Accessing Amazon QLDB using the QLDB
+    
+  If you are working with the AWS Command Line Interface (AWS CLI), use the
+  QLDB shell. The shell is a command line interface that uses the QLDB driver to
+  interact with a ledger. For information, see [Accessing Amazon QLDB using the QLDB
   shell](https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html).
   """
   def send_command(%Client{} = client, input, options \\ []) do

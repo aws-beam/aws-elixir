@@ -7,14 +7,20 @@ defmodule AWS.CodeBuild do
 
   CodeBuild is a fully managed build service in the cloud.
 
-  CodeBuild compiles your source code, runs unit tests, and produces artifacts
-  that are ready to deploy. CodeBuild eliminates the need to provision, manage,
-  and scale your own build servers. It provides prepackaged build environments for
-  the most popular programming languages and build tools, such as Apache Maven,
-  Gradle, and more. You can also fully customize build environments in CodeBuild
+  CodeBuild compiles your source code,
+  runs unit tests, and produces artifacts that are ready to deploy. CodeBuild
+  eliminates the
+  need to provision, manage, and scale your own build servers. It provides
+  prepackaged
+  build environments for the most popular programming languages and build tools,
+  such as
+  Apache Maven, Gradle, and more. You can also fully customize build environments
+  in CodeBuild
   to use your own build tools. CodeBuild scales automatically to meet peak build
-  requests. You pay only for the build time you consume. For more information
-  about CodeBuild, see the * [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).*
+  requests. You
+  pay only for the build time you consume. For more information about CodeBuild,
+  see the *
+  [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).*
   """
 
   alias AWS.Client
@@ -22,7 +28,6 @@ defmodule AWS.CodeBuild do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2016-10-06",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -82,6 +87,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Returns an array of report groups.
   """
   def batch_get_report_groups(%Client{} = client, input, options \\ []) do
@@ -91,6 +97,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Returns an array of reports.
   """
   def batch_get_reports(%Client{} = client, input, options \\ []) do
@@ -118,6 +125,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Creates a report group.
 
   A report group contains a collection of reports.
@@ -130,16 +138,22 @@ defmodule AWS.CodeBuild do
 
   @doc """
   For an existing CodeBuild build project that has its source code stored in a
-  GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the source
-  code every time a code change is pushed to the repository.
+  GitHub or
+  Bitbucket repository, enables CodeBuild to start rebuilding the source code
+  every time a
+  code change is pushed to the repository.
 
   If you enable webhooks for an CodeBuild project, and the project is used as a
-  build step in CodePipeline, then two identical builds are created for each
-  commit. One build is triggered through webhooks, and one through CodePipeline.
-  Because billing is on a per-build basis, you are billed for both builds.
-  Therefore, if you are using CodePipeline, we recommend that you disable webhooks
-  in CodeBuild. In the CodeBuild console, clear the Webhook box. For more
-  information, see step 5 in [Change a Build Project's Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
+  build
+  step in CodePipeline, then two identical builds are created for each commit. One
+  build is
+  triggered through webhooks, and one through CodePipeline. Because billing is on
+  a per-build
+  basis, you are billed for both builds. Therefore, if you are using CodePipeline,
+  we
+  recommend that you disable webhooks in CodeBuild. In the CodeBuild console,
+  clear the
+  Webhook box. For more information, see step 5 in [Change a Build Project's Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
   """
   def create_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -179,6 +193,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Deletes a report.
   """
   def delete_report(%Client{} = client, input, options \\ []) do
@@ -218,8 +233,10 @@ defmodule AWS.CodeBuild do
 
   @doc """
   For an existing CodeBuild build project that has its source code stored in a
-  GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source code
-  every time a code change is pushed to the repository.
+  GitHub or
+  Bitbucket repository, stops CodeBuild from rebuilding the source code every time
+  a code
+  change is pushed to the repository.
   """
   def delete_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -237,6 +254,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Returns a list of details about test cases for a report.
   """
   def describe_test_cases(%Client{} = client, input, options \\ []) do
@@ -311,7 +329,8 @@ defmodule AWS.CodeBuild do
 
   @doc """
   Gets a list of build identifiers for the specified build project, with each
-  build identifier representing a single build.
+  build
+  identifier representing a single build.
   """
   def list_builds_for_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -340,7 +359,8 @@ defmodule AWS.CodeBuild do
 
   @doc """
   Gets a list of build project names, with each build project name representing a
-  single build project.
+  single
+  build project.
   """
   def list_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -349,6 +369,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Gets a list ARNs for the report groups in the current Amazon Web Services
   account.
   """
@@ -359,6 +380,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Returns a list of ARNs for the reports in the current Amazon Web Services
   account.
   """
@@ -369,6 +391,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Returns a list of ARNs for the reports that belong to a `ReportGroup`.
   """
   def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
@@ -407,7 +430,8 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Stores a resource policy for the ARN of a `Project` or `ReportGroup` object.
+  Stores a resource policy for the ARN of a `Project` or
+  `ReportGroup` object.
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -438,13 +462,13 @@ defmodule AWS.CodeBuild do
   @doc """
   Starts running a build with the settings defined in the project.
 
-  These setting include: how to run a build, where to get the source code, which
-  build environment to use, which build commands to run, and where to store the
-  build output.
+  These setting include: how to run a build,
+  where to get the source code, which build environment to use, which build
+  commands to run, and where to store the build output.
 
   You can also start a build run by overriding some of the build settings in the
-  project. The overrides only apply for that specific start build request. The
-  settings in the project are unaltered.
+  project. The overrides only apply for that
+  specific start build request. The settings in the project are unaltered.
   """
   def start_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -500,35 +524,49 @@ defmodule AWS.CodeBuild do
   @doc """
   Changes the public visibility for a project.
 
-  The project's build results, logs, and artifacts are available to the general
-  public. For more information, see [Public build projects](https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html)
+  The project's build results, logs, and
+  artifacts are available to the general public. For more information, see [Public build
+  projects](https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html)
   in the *CodeBuild User Guide*.
 
   The following should be kept in mind when making your projects public:
 
-     All of a project's build results, logs, and artifacts, including
-  builds that were run when the project was private, are available to the general
-  public.
+    
+  All of a project's build results, logs, and artifacts, including builds that
+  were run
+  when the project was private, are available to the general public.
 
-     All build logs and artifacts are available to the public.
-  Environment variables, source code, and other sensitive information may have
-  been output to the build logs and artifacts. You must be careful about what
-  information is output to the build logs. Some best practice are:
+    
+  All build logs and artifacts are available to the public. Environment variables,
+  source
+  code, and other sensitive information may have been output to the build logs and
+  artifacts.
+  You must be careful about what information is output to the build logs. Some
+  best practice
+  are:
 
-       Do not store sensitive values in environment variables.
-  We recommend that you use an Amazon EC2 Systems Manager Parameter Store or
-  Secrets Manager to store sensitive values.
+      
+  Do not store sensitive values in environment variables. We recommend that you
+  use an Amazon EC2 Systems Manager Parameter Store
+  or Secrets Manager to store sensitive values.
 
-       Follow [Best practices for using webhooks](https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices)
-  in the *CodeBuild User Guide* to limit which entities can trigger a build, and
-  do not store the buildspec in the project itself, to ensure that your webhooks
-  are as secure as possible.
+      
+  Follow [Best practices for using
+  webhooks](https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices)
+  in the *CodeBuild User
+  Guide* to limit which entities can trigger a build, and do
+  not store the buildspec in the project itself, to ensure that your webhooks are
+  as
+  secure as possible.
 
-     A malicious user can use public builds to distribute malicious
-  artifacts. We recommend that you review all pull requests to verify that the
-  pull request is a legitimate change. We also recommend that you validate any
-  artifacts with their checksums to make sure that the correct artifacts are being
-  downloaded.
+    
+  A malicious user can use public builds to distribute malicious artifacts. We
+  recommend
+  that you review all pull requests to verify that the pull request is a
+  legitimate change. We
+  also recommend that you validate any artifacts with their checksums to make sure
+  that the
+  correct artifacts are being downloaded.
   """
   def update_project_visibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -537,6 +575,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+
   Updates a report group.
   """
   def update_report_group(%Client{} = client, input, options \\ []) do

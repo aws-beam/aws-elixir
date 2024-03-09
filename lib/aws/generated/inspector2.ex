@@ -4,8 +4,9 @@
 defmodule AWS.Inspector2 do
   @moduledoc """
   Amazon Inspector is a vulnerability discovery service that automates continuous
-  scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and
-  Amazon Web Services Lambda environments.
+  scanning for
+  security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web
+  Services Lambda environments.
   """
 
   alias AWS.Client
@@ -13,7 +14,6 @@ defmodule AWS.Inspector2 do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-06-08",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -424,7 +424,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Disables Amazon Inspector scans for one or more Amazon Web Services accounts.
 
-  Disabling all scan types in an account disables the Amazon Inspector service.
+  Disabling all scan types in an account
+  disables the Amazon Inspector service.
   """
   def disable(%Client{} = client, input, options \\ []) do
     url_path = "/disable"
@@ -610,7 +611,8 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves information about the Amazon Inspector delegated administrator for
-  your organization.
+  your
+  organization.
   """
   def get_delegated_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/get"
@@ -1012,7 +1014,8 @@ defmodule AWS.Inspector2 do
 
   @doc """
   List members associated with the Amazon Inspector delegated administrator for
-  your organization.
+  your
+  organization.
   """
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/list"
@@ -1110,11 +1113,13 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+
   Sends a CIS session health.
 
   This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
-  start a CIS scan session for the scan ID supplied by the service.
+  Amazon Inspector service.
+  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
+  the scan ID supplied by the service.
   """
   def send_cis_session_health(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/health/send"
@@ -1127,11 +1132,13 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+
   Sends a CIS session telemetry.
 
   This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
-  start a CIS scan session for the scan ID supplied by the service.
+  Amazon Inspector service.
+  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
+  the scan ID supplied by the service.
   """
   def send_cis_session_telemetry(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/telemetry/send"
@@ -1144,11 +1151,13 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+
   Starts a CIS session.
 
   This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
-  start a CIS scan session for the scan ID supplied by the service.
+  Amazon Inspector service.
+  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
+  the scan ID supplied by the service.
   """
   def start_cis_session(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/start"
@@ -1161,11 +1170,13 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+
   Stops a CIS session.
 
   This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
-  start a CIS scan session for the scan ID supplied by the service.
+  Amazon Inspector service.
+  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
+  the scan ID supplied by the service.
   """
   def stop_cis_session(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/stop"

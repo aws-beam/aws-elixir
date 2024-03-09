@@ -4,14 +4,17 @@
 defmodule AWS.MarketplaceCatalog do
   @moduledoc """
   Catalog API actions allow you to manage your entities through list, describe,
-  and update capabilities.
+  and
+  update capabilities.
 
   An entity can be a product or an offer on AWS Marketplace.
 
   You can automate your entity update process by integrating the AWS Marketplace
-  Catalog API with your AWS Marketplace product build or deployment pipelines. You
-  can also create your own applications on top of the Catalog API to manage your
-  products on AWS Marketplace.
+  Catalog
+  API with your AWS Marketplace product build or deployment pipelines. You can
+  also create
+  your own applications on top of the Catalog API to manage your products on AWS
+  Marketplace.
   """
 
   alias AWS.Client
@@ -19,7 +22,6 @@ defmodule AWS.MarketplaceCatalog do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-09-17",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -55,16 +57,17 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Used to cancel an open change request.
 
-  Must be sent before the status of the request changes to `APPLYING`, the final
-  stage of completing your change request. You can describe a change during the
-  60-day request history retention period for API calls.
+  Must be sent before the status of the request
+  changes to `APPLYING`, the final stage of completing your change request. You
+  can describe a change during the 60-day request history retention period for API
+  calls.
   """
   def cancel_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/CancelChangeSet"
@@ -88,7 +91,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -117,7 +120,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -145,7 +148,7 @@ defmodule AWS.MarketplaceCatalog do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -172,7 +175,7 @@ defmodule AWS.MarketplaceCatalog do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -193,19 +196,21 @@ defmodule AWS.MarketplaceCatalog do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the list of change sets owned by the account being used to make the
   call.
 
-  You can filter this list by providing any combination of `entityId`,
+  You
+  can filter this list by providing any combination of `entityId`,
   `ChangeSetName`, and status. If you provide more than one filter, the API
   operation applies a logical AND between the filters.
 
   You can describe a change during the 60-day request history retention period for
-  API calls.
+  API
+  calls.
   """
   def list_change_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListChangeSets"
@@ -223,7 +228,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -246,7 +251,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -271,14 +276,15 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Attaches a resource-based policy to an entity.
 
-  Examples of an entity include: `AmiProduct` and `ContainerProduct`.
+  Examples of an entity include:
+  `AmiProduct` and `ContainerProduct`.
   """
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
@@ -296,30 +302,34 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Allows you to request changes for your entities.
 
-  Within a single `ChangeSet`, you can't start the same change type against the
-  same entity multiple times. Additionally, when a `ChangeSet` is running, all the
-  entities targeted by the different changes are locked until the change set has
-  completed (either succeeded, cancelled, or failed). If you try to start a change
-  set containing a change against an entity that is already locked, you will
-  receive a `ResourceInUseException` error.
+  Within a single
+  `ChangeSet`, you can't start the same change type against the same entity
+  multiple times. Additionally, when a `ChangeSet` is running, all the entities
+  targeted by the different changes are locked until the change set has completed
+  (either
+  succeeded, cancelled, or failed). If you try to start a change set containing a
+  change
+  against an entity that is already locked, you will receive a
+  `ResourceInUseException` error.
 
   For example, you can't start the `ChangeSet` described in the
-  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic because it contains two changes to run the same change type
-  (`AddRevisions`) against the same entity (`entity-id@1`).
+  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic because it contains two changes to run the same
+  change type (`AddRevisions`) against the same entity
+  (`entity-id@1`).
 
   For more information about working with change sets, see [ Working with change
   sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets).
-  For information about change types for single-AMI products, see [Working with single-AMI
-  products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products).
-  Also, for more information about change types available for container-based
-  products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
+  For information about change types for
+  single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products).
+  Also, for more information about change
+  types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
   """
   def start_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/StartChangeSet"
@@ -337,7 +347,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -362,7 +372,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -387,7 +397,7 @@ defmodule AWS.MarketplaceCatalog do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

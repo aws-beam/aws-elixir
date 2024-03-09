@@ -11,7 +11,6 @@ defmodule AWS.RoboMaker do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-06-29",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -44,7 +43,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -67,7 +66,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -93,7 +92,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -116,15 +115,15 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Cancels a simulation job batch.
 
-  When you cancel a simulation job batch, you are also cancelling all of the
-  active simulation jobs created as part of the batch.
+  When you cancel a simulation job batch, you are also
+  cancelling all of the active simulation jobs created as part of the batch.
   """
   def cancel_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/cancelSimulationJobBatch"
@@ -142,7 +141,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -165,7 +164,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -188,7 +187,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -197,12 +196,13 @@ defmodule AWS.RoboMaker do
 
   This API is no longer supported and will throw an error if used.
 
-  The robot application must have a numbered `applicationVersion` for consistency
-  reasons. To create a new version, use `CreateRobotApplicationVersion` or see
-  [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
+  The robot application must have a numbered `applicationVersion` for
+  consistency reasons. To create a new version, use
+  `CreateRobotApplicationVersion` or see [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
 
   After 90 days, deployment jobs expire and will be deleted. They will no longer
-  be accessible.
+  be
+  accessible.
   """
   def create_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/createDeploymentJob"
@@ -220,7 +220,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -245,7 +245,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -270,7 +270,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -293,7 +293,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -316,7 +316,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -339,7 +339,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -362,7 +362,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -370,7 +370,8 @@ defmodule AWS.RoboMaker do
   Creates a simulation job.
 
   After 90 days, simulation jobs expire and will be deleted. They will no longer
-  be accessible.
+  be
+  accessible.
   """
   def create_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationJob"
@@ -388,7 +389,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -411,7 +412,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -434,7 +435,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -457,7 +458,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -483,7 +484,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -509,7 +510,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -532,7 +533,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -555,7 +556,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -578,7 +579,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -604,7 +605,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -630,7 +631,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -656,7 +657,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -682,7 +683,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -705,7 +706,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -728,7 +729,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -751,7 +752,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -774,7 +775,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -797,7 +798,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -820,7 +821,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -843,7 +844,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -866,7 +867,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -889,7 +890,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -917,7 +918,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -945,14 +946,15 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns a list of robot application.
 
-  You can optionally provide filters to retrieve specific robot applications.
+  You can optionally provide filters to retrieve
+  specific robot applications.
   """
   def list_robot_applications(%Client{} = client, input, options \\ []) do
     url_path = "/listRobotApplications"
@@ -970,7 +972,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -998,14 +1000,15 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns a list of simulation applications.
 
-  You can optionally provide filters to retrieve specific simulation applications.
+  You can optionally provide filters to
+  retrieve specific simulation applications.
   """
   def list_simulation_applications(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationApplications"
@@ -1023,14 +1026,15 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns a list simulation job batches.
 
-  You can optionally provide filters to retrieve specific simulation batch jobs.
+  You can optionally provide filters to retrieve
+  specific simulation batch jobs.
   """
   def list_simulation_job_batches(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationJobBatches"
@@ -1048,14 +1052,15 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Returns a list of simulation jobs.
 
-  You can optionally provide filters to retrieve specific simulation jobs.
+  You can optionally provide filters to retrieve
+  specific simulation jobs.
   """
   def list_simulation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationJobs"
@@ -1073,7 +1078,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1087,7 +1092,7 @@ defmodule AWS.RoboMaker do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1109,7 +1114,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1132,7 +1137,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1155,7 +1160,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1178,7 +1183,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1203,7 +1208,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1226,14 +1231,15 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Starts a new simulation job batch.
 
-  The batch is defined using one or more `SimulationJobRequest` objects.
+  The batch is defined using one or more
+  `SimulationJobRequest` objects.
   """
   def start_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/startSimulationJobBatch"
@@ -1251,7 +1257,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1279,7 +1285,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1291,7 +1297,8 @@ defmodule AWS.RoboMaker do
 
   For information about the rules that apply to tag keys and tag values, see
   [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
-  in the *AWS Billing and Cost Management User Guide*.
+  in the *AWS Billing and Cost Management
+  User Guide*.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1309,7 +1316,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1317,7 +1324,9 @@ defmodule AWS.RoboMaker do
   Removes the specified tags from the specified AWS RoboMaker resource.
 
   To remove a tag, specify the tag key. To change the tag value of an existing tag
-  key, use [ `TagResource`
+  key,
+  use [
+  `TagResource`
   ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -1341,7 +1350,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1364,7 +1373,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1387,7 +1396,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1410,7 +1419,7 @@ defmodule AWS.RoboMaker do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

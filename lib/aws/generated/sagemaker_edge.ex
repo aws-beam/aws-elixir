@@ -11,7 +11,6 @@ defmodule AWS.SagemakerEdge do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-09-23",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -44,7 +43,7 @@ defmodule AWS.SagemakerEdge do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -67,7 +66,7 @@ defmodule AWS.SagemakerEdge do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -90,7 +89,7 @@ defmodule AWS.SagemakerEdge do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

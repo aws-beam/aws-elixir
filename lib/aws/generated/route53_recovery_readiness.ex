@@ -11,7 +11,6 @@ defmodule AWS.Route53RecoveryReadiness do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-12-02",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

@@ -5,10 +5,11 @@ defmodule AWS.PcaConnectorAd do
   @moduledoc """
   Amazon Web Services Private CA Connector for Active Directory creates a
   connector between Amazon Web Services Private CA and Active Directory (AD) that
-  enables you to provision security certificates for AD signed by a private CA
-  that you own.
+  enables you to
+  provision security certificates for AD signed by a private CA that you own.
 
-  For more information, see [Amazon Web Services Private CA Connector for Active Directory](https://docs.aws.amazon.com/privateca/latest/userguide/ad-connector.html).
+  For more
+  information, see [Amazon Web Services Private CA Connector for Active Directory](https://docs.aws.amazon.com/privateca/latest/userguide/ad-connector.html).
   """
 
   alias AWS.Client
@@ -16,7 +17,6 @@ defmodule AWS.PcaConnectorAd do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -34,7 +34,8 @@ defmodule AWS.PcaConnectorAd do
   Creates a connector between Amazon Web Services Private CA and an Active
   Directory.
 
-  You must specify the private CA, directory ID, and security groups.
+  You must specify the private CA,
+  directory ID, and security groups.
   """
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/connectors"
@@ -58,7 +59,8 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Creates a directory registration that authorizes communication between Amazon
-  Web Services Private CA and an Active Directory
+  Web Services Private CA and an
+  Active Directory
   """
   def create_directory_registration(%Client{} = client, input, options \\ []) do
     url_path = "/directoryRegistrations"
@@ -84,8 +86,9 @@ defmodule AWS.PcaConnectorAd do
   Creates a service principal name (SPN) for the service account in Active
   Directory.
 
-  Kerberos authentication uses SPNs to associate a service instance with a service
-  sign-in account.
+  Kerberos
+  authentication uses SPNs to associate a service instance with a service sign-in
+  account.
   """
   def create_service_principal_name(
         %Client{} = client,
@@ -118,8 +121,9 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Creates an Active Directory compatible certificate template.
 
-  The connectors issues certificates using these templates based on the
-  requester’s Active Directory group membership.
+  The connectors issues certificates
+  using these templates based on the requester’s Active Directory group
+  membership.
   """
   def create_template(%Client{} = client, input, options \\ []) do
     url_path = "/templates"
@@ -144,8 +148,8 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Create a group access control entry.
 
-  Allow or deny Active Directory groups from enrolling and/or autoenrolling with
-  the template based on the group security identifiers (SIDs).
+  Allow or deny Active Directory groups from enrolling and/or
+  autoenrolling with the template based on the group security identifiers (SIDs).
   """
   def create_template_group_access_control_entry(
         %Client{} = client,
@@ -175,10 +179,11 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Deletes a connector for Active Directory.
 
-  You must provide the Amazon Resource Name (ARN) of the connector that you want
-  to delete. You can find the ARN by calling the
+  You must provide the Amazon Resource Name (ARN) of the
+  connector that you want to delete. You can find the ARN by calling the
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors) action. Deleting a connector does not deregister your directory with Amazon Web
-  Services Private CA. You can deregister your directory by calling the
+  Services Private CA. You can
+  deregister your directory by calling the
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration)
   action.
   """
@@ -205,8 +210,8 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Deletes a directory registration.
 
-  Deleting a directory registration deauthorizes Amazon Web Services Private CA
-  with the directory.
+  Deleting a directory registration deauthorizes
+  Amazon Web Services Private CA with the directory.
   """
   def delete_directory_registration(
         %Client{} = client,
@@ -235,7 +240,8 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Deletes the service principal name (SPN) used by a connector to authenticate
-  with your Active Directory.
+  with your
+  Active Directory.
   """
   def delete_service_principal_name(
         %Client{} = client,
@@ -268,8 +274,8 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Deletes a template.
 
-  Certificates issued using the template are still valid until they are revoked or
-  expired.
+  Certificates issued using the template are still valid until they
+  are revoked or expired.
   """
   def delete_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
@@ -325,7 +331,8 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Lists information about your connector.
 
-  You specify the connector on input by its ARN (Amazon Resource Name).
+  You specify the connector on input by its ARN
+  (Amazon Resource Name).
   """
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
@@ -373,7 +380,8 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Retrieves a certificate template that the connector uses to issue certificates
-  from a private CA.
+  from a
+  private CA.
   """
   def get_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"

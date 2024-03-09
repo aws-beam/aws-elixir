@@ -4,9 +4,12 @@
 defmodule AWS.LaunchWizard do
   @moduledoc """
   Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon
-  Web Services resources for third party applications, such as Microsoft SQL
-  Server Always On and HANA based SAP systems, without the need to manually
-  identify and provision individual Amazon Web Services resources.
+  Web Services resources for
+  third party applications, such as Microsoft SQL Server Always On and HANA based
+  SAP
+  systems, without the need to manually identify and provision individual Amazon
+  Web Services
+  resources.
   """
 
   alias AWS.Client
@@ -14,7 +17,6 @@ defmodule AWS.LaunchWizard do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -31,8 +33,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Creates a deployment for the given workload.
 
-  Deployments created by this operation are not available in the Launch Wizard
-  console to use the `Clone deployment` action on.
+  Deployments created by this operation are
+  not available in the Launch Wizard console to use the `Clone deployment` action
+  on.
   """
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/createDeployment"

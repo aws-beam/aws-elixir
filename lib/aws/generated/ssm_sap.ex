@@ -4,9 +4,11 @@
 defmodule AWS.SsmSap do
   @moduledoc """
   This API reference provides descriptions, syntax, and other details about each
-  of the actions and data types for AWS Systems Manager for SAP.
+  of the
+  actions and data types for AWS Systems Manager for SAP.
 
-  The topic for each action shows the API request parameters and responses.
+  The topic for each action shows
+  the API request parameters and responses.
   """
 
   alias AWS.Client
@@ -14,7 +16,6 @@ defmodule AWS.SsmSap do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -54,8 +55,8 @@ defmodule AWS.SsmSap do
   @doc """
   Deregister an SAP application with AWS Systems Manager for SAP.
 
-  This action does not aﬀect the existing setup of your SAP workloads on Amazon
-  EC2.
+  This action does not
+  aﬀect the existing setup of your SAP workloads on Amazon EC2.
   """
   def deregister_application(%Client{} = client, input, options \\ []) do
     url_path = "/deregister-application"
@@ -80,7 +81,8 @@ defmodule AWS.SsmSap do
   @doc """
   Gets an application registered with AWS Systems Manager for SAP.
 
-  It also returns the components of the application.
+  It also returns the
+  components of the application.
   """
   def get_application(%Client{} = client, input, options \\ []) do
     url_path = "/get-application"
@@ -128,7 +130,8 @@ defmodule AWS.SsmSap do
 
   @doc """
   Gets the SAP HANA database of an application registered with AWS Systems Manager
-  for SAP.
+  for
+  SAP.
   """
   def get_database(%Client{} = client, input, options \\ []) do
     url_path = "/get-database"
@@ -244,7 +247,8 @@ defmodule AWS.SsmSap do
 
   @doc """
   Lists the SAP HANA databases of an application registered with AWS Systems
-  Manager for SAP.
+  Manager for
+  SAP.
   """
   def list_databases(%Client{} = client, input, options \\ []) do
     url_path = "/list-databases"
@@ -291,7 +295,8 @@ defmodule AWS.SsmSap do
 
   @doc """
   Lists all tags on an SAP HANA application and/or database registered with AWS
-  Systems Manager for SAP.
+  Systems
+  Manager for SAP.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -329,16 +334,20 @@ defmodule AWS.SsmSap do
   @doc """
   Register an SAP application with AWS Systems Manager for SAP.
 
-  You must meet the following requirements before registering.
+  You must meet the
+  following requirements before registering.
 
   The SAP application you want to register with AWS Systems Manager for SAP is
-  running on Amazon EC2.
+  running
+  on Amazon EC2.
 
   AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the
-  required IAM permissions.
+  required
+  IAM permissions.
 
   Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets
-  Manager to manage SAP applications and components.
+  Manager to
+  manage SAP applications and components.
   """
   def register_application(%Client{} = client, input, options \\ []) do
     url_path = "/register-application"

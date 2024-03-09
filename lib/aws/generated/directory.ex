@@ -6,20 +6,27 @@ defmodule AWS.Directory do
   Directory Service
 
   Directory Service is a web service that makes it easy for you to setup and run
-  directories in the Amazon Web Services cloud, or connect your Amazon Web
-  Services resources with an existing self-managed Microsoft Active Directory.
+  directories in the
+  Amazon Web Services cloud, or connect your Amazon Web Services resources with an
+  existing self-managed Microsoft Active
+  Directory.
 
   This guide provides detailed information about Directory Service operations,
-  data types, parameters, and errors. For information about Directory Services
-  features, see [Directory Service](https://aws.amazon.com/directoryservice/) and the [Directory Service Administration
+  data types,
+  parameters, and errors. For information about Directory Services features, see
+  [Directory Service](https://aws.amazon.com/directoryservice/) and the [Directory Service
+  Administration
   Guide](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html).
 
   Amazon Web Services provides SDKs that consist of libraries and sample code for
-  various programming languages and platforms (Java, Ruby, .Net, iOS, Android,
-  etc.). The SDKs provide a convenient way to create programmatic access to
-  Directory Service and other Amazon Web Services services. For more information
-  about the Amazon Web Services SDKs, including how to download and install them,
-  see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  various
+  programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The
+  SDKs
+  provide a convenient way to create programmatic access to Directory Service and
+  other Amazon Web Services
+  services. For more information about the Amazon Web Services SDKs, including how
+  to download and
+  install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
   """
 
   alias AWS.Client
@@ -27,7 +34,6 @@ defmodule AWS.Directory do
 
   def metadata do
     %{
-      abbreviation: "Directory Service",
       api_version: "2015-04-16",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -53,16 +59,19 @@ defmodule AWS.Directory do
 
   @doc """
   If the DNS server for your self-managed domain uses a publicly addressable IP
-  address, you must add a CIDR address block to correctly route traffic to and
-  from your Microsoft AD on Amazon Web Services.
+  address,
+  you must add a CIDR address block to correctly route traffic to and from your
+  Microsoft AD
+  on Amazon Web Services.
 
-  *AddIpRoutes* adds this address block. You can also use *AddIpRoutes* to
-  facilitate routing traffic that uses public IP ranges from your Microsoft AD on
-  Amazon Web Services to a peer VPC.
+  *AddIpRoutes* adds this address block. You can
+  also use *AddIpRoutes* to facilitate routing traffic that uses public IP
+  ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
 
-  Before you call *AddIpRoutes*, ensure that all of the required permissions have
-  been explicitly granted through a policy. For details about what permissions are
-  required to run the *AddIpRoutes* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  Before you call *AddIpRoutes*, ensure that all of the required
+  permissions have been explicitly granted through a policy. For details about
+  what
+  permissions are required to run the *AddIpRoutes* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def add_ip_routes(%Client{} = client, input, options \\ []) do
@@ -83,8 +92,10 @@ defmodule AWS.Directory do
   @doc """
   Adds or overwrites one or more tags for the specified directory.
 
-  Each directory can have a maximum of 50 tags. Each tag consists of a key and
-  optional value. Tag keys must be unique to each resource.
+  Each directory can
+  have a maximum of 50 tags. Each tag consists of a key and optional value. Tag
+  keys must be
+  unique to each resource.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -95,9 +106,12 @@ defmodule AWS.Directory do
   @doc """
   Cancels an in-progress schema extension to a Microsoft AD directory.
 
-  Once a schema extension has started replicating to all domain controllers, the
-  task can no longer be canceled. A schema extension can be canceled during any of
-  the following states; `Initializing`, `CreatingSnapshot`, and `UpdatingSchema`.
+  Once a schema
+  extension has started replicating to all domain controllers, the task can no
+  longer be
+  canceled. A schema extension can be canceled during any of the following states;
+  `Initializing`, `CreatingSnapshot`, and
+  `UpdatingSchema`.
   """
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -110,7 +124,8 @@ defmodule AWS.Directory do
 
   Before you call `ConnectDirectory`, ensure that all of the required permissions
   have been explicitly granted through a policy. For details about what
-  permissions are required to run the `ConnectDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  permissions are required
+  to run the `ConnectDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def connect_directory(%Client{} = client, input, options \\ []) do
@@ -122,8 +137,9 @@ defmodule AWS.Directory do
   @doc """
   Creates an alias for a directory and assigns the alias to the directory.
 
-  The alias is used to construct the access URL for the directory, such as
-  `http://<alias>.awsapps.com`.
+  The alias is used
+  to construct the access URL for the directory, such as
+  `http://.awsapps.com`.
 
   After an alias has been created, it cannot be deleted or reused, so this
   operation should only be used when absolutely necessary.
@@ -147,8 +163,10 @@ defmodule AWS.Directory do
   Creates a conditional forwarder associated with your Amazon Web Services
   directory.
 
-  Conditional forwarders are required in order to set up a trust relationship with
-  another domain. The conditional forwarder points to the trusted domain.
+  Conditional
+  forwarders are required in order to set up a trust relationship with another
+  domain. The
+  conditional forwarder points to the trusted domain.
   """
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -160,11 +178,13 @@ defmodule AWS.Directory do
   Creates a Simple AD directory.
 
   For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html)
-  in the *Directory Service Admin Guide*.
+  in the *Directory Service Admin
+  Guide*.
 
   Before you call `CreateDirectory`, ensure that all of the required permissions
   have been explicitly granted through a policy. For details about what
-  permissions are required to run the `CreateDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  permissions are required
+  to run the `CreateDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def create_directory(%Client{} = client, input, options \\ []) do
@@ -175,8 +195,9 @@ defmodule AWS.Directory do
 
   @doc """
   Creates a subscription to forward real-time Directory Service domain controller
-  security logs to the specified Amazon CloudWatch log group in your Amazon Web
-  Services account.
+  security
+  logs to the specified Amazon CloudWatch log group in your Amazon Web Services
+  account.
   """
   def create_log_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -190,10 +211,11 @@ defmodule AWS.Directory do
   For more information, see [Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html)
   in the *Directory Service Admin Guide*.
 
-  Before you call *CreateMicrosoftAD*, ensure that all of the required permissions
-  have been explicitly granted through a policy. For details about what
-  permissions are required to run the *CreateMicrosoftAD* operation, see
-  [Directory Service API Permissions: Actions, Resources, and Conditions Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+  Before you call *CreateMicrosoftAD*, ensure that all of the required
+  permissions have been explicitly granted through a policy. For details about
+  what permissions
+  are required to run the *CreateMicrosoftAD* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -217,14 +239,18 @@ defmodule AWS.Directory do
   Directory Service for Microsoft Active Directory allows you to configure trust
   relationships.
 
-  For example, you can establish a trust between your Managed Microsoft AD
-  directory, and your existing self-managed Microsoft Active Directory. This would
-  allow you to provide users and groups access to resources in either domain, with
-  a single set of credentials.
+  For
+  example, you can establish a trust between your Managed Microsoft AD directory,
+  and your existing
+  self-managed Microsoft Active Directory. This would allow you to provide users
+  and groups
+  access to resources in either domain, with a single set of credentials.
 
   This action initiates the creation of the Amazon Web Services side of a trust
-  relationship between an Managed Microsoft AD directory and an external domain.
-  You can create either a forest trust or an external trust.
+  relationship between an
+  Managed Microsoft AD directory and an external domain. You can create either a
+  forest trust or an
+  external trust.
   """
   def create_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -234,7 +260,8 @@ defmodule AWS.Directory do
 
   @doc """
   Deletes a conditional forwarder that has been set up for your Amazon Web
-  Services directory.
+  Services
+  directory.
   """
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -247,7 +274,8 @@ defmodule AWS.Directory do
 
   Before you call `DeleteDirectory`, ensure that all of the required permissions
   have been explicitly granted through a policy. For details about what
-  permissions are required to run the `DeleteDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
+  permissions are required
+  to run the `DeleteDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def delete_directory(%Client{} = client, input, options \\ []) do
@@ -276,7 +304,8 @@ defmodule AWS.Directory do
 
   @doc """
   Deletes an existing trust relationship between your Managed Microsoft AD
-  directory and an external domain.
+  directory and an external
+  domain.
   """
   def delete_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -332,7 +361,8 @@ defmodule AWS.Directory do
   Obtains information about the conditional forwarders for this account.
 
   If no input parameters are provided for RemoteDomainNames, this request
-  describes all conditional forwarders for the specified directory ID.
+  describes all
+  conditional forwarders for the specified directory ID.
   """
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -345,12 +375,14 @@ defmodule AWS.Directory do
 
   You can retrieve information about specific directories by passing the directory
   identifiers in the `DirectoryIds` parameter. Otherwise, all directories that
-  belong to the current account are returned.
+  belong
+  to the current account are returned.
 
   This operation supports pagination with the use of the `NextToken` request and
   response parameters. If more results are available, the
   `DescribeDirectoriesResult.NextToken` member contains a token that you pass in
-  the next call to `DescribeDirectories` to retrieve the next set of items.
+  the next call to `DescribeDirectories` to retrieve the next set of
+  items.
 
   You can also specify a maximum number of return results with the `Limit`
   parameter.
@@ -372,10 +404,12 @@ defmodule AWS.Directory do
 
   @doc """
   Obtains information about which Amazon SNS topics receive status messages from
-  the specified directory.
+  the specified
+  directory.
 
   If no input parameters are provided, such as DirectoryId or TopicName, this
-  request describes all of the associations in the account.
+  request
+  describes all of the associations in the account.
   """
   def describe_event_topics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -426,8 +460,9 @@ defmodule AWS.Directory do
 
   This operation supports pagination with the use of the *NextToken* request and
   response parameters. If more results are available, the
-  *DescribeSnapshots.NextToken* member contains a token that you pass in the next
-  call to `DescribeSnapshots` to retrieve the next set of items.
+  *DescribeSnapshots.NextToken*
+  member contains a token that you pass in the next call to `DescribeSnapshots` to
+  retrieve the next set of items.
 
   You can also specify a maximum number of return results with the *Limit*
   parameter.
@@ -442,7 +477,8 @@ defmodule AWS.Directory do
   Obtains information about the trust relationships for this account.
 
   If no input parameters are provided, such as DirectoryId or TrustIds, this
-  request describes all the trust relationships belonging to the account.
+  request
+  describes all the trust relationships belonging to the account.
   """
   def describe_trusts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -451,6 +487,7 @@ defmodule AWS.Directory do
   end
 
   @doc """
+
   Describes the updates of a directory for a particular update type.
   """
   def describe_update_directory(%Client{} = client, input, options \\ []) do
@@ -479,7 +516,8 @@ defmodule AWS.Directory do
 
   @doc """
   Disables multi-factor authentication (MFA) with the Remote Authentication Dial
-  In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+  In
+  User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
   def disable_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -516,7 +554,8 @@ defmodule AWS.Directory do
 
   @doc """
   Enables multi-factor authentication (MFA) with the Remote Authentication Dial In
-  User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+  User
+  Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
   def enable_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -527,9 +566,10 @@ defmodule AWS.Directory do
   @doc """
   Enables single sign-on for a directory.
 
-  Single sign-on allows users in your directory to access certain Amazon Web
-  Services services from a computer joined to the directory without having to
-  enter their credentials separately.
+  Single sign-on allows users in your directory to
+  access certain Amazon Web Services services from a computer joined to the
+  directory without having to enter
+  their credentials separately.
   """
   def enable_sso(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -613,11 +653,14 @@ defmodule AWS.Directory do
   @doc """
   Associates a directory with an Amazon SNS topic.
 
-  This establishes the directory as a publisher to the specified Amazon SNS topic.
-  You can then receive email or text (SMS) messages when the status of your
-  directory changes. You get notified if your directory goes from an Active status
-  to an Impaired or Inoperable status. You also receive a notification when the
-  directory returns to an Active status.
+  This establishes the directory as a
+  publisher to the specified Amazon SNS topic. You can then receive email or text
+  (SMS) messages when
+  the status of your directory changes. You get notified if your directory goes
+  from an Active
+  status to an Impaired or Inoperable status. You also receive a notification when
+  the directory
+  returns to an Active status.
   """
   def register_event_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -648,7 +691,8 @@ defmodule AWS.Directory do
   Stops all replication and removes the domain controllers from the specified
   Region.
 
-  You cannot remove the primary Region with this operation. Instead, use the
+  You
+  cannot remove the primary Region with this operation. Instead, use the
   `DeleteDirectory` API.
   """
   def remove_region(%Client{} = client, input, options \\ []) do
@@ -673,16 +717,22 @@ defmodule AWS.Directory do
   You can reset the password for any user in your directory with the following
   exceptions:
 
-    * For Simple AD, you cannot reset the password for any user that is
-  a member of either the **Domain Admins** or **Enterprise Admins** group except
-  for the administrator user.
+    *
+  For Simple AD, you cannot reset the password for any user that is a member of
+  either
+  the **Domain Admins** or **Enterprise
+  Admins** group except for the administrator user.
 
-    * For Managed Microsoft AD, you can only reset the password for a
-  user that is in an OU based off of the NetBIOS name that you typed when you
-  created your directory. For example, you cannot reset the password for a user in
-  the **Amazon Web Services Reserved** OU. For more information about the OU
-  structure for an Managed Microsoft AD directory, see [What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html)
-  in the *Directory Service Administration Guide*.
+    *
+  For Managed Microsoft AD, you can only reset the password for a user that is in
+  an
+  OU based off of the NetBIOS name that you typed when you created your directory.
+  For
+  example, you cannot reset the password for a user in the **Amazon Web Services
+  Reserved** OU. For more information about the OU structure for an Managed
+  Microsoft AD directory, see [What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html)
+  in the *Directory Service Administration
+  Guide*.
   """
   def reset_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -697,10 +747,12 @@ defmodule AWS.Directory do
   after the snapshot date are overwritten.
 
   This action returns as soon as the restore operation is initiated. You can
-  monitor the progress of the restore operation by calling the
-  `DescribeDirectories` operation with the directory identifier. When the
-  **DirectoryDescription.Stage** value changes to `Active`, the restore operation
-  is complete.
+  monitor the
+  progress of the restore operation by calling the `DescribeDirectories` operation
+  with
+  the directory identifier. When the **DirectoryDescription.Stage** value changes
+  to
+  `Active`, the restore operation is complete.
   """
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -710,25 +762,29 @@ defmodule AWS.Directory do
 
   @doc """
   Shares a specified directory (`DirectoryId`) in your Amazon Web Services account
-  (directory owner) with another Amazon Web Services account (directory consumer).
+  (directory
+  owner) with another Amazon Web Services account (directory consumer).
 
-  With this operation you can use your directory from any Amazon Web Services
-  account and from any Amazon VPC within an Amazon Web Services Region.
+  With this operation you can use your
+  directory from any Amazon Web Services account and from any Amazon VPC within an
+  Amazon Web Services Region.
 
   When you share your Managed Microsoft AD directory, Directory Service creates a
   shared directory in the directory consumer account. This shared directory
-  contains the metadata to provide access to the directory within the directory
-  owner account. The shared directory is visible in all VPCs in the directory
-  consumer account.
+  contains the
+  metadata to provide access to the directory within the directory owner account.
+  The shared
+  directory is visible in all VPCs in the directory consumer account.
 
   The `ShareMethod` parameter determines whether the specified directory can be
   shared between Amazon Web Services accounts inside the same Amazon Web Services
-  organization (`ORGANIZATIONS`). It also determines whether you can share the
-  directory with any other Amazon Web Services account either inside or outside of
-  the organization (`HANDSHAKE`).
+  organization (`ORGANIZATIONS`). It
+  also determines whether you can share the directory with any other Amazon Web
+  Services account either inside
+  or outside of the organization (`HANDSHAKE`).
 
-  The `ShareNotes` parameter is only used when `HANDSHAKE` is called, which sends
-  a directory sharing request to the directory consumer.
+  The `ShareNotes` parameter is only used when `HANDSHAKE` is called,
+  which sends a directory sharing request to the directory consumer.
   """
   def share_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -756,7 +812,8 @@ defmodule AWS.Directory do
 
   @doc """
   Updates a conditional forwarder that has been set up for your Amazon Web
-  Services directory.
+  Services
+  directory.
   """
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -765,6 +822,7 @@ defmodule AWS.Directory do
   end
 
   @doc """
+
   Updates the directory for a particular update type.
   """
   def update_directory_setup(%Client{} = client, input, options \\ []) do
@@ -776,11 +834,14 @@ defmodule AWS.Directory do
   @doc """
   Adds or removes domain controllers to or from the directory.
 
-  Based on the difference between current value and new value (provided through
-  this API call), domain controllers will be added or removed. It may take up to
-  45 minutes for any new domain controllers to become fully active once the
-  requested number of domain controllers is updated. During this time, you cannot
-  make another update request.
+  Based on the difference
+  between current value and new value (provided through this API call), domain
+  controllers will
+  be added or removed. It may take up to 45 minutes for any new domain controllers
+  to become
+  fully active once the requested number of domain controllers is updated. During
+  this time, you
+  cannot make another update request.
   """
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -790,7 +851,8 @@ defmodule AWS.Directory do
 
   @doc """
   Updates the Remote Authentication Dial In User Service (RADIUS) server
-  information for an AD Connector or Microsoft AD directory.
+  information
+  for an AD Connector or Microsoft AD directory.
   """
   def update_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -809,7 +871,8 @@ defmodule AWS.Directory do
 
   @doc """
   Updates the trust that has been set up between your Managed Microsoft AD
-  directory and an self-managed Active Directory.
+  directory and an
+  self-managed Active Directory.
   """
   def update_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -819,10 +882,12 @@ defmodule AWS.Directory do
 
   @doc """
   Directory Service for Microsoft Active Directory allows you to configure and
-  verify trust relationships.
+  verify trust
+  relationships.
 
   This action verifies a trust relationship between your Managed Microsoft AD
-  directory and an external domain.
+  directory and an
+  external domain.
   """
   def verify_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()

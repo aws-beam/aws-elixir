@@ -3,21 +3,21 @@
 
 defmodule AWS.AmplifyUIBuilder do
   @moduledoc """
-  The Amplify UI Builder API provides a programmatic interface for creating and
-  configuring user interface (UI) component libraries and themes for use in your
-  Amplify applications.
+  The Amplify UI Builder API provides a programmatic interface for creating
+  and configuring user interface (UI) component libraries and themes for use in
+  your Amplify applications.
 
-  You can then connect these UI components to an application's backend Amazon Web
-  Services resources.
+  You can then connect these UI components to an application's
+  backend Amazon Web Services resources.
 
-  You can also use the Amplify Studio visual designer to create UI components and
-  model data for an app. For more information, see
+  You can also use the Amplify Studio visual designer to create UI components
+  and model data for an app. For more information, see
   [Introduction](https://docs.amplify.aws/console/adminui/intro) in the *Amplify Docs*.
 
   The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
   documentation for client app development. For more information, see the [Amplify
-  Framework](https://docs.amplify.aws/). For more information about deploying an
-  Amplify application to Amazon Web Services, see the [Amplify User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+  Framework](https://docs.amplify.aws/). For more information about
+  deploying an Amplify application to Amazon Web Services, see the [Amplify User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
   """
 
   alias AWS.Client
@@ -25,7 +25,6 @@ defmodule AWS.AmplifyUIBuilder do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-08-11",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -205,6 +204,7 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
+
   This is for internal use.
 
   Amplify uses this action to exchange an access code for a token.
@@ -509,7 +509,8 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Retrieves a list of themes for a specified Amplify app and backend environment.
+  Retrieves a list of themes for a specified Amplify app and backend
+  environment.
   """
   def list_themes(
         %Client{} = client,
@@ -567,6 +568,7 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
+
   This is for internal use.
 
   Amplify uses this action to refresh a previously issued access token that might

@@ -11,7 +11,6 @@ defmodule AWS.Pinpoint do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2016-12-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -2668,7 +2667,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Pause, resume or cancels (stops) a journey.
+  Cancels (stops) an active journey.
   """
   def update_journey_state(%Client{} = client, application_id, journey_id, input, options \\ []) do
     url_path =

@@ -10,7 +10,8 @@ defmodule AWS.Panorama do
   This is the *AWS Panorama API Reference*.
 
   For an introduction to the service, see [What is AWS Panorama?](https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html)
-  in the *AWS Panorama Developer Guide*.
+  in the
+  *AWS Panorama Developer Guide*.
   """
 
   alias AWS.Client
@@ -18,7 +19,6 @@ defmodule AWS.Panorama do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-07-24",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -176,7 +176,8 @@ defmodule AWS.Panorama do
   Deletes a package.
 
   To delete a package, you need permission to call `s3:DeleteObject` in addition
-  to permissions for the AWS Panorama API.
+  to permissions for
+  the AWS Panorama API.
   """
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_id)}"
@@ -793,8 +794,9 @@ defmodule AWS.Panorama do
   @doc """
   Creates a device and returns a configuration archive.
 
-  The configuration archive is a ZIP file that contains a provisioning certificate
-  that is valid for 5 minutes. Name the configuration archive
+  The configuration archive is a ZIP file that contains a
+  provisioning certificate that is valid for 5 minutes. Name the configuration
+  archive
   `certificates-omni_*device-name*.zip` and transfer it to the device within 5
   minutes. Use the included USB storage device and connect it to the USB 3.0 port
   next to the HDMI output.

@@ -11,7 +11,6 @@ defmodule AWS.SnowDeviceManagement do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-08-04",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -28,11 +27,11 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Sends a cancel request for a specified task.
 
-  You can cancel a task only if it's still in a `QUEUED` state. Tasks that are
-  already running can't be cancelled.
+  You can cancel a task only if it's still in a
+  `QUEUED` state. Tasks that are already running can't be cancelled.
 
-  A task might still run if it's processed from the queue before the `CancelTask`
-  operation changes the task's state.
+  A task might still run if it's processed from the queue before the
+  `CancelTask` operation changes the task's state.
   """
   def cancel_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}/cancel"
@@ -79,7 +78,8 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Checks device-specific information, such as the device type, software version,
-  IP addresses, and lock status.
+  IP
+  addresses, and lock status.
   """
   def describe_device(%Client{} = client, managed_device_id, input, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/describe"
@@ -104,9 +104,9 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Checks the current state of the Amazon EC2 instances.
 
-  The output is similar to `describeDevice`, but the results are sourced from the
-  device cache in the Amazon Web Services Cloud and include a subset of the
-  available fields.
+  The output is similar to
+  `describeDevice`, but the results are sourced from the device cache in the
+  Amazon Web Services Cloud and include a subset of the available fields.
   """
   def describe_device_ec2_instances(%Client{} = client, managed_device_id, input, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources/ec2/describe"
@@ -221,8 +221,8 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Returns a list of all devices on your Amazon Web Services account that have
-  Amazon Web Services Snow Device Management enabled in the Amazon Web Services
-  Region where the command is run.
+  Amazon Web Services Snow Device Management
+  enabled in the Amazon Web Services Region where the command is run.
   """
   def list_devices(
         %Client{} = client,

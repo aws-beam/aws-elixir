@@ -11,7 +11,6 @@ defmodule AWS.SageMakerRuntime do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-05-13",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -27,14 +26,17 @@ defmodule AWS.SageMakerRuntime do
 
   @doc """
   After you deploy a model into production using Amazon SageMaker hosting
-  services, your client applications use this API to get inferences from the model
-  hosted at the specified endpoint.
+  services,
+  your client applications use this API to get inferences from the model hosted at
+  the
+  specified endpoint.
 
   For an overview of Amazon SageMaker, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
 
   Amazon SageMaker strips all POST headers except those supported by the API.
-  Amazon SageMaker might add additional headers. You should not rely on the
-  behavior of headers outside those enumerated in the request syntax.
+  Amazon SageMaker might add
+  additional headers. You should not rely on the behavior of headers outside those
+  enumerated in the request syntax.
 
   Calls to `InvokeEndpoint` are authenticated by using Amazon Web Services
   Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
@@ -42,9 +44,11 @@ defmodule AWS.SageMakerRuntime do
   in the *Amazon S3 API Reference*.
 
   A customer's model containers must respond to requests within 60 seconds. The
-  model itself can have a maximum processing time of 60 seconds before responding
-  to invocations. If your model is going to take 50-60 seconds of processing time,
-  the SDK socket timeout should be set to be 70 seconds.
+  model
+  itself can have a maximum processing time of 60 seconds before responding to
+  invocations. If your model is going to take 50-60 seconds of processing time,
+  the SDK
+  socket timeout should be set to be 70 seconds.
 
   Endpoints are scoped to an individual account, and are not public. The URL does
   not contain the account ID, but Amazon SageMaker determines the account ID from
@@ -105,24 +109,28 @@ defmodule AWS.SageMakerRuntime do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   After you deploy a model into production using Amazon SageMaker hosting
-  services, your client applications use this API to get inferences from the model
-  hosted at the specified endpoint in an asynchronous manner.
+  services,
+  your client applications use this API to get inferences from the model hosted at
+  the
+  specified endpoint in an asynchronous manner.
 
   Inference requests sent to this API are enqueued for asynchronous processing.
-  The processing of the inference request may or may not complete before you
-  receive a response from this API. The response from this API will not contain
-  the result of the inference request but contain information about where you can
-  locate it.
+  The
+  processing of the inference request may or may not complete before you receive a
+  response from this API. The response from this API will not contain the result
+  of the
+  inference request but contain information about where you can locate it.
 
   Amazon SageMaker strips all POST headers except those supported by the API.
-  Amazon SageMaker might add additional headers. You should not rely on the
-  behavior of headers outside those enumerated in the request syntax.
+  Amazon SageMaker might add
+  additional headers. You should not rely on the behavior of headers outside those
+  enumerated in the request syntax.
 
   Calls to `InvokeEndpointAsync` are authenticated by using Amazon Web Services
   Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
@@ -177,31 +185,39 @@ defmodule AWS.SageMakerRuntime do
 
   The inference stream provides the response payload incrementally as a series of
   parts. Before you can get an inference stream, you must have access to a model
-  that's deployed using Amazon SageMaker hosting services, and the container for
-  that model must support inference streaming.
+  that's
+  deployed using Amazon SageMaker hosting services, and the container for that
+  model
+  must support inference streaming.
 
   For more information that can help you use this API, see the following sections
-  in the *Amazon SageMaker Developer Guide*:
+  in the
+  *Amazon SageMaker Developer Guide*:
 
-    * For information about how to add streaming support to a model, see
-  [How Containers Serve Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-code-how-containe-serves-requests).
+    *
+  For information about how to add streaming support to a model, see [How Containers Serve
+  Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-code-how-containe-serves-requests).
 
-    * For information about how to process the streaming response, see
-  [Invoke real-time endpoints](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html).
+    *
+  For information about how to process the streaming response, see [Invoke real-time
+  endpoints](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html).
 
   Before you can use this operation, your IAM permissions must allow the
   `sagemaker:InvokeEndpoint` action. For more information about Amazon SageMaker
   actions for IAM policies, see [Actions, resources, and condition keys for Amazon SageMaker](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html)
-  in the *IAM Service Authorization Reference*.
+  in the *IAM Service Authorization
+  Reference*.
 
   Amazon SageMaker strips all POST headers except those supported by the API.
-  Amazon SageMaker might add additional headers. You should not rely on the
-  behavior of headers outside those enumerated in the request syntax.
+  Amazon SageMaker might add
+  additional headers. You should not rely on the behavior of headers outside those
+  enumerated in the request syntax.
 
-  Calls to `InvokeEndpointWithResponseStream` are authenticated by using Amazon
-  Web Services Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
+  Calls to `InvokeEndpointWithResponseStream` are authenticated by using
+  Amazon Web Services Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
-  in the *Amazon S3 API Reference*.
+  in the
+  *Amazon S3 API Reference*.
   """
   def invoke_endpoint_with_response_stream(
         %Client{} = client,
@@ -254,7 +270,7 @@ defmodule AWS.SageMakerRuntime do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

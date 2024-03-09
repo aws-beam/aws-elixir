@@ -11,7 +11,6 @@ defmodule AWS.TimestreamQuery do
 
   def metadata do
     %{
-      abbreviation: "Timestream Query",
       api_version: "2018-11-01",
       content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
@@ -20,7 +19,7 @@ defmodule AWS.TimestreamQuery do
       protocol: "json",
       service_id: "Timestream Query",
       signature_version: "v4",
-      signing_name: "timestream",
+      signing_name: "query.timestream",
       target_prefix: "Timestream_20181101"
     }
   end
@@ -28,10 +27,12 @@ defmodule AWS.TimestreamQuery do
   @doc """
   Cancels a query that has been issued.
 
-  Cancellation is provided only if the query has not completed running before the
-  cancellation request was issued. Because cancellation is an idempotent
-  operation, subsequent cancellation requests will return a `CancellationMessage`,
-  indicating that the query has already been canceled. See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html)
+  Cancellation is provided only if the query has
+  not completed running before the cancellation request was issued. Because
+  cancellation
+  is an idempotent operation, subsequent cancellation requests will return a
+  `CancellationMessage`, indicating that the query has already been
+  canceled. See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html)
   for details.
   """
   def cancel_query(%Client{} = client, input, options \\ []) do
@@ -45,8 +46,8 @@ defmodule AWS.TimestreamQuery do
   schedule.
 
   Timestream assumes the execution role provided as part of the
-  `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use the
-  `NotificationConfiguration` parameter to configure notification for your
+  `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use
+  the `NotificationConfiguration` parameter to configure notification for your
   scheduled query operations.
   """
   def create_scheduled_query(%Client{} = client, input, options \\ []) do
@@ -67,25 +68,30 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-  DescribeEndpoints returns a list of available endpoints to make Timestream API
-  calls against.
+  DescribeEndpoints returns a list of available endpoints to make Timestream
+  API calls against.
 
   This API is available through both Write and Query.
 
   Because the Timestream SDKs are designed to transparently work with the
   service’s architecture, including the management and mapping of the service
-  endpoints, *it is not recommended that you use this API unless*:
+  endpoints,
+  *it is not recommended that you use this API unless*:
 
-    * You are using [VPC endpoints (Amazon Web Services PrivateLink) with Timestream
+    *
+  You are using [VPC endpoints (Amazon Web Services PrivateLink) with Timestream
   ](https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints)
 
-    * Your application uses a programming language that does not yet
-  have SDK support
+    *
+  Your application uses a programming language that does not yet have SDK
+  support
 
-    * You require better control over the client-side implementation
+    *
+  You require better control over the client-side implementation
 
   For detailed information on how and when to use and implement DescribeEndpoints,
-  see [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
+  see
+  [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
   """
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -133,7 +139,8 @@ defmodule AWS.TimestreamQuery do
 
   @doc """
   A synchronous operation that allows you to submit a query with parameters to be
-  stored by Timestream for later running.
+  stored
+  by Timestream for later running.
 
   Timestream only supports using this operation with the
   `PrepareQueryRequest$ValidateOnly` set to `true`.
@@ -145,31 +152,46 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-  `Query` is a synchronous operation that enables you to run a query against your
-  Amazon Timestream data.
 
-  `Query` will time out after 60 seconds. You must update the default timeout in
-  the SDK to support a timeout of 60 seconds. See the [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html)
+  `Query` is a synchronous operation that enables you to run a query against
+  your Amazon Timestream data.
+
+  `Query` will time out after 60 seconds.
+  You must update the default timeout in the SDK to support a timeout of 60
+  seconds. See
+  the [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html)
   for details.
 
   Your query request will fail in the following cases:
 
-    * If you submit a `Query` request with the same client token outside
+    *
+  If you submit a `Query` request with the same client token outside
   of the 5-minute idempotency window.
 
-    * If you submit a `Query` request with the same client token, but
+    *
+  If you submit a `Query` request with the same client token, but
   change other parameters, within the 5-minute idempotency window.
 
-    * If the size of the row (including the query metadata) exceeds 1
-  MB, then the query will fail with the following error message:
+    *
+  If the size of the row (including the query metadata) exceeds 1 MB, then the
+  query will fail with the following error message:
 
-  `Query aborted as max page response size has been exceeded by the output result
-  row`
+  ```
+  Query aborted as max page response size has been exceeded by the output
+  result row
+  ```
 
-    * If the IAM principal of the query initiator and the result reader
-  are not the same and/or the query initiator and the result reader do not have
-  the same query string in the query requests, the query will fail with an
-  `Invalid pagination token` error.
+    *
+  If the IAM principal of the query initiator and the result reader are not the
+  same and/or the query initiator and the result reader do not have the same query
+  string in the query requests, the query will fail with an
+
+  ```
+  Invalid
+  pagination token
+  ```
+
+  error.
   """
   def query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -180,8 +202,10 @@ defmodule AWS.TimestreamQuery do
   @doc """
   Associate a set of tags with a Timestream resource.
 
-  You can then activate these user-defined tags so that they appear on the Billing
-  and Cost Management console for cost allocation tracking.
+  You can then activate these
+  user-defined tags so that they appear on the Billing and Cost Management console
+  for
+  cost allocation tracking.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

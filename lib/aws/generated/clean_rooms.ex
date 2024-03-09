@@ -6,16 +6,20 @@ defmodule AWS.CleanRooms do
   Welcome to the *Clean Rooms API Reference*.
 
   Clean Rooms is an Amazon Web Services service that helps multiple parties to
-  join their data together in a secure collaboration workspace. In the
-  collaboration, members who can query and receive results can get insights into
-  the collective datasets without either party getting access to the other party's
-  raw data.
+  join
+  their data together in a secure collaboration workspace. In the collaboration,
+  members who
+  can query and receive results can get insights into the collective datasets
+  without either
+  party getting access to the other party's raw data.
 
   To learn more about Clean Rooms concepts, procedures, and best practices, see
-  the [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
+  the
+  [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
 
   To learn more about SQL commands, functions, and conditions supported in Clean
-  Rooms, see the [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+  Rooms, see the
+  [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
   """
 
   alias AWS.Client
@@ -23,7 +27,6 @@ defmodule AWS.CleanRooms do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-02-17",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -39,7 +42,8 @@ defmodule AWS.CleanRooms do
 
   @doc """
   Retrieves multiple analysis templates within a collaboration by their Amazon
-  Resource Names (ARNs).
+  Resource
+  Names (ARNs).
   """
   def batch_get_collaboration_analysis_template(
         %Client{} = client,
@@ -194,7 +198,8 @@ defmodule AWS.CleanRooms do
   @doc """
   Creates a new analysis rule for a configured table.
 
-  Currently, only one analysis rule can be created for a given configured table.
+  Currently, only one analysis rule
+  can be created for a given configured table.
   """
   def create_configured_table_analysis_rule(
         %Client{} = client,
@@ -226,7 +231,8 @@ defmodule AWS.CleanRooms do
   @doc """
   Creates a configured table association.
 
-  A configured table association links a configured table with a collaboration.
+  A configured table association links a
+  configured table with a collaboration.
   """
   def create_configured_table_association(
         %Client{} = client,
@@ -492,9 +498,10 @@ defmodule AWS.CleanRooms do
   @doc """
   Removes the specified member from a collaboration.
 
-  The removed member is placed in the Removed status and can't interact with the
-  collaboration. The removed member's data is inaccessible to active members of
-  the collaboration.
+  The removed member is placed in the
+  Removed status and can't interact with the collaboration. The removed member's
+  data is
+  inaccessible to active members of the collaboration.
   """
   def delete_member(
         %Client{} = client,

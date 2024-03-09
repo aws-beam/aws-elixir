@@ -6,21 +6,30 @@ defmodule AWS.CodeGuruReviewer do
   This section provides documentation for the Amazon CodeGuru Reviewer API
   operations.
 
-  CodeGuru Reviewer is a service that uses program analysis and machine learning
-  to detect potential defects that are difficult for developers to find and
-  recommends fixes in your Java and Python code.
+  CodeGuru Reviewer is a
+  service that uses program analysis and machine learning to detect potential
+  defects that
+  are difficult for developers to find and recommends fixes in your Java and
+  Python
+  code.
 
   By proactively detecting and providing recommendations for addressing code
-  defects and implementing best practices, CodeGuru Reviewer improves the overall
-  quality and maintainability of your code base during the code review stage. For
-  more information about CodeGuru Reviewer, see the * [Amazon CodeGuru Reviewer User
-  Guide](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html).*
+  defects and
+  implementing best practices, CodeGuru Reviewer improves the overall quality and
+  maintainability of
+  your code base during the code review stage. For more information about CodeGuru
+  Reviewer, see the
+  *
+  [Amazon CodeGuru Reviewer User Guide](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html).*
 
   To improve the security of your CodeGuru Reviewer API calls, you can establish a
-  private connection between your VPC and CodeGuru Reviewer by creating an
-  *interface VPC endpoint*. For more information, see [CodeGuru Reviewer and interface VPC endpoints (Amazon Web Services
+  private connection
+  between your VPC and CodeGuru Reviewer by creating an *interface VPC endpoint*.
+  For
+  more information, see [CodeGuru Reviewer and interface VPC endpoints (Amazon Web Services
   PrivateLink)](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html)
-  in the *Amazon CodeGuru Reviewer User Guide*.
+  in the *Amazon CodeGuru Reviewer User
+  Guide*.
   """
 
   alias AWS.Client
@@ -28,7 +37,6 @@ defmodule AWS.CodeGuruReviewer do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-09-19",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -44,27 +52,33 @@ defmodule AWS.CodeGuruReviewer do
 
   @doc """
   Use to associate an Amazon Web Services CodeCommit repository or a repository
-  managed by Amazon Web Services CodeStar Connections with Amazon CodeGuru
-  Reviewer.
+  managed by Amazon Web Services
+  CodeStar Connections with Amazon CodeGuru Reviewer.
 
-  When you associate a repository, CodeGuru Reviewer reviews source code changes
-  in the repository's pull requests and provides automatic recommendations. You
-  can view recommendations using the CodeGuru Reviewer console. For more
-  information, see [Recommendations in Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html)
+  When you associate a repository, CodeGuru Reviewer reviews
+  source code changes in the repository's pull requests and provides automatic
+  recommendations. You can view recommendations using the CodeGuru Reviewer
+  console. For more
+  information, see [Recommendations in Amazon CodeGuru
+  Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
   If you associate a CodeCommit or S3 repository, it must be in the same Amazon
-  Web Services Region and Amazon Web Services account where its CodeGuru Reviewer
-  code reviews are configured.
+  Web Services Region and
+  Amazon Web Services account where its CodeGuru Reviewer code reviews are
+  configured.
 
   Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web
-  Services CodeStar Connections to connect to CodeGuru Reviewer. For more
-  information, see [Associate a repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html)
+  Services CodeStar
+  Connections to connect to CodeGuru Reviewer. For more information, see
+  [Associate a repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
   You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to
-  associate a GitHub repository with Amazon CodeGuru Reviewer. To associate a
-  GitHub repository, use the console. For more information, see [Getting started with CodeGuru
+  associate a GitHub repository with
+  Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For
+  more information, see
+  [Getting started with CodeGuru
   Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html)
   in the *CodeGuru Reviewer User Guide.*
   """
@@ -84,18 +98,19 @@ defmodule AWS.CodeGuruReviewer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Use to create a code review with a
   [CodeReviewType](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html)
-  of `RepositoryAnalysis`.
+  of
+  `RepositoryAnalysis`.
 
-  This type of code review analyzes all code under a specified branch in an
-  associated repository. `PullRequest` code reviews are automatically triggered by
-  a pull request.
+  This type of code review analyzes all code under a
+  specified branch in an associated repository. `PullRequest` code reviews are
+  automatically triggered by a pull request.
   """
   def create_code_review(%Client{} = client, input, options \\ []) do
     url_path = "/codereviews"
@@ -113,7 +128,7 @@ defmodule AWS.CodeGuruReviewer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -127,7 +142,7 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -160,13 +175,14 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a
   [RepositoryAssociation](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html)
-  object that contains information about the requested repository association.
+  object that contains information about the requested
+  repository association.
   """
   def describe_repository_association(%Client{} = client, association_arn, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
@@ -175,7 +191,7 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -197,7 +213,7 @@ defmodule AWS.CodeGuruReviewer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -262,14 +278,14 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of
   [RecommendationFeedbackSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html)
-  objects that contain customer recommendation feedback for all CodeGuru Reviewer
-  users.
+  objects that contain customer recommendation
+  feedback for all CodeGuru Reviewer users.
   """
   def list_recommendation_feedback(
         %Client{} = client,
@@ -314,7 +330,7 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -347,12 +363,13 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of
-  [RepositoryAssociationSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html) objects that contain summary information about a repository association.
+  [RepositoryAssociationSummary](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html) objects that contain summary information about a
+  repository association.
 
   You can filter the returned list by
   [ProviderType](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType),
@@ -418,7 +435,7 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -431,14 +448,14 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Stores customer feedback for a CodeGuru Reviewer recommendation.
 
-  When this API is called again with different reactions the previous feedback is
-  overwritten.
+  When this API is called again with
+  different reactions the previous feedback is overwritten.
   """
   def put_recommendation_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
@@ -447,7 +464,7 @@ defmodule AWS.CodeGuruReviewer do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -469,7 +486,7 @@ defmodule AWS.CodeGuruReviewer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -497,7 +514,7 @@ defmodule AWS.CodeGuruReviewer do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

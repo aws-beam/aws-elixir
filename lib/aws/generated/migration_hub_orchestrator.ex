@@ -4,11 +4,15 @@
 defmodule AWS.MigrationHubOrchestrator do
   @moduledoc """
   This API reference provides descriptions, syntax, and other details about each
-  of the actions and data types for AWS Migration Hub Orchestrator.
+  of the
+  actions and data types for AWS Migration Hub Orchestrator.
 
-  The topic for each action shows the API request parameters and responses.
-  Alternatively, you can use one of the AWS SDKs to access an API that is tailored
-  to the programming language or platform that you're using.
+  The topic for each action shows the API
+  request parameters and responses. Alternatively, you can use one of the AWS SDKs
+  to
+  access an API that is tailored to the programming language or platform that
+  you're
+  using.
   """
 
   alias AWS.Client
@@ -16,7 +20,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-08-28",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -174,7 +177,8 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Delete a step in a migration workflow.
 
-  Pause the workflow to delete a running step.
+  Pause the workflow to delete a running
+  step.
   """
   def delete_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"

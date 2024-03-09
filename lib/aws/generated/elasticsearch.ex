@@ -14,8 +14,10 @@ defmodule AWS.Elasticsearch do
   APIs](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html).
 
   The endpoint for configuration service requests is region-specific:
-  es.*region*.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
-  current list of supported regions and endpoints, see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions).
+  es.*region*.amazonaws.com.
+  For example, es.us-east-1.amazonaws.com. For a current list of supported regions
+  and endpoints,
+  see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions).
   """
 
   alias AWS.Client
@@ -23,7 +25,6 @@ defmodule AWS.Elasticsearch do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2015-01-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -55,14 +56,16 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Attaches tags to an existing Elasticsearch domain.
 
   Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may
-  have up to 10 tags. See [ Tagging Amazon Elasticsearch Service Domains for more information.](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging)
+  have up to 10 tags. See [
+  Tagging Amazon Elasticsearch Service Domains for more
+  information.](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging)
   """
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags"
@@ -80,7 +83,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -105,7 +108,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -131,7 +134,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -154,7 +157,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -180,14 +183,15 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Creates a new Elasticsearch domain.
 
-  For more information, see [Creating Elasticsearch Domains](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains)
+  For more information,
+  see [Creating Elasticsearch Domains](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains)
   in the *Amazon Elasticsearch Service Developer Guide*.
   """
   def create_elasticsearch_domain(%Client{} = client, input, options \\ []) do
@@ -206,7 +210,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -230,7 +234,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -253,7 +257,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -276,7 +280,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -301,7 +305,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -330,7 +334,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -361,7 +365,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -392,7 +396,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -415,7 +419,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -438,7 +442,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -453,12 +457,13 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about the current blue/green deployment happening on a
-  domain, including a change ID, status, and progress stages.
+  domain, including
+  a change ID, status, and progress stages.
   """
   def describe_domain_change_progress(
         %Client{} = client,
@@ -479,7 +484,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -493,7 +498,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -508,7 +513,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -531,15 +536,23 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
 
-  When modifying existing Domain, specify the ` `DomainName` ` to know what Limits
-  are supported for modifying.
+  When modifying existing Domain, specify the
+
+  ```
+
+  `DomainName`
+
+  ```
+
+  to know what Limits are supported for modifying.
   """
   def describe_elasticsearch_instance_type_limits(
         %Client{} = client,
@@ -563,7 +576,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -585,7 +598,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -608,7 +621,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -633,7 +646,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -674,7 +687,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -714,7 +727,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -736,7 +749,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -761,15 +774,23 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Returns a list of upgrade compatible Elastisearch versions.
 
-  You can optionally pass a ` `DomainName` ` to get all upgrade compatible
-  Elasticsearch versions for that specific domain.
+  You can optionally pass a
+
+  ```
+
+  `DomainName`
+
+  ```
+
+  to get all upgrade compatible Elasticsearch versions for that specific domain.
   """
   def get_compatible_elasticsearch_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/compatibleVersions"
@@ -785,7 +806,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -819,7 +840,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -853,7 +874,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -867,7 +888,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -888,7 +909,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -921,7 +942,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -963,7 +984,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -995,7 +1016,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1028,14 +1049,14 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns all tags for the given Elasticsearch domain.
   """
   def list_tags(%Client{} = client, arn, options \\ []) do
-    url_path = "/2015-01-01/tags/"
+    url_path = "/2015-01-01/tags"
     headers = []
     query_params = []
 
@@ -1048,12 +1069,13 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
-  Retrieves information about each principal that is allowed to access a given
-  Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+  Retrieves information about each principal that is allowed to access a
+  given Amazon OpenSearch Service domain through the use of an interface VPC
+  endpoint.
   """
   def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
@@ -1069,7 +1091,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1090,7 +1112,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1116,7 +1138,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1138,7 +1160,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1160,7 +1182,7 @@ defmodule AWS.Elasticsearch do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1182,13 +1204,14 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
   Revokes access to an Amazon OpenSearch Service domain that was provided through
-  an interface VPC endpoint.
+  an interface
+  VPC endpoint.
   """
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
@@ -1206,7 +1229,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1229,7 +1252,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1253,7 +1276,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1276,7 +1299,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1299,7 +1322,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1323,7 +1346,7 @@ defmodule AWS.Elasticsearch do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -4,33 +4,48 @@
 defmodule AWS.WorkMail do
   @moduledoc """
   WorkMail is a secure, managed business email and calendaring service with
-  support for existing desktop and mobile email clients.
+  support for
+  existing desktop and mobile email clients.
 
-  You can access your email, contacts, and calendars using Microsoft Outlook, your
-  browser, or other native iOS and Android email applications. You can integrate
-  WorkMail with your existing corporate directory and control both the keys that
-  encrypt your data and the location in which your data is stored.
+  You can access your email, contacts, and
+  calendars using Microsoft Outlook, your browser, or other native iOS and Android
+  email
+  applications. You can integrate WorkMail with your existing corporate directory
+  and control
+  both the keys that encrypt your data and the location in which your data is
+  stored.
 
   The WorkMail API is designed for the following scenarios:
 
-    * Listing and describing organizations
+    *
+  Listing and describing organizations
 
-    * Managing users
+    *
+  Managing users
 
-    * Managing groups
+    *
+  Managing groups
 
-    * Managing resources
+    *
+  Managing resources
 
   All WorkMail API operations are Amazon-authenticated and certificate-signed.
-  They not only require the use of the AWS SDK, but also allow for the exclusive
-  use of AWS Identity and Access Management users and roles to help facilitate
-  access, trust, and permission policies. By creating a role and allowing an IAM
-  user to access the WorkMail site, the IAM user gains full administrative
-  visibility into the entire WorkMail organization (or as set in the IAM policy).
-  This includes, but is not limited to, the ability to create, update, and delete
+  They not
+  only require the use of the AWS SDK, but also allow for the exclusive use of AWS
+  Identity and Access Management
+  users and roles to help facilitate access, trust, and permission policies. By
+  creating a
+  role and allowing an IAM user to access the WorkMail site, the IAM user gains
+  full
+  administrative visibility into the entire WorkMail organization (or as set in
+  the IAM
+  policy). This includes, but is not limited to, the ability to create, update,
+  and delete
   users, groups, and resources. This allows developers to perform the scenarios
-  listed above, as well as give users the ability to grant access on a selective
-  basis using the IAM model.
+  listed above,
+  as well as give users the ability to grant access on a selective basis using the
+  IAM
+  model.
   """
 
   alias AWS.Client
@@ -38,7 +53,6 @@ defmodule AWS.WorkMail do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2017-10-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -73,8 +87,8 @@ defmodule AWS.WorkMail do
   @doc """
   Assumes an impersonation role for the given WorkMail organization.
 
-  This method returns an authentication token you can use to make impersonated
-  calls.
+  This method returns an
+  authentication token you can use to make impersonated calls.
   """
   def assume_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -126,8 +140,9 @@ defmodule AWS.WorkMail do
   @doc """
   Creates an impersonation role for the given WorkMail organization.
 
-  *Idempotency* ensures that an API request completes no more than one time. With
-  an idempotent request, if the original request completes successfully, any
+  *Idempotency* ensures that an API request completes no more than one
+  time. With an idempotent request, if the original request completes
+  successfully, any
   subsequent retries also complete successfully without performing any further
   actions.
   """
@@ -158,14 +173,16 @@ defmodule AWS.WorkMail do
 
   You can associate multiple email domains with an organization, then choose your
   default email domain from the WorkMail console. You can also associate a domain
-  that is managed in an Amazon Route 53 public hosted zone. For more information,
-  see [Adding a domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
+  that is managed
+  in an Amazon Route 53 public hosted zone. For more information, see [Adding a domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
   and [Choosing the default domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html)
   in the *WorkMail Administrator Guide*.
 
   Optionally, you can use a customer managed key from AWS Key Management Service
-  (AWS KMS) to encrypt email for your organization. If you don't associate an AWS
-  KMS key, WorkMail creates a default, AWS managed key for you.
+  (AWS
+  KMS) to encrypt email for your organization. If you don't associate an AWS KMS
+  key, WorkMail
+  creates a default, AWS managed key for you.
   """
   def create_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -206,7 +223,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Remove one or more specified aliases from a set of aliases for a given user.
+  Remove one or more specified aliases from a set of aliases for a given
+  user.
   """
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -322,11 +340,13 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes a user from WorkMail and all subsequent systems.
 
-  Before you can delete a user, the user state must be `DISABLED`. Use the
-  `DescribeUser` action to confirm the user state.
+  Before you can delete a
+  user, the user state must be `DISABLED`. Use the `DescribeUser`
+  action to confirm the user state.
 
   Deleting a user is permanent and cannot be undone. WorkMail archives user
-  mailboxes for 30 days before they are permanently removed.
+  mailboxes for
+  30 days before they are permanently removed.
   """
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -337,9 +357,11 @@ defmodule AWS.WorkMail do
   @doc """
   Mark a user, group, or resource as no longer used in WorkMail.
 
-  This action disassociates the mailbox and schedules it for clean-up. WorkMail
-  keeps mailboxes for 30 days before they are permanently removed. The
-  functionality in the console is *Disable*.
+  This action
+  disassociates the mailbox and schedules it for clean-up. WorkMail keeps
+  mailboxes for 30 days
+  before they are permanently removed. The functionality in the console is
+  *Disable*.
   """
   def deregister_from_work_mail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -545,7 +567,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Creates a paginated call to list the aliases associated with a given entity.
+  Creates a paginated call to list the aliases associated with a given
+  entity.
   """
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -565,7 +588,8 @@ defmodule AWS.WorkMail do
   @doc """
   Returns an overview of the members of a group.
 
-  Users and groups can be members of a group.
+  Users and groups can be members of a
+  group.
   """
   def list_group_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -611,7 +635,8 @@ defmodule AWS.WorkMail do
 
   @doc """
   Lists the mailbox export jobs started for the specified organization within the
-  last seven days.
+  last
+  seven days.
   """
   def list_mailbox_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -660,8 +685,8 @@ defmodule AWS.WorkMail do
   @doc """
   Lists the delegates associated with a resource.
 
-  Users and groups can be resource delegates and answer requests on behalf of the
-  resource.
+  Users and groups can be resource
+  delegates and answer requests on behalf of the resource.
   """
   def list_resource_delegates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -699,9 +724,12 @@ defmodule AWS.WorkMail do
   @doc """
   Adds a new access control rule for the specified organization.
 
-  The rule allows or denies access to the organization for the specified IPv4
-  addresses, access protocol actions, user IDs and impersonation IDs. Adding a new
-  rule with the same name as an existing rule replaces the older rule.
+  The rule allows or
+  denies access to the organization for the specified IPv4 addresses, access
+  protocol
+  actions, user IDs and impersonation IDs. Adding a new rule with the same name as
+  an existing rule replaces
+  the older rule.
   """
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -731,7 +759,8 @@ defmodule AWS.WorkMail do
   @doc """
   Sets permissions for a user, group, or resource.
 
-  This replaces any pre-existing permissions.
+  This replaces any pre-existing
+  permissions.
   """
   def put_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -763,8 +792,8 @@ defmodule AWS.WorkMail do
   WorkMail.
 
   Emails received by SES for this domain are routed to the specified WorkMail
-  organization, and WorkMail has permanent permission to use the specified domain
-  for sending your users' emails.
+  organization, and WorkMail has
+  permanent permission to use the specified domain for sending your users' emails.
   """
   def register_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -776,14 +805,15 @@ defmodule AWS.WorkMail do
   Registers an existing and disabled user, group, or resource for WorkMail use by
   associating a mailbox and calendaring capabilities.
 
-  It performs no change if the user, group, or resource is enabled and fails if
-  the user, group, or resource is deleted. This operation results in the
-  accumulation of costs. For more information, see
+  It performs no change if the user,
+  group, or resource is enabled and fails if the user, group, or resource is
+  deleted. This
+  operation results in the accumulation of costs. For more information, see
   [Pricing](https://aws.amazon.com/workmail/pricing). The equivalent console
   functionality for this operation is *Enable*.
 
-  Users can either be created by calling the `CreateUser` API operation or they
-  can be synchronized from your directory. For more information, see
+  Users can either be created by calling the `CreateUser` API operation
+  or they can be synchronized from your directory. For more information, see
   `DeregisterFromWorkMail`.
   """
   def register_to_work_mail(%Client{} = client, input, options \\ []) do
@@ -803,11 +833,14 @@ defmodule AWS.WorkMail do
 
   @doc """
   Starts a mailbox export job to export MIME-format email messages and calendar
-  items from the specified mailbox to the specified Amazon Simple Storage Service
-  (Amazon S3) bucket.
+  items
+  from the specified mailbox to the specified Amazon Simple Storage Service
+  (Amazon S3)
+  bucket.
 
   For more information, see [Exporting mailbox content](https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html)
-  in the *WorkMail Administrator Guide*.
+  in
+  the *WorkMail Administrator Guide*.
   """
   def start_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -816,7 +849,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Applies the specified tags to the specified WorkMailorganization resource.
+  Applies the specified tags to the specified WorkMailorganization
+  resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -829,13 +863,14 @@ defmodule AWS.WorkMail do
 
   For EWS, it verifies the provided credentials can be used to successfully log
   in. For Lambda, it verifies that the Lambda function can be invoked and that the
-  resource access policy was configured to deny anonymous access. An anonymous
-  invocation is one done without providing either a `SourceArn` or `SourceAccount`
-  header.
+  resource access
+  policy was configured to deny anonymous access. An anonymous invocation is one
+  done without providing either a `SourceArn` or `SourceAccount` header.
 
   The request must contain either one provider definition (`EwsProvider` or
-  `LambdaProvider`) or the `DomainName` parameter. If the `DomainName` parameter
-  is provided, the configuration stored under the `DomainName` will be tested.
+  `LambdaProvider`) or the `DomainName` parameter. If the
+  `DomainName` parameter is provided, the configuration stored under the
+  `DomainName` will be tested.
   """
   def test_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -844,7 +879,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Untags the specified tags from the specified WorkMail organization resource.
+  Untags the specified tags from the specified WorkMail organization
+  resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -893,7 +929,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates a user's current mailbox quota for a specified organization and user.
+  Updates a user's current mailbox quota for a specified organization and
+  user.
   """
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -913,9 +950,10 @@ defmodule AWS.WorkMail do
   @doc """
   Updates the primary email for a user, group, or resource.
 
-  The current email is moved into the list of aliases (or swapped between an
-  existing alias and the current primary email), and the email provided in the
-  input is promoted as the primary.
+  The current email is moved
+  into the list of aliases (or swapped between an existing alias and the current
+  primary
+  email), and the email provided in the input is promoted as the primary.
   """
   def update_primary_email_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -926,9 +964,9 @@ defmodule AWS.WorkMail do
   @doc """
   Updates data for the resource.
 
-  To have the latest information, it must be preceded by a `DescribeResource`
-  call. The dataset in the request should be the one expected when performing
-  another `DescribeResource` call.
+  To have the latest information, it must be preceded by
+  a `DescribeResource` call. The dataset in the request should be the one
+  expected when performing another `DescribeResource` call.
   """
   def update_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -939,9 +977,9 @@ defmodule AWS.WorkMail do
   @doc """
   Updates data for the user.
 
-  To have the latest information, it must be preceded by a `DescribeUser` call.
-  The dataset in the request should be the one expected when performing another
-  `DescribeUser` call.
+  To have the latest information, it must be preceded by a
+  `DescribeUser` call. The dataset in the request should be the one
+  expected when performing another `DescribeUser` call.
   """
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()

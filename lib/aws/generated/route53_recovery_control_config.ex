@@ -12,7 +12,6 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2020-11-02",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,

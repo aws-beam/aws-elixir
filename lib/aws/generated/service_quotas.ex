@@ -7,7 +7,8 @@ defmodule AWS.ServiceQuotas do
   Web Services workloads grow.
 
   Quotas, also referred to as limits, are the maximum number of resources that you
-  can create in your Amazon Web Services account. For more information, see the
+  can
+  create in your Amazon Web Services account. For more information, see the
   [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
   """
 
@@ -16,7 +17,6 @@ defmodule AWS.ServiceQuotas do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-06-24",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -33,10 +33,12 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Associates your quota request template with your organization.
 
-  When a new Amazon Web Services account is created in your organization, the
-  quota increase requests in the template are automatically applied to the
-  account. You can add a quota increase request for any adjustable quota to your
-  template.
+  When a new
+  Amazon Web Services account is created in your organization, the quota increase
+  requests in the
+  template are automatically applied to the account. You can add a quota increase
+  request
+  for any adjustable quota to your template.
   """
   def associate_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -46,7 +48,8 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Deletes the quota increase request for the specified quota from your quota
-  request template.
+  request
+  template.
   """
   def delete_service_quota_increase_request_from_template(
         %Client{} = client,
@@ -67,9 +70,10 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Disables your quota request template.
 
-  After a template is disabled, the quota increase requests in the template are
-  not applied to new Amazon Web Services accounts in your organization. Disabling
-  a quota request template does not apply its quota increase requests.
+  After a template is disabled, the quota increase
+  requests in the template are not applied to new Amazon Web Services accounts in
+  your organization.
+  Disabling a quota request template does not apply its quota increase requests.
   """
   def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -89,7 +93,8 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Retrieves the default value for the specified quota.
 
-  The default value does not reflect any quota increases.
+  The default value does not
+  reflect any quota increases.
   """
   def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -109,8 +114,10 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Retrieves the applied quota value for the specified quota.
 
-  For some quotas, only the default values are available. If the applied quota
-  value is not available for a quota, the quota is not retrieved.
+  For some quotas, only the
+  default values are available. If the applied quota value is not available for a
+  quota,
+  the quota is not retrieved.
   """
   def get_service_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -120,7 +127,8 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves information about the specified quota increase request in your quota
-  request template.
+  request
+  template.
   """
   def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -137,7 +145,8 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Lists the default values for the quotas for the specified Amazon Web Service.
 
-  A default value does not reflect any quota increases.
+  A default
+  value does not reflect any quota increases.
   """
   def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -191,8 +200,10 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Lists the applied quota values for the specified Amazon Web Service.
 
-  For some quotas, only the default values are available. If the applied quota
-  value is not available for a quota, the quota is not retrieved.
+  For some quotas, only
+  the default values are available. If the applied quota value is not available
+  for a
+  quota, the quota is not retrieved.
   """
   def list_service_quotas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -246,7 +257,8 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Adds tags to the specified applied quota.
 
-  You can include one or more tags to add to the quota.
+  You can include one or more tags to add to
+  the quota.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -257,7 +269,8 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Removes tags from the specified applied quota.
 
-  You can specify one or more tags to remove.
+  You can specify one or more tags to
+  remove.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

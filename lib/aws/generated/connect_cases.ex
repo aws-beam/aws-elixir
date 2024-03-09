@@ -4,12 +4,13 @@
 defmodule AWS.ConnectCases do
   @moduledoc """
   With Amazon Connect Cases, your agents can track and manage customer issues that
-  require multiple interactions, follow-up tasks, and teams in your contact
-  center.
+  require
+  multiple interactions, follow-up tasks, and teams in your contact center.
 
-  A case represents a customer issue. It records the issue, the steps and
-  interactions taken to resolve the issue, and the outcome. For more information,
-  see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
+  A case represents a
+  customer issue. It records the issue, the steps and interactions taken to
+  resolve the issue,
+  and the outcome. For more information, see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
   *Amazon Connect Administrator Guide*.
   """
 
@@ -18,7 +19,6 @@ defmodule AWS.ConnectCases do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2022-10-03",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -72,24 +72,30 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+
   If you provide a value for `PerformedBy.UserArn` you must also have
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the User ARN resource that you provide
 
-  ` Creates a case in the specified Cases domain.
+  Creates a case in the specified Cases domain.
 
-  Case system and custom fields are taken as an array id/value pairs with a
-  declared data types.
+  Case system and custom fields are taken
+  as an array id/value pairs with a declared data types.
 
   The following fields are required when creating a case:
 
-    * `customer_id` - You must provide the full customer profile ARN in
-  this format: `arn:aws:profile:your_AWS_Region:your_AWS_account
-  ID:domains/your_profiles_domain_name/profiles/profile_ID`
+    *
 
-    * `title`
+  `customer_id` - You must provide the full customer profile ARN in this format:
 
-  `
+  ```
+  arn:aws:profile:your_AWS_Region:your_AWS_account
+  ID:domains/your_profiles_domain_name/profiles/profile_ID
+  ```
+
+    *
+
+  `title`
   """
   def create_case(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
@@ -113,17 +119,19 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Creates a domain, which is a container for all case data, such as cases, fields,
-  templates and layouts.
+  templates
+  and layouts.
 
-  Each Amazon Connect instance can be associated with only one Cases domain.
+  Each Amazon Connect instance can be associated with only one Cases
+  domain.
 
   This will not associate your connect instance to Cases domain. Instead, use the
   Amazon Connect
-  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM permissions to successfully associate the Cases
-  domain. For more information, see [Onboard to
+  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM
+  permissions to successfully associate the Cases domain. For more information,
+  see
+  [Onboard to
   Cases](https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam).
-
-  ` `
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
@@ -148,8 +156,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a field in the Cases domain.
 
-  This field is used to define the case object model (that is, defines what data
-  can be captured on cases) in a Cases domain.
+  This field is used to define the case object
+  model (that is, defines what data can be captured on cases) in a Cases domain.
   """
   def create_field(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields"
@@ -174,12 +182,14 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a layout in the Cases domain.
 
-  Layouts define the following configuration in the top section and More Info tab
-  of the Cases user interface:
+  Layouts define the following configuration in
+  the top section and More Info tab of the Cases user interface:
 
-    * Fields to display to the users
+    *
+  Fields to display to the users
 
-    * Field ordering
+    *
+  Field ordering
 
   Title and Status fields cannot be part of layouts since they are not
   configurable.
@@ -208,17 +218,18 @@ defmodule AWS.ConnectCases do
   Creates a related item (comments, tasks, and contacts) and associates it with a
   case.
 
-     A Related Item is a resource that is associated with a case. It may
-  or may not have an external identifier linking it to an external resource (for
-  example, a `contactArn`). All Related Items have their own internal identifier,
-  the `relatedItemArn`. Examples of related items include `comments` and
-  `contacts`.
+    
+  A Related Item is a resource that is associated with a case. It may or may not
+  have
+  an external identifier linking it to an external resource (for example, a
+  `contactArn`). All Related Items have their own internal identifier, the
+  `relatedItemArn`. Examples of related items include `comments`
+  and `contacts`.
 
-     If you provide a value for `performedBy.userArn` you must also have
+    
+  If you provide a value for `performedBy.userArn` you must also have
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the ARN of the user that you provide.
-
-  ` `
   """
   def create_related_item(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path =
@@ -245,12 +256,16 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a template in the Cases domain.
 
-  This template is used to define the case object model (that is, to define what
-  data can be captured on cases) in a Cases domain. A template must have a unique
-  name within a domain, and it must reference existing field IDs and layout IDs.
-  Additionally, multiple fields with same IDs are not allowed within the same
-  Template. A template can be either Active or Inactive, as indicated by its
-  status. Inactive templates cannot be used to create cases.
+  This template is used to define the case object
+  model (that is, to define what data can be captured on cases) in a Cases domain.
+  A template
+  must have a unique name within a domain, and it must reference existing field
+  IDs and layout
+  IDs. Additionally, multiple fields with same IDs are not allowed within the same
+  Template. A
+  template can be either Active or Inactive, as indicated by its status. Inactive
+  templates
+  cannot be used to create cases.
   """
   def create_template(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates"
@@ -275,12 +290,11 @@ defmodule AWS.ConnectCases do
   @doc """
   Deletes a Cases domain.
 
-  ` After deleting your domain you must disassociate the deleted domain from your
+  After deleting your domain you must disassociate the deleted domain from your
   Amazon Connect instance with another API call before being able to use Cases
-  again with this Amazon Connect instance. See
+  again with this
+  Amazon Connect instance. See
   [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
-
-  `
   """
   def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
@@ -472,7 +486,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all cases domains in the Amazon Web Services account.
 
-  Each list item is a condensed summary object of the domain.
+  Each list item is a condensed
+  summary object of the domain.
   """
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/domains-list"
@@ -564,7 +579,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all layouts in the given cases domain.
 
-  Each list item is a condensed summary object of the layout.
+  Each list item is a condensed summary object
+  of the layout.
   """
   def list_layouts(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts-list"
@@ -608,7 +624,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all of the templates in a Cases domain.
 
-  Each list item is a condensed summary object of the template.
+  Each list item is a condensed summary
+  object of the template.
   """
   def list_templates(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates-list"
@@ -640,8 +657,10 @@ defmodule AWS.ConnectCases do
   @doc """
   Adds case event publishing configuration.
 
-  For a complete list of fields you can add to the event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
-  in the *Amazon Connect Administrator Guide*
+  For a complete list of fields you can add to the
+  event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
+  in the
+  *Amazon Connect Administrator Guide*
   """
   def put_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
@@ -656,11 +675,18 @@ defmodule AWS.ConnectCases do
   @doc """
   Searches for cases within their associated Cases domain.
 
-  Search results are returned as a paginated list of abridged case documents.
+  Search results are returned
+  as a paginated list of abridged case documents.
 
-  For `customer_id` you must provide the full customer profile ARN in this format:
-  ` arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
-  name/profiles/profile ID`.
+  For `customer_id` you must provide the full customer profile ARN in this
+  format:
+
+  ```
+  arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+  name/profiles/profile ID
+  ```
+
+  .
   """
   def search_cases(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases-search"
@@ -762,19 +788,19 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+
   If you provide a value for `PerformedBy.UserArn` you must also have
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the User ARN resource that you provide
 
-  ` Updates the values of fields on a case.
+  Updates the values of fields on a case.
 
-  Fields to be updated are received as an array of id/value pairs identical to the
-  `CreateCase` input .
+  Fields to be updated are received as an array of
+  id/value pairs identical to the `CreateCase` input .
 
   If the action is successful, the service sends back an HTTP 200 response with an
-  empty HTTP body.
-
-  `
+  empty
+  HTTP body.
   """
   def update_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
@@ -805,10 +831,11 @@ defmodule AWS.ConnectCases do
   Updates the attributes of an existing layout.
 
   If the action is successful, the service sends back an HTTP 200 response with an
-  empty HTTP body.
+  empty
+  HTTP body.
 
-  A `ValidationException` is returned when you add non-existent `fieldIds` to a
-  layout.
+  A `ValidationException` is returned when you add non-existent
+  `fieldIds` to a layout.
 
   Title and Status fields cannot be part of layouts because they are not
   configurable.
@@ -828,10 +855,12 @@ defmodule AWS.ConnectCases do
   @doc """
   Updates the attributes of an existing template.
 
-  The template attributes that can be modified include `name`, `description`,
-  `layoutConfiguration`, `requiredFields`, and `status`. At least one of these
-  attributes must not be null. If a null value is provided for a given attribute,
-  that attribute is ignored and its current value is preserved.
+  The template attributes that can be
+  modified include `name`, `description`,
+  `layoutConfiguration`, `requiredFields`, and `status`. At
+  least one of these attributes must not be null. If a null value is provided for
+  a given
+  attribute, that attribute is ignored and its current value is preserved.
   """
   def update_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
     url_path =

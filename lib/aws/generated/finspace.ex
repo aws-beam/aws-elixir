@@ -12,7 +12,6 @@ defmodule AWS.Finspace do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2021-03-12",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -45,11 +44,12 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates a changeset for a kdb database.
 
   A changeset allows you to add and delete existing files by using an ordered list
@@ -73,7 +73,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -96,7 +96,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -119,11 +119,12 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates a snapshot of kdb database with tiered storage capabilities and a
   pre-warmed cache, ready for mounting on kdb clusters.
 
@@ -148,7 +149,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -171,7 +172,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -194,7 +195,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -217,11 +218,12 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Creates a new volume with a specific amount of throughput and storage capacity.
   """
   def create_kx_volume(%Client{} = client, environment_id, input, options \\ []) do
@@ -240,7 +242,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -263,7 +265,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -293,7 +295,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -326,11 +328,12 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes the specified dataview.
 
   Before deleting a dataview, make sure that it is not in use by any cluster.
@@ -365,7 +368,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -396,11 +399,12 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes the specified scaling group.
 
   This action is irreversible. You cannot delete a scaling group until all the
@@ -435,7 +439,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -465,11 +469,12 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
   @doc """
+
   Deletes a volume.
 
   You can only delete a volume if it's not attached to a cluster or a dataview.
@@ -499,7 +504,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -513,7 +518,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -534,7 +539,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -549,7 +554,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -585,7 +590,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -600,10 +605,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Retrieves details of the dataview.
   """
   def get_kx_dataview(
@@ -621,7 +627,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -634,10 +640,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Retrieves details of a scaling group.
   """
   def get_kx_scaling_group(%Client{} = client, environment_id, scaling_group_name, options \\ []) do
@@ -649,7 +656,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -664,10 +671,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Retrieves the information about the volume.
   """
   def get_kx_volume(%Client{} = client, environment_id, volume_name, options \\ []) do
@@ -679,7 +687,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -706,7 +714,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -742,7 +750,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -778,7 +786,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -819,7 +827,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -852,10 +860,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Returns a list of all the dataviews in the database.
   """
   def list_kx_dataviews(
@@ -888,7 +897,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -920,10 +929,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Returns a list of scaling groups in a kdb environment.
   """
   def list_kx_scaling_groups(
@@ -953,7 +963,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -986,10 +996,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
+
   Lists all the volumes in a kdb environment.
   """
   def list_kx_volumes(
@@ -1027,7 +1038,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1040,7 +1051,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1062,7 +1073,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1090,7 +1101,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 
@@ -1104,15 +1115,17 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+
   Allows you to update code configuration on a running cluster.
 
   By using this API you can update the code, the initialization script path, and
-  the command line arguments for a specific cluster. The configuration that you
-  want to update will override any existing configurations on the cluster.
+  the command line arguments for a specific cluster.
+  The configuration that you want to update will override any existing
+  configurations on the cluster.
   """
   def update_kx_cluster_code_configuration(
         %Client{} = client,
@@ -1129,7 +1142,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1157,7 +1170,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1172,10 +1185,11 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+
   Updates the specified dataview.
 
   The dataviews get automatically updated when any new changesets are ingested.
@@ -1198,7 +1212,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1211,7 +1225,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1232,7 +1246,7 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -1249,14 +1263,16 @@ defmodule AWS.Finspace do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, nil)
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
+
   Updates the throughput or capacity of a volume.
 
-  During the update process, the filesystem might be unavailable for a few
-  minutes. You can retry any operations after the update is complete.
+  During the update process, the filesystem
+  might be unavailable for a few minutes. You can retry any operations after the
+  update is complete.
   """
   def update_kx_volume(%Client{} = client, environment_id, volume_name, input, options \\ []) do
     url_path =
@@ -1276,7 +1292,7 @@ defmodule AWS.Finspace do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -4,7 +4,10 @@
 defmodule AWS.WorkMailMessageFlow do
   @moduledoc """
   The WorkMail Message Flow API provides access to email messages as they are
-  being sent and received by a WorkMail organization.
+  being
+  sent and received by
+  a
+  WorkMail organization.
   """
 
   alias AWS.Client
@@ -12,7 +15,6 @@ defmodule AWS.WorkMailMessageFlow do
 
   def metadata do
     %{
-      abbreviation: nil,
       api_version: "2019-05-01",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
@@ -36,23 +38,29 @@ defmodule AWS.WorkMailMessageFlow do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, nil)
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Updates the raw content of an in-transit email message, in MIME format.
 
   This example describes how to update in-transit email message. For more
-  information and examples for using this API, see [ Updating message content with AWS
+  information and examples for using this API, see
+  [
+  Updating message content with AWS
   Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html).
 
   Updates to an in-transit message only appear when you call
-  `PutRawMessageContent` from an AWS Lambda function configured with a synchronous
-  [ Run Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/lambda.html#synchronous-rules)
+  `PutRawMessageContent` from an AWS Lambda function
+  configured with a synchronous [
+  Run
+  Lambda](https://docs.aws.amazon.com/workmail/latest/adminguide/lambda.html#synchronous-rules)
   rule. If you call `PutRawMessageContent` on a delivered or sent message, the
-  message remains unchanged, even though
+  message remains unchanged,
+  even though
   [GetRawMessageContent](https://docs.aws.amazon.com/workmail/latest/APIReference/API_messageflow_GetRawMessageContent.html)
-  returns an updated message.
+  returns an updated
+  message.
   """
   def put_raw_message_content(%Client{} = client, message_id, input, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -70,7 +78,7 @@ defmodule AWS.WorkMailMessageFlow do
       headers,
       input,
       options,
-      nil
+      200
     )
   end
 end

@@ -23,6 +23,381 @@ defmodule AWS.ConnectParticipant do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  view() :: %{
+    "Arn" => String.t(),
+    "Content" => view_content(),
+    "Id" => String.t(),
+    "Name" => String.t(),
+    "Version" => integer()
+  }
+  """
+  @type view() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disconnect_participant_response() :: %{
+
+  }
+  """
+  @type disconnect_participant_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  receipt() :: %{
+    "DeliveredTimestamp" => String.t(),
+    "ReadTimestamp" => String.t(),
+    "RecipientParticipantId" => String.t()
+  }
+  """
+  @type receipt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_position() :: %{
+    "AbsoluteTime" => String.t(),
+    "Id" => String.t(),
+    "MostRecent" => integer()
+  }
+  """
+  @type start_position() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  websocket() :: %{
+    "ConnectionExpiry" => String.t(),
+    "Url" => String.t()
+  }
+  """
+  @type websocket() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  complete_attachment_upload_request() :: %{
+    required("AttachmentIds") => list(String.t()()),
+    required("ClientToken") => String.t(),
+    required("ConnectionToken") => String.t()
+  }
+  """
+  @type complete_attachment_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_event_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Content") => String.t(),
+    required("ConnectionToken") => String.t(),
+    required("ContentType") => String.t()
+  }
+  """
+  @type send_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_view_response() :: %{
+    "View" => view()
+  }
+  """
+  @type describe_view_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  item() :: %{
+    "AbsoluteTime" => String.t(),
+    "Attachments" => list(attachment_item()()),
+    "ContactId" => String.t(),
+    "Content" => String.t(),
+    "ContentType" => String.t(),
+    "DisplayName" => String.t(),
+    "Id" => String.t(),
+    "MessageMetadata" => message_metadata(),
+    "ParticipantId" => String.t(),
+    "ParticipantRole" => list(any()),
+    "RelatedContactId" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disconnect_participant_request() :: %{
+    optional("ClientToken") => String.t(),
+    required("ConnectionToken") => String.t()
+  }
+  """
+  @type disconnect_participant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  view_content() :: %{
+    "Actions" => list(String.t()()),
+    "InputSchema" => String.t(),
+    "Template" => String.t()
+  }
+  """
+  @type view_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_participant_connection_request() :: %{
+    optional("ConnectParticipant") => boolean(),
+    optional("Type") => list(list(any())()),
+    required("ParticipantToken") => String.t()
+  }
+  """
+  @type create_participant_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any())
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_event_response() :: %{
+    "AbsoluteTime" => String.t(),
+    "Id" => String.t()
+  }
+  """
+  @type send_event_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attachment_item() :: %{
+    "AttachmentId" => String.t(),
+    "AttachmentName" => String.t(),
+    "ContentType" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type attachment_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_view_request() :: %{
+    required("ConnectionToken") => String.t()
+  }
+  """
+  @type describe_view_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_attachment_response() :: %{
+    "Url" => String.t(),
+    "UrlExpiry" => String.t()
+  }
+  """
+  @type get_attachment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  message_metadata() :: %{
+    "MessageId" => String.t(),
+    "Receipts" => list(receipt()())
+  }
+  """
+  @type message_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_attachment_upload_response() :: %{
+    "AttachmentId" => String.t(),
+    "UploadMetadata" => upload_metadata()
+  }
+  """
+  @type start_attachment_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transcript_request() :: %{
+    optional("ContactId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ScanDirection") => list(any()),
+    optional("SortOrder") => list(any()),
+    optional("StartPosition") => start_position(),
+    required("ConnectionToken") => String.t()
+  }
+  """
+  @type get_transcript_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_attachment_request() :: %{
+    required("AttachmentId") => String.t(),
+    required("ConnectionToken") => String.t()
+  }
+  """
+  @type get_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_credentials() :: %{
+    "ConnectionToken" => String.t(),
+    "Expiry" => String.t()
+  }
+  """
+  @type connection_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_attachment_upload_request() :: %{
+    required("AttachmentName") => String.t(),
+    required("AttachmentSizeInBytes") => float(),
+    required("ClientToken") => String.t(),
+    required("ConnectionToken") => String.t(),
+    required("ContentType") => String.t()
+  }
+  """
+  @type start_attachment_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  complete_attachment_upload_response() :: %{
+
+  }
+  """
+  @type complete_attachment_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transcript_response() :: %{
+    "InitialContactId" => String.t(),
+    "NextToken" => String.t(),
+    "Transcript" => list(item()())
+  }
+  """
+  @type get_transcript_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_message_request() :: %{
+    optional("ClientToken") => String.t(),
+    required("ConnectionToken") => String.t(),
+    required("Content") => String.t(),
+    required("ContentType") => String.t()
+  }
+  """
+  @type send_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_message_response() :: %{
+    "AbsoluteTime" => String.t(),
+    "Id" => String.t()
+  }
+  """
+  @type send_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  upload_metadata() :: %{
+    "HeadersToInclude" => map(),
+    "Url" => String.t(),
+    "UrlExpiry" => String.t()
+  }
+  """
+  @type upload_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_participant_connection_response() :: %{
+    "ConnectionCredentials" => connection_credentials(),
+    "Websocket" => websocket()
+  }
+  """
+  @type create_participant_connection_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2018-09-07",
@@ -51,6 +426,15 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec complete_attachment_upload(map(), complete_attachment_upload_request(), list()) ::
+          {:ok, complete_attachment_upload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def complete_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/complete-attachment-upload"
 
@@ -121,6 +505,13 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec create_participant_connection(map(), create_participant_connection_request(), list()) ::
+          {:ok, create_participant_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_participant_connection(%Client{} = client, input, options \\ []) do
     url_path = "/participant/connection"
 
@@ -150,6 +541,14 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Retrieves the view for the specified view token.
   """
+  @spec describe_view(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_view_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_view(%Client{} = client, view_token, connection_token, options \\ []) do
     url_path = "/participant/views/#{AWS.Util.encode_uri(view_token)}"
     headers = []
@@ -176,6 +575,13 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
+          {:ok, disconnect_participant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/participant/disconnect"
 
@@ -213,6 +619,13 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec get_attachment(map(), get_attachment_request(), list()) ::
+          {:ok, get_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/participant/attachment"
 
@@ -277,6 +690,13 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec get_transcript(map(), get_transcript_request(), list()) ::
+          {:ok, get_transcript_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_transcript(%Client{} = client, input, options \\ []) do
     url_path = "/participant/transcript"
 
@@ -325,6 +745,14 @@ defmodule AWS.ConnectParticipant do
   The Amazon Connect Participant Service APIs do not use [Signature Version 4
   authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec send_event(map(), send_event_request(), list()) ::
+          {:ok, send_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/participant/event"
 
@@ -359,6 +787,13 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec send_message(map(), send_message_request(), list()) ::
+          {:ok, send_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def send_message(%Client{} = client, input, options \\ []) do
     url_path = "/participant/message"
 
@@ -395,6 +830,14 @@ defmodule AWS.ConnectParticipant do
 
   The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
+  @spec start_attachment_upload(map(), start_attachment_upload_request(), list()) ::
+          {:ok, start_attachment_upload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def start_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/start-attachment-upload"
 

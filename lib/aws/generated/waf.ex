@@ -31,6 +31,2271 @@ defmodule AWS.WAF do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  get_sampled_requests_request() :: %{
+    required("MaxItems") => float(),
+    required("RuleId") => String.t(),
+    required("TimeWindow") => time_window(),
+    required("WebAclId") => String.t()
+  }
+  """
+  @type get_sampled_requests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_match_set_update() :: %{
+    "Action" => list(any()),
+    "RegexMatchTuple" => regex_match_tuple()
+  }
+  """
+  @type regex_match_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_geo_match_set_request() :: %{
+    required("GeoMatchSetId") => String.t()
+  }
+  """
+  @type get_geo_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  xss_match_set() :: %{
+    "Name" => String.t(),
+    "XssMatchSetId" => String.t(),
+    "XssMatchTuples" => list(xss_match_tuple()())
+  }
+  """
+  @type xss_match_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_rule_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("ChangeToken") => String.t(),
+    required("MetricName") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sql_injection_match_set_summary() :: %{
+    "Name" => String.t(),
+    "SqlInjectionMatchSetId" => String.t()
+  }
+  """
+  @type sql_injection_match_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_pattern_set_update() :: %{
+    "Action" => list(any()),
+    "RegexPatternString" => String.t()
+  }
+  """
+  @type regex_pattern_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rule_group_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("ResourceARN") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_nonexistent_item_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_nonexistent_item_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sql_injection_match_set() :: %{
+    "Name" => String.t(),
+    "SqlInjectionMatchSetId" => String.t(),
+    "SqlInjectionMatchTuples" => list(sql_injection_match_tuple()())
+  }
+  """
+  @type sql_injection_match_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rate_based_rule() :: %{
+    "MatchPredicates" => list(predicate()()),
+    "MetricName" => String.t(),
+    "Name" => String.t(),
+    "RateKey" => list(any()),
+    "RateLimit" => float(),
+    "RuleId" => String.t()
+  }
+  """
+  @type rate_based_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_size_constraint_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("SizeConstraintSetId") => String.t(),
+    required("Updates") => list(size_constraint_set_update()())
+  }
+  """
+  @type update_size_constraint_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  geo_match_set_update() :: %{
+    "Action" => list(any()),
+    "GeoMatchConstraint" => geo_match_constraint()
+  }
+  """
+  @type geo_match_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  xss_match_set_update() :: %{
+    "Action" => list(any()),
+    "XssMatchTuple" => xss_match_tuple()
+  }
+  """
+  @type xss_match_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_invalid_regex_pattern_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_invalid_regex_pattern_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rule_group_request() :: %{
+    required("RuleGroupId") => String.t()
+  }
+  """
+  @type get_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_byte_match_set_response() :: %{
+    "ByteMatchSet" => byte_match_set(),
+    "ChangeToken" => String.t()
+  }
+  """
+  @type create_byte_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_byte_match_set_response() :: %{
+    "ByteMatchSet" => byte_match_set()
+  }
+  """
+  @type get_byte_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rule_groups_response() :: %{
+    "NextMarker" => String.t(),
+    "RuleGroups" => list(rule_group_summary()())
+  }
+  """
+  @type list_rule_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_ip_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_ip_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_byte_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_byte_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  waf_action() :: %{
+    "Type" => list(any())
+  }
+  """
+  @type waf_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_regex_match_sets_response() :: %{
+    "NextMarker" => String.t(),
+    "RegexMatchSets" => list(regex_match_set_summary()())
+  }
+  """
+  @type list_regex_match_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_xss_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_xss_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_regex_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RegexMatchSetId") => String.t()
+  }
+  """
+  @type delete_regex_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_xss_match_set_response() :: %{
+    "XssMatchSet" => xss_match_set()
+  }
+  """
+  @type get_xss_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_stale_data_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_stale_data_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_xss_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("XssMatchSetId") => String.t()
+  }
+  """
+  @type delete_xss_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_byte_match_set_request() :: %{
+    required("ByteMatchSetId") => String.t(),
+    required("ChangeToken") => String.t()
+  }
+  """
+  @type delete_byte_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_xss_match_sets_response() :: %{
+    "NextMarker" => String.t(),
+    "XssMatchSets" => list(xss_match_set_summary()())
+  }
+  """
+  @type list_xss_match_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rate_based_rules_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_rate_based_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_byte_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_byte_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sql_injection_match_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "SqlInjectionMatchSet" => sql_injection_match_set()
+  }
+  """
+  @type create_sql_injection_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rate_based_rule_request() :: %{
+    required("RuleId") => String.t()
+  }
+  """
+  @type get_rate_based_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  field_to_match() :: %{
+    "Data" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type field_to_match() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_service_linked_role_error_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_service_linked_role_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_nonexistent_container_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_nonexistent_container_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_byte_match_set_request() :: %{
+    required("ByteMatchSetId") => String.t(),
+    required("ChangeToken") => String.t(),
+    required("Updates") => list(byte_match_set_update()())
+  }
+  """
+  @type update_byte_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_geo_match_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "GeoMatchSet" => geo_match_set()
+  }
+  """
+  @type create_geo_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_ip_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_ip_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_group() :: %{
+    "MetricName" => String.t(),
+    "Name" => String.t(),
+    "RuleGroupId" => String.t()
+  }
+  """
+  @type rule_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  size_constraint() :: %{
+    "ComparisonOperator" => list(any()),
+    "FieldToMatch" => field_to_match(),
+    "Size" => float(),
+    "TextTransformation" => list(any())
+  }
+  """
+  @type size_constraint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rule_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RuleId") => String.t(),
+    required("Updates") => list(rule_update()())
+  }
+  """
+  @type update_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sql_injection_match_set_request() :: %{
+    required("SqlInjectionMatchSetId") => String.t()
+  }
+  """
+  @type get_sql_injection_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ip_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("IPSetId") => String.t()
+  }
+  """
+  @type delete_ip_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_size_constraint_set_response() :: %{
+    "SizeConstraintSet" => size_constraint_set()
+  }
+  """
+  @type get_size_constraint_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rule_request() :: %{
+    required("RuleId") => String.t()
+  }
+  """
+  @type get_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  byte_match_set_update() :: %{
+    "Action" => list(any()),
+    "ByteMatchTuple" => byte_match_tuple()
+  }
+  """
+  @type byte_match_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rule_group_response() :: %{
+    "RuleGroup" => rule_group()
+  }
+  """
+  @type get_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_regex_pattern_set_request() :: %{
+    required("RegexPatternSetId") => String.t()
+  }
+  """
+  @type get_regex_pattern_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_web_acl_response() :: %{
+    "WebACL" => web_acl()
+  }
+  """
+  @type get_web_acl_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("ResourceARN") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_info_for_resource() :: %{
+    "ResourceARN" => String.t(),
+    "TagList" => list(tag()())
+  }
+  """
+  @type tag_info_for_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activated_rule() :: %{
+    "Action" => waf_action(),
+    "ExcludedRules" => list(excluded_rule()()),
+    "OverrideAction" => waf_override_action(),
+    "Priority" => integer(),
+    "RuleId" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type activated_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_invalid_permission_policy_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_invalid_permission_policy_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_rate_based_rule_response() :: %{
+    "ChangeToken" => String.t(),
+    "Rule" => rate_based_rule()
+  }
+  """
+  @type create_rate_based_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_ip_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("IPSetId") => String.t(),
+    required("Updates") => list(ip_set_update()())
+  }
+  """
+  @type update_ip_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rules_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_size_constraint_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_size_constraint_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rate_based_rule_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_rate_based_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sql_injection_match_set_response() :: %{
+    "SqlInjectionMatchSet" => sql_injection_match_set()
+  }
+  """
+  @type get_sql_injection_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logging_configuration() :: %{
+    "LogDestinationConfigs" => list(String.t()()),
+    "RedactedFields" => list(field_to_match()()),
+    "ResourceArn" => String.t()
+  }
+  """
+  @type logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_regex_match_set_request() :: %{
+    required("RegexMatchSetId") => String.t()
+  }
+  """
+  @type get_regex_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  byte_match_tuple() :: %{
+    "FieldToMatch" => field_to_match(),
+    "PositionalConstraint" => list(any()),
+    "TargetString" => binary(),
+    "TextTransformation" => list(any())
+  }
+  """
+  @type byte_match_tuple() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sql_injection_match_sets_response() :: %{
+    "NextMarker" => String.t(),
+    "SqlInjectionMatchSets" => list(sql_injection_match_set_summary()())
+  }
+  """
+  @type list_sql_injection_match_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_rule_group_response() :: %{
+    "ChangeToken" => String.t(),
+    "RuleGroup" => rule_group()
+  }
+  """
+  @type create_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_rule_group_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("ChangeToken") => String.t(),
+    required("MetricName") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_logging_configuration_response() :: %{
+    "LoggingConfiguration" => logging_configuration()
+  }
+  """
+  @type put_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_rule_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RuleId") => String.t()
+  }
+  """
+  @type delete_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_bad_request_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_geo_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_geo_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_rule_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_regex_pattern_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RegexPatternSetId") => String.t()
+  }
+  """
+  @type delete_regex_pattern_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_geo_match_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_geo_match_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  web_acl() :: %{
+    "DefaultAction" => waf_action(),
+    "MetricName" => String.t(),
+    "Name" => String.t(),
+    "Rules" => list(activated_rule()()),
+    "WebACLArn" => String.t(),
+    "WebACLId" => String.t()
+  }
+  """
+  @type web_acl() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_internal_error_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_internal_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_match_set() :: %{
+    "Name" => String.t(),
+    "RegexMatchSetId" => String.t(),
+    "RegexMatchTuples" => list(regex_match_tuple()())
+  }
+  """
+  @type regex_match_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_activated_rules_in_rule_group_response() :: %{
+    "ActivatedRules" => list(activated_rule()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_activated_rules_in_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sql_injection_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_sql_injection_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subscribed_rule_group_summary() :: %{
+    "MetricName" => String.t(),
+    "Name" => String.t(),
+    "RuleGroupId" => String.t()
+  }
+  """
+  @type subscribed_rule_group_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_geo_match_set_response() :: %{
+    "GeoMatchSet" => geo_match_set()
+  }
+  """
+  @type get_geo_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_permission_policy_response() :: %{
+
+  }
+  """
+  @type delete_permission_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_size_constraint_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("SizeConstraintSetId") => String.t()
+  }
+  """
+  @type delete_size_constraint_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rate_based_rule_managed_keys_request() :: %{
+    optional("NextMarker") => String.t(),
+    required("RuleId") => String.t()
+  }
+  """
+  @type get_rate_based_rule_managed_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rule_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_referenced_item_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_referenced_item_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_regex_pattern_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RegexPatternSetId") => String.t(),
+    required("Updates") => list(regex_pattern_set_update()())
+  }
+  """
+  @type update_regex_pattern_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rate_based_rule_response() :: %{
+    "Rule" => rate_based_rule()
+  }
+  """
+  @type get_rate_based_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  time_window() :: %{
+    "EndTime" => non_neg_integer(),
+    "StartTime" => non_neg_integer()
+  }
+  """
+  @type time_window() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_ip_sets_response() :: %{
+    "IPSets" => list(ip_set_summary()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_ip_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_subscribed_rule_groups_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_subscribed_rule_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_xss_match_set_request() :: %{
+    required("XssMatchSetId") => String.t()
+  }
+  """
+  @type get_xss_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_web_acl_response() :: %{
+    "ChangeToken" => String.t(),
+    "WebACL" => web_acl()
+  }
+  """
+  @type create_web_acl_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sql_injection_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("SqlInjectionMatchSetId") => String.t(),
+    required("Updates") => list(sql_injection_match_set_update()())
+  }
+  """
+  @type update_sql_injection_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_web_acl_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_web_acl_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_xss_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Updates") => list(xss_match_set_update()()),
+    required("XssMatchSetId") => String.t()
+  }
+  """
+  @type update_xss_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_logging_configuration_response() :: %{
+    "LoggingConfiguration" => logging_configuration()
+  }
+  """
+  @type get_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_regex_match_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_regex_match_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rate_based_rule_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RateLimit") => float(),
+    required("RuleId") => String.t(),
+    required("Updates") => list(rule_update()())
+  }
+  """
+  @type update_rate_based_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_regex_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_regex_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  geo_match_set_summary() :: %{
+    "GeoMatchSetId" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type geo_match_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_geo_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_geo_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_set() :: %{
+    "IPSetDescriptors" => list(ip_set_descriptor()()),
+    "IPSetId" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type ip_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_invalid_account_exception() :: %{
+
+  }
+  """
+  @type w_a_f_invalid_account_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_change_token_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type get_change_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_tag_operation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_tag_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "NextMarker" => String.t(),
+    "TagInfoForResource" => tag_info_for_resource()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_xss_match_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "XssMatchSet" => xss_match_set()
+  }
+  """
+  @type create_xss_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_group_update() :: %{
+    "Action" => list(any()),
+    "ActivatedRule" => activated_rule()
+  }
+  """
+  @type rule_group_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sampled_h_t_t_p_request() :: %{
+    "Action" => String.t(),
+    "Request" => h_t_t_p_request(),
+    "RuleWithinRuleGroup" => String.t(),
+    "Timestamp" => non_neg_integer(),
+    "Weight" => float()
+  }
+  """
+  @type sampled_h_t_t_p_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_web_acl_request() :: %{
+    optional("DefaultAction") => waf_action(),
+    optional("Updates") => list(web_acl_update()()),
+    required("ChangeToken") => String.t(),
+    required("WebACLId") => String.t()
+  }
+  """
+  @type update_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_byte_match_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_byte_match_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rate_based_rule_managed_keys_response() :: %{
+    "ManagedKeys" => list(String.t()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type get_rate_based_rule_managed_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_invalid_parameter_exception() :: %{
+    "field" => list(any()),
+    "parameter" => String.t(),
+    "reason" => list(any())
+  }
+  """
+  @type w_a_f_invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_geo_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_geo_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_entity_migration_exception() :: %{
+    "MigrationErrorReason" => String.t(),
+    "MigrationErrorType" => list(any()),
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_entity_migration_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_change_token_request() :: %{
+
+  }
+  """
+  @type get_change_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_rule_response() :: %{
+    "Rule" => rule()
+  }
+  """
+  @type get_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sql_injection_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_sql_injection_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_rule_response() :: %{
+    "ChangeToken" => String.t(),
+    "Rule" => rule()
+  }
+  """
+  @type create_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_regex_pattern_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_regex_pattern_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_xss_match_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_xss_match_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  byte_match_set_summary() :: %{
+    "ByteMatchSetId" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type byte_match_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  waf_override_action() :: %{
+    "Type" => list(any())
+  }
+  """
+  @type waf_override_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_subscribed_rule_groups_response() :: %{
+    "NextMarker" => String.t(),
+    "RuleGroups" => list(subscribed_rule_group_summary()())
+  }
+  """
+  @type list_subscribed_rule_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule() :: %{
+    "MetricName" => String.t(),
+    "Name" => String.t(),
+    "Predicates" => list(predicate()()),
+    "RuleId" => String.t()
+  }
+  """
+  @type rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_regex_pattern_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_regex_pattern_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  size_constraint_set() :: %{
+    "Name" => String.t(),
+    "SizeConstraintSetId" => String.t(),
+    "SizeConstraints" => list(size_constraint()())
+  }
+  """
+  @type size_constraint_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_logging_configuration_request() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type get_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_regex_pattern_set_response() :: %{
+    "RegexPatternSet" => regex_pattern_set()
+  }
+  """
+  @type get_regex_pattern_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  geo_match_constraint() :: %{
+    "Type" => list(any()),
+    "Value" => list(any())
+  }
+  """
+  @type geo_match_constraint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_pattern_set_summary() :: %{
+    "Name" => String.t(),
+    "RegexPatternSetId" => String.t()
+  }
+  """
+  @type regex_pattern_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_permission_policy_request() :: %{
+    required("Policy") => String.t(),
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type put_permission_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_regex_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_regex_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_byte_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_byte_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sql_injection_match_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_sql_injection_match_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_invalid_operation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_invalid_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_summary() :: %{
+    "Name" => String.t(),
+    "RuleId" => String.t()
+  }
+  """
+  @type rule_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_match_set_summary() :: %{
+    "Name" => String.t(),
+    "RegexMatchSetId" => String.t()
+  }
+  """
+  @type regex_match_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_change_token_status_response() :: %{
+    "ChangeTokenStatus" => list(any())
+  }
+  """
+  @type get_change_token_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_activated_rules_in_rule_group_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t(),
+    optional("RuleGroupId") => String.t()
+  }
+  """
+  @type list_activated_rules_in_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_disallowed_name_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_disallowed_name_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_byte_match_sets_response() :: %{
+    "ByteMatchSets" => list(byte_match_set_summary()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_byte_match_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_logging_configurations_response() :: %{
+    "LoggingConfigurations" => list(logging_configuration()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_logging_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  h_t_t_p_header() :: %{
+    "Name" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type h_t_t_p_header() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_size_constraint_set_request() :: %{
+    required("SizeConstraintSetId") => String.t()
+  }
+  """
+  @type get_size_constraint_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_permission_policy_response() :: %{
+    "Policy" => String.t()
+  }
+  """
+  @type get_permission_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_geo_match_sets_response() :: %{
+    "GeoMatchSets" => list(geo_match_set_summary()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_geo_match_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_xss_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_xss_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  excluded_rule() :: %{
+    "RuleId" => String.t()
+  }
+  """
+  @type excluded_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_web_acl_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("ChangeToken") => String.t(),
+    required("DefaultAction") => waf_action(),
+    required("MetricName") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ip_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_ip_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  size_constraint_set_update() :: %{
+    "Action" => list(any()),
+    "SizeConstraint" => size_constraint()
+  }
+  """
+  @type size_constraint_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rule_group_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RuleGroupId") => String.t(),
+    required("Updates") => list(rule_group_update()())
+  }
+  """
+  @type update_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rules_response() :: %{
+    "NextMarker" => String.t(),
+    "Rules" => list(rule_summary()())
+  }
+  """
+  @type list_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ip_set_response() :: %{
+    "IPSet" => ip_set()
+  }
+  """
+  @type get_ip_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_rule_group_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  h_t_t_p_request() :: %{
+    "ClientIP" => String.t(),
+    "Country" => String.t(),
+    "HTTPVersion" => String.t(),
+    "Headers" => list(h_t_t_p_header()()),
+    "Method" => String.t(),
+    "URI" => String.t()
+  }
+  """
+  @type h_t_t_p_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_pattern_set() :: %{
+    "Name" => String.t(),
+    "RegexPatternSetId" => String.t(),
+    "RegexPatternStrings" => list(String.t()())
+  }
+  """
+  @type regex_pattern_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_size_constraint_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_size_constraint_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_byte_match_set_request() :: %{
+    required("ByteMatchSetId") => String.t()
+  }
+  """
+  @type get_byte_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rate_based_rules_response() :: %{
+    "NextMarker" => String.t(),
+    "Rules" => list(rule_summary()())
+  }
+  """
+  @type list_rate_based_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_group_summary() :: %{
+    "Name" => String.t(),
+    "RuleGroupId" => String.t()
+  }
+  """
+  @type rule_group_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_set_summary() :: %{
+    "IPSetId" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type ip_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_regex_pattern_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_regex_pattern_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t(),
+    required("ResourceARN") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_non_empty_entity_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_non_empty_entity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_permission_policy_request() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type delete_permission_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  xss_match_set_summary() :: %{
+    "Name" => String.t(),
+    "XssMatchSetId" => String.t()
+  }
+  """
+  @type xss_match_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_regex_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_regex_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_regex_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RegexMatchSetId") => String.t(),
+    required("Updates") => list(regex_match_set_update()())
+  }
+  """
+  @type update_regex_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_permission_policy_request() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type get_permission_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  web_acl_update() :: %{
+    "Action" => list(any()),
+    "ActivatedRule" => activated_rule()
+  }
+  """
+  @type web_acl_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  xss_match_tuple() :: %{
+    "FieldToMatch" => field_to_match(),
+    "TextTransformation" => list(any())
+  }
+  """
+  @type xss_match_tuple() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  predicate() :: %{
+    "DataId" => String.t(),
+    "Negated" => boolean(),
+    "Type" => list(any())
+  }
+  """
+  @type predicate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_logging_configurations_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_logging_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_logging_configuration_response() :: %{
+
+  }
+  """
+  @type delete_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ip_set_request() :: %{
+    required("IPSetId") => String.t()
+  }
+  """
+  @type get_ip_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_size_constraint_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "SizeConstraintSet" => size_constraint_set()
+  }
+  """
+  @type create_size_constraint_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_logging_configuration_request() :: %{
+    required("LoggingConfiguration") => logging_configuration()
+  }
+  """
+  @type put_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_permission_policy_response() :: %{
+
+  }
+  """
+  @type put_permission_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regex_match_tuple() :: %{
+    "FieldToMatch" => field_to_match(),
+    "RegexPatternSetId" => String.t(),
+    "TextTransformation" => list(any())
+  }
+  """
+  @type regex_match_tuple() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_geo_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("GeoMatchSetId") => String.t(),
+    required("Updates") => list(geo_match_set_update()())
+  }
+  """
+  @type update_geo_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_change_token_status_request() :: %{
+    required("ChangeToken") => String.t()
+  }
+  """
+  @type get_change_token_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_update() :: %{
+    "Action" => list(any()),
+    "Predicate" => predicate()
+  }
+  """
+  @type rule_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_size_constraint_sets_response() :: %{
+    "NextMarker" => String.t(),
+    "SizeConstraintSets" => list(size_constraint_set_summary()())
+  }
+  """
+  @type list_size_constraint_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  geo_match_set() :: %{
+    "GeoMatchConstraints" => list(geo_match_constraint()()),
+    "GeoMatchSetId" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type geo_match_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_logging_configuration_request() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type delete_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_rate_based_rule_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_rate_based_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sampled_requests_response() :: %{
+    "PopulationSize" => float(),
+    "SampledRequests" => list(sampled_h_t_t_p_request()()),
+    "TimeWindow" => time_window()
+  }
+  """
+  @type get_sampled_requests_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_regex_pattern_sets_response() :: %{
+    "NextMarker" => String.t(),
+    "RegexPatternSets" => list(regex_pattern_set_summary()())
+  }
+  """
+  @type list_regex_pattern_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sql_injection_match_set_update() :: %{
+    "Action" => list(any()),
+    "SqlInjectionMatchTuple" => sql_injection_match_tuple()
+  }
+  """
+  @type sql_injection_match_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_web_acls_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_web_acls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_web_acl_migration_stack_request() :: %{
+    required("IgnoreUnsupportedType") => boolean(),
+    required("S3BucketName") => String.t(),
+    required("WebACLId") => String.t()
+  }
+  """
+  @type create_web_acl_migration_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_set_descriptor() :: %{
+    "Type" => list(any()),
+    "Value" => String.t()
+  }
+  """
+  @type ip_set_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_web_acls_response() :: %{
+    "NextMarker" => String.t(),
+    "WebACLs" => list(web_acl_summary()())
+  }
+  """
+  @type list_web_acls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_web_acl_migration_stack_response() :: %{
+    "S3ObjectUrl" => String.t()
+  }
+  """
+  @type create_web_acl_migration_stack_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ip_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "IPSet" => ip_set()
+  }
+  """
+  @type create_ip_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sql_injection_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("SqlInjectionMatchSetId") => String.t()
+  }
+  """
+  @type delete_sql_injection_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_regex_pattern_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type update_regex_pattern_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_set_update() :: %{
+    "Action" => list(any()),
+    "IPSetDescriptor" => ip_set_descriptor()
+  }
+  """
+  @type ip_set_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_size_constraint_sets_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_size_constraint_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_web_acl_request() :: %{
+    required("WebACLId") => String.t()
+  }
+  """
+  @type get_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sql_injection_match_tuple() :: %{
+    "FieldToMatch" => field_to_match(),
+    "TextTransformation" => list(any())
+  }
+  """
+  @type sql_injection_match_tuple() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_regex_match_set_response() :: %{
+    "RegexMatchSet" => regex_match_set()
+  }
+  """
+  @type get_regex_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_web_acl_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_web_acl_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_subscription_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_subscription_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_rule_group_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RuleGroupId") => String.t()
+  }
+  """
+  @type delete_rule_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_limits_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_limits_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_rate_based_rule_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("RuleId") => String.t()
+  }
+  """
+  @type delete_rate_based_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_web_acl_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("WebACLId") => String.t()
+  }
+  """
+  @type delete_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_geo_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("GeoMatchSetId") => String.t()
+  }
+  """
+  @type delete_geo_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  w_a_f_tag_operation_internal_error_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type w_a_f_tag_operation_internal_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sql_injection_match_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_sql_injection_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  web_acl_summary() :: %{
+    "Name" => String.t(),
+    "WebACLId" => String.t()
+  }
+  """
+  @type web_acl_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_size_constraint_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_size_constraint_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_rate_based_rule_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("ChangeToken") => String.t(),
+    required("MetricName") => String.t(),
+    required("Name") => String.t(),
+    required("RateKey") => list(any()),
+    required("RateLimit") => float()
+  }
+  """
+  @type create_rate_based_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rule_groups_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextMarker") => String.t()
+  }
+  """
+  @type list_rule_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  byte_match_set() :: %{
+    "ByteMatchSetId" => String.t(),
+    "ByteMatchTuples" => list(byte_match_tuple()()),
+    "Name" => String.t()
+  }
+  """
+  @type byte_match_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ip_set_response() :: %{
+    "ChangeToken" => String.t()
+  }
+  """
+  @type delete_ip_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  size_constraint_set_summary() :: %{
+    "Name" => String.t(),
+    "SizeConstraintSetId" => String.t()
+  }
+  """
+  @type size_constraint_set_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_regex_match_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "RegexMatchSet" => regex_match_set()
+  }
+  """
+  @type create_regex_match_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_xss_match_set_request() :: %{
+    required("ChangeToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_xss_match_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_regex_pattern_set_response() :: %{
+    "ChangeToken" => String.t(),
+    "RegexPatternSet" => regex_pattern_set()
+  }
+  """
+  @type create_regex_pattern_set_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2015-08-24",
@@ -94,6 +2359,15 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_byte_match_set(map(), create_byte_match_set_request(), list()) ::
+          {:ok, create_byte_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -144,6 +2418,15 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_geo_match_set(map(), create_geo_match_set_request(), list()) ::
+          {:ok, create_geo_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -197,6 +2480,15 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_ip_set(map(), create_ip_set_request(), list()) ::
+          {:ok, create_ip_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -304,6 +2596,17 @@ defmodule AWS.WAF do
   requests,
   see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_rate_based_rule(map(), create_rate_based_rule_request(), list()) ::
+          {:ok, create_rate_based_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def create_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -358,6 +2661,13 @@ defmodule AWS.WAF do
   [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_regex_match_set(map(), create_regex_match_set_request(), list()) ::
+          {:ok, create_regex_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -404,6 +2714,13 @@ defmodule AWS.WAF do
   [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_regex_pattern_set(map(), create_regex_pattern_set_request(), list()) ::
+          {:ok, create_regex_pattern_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -476,6 +2793,17 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_rule(map(), create_rule_request(), list()) ::
+          {:ok, create_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def create_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -515,6 +2843,16 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_rule_group(map(), create_rule_group_request(), list()) ::
+          {:ok, create_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -568,6 +2906,15 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_size_constraint_set(map(), create_size_constraint_set_request(), list()) ::
+          {:ok, create_size_constraint_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -617,6 +2964,15 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_sql_injection_match_set(map(), create_sql_injection_match_set_request(), list()) ::
+          {:ok, create_sql_injection_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -682,6 +3038,18 @@ defmodule AWS.WAF do
 
   For more information about how to use the AWS WAF API, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_web_acl(map(), create_web_acl_request(), list()) ::
+          {:ok, create_web_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -705,6 +3073,14 @@ defmodule AWS.WAF do
   in the [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   """
+  @spec create_web_acl_migration_stack(map(), create_web_acl_migration_stack_request(), list()) ::
+          {:ok, create_web_acl_migration_stack_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_entity_migration_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -754,6 +3130,15 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec create_xss_match_set(map(), create_xss_match_set_request(), list()) ::
+          {:ok, create_xss_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def create_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -794,6 +3179,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteByteMatchSet` request.
   """
+  @spec delete_byte_match_set(map(), delete_byte_match_set_request(), list()) ::
+          {:ok, delete_byte_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -834,6 +3228,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteGeoMatchSet` request.
   """
+  @spec delete_geo_match_set(map(), delete_geo_match_set_request(), list()) ::
+          {:ok, delete_geo_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -874,6 +3277,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteIPSet` request.
   """
+  @spec delete_ip_set(map(), delete_ip_set_request(), list()) ::
+          {:ok, delete_ip_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -897,6 +3309,12 @@ defmodule AWS.WAF do
   Permanently deletes the `LoggingConfiguration` from the specified web
   ACL.
   """
+  @spec delete_logging_configuration(map(), delete_logging_configuration_request(), list()) ::
+          {:ok, delete_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -921,6 +3339,12 @@ defmodule AWS.WAF do
 
   The user making the request must be the owner of the RuleGroup.
   """
+  @spec delete_permission_policy(map(), delete_permission_policy_request(), list()) ::
+          {:ok, delete_permission_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -962,6 +3386,17 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteRateBasedRule` request.
   """
+  @spec delete_rate_based_rule(map(), delete_rate_based_rule_request(), list()) ::
+          {:ok, delete_rate_based_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1002,6 +3437,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteRegexMatchSet` request.
   """
+  @spec delete_regex_match_set(map(), delete_regex_match_set_request(), list()) ::
+          {:ok, delete_regex_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1026,6 +3470,15 @@ defmodule AWS.WAF do
   it's still used in any `RegexMatchSet`
   or if the `RegexPatternSet` is not empty.
   """
+  @spec delete_regex_pattern_set(map(), delete_regex_pattern_set_request(), list()) ::
+          {:ok, delete_regex_pattern_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1066,6 +3519,17 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteRule` request.
   """
+  @spec delete_rule(map(), delete_rule_request(), list()) ::
+          {:ok, delete_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def delete_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1106,6 +3570,17 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteRuleGroup` request.
   """
+  @spec delete_rule_group(map(), delete_rule_group_request(), list()) ::
+          {:ok, delete_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1147,6 +3622,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteSizeConstraintSet` request.
   """
+  @spec delete_size_constraint_set(map(), delete_size_constraint_set_request(), list()) ::
+          {:ok, delete_size_constraint_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1191,6 +3675,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteSqlInjectionMatchSet` request.
   """
+  @spec delete_sql_injection_match_set(map(), delete_sql_injection_match_set_request(), list()) ::
+          {:ok, delete_sql_injection_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1228,6 +3721,17 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteWebACL` request.
   """
+  @spec delete_web_acl(map(), delete_web_acl_request(), list()) ::
+          {:ok, delete_web_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1268,6 +3772,15 @@ defmodule AWS.WAF do
     3.
   Submit a `DeleteXssMatchSet` request.
   """
+  @spec delete_xss_match_set(map(), delete_xss_match_set_request(), list()) ::
+          {:ok, delete_xss_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_non_empty_entity_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def delete_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1290,6 +3803,12 @@ defmodule AWS.WAF do
 
   Returns the `ByteMatchSet` specified by `ByteMatchSetId`.
   """
+  @spec get_byte_match_set(map(), get_byte_match_set_request(), list()) ::
+          {:ok, get_byte_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1328,6 +3847,10 @@ defmodule AWS.WAF do
   Use `GetChangeTokenStatus` to determine the
   status of your change token.
   """
+  @spec get_change_token(map(), get_change_token_request(), list()) ::
+          {:ok, get_change_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
   def get_change_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1367,6 +3890,11 @@ defmodule AWS.WAF do
 
   `INSYNC`: Propagation is complete.
   """
+  @spec get_change_token_status(map(), get_change_token_status_request(), list()) ::
+          {:ok, get_change_token_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_change_token_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1389,6 +3917,12 @@ defmodule AWS.WAF do
 
   Returns the `GeoMatchSet` that is specified by `GeoMatchSetId`.
   """
+  @spec get_geo_match_set(map(), get_geo_match_set_request(), list()) ::
+          {:ok, get_geo_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1411,6 +3945,12 @@ defmodule AWS.WAF do
 
   Returns the `IPSet` that is specified by `IPSetId`.
   """
+  @spec get_ip_set(map(), get_ip_set_request(), list()) ::
+          {:ok, get_ip_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1433,6 +3973,11 @@ defmodule AWS.WAF do
 
   Returns the `LoggingConfiguration` for the specified web ACL.
   """
+  @spec get_logging_configuration(map(), get_logging_configuration_request(), list()) ::
+          {:ok, get_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1455,6 +4000,11 @@ defmodule AWS.WAF do
 
   Returns the IAM policy attached to the RuleGroup.
   """
+  @spec get_permission_policy(map(), get_permission_policy_request(), list()) ::
+          {:ok, get_permission_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1479,6 +4029,12 @@ defmodule AWS.WAF do
   `RuleId` that you included in the `GetRateBasedRule`
   request.
   """
+  @spec get_rate_based_rule(map(), get_rate_based_rule_request(), list()) ::
+          {:ok, get_rate_based_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1505,6 +4061,17 @@ defmodule AWS.WAF do
   addresses exceed
   the rate limit, the 10,000 addresses with the highest rates will be blocked.
   """
+  @spec get_rate_based_rule_managed_keys(
+          map(),
+          get_rate_based_rule_managed_keys_request(),
+          list()
+        ) ::
+          {:ok, get_rate_based_rule_managed_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1527,6 +4094,12 @@ defmodule AWS.WAF do
 
   Returns the `RegexMatchSet` specified by `RegexMatchSetId`.
   """
+  @spec get_regex_match_set(map(), get_regex_match_set_request(), list()) ::
+          {:ok, get_regex_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1549,6 +4122,12 @@ defmodule AWS.WAF do
 
   Returns the `RegexPatternSet` specified by `RegexPatternSetId`.
   """
+  @spec get_regex_pattern_set(map(), get_regex_pattern_set_request(), list()) ::
+          {:ok, get_regex_pattern_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1572,6 +4151,12 @@ defmodule AWS.WAF do
   Returns the `Rule` that is specified by the `RuleId` that you included in the
   `GetRule` request.
   """
+  @spec get_rule(map(), get_rule_request(), list()) ::
+          {:ok, get_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1597,6 +4182,11 @@ defmodule AWS.WAF do
 
   To view the rules in a rule group, use `ListActivatedRulesInRuleGroup`.
   """
+  @spec get_rule_group(map(), get_rule_group_request(), list()) ::
+          {:ok, get_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1630,6 +4220,11 @@ defmodule AWS.WAF do
   returns an updated time range. This new time range indicates the actual period
   during which AWS WAF selected the requests in the sample.
   """
+  @spec get_sampled_requests(map(), get_sampled_requests_request(), list()) ::
+          {:ok, get_sampled_requests_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1652,6 +4247,12 @@ defmodule AWS.WAF do
 
   Returns the `SizeConstraintSet` specified by `SizeConstraintSetId`.
   """
+  @spec get_size_constraint_set(map(), get_size_constraint_set_request(), list()) ::
+          {:ok, get_size_constraint_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1675,6 +4276,12 @@ defmodule AWS.WAF do
   Returns the `SqlInjectionMatchSet` that is specified by
   `SqlInjectionMatchSetId`.
   """
+  @spec get_sql_injection_match_set(map(), get_sql_injection_match_set_request(), list()) ::
+          {:ok, get_sql_injection_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1697,6 +4304,12 @@ defmodule AWS.WAF do
 
   Returns the `WebACL` that is specified by `WebACLId`.
   """
+  @spec get_web_acl(map(), get_web_acl_request(), list()) ::
+          {:ok, get_web_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1719,6 +4332,12 @@ defmodule AWS.WAF do
 
   Returns the `XssMatchSet` that is specified by `XssMatchSetId`.
   """
+  @spec get_xss_match_set(map(), get_xss_match_set_request(), list()) ::
+          {:ok, get_xss_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def get_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1741,6 +4360,16 @@ defmodule AWS.WAF do
 
   Returns an array of `ActivatedRule` objects.
   """
+  @spec list_activated_rules_in_rule_group(
+          map(),
+          list_activated_rules_in_rule_group_request(),
+          list()
+        ) ::
+          {:ok, list_activated_rules_in_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1763,6 +4392,11 @@ defmodule AWS.WAF do
 
   Returns an array of `ByteMatchSetSummary` objects.
   """
+  @spec list_byte_match_sets(map(), list_byte_match_sets_request(), list()) ::
+          {:ok, list_byte_match_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_byte_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1785,6 +4419,11 @@ defmodule AWS.WAF do
 
   Returns an array of `GeoMatchSetSummary` objects in the response.
   """
+  @spec list_geo_match_sets(map(), list_geo_match_sets_request(), list()) ::
+          {:ok, list_geo_match_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_geo_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1807,6 +4446,11 @@ defmodule AWS.WAF do
 
   Returns an array of `IPSetSummary` objects in the response.
   """
+  @spec list_ip_sets(map(), list_ip_sets_request(), list()) ::
+          {:ok, list_ip_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1829,6 +4473,12 @@ defmodule AWS.WAF do
 
   Returns an array of `LoggingConfiguration` objects.
   """
+  @spec list_logging_configurations(map(), list_logging_configurations_request(), list()) ::
+          {:ok, list_logging_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1851,6 +4501,11 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleSummary` objects.
   """
+  @spec list_rate_based_rules(map(), list_rate_based_rules_request(), list()) ::
+          {:ok, list_rate_based_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_rate_based_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1873,6 +4528,11 @@ defmodule AWS.WAF do
 
   Returns an array of `RegexMatchSetSummary` objects.
   """
+  @spec list_regex_match_sets(map(), list_regex_match_sets_request(), list()) ::
+          {:ok, list_regex_match_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_regex_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1895,6 +4555,11 @@ defmodule AWS.WAF do
 
   Returns an array of `RegexPatternSetSummary` objects.
   """
+  @spec list_regex_pattern_sets(map(), list_regex_pattern_sets_request(), list()) ::
+          {:ok, list_regex_pattern_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1917,6 +4582,10 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleGroup` objects.
   """
+  @spec list_rule_groups(map(), list_rule_groups_request(), list()) ::
+          {:ok, list_rule_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1939,6 +4608,11 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleSummary` objects.
   """
+  @spec list_rules(map(), list_rules_request(), list()) ::
+          {:ok, list_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1961,6 +4635,11 @@ defmodule AWS.WAF do
 
   Returns an array of `SizeConstraintSetSummary` objects.
   """
+  @spec list_size_constraint_sets(map(), list_size_constraint_sets_request(), list()) ::
+          {:ok, list_size_constraint_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1983,6 +4662,11 @@ defmodule AWS.WAF do
 
   Returns an array of `SqlInjectionMatchSet` objects.
   """
+  @spec list_sql_injection_match_sets(map(), list_sql_injection_match_sets_request(), list()) ::
+          {:ok, list_sql_injection_match_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2005,6 +4689,11 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleGroup` objects that you are subscribed to.
   """
+  @spec list_subscribed_rule_groups(map(), list_subscribed_rule_groups_request(), list()) ::
+          {:ok, list_subscribed_rule_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
   def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2035,6 +4724,15 @@ defmodule AWS.WAF do
   view tags through the AWS WAF Classic console. You can tag the AWS resources
   that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2057,6 +4755,11 @@ defmodule AWS.WAF do
 
   Returns an array of `WebACLSummary` objects in the response.
   """
+  @spec list_web_acls(map(), list_web_acls_request(), list()) ::
+          {:ok, list_web_acls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2079,6 +4782,11 @@ defmodule AWS.WAF do
 
   Returns an array of `XssMatchSet` objects.
   """
+  @spec list_xss_match_sets(map(), list_xss_match_sets_request(), list()) ::
+          {:ok, list_xss_match_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
   def list_xss_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2125,6 +4833,13 @@ defmodule AWS.WAF do
   [Logging Web ACL Traffic Information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
   in the *AWS WAF Developer Guide*.
   """
+  @spec put_logging_configuration(map(), put_logging_configuration_request(), list()) ::
+          {:ok, put_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_service_linked_role_error_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2182,6 +4897,13 @@ defmodule AWS.WAF do
 
   An example of a valid policy parameter is shown in the Examples section below.
   """
+  @spec put_permission_policy(map(), put_permission_policy_request(), list()) ::
+          {:ok, put_permission_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_permission_policy_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2213,6 +4935,16 @@ defmodule AWS.WAF do
   the AWS resources that you manage through AWS WAF Classic: web ACLs, rule
   groups, and rules.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2233,6 +4965,15 @@ defmodule AWS.WAF do
   With the latest version, AWS WAF has a single set of endpoints for regional and
   global use.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_bad_request_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_tag_operation_exception()}
+          | {:error, w_a_f_tag_operation_internal_error_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2303,6 +5044,17 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_byte_match_set(map(), update_byte_match_set_request(), list()) ::
+          {:ok, update_byte_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2362,6 +5114,18 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_geo_match_set(map(), update_geo_match_set_request(), list()) ::
+          {:ok, update_geo_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2453,6 +5217,18 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_ip_set(map(), update_ip_set_request(), list()) ::
+          {:ok, update_ip_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2522,6 +5298,18 @@ defmodule AWS.WAF do
   By adding this `RateBasedRule` to a `WebACL`, you could limit requests to your
   login page without affecting the rest of your site.
   """
+  @spec update_rate_based_rule(map(), update_rate_based_rule_request(), list()) ::
+          {:ok, update_rate_based_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2588,6 +5376,17 @@ defmodule AWS.WAF do
   [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_regex_match_set(map(), update_regex_match_set_request(), list()) ::
+          {:ok, update_regex_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_disallowed_name_exception()}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2652,6 +5451,17 @@ defmodule AWS.WAF do
   [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_regex_pattern_set(map(), update_regex_pattern_set_request(), list()) ::
+          {:ok, update_regex_pattern_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_regex_pattern_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2720,6 +5530,18 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_rule(map(), update_rule_request(), list()) ::
+          {:ok, update_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2770,6 +5592,16 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_rule_group(map(), update_rule_group_request(), list()) ::
+          {:ok, update_rule_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2848,6 +5680,18 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_size_constraint_set(map(), update_size_constraint_set_request(), list()) ::
+          {:ok, update_size_constraint_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2919,6 +5763,17 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_sql_injection_match_set(map(), update_sql_injection_match_set_request(), list()) ::
+          {:ok, update_sql_injection_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3021,6 +5876,19 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_web_acl(map(), update_web_acl_request(), list()) ::
+          {:ok, update_web_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_referenced_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
+          | {:error, w_a_f_subscription_not_found_exception()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3092,6 +5960,17 @@ defmodule AWS.WAF do
   requests, see the
   [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+  @spec update_xss_match_set(map(), update_xss_match_set_request(), list()) ::
+          {:ok, update_xss_match_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, w_a_f_internal_error_exception()}
+          | {:error, w_a_f_invalid_account_exception()}
+          | {:error, w_a_f_invalid_operation_exception()}
+          | {:error, w_a_f_invalid_parameter_exception()}
+          | {:error, w_a_f_limits_exceeded_exception()}
+          | {:error, w_a_f_nonexistent_container_exception()}
+          | {:error, w_a_f_nonexistent_item_exception()}
+          | {:error, w_a_f_stale_data_exception()}
   def update_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

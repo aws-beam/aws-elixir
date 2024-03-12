@@ -413,6 +413,1069 @@ defmodule AWS.Ivs do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  update_playback_restriction_policy_request() :: %{
+    optional("allowedCountries") => list(String.t()()),
+    optional("allowedOrigins") => list(String.t()()),
+    optional("enableStrictOriginEnforcement") => boolean(),
+    optional("name") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_playback_restriction_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_channel_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_stream_key_response() :: %{
+    optional("streamKey") => stream_key()
+  }
+  """
+  @type create_stream_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ingest_configuration() :: %{
+    "audio" => audio_configuration(),
+    "video" => video_configuration()
+  }
+  """
+  @type ingest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_session_summary() :: %{
+    "endTime" => non_neg_integer(),
+    "hasErrorEvent" => boolean(),
+    "startTime" => non_neg_integer(),
+    "streamId" => String.t()
+  }
+  """
+  @type stream_session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_channel_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recording_configuration() :: %{
+    "arn" => String.t(),
+    "destinationConfiguration" => destination_configuration(),
+    "name" => String.t(),
+    "recordingReconnectWindowSeconds" => integer(),
+    "renditionConfiguration" => rendition_configuration(),
+    "state" => String.t(),
+    "tags" => map(),
+    "thumbnailConfiguration" => thumbnail_configuration()
+  }
+  """
+  @type recording_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_response() :: %{
+    optional("channel") => channel(),
+    optional("streamKey") => stream_key()
+  }
+  """
+  @type create_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_playback_key_pair_request() :: %{
+    optional("name") => String.t(),
+    optional("tags") => map(),
+    required("publicKeyMaterial") => String.t()
+  }
+  """
+  @type import_playback_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_stream_response() :: %{
+    optional("stream") => stream()
+  }
+  """
+  @type get_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_stream_key_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_stream_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  playback_restriction_policy() :: %{
+    "allowedCountries" => list(String.t()()),
+    "allowedOrigins" => list(String.t()()),
+    "arn" => String.t(),
+    "enableStrictOriginEnforcement" => boolean(),
+    "name" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type playback_restriction_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_playback_restriction_policy_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_playback_restriction_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_stream_sessions_response() :: %{
+    optional("nextToken") => String.t(),
+    required("streamSessions") => list(stream_session_summary()())
+  }
+  """
+  @type list_stream_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  playback_key_pair_summary() :: %{
+    "arn" => String.t(),
+    "name" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type playback_key_pair_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_playback_key_pair_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_playback_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_playback_restriction_policy_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_playback_restriction_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_playback_key_pairs_response() :: %{
+    optional("nextToken") => String.t(),
+    required("keyPairs") => list(playback_key_pair_summary()())
+  }
+  """
+  @type list_playback_key_pairs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recording_configuration_summary() :: %{
+    "arn" => String.t(),
+    "destinationConfiguration" => destination_configuration(),
+    "name" => String.t(),
+    "state" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type recording_configuration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_playback_restriction_policy_response() :: %{
+    "playbackRestrictionPolicy" => playback_restriction_policy()
+  }
+  """
+  @type update_playback_restriction_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_channel_response() :: %{
+    optional("channels") => list(channel()()),
+    optional("errors") => list(batch_error()())
+  }
+  """
+  @type batch_get_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_recording_configuration_response() :: %{
+    optional("recordingConfiguration") => recording_configuration()
+  }
+  """
+  @type create_recording_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_playback_key_pair_response() :: %{
+    optional("keyPair") => playback_key_pair()
+  }
+  """
+  @type import_playback_key_pair_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_playback_key_pair_response() :: %{
+
+  }
+  """
+  @type delete_playback_key_pair_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_stream_keys_response() :: %{
+    optional("nextToken") => String.t(),
+    required("streamKeys") => list(stream_key_summary()())
+  }
+  """
+  @type list_stream_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_streams_request() :: %{
+    optional("filterBy") => stream_filters(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_streams_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_stream_session_request() :: %{
+    optional("streamId") => String.t(),
+    required("channelArn") => String.t()
+  }
+  """
+  @type get_stream_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_key() :: %{
+    "arn" => String.t(),
+    "channelArn" => String.t(),
+    "tags" => map(),
+    "value" => String.t()
+  }
+  """
+  @type stream_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_viewer_session_revocation_request() :: %{
+    required("viewerSessions") => list(batch_start_viewer_session_revocation_viewer_session()())
+  }
+  """
+  @type batch_start_viewer_session_revocation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_recording_configuration_request() :: %{
+    optional("name") => String.t(),
+    optional("recordingReconnectWindowSeconds") => integer(),
+    optional("renditionConfiguration") => rendition_configuration(),
+    optional("tags") => map(),
+    optional("thumbnailConfiguration") => thumbnail_configuration(),
+    required("destinationConfiguration") => destination_configuration()
+  }
+  """
+  @type create_recording_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_stream_key_request() :: %{
+    optional("tags") => map(),
+    required("channelArn") => String.t()
+  }
+  """
+  @type create_stream_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  playback_key_pair() :: %{
+    "arn" => String.t(),
+    "fingerprint" => String.t(),
+    "name" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type playback_key_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_stream_key_request() :: %{
+    required("arns") => list(String.t()())
+  }
+  """
+  @type batch_get_stream_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  playback_restriction_policy_summary() :: %{
+    "allowedCountries" => list(String.t()()),
+    "allowedOrigins" => list(String.t()()),
+    "arn" => String.t(),
+    "enableStrictOriginEnforcement" => boolean(),
+    "name" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type playback_restriction_policy_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_summary() :: %{
+    "arn" => String.t(),
+    "authorized" => boolean(),
+    "insecureIngest" => boolean(),
+    "latencyMode" => String.t(),
+    "name" => String.t(),
+    "playbackRestrictionPolicyArn" => String.t(),
+    "preset" => list(any()),
+    "recordingConfigurationArn" => String.t(),
+    "tags" => map(),
+    "type" => list(any())
+  }
+  """
+  @type channel_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_recording_configuration_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_recording_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_streams_response() :: %{
+    optional("nextToken") => String.t(),
+    required("streams") => list(stream_summary()())
+  }
+  """
+  @type list_streams_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_recording_configuration_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_recording_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recording_configurations_response() :: %{
+    optional("nextToken") => String.t(),
+    required("recordingConfigurations") => list(recording_configuration_summary()())
+  }
+  """
+  @type list_recording_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_session() :: %{
+    "channel" => channel(),
+    "endTime" => non_neg_integer(),
+    "ingestConfiguration" => ingest_configuration(),
+    "recordingConfiguration" => recording_configuration(),
+    "startTime" => non_neg_integer(),
+    "streamId" => String.t(),
+    "truncatedEvents" => list(stream_event()())
+  }
+  """
+  @type stream_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_channel_request() :: %{
+    required("arns") => list(String.t()())
+  }
+  """
+  @type batch_get_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_stream_key_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_stream_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_destination_configuration() :: %{
+    "bucketName" => String.t()
+  }
+  """
+  @type s3_destination_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_playback_restriction_policy_response() :: %{
+    "playbackRestrictionPolicy" => playback_restriction_policy()
+  }
+  """
+  @type get_playback_restriction_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_request() :: %{
+    optional("authorized") => boolean(),
+    optional("insecureIngest") => boolean(),
+    optional("latencyMode") => String.t(),
+    optional("name") => String.t(),
+    optional("playbackRestrictionPolicyArn") => String.t(),
+    optional("preset") => list(any()),
+    optional("recordingConfigurationArn") => String.t(),
+    optional("tags") => map(),
+    optional("type") => list(any())
+  }
+  """
+  @type create_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_event() :: %{
+    "eventTime" => non_neg_integer(),
+    "name" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type stream_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    required("tags") => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channels_response() :: %{
+    optional("nextToken") => String.t(),
+    required("channels") => list(channel_summary()())
+  }
+  """
+  @type list_channels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_request() :: %{
+    optional("authorized") => boolean(),
+    optional("insecureIngest") => boolean(),
+    optional("latencyMode") => String.t(),
+    optional("name") => String.t(),
+    optional("playbackRestrictionPolicyArn") => String.t(),
+    optional("preset") => list(any()),
+    optional("recordingConfigurationArn") => String.t(),
+    optional("type") => list(any()),
+    required("arn") => String.t()
+  }
+  """
+  @type update_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_stream_response() :: %{
+
+  }
+  """
+  @type stop_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_unavailable() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type stream_unavailable() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_playback_key_pair_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_playback_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_playback_restriction_policy_response() :: %{
+    "playbackRestrictionPolicy" => playback_restriction_policy()
+  }
+  """
+  @type create_playback_restriction_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_stream_sessions_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("channelArn") => String.t()
+  }
+  """
+  @type list_stream_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_playback_restriction_policies_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_playback_restriction_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_recording_configuration_response() :: %{
+    optional("recordingConfiguration") => recording_configuration()
+  }
+  """
+  @type get_recording_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_playback_key_pair_response() :: %{
+    optional("keyPair") => playback_key_pair()
+  }
+  """
+  @type get_playback_key_pair_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_stream_request() :: %{
+    required("channelArn") => String.t()
+  }
+  """
+  @type get_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_stream_keys_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("channelArn") => String.t()
+  }
+  """
+  @type list_stream_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  audio_configuration() :: %{
+    "channels" => float(),
+    "codec" => String.t(),
+    "sampleRate" => float(),
+    "targetBitrate" => float()
+  }
+  """
+  @type audio_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_metadata_request() :: %{
+    required("channelArn") => String.t(),
+    required("metadata") => String.t()
+  }
+  """
+  @type put_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  thumbnail_configuration() :: %{
+    "recordingMode" => String.t(),
+    "resolution" => String.t(),
+    "storage" => list(String.t()()),
+    "targetIntervalSeconds" => float()
+  }
+  """
+  @type thumbnail_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_viewer_session_revocation_viewer_session() :: %{
+    "channelArn" => String.t(),
+    "viewerId" => String.t(),
+    "viewerSessionVersionsLessThanOrEqualTo" => integer()
+  }
+  """
+  @type batch_start_viewer_session_revocation_viewer_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rendition_configuration() :: %{
+    "renditionSelection" => String.t(),
+    "renditions" => list(String.t()())
+  }
+  """
+  @type rendition_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_stream_key_response() :: %{
+    optional("streamKey") => stream_key()
+  }
+  """
+  @type get_stream_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_playback_restriction_policies_response() :: %{
+    "nextToken" => String.t(),
+    "playbackRestrictionPolicies" => list(playback_restriction_policy_summary()())
+  }
+  """
+  @type list_playback_restriction_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel() :: %{
+    "arn" => String.t(),
+    "authorized" => boolean(),
+    "ingestEndpoint" => String.t(),
+    "insecureIngest" => boolean(),
+    "latencyMode" => String.t(),
+    "name" => String.t(),
+    "playbackRestrictionPolicyArn" => String.t(),
+    "playbackUrl" => String.t(),
+    "preset" => list(any()),
+    "recordingConfigurationArn" => String.t(),
+    "tags" => map(),
+    "type" => list(any())
+  }
+  """
+  @type channel() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_summary() :: %{
+    "channelArn" => String.t(),
+    "health" => String.t(),
+    "startTime" => non_neg_integer(),
+    "state" => String.t(),
+    "streamId" => String.t(),
+    "viewerCount" => float()
+  }
+  """
+  @type stream_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_viewer_session_revocation_response() :: %{
+    optional("errors") => list(batch_start_viewer_session_revocation_error()())
+  }
+  """
+  @type batch_start_viewer_session_revocation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_viewer_session_revocation_error() :: %{
+    "channelArn" => String.t(),
+    "code" => String.t(),
+    "message" => String.t(),
+    "viewerId" => String.t()
+  }
+  """
+  @type batch_start_viewer_session_revocation_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_stream_request() :: %{
+    required("channelArn") => String.t()
+  }
+  """
+  @type stop_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_channel_response() :: %{
+    optional("channel") => channel()
+  }
+  """
+  @type get_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_filters() :: %{
+    "health" => String.t()
+  }
+  """
+  @type stream_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream() :: %{
+    "channelArn" => String.t(),
+    "health" => String.t(),
+    "playbackUrl" => String.t(),
+    "startTime" => non_neg_integer(),
+    "state" => String.t(),
+    "streamId" => String.t(),
+    "viewerCount" => float()
+  }
+  """
+  @type stream() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_viewer_session_revocation_request() :: %{
+    optional("viewerSessionVersionsLessThanOrEqualTo") => integer(),
+    required("channelArn") => String.t(),
+    required("viewerId") => String.t()
+  }
+  """
+  @type start_viewer_session_revocation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_response() :: %{
+    optional("channel") => channel()
+  }
+  """
+  @type update_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_error() :: %{
+    "arn" => String.t(),
+    "code" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type batch_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_viewer_session_revocation_response() :: %{
+
+  }
+  """
+  @type start_viewer_session_revocation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  video_configuration() :: %{
+    "avcLevel" => String.t(),
+    "avcProfile" => String.t(),
+    "codec" => String.t(),
+    "encoder" => String.t(),
+    "targetBitrate" => float(),
+    "targetFramerate" => float(),
+    "videoHeight" => float(),
+    "videoWidth" => float()
+  }
+  """
+  @type video_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_playback_key_pairs_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_playback_key_pairs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channels_request() :: %{
+    optional("filterByName") => String.t(),
+    optional("filterByPlaybackRestrictionPolicyArn") => String.t(),
+    optional("filterByRecordingConfigurationArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_channels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_stream_session_response() :: %{
+    optional("streamSession") => stream_session()
+  }
+  """
+  @type get_stream_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stream_key_summary() :: %{
+    "arn" => String.t(),
+    "channelArn" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type stream_key_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_playback_restriction_policy_request() :: %{
+    optional("allowedCountries") => list(String.t()()),
+    optional("allowedOrigins") => list(String.t()()),
+    optional("enableStrictOriginEnforcement") => boolean(),
+    optional("name") => String.t(),
+    optional("tags") => map()
+  }
+  """
+  @type create_playback_restriction_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recording_configurations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_recording_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pending_verification() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type pending_verification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  destination_configuration() :: %{
+    "s3" => s3_destination_configuration()
+  }
+  """
+  @type destination_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_stream_key_response() :: %{
+    optional("errors") => list(batch_error()()),
+    optional("streamKeys") => list(stream_key()())
+  }
+  """
+  @type batch_get_stream_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_not_broadcasting() :: %{
+    "exceptionMessage" => String.t()
+  }
+  """
+  @type channel_not_broadcasting() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2020-07-14",
@@ -431,6 +1494,9 @@ defmodule AWS.Ivs do
   @doc """
   Performs `GetChannel` on multiple ARNs simultaneously.
   """
+  @spec batch_get_channel(map(), batch_get_channel_request(), list()) ::
+          {:ok, batch_get_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def batch_get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetChannel"
     headers = []
@@ -454,6 +1520,9 @@ defmodule AWS.Ivs do
   @doc """
   Performs `GetStreamKey` on multiple ARNs simultaneously.
   """
+  @spec batch_get_stream_key(map(), batch_get_stream_key_request(), list()) ::
+          {:ok, batch_get_stream_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def batch_get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetStreamKey"
     headers = []
@@ -478,6 +1547,17 @@ defmodule AWS.Ivs do
   Performs `StartViewerSessionRevocation` on multiple channel ARN and viewer
   ID pairs simultaneously.
   """
+  @spec batch_start_viewer_session_revocation(
+          map(),
+          batch_start_viewer_session_revocation_request(),
+          list()
+        ) ::
+          {:ok, batch_start_viewer_session_revocation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def batch_start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
     url_path = "/BatchStartViewerSessionRevocation"
     headers = []
@@ -501,6 +1581,14 @@ defmodule AWS.Ivs do
   @doc """
   Creates a new channel and an associated stream key to start streaming.
   """
+  @spec create_channel(map(), create_channel_request(), list()) ::
+          {:ok, create_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChannel"
     headers = []
@@ -526,6 +1614,18 @@ defmodule AWS.Ivs do
   countries and/or
   origins.
   """
+  @spec create_playback_restriction_policy(
+          map(),
+          create_playback_restriction_policy_request(),
+          list()
+        ) ::
+          {:ok, create_playback_restriction_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/CreatePlaybackRestrictionPolicy"
     headers = []
@@ -564,6 +1664,15 @@ defmodule AWS.Ivs do
   one with an S3
   bucket from the correct region.
   """
+  @spec create_recording_configuration(map(), create_recording_configuration_request(), list()) ::
+          {:ok, create_recording_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, pending_verification()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def create_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateRecordingConfiguration"
     headers = []
@@ -593,6 +1702,14 @@ defmodule AWS.Ivs do
   there is a limit of 1 stream key per channel. To reset the stream key on a
   channel, use `DeleteStreamKey` and then CreateStreamKey.
   """
+  @spec create_stream_key(map(), create_stream_key_request(), list()) ::
+          {:ok, create_stream_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def create_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStreamKey"
     headers = []
@@ -623,6 +1740,14 @@ defmodule AWS.Ivs do
   Live), then
   call DeleteChannel. (See [ Using EventBridge with Amazon IVS](https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html).)
   """
+  @spec delete_channel(map(), delete_channel_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_channel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteChannel"
     headers = []
@@ -651,6 +1776,13 @@ defmodule AWS.Ivs do
   Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html)
   in the *Amazon IVS User Guide*.
   """
+  @spec delete_playback_key_pair(map(), delete_playback_key_pair_request(), list()) ::
+          {:ok, delete_playback_key_pair_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePlaybackKeyPair"
     headers = []
@@ -674,6 +1806,18 @@ defmodule AWS.Ivs do
   @doc """
   Deletes the specified playback restriction policy.
   """
+  @spec delete_playback_restriction_policy(
+          map(),
+          delete_playback_restriction_policy_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePlaybackRestrictionPolicy"
     headers = []
@@ -705,6 +1849,14 @@ defmodule AWS.Ivs do
   `recordingConfigurationArn` field to an empty string, then use
   DeleteRecordingConfiguration.
   """
+  @spec delete_recording_configuration(map(), delete_recording_configuration_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecordingConfiguration"
     headers = []
@@ -729,6 +1881,13 @@ defmodule AWS.Ivs do
   Deletes the stream key for the specified ARN, so it can no longer be used to
   stream.
   """
+  @spec delete_stream_key(map(), delete_stream_key_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStreamKey"
     headers = []
@@ -754,6 +1913,12 @@ defmodule AWS.Ivs do
 
   See also `BatchGetChannel`.
   """
+  @spec get_channel(map(), get_channel_request(), list()) ::
+          {:ok, get_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/GetChannel"
     headers = []
@@ -785,6 +1950,12 @@ defmodule AWS.Ivs do
   in the *Amazon IVS User
   Guide*.
   """
+  @spec get_playback_key_pair(map(), get_playback_key_pair_request(), list()) ::
+          {:ok, get_playback_key_pair_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackKeyPair"
     headers = []
@@ -808,6 +1979,13 @@ defmodule AWS.Ivs do
   @doc """
   Gets the specified playback restriction policy.
   """
+  @spec get_playback_restriction_policy(map(), get_playback_restriction_policy_request(), list()) ::
+          {:ok, get_playback_restriction_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackRestrictionPolicy"
     headers = []
@@ -831,6 +2009,13 @@ defmodule AWS.Ivs do
   @doc """
   Gets the recording configuration for the specified ARN.
   """
+  @spec get_recording_configuration(map(), get_recording_configuration_request(), list()) ::
+          {:ok, get_recording_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetRecordingConfiguration"
     headers = []
@@ -854,6 +2039,13 @@ defmodule AWS.Ivs do
   @doc """
   Gets information about the active (live) stream on a specified channel.
   """
+  @spec get_stream(map(), get_stream_request(), list()) ::
+          {:ok, get_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, channel_not_broadcasting()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_stream(%Client{} = client, input, options \\ []) do
     url_path = "/GetStream"
     headers = []
@@ -877,6 +2069,12 @@ defmodule AWS.Ivs do
   @doc """
   Gets stream-key information for a specified ARN.
   """
+  @spec get_stream_key(map(), get_stream_key_request(), list()) ::
+          {:ok, get_stream_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/GetStreamKey"
     headers = []
@@ -900,6 +2098,12 @@ defmodule AWS.Ivs do
   @doc """
   Gets metadata on a specified stream.
   """
+  @spec get_stream_session(map(), get_stream_session_request(), list()) ::
+          {:ok, get_stream_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_stream_session(%Client{} = client, input, options \\ []) do
     url_path = "/GetStreamSession"
     headers = []
@@ -931,6 +2135,14 @@ defmodule AWS.Ivs do
   Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html)
   in the *Amazon IVS User Guide*.
   """
+  @spec import_playback_key_pair(map(), import_playback_key_pair_request(), list()) ::
+          {:ok, import_playback_key_pair_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, pending_verification()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def import_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/ImportPlaybackKeyPair"
     headers = []
@@ -961,6 +2173,12 @@ defmodule AWS.Ivs do
   used together. If
   you try to use both filters, you will get an error (409 ConflictException).
   """
+  @spec list_channels(map(), list_channels_request(), list()) ::
+          {:ok, list_channels_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, validation_exception()}
   def list_channels(%Client{} = client, input, options \\ []) do
     url_path = "/ListChannels"
     headers = []
@@ -987,6 +2205,11 @@ defmodule AWS.Ivs do
   For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html)
   in the *Amazon IVS User Guide*.
   """
+  @spec list_playback_key_pairs(map(), list_playback_key_pairs_request(), list()) ::
+          {:ok, list_playback_key_pairs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, validation_exception()}
   def list_playback_key_pairs(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackKeyPairs"
     headers = []
@@ -1010,6 +2233,17 @@ defmodule AWS.Ivs do
   @doc """
   Gets summary information about playback restriction policies.
   """
+  @spec list_playback_restriction_policies(
+          map(),
+          list_playback_restriction_policies_request(),
+          list()
+        ) ::
+          {:ok, list_playback_restriction_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, pending_verification()}
+          | {:error, validation_exception()}
   def list_playback_restriction_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackRestrictionPolicies"
     headers = []
@@ -1035,6 +2269,12 @@ defmodule AWS.Ivs do
   the
   Amazon Web Services region where the API request is processed.
   """
+  @spec list_recording_configurations(map(), list_recording_configurations_request(), list()) ::
+          {:ok, list_recording_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def list_recording_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListRecordingConfigurations"
     headers = []
@@ -1058,6 +2298,12 @@ defmodule AWS.Ivs do
   @doc """
   Gets summary information about stream keys for the specified channel.
   """
+  @spec list_stream_keys(map(), list_stream_keys_request(), list()) ::
+          {:ok, list_stream_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_stream_keys(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreamKeys"
     headers = []
@@ -1083,6 +2329,12 @@ defmodule AWS.Ivs do
   account, in
   the AWS region where the API request is processed.
   """
+  @spec list_stream_sessions(map(), list_stream_sessions_request(), list()) ::
+          {:ok, list_stream_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_stream_sessions(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreamSessions"
     headers = []
@@ -1108,6 +2360,11 @@ defmodule AWS.Ivs do
   Services
   region where the API request is processed.
   """
+  @spec list_streams(map(), list_streams_request(), list()) ::
+          {:ok, list_streams_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, validation_exception()}
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreams"
     headers = []
@@ -1131,6 +2388,12 @@ defmodule AWS.Ivs do
   @doc """
   Gets information about Amazon Web Services tags for the specified ARN.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1153,6 +2416,14 @@ defmodule AWS.Ivs do
   in
   the *Amazon IVS User Guide*.
   """
+  @spec put_metadata(map(), put_metadata_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, channel_not_broadcasting()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def put_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/PutMetadata"
     headers = []
@@ -1184,6 +2455,15 @@ defmodule AWS.Ivs do
   [Setting Up Private
   Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html).
   """
+  @spec start_viewer_session_revocation(map(), start_viewer_session_revocation_request(), list()) ::
+          {:ok, start_viewer_session_revocation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
     url_path = "/StartViewerSessionRevocation"
     headers = []
@@ -1215,6 +2495,14 @@ defmodule AWS.Ivs do
   session, so to stop the stream permanently, you may want to first revoke the
   `streamKey` attached to the channel.
   """
+  @spec stop_stream(map(), stop_stream_request(), list()) ::
+          {:ok, stop_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, channel_not_broadcasting()}
+          | {:error, resource_not_found_exception()}
+          | {:error, stream_unavailable()}
+          | {:error, validation_exception()}
   def stop_stream(%Client{} = client, input, options \\ []) do
     url_path = "/StopStream"
     headers = []
@@ -1239,6 +2527,12 @@ defmodule AWS.Ivs do
   Adds or updates tags for the Amazon Web Services resource with the specified
   ARN.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1262,6 +2556,12 @@ defmodule AWS.Ivs do
   @doc """
   Removes tags from the resource with the specified ARN.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1295,6 +2595,14 @@ defmodule AWS.Ivs do
   take
   effect.
   """
+  @spec update_channel(map(), update_channel_request(), list()) ::
+          {:ok, update_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def update_channel(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateChannel"
     headers = []
@@ -1318,6 +2626,18 @@ defmodule AWS.Ivs do
   @doc """
   Updates a specified playback restriction policy.
   """
+  @spec update_playback_restriction_policy(
+          map(),
+          update_playback_restriction_policy_request(),
+          list()
+        ) ::
+          {:ok, update_playback_restriction_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, pending_verification()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def update_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/UpdatePlaybackRestrictionPolicy"
     headers = []

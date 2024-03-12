@@ -15,6 +15,1418 @@ defmodule AWS.LexModelBuilding do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  builtin_slot_type_metadata() :: %{
+    "signature" => String.t(),
+    "supportedLocales" => list(list(any())())
+  }
+  """
+  @type builtin_slot_type_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_slot_types_response() :: %{
+    "nextToken" => String.t(),
+    "slotTypes" => list(slot_type_metadata()())
+  }
+  """
+  @type get_slot_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_bot_request() :: %{
+    optional("abortStatement") => statement(),
+    optional("checksum") => String.t(),
+    optional("clarificationPrompt") => prompt(),
+    optional("createVersion") => boolean(),
+    optional("description") => String.t(),
+    optional("detectSentiment") => boolean(),
+    optional("enableModelImprovements") => boolean(),
+    optional("idleSessionTTLInSeconds") => integer(),
+    optional("intents") => list(intent()()),
+    optional("nluIntentConfidenceThreshold") => float(),
+    optional("processBehavior") => list(any()),
+    optional("tags") => list(tag()()),
+    optional("voiceId") => String.t(),
+    required("childDirected") => boolean(),
+    required("locale") => list(any())
+  }
+  """
+  @type put_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_channel_associations_response() :: %{
+    "botChannelAssociations" => list(bot_channel_association()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_bot_channel_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_builtin_intents_request() :: %{
+    optional("locale") => list(any()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("signatureContains") => String.t()
+  }
+  """
+  @type get_builtin_intents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_failure_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fulfillment_activity() :: %{
+    "codeHook" => code_hook(),
+    "type" => list(any())
+  }
+  """
+  @type fulfillment_activity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  migration_summary() :: %{
+    "migrationId" => String.t(),
+    "migrationStatus" => list(any()),
+    "migrationStrategy" => list(any()),
+    "migrationTimestamp" => non_neg_integer(),
+    "v1BotLocale" => list(any()),
+    "v1BotName" => String.t(),
+    "v1BotVersion" => String.t(),
+    "v2BotId" => String.t(),
+    "v2BotRole" => String.t()
+  }
+  """
+  @type migration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_migration_response() :: %{
+    "alerts" => list(migration_alert()()),
+    "migrationId" => String.t(),
+    "migrationStatus" => list(any()),
+    "migrationStrategy" => list(any()),
+    "migrationTimestamp" => non_neg_integer(),
+    "v1BotLocale" => list(any()),
+    "v1BotName" => String.t(),
+    "v1BotVersion" => String.t(),
+    "v2BotId" => String.t(),
+    "v2BotRole" => String.t()
+  }
+  """
+  @type get_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_reference() :: %{
+    "name" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type resource_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_builtin_slot_types_response() :: %{
+    "nextToken" => String.t(),
+    "slotTypes" => list(builtin_slot_type_metadata()())
+  }
+  """
+  @type get_builtin_slot_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_slot_type_response() :: %{
+    "checksum" => String.t(),
+    "createVersion" => boolean(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "enumerationValues" => list(enumeration_value()()),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "parentSlotTypeSignature" => String.t(),
+    "slotTypeConfigurations" => list(slot_type_configuration()()),
+    "valueSelectionStrategy" => list(any()),
+    "version" => String.t()
+  }
+  """
+  @type put_slot_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_import_response() :: %{
+    "createdDate" => non_neg_integer(),
+    "failureReason" => list(String.t()()),
+    "importId" => String.t(),
+    "importStatus" => list(any()),
+    "mergeStrategy" => list(any()),
+    "name" => String.t(),
+    "resourceType" => list(any())
+  }
+  """
+  @type get_import_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_request() :: %{
+
+  }
+  """
+  @type get_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_in_use_exception() :: %{
+    "exampleReference" => resource_reference(),
+    "referenceType" => list(any())
+  }
+  """
+  @type resource_in_use_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_migration_request() :: %{
+    required("migrationStrategy") => list(any()),
+    required("v1BotName") => String.t(),
+    required("v1BotVersion") => String.t(),
+    required("v2BotName") => String.t(),
+    required("v2BotRole") => String.t()
+  }
+  """
+  @type start_migration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_slot_type_version_response() :: %{
+    "checksum" => String.t(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "enumerationValues" => list(enumeration_value()()),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "parentSlotTypeSignature" => String.t(),
+    "slotTypeConfigurations" => list(slot_type_configuration()()),
+    "valueSelectionStrategy" => list(any()),
+    "version" => String.t()
+  }
+  """
+  @type create_slot_type_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  log_settings_request() :: %{
+    "destination" => list(any()),
+    "kmsKeyArn" => String.t(),
+    "logType" => list(any()),
+    "resourceArn" => String.t()
+  }
+  """
+  @type log_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_bot_request() :: %{
+
+  }
+  """
+  @type delete_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_response() :: %{
+    "abortStatement" => statement(),
+    "checksum" => String.t(),
+    "childDirected" => boolean(),
+    "clarificationPrompt" => prompt(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "detectSentiment" => boolean(),
+    "enableModelImprovements" => boolean(),
+    "failureReason" => String.t(),
+    "idleSessionTTLInSeconds" => integer(),
+    "intents" => list(intent()()),
+    "lastUpdatedDate" => non_neg_integer(),
+    "locale" => list(any()),
+    "name" => String.t(),
+    "nluIntentConfidenceThreshold" => float(),
+    "status" => list(any()),
+    "version" => String.t(),
+    "voiceId" => String.t()
+  }
+  """
+  @type get_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  follow_up_prompt() :: %{
+    "prompt" => prompt(),
+    "rejectionStatement" => statement()
+  }
+  """
+  @type follow_up_prompt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  output_context() :: %{
+    "name" => String.t(),
+    "timeToLiveInSeconds" => integer(),
+    "turnsToLive" => integer()
+  }
+  """
+  @type output_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot() :: %{
+    "defaultValueSpec" => slot_default_value_spec(),
+    "description" => String.t(),
+    "name" => String.t(),
+    "obfuscationSetting" => list(any()),
+    "priority" => integer(),
+    "responseCard" => String.t(),
+    "sampleUtterances" => list(String.t()()),
+    "slotConstraint" => list(any()),
+    "slotType" => String.t(),
+    "slotTypeVersion" => String.t(),
+    "valueElicitationPrompt" => prompt()
+  }
+  """
+  @type slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_builtin_slot_types_request() :: %{
+    optional("locale") => list(any()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("signatureContains") => String.t()
+  }
+  """
+  @type get_builtin_slot_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_bot_version_request() :: %{
+    optional("checksum") => String.t()
+  }
+  """
+  @type create_bot_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_channel_association_response() :: %{
+    "botAlias" => String.t(),
+    "botConfiguration" => map(),
+    "botName" => String.t(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "failureReason" => String.t(),
+    "name" => String.t(),
+    "status" => list(any()),
+    "type" => list(any())
+  }
+  """
+  @type get_bot_channel_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_builtin_intent_response() :: %{
+    "signature" => String.t(),
+    "slots" => list(builtin_intent_slot()()),
+    "supportedLocales" => list(list(any())())
+  }
+  """
+  @type get_builtin_intent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_slot_type_version_request() :: %{
+    optional("checksum") => String.t()
+  }
+  """
+  @type create_slot_type_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_slot_type_versions_response() :: %{
+    "nextToken" => String.t(),
+    "slotTypes" => list(slot_type_metadata()())
+  }
+  """
+  @type get_slot_type_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_slot_type_version_request() :: %{
+
+  }
+  """
+  @type delete_slot_type_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  statement() :: %{
+    "messages" => list(message()()),
+    "responseCard" => String.t()
+  }
+  """
+  @type statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bots_response() :: %{
+    "bots" => list(bot_metadata()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_bots_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  builtin_intent_metadata() :: %{
+    "signature" => String.t(),
+    "supportedLocales" => list(list(any())())
+  }
+  """
+  @type builtin_intent_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_migrations_response() :: %{
+    "migrationSummaries" => list(migration_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_migrations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bot_alias_metadata() :: %{
+    "botName" => String.t(),
+    "botVersion" => String.t(),
+    "checksum" => String.t(),
+    "conversationLogs" => conversation_logs_response(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t()
+  }
+  """
+  @type bot_alias_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bot_channel_association() :: %{
+    "botAlias" => String.t(),
+    "botConfiguration" => map(),
+    "botName" => String.t(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "failureReason" => String.t(),
+    "name" => String.t(),
+    "status" => list(any()),
+    "type" => list(any())
+  }
+  """
+  @type bot_channel_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_migrations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("migrationStatusEquals") => list(any()),
+    optional("nextToken") => String.t(),
+    optional("sortByAttribute") => list(any()),
+    optional("sortByOrder") => list(any()),
+    optional("v1BotNameContains") => String.t()
+  }
+  """
+  @type get_migrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  intent() :: %{
+    "intentName" => String.t(),
+    "intentVersion" => String.t()
+  }
+  """
+  @type intent() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_intents_response() :: %{
+    "intents" => list(intent_metadata()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_intents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_intent_versions_response() :: %{
+    "intents" => list(intent_metadata()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_intent_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kendra_configuration() :: %{
+    "kendraIndex" => String.t(),
+    "queryFilterString" => String.t(),
+    "role" => String.t()
+  }
+  """
+  @type kendra_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_intent_version_request() :: %{
+
+  }
+  """
+  @type delete_intent_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_type_regex_configuration() :: %{
+    "pattern" => String.t()
+  }
+  """
+  @type slot_type_regex_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_intent_response() :: %{
+    "checksum" => String.t(),
+    "conclusionStatement" => statement(),
+    "confirmationPrompt" => prompt(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "dialogCodeHook" => code_hook(),
+    "followUpPrompt" => follow_up_prompt(),
+    "fulfillmentActivity" => fulfillment_activity(),
+    "inputContexts" => list(input_context()()),
+    "kendraConfiguration" => kendra_configuration(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "outputContexts" => list(output_context()()),
+    "parentIntentSignature" => String.t(),
+    "rejectionStatement" => statement(),
+    "sampleUtterances" => list(String.t()()),
+    "slots" => list(slot()()),
+    "version" => String.t()
+  }
+  """
+  @type get_intent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bots_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nameContains") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_bots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  code_hook() :: %{
+    "messageVersion" => String.t(),
+    "uri" => String.t()
+  }
+  """
+  @type code_hook() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bot_metadata() :: %{
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => list(any()),
+    "version" => String.t()
+  }
+  """
+  @type bot_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conversation_logs_response() :: %{
+    "iamRoleArn" => String.t(),
+    "logSettings" => list(log_settings_response()())
+  }
+  """
+  @type conversation_logs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_bot_version_request() :: %{
+
+  }
+  """
+  @type delete_bot_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_bot_alias_request() :: %{
+    optional("checksum") => String.t(),
+    optional("conversationLogs") => conversation_logs_request(),
+    optional("description") => String.t(),
+    optional("tags") => list(tag()()),
+    required("botVersion") => String.t()
+  }
+  """
+  @type put_bot_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_default_value_spec() :: %{
+    "defaultValueList" => list(slot_default_value()())
+  }
+  """
+  @type slot_default_value_spec() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_import_request() :: %{
+
+  }
+  """
+  @type get_import_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_utterances_view_response() :: %{
+    "botName" => String.t(),
+    "utterances" => list(utterance_list()())
+  }
+  """
+  @type get_utterances_view_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_bot_response() :: %{
+    "abortStatement" => statement(),
+    "checksum" => String.t(),
+    "childDirected" => boolean(),
+    "clarificationPrompt" => prompt(),
+    "createVersion" => boolean(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "detectSentiment" => boolean(),
+    "enableModelImprovements" => boolean(),
+    "failureReason" => String.t(),
+    "idleSessionTTLInSeconds" => integer(),
+    "intents" => list(intent()()),
+    "lastUpdatedDate" => non_neg_integer(),
+    "locale" => list(any()),
+    "name" => String.t(),
+    "nluIntentConfidenceThreshold" => float(),
+    "status" => list(any()),
+    "tags" => list(tag()()),
+    "version" => String.t(),
+    "voiceId" => String.t()
+  }
+  """
+  @type put_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_intent_versions_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_intent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_versions_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_bot_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_slot_type_versions_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_slot_type_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_alias_request() :: %{
+
+  }
+  """
+  @type get_bot_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_intent_request() :: %{
+
+  }
+  """
+  @type get_intent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_aliases_response() :: %{
+    "BotAliases" => list(bot_alias_metadata()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_bot_aliases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_slot_type_response() :: %{
+    "checksum" => String.t(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "enumerationValues" => list(enumeration_value()()),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "parentSlotTypeSignature" => String.t(),
+    "slotTypeConfigurations" => list(slot_type_configuration()()),
+    "valueSelectionStrategy" => list(any()),
+    "version" => String.t()
+  }
+  """
+  @type get_slot_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  utterance_list() :: %{
+    "botVersion" => String.t(),
+    "utterances" => list(utterance_data()())
+  }
+  """
+  @type utterance_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_builtin_intent_request() :: %{
+
+  }
+  """
+  @type get_builtin_intent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_bot_alias_request() :: %{
+
+  }
+  """
+  @type delete_bot_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_bot_channel_association_request() :: %{
+
+  }
+  """
+  @type delete_bot_channel_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_versions_response() :: %{
+    "bots" => list(bot_metadata()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_bot_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_intent_request() :: %{
+    optional("checksum") => String.t(),
+    optional("conclusionStatement") => statement(),
+    optional("confirmationPrompt") => prompt(),
+    optional("createVersion") => boolean(),
+    optional("description") => String.t(),
+    optional("dialogCodeHook") => code_hook(),
+    optional("followUpPrompt") => follow_up_prompt(),
+    optional("fulfillmentActivity") => fulfillment_activity(),
+    optional("inputContexts") => list(input_context()()),
+    optional("kendraConfiguration") => kendra_configuration(),
+    optional("outputContexts") => list(output_context()()),
+    optional("parentIntentSignature") => String.t(),
+    optional("rejectionStatement") => statement(),
+    optional("sampleUtterances") => list(String.t()()),
+    optional("slots") => list(slot()())
+  }
+  """
+  @type put_intent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_intents_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nameContains") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_intents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_export_request() :: %{
+    required("exportType") => list(any()),
+    required("name") => String.t(),
+    required("resourceType") => list(any()),
+    required("version") => String.t()
+  }
+  """
+  @type get_export_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_slot_type_request() :: %{
+    optional("checksum") => String.t(),
+    optional("createVersion") => boolean(),
+    optional("description") => String.t(),
+    optional("enumerationValues") => list(enumeration_value()()),
+    optional("parentSlotTypeSignature") => String.t(),
+    optional("slotTypeConfigurations") => list(slot_type_configuration()()),
+    optional("valueSelectionStrategy") => list(any())
+  }
+  """
+  @type put_slot_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_migration_response() :: %{
+    "migrationId" => String.t(),
+    "migrationStrategy" => list(any()),
+    "migrationTimestamp" => non_neg_integer(),
+    "v1BotLocale" => list(any()),
+    "v1BotName" => String.t(),
+    "v1BotVersion" => String.t(),
+    "v2BotId" => String.t(),
+    "v2BotRole" => String.t()
+  }
+  """
+  @type start_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conversation_logs_request() :: %{
+    "iamRoleArn" => String.t(),
+    "logSettings" => list(log_settings_request()())
+  }
+  """
+  @type conversation_logs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_type_configuration() :: %{
+    "regexConfiguration" => slot_type_regex_configuration()
+  }
+  """
+  @type slot_type_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_builtin_intents_response() :: %{
+    "intents" => list(builtin_intent_metadata()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_builtin_intents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_intent_response() :: %{
+    "checksum" => String.t(),
+    "conclusionStatement" => statement(),
+    "confirmationPrompt" => prompt(),
+    "createVersion" => boolean(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "dialogCodeHook" => code_hook(),
+    "followUpPrompt" => follow_up_prompt(),
+    "fulfillmentActivity" => fulfillment_activity(),
+    "inputContexts" => list(input_context()()),
+    "kendraConfiguration" => kendra_configuration(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "outputContexts" => list(output_context()()),
+    "parentIntentSignature" => String.t(),
+    "rejectionStatement" => statement(),
+    "sampleUtterances" => list(String.t()()),
+    "slots" => list(slot()()),
+    "version" => String.t()
+  }
+  """
+  @type put_intent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_intent_version_request() :: %{
+    optional("checksum") => String.t()
+  }
+  """
+  @type create_intent_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_channel_association_request() :: %{
+
+  }
+  """
+  @type get_bot_channel_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  builtin_intent_slot() :: %{
+    "name" => String.t()
+  }
+  """
+  @type builtin_intent_slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_slot_types_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nameContains") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_slot_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  input_context() :: %{
+    "name" => String.t()
+  }
+  """
+  @type input_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_slot_type_request() :: %{
+
+  }
+  """
+  @type delete_slot_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  log_settings_response() :: %{
+    "destination" => list(any()),
+    "kmsKeyArn" => String.t(),
+    "logType" => list(any()),
+    "resourceArn" => String.t(),
+    "resourcePrefix" => String.t()
+  }
+  """
+  @type log_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_migration_request() :: %{
+
+  }
+  """
+  @type get_migration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_export_response() :: %{
+    "exportStatus" => list(any()),
+    "exportType" => list(any()),
+    "failureReason" => String.t(),
+    "name" => String.t(),
+    "resourceType" => list(any()),
+    "url" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type get_export_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t(),
+    "retryAfterSeconds" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bad_request_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_default_value() :: %{
+    "defaultValue" => String.t()
+  }
+  """
+  @type slot_default_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_intent_version_response() :: %{
+    "checksum" => String.t(),
+    "conclusionStatement" => statement(),
+    "confirmationPrompt" => prompt(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "dialogCodeHook" => code_hook(),
+    "followUpPrompt" => follow_up_prompt(),
+    "fulfillmentActivity" => fulfillment_activity(),
+    "inputContexts" => list(input_context()()),
+    "kendraConfiguration" => kendra_configuration(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "outputContexts" => list(output_context()()),
+    "parentIntentSignature" => String.t(),
+    "rejectionStatement" => statement(),
+    "sampleUtterances" => list(String.t()()),
+    "slots" => list(slot()()),
+    "version" => String.t()
+  }
+  """
+  @type create_intent_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_slot_type_request() :: %{
+
+  }
+  """
+  @type get_slot_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  intent_metadata() :: %{
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type intent_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  utterance_data() :: %{
+    "count" => integer(),
+    "distinctUsers" => integer(),
+    "firstUtteredDate" => non_neg_integer(),
+    "lastUtteredDate" => non_neg_integer(),
+    "utteranceString" => String.t()
+  }
+  """
+  @type utterance_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_utterances_request() :: %{
+
+  }
+  """
+  @type delete_utterances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enumeration_value() :: %{
+    "synonyms" => list(String.t()()),
+    "value" => String.t()
+  }
+  """
+  @type enumeration_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_utterances_view_request() :: %{
+    required("botVersions") => list(String.t()()),
+    required("statusType") => list(any())
+  }
+  """
+  @type get_utterances_view_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_bot_alias_response() :: %{
+    "botName" => String.t(),
+    "botVersion" => String.t(),
+    "checksum" => String.t(),
+    "conversationLogs" => conversation_logs_response(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "tags" => list(tag()())
+  }
+  """
+  @type put_bot_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  precondition_failed_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type precondition_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  migration_alert() :: %{
+    "details" => list(String.t()()),
+    "message" => String.t(),
+    "referenceURLs" => list(String.t()()),
+    "type" => list(any())
+  }
+  """
+  @type migration_alert() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_intent_request() :: %{
+
+  }
+  """
+  @type delete_intent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_aliases_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nameContains") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_bot_aliases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_alias_response() :: %{
+    "botName" => String.t(),
+    "botVersion" => String.t(),
+    "checksum" => String.t(),
+    "conversationLogs" => conversation_logs_response(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t()
+  }
+  """
+  @type get_bot_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_import_request() :: %{
+    optional("tags") => list(tag()()),
+    required("mergeStrategy") => list(any()),
+    required("payload") => binary(),
+    required("resourceType") => list(any())
+  }
+  """
+  @type start_import_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_type_metadata() :: %{
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedDate" => non_neg_integer(),
+    "name" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type slot_type_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_import_response() :: %{
+    "createdDate" => non_neg_integer(),
+    "importId" => String.t(),
+    "importStatus" => list(any()),
+    "mergeStrategy" => list(any()),
+    "name" => String.t(),
+    "resourceType" => list(any()),
+    "tags" => list(tag()())
+  }
+  """
+  @type start_import_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prompt() :: %{
+    "maxAttempts" => integer(),
+    "messages" => list(message()()),
+    "responseCard" => String.t()
+  }
+  """
+  @type prompt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_bot_version_response() :: %{
+    "abortStatement" => statement(),
+    "checksum" => String.t(),
+    "childDirected" => boolean(),
+    "clarificationPrompt" => prompt(),
+    "createdDate" => non_neg_integer(),
+    "description" => String.t(),
+    "detectSentiment" => boolean(),
+    "enableModelImprovements" => boolean(),
+    "failureReason" => String.t(),
+    "idleSessionTTLInSeconds" => integer(),
+    "intents" => list(intent()()),
+    "lastUpdatedDate" => non_neg_integer(),
+    "locale" => list(any()),
+    "name" => String.t(),
+    "status" => list(any()),
+    "version" => String.t(),
+    "voiceId" => String.t()
+  }
+  """
+  @type create_bot_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  message() :: %{
+    "content" => String.t(),
+    "contentType" => list(any()),
+    "groupNumber" => integer()
+  }
+  """
+  @type message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_channel_associations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nameContains") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_bot_channel_associations_request() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2017-04-19",
@@ -49,6 +1461,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:CreateBotVersion` action.
   """
+  @spec create_bot_version(map(), String.t(), create_bot_version_request(), list()) ::
+          {:ok, create_bot_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, precondition_failed_exception()}
   def create_bot_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
@@ -89,6 +1510,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions to perform the
   `lex:CreateIntentVersion` action.
   """
+  @spec create_intent_version(map(), String.t(), create_intent_version_request(), list()) ::
+          {:ok, create_intent_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, precondition_failed_exception()}
   def create_intent_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
@@ -129,6 +1559,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:CreateSlotTypeVersion` action.
   """
+  @spec create_slot_type_version(map(), String.t(), create_slot_type_version_request(), list()) ::
+          {:ok, create_slot_type_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, precondition_failed_exception()}
   def create_slot_type_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
@@ -174,6 +1613,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteBot` action.
   """
+  @spec delete_bot(map(), String.t(), delete_bot_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -206,6 +1654,15 @@ defmodule AWS.LexModelBuilding do
   same exception again, delete the referring association until the
   `DeleteBotAlias` operation is successful.
   """
+  @spec delete_bot_alias(map(), String.t(), String.t(), delete_bot_alias_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -233,6 +1690,21 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:DeleteBotChannelAssociation` action.
   """
+  @spec delete_bot_channel_association(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_bot_channel_association_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def delete_bot_channel_association(
         %Client{} = client,
         bot_alias,
@@ -271,6 +1743,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteBotVersion` action.
   """
+  @spec delete_bot_version(map(), String.t(), String.t(), delete_bot_version_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_bot_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
@@ -313,6 +1794,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:DeleteIntent` action.
   """
+  @spec delete_intent(map(), String.t(), delete_intent_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -342,6 +1832,21 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteIntentVersion` action.
   """
+  @spec delete_intent_version(
+          map(),
+          String.t(),
+          String.t(),
+          delete_intent_version_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_intent_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
@@ -384,6 +1889,15 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:DeleteSlotType` action.
   """
+  @spec delete_slot_type(map(), String.t(), delete_slot_type_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -413,6 +1927,21 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteSlotTypeVersion` action.
   """
+  @spec delete_slot_type_version(
+          map(),
+          String.t(),
+          String.t(),
+          delete_slot_type_version_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_in_use_exception()}
   def delete_slot_type_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version)}"
     headers = []
@@ -451,6 +1980,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:DeleteUtterances` action.
   """
+  @spec delete_utterances(map(), String.t(), String.t(), delete_utterances_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def delete_utterances(%Client{} = client, bot_name, user_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances/#{AWS.Util.encode_uri(user_id)}"
     headers = []
@@ -480,6 +2016,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBot` action.
   """
+  @spec get_bot(map(), String.t(), String.t(), list()) ::
+          {:ok, get_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_bot(%Client{} = client, name, version_or_alias, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version_or_alias)}"
@@ -501,6 +2044,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotAlias` action.
   """
+  @spec get_bot_alias(map(), String.t(), String.t(), list()) ::
+          {:ok, get_bot_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -517,6 +2067,19 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotAliases` action.
   """
+  @spec get_bot_aliases(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_bot_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def get_bot_aliases(
         %Client{} = client,
         bot_name,
@@ -562,6 +2125,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotChannelAssociation` action.
   """
+  @spec get_bot_channel_association(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_bot_channel_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
@@ -582,6 +2152,20 @@ defmodule AWS.LexModelBuilding do
   permissions for the `lex:GetBotChannelAssociations`
   action.
   """
+  @spec get_bot_channel_associations(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_bot_channel_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def get_bot_channel_associations(
         %Client{} = client,
         bot_alias,
@@ -639,6 +2223,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetBotVersions` action.
   """
+  @spec get_bot_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_bot_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_bot_versions(
         %Client{} = client,
         name,
@@ -685,6 +2276,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:GetBots`
   action.
   """
+  @spec get_bots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_bots_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_bots(
         %Client{} = client,
         max_results \\ nil,
@@ -728,6 +2326,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:GetBuiltinIntent` action.
   """
+  @spec get_builtin_intent(map(), String.t(), list()) ::
+          {:ok, get_builtin_intent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_builtin_intent(%Client{} = client, signature, options \\ []) do
     url_path = "/builtins/intents/#{AWS.Util.encode_uri(signature)}"
     headers = []
@@ -745,6 +2350,19 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:GetBuiltinIntents` action.
   """
+  @spec get_builtin_intents(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_builtin_intents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def get_builtin_intents(
         %Client{} = client,
         locale \\ nil,
@@ -801,6 +2419,19 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the
   `lex:GetBuiltInSlotTypes` action.
   """
+  @spec get_builtin_slot_types(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_builtin_slot_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def get_builtin_slot_types(
         %Client{} = client,
         locale \\ nil,
@@ -849,6 +2480,13 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Exports the contents of a Amazon Lex resource in a specified format.
   """
+  @spec get_export(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_export_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_export(%Client{} = client, export_type, name, resource_type, version, options \\ []) do
     url_path = "/exports"
     headers = []
@@ -891,6 +2529,13 @@ defmodule AWS.LexModelBuilding do
   Gets information about an import job started with the
   `StartImport` operation.
   """
+  @spec get_import(map(), String.t(), list()) ::
+          {:ok, get_import_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
     headers = []
@@ -910,6 +2555,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions to perform the
   `lex:GetIntent` action.
   """
+  @spec get_intent(map(), String.t(), String.t(), list()) ::
+          {:ok, get_intent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_intent(%Client{} = client, name, version, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
@@ -936,6 +2588,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetIntentVersions` action.
   """
+  @spec get_intent_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_intent_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_intent_versions(
         %Client{} = client,
         name,
@@ -982,6 +2641,13 @@ defmodule AWS.LexModelBuilding do
   The operation requires permission for the
   `lex:GetIntents` action.
   """
+  @spec get_intents(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_intents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_intents(
         %Client{} = client,
         max_results \\ nil,
@@ -1026,6 +2692,13 @@ defmodule AWS.LexModelBuilding do
   Use this operation to view the migration
   alerts and warnings related to the migration.
   """
+  @spec get_migration(map(), String.t(), list()) ::
+          {:ok, get_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_migration(%Client{} = client, migration_id, options \\ []) do
     url_path = "/migrations/#{AWS.Util.encode_uri(migration_id)}"
     headers = []
@@ -1039,6 +2712,21 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.
   """
+  @spec get_migrations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_migrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def get_migrations(
         %Client{} = client,
         max_results \\ nil,
@@ -1110,6 +2798,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetSlotType` action.
   """
+  @spec get_slot_type(map(), String.t(), String.t(), list()) ::
+          {:ok, get_slot_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_slot_type(%Client{} = client, name, version, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
@@ -1136,6 +2831,13 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetSlotTypeVersions` action.
   """
+  @spec get_slot_type_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_slot_type_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_slot_type_versions(
         %Client{} = client,
         name,
@@ -1182,6 +2884,13 @@ defmodule AWS.LexModelBuilding do
   The operation requires permission for the
   `lex:GetSlotTypes` action.
   """
+  @spec get_slot_types(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_slot_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def get_slot_types(
         %Client{} = client,
         max_results \\ nil,
@@ -1252,6 +2961,12 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:GetUtterancesView` action.
   """
+  @spec get_utterances_view(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_utterances_view_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances?view=aggregation"
     headers = []
@@ -1282,6 +2997,13 @@ defmodule AWS.LexModelBuilding do
   Only bots,
   bot aliases, and bot channels can have tags associated with them.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1314,6 +3036,14 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:PutBot`
   action. For more information, see `security-iam`.
   """
+  @spec put_bot(map(), String.t(), put_bot_request(), list()) ::
+          {:ok, put_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, precondition_failed_exception()}
   def put_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
@@ -1335,6 +3065,14 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:PutBotAlias` action.
   """
+  @spec put_bot_alias(map(), String.t(), String.t(), put_bot_alias_request(), list()) ::
+          {:ok, put_bot_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, precondition_failed_exception()}
   def put_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -1406,6 +3144,14 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:PutIntent` action.
   """
+  @spec put_intent(map(), String.t(), put_intent_request(), list()) ::
+          {:ok, put_intent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, precondition_failed_exception()}
   def put_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
@@ -1436,6 +3182,14 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the
   `lex:PutSlotType` action.
   """
+  @spec put_slot_type(map(), String.t(), put_slot_type_request(), list()) ::
+          {:ok, put_slot_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, precondition_failed_exception()}
   def put_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
@@ -1449,6 +3203,12 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Starts a job to import a resource to Amazon Lex.
   """
+  @spec start_import(map(), start_import_request(), list()) ::
+          {:ok, start_import_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
     headers = []
@@ -1478,6 +3238,14 @@ defmodule AWS.LexModelBuilding do
   For more information, see [Migrating a bot](https://docs.aws.amazon.com/lex/latest/dg/migrate.html) in the *Amazon Lex
   developer guide*.
   """
+  @spec start_migration(map(), start_migration_request(), list()) ::
+          {:ok, start_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def start_migration(%Client{} = client, input, options \\ []) do
     url_path = "/migrations"
     headers = []
@@ -1504,6 +3272,14 @@ defmodule AWS.LexModelBuilding do
   If a tag key
   already exists, the existing value is replaced with the new value.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1527,6 +3303,14 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Removes tags from a bot, bot alias or bot channel.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []

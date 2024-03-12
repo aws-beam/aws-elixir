@@ -46,6 +46,223 @@ defmodule AWS.Pricing do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attribute_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_services_request() :: %{
+    optional("FormatVersion") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ServiceCode") => String.t()
+  }
+  """
+  @type describe_services_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_services_response() :: %{
+    "FormatVersion" => String.t(),
+    "NextToken" => String.t(),
+    "Services" => list(service()())
+  }
+  """
+  @type describe_services_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  expired_next_token_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type expired_next_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter() :: %{
+    "Field" => String.t(),
+    "Type" => list(any()),
+    "Value" => String.t()
+  }
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_attribute_values_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("AttributeName") => String.t(),
+    required("ServiceCode") => String.t()
+  }
+  """
+  @type get_attribute_values_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_attribute_values_response() :: %{
+    "AttributeValues" => list(attribute_value()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_attribute_values_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_price_list_file_url_request() :: %{
+    required("FileFormat") => String.t(),
+    required("PriceListArn") => String.t()
+  }
+  """
+  @type get_price_list_file_url_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_price_list_file_url_response() :: %{
+    "Url" => String.t()
+  }
+  """
+  @type get_price_list_file_url_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_products_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("FormatVersion") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ServiceCode") => String.t()
+  }
+  """
+  @type get_products_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_products_response() :: %{
+    "FormatVersion" => String.t(),
+    "NextToken" => String.t(),
+    "PriceList" => list(String.t()())
+  }
+  """
+  @type get_products_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_error_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_next_token_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_next_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_price_lists_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("RegionCode") => String.t(),
+    required("CurrencyCode") => String.t(),
+    required("EffectiveDate") => non_neg_integer(),
+    required("ServiceCode") => String.t()
+  }
+  """
+  @type list_price_lists_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_price_lists_response() :: %{
+    "NextToken" => String.t(),
+    "PriceLists" => list(price_list()())
+  }
+  """
+  @type list_price_lists_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_found_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  price_list() :: %{
+    "CurrencyCode" => String.t(),
+    "FileFormats" => list(String.t()()),
+    "PriceListArn" => String.t(),
+    "RegionCode" => String.t()
+  }
+  """
+  @type price_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service() :: %{
+    "AttributeNames" => list(String.t()()),
+    "ServiceCode" => String.t()
+  }
+  """
+  @type service() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2017-10-15",
@@ -73,6 +290,15 @@ defmodule AWS.Pricing do
   `volumeType`, `maxIopsVolume`, `operation`,
   `locationType`, and `instanceCapacity10xlarge`.
   """
+  @spec describe_services(map(), describe_services_request(), list()) ::
+          {:ok, describe_services_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, expired_next_token_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_found_exception()}
+          | {:error, throttling_exception()}
   def describe_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -87,6 +313,15 @@ defmodule AWS.Pricing do
   [Offer File Definitions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs)
   in the [Billing and Cost Management User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
   """
+  @spec get_attribute_values(map(), get_attribute_values_request(), list()) ::
+          {:ok, get_attribute_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, expired_next_token_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_found_exception()}
+          | {:error, throttling_exception()}
   def get_attribute_values(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -108,6 +343,14 @@ defmodule AWS.Pricing do
   [ListPriceLists](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html)
   response.
   """
+  @spec get_price_list_file_url(map(), get_price_list_file_url_request(), list()) ::
+          {:ok, get_price_list_file_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_found_exception()}
+          | {:error, throttling_exception()}
   def get_price_list_file_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -117,6 +360,15 @@ defmodule AWS.Pricing do
   @doc """
   Returns a list of all products that match the filter criteria.
   """
+  @spec get_products(map(), get_products_request(), list()) ::
+          {:ok, get_products_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, expired_next_token_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_found_exception()}
+          | {:error, throttling_exception()}
   def get_products(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -143,6 +395,16 @@ defmodule AWS.Pricing do
   [GetPriceListFileUrl](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html)
   API.
   """
+  @spec list_price_lists(map(), list_price_lists_request(), list()) ::
+          {:ok, list_price_lists_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, expired_next_token_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_found_exception()}
+          | {:error, throttling_exception()}
   def list_price_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -11,6 +11,1813 @@ defmodule AWS.LakeFormation do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  delete_object_input() :: %{
+    "ETag" => String.t(),
+    "PartitionValues" => list(String.t()()),
+    "Uri" => String.t()
+  }
+  """
+  @type delete_object_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  grant_permissions_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("PermissionsWithGrantOption") => list(list(any())()),
+    required("Permissions") => list(list(any())()),
+    required("Principal") => data_lake_principal(),
+    required("Resource") => resource()
+  }
+  """
+  @type grant_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_permissions_response() :: %{
+    "NextToken" => String.t(),
+    "PrincipalResourcePermissions" => list(principal_resource_permissions()())
+  }
+  """
+  @type list_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_databases_by_l_f_tags_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("Expression") => list(l_f_tag()())
+  }
+  """
+  @type search_databases_by_l_f_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_lake_formation_identity_center_configuration_response() :: %{
+    "ApplicationArn" => String.t()
+  }
+  """
+  @type create_lake_formation_identity_center_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  l_f_tag_key_resource() :: %{
+    "CatalogId" => String.t(),
+    "TagKey" => String.t(),
+    "TagValues" => list(String.t()())
+  }
+  """
+  @type l_f_tag_key_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  principal_permissions() :: %{
+    "Permissions" => list(list(any())()),
+    "Principal" => data_lake_principal()
+  }
+  """
+  @type principal_permissions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  entity_not_found_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type entity_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  operation_timeout_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type operation_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_resources_response() :: %{
+    "NextToken" => String.t(),
+    "ResourceInfoList" => list(resource_info()())
+  }
+  """
+  @type list_resources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_resource_response() :: %{
+    "ResourceInfo" => resource_info()
+  }
+  """
+  @type describe_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter_condition() :: %{
+    "ComparisonOperator" => list(any()),
+    "Field" => list(any()),
+    "StringValueList" => list(String.t()())
+  }
+  """
+  @type filter_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_l_f_tag_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("TagValuesToAdd") => list(String.t()()),
+    optional("TagValuesToDelete") => list(String.t()()),
+    required("TagKey") => String.t()
+  }
+  """
+  @type update_l_f_tag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_session_context() :: %{
+    "AdditionalContext" => map(),
+    "ClusterId" => String.t(),
+    "QueryAuthorizationId" => String.t(),
+    "QueryId" => String.t(),
+    "QueryStartTime" => non_neg_integer()
+  }
+  """
+  @type query_session_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  l_f_tag() :: %{
+    "TagKey" => String.t(),
+    "TagValues" => list(String.t()())
+  }
+  """
+  @type l_f_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  expired_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type expired_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_resource_request() :: %{
+    optional("HybridAccessEnabled") => boolean(),
+    optional("WithFederation") => boolean(),
+    required("ResourceArn") => String.t(),
+    required("RoleArn") => String.t()
+  }
+  """
+  @type update_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_table_storage_optimizer_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("DatabaseName") => String.t(),
+    required("StorageOptimizerConfig") => map(),
+    required("TableName") => String.t()
+  }
+  """
+  @type update_table_storage_optimizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  commit_transaction_request() :: %{
+    required("TransactionId") => String.t()
+  }
+  """
+  @type commit_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_l_f_tag_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("TagKey") => String.t()
+  }
+  """
+  @type get_l_f_tag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_resource_l_f_tags_response() :: %{
+    "LFTagOnDatabase" => list(l_f_tag_pair()()),
+    "LFTagsOnColumns" => list(column_l_f_tag()()),
+    "LFTagsOnTable" => list(l_f_tag_pair()())
+  }
+  """
+  @type get_resource_l_f_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_transaction_request() :: %{
+    required("TransactionId") => String.t()
+  }
+  """
+  @type cancel_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transaction_response() :: %{
+    "TransactionDescription" => transaction_description()
+  }
+  """
+  @type describe_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  l_f_tag_policy_resource() :: %{
+    "CatalogId" => String.t(),
+    "Expression" => list(l_f_tag()()),
+    "ResourceType" => list(any())
+  }
+  """
+  @type l_f_tag_policy_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_resource() :: %{
+    "CatalogId" => String.t(),
+    "DatabaseName" => String.t(),
+    "Name" => String.t(),
+    "TableWildcard" => table_wildcard()
+  }
+  """
+  @type table_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  l_f_tag_error() :: %{
+    "Error" => error_detail(),
+    "LFTag" => l_f_tag_pair()
+  }
+  """
+  @type l_f_tag_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  planning_statistics() :: %{
+    "EstimatedDataToScanBytes" => float(),
+    "PlanningTimeMillis" => float(),
+    "QueueTimeMillis" => float(),
+    "WorkUnitsGeneratedCount" => float()
+  }
+  """
+  @type planning_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  already_exists_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_lake_formation_identity_center_configuration_request() :: %{
+    optional("ApplicationStatus") => list(any()),
+    optional("CatalogId") => String.t(),
+    optional("ExternalFiltering") => external_filtering_configuration()
+  }
+  """
+  @type update_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  all_rows_wildcard() :: %{
+
+  }
+  """
+  @type all_rows_wildcard() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_lake_formation_identity_center_configuration_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("ExternalFiltering") => external_filtering_configuration(),
+    optional("InstanceArn") => String.t()
+  }
+  """
+  @type create_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_transactions_response() :: %{
+    "NextToken" => String.t(),
+    "Transactions" => list(transaction_description()())
+  }
+  """
+  @type list_transactions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_temporary_glue_partition_credentials_response() :: %{
+    "AccessKeyId" => String.t(),
+    "Expiration" => non_neg_integer(),
+    "SecretAccessKey" => String.t(),
+    "SessionToken" => String.t()
+  }
+  """
+  @type get_temporary_glue_partition_credentials_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  database_resource() :: %{
+    "CatalogId" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type database_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_lake_formation_opt_in_request() :: %{
+    required("Principal") => data_lake_principal(),
+    required("Resource") => resource()
+  }
+  """
+  @type delete_lake_formation_opt_in_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_l_f_tag_response() :: %{
+
+  }
+  """
+  @type delete_l_f_tag_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tagged_table() :: %{
+    "LFTagOnDatabase" => list(l_f_tag_pair()()),
+    "LFTagsOnColumns" => list(column_l_f_tag()()),
+    "LFTagsOnTable" => list(l_f_tag_pair()()),
+    "Table" => table_resource()
+  }
+  """
+  @type tagged_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  principal_resource_permissions() :: %{
+    "AdditionalDetails" => details_map(),
+    "LastUpdated" => non_neg_integer(),
+    "LastUpdatedBy" => String.t(),
+    "Permissions" => list(list(any())()),
+    "PermissionsWithGrantOption" => list(list(any())()),
+    "Principal" => data_lake_principal(),
+    "Resource" => resource()
+  }
+  """
+  @type principal_resource_permissions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_table_storage_optimizers_response() :: %{
+    "NextToken" => String.t(),
+    "StorageOptimizerList" => list(storage_optimizer()())
+  }
+  """
+  @type list_table_storage_optimizers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_tables_by_l_f_tags_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("Expression") => list(l_f_tag()())
+  }
+  """
+  @type search_tables_by_l_f_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transaction_canceled_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type transaction_canceled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  partition_objects() :: %{
+    "Objects" => list(table_object()()),
+    "PartitionValues" => list(String.t()())
+  }
+  """
+  @type partition_objects() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_state_request() :: %{
+    required("QueryId") => String.t()
+  }
+  """
+  @type get_query_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_service_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_l_f_tag_response() :: %{
+    "CatalogId" => String.t(),
+    "TagKey" => String.t(),
+    "TagValues" => list(String.t()())
+  }
+  """
+  @type get_l_f_tag_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_resource_response() :: %{
+
+  }
+  """
+  @type deregister_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_l_f_tag_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("TagKey") => String.t(),
+    required("TagValues") => list(String.t()())
+  }
+  """
+  @type create_l_f_tag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_lake_formation_opt_ins_response() :: %{
+    "LakeFormationOptInsInfoList" => list(lake_formation_opt_ins_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_lake_formation_opt_ins_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_data_cells_filter_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Table") => table_resource()
+  }
+  """
+  @type list_data_cells_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_number_limit_exceeded_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_number_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  virtual_object() :: %{
+    "ETag" => String.t(),
+    "Uri" => String.t()
+  }
+  """
+  @type virtual_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_transaction_request() :: %{
+    optional("TransactionType") => list(any())
+  }
+  """
+  @type start_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transaction_commit_in_progress_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type transaction_commit_in_progress_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_transactions_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StatusFilter") => list(any())
+  }
+  """
+  @type list_transactions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  extend_transaction_response() :: %{
+
+  }
+  """
+  @type extend_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_planning_context() :: %{
+    "CatalogId" => String.t(),
+    "DatabaseName" => String.t(),
+    "QueryAsOfTime" => non_neg_integer(),
+    "QueryParameters" => map(),
+    "TransactionId" => String.t()
+  }
+  """
+  @type query_planning_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_lake_formation_opt_in_request() :: %{
+    required("Principal") => data_lake_principal(),
+    required("Resource") => resource()
+  }
+  """
+  @type create_lake_formation_opt_in_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_table_objects_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PartitionPredicate") => String.t(),
+    optional("QueryAsOfTime") => non_neg_integer(),
+    optional("TransactionId") => String.t(),
+    required("DatabaseName") => String.t(),
+    required("TableName") => String.t()
+  }
+  """
+  @type get_table_objects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_query_planning_request() :: %{
+    required("QueryPlanningContext") => query_planning_context(),
+    required("QueryString") => String.t()
+  }
+  """
+  @type start_query_planning_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_lake_principal() :: %{
+    "DataLakePrincipalIdentifier" => String.t()
+  }
+  """
+  @type data_lake_principal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_l_f_tags_to_resource_response() :: %{
+    "Failures" => list(l_f_tag_error()())
+  }
+  """
+  @type add_l_f_tags_to_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_cells_filter() :: %{
+    "ColumnNames" => list(String.t()()),
+    "ColumnWildcard" => column_wildcard(),
+    "DatabaseName" => String.t(),
+    "Name" => String.t(),
+    "RowFilter" => row_filter(),
+    "TableCatalogId" => String.t(),
+    "TableName" => String.t(),
+    "VersionId" => String.t()
+  }
+  """
+  @type data_cells_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttled_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type throttled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  storage_optimizer() :: %{
+    "Config" => map(),
+    "ErrorMessage" => String.t(),
+    "LastRunDetails" => String.t(),
+    "StorageOptimizerType" => list(any()),
+    "Warnings" => String.t()
+  }
+  """
+  @type storage_optimizer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_location_resource() :: %{
+    "CatalogId" => String.t(),
+    "ResourceArn" => String.t()
+  }
+  """
+  @type data_location_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_data_cells_filter_response() :: %{
+
+  }
+  """
+  @type delete_data_cells_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_resource_response() :: %{
+
+  }
+  """
+  @type register_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_data_lake_settings_response() :: %{
+
+  }
+  """
+  @type put_data_lake_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  partition_value_list() :: %{
+    "Values" => list(String.t()())
+  }
+  """
+  @type partition_value_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_work_unit_results_request() :: %{
+    required("QueryId") => String.t(),
+    required("WorkUnitId") => float(),
+    required("WorkUnitToken") => String.t()
+  }
+  """
+  @type get_work_unit_results_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_databases_by_l_f_tags_response() :: %{
+    "DatabaseList" => list(tagged_database()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type search_databases_by_l_f_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_l_f_tag_response() :: %{
+
+  }
+  """
+  @type update_l_f_tag_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_data_lake_settings_request() :: %{
+    optional("CatalogId") => String.t()
+  }
+  """
+  @type get_data_lake_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_temporary_glue_partition_credentials_request() :: %{
+    optional("AuditContext") => audit_context(),
+    optional("DurationSeconds") => integer(),
+    optional("Permissions") => list(list(any())()),
+    optional("SupportedPermissionTypes") => list(list(any())()),
+    required("Partition") => partition_value_list(),
+    required("TableArn") => String.t()
+  }
+  """
+  @type get_temporary_glue_partition_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_data_cells_filter_response() :: %{
+
+  }
+  """
+  @type update_data_cells_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transaction_committed_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type transaction_committed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  column_wildcard() :: %{
+    "ExcludedColumnNames" => list(String.t()())
+  }
+  """
+  @type column_wildcard() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_permissions_request_entry() :: %{
+    "Id" => String.t(),
+    "Permissions" => list(list(any())()),
+    "PermissionsWithGrantOption" => list(list(any())()),
+    "Principal" => data_lake_principal(),
+    "Resource" => resource()
+  }
+  """
+  @type batch_permissions_request_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_table_objects_response() :: %{
+
+  }
+  """
+  @type update_table_objects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  commit_transaction_response() :: %{
+    "TransactionStatus" => list(any())
+  }
+  """
+  @type commit_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_wildcard() :: %{
+
+  }
+  """
+  @type table_wildcard() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  catalog_resource() :: %{
+
+  }
+  """
+  @type catalog_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_resource_response() :: %{
+
+  }
+  """
+  @type update_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_object() :: %{
+    "ETag" => String.t(),
+    "Size" => float(),
+    "Uri" => String.t()
+  }
+  """
+  @type table_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transaction_request() :: %{
+    required("TransactionId") => String.t()
+  }
+  """
+  @type describe_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lake_formation_opt_ins_info() :: %{
+    "LastModified" => non_neg_integer(),
+    "LastUpdatedBy" => String.t(),
+    "Principal" => data_lake_principal(),
+    "Resource" => resource()
+  }
+  """
+  @type lake_formation_opt_ins_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_l_f_tags_from_resource_response() :: %{
+    "Failures" => list(l_f_tag_error()())
+  }
+  """
+  @type remove_l_f_tags_from_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  details_map() :: %{
+    "ResourceShare" => list(String.t()())
+  }
+  """
+  @type details_map() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_work_units_request() :: %{
+    optional("NextToken") => String.t(),
+    optional("PageSize") => [integer()],
+    required("QueryId") => String.t()
+  }
+  """
+  @type get_work_units_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_tables_by_l_f_tags_response() :: %{
+    "NextToken" => String.t(),
+    "TableList" => list(tagged_table()())
+  }
+  """
+  @type search_tables_by_l_f_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_object_input() :: %{
+    "ETag" => String.t(),
+    "PartitionValues" => list(String.t()()),
+    "Size" => float(),
+    "Uri" => String.t()
+  }
+  """
+  @type add_object_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transaction_description() :: %{
+    "TransactionEndTime" => non_neg_integer(),
+    "TransactionId" => String.t(),
+    "TransactionStartTime" => non_neg_integer(),
+    "TransactionStatus" => list(any())
+  }
+  """
+  @type transaction_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_resource_l_f_tags_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("ShowAssignedLFTags") => boolean(),
+    required("Resource") => resource()
+  }
+  """
+  @type get_resource_l_f_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  row_filter() :: %{
+    "AllRowsWildcard" => all_rows_wildcard(),
+    "FilterExpression" => String.t()
+  }
+  """
+  @type row_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_input_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_objects_on_cancel_response() :: %{
+
+  }
+  """
+  @type delete_objects_on_cancel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_data_lake_settings_response() :: %{
+    "DataLakeSettings" => data_lake_settings()
+  }
+  """
+  @type get_data_lake_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_data_cells_filter_request() :: %{
+    required("TableData") => data_cells_filter()
+  }
+  """
+  @type update_data_cells_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  write_operation() :: %{
+    "AddObject" => add_object_input(),
+    "DeleteObject" => delete_object_input()
+  }
+  """
+  @type write_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_temporary_glue_table_credentials_response() :: %{
+    "AccessKeyId" => String.t(),
+    "Expiration" => non_neg_integer(),
+    "SecretAccessKey" => String.t(),
+    "SessionToken" => String.t(),
+    "VendedS3Path" => list(String.t()())
+  }
+  """
+  @type get_temporary_glue_table_credentials_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_lake_formation_identity_center_configuration_response() :: %{
+    "ApplicationArn" => String.t(),
+    "CatalogId" => String.t(),
+    "ExternalFiltering" => external_filtering_configuration(),
+    "InstanceArn" => String.t()
+  }
+  """
+  @type describe_lake_formation_identity_center_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_state_response() :: %{
+    "Error" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type get_query_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  l_f_tag_pair() :: %{
+    "CatalogId" => String.t(),
+    "TagKey" => String.t(),
+    "TagValues" => list(String.t()())
+  }
+  """
+  @type l_f_tag_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_l_f_tag_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("TagKey") => String.t()
+  }
+  """
+  @type delete_l_f_tag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_lake_formation_opt_ins_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Principal") => data_lake_principal(),
+    optional("Resource") => resource()
+  }
+  """
+  @type list_lake_formation_opt_ins_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_lake_formation_identity_center_configuration_request() :: %{
+    optional("CatalogId") => String.t()
+  }
+  """
+  @type describe_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_l_f_tag_response() :: %{
+
+  }
+  """
+  @type create_l_f_tag_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_lake_formation_identity_center_configuration_response() :: %{
+
+  }
+  """
+  @type delete_lake_formation_identity_center_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_permissions_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("IncludeRelated") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Principal") => data_lake_principal(),
+    optional("Resource") => resource(),
+    optional("ResourceType") => list(any())
+  }
+  """
+  @type list_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_revoke_permissions_response() :: %{
+    "Failures" => list(batch_permissions_failure_entry()())
+  }
+  """
+  @type batch_revoke_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_table_objects_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("TransactionId") => String.t(),
+    required("DatabaseName") => String.t(),
+    required("TableName") => String.t(),
+    required("WriteOperations") => list(write_operation()())
+  }
+  """
+  @type update_table_objects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_lake_formation_identity_center_configuration_response() :: %{
+
+  }
+  """
+  @type update_lake_formation_identity_center_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_data_cells_filter_response() :: %{
+    "DataCellsFilters" => list(data_cells_filter()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_data_cells_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_permissions_failure_entry() :: %{
+    "Error" => error_detail(),
+    "RequestEntry" => batch_permissions_request_entry()
+  }
+  """
+  @type batch_permissions_failure_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_effective_permissions_for_path_response() :: %{
+    "NextToken" => String.t(),
+    "Permissions" => list(principal_resource_permissions()())
+  }
+  """
+  @type get_effective_permissions_for_path_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_grant_permissions_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("Entries") => list(batch_permissions_request_entry()())
+  }
+  """
+  @type batch_grant_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_table_storage_optimizer_response() :: %{
+    "Result" => String.t()
+  }
+  """
+  @type update_table_storage_optimizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_l_f_tags_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ResourceShareType") => list(any())
+  }
+  """
+  @type list_l_f_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_permissions_response() :: %{
+
+  }
+  """
+  @type revoke_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_work_unit_results_response() :: %{
+    "ResultStream" => binary()
+  }
+  """
+  @type get_work_unit_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_resource_request() :: %{
+    optional("HybridAccessEnabled") => boolean(),
+    optional("RoleArn") => String.t(),
+    optional("UseServiceLinkedRole") => boolean(),
+    optional("WithFederation") => boolean(),
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type register_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_objects_on_cancel_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("DatabaseName") => String.t(),
+    required("Objects") => list(virtual_object()()),
+    required("TableName") => String.t(),
+    required("TransactionId") => String.t()
+  }
+  """
+  @type delete_objects_on_cancel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  error_detail() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t()
+  }
+  """
+  @type error_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_lake_formation_opt_in_response() :: %{
+
+  }
+  """
+  @type create_lake_formation_opt_in_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_lake_settings() :: %{
+    "AllowExternalDataFiltering" => boolean(),
+    "AllowFullTableExternalDataAccess" => boolean(),
+    "AuthorizedSessionTagValueList" => list(String.t()()),
+    "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
+    "CreateTableDefaultPermissions" => list(principal_permissions()()),
+    "DataLakeAdmins" => list(data_lake_principal()()),
+    "ExternalDataFilteringAllowList" => list(data_lake_principal()()),
+    "Parameters" => map(),
+    "ReadOnlyAdmins" => list(data_lake_principal()()),
+    "TrustedResourceOwners" => list(String.t()())
+  }
+  """
+  @type data_lake_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  statistics_not_ready_yet_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type statistics_not_ready_yet_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assume_decorated_role_with_saml_request() :: %{
+    optional("DurationSeconds") => integer(),
+    required("PrincipalArn") => String.t(),
+    required("RoleArn") => String.t(),
+    required("SAMLAssertion") => String.t()
+  }
+  """
+  @type assume_decorated_role_with_saml_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_grant_permissions_response() :: %{
+    "Failures" => list(batch_permissions_failure_entry()())
+  }
+  """
+  @type batch_grant_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  external_filtering_configuration() :: %{
+    "AuthorizedTargets" => list(String.t()()),
+    "Status" => list(any())
+  }
+  """
+  @type external_filtering_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_data_cells_filter_response() :: %{
+
+  }
+  """
+  @type create_data_cells_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_cells_filter_resource() :: %{
+    "DatabaseName" => String.t(),
+    "Name" => String.t(),
+    "TableCatalogId" => String.t(),
+    "TableName" => String.t()
+  }
+  """
+  @type data_cells_filter_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  concurrent_modification_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_statistics_request() :: %{
+    required("QueryId") => String.t()
+  }
+  """
+  @type get_query_statistics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_units_not_ready_yet_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type work_units_not_ready_yet_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  audit_context() :: %{
+    "AdditionalAuditContext" => String.t()
+  }
+  """
+  @type audit_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_work_units_response() :: %{
+    "NextToken" => String.t(),
+    "QueryId" => String.t(),
+    "WorkUnitRanges" => list(work_unit_range()())
+  }
+  """
+  @type get_work_units_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tagged_database() :: %{
+    "Database" => database_resource(),
+    "LFTags" => list(l_f_tag_pair()())
+  }
+  """
+  @type tagged_database() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_data_lake_settings_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("DataLakeSettings") => data_lake_settings()
+  }
+  """
+  @type put_data_lake_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_revoke_permissions_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("Entries") => list(batch_permissions_request_entry()())
+  }
+  """
+  @type batch_revoke_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_data_cells_filter_request() :: %{
+    required("TableData") => data_cells_filter()
+  }
+  """
+  @type create_data_cells_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  permission_type_mismatch_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type permission_type_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_statistics() :: %{
+    "AverageExecutionTimeMillis" => float(),
+    "DataScannedBytes" => float(),
+    "WorkUnitsExecutedCount" => float()
+  }
+  """
+  @type execution_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_statistics_response() :: %{
+    "ExecutionStatistics" => execution_statistics(),
+    "PlanningStatistics" => planning_statistics(),
+    "QuerySubmissionTime" => non_neg_integer()
+  }
+  """
+  @type get_query_statistics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_info() :: %{
+    "HybridAccessEnabled" => boolean(),
+    "LastModified" => non_neg_integer(),
+    "ResourceArn" => String.t(),
+    "RoleArn" => String.t(),
+    "WithFederation" => boolean()
+  }
+  """
+  @type resource_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_resource_request() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type describe_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_table_objects_response() :: %{
+    "NextToken" => String.t(),
+    "Objects" => list(partition_objects()())
+  }
+  """
+  @type get_table_objects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  extend_transaction_request() :: %{
+    optional("TransactionId") => String.t()
+  }
+  """
+  @type extend_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_with_columns_resource() :: %{
+    "CatalogId" => String.t(),
+    "ColumnNames" => list(String.t()()),
+    "ColumnWildcard" => column_wildcard(),
+    "DatabaseName" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type table_with_columns_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_resources_request() :: %{
+    optional("FilterConditionList") => list(filter_condition()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_l_f_tags_response() :: %{
+    "LFTags" => list(l_f_tag_pair()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_l_f_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_permissions_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("PermissionsWithGrantOption") => list(list(any())()),
+    required("Permissions") => list(list(any())()),
+    required("Principal") => data_lake_principal(),
+    required("Resource") => resource()
+  }
+  """
+  @type revoke_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_data_cells_filter_request() :: %{
+    optional("DatabaseName") => String.t(),
+    optional("Name") => String.t(),
+    optional("TableCatalogId") => String.t(),
+    optional("TableName") => String.t()
+  }
+  """
+  @type delete_data_cells_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_lake_formation_identity_center_configuration_request() :: %{
+    optional("CatalogId") => String.t()
+  }
+  """
+  @type delete_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_transaction_response() :: %{
+
+  }
+  """
+  @type cancel_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_data_cells_filter_request() :: %{
+    required("DatabaseName") => String.t(),
+    required("Name") => String.t(),
+    required("TableCatalogId") => String.t(),
+    required("TableName") => String.t()
+  }
+  """
+  @type get_data_cells_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_temporary_glue_table_credentials_request() :: %{
+    optional("AuditContext") => audit_context(),
+    optional("DurationSeconds") => integer(),
+    optional("Permissions") => list(list(any())()),
+    optional("QuerySessionContext") => query_session_context(),
+    optional("S3Path") => String.t(),
+    optional("SupportedPermissionTypes") => list(list(any())()),
+    required("TableArn") => String.t()
+  }
+  """
+  @type get_temporary_glue_table_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  glue_encryption_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type glue_encryption_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_l_f_tags_from_resource_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("LFTags") => list(l_f_tag_pair()()),
+    required("Resource") => resource()
+  }
+  """
+  @type remove_l_f_tags_from_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_effective_permissions_for_path_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type get_effective_permissions_for_path_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_unit_range() :: %{
+    "WorkUnitIdMax" => float(),
+    "WorkUnitIdMin" => float(),
+    "WorkUnitToken" => String.t()
+  }
+  """
+  @type work_unit_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_data_cells_filter_response() :: %{
+    "DataCellsFilter" => data_cells_filter()
+  }
+  """
+  @type get_data_cells_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_ready_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assume_decorated_role_with_saml_response() :: %{
+    "AccessKeyId" => String.t(),
+    "Expiration" => non_neg_integer(),
+    "SecretAccessKey" => String.t(),
+    "SessionToken" => String.t()
+  }
+  """
+  @type assume_decorated_role_with_saml_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_resource_request() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type deregister_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_table_storage_optimizers_request() :: %{
+    optional("CatalogId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StorageOptimizerType") => list(any()),
+    required("DatabaseName") => String.t(),
+    required("TableName") => String.t()
+  }
+  """
+  @type list_table_storage_optimizers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_transaction_response() :: %{
+    "TransactionId" => String.t()
+  }
+  """
+  @type start_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_lake_formation_opt_in_response() :: %{
+
+  }
+  """
+  @type delete_lake_formation_opt_in_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  grant_permissions_response() :: %{
+
+  }
+  """
+  @type grant_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_l_f_tags_to_resource_request() :: %{
+    optional("CatalogId") => String.t(),
+    required("LFTags") => list(l_f_tag_pair()()),
+    required("Resource") => resource()
+  }
+  """
+  @type add_l_f_tags_to_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_query_planning_response() :: %{
+    "QueryId" => String.t()
+  }
+  """
+  @type start_query_planning_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  column_l_f_tag() :: %{
+    "LFTags" => list(l_f_tag_pair()()),
+    "Name" => String.t()
+  }
+  """
+  @type column_l_f_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource() :: %{
+    "Catalog" => catalog_resource(),
+    "DataCellsFilter" => data_cells_filter_resource(),
+    "DataLocation" => data_location_resource(),
+    "Database" => database_resource(),
+    "LFTag" => l_f_tag_key_resource(),
+    "LFTagPolicy" => l_f_tag_policy_resource(),
+    "Table" => table_resource(),
+    "TableWithColumns" => table_with_columns_resource()
+  }
+  """
+  @type resource() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2017-03-31",
@@ -29,6 +1836,15 @@ defmodule AWS.LakeFormation do
   @doc """
   Attaches one or more LF-tags to an existing resource.
   """
+  @spec add_l_f_tags_to_resource(map(), add_l_f_tags_to_resource_request(), list()) ::
+          {:ok, add_l_f_tags_to_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def add_l_f_tags_to_resource(%Client{} = client, input, options \\ []) do
     url_path = "/AddLFTagsToResource"
     headers = []
@@ -67,6 +1883,14 @@ defmodule AWS.LakeFormation do
   `lakeformation:GetDataAccess` in their role policies. A typical IAM policy
   attached to such a role would look as follows:
   """
+  @spec assume_decorated_role_with_saml(map(), assume_decorated_role_with_saml_request(), list()) ::
+          {:ok, assume_decorated_role_with_saml_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def assume_decorated_role_with_saml(%Client{} = client, input, options \\ []) do
     url_path = "/AssumeDecoratedRoleWithSAML"
     headers = []
@@ -90,6 +1914,11 @@ defmodule AWS.LakeFormation do
   @doc """
   Batch operation to grant permissions to the principal.
   """
+  @spec batch_grant_permissions(map(), batch_grant_permissions_request(), list()) ::
+          {:ok, batch_grant_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def batch_grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGrantPermissions"
     headers = []
@@ -113,6 +1942,11 @@ defmodule AWS.LakeFormation do
   @doc """
   Batch operation to revoke permissions from the principal.
   """
+  @spec batch_revoke_permissions(map(), batch_revoke_permissions_request(), list()) ::
+          {:ok, batch_revoke_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def batch_revoke_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchRevokePermissions"
     headers = []
@@ -138,6 +1972,16 @@ defmodule AWS.LakeFormation do
 
   Returns an exception if the transaction was previously committed.
   """
+  @spec cancel_transaction(map(), cancel_transaction_request(), list()) ::
+          {:ok, cancel_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, transaction_commit_in_progress_exception()}
+          | {:error, transaction_committed_exception()}
   def cancel_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CancelTransaction"
     headers = []
@@ -164,6 +2008,15 @@ defmodule AWS.LakeFormation do
   Returns an exception if the transaction was previously aborted. This API action
   is idempotent if called multiple times for the same transaction.
   """
+  @spec commit_transaction(map(), commit_transaction_request(), list()) ::
+          {:ok, commit_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, transaction_canceled_exception()}
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
     headers = []
@@ -188,6 +2041,16 @@ defmodule AWS.LakeFormation do
   Creates a data cell filter to allow one to grant access to certain columns on
   certain rows.
   """
+  @spec create_data_cells_filter(map(), create_data_cells_filter_request(), list()) ::
+          {:ok, create_data_cells_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, already_exists_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, resource_number_limit_exceeded_exception()}
   def create_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/CreateDataCellsFilter"
     headers = []
@@ -211,6 +2074,15 @@ defmodule AWS.LakeFormation do
   @doc """
   Creates an LF-tag with the specified name and values.
   """
+  @spec create_l_f_tag(map(), create_l_f_tag_request(), list()) ::
+          {:ok, create_l_f_tag_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, resource_number_limit_exceeded_exception()}
   def create_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLFTag"
     headers = []
@@ -235,6 +2107,19 @@ defmodule AWS.LakeFormation do
   Creates an IAM Identity Center connection with Lake Formation to allow IAM
   Identity Center users and groups to access Data Catalog resources.
   """
+  @spec create_lake_formation_identity_center_configuration(
+          map(),
+          create_lake_formation_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_lake_formation_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, already_exists_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def create_lake_formation_identity_center_configuration(
         %Client{} = client,
         input,
@@ -263,6 +2148,15 @@ defmodule AWS.LakeFormation do
   Enforce Lake Formation permissions for the given databases, tables, and
   principals.
   """
+  @spec create_lake_formation_opt_in(map(), create_lake_formation_opt_in_request(), list()) ::
+          {:ok, create_lake_formation_opt_in_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def create_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLakeFormationOptIn"
     headers = []
@@ -286,6 +2180,14 @@ defmodule AWS.LakeFormation do
   @doc """
   Deletes a data cell filter.
   """
+  @spec delete_data_cells_filter(map(), delete_data_cells_filter_request(), list()) ::
+          {:ok, delete_data_cells_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def delete_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteDataCellsFilter"
     headers = []
@@ -315,6 +2217,14 @@ defmodule AWS.LakeFormation do
   tag policy attach to the deleted LF-tag will no longer be applied to the
   resource.
   """
+  @spec delete_l_f_tag(map(), delete_l_f_tag_request(), list()) ::
+          {:ok, delete_l_f_tag_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTag"
     headers = []
@@ -338,6 +2248,19 @@ defmodule AWS.LakeFormation do
   @doc """
   Deletes an IAM Identity Center connection with Lake Formation.
   """
+  @spec delete_lake_formation_identity_center_configuration(
+          map(),
+          delete_lake_formation_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_lake_formation_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def delete_lake_formation_identity_center_configuration(
         %Client{} = client,
         input,
@@ -366,6 +2289,15 @@ defmodule AWS.LakeFormation do
   Remove the Lake Formation permissions enforcement of the given databases,
   tables, and principals.
   """
+  @spec delete_lake_formation_opt_in(map(), delete_lake_formation_opt_in_request(), list()) ::
+          {:ok, delete_lake_formation_opt_in_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def delete_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLakeFormationOptIn"
     headers = []
@@ -399,6 +2331,17 @@ defmodule AWS.LakeFormation do
   call `DeleteObjectsOnCancel` before writes. For more information, see
   [Rolling Back Amazon S3 Writes](https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes).
   """
+  @spec delete_objects_on_cancel(map(), delete_objects_on_cancel_request(), list()) ::
+          {:ok, delete_objects_on_cancel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, transaction_canceled_exception()}
+          | {:error, transaction_committed_exception()}
   def delete_objects_on_cancel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteObjectsOnCancel"
     headers = []
@@ -425,6 +2368,13 @@ defmodule AWS.LakeFormation do
   When you deregister a path, Lake Formation removes the path from the inline
   policy attached to your service-linked role.
   """
+  @spec deregister_resource(map(), deregister_resource_request(), list()) ::
+          {:ok, deregister_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def deregister_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DeregisterResource"
     headers = []
@@ -448,6 +2398,18 @@ defmodule AWS.LakeFormation do
   @doc """
   Retrieves the instance ARN and application ARN for the connection.
   """
+  @spec describe_lake_formation_identity_center_configuration(
+          map(),
+          describe_lake_formation_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, describe_lake_formation_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def describe_lake_formation_identity_center_configuration(
         %Client{} = client,
         input,
@@ -476,6 +2438,13 @@ defmodule AWS.LakeFormation do
   Retrieves the current data access role for the given resource registered in Lake
   Formation.
   """
+  @spec describe_resource(map(), describe_resource_request(), list()) ::
+          {:ok, describe_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def describe_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeResource"
     headers = []
@@ -499,6 +2468,13 @@ defmodule AWS.LakeFormation do
   @doc """
   Returns the details of a single transaction.
   """
+  @spec describe_transaction(map(), describe_transaction_request(), list()) ::
+          {:ok, describe_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def describe_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeTransaction"
     headers = []
@@ -526,6 +2502,16 @@ defmodule AWS.LakeFormation do
   Write transactions that remain idle for a long period are automatically aborted
   unless explicitly extended.
   """
+  @spec extend_transaction(map(), extend_transaction_request(), list()) ::
+          {:ok, extend_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, transaction_canceled_exception()}
+          | {:error, transaction_commit_in_progress_exception()}
+          | {:error, transaction_committed_exception()}
   def extend_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/ExtendTransaction"
     headers = []
@@ -549,6 +2535,14 @@ defmodule AWS.LakeFormation do
   @doc """
   Returns a data cells filter.
   """
+  @spec get_data_cells_filter(map(), get_data_cells_filter_request(), list()) ::
+          {:ok, get_data_cells_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def get_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataCellsFilter"
     headers = []
@@ -573,6 +2567,12 @@ defmodule AWS.LakeFormation do
   Retrieves the list of the data lake administrators of a Lake Formation-managed
   data lake.
   """
+  @spec get_data_lake_settings(map(), get_data_lake_settings_request(), list()) ::
+          {:ok, get_data_lake_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
   def get_data_lake_settings(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataLakeSettings"
     headers = []
@@ -601,6 +2601,17 @@ defmodule AWS.LakeFormation do
   `GetEffectivePermissionsForPath` will not return databases and tables if the
   catalog is encrypted.
   """
+  @spec get_effective_permissions_for_path(
+          map(),
+          get_effective_permissions_for_path_request(),
+          list()
+        ) ::
+          {:ok, get_effective_permissions_for_path_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def get_effective_permissions_for_path(%Client{} = client, input, options \\ []) do
     url_path = "/GetEffectivePermissionsForPath"
     headers = []
@@ -624,6 +2635,14 @@ defmodule AWS.LakeFormation do
   @doc """
   Returns an LF-tag definition.
   """
+  @spec get_l_f_tag(map(), get_l_f_tag_request(), list()) ::
+          {:ok, get_l_f_tag_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def get_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/GetLFTag"
     headers = []
@@ -651,6 +2670,12 @@ defmodule AWS.LakeFormation do
   planning before retrieving the work units. A query state is only visible to the
   principal that made the initial call to `StartQueryPlanning`.
   """
+  @spec get_query_state(map(), get_query_state_request(), list()) ::
+          {:ok, get_query_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
   def get_query_state(%Client{} = client, input, options \\ []) do
     url_path = "/GetQueryState"
     headers = []
@@ -674,6 +2699,15 @@ defmodule AWS.LakeFormation do
   @doc """
   Retrieves statistics on the planning and execution of a query.
   """
+  @spec get_query_statistics(map(), get_query_statistics_request(), list()) ::
+          {:ok, get_query_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, expired_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, statistics_not_ready_yet_exception()}
+          | {:error, throttled_exception()}
   def get_query_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/GetQueryStatistics"
     headers = []
@@ -697,6 +2731,15 @@ defmodule AWS.LakeFormation do
   @doc """
   Returns the LF-tags applied to a resource.
   """
+  @spec get_resource_l_f_tags(map(), get_resource_l_f_tags_request(), list()) ::
+          {:ok, get_resource_l_f_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, glue_encryption_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def get_resource_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/GetResourceLFTags"
     headers = []
@@ -722,6 +2765,16 @@ defmodule AWS.LakeFormation do
 
   A transaction ID or timestamp can be specified for time-travel queries.
   """
+  @spec get_table_objects(map(), get_table_objects_request(), list()) ::
+          {:ok, get_table_objects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, transaction_canceled_exception()}
+          | {:error, transaction_committed_exception()}
   def get_table_objects(%Client{} = client, input, options \\ []) do
     url_path = "/GetTableObjects"
     headers = []
@@ -749,6 +2802,19 @@ defmodule AWS.LakeFormation do
   Lake Formation restricts the permission of the vended credentials with the same
   scope down policy which restricts access to a single Amazon S3 prefix.
   """
+  @spec get_temporary_glue_partition_credentials(
+          map(),
+          get_temporary_glue_partition_credentials_request(),
+          list()
+        ) ::
+          {:ok, get_temporary_glue_partition_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, permission_type_mismatch_exception()}
   def get_temporary_glue_partition_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryGluePartitionCredentials"
     headers = []
@@ -777,6 +2843,19 @@ defmodule AWS.LakeFormation do
   with a registered location, for example an Amazon S3 bucket, with a scope down
   policy which restricts the access to a single prefix.
   """
+  @spec get_temporary_glue_table_credentials(
+          map(),
+          get_temporary_glue_table_credentials_request(),
+          list()
+        ) ::
+          {:ok, get_temporary_glue_table_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, permission_type_mismatch_exception()}
   def get_temporary_glue_table_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryGlueTableCredentials"
     headers = []
@@ -802,6 +2881,14 @@ defmodule AWS.LakeFormation do
 
   Work units can be executed in any order and in parallel.
   """
+  @spec get_work_unit_results(map(), get_work_unit_results_request(), list()) ::
+          {:ok, get_work_unit_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, expired_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, throttled_exception()}
   def get_work_unit_results(%Client{} = client, input, options \\ []) do
     url_path = "/GetWorkUnitResults"
     headers = []
@@ -825,6 +2912,14 @@ defmodule AWS.LakeFormation do
   @doc """
   Retrieves the work units generated by the `StartQueryPlanning` operation.
   """
+  @spec get_work_units(map(), get_work_units_request(), list()) ::
+          {:ok, get_work_units_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, expired_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, work_units_not_ready_yet_exception()}
   def get_work_units(%Client{} = client, input, options \\ []) do
     url_path = "/GetWorkUnits"
     headers = []
@@ -852,6 +2947,12 @@ defmodule AWS.LakeFormation do
   For information about permissions, see [Security and Access Control to Metadata and
   Data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
+  @spec grant_permissions(map(), grant_permissions_request(), list()) ::
+          {:ok, grant_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, invalid_input_exception()}
   def grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/GrantPermissions"
     headers = []
@@ -875,6 +2976,13 @@ defmodule AWS.LakeFormation do
   @doc """
   Lists all the data cell filters on a table.
   """
+  @spec list_data_cells_filter(map(), list_data_cells_filter_request(), list()) ::
+          {:ok, list_data_cells_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def list_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/ListDataCellsFilter"
     headers = []
@@ -898,6 +3006,14 @@ defmodule AWS.LakeFormation do
   @doc """
   Lists LF-tags that the requester has permission to view.
   """
+  @spec list_l_f_tags(map(), list_l_f_tags_request(), list()) ::
+          {:ok, list_l_f_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def list_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/ListLFTags"
     headers = []
@@ -922,6 +3038,13 @@ defmodule AWS.LakeFormation do
   Retrieve the current list of resources and principals that are opt in to enforce
   Lake Formation permissions.
   """
+  @spec list_lake_formation_opt_ins(map(), list_lake_formation_opt_ins_request(), list()) ::
+          {:ok, list_lake_formation_opt_ins_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def list_lake_formation_opt_ins(%Client{} = client, input, options \\ []) do
     url_path = "/ListLakeFormationOptIns"
     headers = []
@@ -954,6 +3077,12 @@ defmodule AWS.LakeFormation do
   For information about permissions, see [Security and Access Control to Metadata and
   Data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
+  @spec list_permissions(map(), list_permissions_request(), list()) ::
+          {:ok, list_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/ListPermissions"
     headers = []
@@ -977,6 +3106,12 @@ defmodule AWS.LakeFormation do
   @doc """
   Lists the resources registered to be managed by the Data Catalog.
   """
+  @spec list_resources(map(), list_resources_request(), list()) ::
+          {:ok, list_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListResources"
     headers = []
@@ -1001,6 +3136,13 @@ defmodule AWS.LakeFormation do
   Returns the configuration of all storage optimizers associated with a specified
   table.
   """
+  @spec list_table_storage_optimizers(map(), list_table_storage_optimizers_request(), list()) ::
+          {:ok, list_table_storage_optimizers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
   def list_table_storage_optimizers(%Client{} = client, input, options \\ []) do
     url_path = "/ListTableStorageOptimizers"
     headers = []
@@ -1030,6 +3172,12 @@ defmodule AWS.LakeFormation do
   This operation can help you identify uncommitted transactions or to get
   information about transactions.
   """
+  @spec list_transactions(map(), list_transactions_request(), list()) ::
+          {:ok, list_transactions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def list_transactions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTransactions"
     headers = []
@@ -1060,6 +3208,11 @@ defmodule AWS.LakeFormation do
   passed. To add an admin, fetch the current list and add the new admin to that
   list and pass that list in this API.
   """
+  @spec put_data_lake_settings(map(), put_data_lake_settings_request(), list()) ::
+          {:ok, put_data_lake_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
   def put_data_lake_settings(%Client{} = client, input, options \\ []) do
     url_path = "/PutDataLakeSettings"
     headers = []
@@ -1104,6 +3257,16 @@ defmodule AWS.LakeFormation do
 
   `arn:aws:iam::12345:role/my-data-access-role`
   """
+  @spec register_resource(map(), register_resource_request(), list()) ::
+          {:ok, register_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, already_exists_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, resource_number_limit_exceeded_exception()}
   def register_resource(%Client{} = client, input, options \\ []) do
     url_path = "/RegisterResource"
     headers = []
@@ -1130,6 +3293,16 @@ defmodule AWS.LakeFormation do
   Only database, table, or tableWithColumns resource are allowed. To tag columns,
   use the column inclusion list in `tableWithColumns` to specify column input.
   """
+  @spec remove_l_f_tags_from_resource(map(), remove_l_f_tags_from_resource_request(), list()) ::
+          {:ok, remove_l_f_tags_from_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, glue_encryption_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def remove_l_f_tags_from_resource(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveLFTagsFromResource"
     headers = []
@@ -1154,6 +3327,12 @@ defmodule AWS.LakeFormation do
   Revokes permissions to the principal to access metadata in the Data Catalog and
   data organized in underlying data storage such as Amazon S3.
   """
+  @spec revoke_permissions(map(), revoke_permissions_request(), list()) ::
+          {:ok, revoke_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, invalid_input_exception()}
   def revoke_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/RevokePermissions"
     headers = []
@@ -1182,6 +3361,15 @@ defmodule AWS.LakeFormation do
   `SearchDatabasesByTags` to find all resources where the given `TagConditions`
   are valid to verify whether the returned resources can be shared.
   """
+  @spec search_databases_by_l_f_tags(map(), search_databases_by_l_f_tags_request(), list()) ::
+          {:ok, search_databases_by_l_f_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, glue_encryption_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def search_databases_by_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/SearchDatabasesByLFTags"
     headers = []
@@ -1210,6 +3398,15 @@ defmodule AWS.LakeFormation do
   all resources where the given `LFTag`s are valid to verify whether the returned
   resources can be shared.
   """
+  @spec search_tables_by_l_f_tags(map(), search_tables_by_l_f_tags_request(), list()) ::
+          {:ok, search_tables_by_l_f_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, glue_encryption_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def search_tables_by_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/SearchTablesByLFTags"
     headers = []
@@ -1237,6 +3434,13 @@ defmodule AWS.LakeFormation do
   `GetWorkUnits` operation as soon as the query state is WORKUNITS_AVAILABLE or
   FINISHED.
   """
+  @spec start_query_planning(map(), start_query_planning_request(), list()) ::
+          {:ok, start_query_planning_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, throttled_exception()}
   def start_query_planning(%Client{} = client, input, options \\ []) do
     url_path = "/StartQueryPlanning"
     headers = []
@@ -1262,6 +3466,11 @@ defmodule AWS.LakeFormation do
 
   Transaction IDs are opaque objects that you can use to identify a transaction.
   """
+  @spec start_transaction(map(), start_transaction_request(), list()) ::
+          {:ok, start_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_exception()}
+          | {:error, operation_timeout_exception()}
   def start_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/StartTransaction"
     headers = []
@@ -1285,6 +3494,15 @@ defmodule AWS.LakeFormation do
   @doc """
   Updates a data cell filter.
   """
+  @spec update_data_cells_filter(map(), update_data_cells_filter_request(), list()) ::
+          {:ok, update_data_cells_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def update_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateDataCellsFilter"
     headers = []
@@ -1314,6 +3532,15 @@ defmodule AWS.LakeFormation do
   API errors out with a 400 Exception - "Update not allowed". Untag the attribute
   before deleting the LF-tag key's value.
   """
+  @spec update_l_f_tag(map(), update_l_f_tag_request(), list()) ::
+          {:ok, update_l_f_tag_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def update_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTag"
     headers = []
@@ -1337,6 +3564,19 @@ defmodule AWS.LakeFormation do
   @doc """
   Updates the IAM Identity Center connection parameters.
   """
+  @spec update_lake_formation_identity_center_configuration(
+          map(),
+          update_lake_formation_identity_center_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_lake_formation_identity_center_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def update_lake_formation_identity_center_configuration(
         %Client{} = client,
         input,
@@ -1365,6 +3605,13 @@ defmodule AWS.LakeFormation do
   Updates the data access role used for vending access to the given (registered)
   resource in Lake Formation.
   """
+  @spec update_resource(map(), update_resource_request(), list()) ::
+          {:ok, update_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
   def update_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateResource"
     headers = []
@@ -1389,6 +3636,18 @@ defmodule AWS.LakeFormation do
   Updates the manifest of Amazon S3 objects that make up the specified governed
   table.
   """
+  @spec update_table_objects(map(), update_table_objects_request(), list()) ::
+          {:ok, update_table_objects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
+          | {:error, operation_timeout_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, transaction_canceled_exception()}
+          | {:error, transaction_commit_in_progress_exception()}
+          | {:error, transaction_committed_exception()}
   def update_table_objects(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTableObjects"
     headers = []
@@ -1412,6 +3671,13 @@ defmodule AWS.LakeFormation do
   @doc """
   Updates the configuration of the storage optimizers for a table.
   """
+  @spec update_table_storage_optimizer(map(), update_table_storage_optimizer_request(), list()) ::
+          {:ok, update_table_storage_optimizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, entity_not_found_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, invalid_input_exception()}
   def update_table_storage_optimizer(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTableStorageOptimizer"
     headers = []

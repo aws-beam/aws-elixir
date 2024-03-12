@@ -26,6 +26,1074 @@ defmodule AWS.ManagedBlockchain do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  voting_policy() :: %{
+    "ApprovalThresholdPolicy" => approval_threshold_policy()
+  }
+  """
+  @type voting_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_invitation_output() :: %{
+
+  }
+  """
+  @type reject_invitation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_proposal_output() :: %{
+    "ProposalId" => String.t()
+  }
+  """
+  @type create_proposal_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_node_output() :: %{
+
+  }
+  """
+  @type update_node_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_ethereum_attributes() :: %{
+    "HttpEndpoint" => String.t(),
+    "WebSocketEndpoint" => String.t()
+  }
+  """
+  @type node_ethereum_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("Tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accessor() :: %{
+    "Arn" => String.t(),
+    "BillingToken" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Id" => String.t(),
+    "NetworkType" => list(any()),
+    "Status" => list(any()),
+    "Tags" => map(),
+    "Type" => list(any())
+  }
+  """
+  @type accessor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_proposal_votes_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_proposal_votes_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_fabric_attributes() :: %{
+    "Edition" => list(any()),
+    "OrderingServiceEndpoint" => String.t()
+  }
+  """
+  @type network_fabric_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_proposals_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_proposals_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vote_on_proposal_output() :: %{
+
+  }
+  """
+  @type vote_on_proposal_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_member_input() :: %{
+    required("ClientRequestToken") => String.t(),
+    required("InvitationId") => String.t(),
+    required("MemberConfiguration") => member_configuration()
+  }
+  """
+  @type create_member_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_members_output() :: %{
+    "Members" => list(member_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_members_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  proposal_actions() :: %{
+    "Invitations" => list(invite_action()()),
+    "Removals" => list(remove_action()())
+  }
+  """
+  @type proposal_actions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_framework_configuration() :: %{
+    "Fabric" => network_fabric_configuration()
+  }
+  """
+  @type network_framework_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_proposal_output() :: %{
+    "Proposal" => proposal()
+  }
+  """
+  @type get_proposal_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  approval_threshold_policy() :: %{
+    "ProposalDurationInHours" => integer(),
+    "ThresholdComparator" => list(any()),
+    "ThresholdPercentage" => integer()
+  }
+  """
+  @type approval_threshold_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invitation() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "ExpirationDate" => non_neg_integer(),
+    "InvitationId" => String.t(),
+    "NetworkSummary" => network_summary(),
+    "Status" => list(any())
+  }
+  """
+  @type invitation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_accessor_output() :: %{
+    "Accessor" => accessor()
+  }
+  """
+  @type get_accessor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_accessor_input() :: %{
+
+  }
+  """
+  @type get_accessor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_accessors_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NetworkType") => list(any()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_accessors_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_fabric_log_publishing_configuration() :: %{
+    "ChaincodeLogs" => log_configurations(),
+    "PeerLogs" => log_configurations()
+  }
+  """
+  @type node_fabric_log_publishing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_fabric_attributes() :: %{
+    "PeerEndpoint" => String.t(),
+    "PeerEventEndpoint" => String.t()
+  }
+  """
+  @type node_fabric_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_service_error_exception() :: %{
+
+  }
+  """
+  @type internal_service_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_fabric_configuration() :: %{
+    "Edition" => list(any())
+  }
+  """
+  @type network_fabric_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_networks_input() :: %{
+    optional("Framework") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("Name") => String.t(),
+    optional("NextToken") => String.t(),
+    optional("Status") => list(any())
+  }
+  """
+  @type list_networks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_configuration() :: %{
+    "Description" => String.t(),
+    "FrameworkConfiguration" => member_framework_configuration(),
+    "KmsKeyArn" => String.t(),
+    "LogPublishingConfiguration" => member_log_publishing_configuration(),
+    "Name" => String.t(),
+    "Tags" => map()
+  }
+  """
+  @type member_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_fabric_log_publishing_configuration() :: %{
+    "CaLogs" => log_configurations()
+  }
+  """
+  @type member_fabric_log_publishing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_invitation_input() :: %{
+
+  }
+  """
+  @type reject_invitation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_nodes_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("MemberId") => String.t(),
+    optional("NextToken") => String.t(),
+    optional("Status") => list(any())
+  }
+  """
+  @type list_nodes_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_framework_attributes() :: %{
+    "Fabric" => member_fabric_attributes()
+  }
+  """
+  @type member_framework_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_input() :: %{
+    optional("Description") => String.t(),
+    optional("FrameworkConfiguration") => network_framework_configuration(),
+    optional("Tags") => map(),
+    required("ClientRequestToken") => String.t(),
+    required("Framework") => list(any()),
+    required("FrameworkVersion") => String.t(),
+    required("MemberConfiguration") => member_configuration(),
+    required("Name") => String.t(),
+    required("VotingPolicy") => voting_policy()
+  }
+  """
+  @type create_network_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_member_output() :: %{
+
+  }
+  """
+  @type update_member_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_proposal_input() :: %{
+    optional("Description") => String.t(),
+    optional("Tags") => map(),
+    required("Actions") => proposal_actions(),
+    required("ClientRequestToken") => String.t(),
+    required("MemberId") => String.t()
+  }
+  """
+  @type create_proposal_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_member_output() :: %{
+
+  }
+  """
+  @type delete_member_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_proposal_votes_output() :: %{
+    "NextToken" => String.t(),
+    "ProposalVotes" => list(vote_summary()())
+  }
+  """
+  @type list_proposal_votes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_output() :: %{
+    "Network" => network()
+  }
+  """
+  @type get_network_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_node_input() :: %{
+    optional("LogPublishingConfiguration") => node_log_publishing_configuration(),
+    optional("MemberId") => String.t()
+  }
+  """
+  @type update_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_member_input() :: %{
+
+  }
+  """
+  @type delete_member_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => String.t(),
+    "ResourceName" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_networks_output() :: %{
+    "Networks" => list(network_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_networks_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_member_input() :: %{
+    optional("LogPublishingConfiguration") => member_log_publishing_configuration()
+  }
+  """
+  @type update_member_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  managedblockchain_node() :: %{
+    "Arn" => String.t(),
+    "AvailabilityZone" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "FrameworkAttributes" => node_framework_attributes(),
+    "Id" => String.t(),
+    "InstanceType" => String.t(),
+    "KmsKeyArn" => String.t(),
+    "LogPublishingConfiguration" => node_log_publishing_configuration(),
+    "MemberId" => String.t(),
+    "NetworkId" => String.t(),
+    "StateDB" => list(any()),
+    "Status" => list(any()),
+    "Tags" => map()
+  }
+  """
+  @type managedblockchain_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_request_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_log_publishing_configuration() :: %{
+    "Fabric" => node_fabric_log_publishing_configuration()
+  }
+  """
+  @type node_log_publishing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invite_action() :: %{
+    "Principal" => String.t()
+  }
+  """
+  @type invite_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_limit_exceeded_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_accessor_input() :: %{
+
+  }
+  """
+  @type delete_accessor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "Tags" => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_member_output() :: %{
+    "Member" => member()
+  }
+  """
+  @type get_member_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_fabric_configuration() :: %{
+    "AdminPassword" => String.t(),
+    "AdminUsername" => String.t()
+  }
+  """
+  @type member_fabric_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_members_input() :: %{
+    optional("IsOwned") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("Name") => String.t(),
+    optional("NextToken") => String.t(),
+    optional("Status") => list(any())
+  }
+  """
+  @type list_members_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vote_on_proposal_input() :: %{
+    required("Vote") => list(any()),
+    required("VoterMemberId") => String.t()
+  }
+  """
+  @type vote_on_proposal_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_proposal_input() :: %{
+
+  }
+  """
+  @type get_proposal_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_accessor_output() :: %{
+    "AccessorId" => String.t(),
+    "BillingToken" => String.t(),
+    "NetworkType" => list(any())
+  }
+  """
+  @type create_accessor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accessor_summary() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Id" => String.t(),
+    "NetworkType" => list(any()),
+    "Status" => list(any()),
+    "Type" => list(any())
+  }
+  """
+  @type accessor_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  proposal() :: %{
+    "Actions" => proposal_actions(),
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "ExpirationDate" => non_neg_integer(),
+    "NetworkId" => String.t(),
+    "NoVoteCount" => integer(),
+    "OutstandingVoteCount" => integer(),
+    "ProposalId" => String.t(),
+    "ProposedByMemberId" => String.t(),
+    "ProposedByMemberName" => String.t(),
+    "Status" => list(any()),
+    "Tags" => map(),
+    "YesVoteCount" => integer()
+  }
+  """
+  @type proposal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_node_input() :: %{
+    optional("MemberId") => String.t()
+  }
+  """
+  @type get_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_framework_attributes() :: %{
+    "Ethereum" => network_ethereum_attributes(),
+    "Fabric" => network_fabric_attributes()
+  }
+  """
+  @type network_framework_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_action() :: %{
+    "MemberId" => String.t()
+  }
+  """
+  @type remove_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "Framework" => list(any()),
+    "FrameworkAttributes" => network_framework_attributes(),
+    "FrameworkVersion" => String.t(),
+    "Id" => String.t(),
+    "Name" => String.t(),
+    "Status" => list(any()),
+    "Tags" => map(),
+    "VotingPolicy" => voting_policy(),
+    "VpcEndpointServiceName" => String.t()
+  }
+  """
+  @type network() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  proposal_summary() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "ExpirationDate" => non_neg_integer(),
+    "ProposalId" => String.t(),
+    "ProposedByMemberId" => String.t(),
+    "ProposedByMemberName" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type proposal_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_summary() :: %{
+    "Arn" => String.t(),
+    "AvailabilityZone" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Id" => String.t(),
+    "InstanceType" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type node_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_node_input() :: %{
+    optional("MemberId") => String.t()
+  }
+  """
+  @type delete_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_accessor_input() :: %{
+    optional("NetworkType") => list(any()),
+    optional("Tags") => map(),
+    required("AccessorType") => list(any()),
+    required("ClientRequestToken") => String.t()
+  }
+  """
+  @type create_accessor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_input() :: %{
+
+  }
+  """
+  @type get_network_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_invitations_output() :: %{
+    "Invitations" => list(invitation()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_invitations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_accessor_output() :: %{
+
+  }
+  """
+  @type delete_accessor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_ethereum_attributes() :: %{
+    "ChainId" => String.t()
+  }
+  """
+  @type network_ethereum_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "FrameworkAttributes" => member_framework_attributes(),
+    "Id" => String.t(),
+    "KmsKeyArn" => String.t(),
+    "LogPublishingConfiguration" => member_log_publishing_configuration(),
+    "Name" => String.t(),
+    "NetworkId" => String.t(),
+    "Status" => list(any()),
+    "Tags" => map()
+  }
+  """
+  @type member() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_node_output() :: %{
+    "NodeId" => String.t()
+  }
+  """
+  @type create_node_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_summary() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "Framework" => list(any()),
+    "FrameworkVersion" => String.t(),
+    "Id" => String.t(),
+    "Name" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type network_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_summary() :: %{
+    "Arn" => String.t(),
+    "CreationDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "Id" => String.t(),
+    "IsOwned" => boolean(),
+    "Name" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type member_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_configuration() :: %{
+    "AvailabilityZone" => String.t(),
+    "InstanceType" => String.t(),
+    "LogPublishingConfiguration" => node_log_publishing_configuration(),
+    "StateDB" => list(any())
+  }
+  """
+  @type node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_member_input() :: %{
+
+  }
+  """
+  @type get_member_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_fabric_attributes() :: %{
+    "AdminUsername" => String.t(),
+    "CaEndpoint" => String.t()
+  }
+  """
+  @type member_fabric_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  log_configurations() :: %{
+    "Cloudwatch" => log_configuration()
+  }
+  """
+  @type log_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_invitations_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_invitations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_already_exists_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_node_input() :: %{
+    optional("MemberId") => String.t(),
+    optional("Tags") => map(),
+    required("ClientRequestToken") => String.t(),
+    required("NodeConfiguration") => node_configuration()
+  }
+  """
+  @type create_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  log_configuration() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type log_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  illegal_action_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type illegal_action_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_log_publishing_configuration() :: %{
+    "Fabric" => member_fabric_log_publishing_configuration()
+  }
+  """
+  @type member_log_publishing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_nodes_output() :: %{
+    "NextToken" => String.t(),
+    "Nodes" => list(node_summary()())
+  }
+  """
+  @type list_nodes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_ready_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_member_output() :: %{
+    "MemberId" => String.t()
+  }
+  """
+  @type create_member_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_node_output() :: %{
+
+  }
+  """
+  @type delete_node_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_accessors_output() :: %{
+    "Accessors" => list(accessor_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_accessors_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  node_framework_attributes() :: %{
+    "Ethereum" => node_ethereum_attributes(),
+    "Fabric" => node_fabric_attributes()
+  }
+  """
+  @type node_framework_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tags_exception() :: %{
+    "Message" => String.t(),
+    "ResourceName" => String.t()
+  }
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_output() :: %{
+    "MemberId" => String.t(),
+    "NetworkId" => String.t()
+  }
+  """
+  @type create_network_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_proposals_output() :: %{
+    "NextToken" => String.t(),
+    "Proposals" => list(proposal_summary()())
+  }
+  """
+  @type list_proposals_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_node_output() :: %{
+    "Node" => managedblockchain_node()
+  }
+  """
+  @type get_node_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_framework_configuration() :: %{
+    "Fabric" => member_fabric_configuration()
+  }
+  """
+  @type member_framework_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vote_summary() :: %{
+    "MemberId" => String.t(),
+    "MemberName" => String.t(),
+    "Vote" => list(any())
+  }
+  """
+  @type vote_summary() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2018-09-24",
@@ -47,6 +1115,16 @@ defmodule AWS.ManagedBlockchain do
 
   The accessor contains information required for token based access.
   """
+  @spec create_accessor(map(), create_accessor_input(), list()) ::
+          {:ok, create_accessor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, too_many_tags_exception()}
   def create_accessor(%Client{} = client, input, options \\ []) do
     url_path = "/accessors"
     headers = []
@@ -72,6 +1150,18 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec create_member(map(), String.t(), create_member_input(), list()) ::
+          {:ok, create_member_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, throttling_exception()}
+          | {:error, too_many_tags_exception()}
   def create_member(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
     headers = []
@@ -97,6 +1187,16 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec create_network(map(), create_network_input(), list()) ::
+          {:ok, create_network_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, too_many_tags_exception()}
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/networks"
     headers = []
@@ -122,6 +1222,18 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
+  @spec create_node(map(), String.t(), create_node_input(), list()) ::
+          {:ok, create_node_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, throttling_exception()}
+          | {:error, too_many_tags_exception()}
   def create_node(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
     headers = []
@@ -150,6 +1262,16 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec create_proposal(map(), String.t(), create_proposal_input(), list()) ::
+          {:ok, create_proposal_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, throttling_exception()}
+          | {:error, too_many_tags_exception()}
   def create_proposal(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
     headers = []
@@ -184,6 +1306,14 @@ defmodule AWS.ManagedBlockchain do
   accessor was in the
   `AVAILABLE` state remain open until they expire (up to 2 hours).
   """
+  @spec delete_accessor(map(), String.t(), delete_accessor_input(), list()) ::
+          {:ok, delete_accessor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def delete_accessor(%Client{} = client, accessor_id, input, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
     headers = []
@@ -217,6 +1347,15 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec delete_member(map(), String.t(), String.t(), delete_member_input(), list()) ::
+          {:ok, delete_member_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, throttling_exception()}
   def delete_member(%Client{} = client, member_id, network_id, input, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
@@ -246,6 +1385,15 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
+  @spec delete_node(map(), String.t(), String.t(), delete_node_input(), list()) ::
+          {:ok, delete_node_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, throttling_exception()}
   def delete_node(%Client{} = client, network_id, node_id, input, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -279,6 +1427,14 @@ defmodule AWS.ManagedBlockchain do
   An accessor object is a container that has the
   information required for token based access to your Ethereum nodes.
   """
+  @spec get_accessor(map(), String.t(), list()) ::
+          {:ok, get_accessor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def get_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
     headers = []
@@ -294,6 +1450,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec get_member(map(), String.t(), String.t(), list()) ::
+          {:ok, get_member_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def get_member(%Client{} = client, member_id, network_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
@@ -311,6 +1475,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
+  @spec get_network(map(), String.t(), list()) ::
+          {:ok, get_network_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def get_network(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}"
     headers = []
@@ -326,6 +1498,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
+  @spec get_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_node_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def get_node(%Client{} = client, network_id, node_id, member_id \\ nil, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -350,6 +1530,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec get_proposal(map(), String.t(), String.t(), list()) ::
+          {:ok, get_proposal_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def get_proposal(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}"
@@ -368,6 +1556,13 @@ defmodule AWS.ManagedBlockchain do
   Accessor objects are containers that have the
   information required for token based access to your Ethereum nodes.
   """
+  @spec list_accessors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_accessors_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, throttling_exception()}
   def list_accessors(
         %Client{} = client,
         max_results \\ nil,
@@ -410,6 +1605,15 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_invitations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
     headers = []
@@ -440,6 +1644,22 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec list_members(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_members_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, throttling_exception()}
   def list_members(
         %Client{} = client,
         network_id,
@@ -500,6 +1720,21 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
+  @spec list_networks(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_networks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, throttling_exception()}
   def list_networks(
         %Client{} = client,
         framework \\ nil,
@@ -558,6 +1793,21 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
+  @spec list_nodes(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_nodes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, throttling_exception()}
   def list_nodes(
         %Client{} = client,
         network_id,
@@ -610,6 +1860,20 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec list_proposal_votes(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_proposal_votes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, throttling_exception()}
   def list_proposal_votes(
         %Client{} = client,
         network_id,
@@ -648,6 +1912,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec list_proposals(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_proposals_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def list_proposals(
         %Client{} = client,
         network_id,
@@ -687,6 +1959,13 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -705,6 +1984,15 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec reject_invitation(map(), String.t(), reject_invitation_input(), list()) ::
+          {:ok, reject_invitation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, illegal_action_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def reject_invitation(%Client{} = client, invitation_id, input, options \\ []) do
     url_path = "/invitations/#{AWS.Util.encode_uri(invitation_id)}"
     headers = []
@@ -741,6 +2029,14 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, too_many_tags_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -768,6 +2064,13 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -798,6 +2101,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec update_member(map(), String.t(), String.t(), update_member_input(), list()) ::
+          {:ok, update_member_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def update_member(%Client{} = client, member_id, network_id, input, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
@@ -825,6 +2136,14 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec update_node(map(), String.t(), String.t(), update_node_input(), list()) ::
+          {:ok, update_node_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def update_node(%Client{} = client, network_id, node_id, input, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -855,6 +2174,15 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
+  @spec vote_on_proposal(map(), String.t(), String.t(), vote_on_proposal_input(), list()) ::
+          {:ok, vote_on_proposal_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, illegal_action_exception()}
+          | {:error, internal_service_error_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def vote_on_proposal(%Client{} = client, network_id, proposal_id, input, options \\ []) do
     url_path =
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"

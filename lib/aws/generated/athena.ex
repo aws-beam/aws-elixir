@@ -25,6 +25,2174 @@ defmodule AWS.Athena do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  get_notebook_metadata_input() :: %{
+    required("NotebookId") => String.t()
+  }
+  """
+  @type get_notebook_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_stage_plan_node() :: %{
+    "Children" => list(query_stage_plan_node()()),
+    "Identifier" => String.t(),
+    "Name" => String.t(),
+    "RemoteSources" => list(String.t()())
+  }
+  """
+  @type query_stage_plan_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  named_query() :: %{
+    "Database" => String.t(),
+    "Description" => String.t(),
+    "Name" => String.t(),
+    "NamedQueryId" => String.t(),
+    "QueryString" => String.t(),
+    "WorkGroup" => String.t()
+  }
+  """
+  @type named_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_catalog_summary() :: %{
+    "CatalogName" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type data_catalog_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_data_catalog_input() :: %{
+    required("Name") => String.t()
+  }
+  """
+  @type delete_data_catalog_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_query_execution_output() :: %{
+
+  }
+  """
+  @type stop_query_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_prepared_statement_input() :: %{
+    optional("Description") => String.t(),
+    required("QueryStatement") => String.t(),
+    required("StatementName") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type update_prepared_statement_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  metadata_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type metadata_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_notebook_metadata_input() :: %{
+    optional("ClientRequestToken") => String.t(),
+    required("Name") => String.t(),
+    required("NotebookId") => String.t()
+  }
+  """
+  @type update_notebook_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  encryption_configuration() :: %{
+    "EncryptionOption" => list(any()),
+    "KmsKey" => String.t()
+  }
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_data_catalog_output() :: %{
+    "DataCatalog" => data_catalog()
+  }
+  """
+  @type get_data_catalog_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation() :: %{
+    "AllocatedDpus" => integer(),
+    "CreationTime" => non_neg_integer(),
+    "LastAllocation" => capacity_allocation(),
+    "LastSuccessfulAllocationTime" => non_neg_integer(),
+    "Name" => String.t(),
+    "Status" => list(any()),
+    "TargetDpus" => integer()
+  }
+  """
+  @type capacity_reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_set_metadata() :: %{
+    "ColumnInfo" => list(column_info()())
+  }
+  """
+  @type result_set_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_prepared_statement_input() :: %{
+    required("StatementName") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type get_prepared_statement_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  database() :: %{
+    "Description" => String.t(),
+    "Name" => String.t(),
+    "Parameters" => map()
+  }
+  """
+  @type database() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  session_summary() :: %{
+    "Description" => String.t(),
+    "EngineVersion" => engine_version(),
+    "NotebookVersion" => String.t(),
+    "SessionId" => String.t(),
+    "Status" => session_status()
+  }
+  """
+  @type session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_calculation_execution_status_request() :: %{
+    required("CalculationExecutionId") => String.t()
+  }
+  """
+  @type get_calculation_execution_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_session_response() :: %{
+    "Description" => String.t(),
+    "EngineConfiguration" => engine_configuration(),
+    "EngineVersion" => String.t(),
+    "NotebookVersion" => String.t(),
+    "SessionConfiguration" => session_configuration(),
+    "SessionId" => String.t(),
+    "Statistics" => session_statistics(),
+    "Status" => session_status(),
+    "WorkGroup" => String.t()
+  }
+  """
+  @type get_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_results_output() :: %{
+    "NextToken" => String.t(),
+    "ResultSet" => result_set(),
+    "UpdateCount" => float()
+  }
+  """
+  @type get_query_results_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_notebook_metadata_output() :: %{
+    "NotebookMetadata" => notebook_metadata()
+  }
+  """
+  @type get_notebook_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_notebook_sessions_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("NotebookId") => String.t()
+  }
+  """
+  @type list_notebook_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_notebook_metadata_output() :: %{
+    "NextToken" => String.t(),
+    "NotebookMetadataList" => list(notebook_metadata()())
+  }
+  """
+  @type list_notebook_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_work_group_output() :: %{
+
+  }
+  """
+  @type create_work_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_session_request() :: %{
+    optional("ClientRequestToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("NotebookVersion") => String.t(),
+    optional("SessionIdleTimeoutInMinutes") => integer(),
+    required("EngineConfiguration") => engine_configuration(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type start_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_prepared_statement_output() :: %{
+
+  }
+  """
+  @type delete_prepared_statement_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_capacity_reservation_input() :: %{
+    required("Name") => String.t()
+  }
+  """
+  @type get_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_notebook_output() :: %{
+
+  }
+  """
+  @type update_notebook_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_configuration_updates() :: %{
+    "AclConfiguration" => acl_configuration(),
+    "EncryptionConfiguration" => encryption_configuration(),
+    "ExpectedBucketOwner" => String.t(),
+    "OutputLocation" => String.t(),
+    "RemoveAclConfiguration" => boolean(),
+    "RemoveEncryptionConfiguration" => boolean(),
+    "RemoveExpectedBucketOwner" => boolean(),
+    "RemoveOutputLocation" => boolean()
+  }
+  """
+  @type result_configuration_updates() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  engine_version() :: %{
+    "EffectiveEngineVersion" => String.t(),
+    "SelectedEngineVersion" => String.t()
+  }
+  """
+  @type engine_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  engine_configuration() :: %{
+    "AdditionalConfigs" => map(),
+    "CoordinatorDpuSize" => integer(),
+    "DefaultExecutorDpuSize" => integer(),
+    "MaxConcurrentDpus" => integer(),
+    "SparkProperties" => map()
+  }
+  """
+  @type engine_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_capacity_assignment_configuration_input() :: %{
+    required("CapacityReservationName") => String.t()
+  }
+  """
+  @type get_capacity_assignment_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_prepared_statement_input() :: %{
+    optional("Description") => String.t(),
+    required("QueryStatement") => String.t(),
+    required("StatementName") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type create_prepared_statement_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_execution_input() :: %{
+    required("QueryExecutionId") => String.t()
+  }
+  """
+  @type get_query_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_reuse_information() :: %{
+    "ReusedPreviousResult" => boolean()
+  }
+  """
+  @type result_reuse_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_calculation_execution_response() :: %{
+    "State" => list(any())
+  }
+  """
+  @type stop_calculation_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_runtime_statistics() :: %{
+    "OutputStage" => query_stage(),
+    "Rows" => query_runtime_statistics_rows(),
+    "Timeline" => query_runtime_statistics_timeline()
+  }
+  """
+  @type query_runtime_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  column() :: %{
+    "Comment" => String.t(),
+    "Name" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  athena_error() :: %{
+    "ErrorCategory" => integer(),
+    "ErrorMessage" => String.t(),
+    "ErrorType" => integer(),
+    "Retryable" => boolean()
+  }
+  """
+  @type athena_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_table_metadata_input() :: %{
+    optional("Expression") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("WorkGroup") => String.t(),
+    required("CatalogName") => String.t(),
+    required("DatabaseName") => String.t()
+  }
+  """
+  @type list_table_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_application_d_p_u_sizes_output() :: %{
+    "ApplicationDPUSizes" => list(application_d_p_u_sizes()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_application_d_p_u_sizes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_notebook_metadata_output() :: %{
+
+  }
+  """
+  @type update_notebook_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_group() :: %{
+    "Configuration" => work_group_configuration(),
+    "CreationTime" => non_neg_integer(),
+    "Description" => String.t(),
+    "IdentityCenterApplicationArn" => String.t(),
+    "Name" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type work_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_work_group_output() :: %{
+
+  }
+  """
+  @type update_work_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  datum() :: %{
+    "VarCharValue" => String.t()
+  }
+  """
+  @type datum() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_named_query_output() :: %{
+
+  }
+  """
+  @type update_named_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_capacity_assignment_configuration_input() :: %{
+    required("CapacityAssignments") => list(capacity_assignment()()),
+    required("CapacityReservationName") => String.t()
+  }
+  """
+  @type put_capacity_assignment_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_notebook_input() :: %{
+    optional("ClientRequestToken") => String.t(),
+    required("Name") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type create_notebook_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_query_execution_input() :: %{
+    required("QueryExecutionId") => String.t()
+  }
+  """
+  @type stop_query_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_notebook_output() :: %{
+    "NotebookMetadata" => notebook_metadata(),
+    "Payload" => String.t()
+  }
+  """
+  @type export_notebook_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_calculation_execution_status_response() :: %{
+    "Statistics" => calculation_statistics(),
+    "Status" => calculation_status()
+  }
+  """
+  @type get_calculation_execution_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_capacity_reservations_output() :: %{
+    "CapacityReservations" => list(capacity_reservation()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_capacity_reservations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_execution_output() :: %{
+    "QueryExecution" => query_execution()
+  }
+  """
+  @type get_query_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_named_query_input() :: %{
+    required("NamedQueryId") => String.t()
+  }
+  """
+  @type get_named_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  notebook_session_summary() :: %{
+    "CreationTime" => non_neg_integer(),
+    "SessionId" => String.t()
+  }
+  """
+  @type notebook_session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_assignment_configuration() :: %{
+    "CapacityAssignments" => list(capacity_assignment()()),
+    "CapacityReservationName" => String.t()
+  }
+  """
+  @type capacity_assignment_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_named_query_input() :: %{
+    required("NamedQueryIds") => list(String.t()())
+  }
+  """
+  @type batch_get_named_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_requests_exception() :: %{
+    "Message" => String.t(),
+    "Reason" => list(any())
+  }
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  calculation_statistics() :: %{
+    "DpuExecutionInMillis" => float(),
+    "Progress" => String.t()
+  }
+  """
+  @type calculation_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_output() :: %{
+    "NextToken" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prepared_statement_summary() :: %{
+    "LastModifiedTime" => non_neg_integer(),
+    "StatementName" => String.t()
+  }
+  """
+  @type prepared_statement_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_session_request() :: %{
+    required("SessionId") => String.t()
+  }
+  """
+  @type get_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_notebook_output() :: %{
+
+  }
+  """
+  @type delete_notebook_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_prepared_statements_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type list_prepared_statements_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  session_configuration() :: %{
+    "EncryptionConfiguration" => encryption_configuration(),
+    "ExecutionRole" => String.t(),
+    "IdleTimeoutSeconds" => float(),
+    "WorkingDirectory" => String.t()
+  }
+  """
+  @type session_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_input() :: %{
+    required("Name") => String.t()
+  }
+  """
+  @type cancel_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_catalog() :: %{
+    "Description" => String.t(),
+    "Name" => String.t(),
+    "Parameters" => map(),
+    "Type" => list(any())
+  }
+  """
+  @type data_catalog() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_prepared_statement_output() :: %{
+
+  }
+  """
+  @type create_prepared_statement_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_reuse_configuration() :: %{
+    "ResultReuseByAgeConfiguration" => result_reuse_by_age_configuration()
+  }
+  """
+  @type result_reuse_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_calculation_execution_response() :: %{
+    "CalculationExecutionId" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type start_calculation_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_prepared_statement_input() :: %{
+    required("PreparedStatementNames") => list(String.t()()),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type batch_get_prepared_statement_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_notebook_input() :: %{
+    required("NotebookId") => String.t()
+  }
+  """
+  @type export_notebook_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_calculation_executions_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StateFilter") => list(any()),
+    required("SessionId") => String.t()
+  }
+  """
+  @type list_calculation_executions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_session_request() :: %{
+    required("SessionId") => String.t()
+  }
+  """
+  @type terminate_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_data_catalog_input() :: %{
+    optional("Description") => String.t(),
+    optional("Parameters") => map(),
+    optional("Tags") => list(tag()()),
+    required("Name") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type create_data_catalog_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_databases_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("WorkGroup") => String.t(),
+    required("CatalogName") => String.t()
+  }
+  """
+  @type list_databases_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_capacity_assignment_configuration_output() :: %{
+    "CapacityAssignmentConfiguration" => capacity_assignment_configuration()
+  }
+  """
+  @type get_capacity_assignment_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_capacity_reservation_input() :: %{
+    required("Name") => String.t(),
+    required("TargetDpus") => integer()
+  }
+  """
+  @type update_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unprocessed_query_execution_id() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "QueryExecutionId" => String.t()
+  }
+  """
+  @type unprocessed_query_execution_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_session_response() :: %{
+    "State" => list(any())
+  }
+  """
+  @type terminate_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_named_queries_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("WorkGroup") => String.t()
+  }
+  """
+  @type list_named_queries_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_named_query_input() :: %{
+    optional("ClientRequestToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("WorkGroup") => String.t(),
+    required("Database") => String.t(),
+    required("Name") => String.t(),
+    required("QueryString") => String.t()
+  }
+  """
+  @type create_named_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_metadata() :: %{
+    "Columns" => list(column()()),
+    "CreateTime" => non_neg_integer(),
+    "LastAccessTime" => non_neg_integer(),
+    "Name" => String.t(),
+    "Parameters" => map(),
+    "PartitionKeys" => list(column()()),
+    "TableType" => String.t()
+  }
+  """
+  @type table_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sessions_response() :: %{
+    "NextToken" => String.t(),
+    "Sessions" => list(session_summary()())
+  }
+  """
+  @type list_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => String.t(),
+    "ResourceName" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_database_output() :: %{
+    "Database" => database()
+  }
+  """
+  @type get_database_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_named_query_input() :: %{
+    optional("Description") => String.t(),
+    required("Name") => String.t(),
+    required("NamedQueryId") => String.t(),
+    required("QueryString") => String.t()
+  }
+  """
+  @type update_named_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  calculation_configuration() :: %{
+    "CodeBlock" => String.t()
+  }
+  """
+  @type calculation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_table_metadata_output() :: %{
+    "NextToken" => String.t(),
+    "TableMetadataList" => list(table_metadata()())
+  }
+  """
+  @type list_table_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  application_d_p_u_sizes() :: %{
+    "ApplicationRuntimeId" => String.t(),
+    "SupportedDPUSizes" => list(integer()())
+  }
+  """
+  @type application_d_p_u_sizes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_execution_context() :: %{
+    "Catalog" => String.t(),
+    "Database" => String.t()
+  }
+  """
+  @type query_execution_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_request_exception() :: %{
+    "AthenaErrorCode" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_assignment() :: %{
+    "WorkGroupNames" => list(String.t()())
+  }
+  """
+  @type capacity_assignment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  calculation_result() :: %{
+    "ResultS3Uri" => String.t(),
+    "ResultType" => String.t(),
+    "StdErrorS3Uri" => String.t(),
+    "StdOutS3Uri" => String.t()
+  }
+  """
+  @type calculation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  row() :: %{
+    "Data" => list(datum()())
+  }
+  """
+  @type row() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_capacity_reservation_output() :: %{
+
+  }
+  """
+  @type update_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_databases_output() :: %{
+    "DatabaseList" => list(database()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_databases_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_data_catalog_input() :: %{
+    optional("WorkGroup") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type get_data_catalog_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_notebook_sessions_response() :: %{
+    "NextToken" => String.t(),
+    "NotebookSessionsList" => list(notebook_session_summary()())
+  }
+  """
+  @type list_notebook_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_stage() :: %{
+    "ExecutionTime" => float(),
+    "InputBytes" => float(),
+    "InputRows" => float(),
+    "OutputBytes" => float(),
+    "OutputRows" => float(),
+    "QueryStagePlan" => query_stage_plan_node(),
+    "StageId" => float(),
+    "State" => String.t(),
+    "SubStages" => list(query_stage()())
+  }
+  """
+  @type query_stage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_executors_response() :: %{
+    "ExecutorsSummary" => list(executors_summary()()),
+    "NextToken" => String.t(),
+    "SessionId" => String.t()
+  }
+  """
+  @type list_executors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_capacity_reservation_input() :: %{
+    required("Name") => String.t()
+  }
+  """
+  @type delete_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_notebook_output() :: %{
+    "NotebookId" => String.t()
+  }
+  """
+  @type create_notebook_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_capacity_reservations_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_capacity_reservations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_execution() :: %{
+    "EngineVersion" => engine_version(),
+    "ExecutionParameters" => list(String.t()()),
+    "Query" => String.t(),
+    "QueryExecutionContext" => query_execution_context(),
+    "QueryExecutionId" => String.t(),
+    "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
+    "ResultConfiguration" => result_configuration(),
+    "ResultReuseConfiguration" => result_reuse_configuration(),
+    "StatementType" => list(any()),
+    "Statistics" => query_execution_statistics(),
+    "Status" => query_execution_status(),
+    "SubstatementType" => String.t(),
+    "WorkGroup" => String.t()
+  }
+  """
+  @type query_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_table_metadata_output() :: %{
+    "TableMetadata" => table_metadata()
+  }
+  """
+  @type get_table_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_capacity_reservation_input() :: %{
+    optional("Tags") => list(tag()()),
+    required("Name") => String.t(),
+    required("TargetDpus") => integer()
+  }
+  """
+  @type create_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_data_catalog_output() :: %{
+
+  }
+  """
+  @type delete_data_catalog_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_notebook_input() :: %{
+    optional("ClientRequestToken") => String.t(),
+    optional("SessionId") => String.t(),
+    required("NotebookId") => String.t(),
+    required("Payload") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type update_notebook_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_named_query_output() :: %{
+    "NamedQueries" => list(named_query()()),
+    "UnprocessedNamedQueryIds" => list(unprocessed_named_query_id()())
+  }
+  """
+  @type batch_get_named_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_database_input() :: %{
+    optional("WorkGroup") => String.t(),
+    required("CatalogName") => String.t(),
+    required("DatabaseName") => String.t()
+  }
+  """
+  @type get_database_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sessions_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StateFilter") => list(any()),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type list_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_calculation_execution_response() :: %{
+    "CalculationExecutionId" => String.t(),
+    "Description" => String.t(),
+    "Result" => calculation_result(),
+    "SessionId" => String.t(),
+    "Statistics" => calculation_statistics(),
+    "Status" => calculation_status(),
+    "WorkingDirectory" => String.t()
+  }
+  """
+  @type get_calculation_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prepared_statement() :: %{
+    "Description" => String.t(),
+    "LastModifiedTime" => non_neg_integer(),
+    "QueryStatement" => String.t(),
+    "StatementName" => String.t(),
+    "WorkGroupName" => String.t()
+  }
+  """
+  @type prepared_statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_work_group_output() :: %{
+    "WorkGroup" => work_group()
+  }
+  """
+  @type get_work_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_work_group_output() :: %{
+
+  }
+  """
+  @type delete_work_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_work_group_input() :: %{
+    optional("Configuration") => work_group_configuration(),
+    optional("Description") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("Name") => String.t()
+  }
+  """
+  @type create_work_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_input() :: %{
+    required("ResourceARN") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_query_execution_input() :: %{
+    required("QueryExecutionIds") => list(String.t()())
+  }
+  """
+  @type batch_get_query_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_application_d_p_u_sizes_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_application_d_p_u_sizes_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_data_catalog_output() :: %{
+
+  }
+  """
+  @type create_data_catalog_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_runtime_statistics_input() :: %{
+    required("QueryExecutionId") => String.t()
+  }
+  """
+  @type get_query_runtime_statistics_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unprocessed_prepared_statement_name() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "StatementName" => String.t()
+  }
+  """
+  @type unprocessed_prepared_statement_name() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_allocation() :: %{
+    "RequestCompletionTime" => non_neg_integer(),
+    "RequestTime" => non_neg_integer(),
+    "Status" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type capacity_allocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_execution_status() :: %{
+    "AthenaError" => athena_error(),
+    "CompletionDateTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateChangeReason" => String.t(),
+    "SubmissionDateTime" => non_neg_integer()
+  }
+  """
+  @type query_execution_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  executors_summary() :: %{
+    "ExecutorId" => String.t(),
+    "ExecutorSize" => float(),
+    "ExecutorState" => list(any()),
+    "ExecutorType" => list(any()),
+    "StartDateTime" => float(),
+    "TerminationDateTime" => float()
+  }
+  """
+  @type executors_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_output() :: %{
+
+  }
+  """
+  @type tag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_work_group_input() :: %{
+    optional("ConfigurationUpdates") => work_group_configuration_updates(),
+    optional("Description") => String.t(),
+    optional("State") => list(any()),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type update_work_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_capacity_assignment_configuration_output() :: %{
+
+  }
+  """
+  @type put_capacity_assignment_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_data_catalog_input() :: %{
+    optional("Description") => String.t(),
+    optional("Parameters") => map(),
+    required("Name") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type update_data_catalog_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_calculation_execution_code_response() :: %{
+    "CodeBlock" => String.t()
+  }
+  """
+  @type get_calculation_execution_code_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_group_configuration() :: %{
+    "AdditionalConfiguration" => String.t(),
+    "BytesScannedCutoffPerQuery" => float(),
+    "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
+    "EnableMinimumEncryptionConfiguration" => boolean(),
+    "EnforceWorkGroupConfiguration" => boolean(),
+    "EngineVersion" => engine_version(),
+    "ExecutionRole" => String.t(),
+    "IdentityCenterConfiguration" => identity_center_configuration(),
+    "PublishCloudWatchMetricsEnabled" => boolean(),
+    "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
+    "RequesterPaysEnabled" => boolean(),
+    "ResultConfiguration" => result_configuration()
+  }
+  """
+  @type work_group_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_calculation_execution_request() :: %{
+    required("CalculationExecutionId") => String.t()
+  }
+  """
+  @type get_calculation_execution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_group_configuration_updates() :: %{
+    "AdditionalConfiguration" => String.t(),
+    "BytesScannedCutoffPerQuery" => float(),
+    "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
+    "EnableMinimumEncryptionConfiguration" => boolean(),
+    "EnforceWorkGroupConfiguration" => boolean(),
+    "EngineVersion" => engine_version(),
+    "ExecutionRole" => String.t(),
+    "PublishCloudWatchMetricsEnabled" => boolean(),
+    "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
+    "RemoveBytesScannedCutoffPerQuery" => boolean(),
+    "RemoveCustomerContentEncryptionConfiguration" => boolean(),
+    "RequesterPaysEnabled" => boolean(),
+    "ResultConfigurationUpdates" => result_configuration_updates()
+  }
+  """
+  @type work_group_configuration_updates() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_work_group_input() :: %{
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type get_work_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_query_execution_input() :: %{
+    optional("ClientRequestToken") => String.t(),
+    optional("ExecutionParameters") => list(String.t()()),
+    optional("QueryExecutionContext") => query_execution_context(),
+    optional("ResultConfiguration") => result_configuration(),
+    optional("ResultReuseConfiguration") => result_reuse_configuration(),
+    optional("WorkGroup") => String.t(),
+    required("QueryString") => String.t()
+  }
+  """
+  @type start_query_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_query_executions_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("WorkGroup") => String.t()
+  }
+  """
+  @type list_query_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_prepared_statement_output() :: %{
+
+  }
+  """
+  @type update_prepared_statement_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_session_response() :: %{
+    "SessionId" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type start_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_data_catalog_output() :: %{
+
+  }
+  """
+  @type update_data_catalog_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_capacity_reservation_output() :: %{
+    "CapacityReservation" => capacity_reservation()
+  }
+  """
+  @type get_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_configuration() :: %{
+    "AclConfiguration" => acl_configuration(),
+    "EncryptionConfiguration" => encryption_configuration(),
+    "ExpectedBucketOwner" => String.t(),
+    "OutputLocation" => String.t()
+  }
+  """
+  @type result_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_calculation_execution_code_request() :: %{
+    required("CalculationExecutionId") => String.t()
+  }
+  """
+  @type get_calculation_execution_code_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_runtime_statistics_rows() :: %{
+    "InputBytes" => float(),
+    "InputRows" => float(),
+    "OutputBytes" => float(),
+    "OutputRows" => float()
+  }
+  """
+  @type query_runtime_statistics_rows() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_notebook_input() :: %{
+    optional("ClientRequestToken") => String.t(),
+    optional("NotebookS3LocationUri") => String.t(),
+    optional("Payload") => String.t(),
+    required("Name") => String.t(),
+    required("Type") => list(any()),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type import_notebook_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_input() :: %{
+    required("ResourceARN") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter_definition() :: %{
+    "Name" => String.t()
+  }
+  """
+  @type filter_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_presigned_notebook_url_response() :: %{
+    "AuthToken" => String.t(),
+    "AuthTokenExpirationTime" => float(),
+    "NotebookUrl" => String.t()
+  }
+  """
+  @type create_presigned_notebook_url_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_runtime_statistics_output() :: %{
+    "QueryRuntimeStatistics" => query_runtime_statistics()
+  }
+  """
+  @type get_query_runtime_statistics_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_notebook_output() :: %{
+    "NotebookId" => String.t()
+  }
+  """
+  @type import_notebook_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_reuse_by_age_configuration() :: %{
+    "Enabled" => boolean(),
+    "MaxAgeInMinutes" => integer()
+  }
+  """
+  @type result_reuse_by_age_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_prepared_statement_input() :: %{
+    required("StatementName") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type delete_prepared_statement_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_calculation_executions_response() :: %{
+    "Calculations" => list(calculation_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_calculation_executions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  result_set() :: %{
+    "ResultSetMetadata" => result_set_metadata(),
+    "Rows" => list(row()())
+  }
+  """
+  @type result_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_query_results_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("QueryExecutionId") => String.t()
+  }
+  """
+  @type get_query_results_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ResourceARN") => String.t()
+  }
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_output() :: %{
+
+  }
+  """
+  @type untag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_session_status_response() :: %{
+    "SessionId" => String.t(),
+    "Status" => session_status()
+  }
+  """
+  @type get_session_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  identity_center_configuration() :: %{
+    "EnableIdentityCenter" => boolean(),
+    "IdentityCenterInstanceArn" => String.t()
+  }
+  """
+  @type identity_center_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_calculation_execution_request() :: %{
+    required("CalculationExecutionId") => String.t()
+  }
+  """
+  @type stop_calculation_execution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_results_s3_access_grants_configuration() :: %{
+    "AuthenticationType" => list(any()),
+    "CreateUserLevelPrefix" => boolean(),
+    "EnableS3AccessGrants" => boolean()
+  }
+  """
+  @type query_results_s3_access_grants_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_presigned_notebook_url_request() :: %{
+    required("SessionId") => String.t()
+  }
+  """
+  @type create_presigned_notebook_url_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  calculation_summary() :: %{
+    "CalculationExecutionId" => String.t(),
+    "Description" => String.t(),
+    "Status" => calculation_status()
+  }
+  """
+  @type calculation_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_work_groups_output() :: %{
+    "NextToken" => String.t(),
+    "WorkGroups" => list(work_group_summary()())
+  }
+  """
+  @type list_work_groups_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_prepared_statement_output() :: %{
+    "PreparedStatements" => list(prepared_statement()()),
+    "UnprocessedPreparedStatementNames" => list(unprocessed_prepared_statement_name()())
+  }
+  """
+  @type batch_get_prepared_statement_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_runtime_statistics_timeline() :: %{
+    "EngineExecutionTimeInMillis" => float(),
+    "QueryPlanningTimeInMillis" => float(),
+    "QueryQueueTimeInMillis" => float(),
+    "ServicePreProcessingTimeInMillis" => float(),
+    "ServiceProcessingTimeInMillis" => float(),
+    "TotalExecutionTimeInMillis" => float()
+  }
+  """
+  @type query_runtime_statistics_timeline() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_data_catalogs_output() :: %{
+    "DataCatalogsSummary" => list(data_catalog_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_data_catalogs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_notebook_input() :: %{
+    required("NotebookId") => String.t()
+  }
+  """
+  @type delete_notebook_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_query_execution_output() :: %{
+    "QueryExecutionId" => String.t()
+  }
+  """
+  @type start_query_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_executors_request() :: %{
+    optional("ExecutorStateFilter") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("SessionId") => String.t()
+  }
+  """
+  @type list_executors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_named_query_input() :: %{
+    required("NamedQueryId") => String.t()
+  }
+  """
+  @type delete_named_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unprocessed_named_query_id() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "NamedQueryId" => String.t()
+  }
+  """
+  @type unprocessed_named_query_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_group_summary() :: %{
+    "CreationTime" => non_neg_integer(),
+    "Description" => String.t(),
+    "EngineVersion" => engine_version(),
+    "IdentityCenterApplicationArn" => String.t(),
+    "Name" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type work_group_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_work_groups_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_work_groups_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_session_status_request() :: %{
+    required("SessionId") => String.t()
+  }
+  """
+  @type get_session_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_output() :: %{
+
+  }
+  """
+  @type cancel_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_query_executions_output() :: %{
+    "NextToken" => String.t(),
+    "QueryExecutionIds" => list(String.t()())
+  }
+  """
+  @type list_query_executions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  calculation_status() :: %{
+    "CompletionDateTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateChangeReason" => String.t(),
+    "SubmissionDateTime" => non_neg_integer()
+  }
+  """
+  @type calculation_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  column_info() :: %{
+    "CaseSensitive" => boolean(),
+    "CatalogName" => String.t(),
+    "Label" => String.t(),
+    "Name" => String.t(),
+    "Nullable" => list(any()),
+    "Precision" => integer(),
+    "Scale" => integer(),
+    "SchemaName" => String.t(),
+    "TableName" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type column_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_data_catalogs_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("WorkGroup") => String.t()
+  }
+  """
+  @type list_data_catalogs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_query_execution_output() :: %{
+    "QueryExecutions" => list(query_execution()()),
+    "UnprocessedQueryExecutionIds" => list(unprocessed_query_execution_id()())
+  }
+  """
+  @type batch_get_query_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  session_status() :: %{
+    "EndDateTime" => non_neg_integer(),
+    "IdleSinceDateTime" => non_neg_integer(),
+    "LastModifiedDateTime" => non_neg_integer(),
+    "StartDateTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateChangeReason" => String.t()
+  }
+  """
+  @type session_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_calculation_execution_request() :: %{
+    optional("CalculationConfiguration") => calculation_configuration(),
+    optional("ClientRequestToken") => String.t(),
+    optional("CodeBlock") => String.t(),
+    optional("Description") => String.t(),
+    required("SessionId") => String.t()
+  }
+  """
+  @type start_calculation_execution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_table_metadata_input() :: %{
+    optional("WorkGroup") => String.t(),
+    required("CatalogName") => String.t(),
+    required("DatabaseName") => String.t(),
+    required("TableName") => String.t()
+  }
+  """
+  @type get_table_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_engine_versions_output() :: %{
+    "EngineVersions" => list(engine_version()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_engine_versions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  notebook_metadata() :: %{
+    "CreationTime" => non_neg_integer(),
+    "LastModifiedTime" => non_neg_integer(),
+    "Name" => String.t(),
+    "NotebookId" => String.t(),
+    "Type" => list(any()),
+    "WorkGroup" => String.t()
+  }
+  """
+  @type notebook_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_capacity_reservation_output() :: %{
+
+  }
+  """
+  @type create_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_named_query_output() :: %{
+    "NamedQuery" => named_query()
+  }
+  """
+  @type get_named_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  acl_configuration() :: %{
+    "S3AclOption" => list(any())
+  }
+  """
+  @type acl_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_named_queries_output() :: %{
+    "NamedQueryIds" => list(String.t()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_named_queries_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_named_query_output() :: %{
+
+  }
+  """
+  @type delete_named_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  session_statistics() :: %{
+    "DpuExecutionInMillis" => float()
+  }
+  """
+  @type session_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_engine_versions_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_engine_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_named_query_output() :: %{
+    "NamedQueryId" => String.t()
+  }
+  """
+  @type create_named_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_prepared_statements_output() :: %{
+    "NextToken" => String.t(),
+    "PreparedStatements" => list(prepared_statement_summary()())
+  }
+  """
+  @type list_prepared_statements_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  session_already_exists_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type session_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  customer_content_encryption_configuration() :: %{
+    "KmsKey" => String.t()
+  }
+  """
+  @type customer_content_encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_capacity_reservation_output() :: %{
+
+  }
+  """
+  @type delete_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_notebook_metadata_input() :: %{
+    optional("Filters") => filter_definition(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type list_notebook_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_work_group_input() :: %{
+    optional("RecursiveDeleteOption") => boolean(),
+    required("WorkGroup") => String.t()
+  }
+  """
+  @type delete_work_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_execution_statistics() :: %{
+    "DataManifestLocation" => String.t(),
+    "DataScannedInBytes" => float(),
+    "EngineExecutionTimeInMillis" => float(),
+    "QueryPlanningTimeInMillis" => float(),
+    "QueryQueueTimeInMillis" => float(),
+    "ResultReuseInformation" => result_reuse_information(),
+    "ServicePreProcessingTimeInMillis" => float(),
+    "ServiceProcessingTimeInMillis" => float(),
+    "TotalExecutionTimeInMillis" => float()
+  }
+  """
+  @type query_execution_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_prepared_statement_output() :: %{
+    "PreparedStatement" => prepared_statement()
+  }
+  """
+  @type get_prepared_statement_output() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2017-05-18",
@@ -55,6 +2223,11 @@ defmodule AWS.Athena do
   unique query execution, and `ListQueryExecutionsInput` to get a list of
   query execution IDs.
   """
+  @spec batch_get_named_query(map(), batch_get_named_query_input(), list()) ::
+          {:ok, batch_get_named_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def batch_get_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -72,6 +2245,11 @@ defmodule AWS.Athena do
   statement cannot be retrieved for the name specified, the statement is listed in
   `UnprocessedPreparedStatementNames`.
   """
+  @spec batch_get_prepared_statement(map(), batch_get_prepared_statement_input(), list()) ::
+          {:ok, batch_get_prepared_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def batch_get_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -89,6 +2267,11 @@ defmodule AWS.Athena do
   from named (saved) queries. Use `BatchGetNamedQueryInput` to get details
   about named queries.
   """
+  @spec batch_get_query_execution(map(), batch_get_query_execution_input(), list()) ::
+          {:ok, batch_get_query_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def batch_get_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -105,6 +2288,11 @@ defmodule AWS.Athena do
   you can
   refer to its tags and view it for historical reference.
   """
+  @spec cancel_capacity_reservation(map(), cancel_capacity_reservation_input(), list()) ::
+          {:ok, cancel_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -116,6 +2304,11 @@ defmodule AWS.Athena do
   data
   processing units.
   """
+  @spec create_capacity_reservation(map(), create_capacity_reservation_input(), list()) ::
+          {:ok, create_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def create_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -128,6 +2321,11 @@ defmodule AWS.Athena do
   Catalogs
   created are visible to all users of the same Amazon Web Services account.
   """
+  @spec create_data_catalog(map(), create_data_catalog_input(), list()) ::
+          {:ok, create_data_catalog_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def create_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -140,6 +2338,11 @@ defmodule AWS.Athena do
   Requires that you have access to the
   workgroup.
   """
+  @spec create_named_query(map(), create_named_query_input(), list()) ::
+          {:ok, create_named_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def create_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -153,6 +2356,12 @@ defmodule AWS.Athena do
   Throws an error if a file in the workgroup with the same name already
   exists.
   """
+  @spec create_notebook(map(), create_notebook_input(), list()) ::
+          {:ok, create_notebook_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def create_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -162,6 +2371,11 @@ defmodule AWS.Athena do
   @doc """
   Creates a prepared statement for use with SQL queries in Athena.
   """
+  @spec create_prepared_statement(map(), create_prepared_statement_input(), list()) ::
+          {:ok, create_prepared_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def create_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -178,6 +2392,12 @@ defmodule AWS.Athena do
   access, see [Grant programmatic
   access](https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access).
   """
+  @spec create_presigned_notebook_url(map(), create_presigned_notebook_url_request(), list()) ::
+          {:ok, create_presigned_notebook_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def create_presigned_notebook_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -190,6 +2410,11 @@ defmodule AWS.Athena do
   A workgroup can be an Apache Spark
   enabled workgroup or an Athena SQL workgroup.
   """
+  @spec create_work_group(map(), create_work_group_input(), list()) ::
+          {:ok, create_work_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def create_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -207,6 +2432,11 @@ defmodule AWS.Athena do
   `GetCapacityReservation`, and deleted reservations do not appear in the
   output of `ListCapacityReservations`.
   """
+  @spec delete_capacity_reservation(map(), delete_capacity_reservation_input(), list()) ::
+          {:ok, delete_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def delete_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -216,6 +2446,11 @@ defmodule AWS.Athena do
   @doc """
   Deletes a data catalog.
   """
+  @spec delete_data_catalog(map(), delete_data_catalog_input(), list()) ::
+          {:ok, delete_data_catalog_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def delete_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -227,6 +2462,11 @@ defmodule AWS.Athena do
   was
   saved.
   """
+  @spec delete_named_query(map(), delete_named_query_input(), list()) ::
+          {:ok, delete_named_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def delete_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -236,6 +2476,12 @@ defmodule AWS.Athena do
   @doc """
   Deletes the specified notebook.
   """
+  @spec delete_notebook(map(), delete_notebook_input(), list()) ::
+          {:ok, delete_notebook_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -246,6 +2492,12 @@ defmodule AWS.Athena do
   Deletes the prepared statement with the specified name from the specified
   workgroup.
   """
+  @spec delete_prepared_statement(map(), delete_prepared_statement_input(), list()) ::
+          {:ok, delete_prepared_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -258,6 +2510,11 @@ defmodule AWS.Athena do
   The primary workgroup cannot be
   deleted.
   """
+  @spec delete_work_group(map(), delete_work_group_input(), list()) ::
+          {:ok, delete_work_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def delete_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -267,6 +2524,12 @@ defmodule AWS.Athena do
   @doc """
   Exports the specified notebook and its metadata.
   """
+  @spec export_notebook(map(), export_notebook_input(), list()) ::
+          {:ok, export_notebook_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def export_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -276,6 +2539,12 @@ defmodule AWS.Athena do
   @doc """
   Describes a previously submitted calculation execution.
   """
+  @spec get_calculation_execution(map(), get_calculation_execution_request(), list()) ::
+          {:ok, get_calculation_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def get_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -285,6 +2554,12 @@ defmodule AWS.Athena do
   @doc """
   Retrieves the unencrypted code that was executed for the calculation.
   """
+  @spec get_calculation_execution_code(map(), get_calculation_execution_code_request(), list()) ::
+          {:ok, get_calculation_execution_code_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def get_calculation_execution_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -294,6 +2569,16 @@ defmodule AWS.Athena do
   @doc """
   Gets the status of a current calculation.
   """
+  @spec get_calculation_execution_status(
+          map(),
+          get_calculation_execution_status_request(),
+          list()
+        ) ::
+          {:ok, get_calculation_execution_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def get_calculation_execution_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -304,6 +2589,15 @@ defmodule AWS.Athena do
   Gets the capacity assignment configuration for a capacity reservation, if one
   exists.
   """
+  @spec get_capacity_assignment_configuration(
+          map(),
+          get_capacity_assignment_configuration_input(),
+          list()
+        ) ::
+          {:ok, get_capacity_assignment_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -313,6 +2607,11 @@ defmodule AWS.Athena do
   @doc """
   Returns information about the capacity reservation with the specified name.
   """
+  @spec get_capacity_reservation(map(), get_capacity_reservation_input(), list()) ::
+          {:ok, get_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -322,6 +2621,11 @@ defmodule AWS.Athena do
   @doc """
   Returns the specified data catalog.
   """
+  @spec get_data_catalog(map(), get_data_catalog_input(), list()) ::
+          {:ok, get_data_catalog_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -331,6 +2635,12 @@ defmodule AWS.Athena do
   @doc """
   Returns a database object for the specified database and data catalog.
   """
+  @spec get_database(map(), get_database_input(), list()) ::
+          {:ok, get_database_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, metadata_exception()}
   def get_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -343,6 +2653,11 @@ defmodule AWS.Athena do
   Requires that you have access to the
   workgroup in which the query was saved.
   """
+  @spec get_named_query(map(), get_named_query_input(), list()) ::
+          {:ok, get_named_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -352,6 +2667,12 @@ defmodule AWS.Athena do
   @doc """
   Retrieves notebook metadata for the specified notebook ID.
   """
+  @spec get_notebook_metadata(map(), get_notebook_metadata_input(), list()) ::
+          {:ok, get_notebook_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def get_notebook_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -362,6 +2683,12 @@ defmodule AWS.Athena do
   Retrieves the prepared statement with the specified name from the specified
   workgroup.
   """
+  @spec get_prepared_statement(map(), get_prepared_statement_input(), list()) ::
+          {:ok, get_prepared_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def get_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -376,6 +2703,11 @@ defmodule AWS.Athena do
   Each time a query executes, information about the
   query execution is saved with a unique ID.
   """
+  @spec get_query_execution(map(), get_query_execution_input(), list()) ::
+          {:ok, get_query_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -403,6 +2735,12 @@ defmodule AWS.Athena do
   ensure that Amazon S3 permissions to the Athena query location
   are denied.
   """
+  @spec get_query_results(map(), get_query_results_input(), list()) ::
+          {:ok, get_query_results_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -420,6 +2758,11 @@ defmodule AWS.Athena do
   statistics are not shown when a query has row-level filters defined in Lake
   Formation.
   """
+  @spec get_query_runtime_statistics(map(), get_query_runtime_statistics_input(), list()) ::
+          {:ok, get_query_runtime_statistics_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_query_runtime_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -431,6 +2774,12 @@ defmodule AWS.Athena do
   status
   and configuration.
   """
+  @spec get_session(map(), get_session_request(), list()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def get_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -440,6 +2789,12 @@ defmodule AWS.Athena do
   @doc """
   Gets the current status of a session.
   """
+  @spec get_session_status(map(), get_session_status_request(), list()) ::
+          {:ok, get_session_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def get_session_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -449,6 +2804,12 @@ defmodule AWS.Athena do
   @doc """
   Returns table metadata for the specified catalog, database, and table.
   """
+  @spec get_table_metadata(map(), get_table_metadata_input(), list()) ::
+          {:ok, get_table_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, metadata_exception()}
   def get_table_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -458,6 +2819,11 @@ defmodule AWS.Athena do
   @doc """
   Returns information about the workgroup with the specified name.
   """
+  @spec get_work_group(map(), get_work_group_input(), list()) ::
+          {:ok, get_work_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def get_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -475,6 +2841,12 @@ defmodule AWS.Athena do
   megabytes. If an `ipynb` file with the same name already exists in the
   workgroup, throws an error.
   """
+  @spec import_notebook(map(), import_notebook_input(), list()) ::
+          {:ok, import_notebook_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def import_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -486,6 +2858,12 @@ defmodule AWS.Athena do
   example,
   `Athena notebook version 1`).
   """
+  @spec list_application_d_p_u_sizes(map(), list_application_d_p_u_sizes_input(), list()) ::
+          {:ok, list_application_d_p_u_sizes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -498,6 +2876,12 @@ defmodule AWS.Athena do
 
   Newer calculations are listed first; older calculations are listed later.
   """
+  @spec list_calculation_executions(map(), list_calculation_executions_request(), list()) ::
+          {:ok, list_calculation_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def list_calculation_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -507,6 +2891,11 @@ defmodule AWS.Athena do
   @doc """
   Lists the capacity reservations for the current account.
   """
+  @spec list_capacity_reservations(map(), list_capacity_reservations_input(), list()) ::
+          {:ok, list_capacity_reservations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_capacity_reservations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -519,6 +2908,11 @@ defmodule AWS.Athena do
   In the Athena console, data catalogs are listed as "data sources" on
   the **Data sources** page under the **Data source name** column.
   """
+  @spec list_data_catalogs(map(), list_data_catalogs_input(), list()) ::
+          {:ok, list_data_catalogs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_data_catalogs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -528,6 +2922,12 @@ defmodule AWS.Athena do
   @doc """
   Lists the databases in the specified data catalog.
   """
+  @spec list_databases(map(), list_databases_input(), list()) ::
+          {:ok, list_databases_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, metadata_exception()}
   def list_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -539,6 +2939,11 @@ defmodule AWS.Athena do
   the
   Auto option.
   """
+  @spec list_engine_versions(map(), list_engine_versions_input(), list()) ::
+          {:ok, list_engine_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -553,6 +2958,12 @@ defmodule AWS.Athena do
   filtered by
   state.
   """
+  @spec list_executors(map(), list_executors_request(), list()) ::
+          {:ok, list_executors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def list_executors(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -566,6 +2977,11 @@ defmodule AWS.Athena do
   Requires that you have access to the specified workgroup. If a workgroup is
   not specified, lists the saved queries for the primary workgroup.
   """
+  @spec list_named_queries(map(), list_named_queries_input(), list()) ::
+          {:ok, list_named_queries_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_named_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -575,6 +2991,12 @@ defmodule AWS.Athena do
   @doc """
   Displays the notebook files for the specified workgroup in paginated format.
   """
+  @spec list_notebook_metadata(map(), list_notebook_metadata_input(), list()) ::
+          {:ok, list_notebook_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def list_notebook_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -590,6 +3012,12 @@ defmodule AWS.Athena do
   Newer sessions are listed first; older sessions are listed
   later.
   """
+  @spec list_notebook_sessions(map(), list_notebook_sessions_request(), list()) ::
+          {:ok, list_notebook_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def list_notebook_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -599,6 +3027,11 @@ defmodule AWS.Athena do
   @doc """
   Lists the prepared statements in the specified workgroup.
   """
+  @spec list_prepared_statements(map(), list_prepared_statements_input(), list()) ::
+          {:ok, list_prepared_statements_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_prepared_statements(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -615,6 +3048,11 @@ defmodule AWS.Athena do
   Requires you
   to have access to the workgroup in which the queries ran.
   """
+  @spec list_query_executions(map(), list_query_executions_input(), list()) ::
+          {:ok, list_query_executions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_query_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -629,6 +3067,12 @@ defmodule AWS.Athena do
   Newer sessions are listed first; older sessions are listed
   later.
   """
+  @spec list_sessions(map(), list_sessions_request(), list()) ::
+          {:ok, list_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def list_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -638,6 +3082,12 @@ defmodule AWS.Athena do
   @doc """
   Lists the metadata for the tables in the specified data catalog database.
   """
+  @spec list_table_metadata(map(), list_table_metadata_input(), list()) ::
+          {:ok, list_table_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, metadata_exception()}
   def list_table_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -647,6 +3097,12 @@ defmodule AWS.Athena do
   @doc """
   Lists the tags associated with an Athena resource.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -656,6 +3112,11 @@ defmodule AWS.Athena do
   @doc """
   Lists available workgroups for the account.
   """
+  @spec list_work_groups(map(), list_work_groups_input(), list()) ::
+          {:ok, list_work_groups_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def list_work_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -670,6 +3131,15 @@ defmodule AWS.Athena do
   a capacity assignment configuration already exists for the capacity reservation,
   replaces the existing capacity assignment configuration.
   """
+  @spec put_capacity_assignment_configuration(
+          map(),
+          put_capacity_assignment_configuration_input(),
+          list()
+        ) ::
+          {:ok, put_capacity_assignment_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def put_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -689,6 +3159,12 @@ defmodule AWS.Athena do
   `StartCalculationExecutionRequest$CodeBlock` parameter
   instead.
   """
+  @spec start_calculation_execution(map(), start_calculation_execution_request(), list()) ::
+          {:ok, start_calculation_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def start_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -706,6 +3182,12 @@ defmodule AWS.Athena do
   the *Amazon Athena User
   Guide*.
   """
+  @spec start_query_execution(map(), start_query_execution_input(), list()) ::
+          {:ok, start_query_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def start_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -718,6 +3200,14 @@ defmodule AWS.Athena do
   The session is ready
   when it reaches an `IDLE` state.
   """
+  @spec start_session(map(), start_session_request(), list()) ::
+          {:ok, start_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, session_already_exists_exception()}
+          | {:error, too_many_requests_exception()}
   def start_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -738,6 +3228,12 @@ defmodule AWS.Athena do
   the
   session in which the calculation is running.
   """
+  @spec stop_calculation_execution(map(), stop_calculation_execution_request(), list()) ::
+          {:ok, stop_calculation_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def stop_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -750,6 +3246,11 @@ defmodule AWS.Athena do
   Requires you to have access to the workgroup in which the
   query ran.
   """
+  @spec stop_query_execution(map(), stop_query_execution_input(), list()) ::
+          {:ok, stop_query_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def stop_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -777,6 +3278,12 @@ defmodule AWS.Athena do
   specify more
   than one tag, separate them by commas.
   """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -792,6 +3299,12 @@ defmodule AWS.Athena do
   the session when `TerminateSession` is called are forcefully stopped, but may
   display as `FAILED` instead of `STOPPED`.
   """
+  @spec terminate_session(map(), terminate_session_request(), list()) ::
+          {:ok, terminate_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def terminate_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -801,6 +3314,12 @@ defmodule AWS.Athena do
   @doc """
   Removes one or more tags from an Athena resource.
   """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -812,6 +3331,11 @@ defmodule AWS.Athena do
   reservation
   with the specified name.
   """
+  @spec update_capacity_reservation(map(), update_capacity_reservation_input(), list()) ::
+          {:ok, update_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def update_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -821,6 +3345,11 @@ defmodule AWS.Athena do
   @doc """
   Updates the data catalog that has the specified name.
   """
+  @spec update_data_catalog(map(), update_data_catalog_input(), list()) ::
+          {:ok, update_data_catalog_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def update_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -833,6 +3362,11 @@ defmodule AWS.Athena do
   The database or workgroup cannot be
   updated.
   """
+  @spec update_named_query(map(), update_named_query_input(), list()) ::
+          {:ok, update_named_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def update_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -842,6 +3376,12 @@ defmodule AWS.Athena do
   @doc """
   Updates the contents of a Spark notebook.
   """
+  @spec update_notebook(map(), update_notebook_input(), list()) ::
+          {:ok, update_notebook_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def update_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -851,6 +3391,12 @@ defmodule AWS.Athena do
   @doc """
   Updates the metadata for a notebook.
   """
+  @spec update_notebook_metadata(map(), update_notebook_metadata_input(), list()) ::
+          {:ok, update_notebook_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
   def update_notebook_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -860,6 +3406,12 @@ defmodule AWS.Athena do
   @doc """
   Updates a prepared statement.
   """
+  @spec update_prepared_statement(map(), update_prepared_statement_input(), list()) ::
+          {:ok, update_prepared_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def update_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -872,6 +3424,11 @@ defmodule AWS.Athena do
   The workgroup's name cannot be changed.
   Only `ConfigurationUpdates` can be specified.
   """
+  @spec update_work_group(map(), update_work_group_input(), list()) ::
+          {:ok, update_work_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_request_exception()}
   def update_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

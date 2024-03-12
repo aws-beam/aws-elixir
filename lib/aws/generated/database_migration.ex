@@ -24,6 +24,4034 @@ defmodule AWS.DatabaseMigration do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  redshift_settings() :: %{
+    "AcceptAnyDate" => boolean(),
+    "AfterConnectScript" => String.t(),
+    "BucketFolder" => String.t(),
+    "BucketName" => String.t(),
+    "CaseSensitiveNames" => boolean(),
+    "CompUpdate" => boolean(),
+    "ConnectionTimeout" => integer(),
+    "DatabaseName" => String.t(),
+    "DateFormat" => String.t(),
+    "EmptyAsNull" => boolean(),
+    "EncryptionMode" => list(any()),
+    "ExplicitIds" => boolean(),
+    "FileTransferUploadStreams" => integer(),
+    "LoadTimeout" => integer(),
+    "MapBooleanAsBoolean" => boolean(),
+    "MaxFileSize" => integer(),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "RemoveQuotes" => boolean(),
+    "ReplaceChars" => String.t(),
+    "ReplaceInvalidChars" => String.t(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "ServerSideEncryptionKmsKeyId" => String.t(),
+    "ServiceAccessRoleArn" => String.t(),
+    "TimeFormat" => String.t(),
+    "TrimBlanks" => boolean(),
+    "TruncateColumns" => boolean(),
+    "Username" => String.t(),
+    "WriteBufferSize" => integer()
+  }
+  """
+  @type redshift_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  collector_response() :: %{
+    "CollectorHealthCheck" => collector_health_check(),
+    "CollectorName" => String.t(),
+    "CollectorReferencedId" => String.t(),
+    "CollectorVersion" => String.t(),
+    "CreatedDate" => String.t(),
+    "Description" => String.t(),
+    "InventoryData" => inventory_data(),
+    "LastDataReceived" => String.t(),
+    "ModifiedDate" => String.t(),
+    "RegisteredDate" => String.t(),
+    "S3BucketName" => String.t(),
+    "ServiceAccessRoleArn" => String.t(),
+    "VersionStatus" => list(any())
+  }
+  """
+  @type collector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_advisor_schema_object_response() :: %{
+    "CodeLineCount" => float(),
+    "CodeSize" => float(),
+    "NumberOfObjects" => float(),
+    "ObjectType" => String.t(),
+    "SchemaId" => String.t()
+  }
+  """
+  @type fleet_advisor_schema_object_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_databases_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fleet_advisor_databases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_table_statistics_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("ReplicationTaskArn") => String.t()
+  }
+  """
+  @type describe_table_statistics_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kinesis_settings() :: %{
+    "IncludeControlDetails" => boolean(),
+    "IncludeNullAndEmpty" => boolean(),
+    "IncludePartitionValue" => boolean(),
+    "IncludeTableAlterOperations" => boolean(),
+    "IncludeTransactionDetails" => boolean(),
+    "MessageFormat" => list(any()),
+    "NoHexPrefix" => boolean(),
+    "PartitionIncludeSchemaTable" => boolean(),
+    "ServiceAccessRoleArn" => String.t(),
+    "StreamArn" => String.t()
+  }
+  """
+  @type kinesis_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_resource_state_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_resource_state_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_provider() :: %{
+    "DataProviderArn" => String.t(),
+    "DataProviderCreationTime" => non_neg_integer(),
+    "DataProviderName" => String.t(),
+    "Description" => String.t(),
+    "Engine" => String.t(),
+    "Settings" => list()
+  }
+  """
+  @type data_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_data_provider_message() :: %{
+    required("DataProviderIdentifier") => String.t()
+  }
+  """
+  @type delete_data_provider_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pending_maintenance_action() :: %{
+    "Action" => String.t(),
+    "AutoAppliedAfterDate" => non_neg_integer(),
+    "CurrentApplyDate" => non_neg_integer(),
+    "Description" => String.t(),
+    "ForcedApplyDate" => non_neg_integer(),
+    "OptInStatus" => String.t()
+  }
+  """
+  @type pending_maintenance_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_quota() :: %{
+    "AccountQuotaName" => String.t(),
+    "Max" => float(),
+    "Used" => float()
+  }
+  """
+  @type account_quota() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  apply_pending_maintenance_action_message() :: %{
+    required("ApplyAction") => String.t(),
+    required("OptInType") => String.t(),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type apply_pending_maintenance_action_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  upgrade_dependency_failure_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type upgrade_dependency_failure_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_already_in_use() :: %{
+    "message" => String.t()
+  }
+  """
+  @type subnet_already_in_use() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_engine_versions_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_engine_versions_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_endpoints_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_endpoints_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  oracle_data_provider_settings() :: %{
+    "AsmServer" => String.t(),
+    "CertificateArn" => String.t(),
+    "DatabaseName" => String.t(),
+    "Port" => integer(),
+    "SecretsManagerOracleAsmAccessRoleArn" => String.t(),
+    "SecretsManagerOracleAsmSecretId" => String.t(),
+    "SecretsManagerSecurityDbEncryptionAccessRoleArn" => String.t(),
+    "SecretsManagerSecurityDbEncryptionSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type oracle_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_orderable_replication_instances_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_orderable_replication_instances_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_metadata_model_assessment_result_entry() :: %{
+    "ObjectURL" => String.t(),
+    "S3ObjectKey" => String.t()
+  }
+  """
+  @type export_metadata_model_assessment_result_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_configs_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_replication_configs_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_pending_maintenance_actions() :: %{
+    "PendingMaintenanceActionDetails" => list(pending_maintenance_action()()),
+    "ResourceIdentifier" => String.t()
+  }
+  """
+  @type resource_pending_maintenance_actions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_import_message() :: %{
+    optional("Refresh") => boolean(),
+    required("MigrationProjectIdentifier") => String.t(),
+    required("Origin") => list(any()),
+    required("SelectionRules") => String.t()
+  }
+  """
+  @type start_metadata_model_import_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_subnet_group_response() :: %{
+    "ReplicationSubnetGroup" => replication_subnet_group()
+  }
+  """
+  @type create_replication_subnet_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_collectors_response() :: %{
+    "Collectors" => list(collector_response()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleet_advisor_collectors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type access_denied_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_invalid_state_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_invalid_state_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_imports_response() :: %{
+    "Marker" => String.t(),
+    "Requests" => list(schema_conversion_request()())
+  }
+  """
+  @type describe_metadata_model_imports_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_task_message() :: %{
+    optional("CdcStartPosition") => String.t(),
+    optional("CdcStartTime") => non_neg_integer(),
+    optional("CdcStopPosition") => String.t(),
+    required("ReplicationTaskArn") => String.t(),
+    required("StartReplicationTaskType") => list(any())
+  }
+  """
+  @type start_replication_task_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_profile_response() :: %{
+    "InstanceProfile" => instance_profile()
+  }
+  """
+  @type delete_instance_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rds_recommendation() :: %{
+    "RequirementsToTarget" => rds_requirements(),
+    "TargetConfiguration" => rds_configuration()
+  }
+  """
+  @type rds_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_profile() :: %{
+    "AvailabilityZone" => String.t(),
+    "Description" => String.t(),
+    "InstanceProfileArn" => String.t(),
+    "InstanceProfileCreationTime" => non_neg_integer(),
+    "InstanceProfileName" => String.t(),
+    "KmsKeyArn" => String.t(),
+    "NetworkType" => String.t(),
+    "PubliclyAccessible" => boolean(),
+    "SubnetGroupIdentifier" => String.t(),
+    "VpcSecurityGroups" => list(String.t()())
+  }
+  """
+  @type instance_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_error_details() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type default_error_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_profile_response() :: %{
+    "InstanceProfile" => instance_profile()
+  }
+  """
+  @type modify_instance_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_migration_project_message() :: %{
+    optional("Description") => String.t(),
+    optional("MigrationProjectName") => String.t(),
+    optional("SchemaConversionApplicationAttributes") => s_capplication_attributes(),
+    optional("Tags") => list(tag()()),
+    optional("TransformationRules") => String.t(),
+    required("InstanceProfileIdentifier") => String.t(),
+    required("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()()),
+    required("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()())
+  }
+  """
+  @type create_migration_project_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  endpoint_setting() :: %{
+    "Applicability" => String.t(),
+    "DefaultValue" => String.t(),
+    "EnumValues" => list(String.t()()),
+    "IntValueMax" => integer(),
+    "IntValueMin" => integer(),
+    "Name" => String.t(),
+    "Sensitive" => boolean(),
+    "Type" => list(any()),
+    "Units" => String.t()
+  }
+  """
+  @type endpoint_setting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  availability_zone() :: %{
+    "Name" => String.t()
+  }
+  """
+  @type availability_zone() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_stats() :: %{
+    "ElapsedTimeMillis" => float(),
+    "FreshStartDate" => non_neg_integer(),
+    "FullLoadFinishDate" => non_neg_integer(),
+    "FullLoadProgressPercent" => integer(),
+    "FullLoadStartDate" => non_neg_integer(),
+    "StartDate" => non_neg_integer(),
+    "StopDate" => non_neg_integer(),
+    "TablesErrored" => integer(),
+    "TablesLoaded" => integer(),
+    "TablesLoading" => integer(),
+    "TablesQueued" => integer()
+  }
+  """
+  @type replication_stats() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inventory_data() :: %{
+    "NumberOfDatabases" => integer(),
+    "NumberOfSchemas" => integer()
+  }
+  """
+  @type inventory_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_task_assessment_run_message() :: %{
+    required("ReplicationTaskAssessmentRunArn") => String.t()
+  }
+  """
+  @type delete_replication_task_assessment_run_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recommendation_limitations_response() :: %{
+    "Limitations" => list(limitation()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_recommendation_limitations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_categories_response() :: %{
+    "EventCategoryGroupList" => list(event_category_group()())
+  }
+  """
+  @type describe_event_categories_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fleet_advisor_collector_request() :: %{
+    optional("Description") => String.t(),
+    required("CollectorName") => String.t(),
+    required("S3BucketName") => String.t(),
+    required("ServiceAccessRoleArn") => String.t()
+  }
+  """
+  @type create_fleet_advisor_collector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_conversions_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_metadata_model_conversions_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sybase_settings() :: %{
+    "DatabaseName" => String.t(),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "Username" => String.t()
+  }
+  """
+  @type sybase_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_subnet_group_message() :: %{
+    optional("Tags") => list(tag()()),
+    required("ReplicationSubnetGroupDescription") => String.t(),
+    required("ReplicationSubnetGroupIdentifier") => String.t(),
+    required("SubnetIds") => list(String.t()())
+  }
+  """
+  @type create_replication_subnet_group_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_migration_project_message() :: %{
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type delete_migration_project_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleet_advisor_databases_request() :: %{
+    required("DatabaseIds") => list(String.t()())
+  }
+  """
+  @type delete_fleet_advisor_databases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_databases_response() :: %{
+    "Databases" => list(database_response()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleet_advisor_databases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schema_short_info_response() :: %{
+    "DatabaseId" => String.t(),
+    "DatabaseIpAddress" => String.t(),
+    "DatabaseName" => String.t(),
+    "SchemaId" => String.t(),
+    "SchemaName" => String.t()
+  }
+  """
+  @type schema_short_info_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  engine_version() :: %{
+    "AutoUpgradeDate" => non_neg_integer(),
+    "AvailableUpgrades" => list(String.t()()),
+    "DeprecationDate" => non_neg_integer(),
+    "ForceUpgradeDate" => non_neg_integer(),
+    "LaunchDate" => non_neg_integer(),
+    "Lifecycle" => String.t(),
+    "ReleaseStatus" => list(any()),
+    "Version" => String.t()
+  }
+  """
+  @type engine_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_tags_from_resource_response() :: %{
+
+  }
+  """
+  @type remove_tags_from_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_table_statistics_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationConfigArn" => String.t(),
+    "ReplicationTableStatistics" => list(table_statistics()())
+  }
+  """
+  @type describe_replication_table_statistics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_event_subscription_message() :: %{
+    optional("Enabled") => boolean(),
+    optional("EventCategories") => list(String.t()()),
+    optional("SnsTopicArn") => String.t(),
+    optional("SourceType") => String.t(),
+    required("SubscriptionName") => String.t()
+  }
+  """
+  @type modify_event_subscription_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_export_as_script_message() :: %{
+    optional("FileName") => String.t(),
+    required("MigrationProjectIdentifier") => String.t(),
+    required("Origin") => list(any()),
+    required("SelectionRules") => String.t()
+  }
+  """
+  @type start_metadata_model_export_as_script_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_task_assessment_results_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    optional("ReplicationTaskArn") => String.t()
+  }
+  """
+  @type describe_replication_task_assessment_results_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_tasks_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    optional("WithoutSettings") => boolean()
+  }
+  """
+  @type describe_replication_tasks_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_pending_maintenance_actions_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    optional("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type describe_pending_maintenance_actions_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_import_response() :: %{
+    "RequestIdentifier" => String.t()
+  }
+  """
+  @type start_metadata_model_import_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_replication_task_message() :: %{
+    required("ReplicationTaskArn") => String.t()
+  }
+  """
+  @type stop_replication_task_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_instance_task_logs_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type describe_replication_instance_task_logs_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_exports_to_target_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_metadata_model_exports_to_target_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_subnet_group_response() :: %{
+
+  }
+  """
+  @type delete_replication_subnet_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s_capplication_attributes() :: %{
+    "S3BucketPath" => String.t(),
+    "S3BucketRoleArn" => String.t()
+  }
+  """
+  @type s_capplication_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_assessment_message() :: %{
+    required("MigrationProjectIdentifier") => String.t(),
+    required("SelectionRules") => String.t()
+  }
+  """
+  @type start_metadata_model_assessment_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  move_replication_task_message() :: %{
+    required("ReplicationTaskArn") => String.t(),
+    required("TargetReplicationInstanceArn") => String.t()
+  }
+  """
+  @type move_replication_task_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_subnet_group_response() :: %{
+    "ReplicationSubnetGroup" => replication_subnet_group()
+  }
+  """
+  @type modify_replication_subnet_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_lsa_analysis_response() :: %{
+    "Analysis" => list(fleet_advisor_lsa_analysis_response()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleet_advisor_lsa_analysis_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_schema_object_summary_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fleet_advisor_schema_object_summary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_instance() :: %{
+    "AllocatedStorage" => integer(),
+    "AutoMinorVersionUpgrade" => boolean(),
+    "AvailabilityZone" => String.t(),
+    "DnsNameServers" => String.t(),
+    "EngineVersion" => String.t(),
+    "FreeUntil" => non_neg_integer(),
+    "InstanceCreateTime" => non_neg_integer(),
+    "KmsKeyId" => String.t(),
+    "MultiAZ" => boolean(),
+    "NetworkType" => String.t(),
+    "PendingModifiedValues" => replication_pending_modified_values(),
+    "PreferredMaintenanceWindow" => String.t(),
+    "PubliclyAccessible" => boolean(),
+    "ReplicationInstanceArn" => String.t(),
+    "ReplicationInstanceClass" => String.t(),
+    "ReplicationInstanceIdentifier" => String.t(),
+    "ReplicationInstanceIpv6Addresses" => list(String.t()()),
+    "ReplicationInstancePrivateIpAddress" => String.t(),
+    "ReplicationInstancePrivateIpAddresses" => list(String.t()()),
+    "ReplicationInstancePublicIpAddress" => String.t(),
+    "ReplicationInstancePublicIpAddresses" => list(String.t()()),
+    "ReplicationInstanceStatus" => String.t(),
+    "ReplicationSubnetGroup" => replication_subnet_group(),
+    "SecondaryAvailabilityZone" => String.t(),
+    "VpcSecurityGroups" => list(vpc_security_group_membership()())
+  }
+  """
+  @type replication_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_schemas_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("EndpointArn") => String.t()
+  }
+  """
+  @type describe_schemas_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_endpoint_response() :: %{
+    "Endpoint" => endpoint()
+  }
+  """
+  @type modify_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_subscription() :: %{
+    "CustSubscriptionId" => String.t(),
+    "CustomerAwsId" => String.t(),
+    "Enabled" => boolean(),
+    "EventCategoriesList" => list(String.t()()),
+    "SnsTopicArn" => String.t(),
+    "SourceIdsList" => list(String.t()()),
+    "SourceType" => String.t(),
+    "Status" => String.t(),
+    "SubscriptionCreationTime" => String.t()
+  }
+  """
+  @type event_subscription() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_task_assessment_results_response() :: %{
+    "BucketName" => String.t(),
+    "Marker" => String.t(),
+    "ReplicationTaskAssessmentResults" => list(replication_task_assessment_result()())
+  }
+  """
+  @type describe_replication_task_assessment_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_data_providers_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_data_providers_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_certificates_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_certificates_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dynamo_db_settings() :: %{
+    "ServiceAccessRoleArn" => String.t()
+  }
+  """
+  @type dynamo_db_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet() :: %{
+    "SubnetAvailabilityZone" => availability_zone(),
+    "SubnetIdentifier" => String.t(),
+    "SubnetStatus" => String.t()
+  }
+  """
+  @type subnet() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_migration_projects_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_migration_projects_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_conversions_response() :: %{
+    "Marker" => String.t(),
+    "Requests" => list(schema_conversion_request()())
+  }
+  """
+  @type describe_metadata_model_conversions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elasticsearch_settings() :: %{
+    "EndpointUri" => String.t(),
+    "ErrorRetryDuration" => integer(),
+    "FullLoadErrorPercentage" => integer(),
+    "ServiceAccessRoleArn" => String.t(),
+    "UseNewMappingType" => boolean()
+  }
+  """
+  @type elasticsearch_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_profile_response() :: %{
+    "InstanceProfile" => instance_profile()
+  }
+  """
+  @type create_instance_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_message() :: %{
+    optional("CdcStartPosition") => String.t(),
+    optional("CdcStartTime") => non_neg_integer(),
+    optional("CdcStopPosition") => String.t(),
+    required("ReplicationConfigArn") => String.t(),
+    required("StartReplicationType") => String.t()
+  }
+  """
+  @type start_replication_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_subnet() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_subnet() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_endpoints_response() :: %{
+    "Endpoints" => list(endpoint()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_endpoints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_message() :: %{
+    optional("ResourceArn") => String.t(),
+    optional("ResourceArnList") => list(String.t()())
+  }
+  """
+  @type list_tags_for_resource_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  database_response() :: %{
+    "Collectors" => list(collector_short_info_response()()),
+    "DatabaseId" => String.t(),
+    "DatabaseName" => String.t(),
+    "IpAddress" => String.t(),
+    "NumberOfSchemas" => float(),
+    "Server" => server_short_info_response(),
+    "SoftwareDetails" => database_instance_software_details_response()
+  }
+  """
+  @type database_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation_data() :: %{
+    "RdsEngine" => rds_recommendation()
+  }
+  """
+  @type recommendation_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_exports_as_script_response() :: %{
+    "Marker" => String.t(),
+    "Requests" => list(schema_conversion_request()())
+  }
+  """
+  @type describe_metadata_model_exports_as_script_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  doc_db_data_provider_settings() :: %{
+    "CertificateArn" => String.t(),
+    "DatabaseName" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type doc_db_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_task_stats() :: %{
+    "ElapsedTimeMillis" => float(),
+    "FreshStartDate" => non_neg_integer(),
+    "FullLoadFinishDate" => non_neg_integer(),
+    "FullLoadProgressPercent" => integer(),
+    "FullLoadStartDate" => non_neg_integer(),
+    "StartDate" => non_neg_integer(),
+    "StopDate" => non_neg_integer(),
+    "TablesErrored" => integer(),
+    "TablesLoaded" => integer(),
+    "TablesLoading" => integer(),
+    "TablesQueued" => integer()
+  }
+  """
+  @type replication_task_stats() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  server_short_info_response() :: %{
+    "IpAddress" => String.t(),
+    "ServerId" => String.t(),
+    "ServerName" => String.t()
+  }
+  """
+  @type server_short_info_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_applicable_individual_assessments_response() :: %{
+    "IndividualAssessmentNames" => list(String.t()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_applicable_individual_assessments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_certificate_response() :: %{
+    "Certificate" => certificate()
+  }
+  """
+  @type import_certificate_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  refresh_schemas_message() :: %{
+    required("EndpointArn") => String.t(),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type refresh_schemas_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_config_response() :: %{
+    "ReplicationConfig" => replication_config()
+  }
+  """
+  @type delete_replication_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  collector_health_check() :: %{
+    "CollectorStatus" => list(any()),
+    "LocalCollectorS3Access" => boolean(),
+    "WebCollectorGrantedRoleBasedAccess" => boolean(),
+    "WebCollectorS3Access" => boolean()
+  }
+  """
+  @type collector_health_check() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_profiles_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_instance_profiles_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  timestream_settings() :: %{
+    "CdcInsertsAndUpdates" => boolean(),
+    "DatabaseName" => String.t(),
+    "EnableMagneticStoreWrites" => boolean(),
+    "MagneticDuration" => integer(),
+    "MemoryDuration" => integer()
+  }
+  """
+  @type timestream_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recommendations_response() :: %{
+    "NextToken" => String.t(),
+    "Recommendations" => list(recommendation()())
+  }
+  """
+  @type describe_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_collectors_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fleet_advisor_collectors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_subscriptions_to_event_bridge_message() :: %{
+    optional("ForceMove") => boolean()
+  }
+  """
+  @type update_subscriptions_to_event_bridge_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_recommendations_request() :: %{
+    required("DatabaseId") => String.t(),
+    required("Settings") => recommendation_settings()
+  }
+  """
+  @type start_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_task_message() :: %{
+    optional("CdcStartPosition") => String.t(),
+    optional("CdcStartTime") => non_neg_integer(),
+    optional("CdcStopPosition") => String.t(),
+    optional("MigrationType") => list(any()),
+    optional("ReplicationTaskIdentifier") => String.t(),
+    optional("ReplicationTaskSettings") => String.t(),
+    optional("TableMappings") => String.t(),
+    optional("TaskData") => String.t(),
+    required("ReplicationTaskArn") => String.t()
+  }
+  """
+  @type modify_replication_task_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_subnet_group_does_not_cover_enough_a_zs() :: %{
+    "message" => String.t()
+  }
+  """
+  @type replication_subnet_group_does_not_cover_enough_a_zs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_extension_pack_associations_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_extension_pack_associations_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rds_configuration() :: %{
+    "DeploymentOption" => String.t(),
+    "EngineEdition" => String.t(),
+    "EngineVersion" => String.t(),
+    "InstanceMemory" => float(),
+    "InstanceType" => String.t(),
+    "InstanceVcpu" => float(),
+    "StorageIops" => integer(),
+    "StorageSize" => integer(),
+    "StorageType" => String.t()
+  }
+  """
+  @type rds_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_task() :: %{
+    "CdcStartPosition" => String.t(),
+    "CdcStopPosition" => String.t(),
+    "LastFailureMessage" => String.t(),
+    "MigrationType" => list(any()),
+    "RecoveryCheckpoint" => String.t(),
+    "ReplicationInstanceArn" => String.t(),
+    "ReplicationTaskArn" => String.t(),
+    "ReplicationTaskCreationDate" => non_neg_integer(),
+    "ReplicationTaskIdentifier" => String.t(),
+    "ReplicationTaskSettings" => String.t(),
+    "ReplicationTaskStartDate" => non_neg_integer(),
+    "ReplicationTaskStats" => replication_task_stats(),
+    "SourceEndpointArn" => String.t(),
+    "Status" => String.t(),
+    "StopReason" => String.t(),
+    "TableMappings" => String.t(),
+    "TargetEndpointArn" => String.t(),
+    "TargetReplicationInstanceArn" => String.t(),
+    "TaskData" => String.t()
+  }
+  """
+  @type replication_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_statistics() :: %{
+    "AppliedDdls" => float(),
+    "AppliedDeletes" => float(),
+    "AppliedInserts" => float(),
+    "AppliedUpdates" => float(),
+    "Ddls" => float(),
+    "Deletes" => float(),
+    "FullLoadCondtnlChkFailedRows" => float(),
+    "FullLoadEndTime" => non_neg_integer(),
+    "FullLoadErrorRows" => float(),
+    "FullLoadReloaded" => boolean(),
+    "FullLoadRows" => float(),
+    "FullLoadStartTime" => non_neg_integer(),
+    "Inserts" => float(),
+    "LastUpdateTime" => non_neg_integer(),
+    "SchemaName" => String.t(),
+    "TableName" => String.t(),
+    "TableState" => String.t(),
+    "Updates" => float(),
+    "ValidationFailedRecords" => float(),
+    "ValidationPendingRecords" => float(),
+    "ValidationState" => String.t(),
+    "ValidationStateDetails" => String.t(),
+    "ValidationSuspendedRecords" => float()
+  }
+  """
+  @type table_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  mongo_db_data_provider_settings() :: %{
+    "AuthMechanism" => list(any()),
+    "AuthSource" => String.t(),
+    "AuthType" => list(any()),
+    "CertificateArn" => String.t(),
+    "DatabaseName" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type mongo_db_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_recommendations_request_entry() :: %{
+    "DatabaseId" => String.t(),
+    "Settings" => recommendation_settings()
+  }
+  """
+  @type start_recommendations_request_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_subnet_groups_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationSubnetGroups" => list(replication_subnet_group()())
+  }
+  """
+  @type describe_replication_subnet_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_event_subscription_response() :: %{
+    "EventSubscription" => event_subscription()
+  }
+  """
+  @type delete_event_subscription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dms_transfer_settings() :: %{
+    "BucketName" => String.t(),
+    "ServiceAccessRoleArn" => String.t()
+  }
+  """
+  @type dms_transfer_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_settings() :: %{
+    "UseTaskStartTimeForFullLoadTimestamp" => boolean(),
+    "IncludeOpForFullLoad" => boolean(),
+    "RowGroupLength" => integer(),
+    "MaxFileSize" => integer(),
+    "ServiceAccessRoleArn" => String.t(),
+    "DataFormat" => list(any()),
+    "CdcInsertsOnly" => boolean(),
+    "ServerSideEncryptionKmsKeyId" => String.t(),
+    "DatePartitionEnabled" => boolean(),
+    "DatePartitionDelimiter" => list(any()),
+    "EncryptionMode" => list(any()),
+    "DictPageSizeLimit" => integer(),
+    "IgnoreHeaderRows" => integer(),
+    "CsvNoSupValue" => String.t(),
+    "BucketFolder" => String.t(),
+    "AddTrailingPaddingCharacter" => boolean(),
+    "CdcPath" => String.t(),
+    "CsvNullValue" => String.t(),
+    "PreserveTransactions" => boolean(),
+    "CdcInsertsAndUpdates" => boolean(),
+    "AddColumnName" => boolean(),
+    "Rfc4180" => boolean(),
+    "CompressionType" => list(any()),
+    "UseCsvNoSupValue" => boolean(),
+    "ExpectedBucketOwner" => String.t(),
+    "CdcMaxBatchInterval" => integer(),
+    "CsvRowDelimiter" => String.t(),
+    "BucketName" => String.t(),
+    "EnableStatistics" => boolean(),
+    "DataPageSize" => integer(),
+    "CsvDelimiter" => String.t(),
+    "DatePartitionSequence" => list(any()),
+    "ParquetTimestampInMillisecond" => boolean(),
+    "EncodingType" => list(any()),
+    "GlueCatalogGeneration" => boolean(),
+    "ParquetVersion" => list(any()),
+    "CannedAclForObjects" => list(any()),
+    "CdcMinFileSize" => integer(),
+    "ExternalTableDefinition" => String.t(),
+    "TimestampColumnName" => String.t(),
+    "DatePartitionTimezone" => String.t()
+  }
+  """
+  @type s3_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_subnet_group_message() :: %{
+    optional("ReplicationSubnetGroupDescription") => String.t(),
+    required("ReplicationSubnetGroupIdentifier") => String.t(),
+    required("SubnetIds") => list(String.t()())
+  }
+  """
+  @type modify_replication_subnet_group_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schema_conversion_request() :: %{
+    "Error" => list(),
+    "ExportSqlDetails" => export_sql_details(),
+    "MigrationProjectArn" => String.t(),
+    "RequestIdentifier" => String.t(),
+    "Status" => String.t()
+  }
+  """
+  @type schema_conversion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_metadata_model_assessment_message() :: %{
+    optional("AssessmentReportTypes") => list(list(any())()),
+    optional("FileName") => String.t(),
+    required("MigrationProjectIdentifier") => String.t(),
+    required("SelectionRules") => String.t()
+  }
+  """
+  @type export_metadata_model_assessment_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connections_response() :: %{
+    "Connections" => list(connection()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_connections_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_config_response() :: %{
+    "ReplicationConfig" => replication_config()
+  }
+  """
+  @type modify_replication_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_attributes_message() :: %{
+
+  }
+  """
+  @type describe_account_attributes_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_assessments_response() :: %{
+    "Marker" => String.t(),
+    "Requests" => list(schema_conversion_request()())
+  }
+  """
+  @type describe_metadata_model_assessments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_instances_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationInstances" => list(replication_instance()())
+  }
+  """
+  @type describe_replication_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_access_denied_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_access_denied_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_task_message() :: %{
+    optional("CdcStartPosition") => String.t(),
+    optional("CdcStartTime") => non_neg_integer(),
+    optional("CdcStopPosition") => String.t(),
+    optional("ReplicationTaskSettings") => String.t(),
+    optional("ResourceIdentifier") => String.t(),
+    optional("Tags") => list(tag()()),
+    optional("TaskData") => String.t(),
+    required("MigrationType") => list(any()),
+    required("ReplicationInstanceArn") => String.t(),
+    required("ReplicationTaskIdentifier") => String.t(),
+    required("SourceEndpointArn") => String.t(),
+    required("TableMappings") => String.t(),
+    required("TargetEndpointArn") => String.t()
+  }
+  """
+  @type create_replication_task_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_replication_task_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type stop_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_event_subscription_message() :: %{
+    optional("Enabled") => boolean(),
+    optional("EventCategories") => list(String.t()()),
+    optional("SourceIds") => list(String.t()()),
+    optional("SourceType") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("SnsTopicArn") => String.t(),
+    required("SubscriptionName") => String.t()
+  }
+  """
+  @type create_event_subscription_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_profile_message() :: %{
+    required("InstanceProfileIdentifier") => String.t()
+  }
+  """
+  @type delete_instance_profile_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_configs_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationConfigs" => list(replication_config()())
+  }
+  """
+  @type describe_replication_configs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_subscriptions_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    optional("SubscriptionName") => String.t()
+  }
+  """
+  @type describe_event_subscriptions_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_schemas_response() :: %{
+    "Marker" => String.t(),
+    "Schemas" => list(String.t()())
+  }
+  """
+  @type describe_schemas_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_task_assessment_run_progress() :: %{
+    "IndividualAssessmentCompletedCount" => integer(),
+    "IndividualAssessmentCount" => integer()
+  }
+  """
+  @type replication_task_assessment_run_progress() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_task_individual_assessment() :: %{
+    "IndividualAssessmentName" => String.t(),
+    "ReplicationTaskAssessmentRunArn" => String.t(),
+    "ReplicationTaskIndividualAssessmentArn" => String.t(),
+    "ReplicationTaskIndividualAssessmentStartDate" => non_neg_integer(),
+    "Status" => String.t()
+  }
+  """
+  @type replication_task_individual_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_data_providers_response() :: %{
+    "DataProviders" => list(data_provider()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_data_providers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_data_provider_message() :: %{
+    optional("DataProviderName") => String.t(),
+    optional("Description") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("Engine") => String.t(),
+    required("Settings") => list()
+  }
+  """
+  @type create_data_provider_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reload_tables_response() :: %{
+    "ReplicationTaskArn" => String.t()
+  }
+  """
+  @type reload_tables_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  microsoft_sql_server_data_provider_settings() :: %{
+    "CertificateArn" => String.t(),
+    "DatabaseName" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type microsoft_sql_server_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication() :: %{
+    "CdcStartPosition" => String.t(),
+    "CdcStartTime" => non_neg_integer(),
+    "CdcStopPosition" => String.t(),
+    "FailureMessages" => list(String.t()()),
+    "ProvisionData" => provision_data(),
+    "RecoveryCheckpoint" => String.t(),
+    "ReplicationConfigArn" => String.t(),
+    "ReplicationConfigIdentifier" => String.t(),
+    "ReplicationCreateTime" => non_neg_integer(),
+    "ReplicationDeprovisionTime" => non_neg_integer(),
+    "ReplicationLastStopTime" => non_neg_integer(),
+    "ReplicationStats" => replication_stats(),
+    "ReplicationType" => list(any()),
+    "ReplicationUpdateTime" => non_neg_integer(),
+    "SourceEndpointArn" => String.t(),
+    "StartReplicationType" => String.t(),
+    "Status" => String.t(),
+    "StopReason" => String.t(),
+    "TargetEndpointArn" => String.t()
+  }
+  """
+  @type replication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recommendations_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_lsa_analysis_request() :: %{
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fleet_advisor_lsa_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_event_subscription_response() :: %{
+    "EventSubscription" => event_subscription()
+  }
+  """
+  @type create_event_subscription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation_settings() :: %{
+    "InstanceSizingType" => String.t(),
+    "WorkloadType" => String.t()
+  }
+  """
+  @type recommendation_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  i_b_m_db2_settings() :: %{
+    "CurrentLsn" => String.t(),
+    "DatabaseName" => String.t(),
+    "KeepCsvFiles" => boolean(),
+    "LoadTimeout" => integer(),
+    "MaxFileSize" => integer(),
+    "MaxKBytesPerRead" => integer(),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "SetDataCaptureChanges" => boolean(),
+    "Username" => String.t(),
+    "WriteBufferSize" => integer()
+  }
+  """
+  @type i_b_m_db2_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "ResourceArn" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_endpoint_message() :: %{
+    required("EndpointArn") => String.t()
+  }
+  """
+  @type delete_endpoint_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_task_assessment_runs_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationTaskAssessmentRuns" => list(replication_task_assessment_run()())
+  }
+  """
+  @type describe_replication_task_assessment_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_endpoint_response() :: %{
+    "Endpoint" => endpoint()
+  }
+  """
+  @type delete_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_schemas_response() :: %{
+    "FleetAdvisorSchemas" => list(schema_response()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleet_advisor_schemas_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_data_provider_message() :: %{
+    optional("DataProviderName") => String.t(),
+    optional("Description") => String.t(),
+    optional("Engine") => String.t(),
+    optional("ExactSettings") => boolean(),
+    optional("Settings") => list(),
+    required("DataProviderIdentifier") => String.t()
+  }
+  """
+  @type modify_data_provider_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_config_message() :: %{
+    required("ReplicationConfigArn") => String.t()
+  }
+  """
+  @type delete_replication_config_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_config_message() :: %{
+    optional("ReplicationSettings") => String.t(),
+    optional("ResourceIdentifier") => String.t(),
+    optional("SupplementalSettings") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("ComputeConfig") => compute_config(),
+    required("ReplicationConfigIdentifier") => String.t(),
+    required("ReplicationType") => list(any()),
+    required("SourceEndpointArn") => String.t(),
+    required("TableMappings") => String.t(),
+    required("TargetEndpointArn") => String.t()
+  }
+  """
+  @type create_replication_config_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection() :: %{
+    "EndpointArn" => String.t(),
+    "EndpointIdentifier" => String.t(),
+    "LastFailureMessage" => String.t(),
+    "ReplicationInstanceArn" => String.t(),
+    "ReplicationInstanceIdentifier" => String.t(),
+    "Status" => String.t()
+  }
+  """
+  @type connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_category_group() :: %{
+    "EventCategories" => list(String.t()()),
+    "SourceType" => String.t()
+  }
+  """
+  @type event_category_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reboot_replication_instance_response() :: %{
+    "ReplicationInstance" => replication_instance()
+  }
+  """
+  @type reboot_replication_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_endpoint_settings_response() :: %{
+    "EndpointSettings" => list(endpoint_setting()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_endpoint_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reboot_replication_instance_message() :: %{
+    optional("ForceFailover") => boolean(),
+    optional("ForcePlannedFailover") => boolean(),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type reboot_replication_instance_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_task_assessment_run_response() :: %{
+    "ReplicationTaskAssessmentRun" => replication_task_assessment_run()
+  }
+  """
+  @type delete_replication_task_assessment_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_pending_maintenance_actions_response() :: %{
+    "Marker" => String.t(),
+    "PendingMaintenanceActions" => list(resource_pending_maintenance_actions()())
+  }
+  """
+  @type describe_pending_maintenance_actions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation() :: %{
+    "CreatedDate" => String.t(),
+    "Data" => recommendation_data(),
+    "DatabaseId" => String.t(),
+    "EngineName" => String.t(),
+    "Preferred" => boolean(),
+    "Settings" => recommendation_settings(),
+    "Status" => String.t()
+  }
+  """
+  @type recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  table_to_reload() :: %{
+    "SchemaName" => String.t(),
+    "TableName" => String.t()
+  }
+  """
+  @type table_to_reload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_endpoint_types_response() :: %{
+    "Marker" => String.t(),
+    "SupportedEndpointTypes" => list(supported_endpoint_type()())
+  }
+  """
+  @type describe_endpoint_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  neptune_settings() :: %{
+    "ErrorRetryDuration" => integer(),
+    "IamAuthEnabled" => boolean(),
+    "MaxFileSize" => integer(),
+    "MaxRetryCount" => integer(),
+    "S3BucketFolder" => String.t(),
+    "S3BucketName" => String.t(),
+    "ServiceAccessRoleArn" => String.t()
+  }
+  """
+  @type neptune_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_applicable_individual_assessments_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    optional("MigrationType") => list(any()),
+    optional("ReplicationInstanceArn") => String.t(),
+    optional("ReplicationTaskArn") => String.t(),
+    optional("SourceEngineName") => String.t(),
+    optional("TargetEngineName") => String.t()
+  }
+  """
+  @type describe_applicable_individual_assessments_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_metadata_model_assessment_response() :: %{
+    "CsvReport" => export_metadata_model_assessment_result_entry(),
+    "PdfReport" => export_metadata_model_assessment_result_entry()
+  }
+  """
+  @type export_metadata_model_assessment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_table_statistics_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationTaskArn" => String.t(),
+    "TableStatistics" => list(table_statistics()())
+  }
+  """
+  @type describe_table_statistics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fleet_advisor_collector_response() :: %{
+    "CollectorName" => String.t(),
+    "CollectorReferencedId" => String.t(),
+    "Description" => String.t(),
+    "S3BucketName" => String.t(),
+    "ServiceAccessRoleArn" => String.t()
+  }
+  """
+  @type create_fleet_advisor_collector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_data_provider_response() :: %{
+    "DataProvider" => data_provider()
+  }
+  """
+  @type modify_data_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rds_requirements() :: %{
+    "DeploymentOption" => String.t(),
+    "EngineEdition" => String.t(),
+    "EngineVersion" => String.t(),
+    "InstanceMemory" => float(),
+    "InstanceVcpu" => float(),
+    "StorageIops" => integer(),
+    "StorageSize" => integer()
+  }
+  """
+  @type rds_requirements() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_certificate_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_certificate_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_conversion_response() :: %{
+    "RequestIdentifier" => String.t()
+  }
+  """
+  @type start_metadata_model_conversion_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_extension_pack_associations_response() :: %{
+    "Marker" => String.t(),
+    "Requests" => list(schema_conversion_request()())
+  }
+  """
+  @type describe_extension_pack_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  move_replication_task_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type move_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_collector_request() :: %{
+    required("CollectorReferencedId") => String.t()
+  }
+  """
+  @type delete_collector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "TagList" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redis_settings() :: %{
+    "AuthPassword" => String.t(),
+    "AuthType" => list(any()),
+    "AuthUserName" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslCaCertificateArn" => String.t(),
+    "SslSecurityProtocol" => list(any())
+  }
+  """
+  @type redis_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_instances_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_replication_instances_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  orderable_replication_instance() :: %{
+    "AvailabilityZones" => list(String.t()()),
+    "DefaultAllocatedStorage" => integer(),
+    "EngineVersion" => String.t(),
+    "IncludedAllocatedStorage" => integer(),
+    "MaxAllocatedStorage" => integer(),
+    "MinAllocatedStorage" => integer(),
+    "ReleaseStatus" => list(any()),
+    "ReplicationInstanceClass" => String.t(),
+    "StorageType" => String.t()
+  }
+  """
+  @type orderable_replication_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_attributes_response() :: %{
+    "AccountQuotas" => list(account_quota()()),
+    "UniqueAccountIdentifier" => String.t()
+  }
+  """
+  @type describe_account_attributes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connection_message() :: %{
+    required("EndpointArn") => String.t(),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type delete_connection_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_schema_object_summary_response() :: %{
+    "FleetAdvisorSchemaObjects" => list(fleet_advisor_schema_object_response()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleet_advisor_schema_object_summary_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_task_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type start_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_profile_message() :: %{
+    optional("AvailabilityZone") => String.t(),
+    optional("Description") => String.t(),
+    optional("InstanceProfileName") => String.t(),
+    optional("KmsKeyArn") => String.t(),
+    optional("NetworkType") => String.t(),
+    optional("PubliclyAccessible") => boolean(),
+    optional("SubnetGroupIdentifier") => String.t(),
+    optional("Tags") => list(tag()()),
+    optional("VpcSecurityGroups") => list(String.t()())
+  }
+  """
+  @type create_instance_profile_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_assessments_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_metadata_model_assessments_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_refresh_schemas_status_message() :: %{
+    required("EndpointArn") => String.t()
+  }
+  """
+  @type describe_refresh_schemas_status_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_instance_task_log() :: %{
+    "ReplicationInstanceTaskLogSize" => float(),
+    "ReplicationTaskArn" => String.t(),
+    "ReplicationTaskName" => String.t()
+  }
+  """
+  @type replication_instance_task_log() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  insufficient_resource_capacity_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type insufficient_resource_capacity_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_exports_as_script_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_metadata_model_exports_as_script_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter() :: %{
+    "Name" => String.t(),
+    "Values" => list(String.t()())
+  }
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_subnet_group_message() :: %{
+    required("ReplicationSubnetGroupIdentifier") => String.t()
+  }
+  """
+  @type delete_replication_subnet_group_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_tags_to_resource_response() :: %{
+
+  }
+  """
+  @type add_tags_to_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  doc_db_settings() :: %{
+    "DatabaseName" => String.t(),
+    "DocsToInvestigate" => integer(),
+    "ExtractDocId" => boolean(),
+    "KmsKeyId" => String.t(),
+    "NestingLevel" => list(any()),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "ReplicateShardCollections" => boolean(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "UseUpdateLookUp" => boolean(),
+    "Username" => String.t()
+  }
+  """
+  @type doc_db_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_not_found_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_endpoint_message() :: %{
+    required("EndpointArn") => String.t(),
+    optional("PostgreSQLSettings") => postgre_s_q_l_settings(),
+    optional("ExternalTableDefinition") => String.t(),
+    optional("MicrosoftSQLServerSettings") => microsoft_s_q_l_server_settings(),
+    optional("DatabaseName") => String.t(),
+    optional("ExtraConnectionAttributes") => String.t(),
+    optional("TimestreamSettings") => timestream_settings(),
+    optional("MongoDbSettings") => mongo_db_settings(),
+    optional("OracleSettings") => oracle_settings(),
+    optional("ElasticsearchSettings") => elasticsearch_settings(),
+    optional("DynamoDbSettings") => dynamo_db_settings(),
+    optional("ExactSettings") => boolean(),
+    optional("Username") => String.t(),
+    optional("EngineName") => String.t(),
+    optional("IBMDb2Settings") => i_b_m_db2_settings(),
+    optional("ServerName") => String.t(),
+    optional("CertificateArn") => String.t(),
+    optional("DocDbSettings") => doc_db_settings(),
+    optional("NeptuneSettings") => neptune_settings(),
+    optional("Password") => String.t(),
+    optional("DmsTransferSettings") => dms_transfer_settings(),
+    optional("S3Settings") => s3_settings(),
+    optional("SybaseSettings") => sybase_settings(),
+    optional("KafkaSettings") => kafka_settings(),
+    optional("SslMode") => list(any()),
+    optional("EndpointType") => list(any()),
+    optional("GcpMySQLSettings") => gcp_my_s_q_l_settings(),
+    optional("ServiceAccessRoleArn") => String.t(),
+    optional("MySQLSettings") => my_s_q_l_settings(),
+    optional("Port") => integer(),
+    optional("RedisSettings") => redis_settings(),
+    optional("KinesisSettings") => kinesis_settings(),
+    optional("EndpointIdentifier") => String.t(),
+    optional("RedshiftSettings") => redshift_settings()
+  }
+  """
+  @type modify_endpoint_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connections_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_connections_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_access_denied_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type s3_access_denied_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  storage_quota_exceeded_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type storage_quota_exceeded_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_event_subscription_response() :: %{
+    "EventSubscription" => event_subscription()
+  }
+  """
+  @type modify_event_subscription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_task_individual_assessments_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_replication_task_individual_assessments_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redshift_data_provider_settings() :: %{
+    "DatabaseName" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t()
+  }
+  """
+  @type redshift_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  endpoint() :: %{
+    "Status" => String.t(),
+    "ServiceAccessRoleArn" => String.t(),
+    "RedshiftSettings" => redshift_settings(),
+    "MicrosoftSQLServerSettings" => microsoft_s_q_l_server_settings(),
+    "DynamoDbSettings" => dynamo_db_settings(),
+    "DatabaseName" => String.t(),
+    "DmsTransferSettings" => dms_transfer_settings(),
+    "EndpointArn" => String.t(),
+    "MongoDbSettings" => mongo_db_settings(),
+    "DocDbSettings" => doc_db_settings(),
+    "GcpMySQLSettings" => gcp_my_s_q_l_settings(),
+    "CertificateArn" => String.t(),
+    "KmsKeyId" => String.t(),
+    "OracleSettings" => oracle_settings(),
+    "ExtraConnectionAttributes" => String.t(),
+    "ElasticsearchSettings" => elasticsearch_settings(),
+    "IBMDb2Settings" => i_b_m_db2_settings(),
+    "SybaseSettings" => sybase_settings(),
+    "Port" => integer(),
+    "ExternalId" => String.t(),
+    "EngineName" => String.t(),
+    "RedisSettings" => redis_settings(),
+    "EndpointIdentifier" => String.t(),
+    "TimestreamSettings" => timestream_settings(),
+    "EndpointType" => list(any()),
+    "MySQLSettings" => my_s_q_l_settings(),
+    "EngineDisplayName" => String.t(),
+    "Username" => String.t(),
+    "ExternalTableDefinition" => String.t(),
+    "KafkaSettings" => kafka_settings(),
+    "PostgreSQLSettings" => postgre_s_q_l_settings(),
+    "S3Settings" => s3_settings(),
+    "SslMode" => list(any()),
+    "KinesisSettings" => kinesis_settings(),
+    "ServerName" => String.t(),
+    "NeptuneSettings" => neptune_settings()
+  }
+  """
+  @type endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_task_individual_assessments_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationTaskIndividualAssessments" => list(replication_task_individual_assessment()())
+  }
+  """
+  @type describe_replication_task_individual_assessments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_certificate_message() :: %{
+    required("CertificateArn") => String.t()
+  }
+  """
+  @type delete_certificate_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_export_to_target_message() :: %{
+    optional("OverwriteExtensionPack") => boolean(),
+    required("MigrationProjectIdentifier") => String.t(),
+    required("SelectionRules") => String.t()
+  }
+  """
+  @type start_metadata_model_export_to_target_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_instance_response() :: %{
+    "ReplicationInstance" => replication_instance()
+  }
+  """
+  @type create_replication_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_event_subscription_message() :: %{
+    required("SubscriptionName") => String.t()
+  }
+  """
+  @type delete_event_subscription_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_task_assessment_result() :: %{
+    "AssessmentResults" => String.t(),
+    "AssessmentResultsFile" => String.t(),
+    "AssessmentStatus" => String.t(),
+    "ReplicationTaskArn" => String.t(),
+    "ReplicationTaskIdentifier" => String.t(),
+    "ReplicationTaskLastAssessmentDate" => non_neg_integer(),
+    "S3ObjectUrl" => String.t()
+  }
+  """
+  @type replication_task_assessment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_connection_response() :: %{
+    "Connection" => connection()
+  }
+  """
+  @type test_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_instance_message() :: %{
+    optional("AllocatedStorage") => integer(),
+    optional("AutoMinorVersionUpgrade") => boolean(),
+    optional("AvailabilityZone") => String.t(),
+    optional("DnsNameServers") => String.t(),
+    optional("EngineVersion") => String.t(),
+    optional("KmsKeyId") => String.t(),
+    optional("MultiAZ") => boolean(),
+    optional("NetworkType") => String.t(),
+    optional("PreferredMaintenanceWindow") => String.t(),
+    optional("PubliclyAccessible") => boolean(),
+    optional("ReplicationSubnetGroupIdentifier") => String.t(),
+    optional("ResourceIdentifier") => String.t(),
+    optional("Tags") => list(tag()()),
+    optional("VpcSecurityGroupIds") => list(String.t()()),
+    required("ReplicationInstanceClass") => String.t(),
+    required("ReplicationInstanceIdentifier") => String.t()
+  }
+  """
+  @type create_replication_instance_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_task_assessment_run_response() :: %{
+    "ReplicationTaskAssessmentRun" => replication_task_assessment_run()
+  }
+  """
+  @type start_replication_task_assessment_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  my_s_q_l_settings() :: %{
+    "AfterConnectScript" => String.t(),
+    "CleanSourceMetadataOnMismatch" => boolean(),
+    "DatabaseName" => String.t(),
+    "EventsPollInterval" => integer(),
+    "ExecuteTimeout" => integer(),
+    "MaxFileSize" => integer(),
+    "ParallelLoadThreads" => integer(),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "ServerTimezone" => String.t(),
+    "TargetDbType" => list(any()),
+    "Username" => String.t()
+  }
+  """
+  @type my_s_q_l_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate() :: %{
+    "CertificateArn" => String.t(),
+    "CertificateCreationDate" => non_neg_integer(),
+    "CertificateIdentifier" => String.t(),
+    "CertificateOwner" => String.t(),
+    "CertificatePem" => String.t(),
+    "CertificateWallet" => binary(),
+    "KeyLength" => integer(),
+    "SigningAlgorithm" => String.t(),
+    "ValidFromDate" => non_neg_integer(),
+    "ValidToDate" => non_neg_integer()
+  }
+  """
+  @type certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_replication_message() :: %{
+    required("ReplicationConfigArn") => String.t()
+  }
+  """
+  @type stop_replication_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_key_not_accessible_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_key_not_accessible_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s_n_s_invalid_topic_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type s_n_s_invalid_topic_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_table_statistics_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("ReplicationConfigArn") => String.t()
+  }
+  """
+  @type describe_replication_table_statistics_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_subscriptions_response() :: %{
+    "EventSubscriptionsList" => list(event_subscription()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_event_subscriptions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replications_response() :: %{
+    "Marker" => String.t(),
+    "Replications" => list(replication()())
+  }
+  """
+  @type describe_replications_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event() :: %{
+    "Date" => non_neg_integer(),
+    "EventCategories" => list(String.t()()),
+    "Message" => String.t(),
+    "SourceIdentifier" => String.t(),
+    "SourceType" => list(any())
+  }
+  """
+  @type event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  collector_not_found_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type collector_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_connection_message() :: %{
+    required("EndpointArn") => String.t(),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type test_connection_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_already_exists_fault() :: %{
+    "message" => String.t(),
+    "resourceArn" => String.t()
+  }
+  """
+  @type resource_already_exists_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_assessment_response() :: %{
+    "RequestIdentifier" => String.t()
+  }
+  """
+  @type start_metadata_model_assessment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleet_advisor_databases_response() :: %{
+    "DatabaseIds" => list(String.t()())
+  }
+  """
+  @type delete_fleet_advisor_databases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recommendation_limitations_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_recommendation_limitations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  mongo_db_settings() :: %{
+    "AuthMechanism" => list(any()),
+    "AuthSource" => String.t(),
+    "AuthType" => list(any()),
+    "DatabaseName" => String.t(),
+    "DocsToInvestigate" => String.t(),
+    "ExtractDocId" => String.t(),
+    "KmsKeyId" => String.t(),
+    "NestingLevel" => list(any()),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "ReplicateShardCollections" => boolean(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "UseUpdateLookUp" => boolean(),
+    "Username" => String.t()
+  }
+  """
+  @type mongo_db_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_replication_task_assessment_run_message() :: %{
+    required("ReplicationTaskAssessmentRunArn") => String.t()
+  }
+  """
+  @type cancel_replication_task_assessment_run_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_export_as_script_response() :: %{
+    "RequestIdentifier" => String.t()
+  }
+  """
+  @type start_metadata_model_export_as_script_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  compute_config() :: %{
+    "AvailabilityZone" => String.t(),
+    "DnsNameServers" => String.t(),
+    "KmsKeyId" => String.t(),
+    "MaxCapacityUnits" => integer(),
+    "MinCapacityUnits" => integer(),
+    "MultiAZ" => boolean(),
+    "PreferredMaintenanceWindow" => String.t(),
+    "ReplicationSubnetGroupId" => String.t(),
+    "VpcSecurityGroupIds" => list(String.t()())
+  }
+  """
+  @type compute_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_tags_to_resource_message() :: %{
+    required("ResourceArn") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type add_tags_to_resource_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  oracle_settings() :: %{
+    "AsmUser" => String.t(),
+    "SecurityDbEncryptionName" => String.t(),
+    "AllowSelectNestedTables" => boolean(),
+    "AdditionalArchivedLogDestId" => integer(),
+    "AsmServer" => String.t(),
+    "ReplacePathPrefix" => boolean(),
+    "UseAlternateFolderForOnline" => boolean(),
+    "OpenTransactionWindow" => integer(),
+    "AsmPassword" => String.t(),
+    "DatabaseName" => String.t(),
+    "UsePathPrefix" => String.t(),
+    "NumberDatatypeScale" => integer(),
+    "StandbyDelayTime" => integer(),
+    "SecretsManagerOracleAsmSecretId" => String.t(),
+    "SpatialDataOptionToGeoJsonFunctionName" => String.t(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "ArchivedLogsOnly" => boolean(),
+    "ReadTableSpaceName" => boolean(),
+    "ArchivedLogDestId" => integer(),
+    "UseBFile" => boolean(),
+    "UseDirectPathFullLoad" => boolean(),
+    "ConvertTimestampWithZoneToUTC" => boolean(),
+    "Port" => integer(),
+    "RetryInterval" => integer(),
+    "FailTasksOnLobTruncation" => boolean(),
+    "SecretsManagerOracleAsmAccessRoleArn" => String.t(),
+    "OraclePathPrefix" => String.t(),
+    "UseLogminerReader" => boolean(),
+    "Password" => String.t(),
+    "AddSupplementalLogging" => boolean(),
+    "ExtraArchivedLogDestIds" => list(integer()()),
+    "EnableHomogenousTablespace" => boolean(),
+    "SecurityDbEncryption" => String.t(),
+    "AccessAlternateDirectly" => boolean(),
+    "DirectPathNoLog" => boolean(),
+    "Username" => String.t(),
+    "DirectPathParallelLoad" => boolean(),
+    "CharLengthSemantics" => list(any()),
+    "SecretsManagerSecretId" => String.t(),
+    "TrimSpaceInChar" => boolean(),
+    "ParallelAsmReadThreads" => integer(),
+    "ReadAheadBlocks" => integer(),
+    "ServerName" => String.t()
+  }
+  """
+  @type oracle_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_conversion_configuration_response() :: %{
+    "MigrationProjectIdentifier" => String.t()
+  }
+  """
+  @type modify_conversion_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_replication_response() :: %{
+    "Replication" => replication()
+  }
+  """
+  @type stop_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_response() :: %{
+    "Replication" => replication()
+  }
+  """
+  @type start_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kafka_settings() :: %{
+    "Broker" => String.t(),
+    "IncludeControlDetails" => boolean(),
+    "IncludeNullAndEmpty" => boolean(),
+    "IncludePartitionValue" => boolean(),
+    "IncludeTableAlterOperations" => boolean(),
+    "IncludeTransactionDetails" => boolean(),
+    "MessageFormat" => list(any()),
+    "MessageMaxBytes" => integer(),
+    "NoHexPrefix" => boolean(),
+    "PartitionIncludeSchemaTable" => boolean(),
+    "SaslMechanism" => list(any()),
+    "SaslPassword" => String.t(),
+    "SaslUsername" => String.t(),
+    "SecurityProtocol" => list(any()),
+    "SslCaCertificateArn" => String.t(),
+    "SslClientCertificateArn" => String.t(),
+    "SslClientKeyArn" => String.t(),
+    "SslClientKeyPassword" => String.t(),
+    "SslEndpointIdentificationAlgorithm" => list(any()),
+    "Topic" => String.t()
+  }
+  """
+  @type kafka_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_imports_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_metadata_model_imports_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  gcp_my_s_q_l_settings() :: %{
+    "AfterConnectScript" => String.t(),
+    "CleanSourceMetadataOnMismatch" => boolean(),
+    "DatabaseName" => String.t(),
+    "EventsPollInterval" => integer(),
+    "MaxFileSize" => integer(),
+    "ParallelLoadThreads" => integer(),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "ServerTimezone" => String.t(),
+    "TargetDbType" => list(any()),
+    "Username" => String.t()
+  }
+  """
+  @type gcp_my_s_q_l_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_conversion_configuration_response() :: %{
+    "ConversionConfiguration" => String.t(),
+    "MigrationProjectIdentifier" => String.t()
+  }
+  """
+  @type describe_conversion_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_orderable_replication_instances_response() :: %{
+    "Marker" => String.t(),
+    "OrderableReplicationInstances" => list(orderable_replication_instance()())
+  }
+  """
+  @type describe_orderable_replication_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limitation() :: %{
+    "DatabaseId" => String.t(),
+    "Description" => String.t(),
+    "EngineName" => String.t(),
+    "Impact" => String.t(),
+    "Name" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type limitation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_instance_message() :: %{
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type delete_replication_instance_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_message() :: %{
+    optional("Duration") => integer(),
+    optional("EndTime") => non_neg_integer(),
+    optional("EventCategories") => list(String.t()()),
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    optional("SourceIdentifier") => String.t(),
+    optional("SourceType") => list(any()),
+    optional("StartTime") => non_neg_integer()
+  }
+  """
+  @type describe_events_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_endpoint_types_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_endpoint_types_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_migration_project_message() :: %{
+    optional("Description") => String.t(),
+    optional("InstanceProfileIdentifier") => String.t(),
+    optional("MigrationProjectName") => String.t(),
+    optional("SchemaConversionApplicationAttributes") => s_capplication_attributes(),
+    optional("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()()),
+    optional("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()()),
+    optional("TransformationRules") => String.t(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type modify_migration_project_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_task_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type create_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_export_to_target_response() :: %{
+    "RequestIdentifier" => String.t()
+  }
+  """
+  @type start_metadata_model_export_to_target_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  database_instance_software_details_response() :: %{
+    "Engine" => String.t(),
+    "EngineEdition" => String.t(),
+    "EngineVersion" => String.t(),
+    "OsArchitecture" => integer(),
+    "ServicePack" => String.t(),
+    "SupportLevel" => String.t(),
+    "Tooltip" => String.t()
+  }
+  """
+  @type database_instance_software_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_instance_response() :: %{
+    "ReplicationInstance" => replication_instance()
+  }
+  """
+  @type modify_replication_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_profiles_response() :: %{
+    "InstanceProfiles" => list(instance_profile()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_instance_profiles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connection_response() :: %{
+    "Connection" => connection()
+  }
+  """
+  @type delete_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  maria_db_data_provider_settings() :: %{
+    "CertificateArn" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type maria_db_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_subnet_group() :: %{
+    "ReplicationSubnetGroupDescription" => String.t(),
+    "ReplicationSubnetGroupIdentifier" => String.t(),
+    "SubnetGroupStatus" => String.t(),
+    "Subnets" => list(subnet()()),
+    "SupportedNetworkTypes" => list(String.t()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type replication_subnet_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_task_assessment_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type start_replication_task_assessment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_migration_project_response() :: %{
+    "MigrationProject" => migration_project()
+  }
+  """
+  @type create_migration_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_data() :: %{
+    "DateNewProvisioningDataAvailable" => non_neg_integer(),
+    "DateProvisioned" => non_neg_integer(),
+    "IsNewProvisioningAvailable" => boolean(),
+    "ProvisionState" => String.t(),
+    "ProvisionedCapacityUnits" => integer(),
+    "ReasonForNewProvisioningData" => String.t()
+  }
+  """
+  @type provision_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_task_assessment_run_message() :: %{
+    optional("Exclude") => list(String.t()()),
+    optional("IncludeOnly") => list(String.t()()),
+    optional("ResultEncryptionMode") => String.t(),
+    optional("ResultKmsKeyArn") => String.t(),
+    optional("ResultLocationFolder") => String.t(),
+    required("AssessmentRunName") => String.t(),
+    required("ReplicationTaskArn") => String.t(),
+    required("ResultLocationBucket") => String.t(),
+    required("ServiceAccessRoleArn") => String.t()
+  }
+  """
+  @type start_replication_task_assessment_run_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_recommendations_error_entry() :: %{
+    "Code" => String.t(),
+    "DatabaseId" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type batch_start_recommendations_error_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run_fleet_advisor_lsa_analysis_response() :: %{
+    "LsaAnalysisId" => String.t(),
+    "Status" => String.t()
+  }
+  """
+  @type run_fleet_advisor_lsa_analysis_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replication_config_response() :: %{
+    "ReplicationConfig" => replication_config()
+  }
+  """
+  @type create_replication_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_operation_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_operation_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_tasks_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationTasks" => list(replication_task()())
+  }
+  """
+  @type describe_replication_tasks_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  refresh_schemas_response() :: %{
+    "RefreshSchemasStatus" => refresh_schemas_status()
+  }
+  """
+  @type refresh_schemas_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_extension_pack_association_message() :: %{
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type start_extension_pack_association_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_task_message() :: %{
+    required("ReplicationTaskArn") => String.t()
+  }
+  """
+  @type delete_replication_task_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_config_message() :: %{
+    optional("ComputeConfig") => compute_config(),
+    optional("ReplicationConfigIdentifier") => String.t(),
+    optional("ReplicationSettings") => String.t(),
+    optional("ReplicationType") => list(any()),
+    optional("SourceEndpointArn") => String.t(),
+    optional("SupplementalSettings") => String.t(),
+    optional("TableMappings") => String.t(),
+    optional("TargetEndpointArn") => String.t(),
+    required("ReplicationConfigArn") => String.t()
+  }
+  """
+  @type modify_replication_config_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schema_response() :: %{
+    "CodeLineCount" => float(),
+    "CodeSize" => float(),
+    "Complexity" => String.t(),
+    "DatabaseInstance" => database_short_info_response(),
+    "OriginalSchema" => schema_short_info_response(),
+    "SchemaId" => String.t(),
+    "SchemaName" => String.t(),
+    "Server" => server_short_info_response(),
+    "Similarity" => float()
+  }
+  """
+  @type schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_task_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type modify_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_conversion_configuration_message() :: %{
+    required("ConversionConfiguration") => String.t(),
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type modify_conversion_configuration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_certificate_message() :: %{
+    optional("CertificatePem") => String.t(),
+    optional("CertificateWallet") => binary(),
+    optional("Tags") => list(tag()()),
+    required("CertificateIdentifier") => String.t()
+  }
+  """
+  @type import_certificate_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  postgre_sql_data_provider_settings() :: %{
+    "CertificateArn" => String.t(),
+    "DatabaseName" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type postgre_sql_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_profile_message() :: %{
+    optional("AvailabilityZone") => String.t(),
+    optional("Description") => String.t(),
+    optional("InstanceProfileName") => String.t(),
+    optional("KmsKeyArn") => String.t(),
+    optional("NetworkType") => String.t(),
+    optional("PubliclyAccessible") => boolean(),
+    optional("SubnetGroupIdentifier") => String.t(),
+    optional("VpcSecurityGroups") => list(String.t()()),
+    required("InstanceProfileIdentifier") => String.t()
+  }
+  """
+  @type modify_instance_profile_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  database_short_info_response() :: %{
+    "DatabaseEngine" => String.t(),
+    "DatabaseId" => String.t(),
+    "DatabaseIpAddress" => String.t(),
+    "DatabaseName" => String.t()
+  }
+  """
+  @type database_short_info_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_metadata_model_conversion_message() :: %{
+    required("MigrationProjectIdentifier") => String.t(),
+    required("SelectionRules") => String.t()
+  }
+  """
+  @type start_metadata_model_conversion_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_extension_pack_association_response() :: %{
+    "RequestIdentifier" => String.t()
+  }
+  """
+  @type start_extension_pack_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_migration_projects_response() :: %{
+    "Marker" => String.t(),
+    "MigrationProjects" => list(migration_project()())
+  }
+  """
+  @type describe_migration_projects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_disabled_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_disabled_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_endpoint_message() :: %{
+    optional("PostgreSQLSettings") => postgre_s_q_l_settings(),
+    optional("ExternalTableDefinition") => String.t(),
+    optional("MicrosoftSQLServerSettings") => microsoft_s_q_l_server_settings(),
+    optional("DatabaseName") => String.t(),
+    optional("ExtraConnectionAttributes") => String.t(),
+    optional("TimestreamSettings") => timestream_settings(),
+    optional("MongoDbSettings") => mongo_db_settings(),
+    optional("OracleSettings") => oracle_settings(),
+    optional("ElasticsearchSettings") => elasticsearch_settings(),
+    optional("DynamoDbSettings") => dynamo_db_settings(),
+    optional("Username") => String.t(),
+    required("EndpointIdentifier") => String.t(),
+    optional("IBMDb2Settings") => i_b_m_db2_settings(),
+    optional("ServerName") => String.t(),
+    optional("CertificateArn") => String.t(),
+    optional("DocDbSettings") => doc_db_settings(),
+    optional("NeptuneSettings") => neptune_settings(),
+    optional("Password") => String.t(),
+    optional("DmsTransferSettings") => dms_transfer_settings(),
+    optional("S3Settings") => s3_settings(),
+    optional("SybaseSettings") => sybase_settings(),
+    optional("KafkaSettings") => kafka_settings(),
+    optional("SslMode") => list(any()),
+    optional("GcpMySQLSettings") => gcp_my_s_q_l_settings(),
+    optional("ServiceAccessRoleArn") => String.t(),
+    optional("MySQLSettings") => my_s_q_l_settings(),
+    required("EndpointType") => list(any()),
+    optional("Port") => integer(),
+    optional("RedisSettings") => redis_settings(),
+    optional("KinesisSettings") => kinesis_settings(),
+    optional("KmsKeyId") => String.t(),
+    optional("ResourceIdentifier") => String.t(),
+    required("EngineName") => String.t(),
+    optional("Tags") => list(tag()()),
+    optional("RedshiftSettings") => redshift_settings()
+  }
+  """
+  @type create_endpoint_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_migration_project_response() :: %{
+    "MigrationProject" => migration_project()
+  }
+  """
+  @type modify_migration_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_tags_from_resource_message() :: %{
+    required("ResourceArn") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type remove_tags_from_resource_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_endpoint_response() :: %{
+    "Endpoint" => endpoint()
+  }
+  """
+  @type create_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  microsoft_s_q_l_server_settings() :: %{
+    "BcpPacketSize" => integer(),
+    "ControlTablesFileGroup" => String.t(),
+    "DatabaseName" => String.t(),
+    "ForceLobLookup" => boolean(),
+    "Password" => String.t(),
+    "Port" => integer(),
+    "QuerySingleAlwaysOnNode" => boolean(),
+    "ReadBackupOnly" => boolean(),
+    "SafeguardPolicy" => list(any()),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "TlogAccessMode" => list(any()),
+    "TrimSpaceInChar" => boolean(),
+    "UseBcpFullLoad" => boolean(),
+    "UseThirdPartyBackupDevice" => boolean(),
+    "Username" => String.t()
+  }
+  """
+  @type microsoft_s_q_l_server_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  apply_pending_maintenance_action_response() :: %{
+    "ResourcePendingMaintenanceActions" => resource_pending_maintenance_actions()
+  }
+  """
+  @type apply_pending_maintenance_action_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_quota_exceeded_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_quota_exceeded_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reload_replication_tables_response() :: %{
+    "ReplicationConfigArn" => String.t()
+  }
+  """
+  @type reload_replication_tables_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_subnet_groups_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_replication_subnet_groups_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_provider_descriptor_definition() :: %{
+    "DataProviderIdentifier" => String.t(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t()
+  }
+  """
+  @type data_provider_descriptor_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_categories_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("SourceType") => String.t()
+  }
+  """
+  @type describe_event_categories_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  postgre_s_q_l_settings() :: %{
+    "AfterConnectScript" => String.t(),
+    "BabelfishDatabaseName" => String.t(),
+    "CaptureDdls" => boolean(),
+    "DatabaseMode" => list(any()),
+    "DatabaseName" => String.t(),
+    "DdlArtifactsSchema" => String.t(),
+    "ExecuteTimeout" => integer(),
+    "FailTasksOnLobTruncation" => boolean(),
+    "HeartbeatEnable" => boolean(),
+    "HeartbeatFrequency" => integer(),
+    "HeartbeatSchema" => String.t(),
+    "MapBooleanAsBoolean" => boolean(),
+    "MapJsonbAsClob" => boolean(),
+    "MapLongVarcharAs" => list(any()),
+    "MaxFileSize" => integer(),
+    "Password" => String.t(),
+    "PluginName" => list(any()),
+    "Port" => integer(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t(),
+    "ServerName" => String.t(),
+    "SlotName" => String.t(),
+    "TrimSpaceInChar" => boolean(),
+    "Username" => String.t()
+  }
+  """
+  @type postgre_s_q_l_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_refresh_schemas_status_response() :: %{
+    "RefreshSchemasStatus" => refresh_schemas_status()
+  }
+  """
+  @type describe_refresh_schemas_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_recommendations_response() :: %{
+    "ErrorEntries" => list(batch_start_recommendations_error_entry()())
+  }
+  """
+  @type batch_start_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_data_provider_response() :: %{
+    "DataProvider" => data_provider()
+  }
+  """
+  @type delete_data_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replications_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_replications_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reload_replication_tables_message() :: %{
+    optional("ReloadOption") => list(any()),
+    required("ReplicationConfigArn") => String.t(),
+    required("TablesToReload") => list(table_to_reload()())
+  }
+  """
+  @type reload_replication_tables_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_start_recommendations_request() :: %{
+    optional("Data") => list(start_recommendations_request_entry()())
+  }
+  """
+  @type batch_start_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metadata_model_exports_to_target_response() :: %{
+    "Marker" => String.t(),
+    "Requests" => list(schema_conversion_request()())
+  }
+  """
+  @type describe_metadata_model_exports_to_target_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  refresh_schemas_status() :: %{
+    "EndpointArn" => String.t(),
+    "LastFailureMessage" => String.t(),
+    "LastRefreshDate" => non_neg_integer(),
+    "ReplicationInstanceArn" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type refresh_schemas_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_engine_versions_response() :: %{
+    "EngineVersions" => list(engine_version()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_engine_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s_n_s_no_authorization_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type s_n_s_no_authorization_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_replication_instance_message() :: %{
+    optional("AllocatedStorage") => integer(),
+    optional("AllowMajorVersionUpgrade") => boolean(),
+    optional("ApplyImmediately") => boolean(),
+    optional("AutoMinorVersionUpgrade") => boolean(),
+    optional("EngineVersion") => String.t(),
+    optional("MultiAZ") => boolean(),
+    optional("NetworkType") => String.t(),
+    optional("PreferredMaintenanceWindow") => String.t(),
+    optional("ReplicationInstanceClass") => String.t(),
+    optional("ReplicationInstanceIdentifier") => String.t(),
+    optional("VpcSecurityGroupIds") => list(String.t()()),
+    required("ReplicationInstanceArn") => String.t()
+  }
+  """
+  @type modify_replication_instance_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_instance_task_logs_response() :: %{
+    "Marker" => String.t(),
+    "ReplicationInstanceArn" => String.t(),
+    "ReplicationInstanceTaskLogs" => list(replication_instance_task_log()())
+  }
+  """
+  @type describe_replication_instance_task_logs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_instance_response() :: %{
+    "ReplicationInstance" => replication_instance()
+  }
+  """
+  @type delete_replication_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_certificates_response() :: %{
+    "Certificates" => list(certificate()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_certificates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  collector_short_info_response() :: %{
+    "CollectorName" => String.t(),
+    "CollectorReferencedId" => String.t()
+  }
+  """
+  @type collector_short_info_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_sql_details() :: %{
+    "ObjectURL" => String.t(),
+    "S3ObjectKey" => String.t()
+  }
+  """
+  @type export_sql_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_security_group_membership() :: %{
+    "Status" => String.t(),
+    "VpcSecurityGroupId" => String.t()
+  }
+  """
+  @type vpc_security_group_membership() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_replication_task_response() :: %{
+    "ReplicationTask" => replication_task()
+  }
+  """
+  @type delete_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_config() :: %{
+    "ComputeConfig" => compute_config(),
+    "ReplicationConfigArn" => String.t(),
+    "ReplicationConfigCreateTime" => non_neg_integer(),
+    "ReplicationConfigIdentifier" => String.t(),
+    "ReplicationConfigUpdateTime" => non_neg_integer(),
+    "ReplicationSettings" => String.t(),
+    "ReplicationType" => list(any()),
+    "SourceEndpointArn" => String.t(),
+    "SupplementalSettings" => String.t(),
+    "TableMappings" => String.t(),
+    "TargetEndpointArn" => String.t()
+  }
+  """
+  @type replication_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  migration_project() :: %{
+    "Description" => String.t(),
+    "InstanceProfileArn" => String.t(),
+    "InstanceProfileName" => String.t(),
+    "MigrationProjectArn" => String.t(),
+    "MigrationProjectCreationTime" => non_neg_integer(),
+    "MigrationProjectName" => String.t(),
+    "SchemaConversionApplicationAttributes" => s_capplication_attributes(),
+    "SourceDataProviderDescriptors" => list(data_provider_descriptor()()),
+    "TargetDataProviderDescriptors" => list(data_provider_descriptor()()),
+    "TransformationRules" => String.t()
+  }
+  """
+  @type migration_project() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_advisor_lsa_analysis_response() :: %{
+    "LsaAnalysisId" => String.t(),
+    "Status" => String.t()
+  }
+  """
+  @type fleet_advisor_lsa_analysis_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_throttling_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type kms_throttling_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_migration_project_response() :: %{
+    "MigrationProject" => migration_project()
+  }
+  """
+  @type delete_migration_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_advisor_schemas_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxRecords") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fleet_advisor_schemas_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replication_task_assessment_runs_message() :: %{
+    optional("Filters") => list(filter()()),
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer()
+  }
+  """
+  @type describe_replication_task_assessment_runs_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_provider_descriptor() :: %{
+    "DataProviderArn" => String.t(),
+    "DataProviderName" => String.t(),
+    "SecretsManagerAccessRoleArn" => String.t(),
+    "SecretsManagerSecretId" => String.t()
+  }
+  """
+  @type data_provider_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  my_sql_data_provider_settings() :: %{
+    "CertificateArn" => String.t(),
+    "Port" => integer(),
+    "ServerName" => String.t(),
+    "SslMode" => list(any())
+  }
+  """
+  @type my_sql_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_pending_modified_values() :: %{
+    "AllocatedStorage" => integer(),
+    "EngineVersion" => String.t(),
+    "MultiAZ" => boolean(),
+    "NetworkType" => String.t(),
+    "ReplicationInstanceClass" => String.t()
+  }
+  """
+  @type replication_pending_modified_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_resource_not_found_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type s3_resource_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_subscriptions_to_event_bridge_response() :: %{
+    "Result" => String.t()
+  }
+  """
+  @type update_subscriptions_to_event_bridge_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_endpoint_settings_message() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxRecords") => integer(),
+    required("EngineName") => String.t()
+  }
+  """
+  @type describe_endpoint_settings_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_response() :: %{
+    "Events" => list(event()()),
+    "Marker" => String.t()
+  }
+  """
+  @type describe_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_conversion_configuration_message() :: %{
+    required("MigrationProjectIdentifier") => String.t()
+  }
+  """
+  @type describe_conversion_configuration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reload_tables_message() :: %{
+    optional("ReloadOption") => list(any()),
+    required("ReplicationTaskArn") => String.t(),
+    required("TablesToReload") => list(table_to_reload()())
+  }
+  """
+  @type reload_tables_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_replication_task_assessment_message() :: %{
+    required("ReplicationTaskArn") => String.t()
+  }
+  """
+  @type start_replication_task_assessment_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_replication_task_assessment_run_response() :: %{
+    "ReplicationTaskAssessmentRun" => replication_task_assessment_run()
+  }
+  """
+  @type cancel_replication_task_assessment_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_certificate_response() :: %{
+    "Certificate" => certificate()
+  }
+  """
+  @type delete_certificate_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_data_provider_response() :: %{
+    "DataProvider" => data_provider()
+  }
+  """
+  @type create_data_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  supported_endpoint_type() :: %{
+    "EndpointType" => list(any()),
+    "EngineDisplayName" => String.t(),
+    "EngineName" => String.t(),
+    "ReplicationInstanceEngineMinimumVersion" => String.t(),
+    "SupportsCDC" => boolean()
+  }
+  """
+  @type supported_endpoint_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_task_assessment_run() :: %{
+    "AssessmentProgress" => replication_task_assessment_run_progress(),
+    "AssessmentRunName" => String.t(),
+    "LastFailureMessage" => String.t(),
+    "ReplicationTaskArn" => String.t(),
+    "ReplicationTaskAssessmentRunArn" => String.t(),
+    "ReplicationTaskAssessmentRunCreationDate" => non_neg_integer(),
+    "ResultEncryptionMode" => String.t(),
+    "ResultKmsKeyArn" => String.t(),
+    "ResultLocationBucket" => String.t(),
+    "ResultLocationFolder" => String.t(),
+    "ServiceAccessRoleArn" => String.t(),
+    "Status" => String.t()
+  }
+  """
+  @type replication_task_assessment_run() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2016-01-01",
@@ -51,6 +4079,10 @@ defmodule AWS.DatabaseMigration do
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
   description.
   """
+  @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
+          {:ok, add_tags_to_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -61,6 +4093,14 @@ defmodule AWS.DatabaseMigration do
   Applies a pending maintenance action to a resource (for example, to a
   replication instance).
   """
+  @spec apply_pending_maintenance_action(
+          map(),
+          apply_pending_maintenance_action_message(),
+          list()
+        ) ::
+          {:ok, apply_pending_maintenance_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -82,6 +4122,12 @@ defmodule AWS.DatabaseMigration do
   returns an
   HTTP status code of `200`.
   """
+  @spec batch_start_recommendations(map(), batch_start_recommendations_request(), list()) ::
+          {:ok, batch_start_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def batch_start_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -97,6 +4143,16 @@ defmodule AWS.DatabaseMigration do
   currently
   running.
   """
+  @spec cancel_replication_task_assessment_run(
+          map(),
+          cancel_replication_task_assessment_run_message(),
+          list()
+        ) ::
+          {:ok, cancel_replication_task_assessment_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def cancel_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -109,6 +4165,12 @@ defmodule AWS.DatabaseMigration do
   A data provider stores
   a data store type and location information about your database.
   """
+  @spec create_data_provider(map(), create_data_provider_message(), list()) ::
+          {:ok, create_data_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def create_data_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -126,6 +4188,16 @@ defmodule AWS.DatabaseMigration do
   database only when
   you specify the schema in the table-mapping rules of the DMS task.
   """
+  @spec create_endpoint(map(), create_endpoint_message(), list()) ::
+          {:ok, create_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -157,6 +4229,19 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User
   Guide.*
   """
+  @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
+          {:ok, create_event_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, kms_access_denied_fault()}
+          | {:error, kms_disabled_fault()}
+          | {:error, kms_invalid_state_fault()}
+          | {:error, kms_not_found_fault()}
+          | {:error, kms_throttling_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s_n_s_invalid_topic_fault()}
+          | {:error, s_n_s_no_authorization_fault()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -166,6 +4251,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates a Fleet Advisor collector using the specified parameters.
   """
+  @spec create_fleet_advisor_collector(map(), create_fleet_advisor_collector_request(), list()) ::
+          {:ok, create_fleet_advisor_collector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def create_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -175,6 +4268,17 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates the instance profile using the specified parameters.
   """
+  @spec create_instance_profile(map(), create_instance_profile_message(), list()) ::
+          {:ok, create_instance_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -190,6 +4294,15 @@ defmodule AWS.DatabaseMigration do
   [CreateInstanceProfile](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html) and
   [CreateDataProvider](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html).
   """
+  @spec create_migration_project(map(), create_migration_project_message(), list()) ::
+          {:ok, create_migration_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def create_migration_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -205,6 +4318,17 @@ defmodule AWS.DatabaseMigration do
   start the
   replication.
   """
+  @spec create_replication_config(map(), create_replication_config_message(), list()) ::
+          {:ok, create_replication_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, invalid_subnet()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, replication_subnet_group_does_not_cover_enough_a_zs()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def create_replication_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -227,6 +4351,19 @@ defmodule AWS.DatabaseMigration do
   default engine version. For information about the default engine version, see
   [Release Notes](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html).
   """
+  @spec create_replication_instance(map(), create_replication_instance_message(), list()) ::
+          {:ok, create_replication_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, insufficient_resource_capacity_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, invalid_subnet()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, replication_subnet_group_does_not_cover_enough_a_zs()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, storage_quota_exceeded_fault()}
   def create_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -249,6 +4386,15 @@ defmodule AWS.DatabaseMigration do
   action. Optionally, choose Subnet groups in the DMS console,
   then choose your subnet group. Next, choose Delete from Actions.
   """
+  @spec create_replication_subnet_group(map(), create_replication_subnet_group_message(), list()) ::
+          {:ok, create_replication_subnet_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_subnet()}
+          | {:error, replication_subnet_group_does_not_cover_enough_a_zs()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -258,6 +4404,15 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates a replication task using the specified parameters.
   """
+  @spec create_replication_task(map(), create_replication_task_message(), list()) ::
+          {:ok, create_replication_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def create_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -267,6 +4422,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified certificate.
   """
+  @spec delete_certificate(map(), delete_certificate_message(), list()) ::
+          {:ok, delete_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -276,6 +4436,12 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the connection between a replication instance and an endpoint.
   """
+  @spec delete_connection(map(), delete_connection_message(), list()) ::
+          {:ok, delete_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -289,6 +4455,12 @@ defmodule AWS.DatabaseMigration do
   modified
   before you can delete the data provider.
   """
+  @spec delete_data_provider(map(), delete_data_provider_message(), list()) ::
+          {:ok, delete_data_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_data_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -301,6 +4473,11 @@ defmodule AWS.DatabaseMigration do
   All tasks associated with the endpoint must be deleted before you can delete the
   endpoint.
   """
+  @spec delete_endpoint(map(), delete_endpoint_message(), list()) ::
+          {:ok, delete_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -310,6 +4487,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes an DMS event subscription.
   """
+  @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
+          {:ok, delete_event_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -319,6 +4501,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified Fleet Advisor collector.
   """
+  @spec delete_fleet_advisor_collector(map(), delete_collector_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, collector_not_found_fault()}
+          | {:error, invalid_resource_state_fault()}
   def delete_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -328,6 +4515,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified Fleet Advisor collector databases.
   """
+  @spec delete_fleet_advisor_databases(map(), delete_fleet_advisor_databases_request(), list()) ::
+          {:ok, delete_fleet_advisor_databases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_operation_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -341,6 +4533,12 @@ defmodule AWS.DatabaseMigration do
   modified
   before you can delete the instance profile.
   """
+  @spec delete_instance_profile(map(), delete_instance_profile_message(), list()) ::
+          {:ok, delete_instance_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -352,6 +4550,12 @@ defmodule AWS.DatabaseMigration do
 
   The migration project must be closed before you can delete it.
   """
+  @spec delete_migration_project(map(), delete_migration_project_message(), list()) ::
+          {:ok, delete_migration_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_migration_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -367,6 +4571,12 @@ defmodule AWS.DatabaseMigration do
   that is ongoing. You can delete the configuration when the replication is in a
   non-RUNNING and non-STARTING state.
   """
+  @spec delete_replication_config(map(), delete_replication_config_message(), list()) ::
+          {:ok, delete_replication_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_replication_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -380,6 +4590,11 @@ defmodule AWS.DatabaseMigration do
   instance
   before you can delete it.
   """
+  @spec delete_replication_instance(map(), delete_replication_instance_message(), list()) ::
+          {:ok, delete_replication_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -389,6 +4604,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes a subnet group.
   """
+  @spec delete_replication_subnet_group(map(), delete_replication_subnet_group_message(), list()) ::
+          {:ok, delete_replication_subnet_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -398,6 +4618,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified replication task.
   """
+  @spec delete_replication_task(map(), delete_replication_task_message(), list()) ::
+          {:ok, delete_replication_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -413,6 +4638,16 @@ defmodule AWS.DatabaseMigration do
   run that is
   stored in your Amazon S3 bucket.
   """
+  @spec delete_replication_task_assessment_run(
+          map(),
+          delete_replication_task_assessment_run_message(),
+          list()
+        ) ::
+          {:ok, delete_replication_task_assessment_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def delete_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -435,6 +4670,9 @@ defmodule AWS.DatabaseMigration do
 
   This command does not take any parameters.
   """
+  @spec describe_account_attributes(map(), describe_account_attributes_message(), list()) ::
+          {:ok, describe_account_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -472,6 +4710,16 @@ defmodule AWS.DatabaseMigration do
   can specify in an
   assessment run for the task.
   """
+  @spec describe_applicable_individual_assessments(
+          map(),
+          describe_applicable_individual_assessments_message(),
+          list()
+        ) ::
+          {:ok, describe_applicable_individual_assessments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_applicable_individual_assessments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -481,6 +4729,10 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Provides a description of the certificate.
   """
+  @spec describe_certificates(map(), describe_certificates_message(), list()) ::
+          {:ok, describe_certificates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -494,6 +4746,10 @@ defmodule AWS.DatabaseMigration do
 
   Connections are created when you test an endpoint.
   """
+  @spec describe_connections(map(), describe_connections_message(), list()) ::
+          {:ok, describe_connections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -503,6 +4759,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns configuration parameters for a schema conversion project.
   """
+  @spec describe_conversion_configuration(
+          map(),
+          describe_conversion_configuration_message(),
+          list()
+        ) ::
+          {:ok, describe_conversion_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_conversion_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -513,6 +4777,11 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of data providers for your account in the current
   region.
   """
+  @spec describe_data_providers(map(), describe_data_providers_message(), list()) ::
+          {:ok, describe_data_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_data_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -523,6 +4792,9 @@ defmodule AWS.DatabaseMigration do
   Returns information about the possible endpoint settings available
   when you create an endpoint for a specific database engine.
   """
+  @spec describe_endpoint_settings(map(), describe_endpoint_settings_message(), list()) ::
+          {:ok, describe_endpoint_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_endpoint_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -532,6 +4804,9 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the type of endpoints available.
   """
+  @spec describe_endpoint_types(map(), describe_endpoint_types_message(), list()) ::
+          {:ok, describe_endpoint_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_endpoint_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -541,6 +4816,10 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the endpoints for your account in the current region.
   """
+  @spec describe_endpoints(map(), describe_endpoints_message(), list()) ::
+          {:ok, describe_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -550,6 +4829,9 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the replication instance versions used in the project.
   """
+  @spec describe_engine_versions(map(), describe_engine_versions_message(), list()) ::
+          {:ok, describe_engine_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -567,6 +4849,9 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User
   Guide.*
   """
+  @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
+          {:ok, describe_event_categories_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -584,6 +4869,10 @@ defmodule AWS.DatabaseMigration do
   If you specify `SubscriptionName`, this action lists the description for that
   subscription.
   """
+  @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
+          {:ok, describe_event_subscriptions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -599,6 +4888,9 @@ defmodule AWS.DatabaseMigration do
   in the *Database Migration Service User
   Guide.*
   """
+  @spec describe_events(map(), describe_events_message(), list()) ::
+          {:ok, describe_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -614,6 +4906,13 @@ defmodule AWS.DatabaseMigration do
   converting objects
   to the target database.
   """
+  @spec describe_extension_pack_associations(
+          map(),
+          describe_extension_pack_associations_message(),
+          list()
+        ) ::
+          {:ok, describe_extension_pack_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_extension_pack_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -623,6 +4922,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a list of the Fleet Advisor collectors in your account.
   """
+  @spec describe_fleet_advisor_collectors(
+          map(),
+          describe_fleet_advisor_collectors_request(),
+          list()
+        ) ::
+          {:ok, describe_fleet_advisor_collectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -632,6 +4939,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a list of Fleet Advisor databases in your account.
   """
+  @spec describe_fleet_advisor_databases(
+          map(),
+          describe_fleet_advisor_databases_request(),
+          list()
+        ) ::
+          {:ok, describe_fleet_advisor_databases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
   def describe_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -643,6 +4958,14 @@ defmodule AWS.DatabaseMigration do
   Fleet
   Advisor collectors.
   """
+  @spec describe_fleet_advisor_lsa_analysis(
+          map(),
+          describe_fleet_advisor_lsa_analysis_request(),
+          list()
+        ) ::
+          {:ok, describe_fleet_advisor_lsa_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
   def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -653,6 +4976,14 @@ defmodule AWS.DatabaseMigration do
   Provides descriptions of the schemas discovered by your Fleet Advisor
   collectors.
   """
+  @spec describe_fleet_advisor_schema_object_summary(
+          map(),
+          describe_fleet_advisor_schema_object_summary_request(),
+          list()
+        ) ::
+          {:ok, describe_fleet_advisor_schema_object_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
   def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -662,6 +4993,10 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a list of schemas detected by Fleet Advisor Collectors in your account.
   """
+  @spec describe_fleet_advisor_schemas(map(), describe_fleet_advisor_schemas_request(), list()) ::
+          {:ok, describe_fleet_advisor_schemas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
   def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -672,6 +5007,11 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of instance profiles for your account in the current
   region.
   """
+  @spec describe_instance_profiles(map(), describe_instance_profiles_message(), list()) ::
+          {:ok, describe_instance_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_instance_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -682,6 +5022,14 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of metadata model assessments for your account in the
   current region.
   """
+  @spec describe_metadata_model_assessments(
+          map(),
+          describe_metadata_model_assessments_message(),
+          list()
+        ) ::
+          {:ok, describe_metadata_model_assessments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_metadata_model_assessments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -691,6 +5039,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a paginated list of metadata model conversions for a migration project.
   """
+  @spec describe_metadata_model_conversions(
+          map(),
+          describe_metadata_model_conversions_message(),
+          list()
+        ) ::
+          {:ok, describe_metadata_model_conversions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_metadata_model_conversions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -700,6 +5056,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a paginated list of metadata model exports.
   """
+  @spec describe_metadata_model_exports_as_script(
+          map(),
+          describe_metadata_model_exports_as_script_message(),
+          list()
+        ) ::
+          {:ok, describe_metadata_model_exports_as_script_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_metadata_model_exports_as_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -709,6 +5073,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a paginated list of metadata model exports.
   """
+  @spec describe_metadata_model_exports_to_target(
+          map(),
+          describe_metadata_model_exports_to_target_message(),
+          list()
+        ) ::
+          {:ok, describe_metadata_model_exports_to_target_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_metadata_model_exports_to_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -718,6 +5090,10 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns a paginated list of metadata model imports.
   """
+  @spec describe_metadata_model_imports(map(), describe_metadata_model_imports_message(), list()) ::
+          {:ok, describe_metadata_model_imports_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_metadata_model_imports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -728,6 +5104,11 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of migration projects for your account in the current
   region.
   """
+  @spec describe_migration_projects(map(), describe_migration_projects_message(), list()) ::
+          {:ok, describe_migration_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_migration_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -739,6 +5120,13 @@ defmodule AWS.DatabaseMigration do
   the
   specified region.
   """
+  @spec describe_orderable_replication_instances(
+          map(),
+          describe_orderable_replication_instances_message(),
+          list()
+        ) ::
+          {:ok, describe_orderable_replication_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_orderable_replication_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -748,6 +5136,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   For internal use only
   """
+  @spec describe_pending_maintenance_actions(
+          map(),
+          describe_pending_maintenance_actions_message(),
+          list()
+        ) ::
+          {:ok, describe_pending_maintenance_actions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -759,6 +5155,15 @@ defmodule AWS.DatabaseMigration do
   Services
   engines.
   """
+  @spec describe_recommendation_limitations(
+          map(),
+          describe_recommendation_limitations_request(),
+          list()
+        ) ::
+          {:ok, describe_recommendation_limitations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
   def describe_recommendation_limitations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -769,6 +5174,11 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of target engine recommendations for your source
   databases.
   """
+  @spec describe_recommendations(map(), describe_recommendations_request(), list()) ::
+          {:ok, describe_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
   def describe_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -778,6 +5188,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns the status of the RefreshSchemas operation.
   """
+  @spec describe_refresh_schemas_status(map(), describe_refresh_schemas_status_message(), list()) ::
+          {:ok, describe_refresh_schemas_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -788,6 +5203,10 @@ defmodule AWS.DatabaseMigration do
   Returns one or more existing DMS Serverless replication configurations as a list
   of structures.
   """
+  @spec describe_replication_configs(map(), describe_replication_configs_message(), list()) ::
+          {:ok, describe_replication_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -797,6 +5216,15 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the task logs for the specified task.
   """
+  @spec describe_replication_instance_task_logs(
+          map(),
+          describe_replication_instance_task_logs_message(),
+          list()
+        ) ::
+          {:ok, describe_replication_instance_task_logs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -807,6 +5235,10 @@ defmodule AWS.DatabaseMigration do
   Returns information about replication instances for your account in the current
   region.
   """
+  @spec describe_replication_instances(map(), describe_replication_instances_message(), list()) ::
+          {:ok, describe_replication_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -816,6 +5248,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the replication subnet groups.
   """
+  @spec describe_replication_subnet_groups(
+          map(),
+          describe_replication_subnet_groups_message(),
+          list()
+        ) ::
+          {:ok, describe_replication_subnet_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -827,6 +5267,15 @@ defmodule AWS.DatabaseMigration do
   that use a
   given DMS Serverless replication configuration.
   """
+  @spec describe_replication_table_statistics(
+          map(),
+          describe_replication_table_statistics_message(),
+          list()
+        ) ::
+          {:ok, describe_replication_table_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_replication_table_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -845,6 +5294,14 @@ defmodule AWS.DatabaseMigration do
   [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
   in the *Database Migration Service User Guide*.
   """
+  @spec describe_replication_task_assessment_results(
+          map(),
+          describe_replication_task_assessment_results_message(),
+          list()
+        ) ::
+          {:ok, describe_replication_task_assessment_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -862,6 +5319,14 @@ defmodule AWS.DatabaseMigration do
   information, see the `DescribeReplicationTaskIndividualAssessments`
   operation.
   """
+  @spec describe_replication_task_assessment_runs(
+          map(),
+          describe_replication_task_assessment_runs_message(),
+          list()
+        ) ::
+          {:ok, describe_replication_task_assessment_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_task_assessment_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -874,6 +5339,14 @@ defmodule AWS.DatabaseMigration do
   These filter settings can specify a combination of premigration assessment runs,
   migration tasks, and assessment status values.
   """
+  @spec describe_replication_task_individual_assessments(
+          map(),
+          describe_replication_task_individual_assessments_message(),
+          list()
+        ) ::
+          {:ok, describe_replication_task_individual_assessments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_task_individual_assessments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -890,6 +5363,10 @@ defmodule AWS.DatabaseMigration do
   Returns information about replication tasks for your account in the current
   region.
   """
+  @spec describe_replication_tasks(map(), describe_replication_tasks_message(), list()) ::
+          {:ok, describe_replication_tasks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replication_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -901,6 +5378,10 @@ defmodule AWS.DatabaseMigration do
   or more
   provisioned DMS Serverless replications.
   """
+  @spec describe_replications(map(), describe_replications_message(), list()) ::
+          {:ok, describe_replications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def describe_replications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -910,6 +5391,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Returns information about the schema for the specified endpoint.
   """
+  @spec describe_schemas(map(), describe_schemas_message(), list()) ::
+          {:ok, describe_schemas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -927,6 +5413,11 @@ defmodule AWS.DatabaseMigration do
   time of the
   last update to the table.
   """
+  @spec describe_table_statistics(map(), describe_table_statistics_message(), list()) ::
+          {:ok, describe_table_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def describe_table_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -939,6 +5430,14 @@ defmodule AWS.DatabaseMigration do
   DMS can save
   your assessment report as a comma-separated value (CSV) or a PDF file.
   """
+  @spec export_metadata_model_assessment(
+          map(),
+          export_metadata_model_assessment_message(),
+          list()
+        ) ::
+          {:ok, export_metadata_model_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def export_metadata_model_assessment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -948,6 +5447,12 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Uploads the specified certificate.
   """
+  @spec import_certificate(map(), import_certificate_message(), list()) ::
+          {:ok, import_certificate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_certificate_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def import_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -963,6 +5468,10 @@ defmodule AWS.DatabaseMigration do
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
   description.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -973,6 +5482,11 @@ defmodule AWS.DatabaseMigration do
   Modifies the specified schema conversion configuration using the provided
   parameters.
   """
+  @spec modify_conversion_configuration(map(), modify_conversion_configuration_message(), list()) ::
+          {:ok, modify_conversion_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def modify_conversion_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -985,6 +5499,12 @@ defmodule AWS.DatabaseMigration do
   You must remove the data provider from all migration projects before you can
   modify it.
   """
+  @spec modify_data_provider(map(), modify_data_provider_message(), list()) ::
+          {:ok, modify_data_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def modify_data_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1002,6 +5522,14 @@ defmodule AWS.DatabaseMigration do
   database only when
   you specify the schema in the table-mapping rules of the DMS task.
   """
+  @spec modify_endpoint(map(), modify_endpoint_message(), list()) ::
+          {:ok, modify_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
   def modify_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1011,6 +5539,18 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Modifies an existing DMS event notification subscription.
   """
+  @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
+          {:ok, modify_event_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, kms_access_denied_fault()}
+          | {:error, kms_disabled_fault()}
+          | {:error, kms_invalid_state_fault()}
+          | {:error, kms_not_found_fault()}
+          | {:error, kms_throttling_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s_n_s_invalid_topic_fault()}
+          | {:error, s_n_s_no_authorization_fault()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1023,6 +5563,15 @@ defmodule AWS.DatabaseMigration do
   All migration projects associated with the instance profile must be deleted
   or modified before you can modify the instance profile.
   """
+  @spec modify_instance_profile(map(), modify_instance_profile_message(), list()) ::
+          {:ok, modify_instance_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def modify_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1034,6 +5583,14 @@ defmodule AWS.DatabaseMigration do
 
   The migration project must be closed before you can modify it.
   """
+  @spec modify_migration_project(map(), modify_migration_project_message(), list()) ::
+          {:ok, modify_migration_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def modify_migration_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1057,6 +5614,15 @@ defmodule AWS.DatabaseMigration do
   CREATED.
   A provisioning state that allows you to run this command is FAILED_PROVISION.
   """
+  @spec modify_replication_config(map(), modify_replication_config_message(), list()) ::
+          {:ok, modify_replication_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, invalid_subnet()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, replication_subnet_group_does_not_cover_enough_a_zs()}
+          | {:error, resource_not_found_fault()}
   def modify_replication_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1071,6 +5637,16 @@ defmodule AWS.DatabaseMigration do
 
   Some settings are applied during the maintenance window.
   """
+  @spec modify_replication_instance(map(), modify_replication_instance_message(), list()) ::
+          {:ok, modify_replication_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, insufficient_resource_capacity_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, storage_quota_exceeded_fault()}
+          | {:error, upgrade_dependency_failure_fault()}
   def modify_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1080,6 +5656,15 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Modifies the settings for the specified replication subnet group.
   """
+  @spec modify_replication_subnet_group(map(), modify_replication_subnet_group_message(), list()) ::
+          {:ok, modify_replication_subnet_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_subnet()}
+          | {:error, replication_subnet_group_does_not_cover_enough_a_zs()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, subnet_already_in_use()}
   def modify_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1095,6 +5680,13 @@ defmodule AWS.DatabaseMigration do
   For more information about DMS tasks, see [Working with Migration Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
   *Database Migration Service User Guide*.
   """
+  @spec modify_replication_task(map(), modify_replication_task_message(), list()) ::
+          {:ok, modify_replication_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
   def modify_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1110,6 +5702,14 @@ defmodule AWS.DatabaseMigration do
   be created with the same or later DMS version as the current replication
   instance.
   """
+  @spec move_replication_task(map(), move_replication_task_message(), list()) ::
+          {:ok, move_replication_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def move_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1122,6 +5722,11 @@ defmodule AWS.DatabaseMigration do
   Rebooting results in a momentary outage, until the
   replication instance becomes available again.
   """
+  @spec reboot_replication_instance(map(), reboot_replication_instance_message(), list()) ::
+          {:ok, reboot_replication_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def reboot_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1136,6 +5741,13 @@ defmodule AWS.DatabaseMigration do
   the
   DescribeRefreshSchemasStatus operation.
   """
+  @spec refresh_schemas(map(), refresh_schemas_message(), list()) ::
+          {:ok, refresh_schemas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def refresh_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1151,6 +5763,11 @@ defmodule AWS.DatabaseMigration do
   service
   will throw an `InvalidResourceStateFault` exception.
   """
+  @spec reload_replication_tables(map(), reload_replication_tables_message(), list()) ::
+          {:ok, reload_replication_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def reload_replication_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1164,6 +5781,11 @@ defmodule AWS.DatabaseMigration do
   the service
   will throw an `InvalidResourceStateFault` exception.
   """
+  @spec reload_tables(map(), reload_tables_message(), list()) ::
+          {:ok, reload_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def reload_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1180,6 +5802,10 @@ defmodule AWS.DatabaseMigration do
   ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html)
   data type description.
   """
+  @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
+          {:ok, remove_tags_from_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_fault()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1190,6 +5816,11 @@ defmodule AWS.DatabaseMigration do
   Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in
   your account.
   """
+  @spec run_fleet_advisor_lsa_analysis(map(), %{}, list()) ::
+          {:ok, run_fleet_advisor_lsa_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1204,6 +5835,21 @@ defmodule AWS.DatabaseMigration do
   when
   converting objects to the target database.
   """
+  @spec start_extension_pack_association(
+          map(),
+          start_extension_pack_association_message(),
+          list()
+        ) ::
+          {:ok, start_extension_pack_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_extension_pack_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1220,6 +5866,17 @@ defmodule AWS.DatabaseMigration do
   can't be converted
   to the database engine of your target database instance.
   """
+  @spec start_metadata_model_assessment(map(), start_metadata_model_assessment_message(), list()) ::
+          {:ok, start_metadata_model_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_metadata_model_assessment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1230,6 +5887,17 @@ defmodule AWS.DatabaseMigration do
   Converts your source database objects to a format compatible with the target
   database.
   """
+  @spec start_metadata_model_conversion(map(), start_metadata_model_conversion_message(), list()) ::
+          {:ok, start_metadata_model_conversion_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_metadata_model_conversion(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1240,6 +5908,21 @@ defmodule AWS.DatabaseMigration do
   Saves your converted code to a file as a SQL script, and stores this file on
   your Amazon S3 bucket.
   """
+  @spec start_metadata_model_export_as_script(
+          map(),
+          start_metadata_model_export_as_script_message(),
+          list()
+        ) ::
+          {:ok, start_metadata_model_export_as_script_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_metadata_model_export_as_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1249,6 +5932,21 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Applies converted database objects to your target database.
   """
+  @spec start_metadata_model_export_to_target(
+          map(),
+          start_metadata_model_export_to_target_message(),
+          list()
+        ) ::
+          {:ok, start_metadata_model_export_to_target_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_metadata_model_export_to_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1261,6 +5959,17 @@ defmodule AWS.DatabaseMigration do
   This operation uses your project's Amazon S3 bucket as a metadata cache to
   improve performance.
   """
+  @spec start_metadata_model_import(map(), start_metadata_model_import_message(), list()) ::
+          {:ok, start_metadata_model_import_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_metadata_model_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1274,6 +5983,12 @@ defmodule AWS.DatabaseMigration do
   You can create recommendations for multiple source databases using
   [BatchStartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html).
   """
+  @spec start_recommendations(map(), start_recommendations_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def start_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1291,6 +6006,12 @@ defmodule AWS.DatabaseMigration do
   using the server resources that DMS has provisioned for the DMS Serverless
   replication.
   """
+  @spec start_replication(map(), start_replication_message(), list()) ::
+          {:ok, start_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def start_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1304,6 +6025,12 @@ defmodule AWS.DatabaseMigration do
   ](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
   *Database Migration Service User Guide.*
   """
+  @spec start_replication_task(map(), start_replication_task_message(), list()) ::
+          {:ok, start_replication_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def start_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1329,6 +6056,15 @@ defmodule AWS.DatabaseMigration do
   [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
   in the *Database Migration Service User Guide*.
   """
+  @spec start_replication_task_assessment(
+          map(),
+          start_replication_task_assessment_message(),
+          list()
+        ) ::
+          {:ok, start_replication_task_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def start_replication_task_assessment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1349,6 +6085,25 @@ defmodule AWS.DatabaseMigration do
   assessment
   run and its individual assessments complete.
   """
+  @spec start_replication_task_assessment_run(
+          map(),
+          start_replication_task_assessment_run_message(),
+          list()
+        ) ::
+          {:ok, start_replication_task_assessment_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_access_denied_fault()}
+          | {:error, kms_disabled_fault()}
+          | {:error, kms_fault()}
+          | {:error, kms_invalid_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, kms_not_found_fault()}
+          | {:error, resource_already_exists_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, s3_access_denied_fault()}
+          | {:error, s3_resource_not_found_fault()}
   def start_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1361,6 +6116,12 @@ defmodule AWS.DatabaseMigration do
 
   This command doesn't deprovision the stopped replications.
   """
+  @spec stop_replication(map(), stop_replication_message(), list()) ::
+          {:ok, stop_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def stop_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1370,6 +6131,11 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Stops the replication task.
   """
+  @spec stop_replication_task(map(), stop_replication_task_message(), list()) ::
+          {:ok, stop_replication_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, resource_not_found_fault()}
   def stop_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1379,6 +6145,14 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Tests the connection between the replication instance and the endpoint.
   """
+  @spec test_connection(map(), test_connection_message(), list()) ::
+          {:ok, test_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
+          | {:error, kms_key_not_accessible_fault()}
+          | {:error, resource_not_found_fault()}
+          | {:error, resource_quota_exceeded_fault()}
   def test_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1404,6 +6178,15 @@ defmodule AWS.DatabaseMigration do
   For more information, see [Migrating event subscriptions to Amazon EventBridge](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge)
   in the *Amazon Web Services Database Migration Service User Guide*.
   """
+  @spec update_subscriptions_to_event_bridge(
+          map(),
+          update_subscriptions_to_event_bridge_message(),
+          list()
+        ) ::
+          {:ok, update_subscriptions_to_event_bridge_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_fault()}
+          | {:error, invalid_resource_state_fault()}
   def update_subscriptions_to_event_bridge(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

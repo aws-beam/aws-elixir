@@ -26,6 +26,1810 @@ defmodule AWS.ECR do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  image_scan_findings_summary() :: %{
+    "findingSeverityCounts" => map(),
+    "imageScanCompletedAt" => non_neg_integer(),
+    "vulnerabilitySourceUpdatedAt" => non_neg_integer()
+  }
+  """
+  @type image_scan_findings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_repository_policy_request() :: %{
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type get_repository_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  upload_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type upload_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_repository_response() :: %{
+    "repository" => repository()
+  }
+  """
+  @type create_repository_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_replication_status() :: %{
+    "failureCode" => String.t(),
+    "region" => String.t(),
+    "registryId" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type image_replication_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_registry_scanning_configuration_request() :: %{
+    optional("rules") => list(registry_scanning_rule()()),
+    optional("scanType") => list(any())
+  }
+  """
+  @type put_registry_scanning_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_pull_through_cache_rule_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "credentialArn" => String.t(),
+    "ecrRepositoryPrefix" => String.t(),
+    "registryId" => String.t(),
+    "upstreamRegistry" => list(any()),
+    "upstreamRegistryUrl" => String.t()
+  }
+  """
+  @type create_pull_through_cache_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  encryption_configuration() :: %{
+    "encryptionType" => list(any()),
+    "kmsKey" => String.t()
+  }
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_digest_does_not_match_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type image_digest_does_not_match_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("resourceArn") => String.t(),
+    required("tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_image_tag_mutability_response() :: %{
+    "imageTagMutability" => list(any()),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type put_image_tag_mutability_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_registry_policy_response() :: %{
+    "policyText" => String.t(),
+    "registryId" => String.t()
+  }
+  """
+  @type put_registry_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_preview_in_progress_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type lifecycle_policy_preview_in_progress_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type image_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_download_url_for_layer_response() :: %{
+    "downloadUrl" => String.t(),
+    "layerDigest" => String.t()
+  }
+  """
+  @type get_download_url_for_layer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remediation() :: %{
+    "recommendation" => recommendation()
+  }
+  """
+  @type remediation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_scanning_configuration() :: %{
+    "scanOnPush" => boolean()
+  }
+  """
+  @type image_scanning_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_failure() :: %{
+    "failureCode" => list(any()),
+    "failureReason" => String.t(),
+    "layerDigest" => String.t()
+  }
+  """
+  @type layer_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type image_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_images_request() :: %{
+    optional("filter") => describe_images_filter(),
+    optional("imageIds") => list(image_identifier()()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type describe_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scan_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type scan_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_scan_status() :: %{
+    "description" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type image_scan_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  set_repository_policy_response() :: %{
+    "policyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type set_repository_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  initiate_layer_upload_request() :: %{
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type initiate_layer_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_registry_scanning_configuration_response() :: %{
+    "registryScanningConfiguration" => registry_scanning_configuration()
+  }
+  """
+  @type put_registry_scanning_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_pull_through_cache_rule_request() :: %{
+    optional("registryId") => String.t(),
+    required("credentialArn") => String.t(),
+    required("ecrRepositoryPrefix") => String.t()
+  }
+  """
+  @type update_pull_through_cache_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_check_layer_availability_response() :: %{
+    "failures" => list(layer_failure()()),
+    "layers" => list(layer()())
+  }
+  """
+  @type batch_check_layer_availability_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layers_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type layers_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_repository_policy_request() :: %{
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type delete_repository_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_scan_findings() :: %{
+    "enhancedFindings" => list(enhanced_image_scan_finding()()),
+    "findingSeverityCounts" => map(),
+    "findings" => list(image_scan_finding()()),
+    "imageScanCompletedAt" => non_neg_integer(),
+    "vulnerabilitySourceUpdatedAt" => non_neg_integer()
+  }
+  """
+  @type image_scan_findings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_image_scan_request() :: %{
+    optional("registryId") => String.t(),
+    required("imageId") => image_identifier(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type start_image_scan_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_not_empty_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type repository_not_empty_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_registry_policy_request() :: %{
+
+  }
+  """
+  @type delete_registry_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_filter() :: %{
+    "filter" => String.t(),
+    "filterType" => list(any())
+  }
+  """
+  @type repository_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  registry_policy_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type registry_policy_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_image_scanning_configuration_response() :: %{
+    "imageScanningConfiguration" => image_scanning_configuration(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type put_image_scanning_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_image_type_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unsupported_image_type_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_tag_parameter_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_tag_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type repository_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("resourceArn") => String.t(),
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_policy_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type repository_policy_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_repository_policy_response() :: %{
+    "policyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type get_repository_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type layer_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  registry_scanning_configuration() :: %{
+    "rules" => list(registry_scanning_rule()()),
+    "scanType" => list(any())
+  }
+  """
+  @type registry_scanning_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_images_response() :: %{
+    "imageDetails" => list(image_detail()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_images_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_repositories_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("registryId") => String.t(),
+    optional("repositoryNames") => list(String.t()())
+  }
+  """
+  @type describe_repositories_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_image_request() :: %{
+    optional("imageDigest") => String.t(),
+    optional("imageManifestMediaType") => String.t(),
+    optional("imageTag") => String.t(),
+    optional("registryId") => String.t(),
+    required("imageManifest") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type put_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_preview_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type lifecycle_policy_preview_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  complete_layer_upload_request() :: %{
+    optional("registryId") => String.t(),
+    required("layerDigests") => list(String.t()()),
+    required("repositoryName") => String.t(),
+    required("uploadId") => String.t()
+  }
+  """
+  @type complete_layer_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unable_to_get_upstream_image_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unable_to_get_upstream_image_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  set_repository_policy_request() :: %{
+    optional("force") => boolean(),
+    optional("registryId") => String.t(),
+    required("policyText") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type set_repository_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_registry_policy_request() :: %{
+
+  }
+  """
+  @type get_registry_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_image_scanning_configuration_request() :: %{
+    optional("registryId") => String.t(),
+    required("imageScanningConfiguration") => image_scanning_configuration(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type put_image_scanning_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_preview_filter() :: %{
+    "tagStatus" => list(any())
+  }
+  """
+  @type lifecycle_policy_preview_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enhanced_image_scan_finding() :: %{
+    "awsAccountId" => String.t(),
+    "description" => String.t(),
+    "findingArn" => String.t(),
+    "firstObservedAt" => non_neg_integer(),
+    "lastObservedAt" => non_neg_integer(),
+    "packageVulnerabilityDetails" => package_vulnerability_details(),
+    "remediation" => remediation(),
+    "resources" => list(resource()()),
+    "score" => float(),
+    "scoreDetails" => score_details(),
+    "severity" => String.t(),
+    "status" => String.t(),
+    "title" => String.t(),
+    "type" => String.t(),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type enhanced_image_scan_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_lifecycle_policy_preview_response() :: %{
+    "lifecyclePolicyText" => String.t(),
+    "nextToken" => String.t(),
+    "previewResults" => list(lifecycle_policy_preview_result()()),
+    "registryId" => String.t(),
+    "repositoryName" => String.t(),
+    "status" => list(any()),
+    "summary" => lifecycle_policy_preview_summary()
+  }
+  """
+  @type get_lifecycle_policy_preview_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_rule_action() :: %{
+    "type" => list(any())
+  }
+  """
+  @type lifecycle_policy_rule_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_lifecycle_policy_response() :: %{
+    "lastEvaluatedAt" => non_neg_integer(),
+    "lifecyclePolicyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type delete_lifecycle_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_delete_image_request() :: %{
+    optional("registryId") => String.t(),
+    required("imageIds") => list(image_identifier()()),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type batch_delete_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_lifecycle_policy_request() :: %{
+    optional("registryId") => String.t(),
+    required("lifecyclePolicyText") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type put_lifecycle_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  complete_layer_upload_response() :: %{
+    "layerDigest" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t(),
+    "uploadId" => String.t()
+  }
+  """
+  @type complete_layer_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_configuration() :: %{
+    "rules" => list(replication_rule()())
+  }
+  """
+  @type replication_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_failure() :: %{
+    "failureCode" => list(any()),
+    "failureReason" => String.t(),
+    "imageId" => image_identifier()
+  }
+  """
+  @type image_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type lifecycle_policy_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_layer_part_exception() :: %{
+    "lastValidByteReceived" => float(),
+    "message" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t(),
+    "uploadId" => String.t()
+  }
+  """
+  @type invalid_layer_part_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_pull_through_cache_rule_request() :: %{
+    optional("credentialArn") => String.t(),
+    optional("registryId") => String.t(),
+    optional("upstreamRegistry") => list(any()),
+    required("ecrRepositoryPrefix") => String.t(),
+    required("upstreamRegistryUrl") => String.t()
+  }
+  """
+  @type create_pull_through_cache_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_tag_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type image_tag_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_image_response() :: %{
+    "image" => image()
+  }
+  """
+  @type put_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pull_through_cache_rule_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type pull_through_cache_rule_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_destination() :: %{
+    "region" => String.t(),
+    "registryId" => String.t()
+  }
+  """
+  @type replication_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_pull_through_cache_rule_request() :: %{
+    optional("registryId") => String.t(),
+    required("ecrRepositoryPrefix") => String.t()
+  }
+  """
+  @type validate_pull_through_cache_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_lifecycle_policy_preview_request() :: %{
+    optional("filter") => lifecycle_policy_preview_filter(),
+    optional("imageIds") => list(image_identifier()()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type get_lifecycle_policy_preview_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository() :: %{
+    "createdAt" => non_neg_integer(),
+    "encryptionConfiguration" => encryption_configuration(),
+    "imageScanningConfiguration" => image_scanning_configuration(),
+    "imageTagMutability" => list(any()),
+    "registryId" => String.t(),
+    "repositoryArn" => String.t(),
+    "repositoryName" => String.t(),
+    "repositoryUri" => String.t()
+  }
+  """
+  @type repository() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_images_request() :: %{
+    optional("filter") => list_images_filter(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type list_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation() :: %{
+    "text" => String.t(),
+    "url" => String.t()
+  }
+  """
+  @type recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_repository_request() :: %{
+    optional("force") => boolean(),
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type delete_repository_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer() :: %{
+    "layerAvailability" => list(any()),
+    "layerDigest" => String.t(),
+    "layerSize" => float(),
+    "mediaType" => String.t()
+  }
+  """
+  @type layer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_images_filter() :: %{
+    "tagStatus" => list(any())
+  }
+  """
+  @type list_images_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cvss_score_details() :: %{
+    "adjustments" => list(cvss_score_adjustment()()),
+    "score" => float(),
+    "scoreSource" => String.t(),
+    "scoringVector" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type cvss_score_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_part_too_small_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type layer_part_too_small_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  referenced_images_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type referenced_images_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vulnerable_package() :: %{
+    "arch" => String.t(),
+    "epoch" => integer(),
+    "filePath" => String.t(),
+    "name" => String.t(),
+    "packageManager" => String.t(),
+    "release" => String.t(),
+    "sourceLayerHash" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type vulnerable_package() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cvss_score_adjustment() :: %{
+    "metric" => String.t(),
+    "reason" => String.t()
+  }
+  """
+  @type cvss_score_adjustment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unable_to_get_upstream_layer_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unable_to_get_upstream_layer_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_pull_through_cache_rule_response() :: %{
+    "credentialArn" => String.t(),
+    "ecrRepositoryPrefix" => String.t(),
+    "failure" => String.t(),
+    "isValid" => boolean(),
+    "registryId" => String.t(),
+    "upstreamRegistryUrl" => String.t()
+  }
+  """
+  @type validate_pull_through_cache_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_repository_scanning_configuration_response() :: %{
+    "failures" => list(repository_scanning_configuration_failure()()),
+    "scanningConfigurations" => list(repository_scanning_configuration()())
+  }
+  """
+  @type batch_get_repository_scanning_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  registry_scanning_rule() :: %{
+    "repositoryFilters" => list(scanning_repository_filter()()),
+    "scanFrequency" => list(any())
+  }
+  """
+  @type registry_scanning_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_authorization_token_response() :: %{
+    "authorizationData" => list(authorization_data()())
+  }
+  """
+  @type get_authorization_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_authorization_token_request() :: %{
+    optional("registryIds") => list(String.t()())
+  }
+  """
+  @type get_authorization_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  score_details() :: %{
+    "cvss" => cvss_score_details()
+  }
+  """
+  @type score_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_image_scan_response() :: %{
+    "imageId" => image_identifier(),
+    "imageScanStatus" => image_scan_status(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type start_image_scan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_registry_response() :: %{
+    "registryId" => String.t(),
+    "replicationConfiguration" => replication_configuration()
+  }
+  """
+  @type describe_registry_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_inaccessible_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type layer_inaccessible_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_images_response() :: %{
+    "imageIds" => list(image_identifier()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_images_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_registry_policy_response() :: %{
+    "policyText" => String.t(),
+    "registryId" => String.t()
+  }
+  """
+  @type delete_registry_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_registry_scanning_configuration_response() :: %{
+    "registryId" => String.t(),
+    "scanningConfiguration" => registry_scanning_configuration()
+  }
+  """
+  @type get_registry_scanning_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unable_to_decrypt_secret_value_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unable_to_decrypt_secret_value_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_image_request() :: %{
+    optional("acceptedMediaTypes") => list(String.t()()),
+    optional("registryId") => String.t(),
+    required("imageIds") => list(image_identifier()()),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type batch_get_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  upload_layer_part_response() :: %{
+    "lastByteReceived" => float(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t(),
+    "uploadId" => String.t()
+  }
+  """
+  @type upload_layer_part_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_repository_request() :: %{
+    optional("encryptionConfiguration") => encryption_configuration(),
+    optional("imageScanningConfiguration") => image_scanning_configuration(),
+    optional("imageTagMutability") => list(any()),
+    optional("registryId") => String.t(),
+    optional("tags") => list(tag()()),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type create_repository_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_lifecycle_policy_request() :: %{
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type delete_lifecycle_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_scan_finding() :: %{
+    "attributes" => list(attribute()()),
+    "description" => String.t(),
+    "name" => String.t(),
+    "severity" => list(any()),
+    "uri" => String.t()
+  }
+  """
+  @type image_scan_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pull_through_cache_rule_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type pull_through_cache_rule_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_scan_findings_response() :: %{
+    "imageId" => image_identifier(),
+    "imageScanFindings" => image_scan_findings(),
+    "imageScanStatus" => image_scan_status(),
+    "nextToken" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type describe_image_scan_findings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_replication_configuration_response() :: %{
+    "replicationConfiguration" => replication_configuration()
+  }
+  """
+  @type put_replication_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_scan_findings_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("registryId") => String.t(),
+    required("imageId") => image_identifier(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type describe_image_scan_findings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image() :: %{
+    "imageId" => image_identifier(),
+    "imageManifest" => String.t(),
+    "imageManifestMediaType" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_image_tag_mutability_request() :: %{
+    optional("registryId") => String.t(),
+    required("imageTagMutability") => list(any()),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type put_image_tag_mutability_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_repository_policy_response() :: %{
+    "policyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type delete_repository_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_pull_through_cache_rules_request() :: %{
+    optional("ecrRepositoryPrefixes") => list(String.t()()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("registryId") => String.t()
+  }
+  """
+  @type describe_pull_through_cache_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  package_vulnerability_details() :: %{
+    "cvss" => list(cvss_score()()),
+    "referenceUrls" => list(String.t()()),
+    "relatedVulnerabilities" => list(String.t()()),
+    "source" => String.t(),
+    "sourceUrl" => String.t(),
+    "vendorCreatedAt" => non_neg_integer(),
+    "vendorSeverity" => String.t(),
+    "vendorUpdatedAt" => non_neg_integer(),
+    "vulnerabilityId" => String.t(),
+    "vulnerablePackages" => list(vulnerable_package()())
+  }
+  """
+  @type package_vulnerability_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cvss_score() :: %{
+    "baseScore" => float(),
+    "scoringVector" => String.t(),
+    "source" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type cvss_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_delete_image_response() :: %{
+    "failures" => list(image_failure()()),
+    "imageIds" => list(image_identifier()())
+  }
+  """
+  @type batch_delete_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  secret_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type secret_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_layer_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_layer_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_registry_request() :: %{
+
+  }
+  """
+  @type describe_registry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_pull_through_cache_rule_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "credentialArn" => String.t(),
+    "ecrRepositoryPrefix" => String.t(),
+    "registryId" => String.t(),
+    "upstreamRegistryUrl" => String.t()
+  }
+  """
+  @type delete_pull_through_cache_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replication_rule() :: %{
+    "destinations" => list(replication_destination()()),
+    "repositoryFilters" => list(repository_filter()())
+  }
+  """
+  @type replication_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_exception() :: %{
+    "kmsError" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type kms_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_scanning_configuration() :: %{
+    "appliedScanFilters" => list(scanning_repository_filter()()),
+    "repositoryArn" => String.t(),
+    "repositoryName" => String.t(),
+    "scanFrequency" => list(any()),
+    "scanOnPush" => boolean()
+  }
+  """
+  @type repository_scanning_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_lifecycle_policy_request() :: %{
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type get_lifecycle_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    required("resourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_pull_through_cache_rule_response() :: %{
+    "credentialArn" => String.t(),
+    "ecrRepositoryPrefix" => String.t(),
+    "registryId" => String.t(),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type update_pull_through_cache_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_replication_configuration_request() :: %{
+    required("replicationConfiguration") => replication_configuration()
+  }
+  """
+  @type put_replication_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_check_layer_availability_request() :: %{
+    optional("registryId") => String.t(),
+    required("layerDigests") => list(String.t()()),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type batch_check_layer_availability_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_registry_scanning_configuration_request() :: %{
+
+  }
+  """
+  @type get_registry_scanning_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  server_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_identifier() :: %{
+    "imageDigest" => String.t(),
+    "imageTag" => String.t()
+  }
+  """
+  @type image_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_preview_summary() :: %{
+    "expiringImageTotalCount" => integer()
+  }
+  """
+  @type lifecycle_policy_preview_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type repository_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attribute() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_lifecycle_policy_response() :: %{
+    "lifecyclePolicyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type put_lifecycle_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_replication_status_request() :: %{
+    optional("registryId") => String.t(),
+    required("imageId") => image_identifier(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type describe_image_replication_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_repository_response() :: %{
+    "repository" => repository()
+  }
+  """
+  @type delete_repository_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_repositories_response() :: %{
+    "nextToken" => String.t(),
+    "repositories" => list(repository()())
+  }
+  """
+  @type describe_repositories_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_registry_policy_response() :: %{
+    "policyText" => String.t(),
+    "registryId" => String.t()
+  }
+  """
+  @type get_registry_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_pull_through_cache_rules_response() :: %{
+    "nextToken" => String.t(),
+    "pullThroughCacheRules" => list(pull_through_cache_rule()())
+  }
+  """
+  @type describe_pull_through_cache_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pull_through_cache_rule() :: %{
+    "createdAt" => non_neg_integer(),
+    "credentialArn" => String.t(),
+    "ecrRepositoryPrefix" => String.t(),
+    "registryId" => String.t(),
+    "updatedAt" => non_neg_integer(),
+    "upstreamRegistry" => list(any()),
+    "upstreamRegistryUrl" => String.t()
+  }
+  """
+  @type pull_through_cache_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_repository_scanning_configuration_request() :: %{
+    required("repositoryNames") => list(String.t()())
+  }
+  """
+  @type batch_get_repository_scanning_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_details() :: %{
+    "awsEcrContainerImage" => aws_ecr_container_image_details()
+  }
+  """
+  @type resource_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_scanning_configuration_failure() :: %{
+    "failureCode" => list(any()),
+    "failureReason" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type repository_scanning_configuration_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_pull_through_cache_rule_request() :: %{
+    optional("registryId") => String.t(),
+    required("ecrRepositoryPrefix") => String.t()
+  }
+  """
+  @type delete_pull_through_cache_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lifecycle_policy_preview_result() :: %{
+    "action" => lifecycle_policy_rule_action(),
+    "appliedRulePriority" => integer(),
+    "imageDigest" => String.t(),
+    "imagePushedAt" => non_neg_integer(),
+    "imageTags" => list(String.t()())
+  }
+  """
+  @type lifecycle_policy_preview_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_lifecycle_policy_preview_request() :: %{
+    optional("lifecyclePolicyText") => String.t(),
+    optional("registryId") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type start_lifecycle_policy_preview_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  aws_ecr_container_image_details() :: %{
+    "architecture" => String.t(),
+    "author" => String.t(),
+    "imageHash" => String.t(),
+    "imageTags" => list(String.t()()),
+    "platform" => String.t(),
+    "pushedAt" => non_neg_integer(),
+    "registry" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type aws_ecr_container_image_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorization_data() :: %{
+    "authorizationToken" => String.t(),
+    "expiresAt" => non_neg_integer(),
+    "proxyEndpoint" => String.t()
+  }
+  """
+  @type authorization_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_detail() :: %{
+    "artifactMediaType" => String.t(),
+    "imageDigest" => String.t(),
+    "imageManifestMediaType" => String.t(),
+    "imagePushedAt" => non_neg_integer(),
+    "imageScanFindingsSummary" => image_scan_findings_summary(),
+    "imageScanStatus" => image_scan_status(),
+    "imageSizeInBytes" => float(),
+    "imageTags" => list(String.t()()),
+    "lastRecordedPullTime" => non_neg_integer(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type image_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  empty_upload_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type empty_upload_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_images_filter() :: %{
+    "tagStatus" => list(any())
+  }
+  """
+  @type describe_images_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  initiate_layer_upload_response() :: %{
+    "partSize" => float(),
+    "uploadId" => String.t()
+  }
+  """
+  @type initiate_layer_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_get_image_response() :: %{
+    "failures" => list(image_failure()()),
+    "images" => list(image()())
+  }
+  """
+  @type batch_get_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_download_url_for_layer_request() :: %{
+    optional("registryId") => String.t(),
+    required("layerDigest") => String.t(),
+    required("repositoryName") => String.t()
+  }
+  """
+  @type get_download_url_for_layer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_registry_policy_request() :: %{
+    required("policyText") => String.t()
+  }
+  """
+  @type put_registry_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_replication_status_response() :: %{
+    "imageId" => image_identifier(),
+    "replicationStatuses" => list(image_replication_status()()),
+    "repositoryName" => String.t()
+  }
+  """
+  @type describe_image_replication_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tags_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_lifecycle_policy_response() :: %{
+    "lastEvaluatedAt" => non_neg_integer(),
+    "lifecyclePolicyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type get_lifecycle_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_lifecycle_policy_preview_response() :: %{
+    "lifecyclePolicyText" => String.t(),
+    "registryId" => String.t(),
+    "repositoryName" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type start_lifecycle_policy_preview_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scanning_repository_filter() :: %{
+    "filter" => String.t(),
+    "filterType" => list(any())
+  }
+  """
+  @type scanning_repository_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unable_to_access_secret_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unable_to_access_secret_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  upload_layer_part_request() :: %{
+    optional("registryId") => String.t(),
+    required("layerPartBlob") => binary(),
+    required("partFirstByte") => float(),
+    required("partLastByte") => float(),
+    required("repositoryName") => String.t(),
+    required("uploadId") => String.t()
+  }
+  """
+  @type upload_layer_part_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource() :: %{
+    "details" => resource_details(),
+    "id" => String.t(),
+    "tags" => map(),
+    "type" => String.t()
+  }
+  """
+  @type resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_upstream_registry_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unsupported_upstream_registry_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2015-09-21",
@@ -53,6 +1857,12 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
+  @spec batch_check_layer_availability(map(), batch_check_layer_availability_request(), list()) ::
+          {:ok, batch_check_layer_availability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -74,6 +1884,12 @@ defmodule AWS.ECR do
   image's
   digest in your request.
   """
+  @spec batch_delete_image(map(), batch_delete_image_request(), list()) ::
+          {:ok, batch_delete_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -90,6 +1906,14 @@ defmodule AWS.ECR do
   image
   manifest.
   """
+  @spec batch_get_image(map(), batch_get_image_request(), list()) ::
+          {:ok, batch_get_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, unable_to_get_upstream_image_exception()}
   def batch_get_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -99,6 +1923,17 @@ defmodule AWS.ECR do
   @doc """
   Gets the scanning configuration for one or more repositories.
   """
+  @spec batch_get_repository_scanning_configuration(
+          map(),
+          batch_get_repository_scanning_configuration_request(),
+          list()
+        ) ::
+          {:ok, batch_get_repository_scanning_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def batch_get_repository_scanning_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -121,6 +1956,18 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
+  @spec complete_layer_upload(map(), complete_layer_upload_request(), list()) ::
+          {:ok, complete_layer_upload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, empty_upload_exception()}
+          | {:error, invalid_layer_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, kms_exception()}
+          | {:error, layer_already_exists_exception()}
+          | {:error, layer_part_too_small_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, upload_not_found_exception()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -136,6 +1983,18 @@ defmodule AWS.ECR do
   information, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
+  @spec create_pull_through_cache_rule(map(), create_pull_through_cache_rule_request(), list()) ::
+          {:ok, create_pull_through_cache_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, pull_through_cache_rule_already_exists_exception()}
+          | {:error, secret_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, unable_to_access_secret_exception()}
+          | {:error, unable_to_decrypt_secret_value_exception()}
+          | {:error, unsupported_upstream_registry_exception()}
+          | {:error, validation_exception()}
   def create_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -149,6 +2008,16 @@ defmodule AWS.ECR do
   in the
   *Amazon Elastic Container Registry User Guide*.
   """
+  @spec create_repository(map(), create_repository_request(), list()) ::
+          {:ok, create_repository_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, invalid_tag_parameter_exception()}
+          | {:error, kms_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, repository_already_exists_exception()}
+          | {:error, server_exception()}
+          | {:error, too_many_tags_exception()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -158,6 +2027,14 @@ defmodule AWS.ECR do
   @doc """
   Deletes the lifecycle policy associated with the specified repository.
   """
+  @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
+          {:ok, delete_lifecycle_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, lifecycle_policy_not_found_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -167,6 +2044,13 @@ defmodule AWS.ECR do
   @doc """
   Deletes a pull through cache rule.
   """
+  @spec delete_pull_through_cache_rule(map(), delete_pull_through_cache_rule_request(), list()) ::
+          {:ok, delete_pull_through_cache_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, pull_through_cache_rule_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def delete_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -176,6 +2060,13 @@ defmodule AWS.ECR do
   @doc """
   Deletes the registry permissions policy.
   """
+  @spec delete_registry_policy(map(), delete_registry_policy_request(), list()) ::
+          {:ok, delete_registry_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, registry_policy_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def delete_registry_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -189,6 +2080,14 @@ defmodule AWS.ECR do
   contents of the repository or use the `force` option to delete the repository
   and have Amazon ECR delete all of its contents on your behalf.
   """
+  @spec delete_repository(map(), delete_repository_request(), list()) ::
+          {:ok, delete_repository_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, kms_exception()}
+          | {:error, repository_not_empty_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -198,6 +2097,13 @@ defmodule AWS.ECR do
   @doc """
   Deletes the repository policy associated with the specified repository.
   """
+  @spec delete_repository_policy(map(), delete_repository_policy_request(), list()) ::
+          {:ok, delete_repository_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, repository_policy_not_found_exception()}
+          | {:error, server_exception()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -207,6 +2113,18 @@ defmodule AWS.ECR do
   @doc """
   Returns the replication status for a specified image.
   """
+  @spec describe_image_replication_status(
+          map(),
+          describe_image_replication_status_request(),
+          list()
+        ) ::
+          {:ok, describe_image_replication_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, image_not_found_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def describe_image_replication_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -216,6 +2134,15 @@ defmodule AWS.ECR do
   @doc """
   Returns the scan findings for the specified image.
   """
+  @spec describe_image_scan_findings(map(), describe_image_scan_findings_request(), list()) ::
+          {:ok, describe_image_scan_findings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, image_not_found_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, scan_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def describe_image_scan_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -236,6 +2163,13 @@ defmodule AWS.ECR do
   command shows the uncompressed image size, so it may return a
   larger image size than the image sizes returned by `DescribeImages`.
   """
+  @spec describe_images(map(), describe_images_request(), list()) ::
+          {:ok, describe_images_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, image_not_found_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -245,6 +2179,17 @@ defmodule AWS.ECR do
   @doc """
   Returns the pull through cache rules for a registry.
   """
+  @spec describe_pull_through_cache_rules(
+          map(),
+          describe_pull_through_cache_rules_request(),
+          list()
+        ) ::
+          {:ok, describe_pull_through_cache_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, pull_through_cache_rule_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def describe_pull_through_cache_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -258,6 +2203,12 @@ defmodule AWS.ECR do
   can be created or updated with the `PutReplicationConfiguration` API
   action.
   """
+  @spec describe_registry(map(), describe_registry_request(), list()) ::
+          {:ok, describe_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def describe_registry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -267,6 +2218,12 @@ defmodule AWS.ECR do
   @doc """
   Describes image repositories in a registry.
   """
+  @spec describe_repositories(map(), describe_repositories_request(), list()) ::
+          {:ok, describe_repositories_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -287,6 +2244,11 @@ defmodule AWS.ECR do
   process. For more information, see [Registry authentication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth)
   in the *Amazon Elastic Container Registry User Guide*.
   """
+  @spec get_authorization_token(map(), get_authorization_token_request(), list()) ::
+          {:ok, get_authorization_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, server_exception()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -307,6 +2269,15 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
+  @spec get_download_url_for_layer(map(), get_download_url_for_layer_request(), list()) ::
+          {:ok, get_download_url_for_layer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, layer_inaccessible_exception()}
+          | {:error, layers_not_found_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, unable_to_get_upstream_layer_exception()}
   def get_download_url_for_layer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -316,6 +2287,14 @@ defmodule AWS.ECR do
   @doc """
   Retrieves the lifecycle policy for the specified repository.
   """
+  @spec get_lifecycle_policy(map(), get_lifecycle_policy_request(), list()) ::
+          {:ok, get_lifecycle_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, lifecycle_policy_not_found_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -326,6 +2305,14 @@ defmodule AWS.ECR do
   Retrieves the results of the lifecycle policy preview request for the specified
   repository.
   """
+  @spec get_lifecycle_policy_preview(map(), get_lifecycle_policy_preview_request(), list()) ::
+          {:ok, get_lifecycle_policy_preview_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, lifecycle_policy_preview_not_found_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def get_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -335,6 +2322,13 @@ defmodule AWS.ECR do
   @doc """
   Retrieves the permissions policy for a registry.
   """
+  @spec get_registry_policy(map(), get_registry_policy_request(), list()) ::
+          {:ok, get_registry_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, registry_policy_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def get_registry_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -344,6 +2338,16 @@ defmodule AWS.ECR do
   @doc """
   Retrieves the scanning configuration for a registry.
   """
+  @spec get_registry_scanning_configuration(
+          map(),
+          get_registry_scanning_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_registry_scanning_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def get_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -353,6 +2357,13 @@ defmodule AWS.ECR do
   @doc """
   Retrieves the repository policy for the specified repository.
   """
+  @spec get_repository_policy(map(), get_repository_policy_request(), list()) ::
+          {:ok, get_repository_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, repository_policy_not_found_exception()}
+          | {:error, server_exception()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -372,6 +2383,13 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
+  @spec initiate_layer_upload(map(), initiate_layer_upload_request(), list()) ::
+          {:ok, initiate_layer_upload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, kms_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -389,6 +2407,12 @@ defmodule AWS.ECR do
   results to return only `TAGGED` images to list all of the tags in your
   repository.
   """
+  @spec list_images(map(), list_images_request(), list()) ::
+          {:ok, list_images_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def list_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -398,6 +2422,12 @@ defmodule AWS.ECR do
   @doc """
   List the tags for an Amazon ECR resource.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -417,6 +2447,19 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
+  @spec put_image(map(), put_image_request(), list()) ::
+          {:ok, put_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, image_already_exists_exception()}
+          | {:error, image_digest_does_not_match_exception()}
+          | {:error, image_tag_already_exists_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, kms_exception()}
+          | {:error, layers_not_found_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, referenced_images_not_found_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def put_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -433,6 +2476,17 @@ defmodule AWS.ECR do
 
   Updates the image scanning configuration for the specified repository.
   """
+  @spec put_image_scanning_configuration(
+          map(),
+          put_image_scanning_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_image_scanning_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def put_image_scanning_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -446,6 +2500,12 @@ defmodule AWS.ECR do
   information, see [Image tag mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
+  @spec put_image_tag_mutability(map(), put_image_tag_mutability_request(), list()) ::
+          {:ok, put_image_tag_mutability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def put_image_tag_mutability(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -458,6 +2518,13 @@ defmodule AWS.ECR do
   For more
   information, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
   """
+  @spec put_lifecycle_policy(map(), put_lifecycle_policy_request(), list()) ::
+          {:ok, put_lifecycle_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -472,6 +2539,12 @@ defmodule AWS.ECR do
   when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
+  @spec put_registry_policy(map(), put_registry_policy_request(), list()) ::
+          {:ok, put_registry_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def put_registry_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -481,6 +2554,16 @@ defmodule AWS.ECR do
   @doc """
   Creates or updates the scanning configuration for your private registry.
   """
+  @spec put_registry_scanning_configuration(
+          map(),
+          put_registry_scanning_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_registry_scanning_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def put_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -505,6 +2588,12 @@ defmodule AWS.ECR do
   source account permission to replicate. This permission is controlled using a
   registry permissions policy. For more information, see `PutRegistryPolicy`.
   """
+  @spec put_replication_configuration(map(), put_replication_configuration_request(), list()) ::
+          {:ok, put_replication_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def put_replication_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -518,6 +2607,12 @@ defmodule AWS.ECR do
   For more information, see [Amazon ECR Repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
+  @spec set_repository_policy(map(), set_repository_policy_request(), list()) ::
+          {:ok, set_repository_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -534,6 +2629,16 @@ defmodule AWS.ECR do
   in the
   *Amazon Elastic Container Registry User Guide*.
   """
+  @spec start_image_scan(map(), start_image_scan_request(), list()) ::
+          {:ok, start_image_scan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, image_not_found_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, unsupported_image_type_exception()}
+          | {:error, validation_exception()}
   def start_image_scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -546,6 +2651,15 @@ defmodule AWS.ECR do
   This allows you
   to see the results before associating the lifecycle policy with the repository.
   """
+  @spec start_lifecycle_policy_preview(map(), start_lifecycle_policy_preview_request(), list()) ::
+          {:ok, start_lifecycle_policy_preview_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, lifecycle_policy_not_found_exception()}
+          | {:error, lifecycle_policy_preview_in_progress_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def start_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -558,6 +2672,14 @@ defmodule AWS.ECR do
   Existing tags on a resource
   are not changed if they are not specified in the request parameters.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, invalid_tag_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, too_many_tags_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -567,6 +2689,14 @@ defmodule AWS.ECR do
   @doc """
   Deletes specified tags from a resource.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, invalid_tag_parameter_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, too_many_tags_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -576,6 +2706,16 @@ defmodule AWS.ECR do
   @doc """
   Updates an existing pull through cache rule.
   """
+  @spec update_pull_through_cache_rule(map(), update_pull_through_cache_rule_request(), list()) ::
+          {:ok, update_pull_through_cache_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, pull_through_cache_rule_not_found_exception()}
+          | {:error, secret_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, unable_to_access_secret_exception()}
+          | {:error, unable_to_decrypt_secret_value_exception()}
+          | {:error, validation_exception()}
   def update_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -595,6 +2735,16 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
+  @spec upload_layer_part(map(), upload_layer_part_request(), list()) ::
+          {:ok, upload_layer_part_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_layer_part_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, kms_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, repository_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, upload_not_found_exception()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -611,6 +2761,17 @@ defmodule AWS.ECR do
   syntax, and then validate that authentication to the upstream registry is
   successful.
   """
+  @spec validate_pull_through_cache_rule(
+          map(),
+          validate_pull_through_cache_rule_request(),
+          list()
+        ) ::
+          {:ok, validate_pull_through_cache_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_exception()}
+          | {:error, pull_through_cache_rule_not_found_exception()}
+          | {:error, server_exception()}
+          | {:error, validation_exception()}
   def validate_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -197,6 +197,1224 @@ defmodule AWS.CodeCatalyst do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  list_source_repository_branches_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_source_repository_branches_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_space_request() :: %{
+
+  }
+  """
+  @type delete_space_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  project_information() :: %{
+    "name" => [String.t()],
+    "projectId" => [String.t()]
+  }
+  """
+  @type project_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_access_token_response() :: %{
+    required("accessTokenId") => String.t(),
+    required("expiresTime") => non_neg_integer(),
+    required("name") => String.t(),
+    required("secret") => String.t()
+  }
+  """
+  @type create_access_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ide_configuration() :: %{
+    "name" => [String.t()],
+    "runtime" => [String.t()]
+  }
+  """
+  @type ide_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_space_response() :: %{
+    "displayName" => [String.t()],
+    "name" => String.t()
+  }
+  """
+  @type delete_space_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_user_details_request() :: %{
+    optional("id") => [String.t()],
+    optional("userName") => [String.t()]
+  }
+  """
+  @type get_user_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  project_summary() :: %{
+    "description" => [String.t()],
+    "displayName" => [String.t()],
+    "name" => [String.t()]
+  }
+  """
+  @type project_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_run_sort_criteria() :: %{
+
+  }
+  """
+  @type workflow_run_sort_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ide() :: %{
+    "name" => [String.t()],
+    "runtime" => [String.t()]
+  }
+  """
+  @type ide() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_project_request() :: %{
+
+  }
+  """
+  @type get_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_token_summary() :: %{
+    "expiresTime" => non_neg_integer(),
+    "id" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type access_token_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_source_repository_request() :: %{
+    optional("description") => String.t()
+  }
+  """
+  @type create_source_repository_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_dev_environment_response() :: %{
+    optional("alias") => [String.t()],
+    optional("ides") => list(ide()()),
+    optional("statusReason") => String.t(),
+    optional("vpcConnectionName") => String.t(),
+    required("creatorId") => [String.t()],
+    required("id") => String.t(),
+    required("inactivityTimeoutMinutes") => integer(),
+    required("instanceType") => String.t(),
+    required("lastUpdatedTime") => non_neg_integer(),
+    required("persistentStorage") => persistent_storage(),
+    required("projectName") => String.t(),
+    required("repositories") => list(dev_environment_repository_summary()()),
+    required("spaceName") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type get_dev_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_dev_environment_request() :: %{
+
+  }
+  """
+  @type stop_dev_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_identity() :: %{
+    "awsAccountId" => [String.t()],
+    "principalId" => [String.t()],
+    "userName" => [String.t()],
+    "userType" => String.t()
+  }
+  """
+  @type user_identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dev_environment_access_details() :: %{
+    "streamUrl" => String.t(),
+    "tokenValue" => String.t()
+  }
+  """
+  @type dev_environment_access_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_dev_environment_session_request() :: %{
+    required("sessionConfiguration") => dev_environment_session_configuration()
+  }
+  """
+  @type start_dev_environment_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_space_request() :: %{
+
+  }
+  """
+  @type get_space_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_subscription_response() :: %{
+    optional("awsAccountName") => String.t(),
+    optional("subscriptionType") => [String.t()]
+  }
+  """
+  @type get_subscription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_project_response() :: %{
+    "description" => [String.t()],
+    "displayName" => [String.t()],
+    "name" => String.t(),
+    "spaceName" => String.t()
+  }
+  """
+  @type update_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_source_repository_branch_request() :: %{
+    optional("headCommitId") => [String.t()]
+  }
+  """
+  @type create_source_repository_branch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  email_address() :: %{
+    "email" => [String.t()],
+    "verified" => [boolean()]
+  }
+  """
+  @type email_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_log_entry() :: %{
+    "errorCode" => [String.t()],
+    "eventCategory" => [String.t()],
+    "eventName" => [String.t()],
+    "eventSource" => [String.t()],
+    "eventTime" => non_neg_integer(),
+    "eventType" => [String.t()],
+    "id" => [String.t()],
+    "operationType" => String.t(),
+    "projectInformation" => project_information(),
+    "requestId" => [String.t()],
+    "requestPayload" => event_payload(),
+    "responsePayload" => event_payload(),
+    "sourceIpAddress" => [String.t()],
+    "userAgent" => [String.t()],
+    "userIdentity" => user_identity()
+  }
+  """
+  @type event_log_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_source_repository_response() :: %{
+    "name" => String.t(),
+    "projectName" => String.t(),
+    "spaceName" => String.t()
+  }
+  """
+  @type delete_source_repository_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_workflow_request() :: %{
+
+  }
+  """
+  @type get_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_input() :: %{
+    "branchName" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type repository_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_user_details_response() :: %{
+    optional("displayName") => [String.t()],
+    optional("primaryEmail") => email_address(),
+    optional("userId") => [String.t()],
+    optional("userName") => [String.t()],
+    optional("version") => [String.t()]
+  }
+  """
+  @type get_user_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_dev_environment_response() :: %{
+    optional("alias") => [String.t()],
+    optional("clientToken") => String.t(),
+    optional("ides") => list(ide_configuration()()),
+    optional("inactivityTimeoutMinutes") => integer(),
+    optional("instanceType") => String.t(),
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("spaceName") => String.t()
+  }
+  """
+  @type update_dev_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dev_environment_sessions_response() :: %{
+    "items" => list(dev_environment_session_summary()()),
+    "nextToken" => [String.t()]
+  }
+  """
+  @type list_dev_environment_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_dev_environment_response() :: %{
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("spaceName") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type start_dev_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_source_repository_request() :: %{
+
+  }
+  """
+  @type get_source_repository_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_access_tokens_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_access_tokens_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_project_response() :: %{
+    optional("description") => [String.t()],
+    optional("displayName") => [String.t()],
+    optional("spaceName") => String.t(),
+    required("name") => String.t()
+  }
+  """
+  @type create_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_dev_environment_request() :: %{
+
+  }
+  """
+  @type delete_dev_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_source_repositories_item() :: %{
+    "createdTime" => non_neg_integer(),
+    "description" => String.t(),
+    "id" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "name" => String.t()
+  }
+  """
+  @type list_source_repositories_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_workflow_run_request() :: %{
+    optional("clientToken") => [String.t()],
+    required("workflowId") => String.t()
+  }
+  """
+  @type start_workflow_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dev_environment_summary() :: %{
+    "alias" => [String.t()],
+    "creatorId" => [String.t()],
+    "id" => String.t(),
+    "ides" => list(ide()()),
+    "inactivityTimeoutMinutes" => integer(),
+    "instanceType" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "persistentStorage" => persistent_storage(),
+    "projectName" => String.t(),
+    "repositories" => list(dev_environment_repository_summary()()),
+    "spaceName" => String.t(),
+    "status" => String.t(),
+    "statusReason" => String.t(),
+    "vpcConnectionName" => String.t()
+  }
+  """
+  @type dev_environment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_workflows_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()],
+    optional("sortBy") => list(workflow_sort_criteria()())
+  }
+  """
+  @type list_workflows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_projects_response() :: %{
+    optional("items") => list(project_summary()()),
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_projects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_dev_environment_response() :: %{
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("spaceName") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type stop_dev_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_project_response() :: %{
+    optional("description") => [String.t()],
+    optional("displayName") => [String.t()],
+    optional("spaceName") => String.t(),
+    required("name") => [String.t()]
+  }
+  """
+  @type get_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_dev_environment_request() :: %{
+    optional("alias") => [String.t()],
+    optional("clientToken") => String.t(),
+    optional("ides") => list(ide_configuration()()),
+    optional("inactivityTimeoutMinutes") => integer(),
+    optional("instanceType") => String.t()
+  }
+  """
+  @type update_dev_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_event_logs_request() :: %{
+    optional("eventName") => [String.t()],
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()],
+    required("endTime") => non_neg_integer(),
+    required("startTime") => non_neg_integer()
+  }
+  """
+  @type list_event_logs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dev_environment_request() :: %{
+    optional("alias") => [String.t()],
+    optional("clientToken") => String.t(),
+    optional("ides") => list(ide_configuration()()),
+    optional("inactivityTimeoutMinutes") => integer(),
+    optional("repositories") => list(repository_input()()),
+    optional("vpcConnectionName") => String.t(),
+    required("instanceType") => String.t(),
+    required("persistentStorage") => persistent_storage_configuration()
+  }
+  """
+  @type create_dev_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_workflow_run_response() :: %{
+    "id" => String.t(),
+    "projectName" => String.t(),
+    "spaceName" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type start_workflow_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_space_response() :: %{
+    "description" => [String.t()],
+    "displayName" => [String.t()],
+    "name" => String.t()
+  }
+  """
+  @type update_space_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dev_environment_sessions_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_dev_environment_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_run_status_reason() :: %{
+
+  }
+  """
+  @type workflow_run_status_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_dev_environment_request() :: %{
+
+  }
+  """
+  @type get_dev_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_source_repository_branches_response() :: %{
+    optional("nextToken") => [String.t()],
+    required("items") => list(list_source_repository_branches_item()())
+  }
+  """
+  @type list_source_repository_branches_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter() :: %{
+    "comparisonOperator" => [String.t()],
+    "key" => [String.t()],
+    "values" => list([String.t()]())
+  }
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_workflow_runs_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()],
+    optional("sortBy") => list(workflow_run_sort_criteria()()),
+    optional("workflowId") => String.t()
+  }
+  """
+  @type list_workflow_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_source_repository_clone_urls_request() :: %{
+
+  }
+  """
+  @type get_source_repository_clone_urls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_summary() :: %{
+    "createdTime" => non_neg_integer(),
+    "definition" => workflow_definition_summary(),
+    "id" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "name" => [String.t()],
+    "runMode" => String.t(),
+    "sourceBranchName" => String.t(),
+    "sourceRepositoryName" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type workflow_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_dev_environment_request() :: %{
+    optional("ides") => list(ide_configuration()()),
+    optional("inactivityTimeoutMinutes") => integer(),
+    optional("instanceType") => String.t()
+  }
+  """
+  @type start_dev_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_source_repository_request() :: %{
+
+  }
+  """
+  @type delete_source_repository_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_subscription_request() :: %{
+
+  }
+  """
+  @type get_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_dev_environment_session_response() :: %{
+    optional("sessionId") => [String.t()],
+    required("accessDetails") => dev_environment_access_details(),
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("spaceName") => String.t()
+  }
+  """
+  @type start_dev_environment_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_definition_summary() :: %{
+    "path" => [String.t()]
+  }
+  """
+  @type workflow_definition_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_project_response() :: %{
+    "displayName" => [String.t()],
+    "name" => String.t(),
+    "spaceName" => String.t()
+  }
+  """
+  @type delete_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  persistent_storage_configuration() :: %{
+    "sizeInGiB" => [integer()]
+  }
+  """
+  @type persistent_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_project_request() :: %{
+    optional("description") => String.t()
+  }
+  """
+  @type update_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dev_environment_session_summary() :: %{
+    "devEnvironmentId" => String.t(),
+    "id" => [String.t()],
+    "projectName" => String.t(),
+    "spaceName" => String.t(),
+    "startedTime" => non_neg_integer()
+  }
+  """
+  @type dev_environment_session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_source_repository_response() :: %{
+    "createdTime" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "name" => String.t(),
+    "projectName" => String.t(),
+    "spaceName" => String.t()
+  }
+  """
+  @type get_source_repository_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dev_environments_request() :: %{
+    optional("filters") => list(filter()()),
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()],
+    optional("projectName") => String.t()
+  }
+  """
+  @type list_dev_environments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  project_list_filter() :: %{
+    "comparisonOperator" => String.t(),
+    "key" => String.t(),
+    "values" => list([String.t()]())
+  }
+  """
+  @type project_list_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_dev_environment_session_response() :: %{
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("sessionId") => [String.t()],
+    required("spaceName") => String.t()
+  }
+  """
+  @type stop_dev_environment_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_space_request() :: %{
+    optional("description") => String.t()
+  }
+  """
+  @type update_space_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_workflow_runs_response() :: %{
+    "items" => list(workflow_run_summary()()),
+    "nextToken" => [String.t()]
+  }
+  """
+  @type list_workflow_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dev_environment_response() :: %{
+    optional("vpcConnectionName") => String.t(),
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("spaceName") => String.t()
+  }
+  """
+  @type create_dev_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_access_token_request() :: %{
+
+  }
+  """
+  @type delete_access_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_event_logs_response() :: %{
+    optional("nextToken") => [String.t()],
+    required("items") => list(event_log_entry()())
+  }
+  """
+  @type list_event_logs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verify_session_response() :: %{
+    optional("identity") => [String.t()]
+  }
+  """
+  @type verify_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  persistent_storage() :: %{
+    "sizeInGiB" => [integer()]
+  }
+  """
+  @type persistent_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_access_token_request() :: %{
+    optional("expiresTime") => non_neg_integer(),
+    required("name") => String.t()
+  }
+  """
+  @type create_access_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_spaces_response() :: %{
+    optional("items") => list(space_summary()()),
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_spaces_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dev_environment_repository_summary() :: %{
+    "branchName" => String.t(),
+    "repositoryName" => String.t()
+  }
+  """
+  @type dev_environment_repository_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_project_request() :: %{
+    optional("description") => String.t(),
+    required("displayName") => String.t()
+  }
+  """
+  @type create_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dev_environments_response() :: %{
+    optional("nextToken") => [String.t()],
+    required("items") => list(dev_environment_summary()())
+  }
+  """
+  @type list_dev_environments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_space_response() :: %{
+    optional("description") => [String.t()],
+    optional("displayName") => [String.t()],
+    required("name") => String.t(),
+    required("regionName") => String.t()
+  }
+  """
+  @type get_space_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_projects_request() :: %{
+    optional("filters") => list(project_list_filter()()),
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_projects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_source_repository_branches_item() :: %{
+    "headCommitId" => [String.t()],
+    "lastUpdatedTime" => non_neg_integer(),
+    "name" => String.t(),
+    "ref" => String.t()
+  }
+  """
+  @type list_source_repository_branches_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_dev_environment_session_request() :: %{
+
+  }
+  """
+  @type stop_dev_environment_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_workflow_run_request() :: %{
+
+  }
+  """
+  @type get_workflow_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_access_token_response() :: %{
+
+  }
+  """
+  @type delete_access_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execute_command_session_configuration() :: %{
+    "arguments" => list([String.t()]()),
+    "command" => [String.t()]
+  }
+  """
+  @type execute_command_session_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_dev_environment_response() :: %{
+    required("id") => String.t(),
+    required("projectName") => String.t(),
+    required("spaceName") => String.t()
+  }
+  """
+  @type delete_dev_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_definition() :: %{
+    "path" => [String.t()]
+  }
+  """
+  @type workflow_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_project_request() :: %{
+
+  }
+  """
+  @type delete_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_source_repositories_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_source_repositories_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_source_repository_response() :: %{
+    "description" => String.t(),
+    "name" => String.t(),
+    "projectName" => String.t(),
+    "spaceName" => String.t()
+  }
+  """
+  @type create_source_repository_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_workflows_response() :: %{
+    "items" => list(workflow_summary()()),
+    "nextToken" => [String.t()]
+  }
+  """
+  @type list_workflows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_workflow_run_response() :: %{
+    "endTime" => non_neg_integer(),
+    "id" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "projectName" => String.t(),
+    "spaceName" => String.t(),
+    "startTime" => non_neg_integer(),
+    "status" => String.t(),
+    "statusReasons" => list(workflow_run_status_reason()()),
+    "workflowId" => String.t()
+  }
+  """
+  @type get_workflow_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_sort_criteria() :: %{
+
+  }
+  """
+  @type workflow_sort_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_source_repositories_response() :: %{
+    optional("items") => list(list_source_repositories_item()()),
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_source_repositories_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_run_summary() :: %{
+    "endTime" => non_neg_integer(),
+    "id" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "startTime" => non_neg_integer(),
+    "status" => String.t(),
+    "statusReasons" => list(workflow_run_status_reason()()),
+    "workflowId" => String.t(),
+    "workflowName" => [String.t()]
+  }
+  """
+  @type workflow_run_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dev_environment_session_configuration() :: %{
+    "executeCommandSessionConfiguration" => execute_command_session_configuration(),
+    "sessionType" => String.t()
+  }
+  """
+  @type dev_environment_session_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_access_tokens_response() :: %{
+    "items" => list(access_token_summary()()),
+    "nextToken" => [String.t()]
+  }
+  """
+  @type list_access_tokens_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  space_summary() :: %{
+    "description" => [String.t()],
+    "displayName" => [String.t()],
+    "name" => String.t(),
+    "regionName" => String.t()
+  }
+  """
+  @type space_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_source_repository_clone_urls_response() :: %{
+    required("https") => [String.t()]
+  }
+  """
+  @type get_source_repository_clone_urls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_spaces_request() :: %{
+    optional("nextToken") => [String.t()]
+  }
+  """
+  @type list_spaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_payload() :: %{
+    "contentType" => [String.t()],
+    "data" => [String.t()]
+  }
+  """
+  @type event_payload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_workflow_response() :: %{
+    "createdTime" => non_neg_integer(),
+    "definition" => workflow_definition(),
+    "id" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "name" => [String.t()],
+    "projectName" => String.t(),
+    "runMode" => String.t(),
+    "sourceBranchName" => String.t(),
+    "sourceRepositoryName" => String.t(),
+    "spaceName" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type get_workflow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_source_repository_branch_response() :: %{
+    optional("headCommitId") => [String.t()],
+    optional("lastUpdatedTime") => non_neg_integer(),
+    optional("name") => String.t(),
+    optional("ref") => String.t()
+  }
+  """
+  @type create_source_repository_branch_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2022-09-28",
@@ -224,6 +1442,9 @@ defmodule AWS.CodeCatalyst do
   settings.For more information, see
   [Managing personal access tokens in Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html).
   """
+  @spec create_access_token(map(), create_access_token_request(), list()) ::
+          {:ok, create_access_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_access_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/accessTokens"
     headers = []
@@ -244,6 +1465,15 @@ defmodule AWS.CodeCatalyst do
   storage. None of these
   defaults apply to a Dev Environment created programmatically.
   """
+  @spec create_dev_environment(
+          map(),
+          String.t(),
+          String.t(),
+          create_dev_environment_request(),
+          list()
+        ) ::
+          {:ok, create_dev_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_dev_environment(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments"
@@ -259,6 +1489,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Creates a project in a specified space.
   """
+  @spec create_project(map(), String.t(), create_project_request(), list()) ::
+          {:ok, create_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_project(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects"
     headers = []
@@ -275,6 +1508,16 @@ defmodule AWS.CodeCatalyst do
   The repository is
   created with an initial empty commit with a default branch named `main`.
   """
+  @spec create_source_repository(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          create_source_repository_request(),
+          list()
+        ) ::
+          {:ok, create_source_repository_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_source_repository(
         %Client{} = client,
         name,
@@ -300,6 +1543,17 @@ defmodule AWS.CodeCatalyst do
   This API only creates a branch in a source repository hosted in Amazon
   CodeCatalyst. You cannot use this API to create a branch in a linked repository.
   """
+  @spec create_source_repository_branch(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          create_source_repository_branch_request(),
+          list()
+        ) ::
+          {:ok, create_source_repository_branch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_source_repository_branch(
         %Client{} = client,
         name,
@@ -325,6 +1579,9 @@ defmodule AWS.CodeCatalyst do
 
   A personal access token can only be deleted by the user who created it.
   """
+  @spec delete_access_token(map(), String.t(), delete_access_token_request(), list()) ::
+          {:ok, delete_access_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_access_token(%Client{} = client, id, input, options \\ []) do
     url_path = "/v1/accessTokens/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -348,6 +1605,16 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a Dev Environment.
   """
+  @spec delete_dev_environment(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_dev_environment_request(),
+          list()
+        ) ::
+          {:ok, delete_dev_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_dev_environment(
         %Client{} = client,
         id,
@@ -380,6 +1647,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a project in a space.
   """
+  @spec delete_project(map(), String.t(), String.t(), delete_project_request(), list()) ::
+          {:ok, delete_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_project(%Client{} = client, name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
@@ -408,6 +1678,16 @@ defmodule AWS.CodeCatalyst do
   You cannot use this API to delete a linked repository. It can only be used to
   delete a Amazon CodeCatalyst source repository.
   """
+  @spec delete_source_repository(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_source_repository_request(),
+          list()
+        ) ::
+          {:ok, delete_source_repository_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_source_repository(
         %Client{} = client,
         name,
@@ -443,6 +1723,9 @@ defmodule AWS.CodeCatalyst do
   Deleting a space cannot be undone. Additionally, since space names must be
   unique across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.
   """
+  @spec delete_space(map(), String.t(), delete_space_request(), list()) ::
+          {:ok, delete_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_space(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -469,6 +1752,9 @@ defmodule AWS.CodeCatalyst do
 
   Dev Environments are specific to the user who creates them.
   """
+  @spec get_dev_environment(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_dev_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_dev_environment(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}"
@@ -484,6 +1770,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a project.
   """
+  @spec get_project(map(), String.t(), String.t(), list()) ::
+          {:ok, get_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_project(%Client{} = client, name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
@@ -499,6 +1788,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a source repository.
   """
+  @spec get_source_repository(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_source_repository_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_source_repository(%Client{} = client, name, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(name)}"
@@ -516,6 +1808,9 @@ defmodule AWS.CodeCatalyst do
   source
   repository.
   """
+  @spec get_source_repository_clone_urls(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_source_repository_clone_urls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_source_repository_clone_urls(
         %Client{} = client,
         project_name,
@@ -537,6 +1832,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about an space.
   """
+  @spec get_space(map(), String.t(), list()) ::
+          {:ok, get_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_space(%Client{} = client, name, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -552,6 +1850,9 @@ defmodule AWS.CodeCatalyst do
   purposes
   and the billing plan for the space.
   """
+  @spec get_subscription(map(), String.t(), list()) ::
+          {:ok, get_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_subscription(%Client{} = client, space_name, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/subscription"
     headers = []
@@ -565,6 +1866,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a user.
   """
+  @spec get_user_details(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, get_user_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_user_details(%Client{} = client, id \\ nil, user_name \\ nil, options \\ []) do
     url_path = "/userDetails"
     headers = []
@@ -592,6 +1896,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a workflow.
   """
+  @spec get_workflow(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_workflow(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflows/#{AWS.Util.encode_uri(id)}"
@@ -607,6 +1914,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a specified run of a workflow.
   """
+  @spec get_workflow_run(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_workflow_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_workflow_run(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns/#{AWS.Util.encode_uri(id)}"
@@ -625,6 +1935,9 @@ defmodule AWS.CodeCatalyst do
 
   You can only list PATs associated with your Amazon Web Services Builder ID.
   """
+  @spec list_access_tokens(map(), list_access_tokens_request(), list()) ::
+          {:ok, list_access_tokens_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_access_tokens(%Client{} = client, input, options \\ []) do
     url_path = "/v1/accessTokens"
     headers = []
@@ -648,6 +1961,16 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of active sessions for a Dev Environment in a project.
   """
+  @spec list_dev_environment_sessions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list_dev_environment_sessions_request(),
+          list()
+        ) ::
+          {:ok, list_dev_environment_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_dev_environment_sessions(
         %Client{} = client,
         dev_environment_id,
@@ -680,6 +2003,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of Dev Environments in a project.
   """
+  @spec list_dev_environments(map(), String.t(), list_dev_environments_request(), list()) ::
+          {:ok, list_dev_environments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_dev_environments(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/devEnvironments"
     headers = []
@@ -719,6 +2045,9 @@ defmodule AWS.CodeCatalyst do
   and [Working with CloudTrail
   trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
   """
+  @spec list_event_logs(map(), String.t(), list_event_logs_request(), list()) ::
+          {:ok, list_event_logs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_event_logs(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/eventLogs"
     headers = []
@@ -742,6 +2071,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of projects.
   """
+  @spec list_projects(map(), String.t(), list_projects_request(), list()) ::
+          {:ok, list_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_projects(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects"
     headers = []
@@ -765,6 +2097,15 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of source repositories in a project.
   """
+  @spec list_source_repositories(
+          map(),
+          String.t(),
+          String.t(),
+          list_source_repositories_request(),
+          list()
+        ) ::
+          {:ok, list_source_repositories_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_source_repositories(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories"
@@ -790,6 +2131,16 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of branches in a specified source repository.
   """
+  @spec list_source_repository_branches(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list_source_repository_branches_request(),
+          list()
+        ) ::
+          {:ok, list_source_repository_branches_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_source_repository_branches(
         %Client{} = client,
         project_name,
@@ -822,6 +2173,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of spaces.
   """
+  @spec list_spaces(map(), list_spaces_request(), list()) ::
+          {:ok, list_spaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_spaces(%Client{} = client, input, options \\ []) do
     url_path = "/v1/spaces"
     headers = []
@@ -845,6 +2199,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of workflow runs of a specified workflow.
   """
+  @spec list_workflow_runs(map(), String.t(), String.t(), list_workflow_runs_request(), list()) ::
+          {:ok, list_workflow_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_workflow_runs(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns"
@@ -877,6 +2234,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of workflows in a specified project.
   """
+  @spec list_workflows(map(), String.t(), String.t(), list_workflows_request(), list()) ::
+          {:ok, list_workflows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_workflows(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflows"
@@ -908,6 +2268,16 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Starts a specified Dev Environment and puts it into an active state.
   """
+  @spec start_dev_environment(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          start_dev_environment_request(),
+          list()
+        ) ::
+          {:ok, start_dev_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_dev_environment(
         %Client{} = client,
         id,
@@ -930,6 +2300,16 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Starts a session for a specified Dev Environment.
   """
+  @spec start_dev_environment_session(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          start_dev_environment_session_request(),
+          list()
+        ) ::
+          {:ok, start_dev_environment_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_dev_environment_session(
         %Client{} = client,
         id,
@@ -952,6 +2332,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Begins a run of a specified workflow.
   """
+  @spec start_workflow_run(map(), String.t(), String.t(), start_workflow_run_request(), list()) ::
+          {:ok, start_workflow_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_workflow_run(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns"
@@ -974,6 +2357,16 @@ defmodule AWS.CodeCatalyst do
 
   Stopped Dev Environments do not consume compute minutes.
   """
+  @spec stop_dev_environment(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          stop_dev_environment_request(),
+          list()
+        ) ::
+          {:ok, stop_dev_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def stop_dev_environment(%Client{} = client, id, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}/stop"
@@ -989,6 +2382,17 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Stops a session for a specified Dev Environment.
   """
+  @spec stop_dev_environment_session(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          stop_dev_environment_session_request(),
+          list()
+        ) ::
+          {:ok, stop_dev_environment_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def stop_dev_environment_session(
         %Client{} = client,
         id,
@@ -1024,6 +2428,16 @@ defmodule AWS.CodeCatalyst do
 
   Updating certain values of the Dev Environment will cause a restart.
   """
+  @spec update_dev_environment(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_dev_environment_request(),
+          list()
+        ) ::
+          {:ok, update_dev_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def update_dev_environment(
         %Client{} = client,
         id,
@@ -1056,6 +2470,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Changes one or more values for a project.
   """
+  @spec update_project(map(), String.t(), String.t(), update_project_request(), list()) ::
+          {:ok, update_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def update_project(%Client{} = client, name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
@@ -1081,6 +2498,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Changes one or more values for a space.
   """
+  @spec update_space(map(), String.t(), update_space_request(), list()) ::
+          {:ok, update_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def update_space(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -1107,6 +2527,9 @@ defmodule AWS.CodeCatalyst do
 
   If successful, this returns the ID of the user in Amazon CodeCatalyst.
   """
+  @spec verify_session(map(), list()) ::
+          {:ok, verify_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def verify_session(%Client{} = client, options \\ []) do
     url_path = "/session"
     headers = []

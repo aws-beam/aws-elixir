@@ -37,6 +37,22676 @@ defmodule AWS.EC2 do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  describe_traffic_mirror_targets_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TrafficMirrorTargetIds") => list(String.t()())
+  }
+  """
+  @type describe_traffic_mirror_targets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_pool_allocation() :: %{
+    "Cidr" => String.t(),
+    "Description" => String.t(),
+    "IpamPoolAllocationId" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceOwner" => String.t(),
+    "ResourceRegion" => String.t(),
+    "ResourceType" => list(any())
+  }
+  """
+  @type ipam_pool_allocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_connects_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayAttachmentIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_connects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_peering_attachments_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayPeeringAttachments" => list(transit_gateway_peering_attachment()())
+  }
+  """
+  @type describe_transit_gateway_peering_attachments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_prefix_list_reference_request() :: %{
+    optional("Blackhole") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    required("PrefixListId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type create_transit_gateway_prefix_list_reference_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stale_ip_permission() :: %{
+    "FromPort" => integer(),
+    "IpProtocol" => String.t(),
+    "IpRanges" => list(String.t()()),
+    "PrefixListIds" => list(String.t()()),
+    "ToPort" => integer(),
+    "UserIdGroupPairs" => list(user_id_group_pair()())
+  }
+  """
+  @type stale_ip_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  address_transfer() :: %{
+    "AddressTransferStatus" => list(any()),
+    "AllocationId" => String.t(),
+    "PublicIp" => String.t(),
+    "TransferAccountId" => String.t(),
+    "TransferOfferAcceptedTimestamp" => non_neg_integer(),
+    "TransferOfferExpirationTimestamp" => non_neg_integer()
+  }
+  """
+  @type address_transfer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_verified_access_endpoint_policy_result() :: %{
+    "PolicyDocument" => String.t(),
+    "PolicyEnabled" => boolean()
+  }
+  """
+  @type get_verified_access_endpoint_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_host_reservation_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("CurrencyCode") => list(any()),
+    optional("LimitPrice") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("HostIdSet") => list(String.t()()),
+    required("OfferingId") => String.t()
+  }
+  """
+  @type purchase_host_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_result() :: %{
+    "Ipam" => ipam()
+  }
+  """
+  @type create_ipam_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_transit_gateway_multicast_group_members_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupIpAddress") => String.t(),
+    required("NetworkInterfaceIds") => list(String.t()()),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type register_transit_gateway_multicast_group_members_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  memory_mi_b() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type memory_mi_b() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_requirements_request() :: %{
+    "AcceleratorCount" => accelerator_count_request(),
+    "AcceleratorManufacturers" => list(list(any())()),
+    "AcceleratorNames" => list(list(any())()),
+    "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_request(),
+    "AcceleratorTypes" => list(list(any())()),
+    "AllowedInstanceTypes" => list(String.t()()),
+    "BareMetal" => list(any()),
+    "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
+    "BurstablePerformance" => list(any()),
+    "CpuManufacturers" => list(list(any())()),
+    "ExcludedInstanceTypes" => list(String.t()()),
+    "InstanceGenerations" => list(list(any())()),
+    "LocalStorage" => list(any()),
+    "LocalStorageTypes" => list(list(any())()),
+    "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" => integer(),
+    "MemoryGiBPerVCpu" => memory_gi_b_per_v_cpu_request(),
+    "MemoryMiB" => memory_mi_b_request(),
+    "NetworkBandwidthGbps" => network_bandwidth_gbps_request(),
+    "NetworkInterfaceCount" => network_interface_count_request(),
+    "OnDemandMaxPricePercentageOverLowestPrice" => integer(),
+    "RequireHibernateSupport" => boolean(),
+    "SpotMaxPricePercentageOverLowestPrice" => integer(),
+    "TotalLocalStorageGB" => total_local_storage_g_b_request(),
+    "VCpuCount" => v_cpu_count_range_request()
+  }
+  """
+  @type instance_requirements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_access_scopes_result() :: %{
+    "NetworkInsightsAccessScopes" => list(network_insights_access_scope()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_insights_access_scopes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ena_srd_specification() :: %{
+    "EnaSrdEnabled" => boolean(),
+    "EnaSrdUdpSpecification" => ena_srd_udp_specification()
+  }
+  """
+  @type ena_srd_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_image_block_public_access_result() :: %{
+    "ImageBlockPublicAccessState" => list(any())
+  }
+  """
+  @type enable_image_block_public_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_vpc_attachment_result() :: %{
+    "TransitGatewayVpcAttachment" => transit_gateway_vpc_attachment()
+  }
+  """
+  @type create_transit_gateway_vpc_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assign_private_ip_addresses_result() :: %{
+    "AssignedIpv4Prefixes" => list(ipv4_prefix_specification()()),
+    "AssignedPrivateIpAddresses" => list(assigned_private_ip_address()()),
+    "NetworkInterfaceId" => String.t()
+  }
+  """
+  @type assign_private_ip_addresses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_console_screenshot_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("WakeUp") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type get_console_screenshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inference_accelerator_info() :: %{
+    "Accelerators" => list(inference_device_info()()),
+    "TotalInferenceMemoryInMiB" => integer()
+  }
+  """
+  @type inference_accelerator_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_trunk_interface_result() :: %{
+    "ClientToken" => String.t(),
+    "InterfaceAssociation" => trunk_interface_association()
+  }
+  """
+  @type associate_trunk_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_export_task_result() :: %{
+    "ExportTask" => export_task()
+  }
+  """
+  @type create_instance_export_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Options") => transit_gateway_request_options(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_transit_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_acl_entry() :: %{
+    "CidrBlock" => String.t(),
+    "Egress" => boolean(),
+    "IcmpTypeCode" => icmp_type_code(),
+    "Ipv6CidrBlock" => String.t(),
+    "PortRange" => port_range(),
+    "Protocol" => String.t(),
+    "RuleAction" => list(any()),
+    "RuleNumber" => integer()
+  }
+  """
+  @type network_acl_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_attachment_changes() :: %{
+    "AttachmentId" => String.t(),
+    "DeleteOnTermination" => boolean()
+  }
+  """
+  @type network_interface_attachment_changes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_and_overrides_response() :: %{
+    "LaunchTemplateSpecification" => fleet_launch_template_specification(),
+    "Overrides" => fleet_launch_template_overrides()
+  }
+  """
+  @type launch_template_and_overrides_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase2_integrity_algorithms_request_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase2_integrity_algorithms_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_gateway() :: %{
+    "AmazonSideAsn" => float(),
+    "AvailabilityZone" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "Type" => list(any()),
+    "VpcAttachments" => list(vpc_attachment()()),
+    "VpnGatewayId" => String.t()
+  }
+  """
+  @type vpn_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_flow_logs_integration_template_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ConfigDeliveryS3DestinationArn") => String.t(),
+    required("FlowLogId") => String.t(),
+    required("IntegrateServices") => integrate_services()
+  }
+  """
+  @type get_flow_logs_integration_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_connect_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Options") => create_transit_gateway_connect_request_options(),
+    required("TransportTransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type create_transit_gateway_connect_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ena_srd_specification_request() :: %{
+    "EnaSrdEnabled" => boolean(),
+    "EnaSrdUdpSpecification" => ena_srd_udp_specification_request()
+  }
+  """
+  @type ena_srd_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_route() :: %{
+    "ClientVpnEndpointId" => String.t(),
+    "Description" => String.t(),
+    "DestinationCidr" => String.t(),
+    "Origin" => String.t(),
+    "Status" => client_vpn_route_status(),
+    "TargetSubnet" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type client_vpn_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  byoip_cidr() :: %{
+    "AsnAssociations" => list(asn_association()()),
+    "Cidr" => String.t(),
+    "Description" => String.t(),
+    "NetworkBorderGroup" => String.t(),
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type byoip_cidr() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_availability_zones_result() :: %{
+    "AvailabilityZones" => list(availability_zone()())
+  }
+  """
+  @type describe_availability_zones_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_resource_discoveries_result() :: %{
+    "IpamResourceDiscoveries" => list(ipam_resource_discovery()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipam_resource_discoveries_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_security_group_rule_descriptions_egress_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type update_security_group_rule_descriptions_egress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_listings_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("ReservedInstancesId") => String.t(),
+    optional("ReservedInstancesListingId") => String.t()
+  }
+  """
+  @type describe_reserved_instances_listings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_static_route() :: %{
+    "DestinationCidrBlock" => String.t(),
+    "Source" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type vpn_static_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_prefix_list_attachment() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "TransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_prefix_list_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instance_recurrence() :: %{
+    "Frequency" => String.t(),
+    "Interval" => integer(),
+    "OccurrenceDaySet" => list(integer()()),
+    "OccurrenceRelativeToEnd" => boolean(),
+    "OccurrenceUnit" => String.t()
+  }
+  """
+  @type scheduled_instance_recurrence() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_attachments_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayAttachmentIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_attachments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshot_tier_status_result() :: %{
+    "NextToken" => String.t(),
+    "SnapshotTierStatuses" => list(snapshot_tier_status()())
+  }
+  """
+  @type describe_snapshot_tier_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_tunnel_options_specification() :: %{
+    "DPDTimeoutAction" => String.t(),
+    "DPDTimeoutSeconds" => integer(),
+    "EnableTunnelLifecycleControl" => boolean(),
+    "IKEVersions" => list(i_k_e_versions_request_list_value()()),
+    "LogOptions" => vpn_tunnel_log_options_specification(),
+    "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()()),
+    "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()()),
+    "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()()),
+    "Phase1LifetimeSeconds" => integer(),
+    "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()()),
+    "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()()),
+    "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()()),
+    "Phase2LifetimeSeconds" => integer(),
+    "PreSharedKey" => String.t(),
+    "RekeyFuzzPercentage" => integer(),
+    "RekeyMarginTimeSeconds" => integer(),
+    "ReplayWindowSize" => integer(),
+    "StartupAction" => String.t(),
+    "TunnelInsideCidr" => String.t(),
+    "TunnelInsideIpv6Cidr" => String.t()
+  }
+  """
+  @type modify_vpn_tunnel_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_templates_monitoring() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type launch_templates_monitoring() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  peering_attachment_status() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type peering_attachment_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_attribute_result() :: %{
+    "EnableDnsHostnames" => attribute_boolean_value(),
+    "EnableDnsSupport" => attribute_boolean_value(),
+    "EnableNetworkAddressUsageMetrics" => attribute_boolean_value(),
+    "VpcId" => String.t()
+  }
+  """
+  @type describe_vpc_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_id_format_request() :: %{
+    required("Resource") => String.t(),
+    required("UseLongIds") => boolean()
+  }
+  """
+  @type modify_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_connect_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_connect_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_elastic_inference_accelerator_response() :: %{
+    "Count" => integer(),
+    "Type" => String.t()
+  }
+  """
+  @type launch_template_elastic_inference_accelerator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_multicast_domain_result() :: %{
+    "TransitGatewayMulticastDomain" => transit_gateway_multicast_domain()
+  }
+  """
+  @type create_transit_gateway_multicast_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_peering_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Options") => create_transit_gateway_peering_attachment_request_options(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("PeerAccountId") => String.t(),
+    required("PeerRegion") => String.t(),
+    required("PeerTransitGatewayId") => String.t(),
+    required("TransitGatewayId") => String.t()
+  }
+  """
+  @type create_transit_gateway_peering_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsuccessful_instance_credit_specification_item_error() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type unsuccessful_instance_credit_specification_item_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_instance_event_notification_attributes_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceTagAttribute") => register_instance_tag_attribute_request()
+  }
+  """
+  @type register_instance_event_notification_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_connections_result() :: %{
+    "Connections" => list(client_vpn_connection()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_client_vpn_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_association() :: %{
+    "State" => list(any()),
+    "SubnetId" => String.t()
+  }
+  """
+  @type subnet_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_result() :: %{
+    "TransitGateway" => transit_gateway()
+  }
+  """
+  @type delete_transit_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_maintenance_options() :: %{
+    "AutoRecovery" => list(any())
+  }
+  """
+  @type instance_maintenance_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_network_interface() :: %{
+    "Association" => instance_network_interface_association(),
+    "Attachment" => instance_network_interface_attachment(),
+    "ConnectionTrackingConfiguration" => connection_tracking_specification_response(),
+    "Description" => String.t(),
+    "Groups" => list(group_identifier()()),
+    "InterfaceType" => String.t(),
+    "Ipv4Prefixes" => list(instance_ipv4_prefix()()),
+    "Ipv6Addresses" => list(instance_ipv6_address()()),
+    "Ipv6Prefixes" => list(instance_ipv6_prefix()()),
+    "MacAddress" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "OwnerId" => String.t(),
+    "PrivateDnsName" => String.t(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateIpAddresses" => list(instance_private_ip_address()()),
+    "SourceDestCheck" => boolean(),
+    "Status" => list(any()),
+    "SubnetId" => String.t(),
+    "VpcId" => String.t()
+  }
+  """
+  @type instance_network_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fast_launch_images_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("ImageIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fast_launch_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_specification() :: %{
+    "ExcludeBootVolume" => boolean(),
+    "ExcludeDataVolumeIds" => list(String.t()()),
+    "InstanceId" => String.t()
+  }
+  """
+  @type instance_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_address_transfer_result() :: %{
+    "AddressTransfer" => address_transfer()
+  }
+  """
+  @type disable_address_transfer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_coip_pool_result() :: %{
+    "CoipPool" => coip_pool()
+  }
+  """
+  @type create_coip_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Force") => boolean(),
+    optional("Hibernate") => boolean(),
+    required("InstanceIds") => list(String.t()())
+  }
+  """
+  @type stop_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpn_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpnGatewayId") => String.t()
+  }
+  """
+  @type delete_vpn_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_network_interface_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Force") => boolean(),
+    required("AttachmentId") => String.t()
+  }
+  """
+  @type detach_network_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unmonitor_instances_result() :: %{
+    "InstanceMonitorings" => list(instance_monitoring()())
+  }
+  """
+  @type unmonitor_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_vpc_peering_connection_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcPeeringConnectionId") => String.t()
+  }
+  """
+  @type reject_vpc_peering_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_transit_gateway_policy_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t(),
+    required("TransitGatewayPolicyTableId") => String.t()
+  }
+  """
+  @type associate_transit_gateway_policy_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_peering_connection_options_description() :: %{
+    "AllowDnsResolutionFromRemoteVpc" => boolean(),
+    "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
+    "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+  }
+  """
+  @type vpc_peering_connection_options_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  license_configuration() :: %{
+    "LicenseConfigurationArn" => String.t()
+  }
+  """
+  @type license_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fpga_image_attribute_result() :: %{
+    "FpgaImageAttribute" => fpga_image_attribute()
+  }
+  """
+  @type describe_fpga_image_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_event_window_result() :: %{
+    "InstanceEventWindowState" => instance_event_window_state_change()
+  }
+  """
+  @type delete_instance_event_window_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_route_tables_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayRouteTables" => list(transit_gateway_route_table()())
+  }
+  """
+  @type describe_transit_gateway_route_tables_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_route_table_result() :: %{
+    "ClientToken" => String.t(),
+    "RouteTable" => route_table()
+  }
+  """
+  @type create_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_snapshot_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type delete_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_aws_network_performance_metric_subscription_result() :: %{
+    "Output" => boolean()
+  }
+  """
+  @type disable_aws_network_performance_metric_subscription_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type delete_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_address_transfers_result() :: %{
+    "AddressTransfers" => list(address_transfer()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_address_transfers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_fleet_requests_error_item() :: %{
+    "Error" => cancel_spot_fleet_requests_error(),
+    "SpotFleetRequestId" => String.t()
+  }
+  """
+  @type cancel_spot_fleet_requests_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_price() :: %{
+    "AvailabilityZone" => String.t(),
+    "InstanceType" => list(any()),
+    "ProductDescription" => list(any()),
+    "SpotPrice" => String.t(),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type spot_price() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation() :: %{
+    "AvailabilityZone" => String.t(),
+    "AvailabilityZoneId" => String.t(),
+    "AvailableInstanceCount" => integer(),
+    "CapacityAllocations" => list(capacity_allocation()()),
+    "CapacityReservationArn" => String.t(),
+    "CapacityReservationFleetId" => String.t(),
+    "CapacityReservationId" => String.t(),
+    "CreateDate" => non_neg_integer(),
+    "EbsOptimized" => boolean(),
+    "EndDate" => non_neg_integer(),
+    "EndDateType" => list(any()),
+    "EphemeralStorage" => boolean(),
+    "InstanceMatchCriteria" => list(any()),
+    "InstancePlatform" => list(any()),
+    "InstanceType" => String.t(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "PlacementGroupArn" => String.t(),
+    "ReservationType" => list(any()),
+    "StartDate" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "Tenancy" => list(any()),
+    "TotalInstanceCount" => integer()
+  }
+  """
+  @type capacity_reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  move_address_to_vpc_result() :: %{
+    "AllocationId" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type move_address_to_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_metadata_options_request() :: %{
+    "HttpEndpoint" => list(any()),
+    "HttpProtocolIpv6" => list(any()),
+    "HttpPutResponseHopLimit" => integer(),
+    "HttpTokens" => list(any()),
+    "InstanceMetadataTags" => list(any())
+  }
+  """
+  @type launch_template_instance_metadata_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_peering_attachment_result() :: %{
+    "TransitGatewayPeeringAttachment" => transit_gateway_peering_attachment()
+  }
+  """
+  @type delete_transit_gateway_peering_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internet_gateway() :: %{
+    "Attachments" => list(internet_gateway_attachment()()),
+    "InternetGatewayId" => String.t(),
+    "OwnerId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type internet_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_placement() :: %{
+    "Affinity" => String.t(),
+    "AvailabilityZone" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "HostId" => String.t(),
+    "HostResourceGroupArn" => String.t(),
+    "PartitionNumber" => integer(),
+    "SpreadDomain" => String.t(),
+    "Tenancy" => list(any())
+  }
+  """
+  @type launch_template_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_status_item() :: %{
+    "Actions" => list(volume_status_action()()),
+    "AttachmentStatuses" => list(volume_status_attachment_status()()),
+    "AvailabilityZone" => String.t(),
+    "Events" => list(volume_status_event()()),
+    "OutpostArn" => String.t(),
+    "VolumeId" => String.t(),
+    "VolumeStatus" => volume_status_info()
+  }
+  """
+  @type volume_status_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_route_table_association_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AssociationId") => String.t(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type replace_route_table_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_maintenance_options() :: %{
+    "AutoRecovery" => list(any())
+  }
+  """
+  @type launch_template_instance_maintenance_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_interface_permission_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type delete_network_interface_permission_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_enclave_certificate_iam_role_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type disassociate_enclave_certificate_iam_role_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_instance_requests_result() :: %{
+    "NextToken" => String.t(),
+    "SpotInstanceRequests" => list(spot_instance_request()())
+  }
+  """
+  @type describe_spot_instance_requests_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_client_vpn_client_certificate_revocation_list_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type import_client_vpn_client_certificate_revocation_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_acl() :: %{
+    "Associations" => list(network_acl_association()()),
+    "Entries" => list(network_acl_entry()()),
+    "IsDefault" => boolean(),
+    "NetworkAclId" => String.t(),
+    "OwnerId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type network_acl() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_transit_gateway_routes_result() :: %{
+    "AdditionalRoutesAvailable" => boolean(),
+    "Routes" => list(transit_gateway_route()())
+  }
+  """
+  @type search_transit_gateway_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_detail() :: %{
+    "Description" => String.t(),
+    "DeviceName" => String.t(),
+    "DiskImageSize" => float(),
+    "Format" => String.t(),
+    "Progress" => String.t(),
+    "SnapshotId" => String.t(),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Url" => String.t(),
+    "UserBucket" => user_bucket_details()
+  }
+  """
+  @type snapshot_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_discovered_resource_cidr() :: %{
+    "IpUsage" => float(),
+    "IpamResourceDiscoveryId" => String.t(),
+    "ResourceCidr" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceOwnerId" => String.t(),
+    "ResourceRegion" => String.t(),
+    "ResourceTags" => list(ipam_resource_tag()()),
+    "ResourceType" => list(any()),
+    "SampleTime" => non_neg_integer(),
+    "VpcId" => String.t()
+  }
+  """
+  @type ipam_discovered_resource_cidr() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_subnet_cidr_reservations_result() :: %{
+    "NextToken" => String.t(),
+    "SubnetIpv4CidrReservations" => list(subnet_cidr_reservation()()),
+    "SubnetIpv6CidrReservations" => list(subnet_cidr_reservation()())
+  }
+  """
+  @type get_subnet_cidr_reservations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  asn_authorization_context() :: %{
+    "Message" => String.t(),
+    "Signature" => String.t()
+  }
+  """
+  @type asn_authorization_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_recycle_bin_info() :: %{
+    "Description" => String.t(),
+    "RecycleBinEnterTime" => non_neg_integer(),
+    "RecycleBinExitTime" => non_neg_integer(),
+    "SnapshotId" => String.t(),
+    "VolumeId" => String.t()
+  }
+  """
+  @type snapshot_recycle_bin_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_options() :: %{
+    "AmazonSideAsn" => float(),
+    "AssociationDefaultRouteTableId" => String.t(),
+    "AutoAcceptSharedAttachments" => list(any()),
+    "DefaultRouteTableAssociation" => list(any()),
+    "DefaultRouteTablePropagation" => list(any()),
+    "DnsSupport" => list(any()),
+    "MulticastSupport" => list(any()),
+    "PropagationDefaultRouteTableId" => String.t(),
+    "SecurityGroupReferencingSupport" => list(any()),
+    "TransitGatewayCidrBlocks" => list(String.t()()),
+    "VpnEcmpSupport" => list(any())
+  }
+  """
+  @type transit_gateway_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_managed_prefix_lists_result() :: %{
+    "NextToken" => String.t(),
+    "PrefixLists" => list(managed_prefix_list()())
+  }
+  """
+  @type describe_managed_prefix_lists_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_verified_access_trust_provider_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessInstanceId") => String.t(),
+    required("VerifiedAccessTrustProviderId") => String.t()
+  }
+  """
+  @type detach_verified_access_trust_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_prefix_list_reference() :: %{
+    "Blackhole" => boolean(),
+    "PrefixListId" => String.t(),
+    "PrefixListOwnerId" => String.t(),
+    "State" => list(any()),
+    "TransitGatewayAttachment" => transit_gateway_prefix_list_attachment(),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_prefix_list_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_status_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IncludeAllInstances") => boolean(),
+    optional("InstanceIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_connect_peer_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayConnectPeerId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_connect_peer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_snapshot_restore_state_error_item() :: %{
+    "AvailabilityZone" => String.t(),
+    "Error" => disable_fast_snapshot_restore_state_error()
+  }
+  """
+  @type disable_fast_snapshot_restore_state_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase1_integrity_algorithms_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase1_integrity_algorithms_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_capacity_reservation_fleet_result() :: %{
+    "AllocationStrategy" => String.t(),
+    "CapacityReservationFleetId" => String.t(),
+    "CreateTime" => non_neg_integer(),
+    "EndDate" => non_neg_integer(),
+    "FleetCapacityReservations" => list(fleet_capacity_reservation()()),
+    "InstanceMatchCriteria" => list(any()),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "Tenancy" => list(any()),
+    "TotalFulfilledCapacity" => float(),
+    "TotalTargetCapacity" => integer()
+  }
+  """
+  @type create_capacity_reservation_fleet_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_market_options() :: %{
+    "BlockDurationMinutes" => integer(),
+    "InstanceInterruptionBehavior" => list(any()),
+    "MaxPrice" => String.t(),
+    "SpotInstanceType" => list(any()),
+    "ValidUntil" => non_neg_integer()
+  }
+  """
+  @type spot_market_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_security_group_egress_result() :: %{
+    "Return" => boolean(),
+    "SecurityGroupRules" => list(security_group_rule()())
+  }
+  """
+  @type authorize_security_group_egress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_instance_request() :: %{
+    optional("Description") => String.t(),
+    optional("DiskImages") => list(disk_image()()),
+    optional("DryRun") => boolean(),
+    optional("LaunchSpecification") => import_instance_launch_specification(),
+    required("Platform") => list(any())
+  }
+  """
+  @type import_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_managed_prefix_list_entries_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TargetVersion") => float(),
+    required("PrefixListId") => String.t()
+  }
+  """
+  @type get_managed_prefix_list_entries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_types_result() :: %{
+    "InstanceTypes" => list(instance_type_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_types_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_resource_cidr_result() :: %{
+    "IpamResourceCidr" => ipam_resource_cidr()
+  }
+  """
+  @type modify_ipam_resource_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_spot_datafeed_subscription_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Prefix") => String.t(),
+    required("Bucket") => String.t()
+  }
+  """
+  @type create_spot_datafeed_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_egress_only_internet_gateways_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EgressOnlyInternetGatewayIds") => list(String.t()()),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_egress_only_internet_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_egress_only_internet_gateway_result() :: %{
+    "ReturnCode" => boolean()
+  }
+  """
+  @type delete_egress_only_internet_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_group_result() :: %{
+    "VerifiedAccessGroup" => verified_access_group()
+  }
+  """
+  @type modify_verified_access_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_managed_prefix_list_result() :: %{
+    "PrefixList" => managed_prefix_list()
+  }
+  """
+  @type delete_managed_prefix_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  asn_association() :: %{
+    "Asn" => String.t(),
+    "Cidr" => String.t(),
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type asn_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_transit_gateway_multicast_group_members_result() :: %{
+    "DeregisteredMulticastGroupMembers" => transit_gateway_multicast_deregistered_group_members()
+  }
+  """
+  @type deregister_transit_gateway_multicast_group_members_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_launch_template_versions_result() :: %{
+    "LaunchTemplateVersions" => list(launch_template_version()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_launch_template_versions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_prefix_list_reference_request() :: %{
+    optional("Blackhole") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    required("PrefixListId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type modify_transit_gateway_prefix_list_reference_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_tags_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Tags") => list(tag()()),
+    required("Resources") => list(String.t()())
+  }
+  """
+  @type delete_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_ipam_resource_discovery_result() :: %{
+    "IpamResourceDiscoveryAssociation" => ipam_resource_discovery_association()
+  }
+  """
+  @type disassociate_ipam_resource_discovery_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_groups_config() :: %{
+    "TargetGroups" => list(target_group()())
+  }
+  """
+  @type target_groups_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_metadata_options_request() :: %{
+    "HttpEndpoint" => list(any()),
+    "HttpProtocolIpv6" => list(any()),
+    "HttpPutResponseHopLimit" => integer(),
+    "HttpTokens" => list(any()),
+    "InstanceMetadataTags" => list(any())
+  }
+  """
+  @type instance_metadata_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_tunnel_certificate_result() :: %{
+    "VpnConnection" => vpn_connection()
+  }
+  """
+  @type modify_vpn_tunnel_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_instance_tag_attribute_request() :: %{
+    "IncludeAllTagsOfInstance" => boolean(),
+    "InstanceTagKeys" => list(String.t()())
+  }
+  """
+  @type deregister_instance_tag_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_capacity_reservation_attributes_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_instance_capacity_reservation_attributes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_instance_state_fault() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type spot_instance_state_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_queued_reserved_instances_result() :: %{
+    "FailedQueuedPurchaseDeletions" => list(failed_queued_purchase_deletion()()),
+    "SuccessfulQueuedPurchaseDeletions" => list(successful_queued_purchase_deletion()())
+  }
+  """
+  @type delete_queued_reserved_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_virtual_interface_groups_result() :: %{
+    "LocalGatewayVirtualInterfaceGroups" => list(local_gateway_virtual_interface_group()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_local_gateway_virtual_interface_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_filter_rule_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TrafficMirrorFilterRuleId") => String.t()
+  }
+  """
+  @type delete_traffic_mirror_filter_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_managed_prefix_list_associations_result() :: %{
+    "NextToken" => String.t(),
+    "PrefixListAssociations" => list(prefix_list_association()())
+  }
+  """
+  @type get_managed_prefix_list_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_vpc_cidr_block_request() :: %{
+    optional("AmazonProvidedIpv6CidrBlock") => boolean(),
+    optional("CidrBlock") => String.t(),
+    optional("Ipv4IpamPoolId") => String.t(),
+    optional("Ipv4NetmaskLength") => integer(),
+    optional("Ipv6CidrBlock") => String.t(),
+    optional("Ipv6CidrBlockNetworkBorderGroup") => String.t(),
+    optional("Ipv6IpamPoolId") => String.t(),
+    optional("Ipv6NetmaskLength") => integer(),
+    optional("Ipv6Pool") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type associate_vpc_cidr_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  path_component() :: %{
+    "AclRule" => analysis_acl_rule(),
+    "AdditionalDetails" => list(additional_detail()()),
+    "AttachedTo" => analysis_component(),
+    "Component" => analysis_component(),
+    "DestinationVpc" => analysis_component(),
+    "ElasticLoadBalancerListener" => analysis_component(),
+    "Explanations" => list(explanation()()),
+    "FirewallStatefulRule" => firewall_stateful_rule(),
+    "FirewallStatelessRule" => firewall_stateless_rule(),
+    "InboundHeader" => analysis_packet_header(),
+    "OutboundHeader" => analysis_packet_header(),
+    "RouteTableRoute" => analysis_route_table_route(),
+    "SecurityGroupRule" => analysis_security_group_rule(),
+    "SequenceNumber" => integer(),
+    "ServiceName" => String.t(),
+    "SourceVpc" => analysis_component(),
+    "Subnet" => analysis_component(),
+    "TransitGateway" => analysis_component(),
+    "TransitGatewayRouteTableRoute" => transit_gateway_route_table_route(),
+    "Vpc" => analysis_component()
+  }
+  """
+  @type path_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_public_ipv4_pool_cidr_request() :: %{
+    optional("DryRun") => boolean(),
+    required("IpamPoolId") => String.t(),
+    required("NetmaskLength") => integer(),
+    required("PoolId") => String.t()
+  }
+  """
+  @type provision_public_ipv4_pool_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_transit_gateway_routes_result() :: %{
+    "S3Location" => String.t()
+  }
+  """
+  @type export_transit_gateway_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_attribute() :: %{
+    "BlockDeviceMappings" => list(block_device_mapping()()),
+    "BootMode" => attribute_value(),
+    "Description" => attribute_value(),
+    "ImageId" => String.t(),
+    "ImdsSupport" => attribute_value(),
+    "KernelId" => attribute_value(),
+    "LastLaunchedTime" => attribute_value(),
+    "LaunchPermissions" => list(launch_permission()()),
+    "ProductCodes" => list(product_code()()),
+    "RamdiskId" => attribute_value(),
+    "SriovNetSupport" => attribute_value(),
+    "TpmSupport" => attribute_value(),
+    "UefiData" => attribute_value()
+  }
+  """
+  @type image_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_client_vpn_client_configuration_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type export_client_vpn_client_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_access_scope_analysis_result() :: %{
+    "NetworkInsightsAccessScopeAnalysisId" => String.t()
+  }
+  """
+  @type delete_network_insights_access_scope_analysis_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disk_image_volume_description() :: %{
+    "Id" => String.t(),
+    "Size" => float()
+  }
+  """
+  @type disk_image_volume_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_volume_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    required("AvailabilityZone") => String.t(),
+    required("Image") => disk_image_detail(),
+    required("Volume") => volume_detail()
+  }
+  """
+  @type import_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_multicast_domain_associations_result() :: %{
+    "MulticastDomainAssociations" => list(transit_gateway_multicast_domain_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_transit_gateway_multicast_domain_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_event_window_result() :: %{
+    "InstanceEventWindow" => instance_event_window()
+  }
+  """
+  @type create_instance_event_window_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_instance_event_notification_attributes_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceTagAttribute") => deregister_instance_tag_attribute_request()
+  }
+  """
+  @type deregister_instance_event_notification_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_transit_gateway_multicast_domain_result() :: %{
+    "Associations" => transit_gateway_multicast_domain_associations()
+  }
+  """
+  @type associate_transit_gateway_multicast_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_spot_market_options_request() :: %{
+    "BlockDurationMinutes" => integer(),
+    "InstanceInterruptionBehavior" => list(any()),
+    "MaxPrice" => String.t(),
+    "SpotInstanceType" => list(any()),
+    "ValidUntil" => non_neg_integer()
+  }
+  """
+  @type launch_template_spot_market_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_s3_destination_options() :: %{
+    "BucketName" => String.t(),
+    "BucketOwner" => String.t(),
+    "Enabled" => boolean(),
+    "Prefix" => String.t()
+  }
+  """
+  @type verified_access_log_s3_destination_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_endpoint_result() :: %{
+    "VerifiedAccessEndpoint" => verified_access_endpoint()
+  }
+  """
+  @type delete_verified_access_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  peering_connection_options() :: %{
+    "AllowDnsResolutionFromRemoteVpc" => boolean(),
+    "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
+    "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+  }
+  """
+  @type peering_connection_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_endpoints_result() :: %{
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type delete_vpc_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_carrier_gateway_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_carrier_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_registered_group_sources() :: %{
+    "GroupIpAddress" => String.t(),
+    "RegisteredNetworkInterfaceIds" => list(String.t()()),
+    "TransitGatewayMulticastDomainId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_registered_group_sources() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_subnet_cidr_reservation_result() :: %{
+    "SubnetCidrReservation" => subnet_cidr_reservation()
+  }
+  """
+  @type create_subnet_cidr_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  availability_zone() :: %{
+    "GroupName" => String.t(),
+    "Messages" => list(availability_zone_message()()),
+    "NetworkBorderGroup" => String.t(),
+    "OptInStatus" => list(any()),
+    "ParentZoneId" => String.t(),
+    "ParentZoneName" => String.t(),
+    "RegionName" => String.t(),
+    "State" => list(any()),
+    "ZoneId" => String.t(),
+    "ZoneName" => String.t(),
+    "ZoneType" => String.t()
+  }
+  """
+  @type availability_zone() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_pool_request() :: %{
+    optional("Cascade") => boolean(),
+    optional("DryRun") => boolean(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type delete_ipam_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_insights_access_scope_content_result() :: %{
+    "NetworkInsightsAccessScopeContent" => network_insights_access_scope_content()
+  }
+  """
+  @type get_network_insights_access_scope_content_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_serial_console_access_result() :: %{
+    "SerialConsoleAccessEnabled" => boolean()
+  }
+  """
+  @type enable_serial_console_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_nat_gateway_address_result() :: %{
+    "NatGatewayAddresses" => list(nat_gateway_address()()),
+    "NatGatewayId" => String.t()
+  }
+  """
+  @type disassociate_nat_gateway_address_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_object_tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type s3_object_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_associated_ipv6_pool_cidrs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("PoolId") => String.t()
+  }
+  """
+  @type get_associated_ipv6_pool_cidrs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_volume_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Iops") => integer(),
+    optional("MultiAttachEnabled") => boolean(),
+    optional("Size") => integer(),
+    optional("Throughput") => integer(),
+    optional("VolumeType") => list(any()),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type modify_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_customer_gateway_result() :: %{
+    "CustomerGateway" => customer_gateway()
+  }
+  """
+  @type create_customer_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_rule_description() :: %{
+    "Description" => String.t(),
+    "SecurityGroupRuleId" => String.t()
+  }
+  """
+  @type security_group_rule_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_addresses_attribute_request() :: %{
+    optional("AllocationIds") => list(String.t()()),
+    optional("Attribute") => list(any()),
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_addresses_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_prefix_list_reference_result() :: %{
+    "TransitGatewayPrefixListReference" => transit_gateway_prefix_list_reference()
+  }
+  """
+  @type modify_transit_gateway_prefix_list_reference_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_snapshot_block_public_access_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type disable_snapshot_block_public_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsuccessful_item_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type unsuccessful_item_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_status_info() :: %{
+    "Details" => list(volume_status_details()()),
+    "Status" => list(any())
+  }
+  """
+  @type volume_status_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_coip_pools_result() :: %{
+    "CoipPools" => list(coip_pool()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_coip_pools_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_snapshot_tier_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("StorageTier") => list(any()),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type modify_snapshot_tier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances_modification() :: %{
+    "ClientToken" => String.t(),
+    "CreateDate" => non_neg_integer(),
+    "EffectiveDate" => non_neg_integer(),
+    "ModificationResults" => list(reserved_instances_modification_result()()),
+    "ReservedInstancesIds" => list(reserved_instances_id()()),
+    "ReservedInstancesModificationId" => String.t(),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "UpdateDate" => non_neg_integer()
+  }
+  """
+  @type reserved_instances_modification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allocate_address_result() :: %{
+    "AllocationId" => String.t(),
+    "CarrierIp" => String.t(),
+    "CustomerOwnedIp" => String.t(),
+    "CustomerOwnedIpv4Pool" => String.t(),
+    "Domain" => list(any()),
+    "NetworkBorderGroup" => String.t(),
+    "PublicIp" => String.t(),
+    "PublicIpv4Pool" => String.t()
+  }
+  """
+  @type allocate_address_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_coip_pool_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("LocalGatewayRouteTableId") => String.t()
+  }
+  """
+  @type create_coip_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ebs_default_kms_key_id_result() :: %{
+    "KmsKeyId" => String.t()
+  }
+  """
+  @type get_ebs_default_kms_key_id_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_volume_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type delete_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dhcp_options_request() :: %{
+    optional("DhcpOptionsIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_dhcp_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_classic_link_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("VpcIds") => list(String.t()())
+  }
+  """
+  @type describe_vpc_classic_link_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpcs_result() :: %{
+    "NextToken" => String.t(),
+    "Vpcs" => list(vpc()())
+  }
+  """
+  @type describe_vpcs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_peering_connection_options_result() :: %{
+    "AccepterPeeringConnectionOptions" => peering_connection_options(),
+    "RequesterPeeringConnectionOptions" => peering_connection_options()
+  }
+  """
+  @type modify_vpc_peering_connection_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_network_interface_association() :: %{
+    "CarrierIp" => String.t(),
+    "CustomerOwnedIp" => String.t(),
+    "IpOwnerId" => String.t(),
+    "PublicDnsName" => String.t(),
+    "PublicIp" => String.t()
+  }
+  """
+  @type instance_network_interface_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_connect_peer_result() :: %{
+    "TransitGatewayConnectPeer" => transit_gateway_connect_peer()
+  }
+  """
+  @type create_transit_gateway_connect_peer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_vpc_peering_connection_result() :: %{
+    "VpcPeeringConnection" => vpc_peering_connection()
+  }
+  """
+  @type accept_vpc_peering_connection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fpga_image() :: %{
+    "CreateTime" => non_neg_integer(),
+    "DataRetentionSupport" => boolean(),
+    "Description" => String.t(),
+    "FpgaImageGlobalId" => String.t(),
+    "FpgaImageId" => String.t(),
+    "InstanceTypes" => list(String.t()()),
+    "Name" => String.t(),
+    "OwnerAlias" => String.t(),
+    "OwnerId" => String.t(),
+    "PciId" => pci_id(),
+    "ProductCodes" => list(product_code()()),
+    "Public" => boolean(),
+    "ShellVersion" => String.t(),
+    "State" => fpga_image_state(),
+    "Tags" => list(tag()()),
+    "UpdateTime" => non_neg_integer()
+  }
+  """
+  @type fpga_image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_peering_connection_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("PeerOwnerId") => String.t(),
+    optional("PeerRegion") => String.t(),
+    optional("PeerVpcId") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_vpc_peering_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_ipam_byoasn_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Asn") => String.t(),
+    required("Cidr") => String.t()
+  }
+  """
+  @type disassociate_ipam_byoasn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instance_availability() :: %{
+    "AvailabilityZone" => String.t(),
+    "AvailableInstanceCount" => integer(),
+    "FirstSlotStartTime" => non_neg_integer(),
+    "HourlyPrice" => String.t(),
+    "InstanceType" => String.t(),
+    "MaxTermDurationInDays" => integer(),
+    "MinTermDurationInDays" => integer(),
+    "NetworkPlatform" => String.t(),
+    "Platform" => String.t(),
+    "PurchaseToken" => String.t(),
+    "Recurrence" => scheduled_instance_recurrence(),
+    "SlotDurationInHours" => integer(),
+    "TotalScheduledInstanceHours" => integer()
+  }
+  """
+  @type scheduled_instance_availability() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_snapshot_request() :: %{
+    optional("ClientData") => client_data(),
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DiskContainer") => snapshot_disk_container(),
+    optional("DryRun") => boolean(),
+    optional("Encrypted") => boolean(),
+    optional("KmsKeyId") => String.t(),
+    optional("RoleName") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type import_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_resource_discovery_association() :: %{
+    "IpamArn" => String.t(),
+    "IpamId" => String.t(),
+    "IpamRegion" => String.t(),
+    "IpamResourceDiscoveryAssociationArn" => String.t(),
+    "IpamResourceDiscoveryAssociationId" => String.t(),
+    "IpamResourceDiscoveryId" => String.t(),
+    "IsDefault" => boolean(),
+    "OwnerId" => String.t(),
+    "ResourceDiscoveryStatus" => list(any()),
+    "State" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type ipam_resource_discovery_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_instance_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type reset_instance_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_volume_request() :: %{
+    optional("Device") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Force") => boolean(),
+    optional("InstanceId") => String.t(),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type detach_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_iam_instance_profile() :: %{
+    "Arn" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type scheduled_instances_iam_instance_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_count() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type network_interface_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_flow_logs_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DeliverCrossAccountRole") => String.t(),
+    optional("DeliverLogsPermissionArn") => String.t(),
+    optional("DestinationOptions") => destination_options_request(),
+    optional("DryRun") => boolean(),
+    optional("LogDestination") => String.t(),
+    optional("LogDestinationType") => list(any()),
+    optional("LogFormat") => String.t(),
+    optional("LogGroupName") => String.t(),
+    optional("MaxAggregationInterval") => integer(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TrafficType") => list(any()),
+    required("ResourceIds") => list(String.t()()),
+    required("ResourceType") => list(any())
+  }
+  """
+  @type create_flow_logs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_instance_event_notification_attributes_result() :: %{
+    "InstanceTagAttribute" => instance_tag_notification_attribute()
+  }
+  """
+  @type register_instance_event_notification_attributes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_task_s3_location_request() :: %{
+    "S3Bucket" => String.t(),
+    "S3Prefix" => String.t()
+  }
+  """
+  @type export_task_s3_location_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_snapshot_restore_state_error_item() :: %{
+    "AvailabilityZone" => String.t(),
+    "Error" => enable_fast_snapshot_restore_state_error()
+  }
+  """
+  @type enable_fast_snapshot_restore_state_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_image_attribute_request() :: %{
+    optional("Attribute") => String.t(),
+    optional("Description") => attribute_value(),
+    optional("DryRun") => boolean(),
+    optional("ImdsSupport") => attribute_value(),
+    optional("LaunchPermission") => launch_permission_modifications(),
+    optional("OperationType") => list(any()),
+    optional("OrganizationArns") => list(String.t()()),
+    optional("OrganizationalUnitArns") => list(String.t()()),
+    optional("ProductCodes") => list(String.t()()),
+    optional("UserGroups") => list(String.t()()),
+    optional("UserIds") => list(String.t()()),
+    optional("Value") => String.t(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type modify_image_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_vpc_peering_connection_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type reject_vpc_peering_connection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_network_interface_specification_request() :: %{
+    "AssociateCarrierIpAddress" => boolean(),
+    "AssociatePublicIpAddress" => boolean(),
+    "ConnectionTrackingSpecification" => connection_tracking_specification_request(),
+    "DeleteOnTermination" => boolean(),
+    "Description" => String.t(),
+    "DeviceIndex" => integer(),
+    "EnaSrdSpecification" => ena_srd_specification_request(),
+    "Groups" => list(String.t()()),
+    "InterfaceType" => String.t(),
+    "Ipv4PrefixCount" => integer(),
+    "Ipv4Prefixes" => list(ipv4_prefix_specification_request()()),
+    "Ipv6AddressCount" => integer(),
+    "Ipv6Addresses" => list(instance_ipv6_address_request()()),
+    "Ipv6PrefixCount" => integer(),
+    "Ipv6Prefixes" => list(ipv6_prefix_specification_request()()),
+    "NetworkCardIndex" => integer(),
+    "NetworkInterfaceId" => String.t(),
+    "PrimaryIpv6" => boolean(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateIpAddresses" => list(private_ip_address_specification()()),
+    "SecondaryPrivateIpAddressCount" => integer(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type launch_template_instance_network_interface_specification_request() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  modify_address_attribute_result() :: %{
+    "Address" => address_attribute()
+  }
+  """
+  @type modify_address_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dns_servers_options_modify_structure() :: %{
+    "CustomDnsServers" => list(String.t()()),
+    "Enabled" => boolean()
+  }
+  """
+  @type dns_servers_options_modify_structure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_prefix_lists_result() :: %{
+    "NextToken" => String.t(),
+    "PrefixLists" => list(prefix_list()())
+  }
+  """
+  @type describe_prefix_lists_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_templates_monitoring_request() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type launch_templates_monitoring_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_event_start_time_result() :: %{
+    "Event" => instance_status_event()
+  }
+  """
+  @type modify_instance_event_start_time_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_customer_gateways_result() :: %{
+    "CustomerGateways" => list(customer_gateway()())
+  }
+  """
+  @type describe_customer_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_kinesis_data_firehose_destination_options() :: %{
+    "DeliveryStream" => String.t(),
+    "Enabled" => boolean()
+  }
+  """
+  @type verified_access_log_kinesis_data_firehose_destination_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_resource_cidr() :: %{
+    "ComplianceStatus" => list(any()),
+    "IpUsage" => float(),
+    "IpamId" => String.t(),
+    "IpamPoolId" => String.t(),
+    "IpamScopeId" => String.t(),
+    "ManagementState" => list(any()),
+    "OverlapStatus" => list(any()),
+    "ResourceCidr" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceName" => String.t(),
+    "ResourceOwnerId" => String.t(),
+    "ResourceRegion" => String.t(),
+    "ResourceTags" => list(ipam_resource_tag()()),
+    "ResourceType" => list(any()),
+    "VpcId" => String.t()
+  }
+  """
+  @type ipam_resource_cidr() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_client_vpn_target_network_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t(),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type associate_client_vpn_target_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_route_result() :: %{
+    "Route" => transit_gateway_route()
+  }
+  """
+  @type delete_transit_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_status_event() :: %{
+    "Description" => String.t(),
+    "EventId" => String.t(),
+    "EventType" => String.t(),
+    "InstanceId" => String.t(),
+    "NotAfter" => non_neg_integer(),
+    "NotBefore" => non_neg_integer()
+  }
+  """
+  @type volume_status_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_security_group_egress_result() :: %{
+    "Return" => boolean(),
+    "UnknownIpPermissions" => list(ip_permission()())
+  }
+  """
+  @type revoke_security_group_egress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  efa_info() :: %{
+    "MaximumEfaInterfaces" => integer()
+  }
+  """
+  @type efa_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_market_options_request() :: %{
+    "MarketType" => list(any()),
+    "SpotOptions" => spot_market_options()
+  }
+  """
+  @type instance_market_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_vpn_tunnel_request() :: %{
+    optional("ApplyPendingMaintenance") => boolean(),
+    optional("DryRun") => boolean(),
+    required("VpnConnectionId") => String.t(),
+    required("VpnTunnelOutsideIpAddress") => String.t()
+  }
+  """
+  @type replace_vpn_tunnel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reboot_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceIds") => list(String.t()())
+  }
+  """
+  @type reboot_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_transit_gateway_route_table_result() :: %{
+    "Association" => transit_gateway_association()
+  }
+  """
+  @type disassociate_transit_gateway_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_attachment() :: %{
+    "AssociatedResource" => String.t(),
+    "AttachTime" => non_neg_integer(),
+    "DeleteOnTermination" => boolean(),
+    "Device" => String.t(),
+    "InstanceId" => String.t(),
+    "InstanceOwningService" => String.t(),
+    "State" => list(any()),
+    "VolumeId" => String.t()
+  }
+  """
+  @type volume_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Options") => modify_transit_gateway_options(),
+    required("TransitGatewayId") => String.t()
+  }
+  """
+  @type modify_transit_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_uefi_data_result() :: %{
+    "InstanceId" => String.t(),
+    "UefiData" => String.t()
+  }
+  """
+  @type get_instance_uefi_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_route_table_vpc_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocalGatewayRouteTableVpcAssociationIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_local_gateway_route_table_vpc_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_security_group_rule_descriptions_ingress_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type update_security_group_rule_descriptions_ingress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_store_image_tasks_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("ImageIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_store_image_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_connection_notification_request() :: %{
+    optional("ConnectionEvents") => list(String.t()()),
+    optional("ConnectionNotificationArn") => String.t(),
+    optional("DryRun") => boolean(),
+    required("ConnectionNotificationId") => String.t()
+  }
+  """
+  @type modify_vpc_endpoint_connection_notification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceIds") => list(String.t()())
+  }
+  """
+  @type terminate_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_permission_state() :: %{
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type network_interface_permission_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_service_payer_responsibility_request() :: %{
+    optional("DryRun") => boolean(),
+    required("PayerResponsibility") => list(any()),
+    required("ServiceId") => String.t()
+  }
+  """
+  @type modify_vpc_endpoint_service_payer_responsibility_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_scope_analysis_finding() :: %{
+    "FindingComponents" => list(path_component()()),
+    "FindingId" => String.t(),
+    "NetworkInsightsAccessScopeAnalysisId" => String.t(),
+    "NetworkInsightsAccessScopeId" => String.t()
+  }
+  """
+  @type access_scope_analysis_finding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_count() :: %{
+    "InstanceCount" => integer(),
+    "State" => list(any())
+  }
+  """
+  @type instance_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_scheduled_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ScheduledInstanceIds") => list(String.t()()),
+    optional("SlotStartTimeRange") => slot_start_time_range_request()
+  }
+  """
+  @type describe_scheduled_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_storage() :: %{
+    "AWSAccessKeyId" => String.t(),
+    "Bucket" => String.t(),
+    "Prefix" => String.t(),
+    "UploadPolicy" => binary(),
+    "UploadPolicySignature" => String.t()
+  }
+  """
+  @type s3_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_vpc_classic_link_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type disable_vpc_classic_link_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_attachment() :: %{
+    "State" => list(any()),
+    "VpcId" => String.t()
+  }
+  """
+  @type vpc_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_image_block_public_access_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageBlockPublicAccessState") => list(any())
+  }
+  """
+  @type enable_image_block_public_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volume_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type describe_volume_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorization_rule() :: %{
+    "AccessAll" => boolean(),
+    "ClientVpnEndpointId" => String.t(),
+    "Description" => String.t(),
+    "DestinationCidr" => String.t(),
+    "GroupId" => String.t(),
+    "Status" => client_vpn_authorization_rule_status()
+  }
+  """
+  @type authorization_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_nat_gateway_result() :: %{
+    "ClientToken" => String.t(),
+    "NatGateway" => nat_gateway()
+  }
+  """
+  @type create_nat_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  route_table() :: %{
+    "Associations" => list(route_table_association()()),
+    "OwnerId" => String.t(),
+    "PropagatingVgws" => list(propagating_vgw()()),
+    "RouteTableId" => String.t(),
+    "Routes" => list(route()()),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type route_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_policy_table_result() :: %{
+    "TransitGatewayPolicyTable" => transit_gateway_policy_table()
+  }
+  """
+  @type create_transit_gateway_policy_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  added_principal() :: %{
+    "Principal" => String.t(),
+    "PrincipalType" => list(any()),
+    "ServiceId" => String.t(),
+    "ServicePermissionId" => String.t()
+  }
+  """
+  @type added_principal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_endpoint_service_configuration_request() :: %{
+    optional("AcceptanceRequired") => boolean(),
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("GatewayLoadBalancerArns") => list(String.t()()),
+    optional("NetworkLoadBalancerArns") => list(String.t()()),
+    optional("PrivateDnsName") => String.t(),
+    optional("SupportedIpAddressTypes") => list(String.t()()),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_vpc_endpoint_service_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_ebs_encryption_by_default_result() :: %{
+    "EbsEncryptionByDefault" => boolean()
+  }
+  """
+  @type enable_ebs_encryption_by_default_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route_table_announcement() :: %{
+    "AnnouncementDirection" => list(any()),
+    "CoreNetworkId" => String.t(),
+    "CreationTime" => non_neg_integer(),
+    "PeerCoreNetworkId" => String.t(),
+    "PeerTransitGatewayId" => String.t(),
+    "PeeringAttachmentId" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayId" => String.t(),
+    "TransitGatewayRouteTableAnnouncementId" => String.t(),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_route_table_announcement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_maintenance_strategies() :: %{
+    "CapacityRebalance" => spot_capacity_rebalance()
+  }
+  """
+  @type spot_maintenance_strategies() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  block_device_mapping() :: %{
+    "DeviceName" => String.t(),
+    "Ebs" => ebs_block_device(),
+    "NoDevice" => String.t(),
+    "VirtualName" => String.t()
+  }
+  """
+  @type block_device_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_spot_fleet_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SpotFleetRequestConfig") => spot_fleet_request_config_data()
+  }
+  """
+  @type request_spot_fleet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_coip_pool_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CoipPoolId") => String.t()
+  }
+  """
+  @type delete_coip_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unmonitor_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceIds") => list(String.t()())
+  }
+  """
+  @type unmonitor_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_groups_for_capacity_reservation_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("CapacityReservationId") => String.t()
+  }
+  """
+  @type get_groups_for_capacity_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_configuration_request() :: %{
+    "InstanceCount" => integer(),
+    "OfferingId" => String.t()
+  }
+  """
+  @type target_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway_route() :: %{
+    "CoipPoolId" => String.t(),
+    "DestinationCidrBlock" => String.t(),
+    "DestinationPrefixListId" => String.t(),
+    "LocalGatewayRouteTableArn" => String.t(),
+    "LocalGatewayRouteTableId" => String.t(),
+    "LocalGatewayVirtualInterfaceGroupId" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "OwnerId" => String.t(),
+    "State" => list(any()),
+    "SubnetId" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type local_gateway_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_fleet_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("SpotFleetRequestId") => String.t()
+  }
+  """
+  @type describe_spot_fleet_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_license_configuration() :: %{
+    "LicenseConfigurationArn" => String.t()
+  }
+  """
+  @type launch_template_license_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_spot_instances_request() :: %{
+    optional("AvailabilityZoneGroup") => String.t(),
+    optional("BlockDurationMinutes") => integer(),
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("InstanceCount") => integer(),
+    optional("InstanceInterruptionBehavior") => list(any()),
+    optional("LaunchGroup") => String.t(),
+    optional("LaunchSpecification") => request_spot_launch_specification(),
+    optional("SpotPrice") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("Type") => list(any()),
+    optional("ValidFrom") => non_neg_integer(),
+    optional("ValidUntil") => non_neg_integer()
+  }
+  """
+  @type request_spot_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_launch_template_result() :: %{
+    "LaunchTemplate" => launch_template()
+  }
+  """
+  @type delete_launch_template_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_launch_template_version_result() :: %{
+    "LaunchTemplateVersion" => launch_template_version(),
+    "Warning" => validation_warning()
+  }
+  """
+  @type create_launch_template_version_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_ipam_pool_cidr_request() :: %{
+    optional("Cidr") => String.t(),
+    optional("CidrAuthorizationContext") => ipam_cidr_authorization_context(),
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("NetmaskLength") => integer(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type provision_ipam_pool_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_trunk_interface_associations_request() :: %{
+    optional("AssociationIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_trunk_interface_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_enclave_certificate_iam_role_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CertificateArn") => String.t(),
+    required("RoleArn") => String.t()
+  }
+  """
+  @type associate_enclave_certificate_iam_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_event_start_time_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceEventId") => String.t(),
+    required("InstanceId") => String.t(),
+    required("NotBefore") => non_neg_integer()
+  }
+  """
+  @type modify_instance_event_start_time_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ebs_info() :: %{
+    "EbsOptimizedInfo" => ebs_optimized_info(),
+    "EbsOptimizedSupport" => list(any()),
+    "EncryptionSupport" => list(any()),
+    "NvmeSupport" => list(any())
+  }
+  """
+  @type ebs_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_vgw_route_propagation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("GatewayId") => String.t(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type enable_vgw_route_propagation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_resource_cidr_request() :: %{
+    optional("DestinationIpamScopeId") => String.t(),
+    optional("DryRun") => boolean(),
+    required("CurrentIpamScopeId") => String.t(),
+    required("Monitored") => boolean(),
+    required("ResourceCidr") => String.t(),
+    required("ResourceId") => String.t(),
+    required("ResourceRegion") => String.t()
+  }
+  """
+  @type modify_ipam_resource_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_subnet_cidr_block_request() :: %{
+    required("AssociationId") => String.t()
+  }
+  """
+  @type disassociate_subnet_cidr_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accelerator_count() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type accelerator_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_notification() :: %{
+    "ConnectionEvents" => list(String.t()()),
+    "ConnectionNotificationArn" => String.t(),
+    "ConnectionNotificationId" => String.t(),
+    "ConnectionNotificationState" => list(any()),
+    "ConnectionNotificationType" => list(any()),
+    "ServiceId" => String.t(),
+    "VpcEndpointId" => String.t()
+  }
+  """
+  @type connection_notification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_default_subnet_result() :: %{
+    "Subnet" => subnet()
+  }
+  """
+  @type create_default_subnet_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_ipam_byoasn_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Asn") => String.t(),
+    required("AsnAuthorizationContext") => asn_authorization_context(),
+    required("IpamId") => String.t()
+  }
+  """
+  @type provision_ipam_byoasn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_route_table_associations_result() :: %{
+    "Associations" => list(transit_gateway_route_table_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_transit_gateway_route_table_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_transit_gateway_multicast_group_sources_result() :: %{
+    "RegisteredMulticastGroupSources" => transit_gateway_multicast_registered_group_sources()
+  }
+  """
+  @type register_transit_gateway_multicast_group_sources_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc() :: %{
+    "CidrBlock" => String.t(),
+    "CidrBlockAssociationSet" => list(vpc_cidr_block_association()()),
+    "DhcpOptionsId" => String.t(),
+    "InstanceTenancy" => list(any()),
+    "Ipv6CidrBlockAssociationSet" => list(vpc_ipv6_cidr_block_association()()),
+    "IsDefault" => boolean(),
+    "OwnerId" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type vpc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_bundle_task_request() :: %{
+    optional("DryRun") => boolean(),
+    required("BundleId") => String.t()
+  }
+  """
+  @type cancel_bundle_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_images_result() :: %{
+    "Images" => list(image()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_images_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  active_instance() :: %{
+    "InstanceHealth" => list(any()),
+    "InstanceId" => String.t(),
+    "InstanceType" => String.t(),
+    "SpotInstanceRequestId" => String.t()
+  }
+  """
+  @type active_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_image_license_configuration_request() :: %{
+    "LicenseConfigurationArn" => String.t()
+  }
+  """
+  @type import_image_license_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_data() :: %{
+    "Comment" => String.t(),
+    "UploadEnd" => non_neg_integer(),
+    "UploadSize" => float(),
+    "UploadStart" => non_neg_integer()
+  }
+  """
+  @type client_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_host_reservation_result() :: %{
+    "ClientToken" => String.t(),
+    "CurrencyCode" => list(any()),
+    "Purchase" => list(purchase()()),
+    "TotalHourlyPrice" => String.t(),
+    "TotalUpfrontPrice" => String.t()
+  }
+  """
+  @type purchase_host_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase1_encryption_algorithms_request_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase1_encryption_algorithms_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_scope() :: %{
+    "Description" => String.t(),
+    "IpamArn" => String.t(),
+    "IpamRegion" => String.t(),
+    "IpamScopeArn" => String.t(),
+    "IpamScopeId" => String.t(),
+    "IpamScopeType" => list(any()),
+    "IsDefault" => boolean(),
+    "OwnerId" => String.t(),
+    "PoolCount" => integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type ipam_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fleet_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Context") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("ExcessCapacityTerminationPolicy") => list(any()),
+    optional("OnDemandOptions") => on_demand_options_request(),
+    optional("ReplaceUnhealthyInstances") => boolean(),
+    optional("SpotOptions") => spot_options_request(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TerminateInstancesWithExpiration") => boolean(),
+    optional("Type") => list(any()),
+    optional("ValidFrom") => non_neg_integer(),
+    optional("ValidUntil") => non_neg_integer(),
+    required("LaunchTemplateConfigs") => list(fleet_launch_template_config_request()()),
+    required("TargetCapacitySpecification") => target_capacity_specification_request()
+  }
+  """
+  @type create_fleet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_ipam_organization_admin_account_request() :: %{
+    optional("DryRun") => boolean(),
+    required("DelegatedAdminAccountId") => String.t()
+  }
+  """
+  @type disable_ipam_organization_admin_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_flow_logs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filter") => list(filter()()),
+    optional("FlowLogIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_flow_logs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_gpu_association() :: %{
+    "ElasticGpuAssociationId" => String.t(),
+    "ElasticGpuAssociationState" => String.t(),
+    "ElasticGpuAssociationTime" => String.t(),
+    "ElasticGpuId" => String.t()
+  }
+  """
+  @type elastic_gpu_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_peering_attachment_options() :: %{
+    "DynamicRouting" => list(any())
+  }
+  """
+  @type transit_gateway_peering_attachment_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_vpn_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcId") => String.t(),
+    required("VpnGatewayId") => String.t()
+  }
+  """
+  @type attach_vpn_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_connect_endpoint_result() :: %{
+    "ClientToken" => String.t(),
+    "InstanceConnectEndpoint" => ec2_instance_connect_endpoint()
+  }
+  """
+  @type create_instance_connect_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_classic_link_vpc_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type detach_classic_link_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assign_private_nat_gateway_address_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("PrivateIpAddressCount") => integer(),
+    optional("PrivateIpAddresses") => list(String.t()()),
+    required("NatGatewayId") => String.t()
+  }
+  """
+  @type assign_private_nat_gateway_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_scope_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("IpamId") => String.t()
+  }
+  """
+  @type create_ipam_scope_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  private_dns_name_options_response() :: %{
+    "EnableResourceNameDnsAAAARecord" => boolean(),
+    "EnableResourceNameDnsARecord" => boolean(),
+    "HostnameType" => list(any())
+  }
+  """
+  @type private_dns_name_options_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_address_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AllocationId") => String.t(),
+    required("Attribute") => list(any())
+  }
+  """
+  @type reset_address_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  federated_authentication_request() :: %{
+    "SAMLProviderArn" => String.t(),
+    "SelfServiceSAMLProviderArn" => String.t()
+  }
+  """
+  @type federated_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_gpu_specification() :: %{
+    "Type" => String.t()
+  }
+  """
+  @type elastic_gpu_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_snapshot_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("OutpostArn") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type create_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_route_table_announcement_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("PeeringAttachmentId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type create_transit_gateway_route_table_announcement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_nat_gateway_address_result() :: %{
+    "NatGatewayAddresses" => list(nat_gateway_address()()),
+    "NatGatewayId" => String.t()
+  }
+  """
+  @type associate_nat_gateway_address_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv6_prefix_specification() :: %{
+    "Ipv6Prefix" => String.t()
+  }
+  """
+  @type ipv6_prefix_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_table_result() :: %{
+    "LocalGatewayRouteTable" => local_gateway_route_table()
+  }
+  """
+  @type create_local_gateway_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_cpu_options_request() :: %{
+    "AmdSevSnp" => list(any()),
+    "CoreCount" => integer(),
+    "ThreadsPerCore" => integer()
+  }
+  """
+  @type launch_template_cpu_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_vpc_peering_connection_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcPeeringConnectionId") => String.t()
+  }
+  """
+  @type accept_vpc_peering_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_event_window_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ForceDelete") => boolean(),
+    required("InstanceEventWindowId") => String.t()
+  }
+  """
+  @type delete_instance_event_window_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_transit_gateway_multicast_domain_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SubnetIds") => list(String.t()()),
+    required("TransitGatewayAttachmentId") => String.t(),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type disassociate_transit_gateway_multicast_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_image_task() :: %{
+    "Architecture" => String.t(),
+    "BootMode" => list(any()),
+    "Description" => String.t(),
+    "Encrypted" => boolean(),
+    "Hypervisor" => String.t(),
+    "ImageId" => String.t(),
+    "ImportTaskId" => String.t(),
+    "KmsKeyId" => String.t(),
+    "LicenseSpecifications" => list(import_image_license_configuration_response()()),
+    "LicenseType" => String.t(),
+    "Platform" => String.t(),
+    "Progress" => String.t(),
+    "SnapshotDetails" => list(snapshot_detail()()),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()()),
+    "UsageOperation" => String.t()
+  }
+  """
+  @type import_image_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_snapshot_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type reset_snapshot_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_information() :: %{
+    "EventDescription" => String.t(),
+    "EventSubType" => String.t(),
+    "InstanceId" => String.t()
+  }
+  """
+  @type event_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pci_id() :: %{
+    "DeviceId" => String.t(),
+    "SubsystemId" => String.t(),
+    "SubsystemVendorId" => String.t(),
+    "VendorId" => String.t()
+  }
+  """
+  @type pci_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  v_cpu_count_range() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type v_cpu_count_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoints_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VpcEndpointIds") => list(String.t()())
+  }
+  """
+  @type describe_vpc_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_request() :: %{
+    "InstanceCount" => integer(),
+    "PurchaseToken" => String.t()
+  }
+  """
+  @type purchase_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_block_device_mapping() :: %{
+    "DeviceName" => String.t(),
+    "Ebs" => ebs_instance_block_device()
+  }
+  """
+  @type instance_block_device_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_paths_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkInsightsPathIds") => list(String.t()()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_insights_paths_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_image_from_recycle_bin_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type restore_image_from_recycle_bin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_interface_permission_result() :: %{
+    "InterfacePermission" => network_interface_permission()
+  }
+  """
+  @type create_network_interface_permission_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_host_reservation_purchase_preview_result() :: %{
+    "CurrencyCode" => list(any()),
+    "Purchase" => list(purchase()()),
+    "TotalHourlyPrice" => String.t(),
+    "TotalUpfrontPrice" => String.t()
+  }
+  """
+  @type get_host_reservation_purchase_preview_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_transit_gateway_multicast_groups_result() :: %{
+    "MulticastGroups" => list(transit_gateway_multicast_group()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type search_transit_gateway_multicast_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_ipv6_prefix() :: %{
+    "Ipv6Prefix" => String.t()
+  }
+  """
+  @type instance_ipv6_prefix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assign_ipv6_addresses_request() :: %{
+    optional("Ipv6AddressCount") => integer(),
+    optional("Ipv6Addresses") => list(String.t()()),
+    optional("Ipv6PrefixCount") => integer(),
+    optional("Ipv6Prefixes") => list(String.t()()),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type assign_ipv6_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  private_dns_details() :: %{
+    "PrivateDnsName" => String.t()
+  }
+  """
+  @type private_dns_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_images_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ExecutableUsers") => list(String.t()()),
+    optional("Filters") => list(filter()()),
+    optional("ImageIds") => list(String.t()()),
+    optional("IncludeDeprecated") => boolean(),
+    optional("IncludeDisabled") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Owners") => list(String.t()())
+  }
+  """
+  @type describe_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_iam_instance_profile_specification_request() :: %{
+    "Arn" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type launch_template_iam_instance_profile_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_volume_permission() :: %{
+    "Group" => list(any()),
+    "UserId" => String.t()
+  }
+  """
+  @type create_volume_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window() :: %{
+    "AssociationTarget" => instance_event_window_association_target(),
+    "CronExpression" => String.t(),
+    "InstanceEventWindowId" => String.t(),
+    "Name" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TimeRanges" => list(instance_event_window_time_range()())
+  }
+  """
+  @type instance_event_window() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_log_response_options() :: %{
+    "CloudwatchLogGroup" => String.t(),
+    "CloudwatchLogStream" => String.t(),
+    "Enabled" => boolean()
+  }
+  """
+  @type connection_log_response_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_image_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("CopyImageTags") => boolean(),
+    optional("Description") => String.t(),
+    optional("DestinationOutpostArn") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Encrypted") => boolean(),
+    optional("KmsKeyId") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Name") => String.t(),
+    required("SourceImageId") => String.t(),
+    required("SourceRegion") => String.t()
+  }
+  """
+  @type copy_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_pool_result() :: %{
+    "IpamPool" => ipam_pool()
+  }
+  """
+  @type delete_ipam_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ebs_instance_block_device_specification() :: %{
+    "DeleteOnTermination" => boolean(),
+    "VolumeId" => String.t()
+  }
+  """
+  @type ebs_instance_block_device_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_security_group_references_request() :: %{
+    optional("DryRun") => boolean(),
+    required("GroupId") => list(String.t()())
+  }
+  """
+  @type describe_security_group_references_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_security_groups_result() :: %{
+    "NextToken" => String.t(),
+    "SecurityGroups" => list(security_group()())
+  }
+  """
+  @type describe_security_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_fleet_request() :: %{
+    optional("Context") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("ExcessCapacityTerminationPolicy") => list(any()),
+    optional("LaunchTemplateConfigs") => list(fleet_launch_template_config_request()()),
+    optional("TargetCapacitySpecification") => target_capacity_specification_request(),
+    required("FleetId") => String.t()
+  }
+  """
+  @type modify_fleet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_client_vpn_ingress_result() :: %{
+    "Status" => client_vpn_authorization_rule_status()
+  }
+  """
+  @type revoke_client_vpn_ingress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_transit_gateway_multicast_group_members_result() :: %{
+    "RegisteredMulticastGroupMembers" => transit_gateway_multicast_registered_group_members()
+  }
+  """
+  @type register_transit_gateway_multicast_group_members_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_attachments_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayAttachments" => list(transit_gateway_attachment()())
+  }
+  """
+  @type describe_transit_gateway_attachments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_fleet_request_config() :: %{
+    "ActivityStatus" => list(any()),
+    "CreateTime" => non_neg_integer(),
+    "SpotFleetRequestConfig" => spot_fleet_request_config_data(),
+    "SpotFleetRequestId" => String.t(),
+    "SpotFleetRequestState" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type spot_fleet_request_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_store_image_tasks_result() :: %{
+    "NextToken" => String.t(),
+    "StoreImageTaskResults" => list(store_image_task_result()())
+  }
+  """
+  @type describe_store_image_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_vpc_attachment_request_options() :: %{
+    "ApplianceModeSupport" => list(any()),
+    "DnsSupport" => list(any()),
+    "Ipv6Support" => list(any()),
+    "SecurityGroupReferencingSupport" => list(any())
+  }
+  """
+  @type create_transit_gateway_vpc_attachment_request_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_key_pairs_result() :: %{
+    "KeyPairs" => list(key_pair_info()())
+  }
+  """
+  @type describe_key_pairs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recurring_charge() :: %{
+    "Amount" => float(),
+    "Frequency" => list(any())
+  }
+  """
+  @type recurring_charge() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ebs_encryption_by_default_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type get_ebs_encryption_by_default_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_attribute_value() :: %{
+    "AttributeValue" => String.t()
+  }
+  """
+  @type account_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_internet_gateways_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InternetGatewayIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_internet_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_subnet_attribute_request() :: %{
+    optional("AssignIpv6AddressOnCreation") => attribute_boolean_value(),
+    optional("CustomerOwnedIpv4Pool") => String.t(),
+    optional("DisableLniAtDeviceIndex") => attribute_boolean_value(),
+    optional("EnableDns64") => attribute_boolean_value(),
+    optional("EnableLniAtDeviceIndex") => integer(),
+    optional("EnableResourceNameDnsAAAARecordOnLaunch") => attribute_boolean_value(),
+    optional("EnableResourceNameDnsARecordOnLaunch") => attribute_boolean_value(),
+    optional("MapCustomerOwnedIpOnLaunch") => attribute_boolean_value(),
+    optional("MapPublicIpOnLaunch") => attribute_boolean_value(),
+    optional("PrivateDnsHostnameTypeOnLaunch") => list(any()),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type modify_subnet_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_acl_entry_request() :: %{
+    optional("CidrBlock") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("IcmpTypeCode") => icmp_type_code(),
+    optional("Ipv6CidrBlock") => String.t(),
+    optional("PortRange") => port_range(),
+    required("Egress") => boolean(),
+    required("NetworkAclId") => String.t(),
+    required("Protocol") => String.t(),
+    required("RuleAction") => list(any()),
+    required("RuleNumber") => integer()
+  }
+  """
+  @type create_network_acl_entry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_snapshot_restores_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AvailabilityZones") => list(String.t()()),
+    required("SourceSnapshotIds") => list(String.t()())
+  }
+  """
+  @type disable_fast_snapshot_restores_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_pool_result() :: %{
+    "IpamPool" => ipam_pool()
+  }
+  """
+  @type modify_ipam_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  managed_prefix_list() :: %{
+    "AddressFamily" => String.t(),
+    "MaxEntries" => integer(),
+    "OwnerId" => String.t(),
+    "PrefixListArn" => String.t(),
+    "PrefixListId" => String.t(),
+    "PrefixListName" => String.t(),
+    "State" => list(any()),
+    "StateMessage" => String.t(),
+    "Tags" => list(tag()()),
+    "Version" => float()
+  }
+  """
+  @type managed_prefix_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_volume_i_o_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type enable_volume_i_o_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_ipam_operating_region() :: %{
+    "RegionName" => String.t()
+  }
+  """
+  @type remove_ipam_operating_region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unassign_ipv6_addresses_result() :: %{
+    "NetworkInterfaceId" => String.t(),
+    "UnassignedIpv6Addresses" => list(String.t()()),
+    "UnassignedIpv6Prefixes" => list(String.t()())
+  }
+  """
+  @type unassign_ipv6_addresses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_table_vpc_association_result() :: %{
+    "LocalGatewayRouteTableVpcAssociation" => local_gateway_route_table_vpc_association()
+  }
+  """
+  @type create_local_gateway_route_table_vpc_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_image_request() :: %{
+    optional("Architecture") => String.t(),
+    optional("BootMode") => list(any()),
+    optional("ClientData") => client_data(),
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DiskContainers") => list(image_disk_container()()),
+    optional("DryRun") => boolean(),
+    optional("Encrypted") => boolean(),
+    optional("Hypervisor") => String.t(),
+    optional("KmsKeyId") => String.t(),
+    optional("LicenseSpecifications") => list(import_image_license_configuration_request()()),
+    optional("LicenseType") => String.t(),
+    optional("Platform") => String.t(),
+    optional("RoleName") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("UsageOperation") => String.t()
+  }
+  """
+  @type import_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_endpoint_service_configurations_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ServiceIds") => list(String.t()())
+  }
+  """
+  @type delete_vpc_endpoint_service_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volumes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VolumeIds") => list(String.t()())
+  }
+  """
+  @type describe_volumes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unassign_private_nat_gateway_address_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxDrainDurationSeconds") => integer(),
+    required("NatGatewayId") => String.t(),
+    required("PrivateIpAddresses") => list(String.t()())
+  }
+  """
+  @type unassign_private_nat_gateway_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_license_configuration_request() :: %{
+    "LicenseConfigurationArn" => String.t()
+  }
+  """
+  @type launch_template_license_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_policy_table_entries_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayPolicyTableId") => String.t()
+  }
+  """
+  @type get_transit_gateway_policy_table_entries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_attachment_propagation() :: %{
+    "State" => list(any()),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_attachment_propagation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_byoip_cidr_result() :: %{
+    "ByoipCidr" => byoip_cidr()
+  }
+  """
+  @type provision_byoip_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_connect_endpoint_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceConnectEndpointId") => String.t()
+  }
+  """
+  @type delete_instance_connect_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_policy_table_entries_result() :: %{
+    "TransitGatewayPolicyTableEntries" => list(transit_gateway_policy_table_entry()())
+  }
+  """
+  @type get_transit_gateway_policy_table_entries_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_metadata_options_result() :: %{
+    "InstanceId" => String.t(),
+    "InstanceMetadataOptions" => instance_metadata_options_response()
+  }
+  """
+  @type modify_instance_metadata_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface() :: %{
+    "Association" => network_interface_association(),
+    "Attachment" => network_interface_attachment(),
+    "AvailabilityZone" => String.t(),
+    "ConnectionTrackingConfiguration" => connection_tracking_configuration(),
+    "DenyAllIgwTraffic" => boolean(),
+    "Description" => String.t(),
+    "Groups" => list(group_identifier()()),
+    "InterfaceType" => list(any()),
+    "Ipv4Prefixes" => list(ipv4_prefix_specification()()),
+    "Ipv6Address" => String.t(),
+    "Ipv6Addresses" => list(network_interface_ipv6_address()()),
+    "Ipv6Native" => boolean(),
+    "Ipv6Prefixes" => list(ipv6_prefix_specification()()),
+    "MacAddress" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "PrivateDnsName" => String.t(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateIpAddresses" => list(network_interface_private_ip_address()()),
+    "RequesterId" => String.t(),
+    "RequesterManaged" => boolean(),
+    "SourceDestCheck" => boolean(),
+    "Status" => list(any()),
+    "SubnetId" => String.t(),
+    "TagSet" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type network_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_target() :: %{
+    "CapacityReservationId" => String.t(),
+    "CapacityReservationResourceGroupArn" => String.t()
+  }
+  """
+  @type capacity_reservation_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_table_vpc_association_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("LocalGatewayRouteTableId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_local_gateway_route_table_vpc_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_console_screenshot_result() :: %{
+    "ImageData" => String.t(),
+    "InstanceId" => String.t()
+  }
+  """
+  @type get_console_screenshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_peering_connection_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type delete_vpc_peering_connection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_principal_id_format_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Resources") => list(String.t()())
+  }
+  """
+  @type describe_principal_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conversion_task() :: %{
+    "ConversionTaskId" => String.t(),
+    "ExpirationTime" => String.t(),
+    "ImportInstance" => import_instance_task_details(),
+    "ImportVolume" => import_volume_task_details(),
+    "State" => list(any()),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type conversion_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  load_permission_request() :: %{
+    "Group" => list(any()),
+    "UserId" => String.t()
+  }
+  """
+  @type load_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  nat_gateway_address() :: %{
+    "AllocationId" => String.t(),
+    "AssociationId" => String.t(),
+    "FailureMessage" => String.t(),
+    "IsPrimary" => boolean(),
+    "NetworkInterfaceId" => String.t(),
+    "PrivateIp" => String.t(),
+    "PublicIp" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type nat_gateway_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  association_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type association_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_scopes_result() :: %{
+    "IpamScopes" => list(ipam_scope()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipam_scopes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_aws_network_performance_data_result() :: %{
+    "DataResponses" => list(data_response()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_aws_network_performance_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet() :: %{
+    "AssignIpv6AddressOnCreation" => boolean(),
+    "AvailabilityZone" => String.t(),
+    "AvailabilityZoneId" => String.t(),
+    "AvailableIpAddressCount" => integer(),
+    "CidrBlock" => String.t(),
+    "CustomerOwnedIpv4Pool" => String.t(),
+    "DefaultForAz" => boolean(),
+    "EnableDns64" => boolean(),
+    "EnableLniAtDeviceIndex" => integer(),
+    "Ipv6CidrBlockAssociationSet" => list(subnet_ipv6_cidr_block_association()()),
+    "Ipv6Native" => boolean(),
+    "MapCustomerOwnedIpOnLaunch" => boolean(),
+    "MapPublicIpOnLaunch" => boolean(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "PrivateDnsNameOptionsOnLaunch" => private_dns_name_options_on_launch(),
+    "State" => list(any()),
+    "SubnetArn" => String.t(),
+    "SubnetId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type subnet() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_vgw_route_propagation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("GatewayId") => String.t(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type disable_vgw_route_propagation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_fleet_requests_success_item() :: %{
+    "CurrentSpotFleetRequestState" => list(any()),
+    "PreviousSpotFleetRequestState" => list(any()),
+    "SpotFleetRequestId" => String.t()
+  }
+  """
+  @type cancel_spot_fleet_requests_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_nat_gateways_result() :: %{
+    "NatGateways" => list(nat_gateway()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_nat_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_groups_for_capacity_reservation_result() :: %{
+    "CapacityReservationGroups" => list(capacity_reservation_group()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_groups_for_capacity_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_prefix_list_entry() :: %{
+    "Cidr" => String.t(),
+    "Description" => String.t()
+  }
+  """
+  @type add_prefix_list_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  successful_queued_purchase_deletion() :: %{
+    "ReservedInstancesId" => String.t()
+  }
+  """
+  @type successful_queued_purchase_deletion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_market_options_request() :: %{
+    "MarketType" => list(any()),
+    "SpotOptions" => launch_template_spot_market_options_request()
+  }
+  """
+  @type launch_template_instance_market_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_key_pair_result() :: %{
+    "KeyPairId" => String.t(),
+    "Return" => boolean()
+  }
+  """
+  @type delete_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  public_ipv4_pool_range() :: %{
+    "AddressCount" => integer(),
+    "AvailableAddressCount" => integer(),
+    "FirstAddress" => String.t(),
+    "LastAddress" => String.t()
+  }
+  """
+  @type public_ipv4_pool_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_domain_associations() :: %{
+    "ResourceId" => String.t(),
+    "ResourceOwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "Subnets" => list(subnet_association()()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayMulticastDomainId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_domain_associations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_transit_gateway_peering_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type reject_transit_gateway_peering_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_discovered_resource_cidrs_result() :: %{
+    "IpamDiscoveredResourceCidrs" => list(ipam_discovered_resource_cidr()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_ipam_discovered_resource_cidrs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_moving_addresses_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PublicIps") => list(String.t()())
+  }
+  """
+  @type describe_moving_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_ipv6_cidr_block_association() :: %{
+    "AssociationId" => String.t(),
+    "Ipv6CidrBlock" => String.t(),
+    "Ipv6CidrBlockState" => subnet_cidr_block_state()
+  }
+  """
+  @type subnet_ipv6_cidr_block_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_load_balancer_listener() :: %{
+    "InstancePort" => integer(),
+    "LoadBalancerPort" => integer()
+  }
+  """
+  @type analysis_load_balancer_listener() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  memory_gi_b_per_v_cpu_request() :: %{
+    "Max" => float(),
+    "Min" => float()
+  }
+  """
+  @type memory_gi_b_per_v_cpu_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_policy_rule() :: %{
+    "DestinationCidrBlock" => String.t(),
+    "DestinationPortRange" => String.t(),
+    "MetaData" => transit_gateway_policy_rule_meta_data(),
+    "Protocol" => String.t(),
+    "SourceCidrBlock" => String.t(),
+    "SourcePortRange" => String.t()
+  }
+  """
+  @type transit_gateway_policy_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_price_history_request() :: %{
+    optional("AvailabilityZone") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EndTime") => non_neg_integer(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceTypes") => list(list(any())()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ProductDescriptions") => list(String.t()()),
+    optional("StartTime") => non_neg_integer()
+  }
+  """
+  @type describe_spot_price_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_subnet_cidr_reservation_result() :: %{
+    "DeletedSubnetCidrReservation" => subnet_cidr_reservation()
+  }
+  """
+  @type delete_subnet_cidr_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_client_vpn_target_network_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AssociationId") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type disassociate_client_vpn_target_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_target_networks_request() :: %{
+    optional("AssociationIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type describe_client_vpn_target_networks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_fleet_instances_response() :: %{
+    "ActiveInstances" => list(active_instance()()),
+    "NextToken" => String.t(),
+    "SpotFleetRequestId" => String.t()
+  }
+  """
+  @type describe_spot_fleet_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_pool_result() :: %{
+    "IpamPool" => ipam_pool()
+  }
+  """
+  @type create_ipam_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_cloud_watch_logs_destination_options() :: %{
+    "Enabled" => boolean(),
+    "LogGroup" => String.t()
+  }
+  """
+  @type verified_access_log_cloud_watch_logs_destination_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_image_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type disable_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_spot_datafeed_subscription_result() :: %{
+    "SpotDatafeedSubscription" => spot_datafeed_subscription()
+  }
+  """
+  @type create_spot_datafeed_subscription_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_private_dns_name_options_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EnableResourceNameDnsAAAARecord") => boolean(),
+    optional("EnableResourceNameDnsARecord") => boolean(),
+    optional("PrivateDnsHostnameType") => list(any()),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type modify_private_dns_name_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_configuration() :: %{
+    "Ipv4" => String.t(),
+    "Ipv6" => String.t(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type subnet_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cpu_options_request() :: %{
+    "AmdSevSnp" => list(any()),
+    "CoreCount" => integer(),
+    "ThreadsPerCore" => integer()
+  }
+  """
+  @type cpu_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_flow_logs_result() :: %{
+    "ClientToken" => String.t(),
+    "FlowLogIds" => list(String.t()()),
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type create_flow_logs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_placement_groups_result() :: %{
+    "PlacementGroups" => list(placement_group()())
+  }
+  """
+  @type describe_placement_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_pool_cidr() :: %{
+    "Cidr" => String.t(),
+    "FailureReason" => ipam_pool_cidr_failure_reason(),
+    "IpamPoolCidrId" => String.t(),
+    "NetmaskLength" => integer(),
+    "State" => list(any())
+  }
+  """
+  @type ipam_pool_cidr() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_connection_request() :: %{
+    optional("CustomerGatewayId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayId") => String.t(),
+    optional("VpnGatewayId") => String.t(),
+    required("VpnConnectionId") => String.t()
+  }
+  """
+  @type modify_vpn_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_traffic_mirror_filters_result() :: %{
+    "NextToken" => String.t(),
+    "TrafficMirrorFilters" => list(traffic_mirror_filter()())
+  }
+  """
+  @type describe_traffic_mirror_filters_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_pool_cidr_failure_reason() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type ipam_pool_cidr_failure_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_result() :: %{
+    "Route" => local_gateway_route()
+  }
+  """
+  @type delete_local_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_spot_datafeed_subscription_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type delete_spot_datafeed_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_route_table_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_scope_result() :: %{
+    "IpamScope" => ipam_scope()
+  }
+  """
+  @type create_ipam_scope_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_ipam_byoasn_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Asn") => String.t(),
+    required("IpamId") => String.t()
+  }
+  """
+  @type deprovision_ipam_byoasn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_network_insights_access_scope_analysis_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("ClientToken") => String.t(),
+    required("NetworkInsightsAccessScopeId") => String.t()
+  }
+  """
+  @type start_network_insights_access_scope_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_fleet_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_fleet_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_endpoint_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessEndpointId") => String.t()
+  }
+  """
+  @type delete_verified_access_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  explanation() :: %{
+    "ComponentRegion" => String.t(),
+    "TransitGatewayRouteTable" => analysis_component(),
+    "LoadBalancerListenerPort" => integer(),
+    "LoadBalancerArn" => String.t(),
+    "PortRanges" => list(port_range()()),
+    "ComponentAccount" => String.t(),
+    "Vpc" => analysis_component(),
+    "RouteTable" => analysis_component(),
+    "LoadBalancerTargetPort" => integer(),
+    "ClassicLoadBalancerListener" => analysis_load_balancer_listener(),
+    "Component" => analysis_component(),
+    "NatGateway" => analysis_component(),
+    "PrefixList" => analysis_component(),
+    "CustomerGateway" => analysis_component(),
+    "Subnet" => analysis_component(),
+    "PacketField" => String.t(),
+    "Destination" => analysis_component(),
+    "SourceVpc" => analysis_component(),
+    "AttachedTo" => analysis_component(),
+    "Address" => String.t(),
+    "IngressRouteTable" => analysis_component(),
+    "TransitGateway" => analysis_component(),
+    "TransitGatewayRouteTableRoute" => transit_gateway_route_table_route(),
+    "AclRule" => analysis_acl_rule(),
+    "SecurityGroup" => analysis_component(),
+    "VpcEndpoint" => analysis_component(),
+    "Direction" => String.t(),
+    "ElasticLoadBalancerListener" => analysis_component(),
+    "MissingComponent" => String.t(),
+    "FirewallStatefulRule" => firewall_stateful_rule(),
+    "State" => String.t(),
+    "ExplanationCode" => String.t(),
+    "LoadBalancerTarget" => analysis_load_balancer_target(),
+    "Port" => integer(),
+    "AvailabilityZones" => list(String.t()()),
+    "SecurityGroupRule" => analysis_security_group_rule(),
+    "VpnGateway" => analysis_component(),
+    "VpnConnection" => analysis_component(),
+    "RouteTableRoute" => analysis_route_table_route(),
+    "Protocols" => list(String.t()()),
+    "Cidrs" => list(String.t()()),
+    "LoadBalancerTargetGroup" => analysis_component(),
+    "Addresses" => list(String.t()()),
+    "InternetGateway" => analysis_component(),
+    "Acl" => analysis_component(),
+    "SubnetRouteTable" => analysis_component(),
+    "NetworkInterface" => analysis_component(),
+    "DestinationVpc" => analysis_component(),
+    "VpcPeeringConnection" => analysis_component(),
+    "LoadBalancerTargetGroups" => list(analysis_component()()),
+    "SecurityGroups" => list(analysis_component()()),
+    "FirewallStatelessRule" => firewall_stateless_rule(),
+    "TransitGatewayAttachment" => analysis_component()
+  }
+  """
+  @type explanation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_nat_gateway_address_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxDrainDurationSeconds") => integer(),
+    required("AssociationIds") => list(String.t()()),
+    required("NatGatewayId") => String.t()
+  }
+  """
+  @type disassociate_nat_gateway_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  placement_group() :: %{
+    "GroupArn" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "PartitionCount" => integer(),
+    "SpreadLevel" => list(any()),
+    "State" => list(any()),
+    "Strategy" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type placement_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_identity_id_format_request() :: %{
+    required("PrincipalArn") => String.t(),
+    required("Resource") => String.t(),
+    required("UseLongIds") => boolean()
+  }
+  """
+  @type modify_identity_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_reachability_analyzer_organization_sharing_result() :: %{
+    "ReturnValue" => boolean()
+  }
+  """
+  @type enable_reachability_analyzer_organization_sharing_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_endpoint_connection_notifications_result() :: %{
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type delete_vpc_endpoint_connection_notifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_enclave_certificate_iam_role_result() :: %{
+    "CertificateS3BucketName" => String.t(),
+    "CertificateS3ObjectKey" => String.t(),
+    "EncryptionKmsKeyId" => String.t()
+  }
+  """
+  @type associate_enclave_certificate_iam_role_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_route_table_result() :: %{
+    "TransitGatewayRouteTable" => transit_gateway_route_table()
+  }
+  """
+  @type delete_transit_gateway_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_snapshot_block_public_access_state_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type get_snapshot_block_public_access_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ena_srd_udp_specification() :: %{
+    "EnaSrdUdpEnabled" => boolean()
+  }
+  """
+  @type ena_srd_udp_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleet_success_item() :: %{
+    "CurrentFleetState" => list(any()),
+    "FleetId" => String.t(),
+    "PreviousFleetState" => list(any())
+  }
+  """
+  @type delete_fleet_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_path_result() :: %{
+    "NetworkInsightsPathId" => String.t()
+  }
+  """
+  @type delete_network_insights_path_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_filter_result() :: %{
+    "TrafficMirrorFilterId" => String.t()
+  }
+  """
+  @type delete_traffic_mirror_filter_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_instance_status() :: %{
+    "Code" => String.t(),
+    "Message" => String.t(),
+    "UpdateTime" => non_neg_integer()
+  }
+  """
+  @type spot_instance_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_placement_groups_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("GroupIds") => list(String.t()()),
+    optional("GroupNames") => list(String.t()())
+  }
+  """
+  @type describe_placement_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  host_offering() :: %{
+    "CurrencyCode" => list(any()),
+    "Duration" => integer(),
+    "HourlyPrice" => String.t(),
+    "InstanceFamily" => String.t(),
+    "OfferingId" => String.t(),
+    "PaymentOption" => list(any()),
+    "UpfrontPrice" => String.t()
+  }
+  """
+  @type host_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_access_scope_analyses_result() :: %{
+    "NetworkInsightsAccessScopeAnalyses" => list(network_insights_access_scope_analysis()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_insights_access_scope_analyses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_network_interface() :: %{
+    "AssociatePublicIpAddress" => boolean(),
+    "DeleteOnTermination" => boolean(),
+    "Description" => String.t(),
+    "DeviceIndex" => integer(),
+    "Groups" => list(String.t()()),
+    "Ipv6AddressCount" => integer(),
+    "Ipv6Addresses" => list(scheduled_instances_ipv6_address()()),
+    "NetworkInterfaceId" => String.t(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateIpAddressConfigs" => list(scheduled_instances_private_ip_address_config()()),
+    "SecondaryPrivateIpAddressCount" => integer(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type scheduled_instances_network_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_ipam_organization_admin_account_result() :: %{
+    "Success" => boolean()
+  }
+  """
+  @type enable_ipam_organization_admin_account_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_uefi_data_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type get_instance_uefi_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_snapshot_block_public_access_result() :: %{
+    "State" => list(any())
+  }
+  """
+  @type enable_snapshot_block_public_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_authentication() :: %{
+    "ClientRootCertificateChain" => String.t()
+  }
+  """
+  @type certificate_authentication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_conversion_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ReasonMessage") => String.t(),
+    required("ConversionTaskId") => String.t()
+  }
+  """
+  @type cancel_conversion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_security_group_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("VpcId") => String.t(),
+    required("Description") => String.t(),
+    required("GroupName") => String.t()
+  }
+  """
+  @type create_security_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_connections_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_vpc_endpoint_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_fpga_image_attribute_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type reset_fpga_image_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_flow_logs_request() :: %{
+    optional("DryRun") => boolean(),
+    required("FlowLogIds") => list(String.t()())
+  }
+  """
+  @type delete_flow_logs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_aws_network_performance_metric_subscription_request() :: %{
+    optional("Destination") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Metric") => list(any()),
+    optional("Source") => String.t(),
+    optional("Statistic") => list(any())
+  }
+  """
+  @type disable_aws_network_performance_metric_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_insights_access_scope_analysis_findings_result() :: %{
+    "AnalysisFindings" => list(access_scope_analysis_finding()()),
+    "AnalysisStatus" => list(any()),
+    "NetworkInsightsAccessScopeAnalysisId" => String.t(),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_network_insights_access_scope_analysis_findings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_peering_attachments_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayAttachmentIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_peering_attachments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_security_group_references_result() :: %{
+    "SecurityGroupReferenceSet" => list(security_group_reference()())
+  }
+  """
+  @type describe_security_group_references_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_login_banner_response_options() :: %{
+    "BannerText" => String.t(),
+    "Enabled" => boolean()
+  }
+  """
+  @type client_login_banner_response_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_group_policy_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PolicyDocument") => String.t(),
+    optional("PolicyEnabled") => boolean(),
+    optional("SseSpecification") => verified_access_sse_specification_request(),
+    required("VerifiedAccessGroupId") => String.t()
+  }
+  """
+  @type modify_verified_access_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type cancel_capacity_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lock_snapshot_result() :: %{
+    "CoolOffPeriod" => integer(),
+    "CoolOffPeriodExpiresOn" => non_neg_integer(),
+    "LockCreatedOn" => non_neg_integer(),
+    "LockDuration" => integer(),
+    "LockDurationStartTime" => non_neg_integer(),
+    "LockExpiresOn" => non_neg_integer(),
+    "LockState" => list(any()),
+    "SnapshotId" => String.t()
+  }
+  """
+  @type lock_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_managed_prefix_list_entries_result() :: %{
+    "Entries" => list(prefix_list_entry()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_managed_prefix_list_entries_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_modifications_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("NextToken") => String.t(),
+    optional("ReservedInstancesModificationIds") => list(String.t()())
+  }
+  """
+  @type describe_reserved_instances_modifications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_types_from_instance_requirements_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ArchitectureTypes") => list(list(any())()),
+    required("InstanceRequirements") => instance_requirements_request(),
+    required("VirtualizationTypes") => list(list(any())())
+  }
+  """
+  @type get_instance_types_from_instance_requirements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_hosts_result() :: %{
+    "Hosts" => list(host()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_hosts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_registered_group_members() :: %{
+    "GroupIpAddress" => String.t(),
+    "RegisteredNetworkInterfaceIds" => list(String.t()()),
+    "TransitGatewayMulticastDomainId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_registered_group_members() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_session_result() :: %{
+    "ClientToken" => String.t(),
+    "TrafficMirrorSession" => traffic_mirror_session()
+  }
+  """
+  @type create_traffic_mirror_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_tracking_specification_request() :: %{
+    "TcpEstablishedTimeout" => integer(),
+    "UdpStreamTimeout" => integer(),
+    "UdpTimeout" => integer()
+  }
+  """
+  @type connection_tracking_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_vpc_cidr_block_request() :: %{
+    required("AssociationId") => String.t()
+  }
+  """
+  @type disassociate_vpc_cidr_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run_scheduled_instances_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("InstanceCount") => integer(),
+    required("LaunchSpecification") => scheduled_instances_launch_specification(),
+    required("ScheduledInstanceId") => String.t()
+  }
+  """
+  @type run_scheduled_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_trust_provider_condensed() :: %{
+    "Description" => String.t(),
+    "DeviceTrustProviderType" => list(any()),
+    "TrustProviderType" => list(any()),
+    "UserTrustProviderType" => list(any()),
+    "VerifiedAccessTrustProviderId" => String.t()
+  }
+  """
+  @type verified_access_trust_provider_condensed() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_group_type_pair() :: %{
+    "RuleGroupArn" => String.t(),
+    "RuleGroupType" => String.t()
+  }
+  """
+  @type rule_group_type_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv6_range() :: %{
+    "CidrIpv6" => String.t(),
+    "Description" => String.t()
+  }
+  """
+  @type ipv6_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_peering_connection_state_reason() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type vpc_peering_connection_state_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  credit_specification() :: %{
+    "CpuCredits" => String.t()
+  }
+  """
+  @type credit_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cloud_watch_log_options_specification() :: %{
+    "LogEnabled" => boolean(),
+    "LogGroupArn" => String.t(),
+    "LogOutputFormat" => String.t()
+  }
+  """
+  @type cloud_watch_log_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_discovery_failure_reason() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type ipam_discovery_failure_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase2_integrity_algorithms_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase2_integrity_algorithms_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_listings_result() :: %{
+    "ReservedInstancesListings" => list(reserved_instances_listing()())
+  }
+  """
+  @type describe_reserved_instances_listings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_request() :: %{
+    optional("AddRouteTableIds") => list(String.t()()),
+    optional("AddSecurityGroupIds") => list(String.t()()),
+    optional("AddSubnetIds") => list(String.t()()),
+    optional("DnsOptions") => dns_options_specification(),
+    optional("DryRun") => boolean(),
+    optional("IpAddressType") => list(any()),
+    optional("PolicyDocument") => String.t(),
+    optional("PrivateDnsEnabled") => boolean(),
+    optional("RemoveRouteTableIds") => list(String.t()()),
+    optional("RemoveSecurityGroupIds") => list(String.t()()),
+    optional("RemoveSubnetIds") => list(String.t()()),
+    optional("ResetPolicy") => boolean(),
+    optional("SubnetConfigurations") => list(subnet_configuration()()),
+    required("VpcEndpointId") => String.t()
+  }
+  """
+  @type modify_vpc_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fpga_device_info() :: %{
+    "Count" => integer(),
+    "Manufacturer" => String.t(),
+    "MemoryInfo" => fpga_device_memory_info(),
+    "Name" => String.t()
+  }
+  """
+  @type fpga_device_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_identity_id_format_request() :: %{
+    optional("Resource") => String.t(),
+    required("PrincipalArn") => String.t()
+  }
+  """
+  @type describe_identity_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_capacity_reservation_fleet_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EndDate") => non_neg_integer(),
+    optional("RemoveEndDate") => boolean(),
+    optional("TotalTargetCapacity") => integer(),
+    required("CapacityReservationFleetId") => String.t()
+  }
+  """
+  @type modify_capacity_reservation_fleet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_snapshot_restore_error_item() :: %{
+    "FastSnapshotRestoreStateErrors" => list(disable_fast_snapshot_restore_state_error_item()()),
+    "SnapshotId" => String.t()
+  }
+  """
+  @type disable_fast_snapshot_restore_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_subnet_cidr_reservation_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Cidr") => String.t(),
+    required("ReservationType") => list(any()),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type create_subnet_cidr_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_instance_requests_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SpotInstanceRequestIds") => list(String.t()())
+  }
+  """
+  @type cancel_spot_instance_requests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_scope_path_request() :: %{
+    "Destination" => path_statement_request(),
+    "Source" => path_statement_request(),
+    "ThroughResources" => list(through_resources_statement_request()())
+  }
+  """
+  @type access_scope_path_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_modifications_result() :: %{
+    "NextToken" => String.t(),
+    "ReservedInstancesModifications" => list(reserved_instances_modification()())
+  }
+  """
+  @type describe_reserved_instances_modifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route_table() :: %{
+    "CreationTime" => non_neg_integer(),
+    "DefaultAssociationRouteTable" => boolean(),
+    "DefaultPropagationRouteTable" => boolean(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayId" => String.t(),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_route_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_coip_pool_usage_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("PoolId") => String.t()
+  }
+  """
+  @type get_coip_pool_usage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_route_table_route() :: %{
+    "CarrierGatewayId" => String.t(),
+    "CoreNetworkArn" => String.t(),
+    "DestinationCidr" => String.t(),
+    "DestinationPrefixListId" => String.t(),
+    "EgressOnlyInternetGatewayId" => String.t(),
+    "GatewayId" => String.t(),
+    "InstanceId" => String.t(),
+    "LocalGatewayId" => String.t(),
+    "NatGatewayId" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "Origin" => String.t(),
+    "State" => String.t(),
+    "TransitGatewayId" => String.t(),
+    "VpcPeeringConnectionId" => String.t()
+  }
+  """
+  @type analysis_route_table_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_pool() :: %{
+    "AddressFamily" => list(any()),
+    "AllocationDefaultNetmaskLength" => integer(),
+    "AllocationMaxNetmaskLength" => integer(),
+    "AllocationMinNetmaskLength" => integer(),
+    "AllocationResourceTags" => list(ipam_resource_tag()()),
+    "AutoImport" => boolean(),
+    "AwsService" => list(any()),
+    "Description" => String.t(),
+    "IpamArn" => String.t(),
+    "IpamPoolArn" => String.t(),
+    "IpamPoolId" => String.t(),
+    "IpamRegion" => String.t(),
+    "IpamScopeArn" => String.t(),
+    "IpamScopeType" => list(any()),
+    "Locale" => String.t(),
+    "OwnerId" => String.t(),
+    "PoolDepth" => integer(),
+    "PublicIpSource" => list(any()),
+    "PubliclyAdvertisable" => boolean(),
+    "SourceIpamPoolId" => String.t(),
+    "SourceResource" => ipam_pool_source_resource(),
+    "State" => list(any()),
+    "StateMessage" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type ipam_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_connection_options_result() :: %{
+    "VpnConnection" => vpn_connection()
+  }
+  """
+  @type modify_vpn_connection_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_address_request() :: %{
+    optional("AssociationId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PublicIp") => String.t()
+  }
+  """
+  @type disassociate_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_iam_instance_profile_request() :: %{
+    required("IamInstanceProfile") => iam_instance_profile_specification(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type associate_iam_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inference_device_memory_info() :: %{
+    "SizeInMiB" => integer()
+  }
+  """
+  @type inference_device_memory_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_permission() :: %{
+    "Group" => list(any()),
+    "OrganizationArn" => String.t(),
+    "OrganizationalUnitArn" => String.t(),
+    "UserId" => String.t()
+  }
+  """
+  @type launch_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_stale_security_groups_result() :: %{
+    "NextToken" => String.t(),
+    "StaleSecurityGroupSet" => list(stale_security_group()())
+  }
+  """
+  @type describe_stale_security_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type delete_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_detail() :: %{
+    "Size" => float()
+  }
+  """
+  @type volume_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_table_virtual_interface_group_association_request() :: %{
+    optional("DryRun") => boolean(),
+    required("LocalGatewayRouteTableVirtualInterfaceGroupAssociationId") => String.t()
+  }
+  """
+  @type delete_local_gateway_route_table_virtual_interface_group_association_request() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  describe_managed_prefix_lists_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PrefixListIds") => list(String.t()())
+  }
+  """
+  @type describe_managed_prefix_lists_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_group_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessGroupId") => String.t()
+  }
+  """
+  @type delete_verified_access_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  classic_link_instance() :: %{
+    "Groups" => list(group_identifier()()),
+    "InstanceId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type classic_link_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  i_k_e_versions_request_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type i_k_e_versions_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_fleet_requests_response() :: %{
+    "SuccessfulFleetRequests" => list(cancel_spot_fleet_requests_success_item()()),
+    "UnsuccessfulFleetRequests" => list(cancel_spot_fleet_requests_error_item()())
+  }
+  """
+  @type cancel_spot_fleet_requests_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fast_launch_launch_template_specification_request() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "Version" => String.t()
+  }
+  """
+  @type fast_launch_launch_template_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_network_interface_attribute_request() :: %{
+    optional("Attachment") => network_interface_attachment_changes(),
+    optional("ConnectionTrackingSpecification") => connection_tracking_specification_request(),
+    optional("Description") => attribute_value(),
+    optional("DryRun") => boolean(),
+    optional("EnaSrdSpecification") => ena_srd_specification(),
+    optional("EnablePrimaryIpv6") => boolean(),
+    optional("Groups") => list(String.t()()),
+    optional("SourceDestCheck") => attribute_boolean_value(),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type modify_network_interface_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_nat_gateways_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filter") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NatGatewayIds") => list(String.t()()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_nat_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  move_byoip_cidr_to_ipam_result() :: %{
+    "ByoipCidr" => byoip_cidr()
+  }
+  """
+  @type move_byoip_cidr_to_ipam_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  traffic_mirror_filter() :: %{
+    "Description" => String.t(),
+    "EgressFilterRules" => list(traffic_mirror_filter_rule()()),
+    "IngressFilterRules" => list(traffic_mirror_filter_rule()()),
+    "NetworkServices" => list(list(any())()),
+    "Tags" => list(tag()()),
+    "TrafficMirrorFilterId" => String.t()
+  }
+  """
+  @type traffic_mirror_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_security_group_rules_request() :: %{
+    optional("DryRun") => boolean(),
+    required("GroupId") => String.t(),
+    required("SecurityGroupRules") => list(security_group_rule_update()())
+  }
+  """
+  @type modify_security_group_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_bundle_tasks_request() :: %{
+    optional("BundleIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()())
+  }
+  """
+  @type describe_bundle_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ebs_default_kms_key_id_result() :: %{
+    "KmsKeyId" => String.t()
+  }
+  """
+  @type modify_ebs_default_kms_key_id_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_traffic_mirror_filter_network_services_request() :: %{
+    optional("AddNetworkServices") => list(list(any())()),
+    optional("DryRun") => boolean(),
+    optional("RemoveNetworkServices") => list(list(any())()),
+    required("TrafficMirrorFilterId") => String.t()
+  }
+  """
+  @type modify_traffic_mirror_filter_network_services_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_credit_specifications_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_credit_specifications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_request() :: %{
+    optional("AmazonProvidedIpv6CidrBlock") => boolean(),
+    optional("CidrBlock") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("InstanceTenancy") => list(any()),
+    optional("Ipv4IpamPoolId") => String.t(),
+    optional("Ipv4NetmaskLength") => integer(),
+    optional("Ipv6CidrBlock") => String.t(),
+    optional("Ipv6CidrBlockNetworkBorderGroup") => String.t(),
+    optional("Ipv6IpamPoolId") => String.t(),
+    optional("Ipv6NetmaskLength") => integer(),
+    optional("Ipv6Pool") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replace_root_volume_tasks_result() :: %{
+    "NextToken" => String.t(),
+    "ReplaceRootVolumeTasks" => list(replace_root_volume_task()())
+  }
+  """
+  @type describe_replace_root_volume_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_specification_response() :: %{
+    "CapacityReservationPreference" => list(any()),
+    "CapacityReservationTarget" => capacity_reservation_target_response()
+  }
+  """
+  @type capacity_reservation_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_discovered_accounts_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("DiscoveryRegion") => String.t(),
+    required("IpamResourceDiscoveryId") => String.t()
+  }
+  """
+  @type get_ipam_discovered_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_associated_enclave_certificate_iam_roles_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CertificateArn") => String.t()
+  }
+  """
+  @type get_associated_enclave_certificate_iam_roles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run_instances_request() :: %{
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("CreditSpecification") => credit_specification_request(),
+    optional("MetadataOptions") => instance_metadata_options_request(),
+    optional("EnablePrimaryIpv6") => boolean(),
+    optional("BlockDeviceMappings") => list(block_device_mapping()()),
+    optional("ClientToken") => String.t(),
+    optional("InstanceInitiatedShutdownBehavior") => list(any()),
+    optional("LicenseSpecifications") => list(license_configuration_request()()),
+    optional("Ipv6AddressCount") => integer(),
+    optional("PrivateIpAddress") => String.t(),
+    optional("Ipv6Addresses") => list(instance_ipv6_address()()),
+    optional("Monitoring") => run_instances_monitoring_enabled(),
+    optional("KernelId") => String.t(),
+    optional("RamdiskId") => String.t(),
+    optional("ElasticGpuSpecification") => list(elastic_gpu_specification()()),
+    required("MinCount") => integer(),
+    optional("HibernationOptions") => hibernation_options_request(),
+    optional("MaintenanceOptions") => instance_maintenance_options_request(),
+    optional("KeyName") => String.t(),
+    optional("InstanceType") => list(any()),
+    optional("EbsOptimized") => boolean(),
+    optional("CapacityReservationSpecification") => capacity_reservation_specification(),
+    optional("AdditionalInfo") => String.t(),
+    optional("DisableApiStop") => boolean(),
+    optional("UserData") => String.t(),
+    optional("DisableApiTermination") => boolean(),
+    optional("CpuOptions") => cpu_options_request(),
+    optional("DryRun") => boolean(),
+    optional("SecurityGroups") => list(String.t()()),
+    optional("Placement") => placement(),
+    optional("PrivateDnsNameOptions") => private_dns_name_options_request(),
+    optional("SubnetId") => String.t(),
+    optional("IamInstanceProfile") => iam_instance_profile_specification(),
+    optional("EnclaveOptions") => enclave_options_request(),
+    optional("ImageId") => String.t(),
+    optional("LaunchTemplate") => launch_template_specification(),
+    optional("InstanceMarketOptions") => instance_market_options_request(),
+    required("MaxCount") => integer(),
+    optional("NetworkInterfaces") => list(instance_network_interface_specification()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("ElasticInferenceAccelerators") => list(elastic_inference_accelerator()())
+  }
+  """
+  @type run_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_gpus() :: %{
+    "AvailabilityZone" => String.t(),
+    "ElasticGpuHealth" => elastic_gpu_health(),
+    "ElasticGpuId" => String.t(),
+    "ElasticGpuState" => list(any()),
+    "ElasticGpuType" => String.t(),
+    "InstanceId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type elastic_gpus() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_service_configuration_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_vpc_endpoint_service_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_result() :: %{
+    "Route" => local_gateway_route()
+  }
+  """
+  @type create_local_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_attachment_ena_srd_specification() :: %{
+    "EnaSrdEnabled" => boolean(),
+    "EnaSrdUdpSpecification" => instance_attachment_ena_srd_udp_specification()
+  }
+  """
+  @type instance_attachment_ena_srd_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_transit_gateway_route_table_propagation_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    optional("TransitGatewayRouteTableAnnouncementId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type disable_transit_gateway_route_table_propagation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_task_detail() :: %{
+    "Description" => String.t(),
+    "DiskImageSize" => float(),
+    "Encrypted" => boolean(),
+    "Format" => String.t(),
+    "KmsKeyId" => String.t(),
+    "Progress" => String.t(),
+    "SnapshotId" => String.t(),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Url" => String.t(),
+    "UserBucket" => user_bucket_details()
+  }
+  """
+  @type snapshot_task_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_private_ip_address_config() :: %{
+    "Primary" => boolean(),
+    "PrivateIpAddress" => String.t()
+  }
+  """
+  @type scheduled_instances_private_ip_address_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  traffic_mirror_filter_rule() :: %{
+    "Description" => String.t(),
+    "DestinationCidrBlock" => String.t(),
+    "DestinationPortRange" => traffic_mirror_port_range(),
+    "Protocol" => integer(),
+    "RuleAction" => list(any()),
+    "RuleNumber" => integer(),
+    "SourceCidrBlock" => String.t(),
+    "SourcePortRange" => traffic_mirror_port_range(),
+    "TrafficDirection" => list(any()),
+    "TrafficMirrorFilterId" => String.t(),
+    "TrafficMirrorFilterRuleId" => String.t()
+  }
+  """
+  @type traffic_mirror_filter_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_fleet_requests_error() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type cancel_spot_fleet_requests_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_capacity_reservations_result() :: %{
+    "CapacityReservations" => list(capacity_reservation()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_capacity_reservations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("FleetId") => String.t()
+  }
+  """
+  @type describe_fleet_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("ImageId") => String.t()
+  }
+  """
+  @type describe_image_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_trust_provider_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessTrustProviderId") => String.t()
+  }
+  """
+  @type delete_verified_access_trust_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_classic_link_dns_support_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VpcIds") => list(String.t()())
+  }
+  """
+  @type describe_vpc_classic_link_dns_support_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_discovered_resource_cidrs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("IpamResourceDiscoveryId") => String.t(),
+    required("ResourceRegion") => String.t()
+  }
+  """
+  @type get_ipam_discovered_resource_cidrs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fast_launch_snapshot_configuration_request() :: %{
+    "TargetResourceCount" => integer()
+  }
+  """
+  @type fast_launch_snapshot_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_table_virtual_interface_group_association_result() :: %{
+    "LocalGatewayRouteTableVirtualInterfaceGroupAssociation" => local_gateway_route_table_virtual_interface_group_association()
+  }
+  """
+  @type delete_local_gateway_route_table_virtual_interface_group_association_result() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  modify_capacity_reservation_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_capacity_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_local_gateway_routes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("LocalGatewayRouteTableId") => String.t()
+  }
+  """
+  @type search_local_gateway_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_placement_group_result() :: %{
+    "PlacementGroup" => placement_group()
+  }
+  """
+  @type create_placement_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  confirm_product_instance_result() :: %{
+    "OwnerId" => String.t(),
+    "Return" => boolean()
+  }
+  """
+  @type confirm_product_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  history_record_entry() :: %{
+    "EventInformation" => event_information(),
+    "EventType" => list(any()),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type history_record_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_topology() :: %{
+    "AvailabilityZone" => String.t(),
+    "GroupName" => String.t(),
+    "InstanceId" => String.t(),
+    "InstanceType" => String.t(),
+    "NetworkNodes" => list(String.t()()),
+    "ZoneId" => String.t()
+  }
+  """
+  @type instance_topology() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter_port_range() :: %{
+    "FromPort" => integer(),
+    "ToPort" => integer()
+  }
+  """
+  @type filter_port_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_info() :: %{
+    "Description" => String.t(),
+    "Encrypted" => boolean(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "Progress" => String.t(),
+    "SnapshotId" => String.t(),
+    "SseType" => list(any()),
+    "StartTime" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "VolumeId" => String.t(),
+    "VolumeSize" => integer()
+  }
+  """
+  @type snapshot_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_bucket_details() :: %{
+    "S3Bucket" => String.t(),
+    "S3Key" => String.t()
+  }
+  """
+  @type user_bucket_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_image_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type enable_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_endpoint() :: %{
+    "ApplicationDomain" => String.t(),
+    "AttachmentType" => list(any()),
+    "CreationTime" => String.t(),
+    "DeletionTime" => String.t(),
+    "Description" => String.t(),
+    "DeviceValidationDomain" => String.t(),
+    "DomainCertificateArn" => String.t(),
+    "EndpointDomain" => String.t(),
+    "EndpointType" => list(any()),
+    "LastUpdatedTime" => String.t(),
+    "LoadBalancerOptions" => verified_access_endpoint_load_balancer_options(),
+    "NetworkInterfaceOptions" => verified_access_endpoint_eni_options(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SseSpecification" => verified_access_sse_specification_response(),
+    "Status" => verified_access_endpoint_status(),
+    "Tags" => list(tag()()),
+    "VerifiedAccessEndpointId" => String.t(),
+    "VerifiedAccessGroupId" => String.t(),
+    "VerifiedAccessInstanceId" => String.t()
+  }
+  """
+  @type verified_access_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_address_history_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EndTime") => non_neg_integer(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StartTime") => non_neg_integer(),
+    optional("VpcId") => String.t(),
+    required("Cidr") => String.t(),
+    required("IpamScopeId") => String.t()
+  }
+  """
+  @type get_ipam_address_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_image_deprecation_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type enable_image_deprecation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_instance_logging_configurations_result() :: %{
+    "LoggingConfigurations" => list(verified_access_instance_logging_configuration()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_verified_access_instance_logging_configurations_result() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  describe_scheduled_instance_availability_result() :: %{
+    "NextToken" => String.t(),
+    "ScheduledInstanceAvailabilitySet" => list(scheduled_instance_availability()())
+  }
+  """
+  @type describe_scheduled_instance_availability_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_snapshot_from_recycle_bin_result() :: %{
+    "Description" => String.t(),
+    "Encrypted" => boolean(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "Progress" => String.t(),
+    "SnapshotId" => String.t(),
+    "SseType" => list(any()),
+    "StartTime" => non_neg_integer(),
+    "State" => list(any()),
+    "VolumeId" => String.t(),
+    "VolumeSize" => integer()
+  }
+  """
+  @type restore_snapshot_from_recycle_bin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_route_request() :: %{
+    optional("CarrierGatewayId") => String.t(),
+    optional("CoreNetworkArn") => String.t(),
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationIpv6CidrBlock") => String.t(),
+    optional("DestinationPrefixListId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EgressOnlyInternetGatewayId") => String.t(),
+    optional("GatewayId") => String.t(),
+    optional("InstanceId") => String.t(),
+    optional("LocalGatewayId") => String.t(),
+    optional("LocalTarget") => boolean(),
+    optional("NatGatewayId") => String.t(),
+    optional("NetworkInterfaceId") => String.t(),
+    optional("TransitGatewayId") => String.t(),
+    optional("VpcEndpointId") => String.t(),
+    optional("VpcPeeringConnectionId") => String.t(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type replace_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_tracking_specification_response() :: %{
+    "TcpEstablishedTimeout" => integer(),
+    "UdpStreamTimeout" => integer(),
+    "UdpTimeout" => integer()
+  }
+  """
+  @type connection_tracking_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  move_byoip_cidr_to_ipam_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t(),
+    required("IpamPoolId") => String.t(),
+    required("IpamPoolOwner") => String.t()
+  }
+  """
+  @type move_byoip_cidr_to_ipam_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_connect_peer() :: %{
+    "ConnectPeerConfiguration" => transit_gateway_connect_peer_configuration(),
+    "CreationTime" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayConnectPeerId" => String.t()
+  }
+  """
+  @type transit_gateway_connect_peer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_serial_console_access_status_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type get_serial_console_access_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_status_result() :: %{
+    "InstanceStatuses" => list(instance_status()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_endpoint_eni_options() :: %{
+    "NetworkInterfaceId" => String.t(),
+    "Port" => integer(),
+    "Protocol" => list(any())
+  }
+  """
+  @type create_verified_access_endpoint_eni_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam() :: %{
+    "DefaultResourceDiscoveryAssociationId" => String.t(),
+    "DefaultResourceDiscoveryId" => String.t(),
+    "Description" => String.t(),
+    "IpamArn" => String.t(),
+    "IpamId" => String.t(),
+    "IpamRegion" => String.t(),
+    "OperatingRegions" => list(ipam_operating_region()()),
+    "OwnerId" => String.t(),
+    "PrivateDefaultScopeId" => String.t(),
+    "PublicDefaultScopeId" => String.t(),
+    "ResourceDiscoveryAssociationCount" => integer(),
+    "ScopeCount" => integer(),
+    "State" => list(any()),
+    "StateMessage" => String.t(),
+    "Tags" => list(tag()()),
+    "Tier" => list(any())
+  }
+  """
+  @type ipam() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_egress_only_internet_gateways_result() :: %{
+    "EgressOnlyInternetGateways" => list(egress_only_internet_gateway()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_egress_only_internet_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_peering_connection_vpc_info() :: %{
+    "CidrBlock" => String.t(),
+    "CidrBlockSet" => list(cidr_block()()),
+    "Ipv6CidrBlockSet" => list(ipv6_cidr_block()()),
+    "OwnerId" => String.t(),
+    "PeeringOptions" => vpc_peering_connection_options_description(),
+    "Region" => String.t(),
+    "VpcId" => String.t()
+  }
+  """
+  @type vpc_peering_connection_vpc_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_image_result() :: %{
+    "Architecture" => String.t(),
+    "Description" => String.t(),
+    "Encrypted" => boolean(),
+    "Hypervisor" => String.t(),
+    "ImageId" => String.t(),
+    "ImportTaskId" => String.t(),
+    "KmsKeyId" => String.t(),
+    "LicenseSpecifications" => list(import_image_license_configuration_response()()),
+    "LicenseType" => String.t(),
+    "Platform" => String.t(),
+    "Progress" => String.t(),
+    "SnapshotDetails" => list(snapshot_detail()()),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()()),
+    "UsageOperation" => String.t()
+  }
+  """
+  @type import_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_tenancy_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceTenancy") => list(any()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type modify_vpc_tenancy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replace_root_volume_task_result() :: %{
+    "ReplaceRootVolumeTask" => replace_root_volume_task()
+  }
+  """
+  @type create_replace_root_volume_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_import_task_result() :: %{
+    "ImportTaskId" => String.t(),
+    "PreviousState" => String.t(),
+    "State" => String.t()
+  }
+  """
+  @type cancel_import_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_ipv6_address_request() :: %{
+    "Ipv6Address" => String.t()
+  }
+  """
+  @type instance_ipv6_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_identifier() :: %{
+    "GroupId" => String.t(),
+    "GroupName" => String.t()
+  }
+  """
+  @type group_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_transit_gateway_multicast_domain_associations_result() :: %{
+    "Associations" => transit_gateway_multicast_domain_associations()
+  }
+  """
+  @type accept_transit_gateway_multicast_domain_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_hosts_request() :: %{
+    optional("Filter") => list(filter()()),
+    optional("HostIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_hosts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_target_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("GatewayLoadBalancerEndpointId") => String.t(),
+    optional("NetworkInterfaceId") => String.t(),
+    optional("NetworkLoadBalancerArn") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_traffic_mirror_target_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_capacity_block_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("CapacityBlockOfferingId") => String.t(),
+    required("InstancePlatform") => list(any())
+  }
+  """
+  @type purchase_capacity_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_event_window_request() :: %{
+    optional("CronExpression") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Name") => String.t(),
+    optional("TimeRanges") => list(instance_event_window_time_range_request()()),
+    required("InstanceEventWindowId") => String.t()
+  }
+  """
+  @type modify_instance_event_window_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_authentication_request() :: %{
+    "ClientRootCertificateChainArn" => String.t()
+  }
+  """
+  @type certificate_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_operating_region() :: %{
+    "RegionName" => String.t()
+  }
+  """
+  @type ipam_operating_region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_snapshot_tier_result() :: %{
+    "SnapshotId" => String.t(),
+    "TieringStartTime" => non_neg_integer()
+  }
+  """
+  @type modify_snapshot_tier_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_fleet_tag_specification() :: %{
+    "ResourceType" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type spot_fleet_tag_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_hosts_result() :: %{
+    "Successful" => list(String.t()()),
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type modify_hosts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_transit_gateway_route_table_propagation_result() :: %{
+    "Propagation" => transit_gateway_propagation()
+  }
+  """
+  @type enable_transit_gateway_route_table_propagation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpn_connection_device_types_result() :: %{
+    "NextToken" => String.t(),
+    "VpnConnectionDeviceTypes" => list(vpn_connection_device_type()())
+  }
+  """
+  @type get_vpn_connection_device_types_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_fleets_result() :: %{
+    "FailedFleetCancellations" => list(failed_capacity_reservation_fleet_cancellation_result()()),
+    "SuccessfulFleetCancellations" => list(capacity_reservation_fleet_cancellation_state()())
+  }
+  """
+  @type cancel_capacity_reservation_fleets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_packet_header() :: %{
+    "DestinationAddresses" => list(String.t()()),
+    "DestinationPortRanges" => list(port_range()()),
+    "Protocol" => String.t(),
+    "SourceAddresses" => list(String.t()()),
+    "SourcePortRanges" => list(port_range()())
+  }
+  """
+  @type analysis_packet_header() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_service_authentication_request() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type directory_service_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_key_pair_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("KeyName") => String.t(),
+    optional("KeyPairId") => String.t()
+  }
+  """
+  @type delete_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_snapshots_request() :: %{
+    optional("CopyTagsFromSource") => list(any()),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("OutpostArn") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("InstanceSpecification") => instance_specification()
+  }
+  """
+  @type create_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assign_private_ip_addresses_request() :: %{
+    optional("AllowReassignment") => boolean(),
+    optional("Ipv4PrefixCount") => integer(),
+    optional("Ipv4Prefixes") => list(String.t()()),
+    optional("PrivateIpAddresses") => list(String.t()()),
+    optional("SecondaryPrivateIpAddressCount") => integer(),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type assign_private_ip_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_classic_link_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_classic_link_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpn_connection_device_types_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type get_vpn_connection_device_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_discovered_public_addresses_result() :: %{
+    "IpamDiscoveredPublicAddresses" => list(ipam_discovered_public_address()()),
+    "NextToken" => String.t(),
+    "OldestSampleTime" => non_neg_integer()
+  }
+  """
+  @type get_ipam_discovered_public_addresses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_to_s3_task_specification() :: %{
+    "ContainerFormat" => list(any()),
+    "DiskImageFormat" => list(any()),
+    "S3Bucket" => String.t(),
+    "S3Prefix" => String.t()
+  }
+  """
+  @type export_to_s3_task_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assign_private_nat_gateway_address_result() :: %{
+    "NatGatewayAddresses" => list(nat_gateway_address()()),
+    "NatGatewayId" => String.t()
+  }
+  """
+  @type assign_private_nat_gateway_address_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_id_format_request() :: %{
+    optional("Resource") => String.t()
+  }
+  """
+  @type describe_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_route_table_announcements_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayRouteTableAnnouncementIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_route_table_announcements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_image_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("RoleName") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("DiskImageFormat") => list(any()),
+    required("ImageId") => String.t(),
+    required("S3ExportLocation") => export_task_s3_location_request()
+  }
+  """
+  @type export_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_identity_id_format_result() :: %{
+    "Statuses" => list(id_format()())
+  }
+  """
+  @type describe_identity_id_format_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_attachment_ena_srd_udp_specification() :: %{
+    "EnaSrdUdpEnabled" => boolean()
+  }
+  """
+  @type instance_attachment_ena_srd_udp_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_endpoint_load_balancer_options() :: %{
+    "Port" => integer(),
+    "Protocol" => list(any()),
+    "SubnetIds" => list(String.t()())
+  }
+  """
+  @type modify_verified_access_endpoint_load_balancer_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_managed_prefix_list_request() :: %{
+    optional("AddEntries") => list(add_prefix_list_entry()()),
+    optional("CurrentVersion") => float(),
+    optional("DryRun") => boolean(),
+    optional("MaxEntries") => integer(),
+    optional("PrefixListName") => String.t(),
+    optional("RemoveEntries") => list(remove_prefix_list_entry()()),
+    required("PrefixListId") => String.t()
+  }
+  """
+  @type modify_managed_prefix_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_cpu_options() :: %{
+    "AmdSevSnp" => list(any()),
+    "CoreCount" => integer(),
+    "ThreadsPerCore" => integer()
+  }
+  """
+  @type launch_template_cpu_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attachment_ena_srd_specification() :: %{
+    "EnaSrdEnabled" => boolean(),
+    "EnaSrdUdpSpecification" => attachment_ena_srd_udp_specification()
+  }
+  """
+  @type attachment_ena_srd_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_byoip_cidrs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("NextToken") => String.t(),
+    required("MaxResults") => integer()
+  }
+  """
+  @type describe_byoip_cidrs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_insights_access_scope_content() :: %{
+    "ExcludePaths" => list(access_scope_path()()),
+    "MatchPaths" => list(access_scope_path()()),
+    "NetworkInsightsAccessScopeId" => String.t()
+  }
+  """
+  @type network_insights_access_scope_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_insights_path_result() :: %{
+    "NetworkInsightsPath" => network_insights_path()
+  }
+  """
+  @type create_network_insights_path_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_transit_gateway_vpc_attachment_result() :: %{
+    "TransitGatewayVpcAttachment" => transit_gateway_vpc_attachment()
+  }
+  """
+  @type reject_transit_gateway_vpc_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_attribute_request() :: %{
+    optional("Attribute") => list(any()),
+    optional("BlockDeviceMappings") => list(instance_block_device_mapping_specification()()),
+    optional("DisableApiStop") => attribute_boolean_value(),
+    optional("DisableApiTermination") => attribute_boolean_value(),
+    optional("DryRun") => boolean(),
+    optional("EbsOptimized") => attribute_boolean_value(),
+    optional("EnaSupport") => attribute_boolean_value(),
+    optional("Groups") => list(String.t()()),
+    optional("InstanceInitiatedShutdownBehavior") => attribute_value(),
+    optional("InstanceType") => attribute_value(),
+    optional("Kernel") => attribute_value(),
+    optional("Ramdisk") => attribute_value(),
+    optional("SourceDestCheck") => attribute_boolean_value(),
+    optional("SriovNetSupport") => attribute_value(),
+    optional("UserData") => blob_attribute_value(),
+    optional("Value") => String.t(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type modify_instance_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_import_snapshot_tasks_result() :: %{
+    "ImportSnapshotTasks" => list(import_snapshot_task()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_import_snapshot_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_ipam_resource_discovery_result() :: %{
+    "IpamResourceDiscoveryAssociation" => ipam_resource_discovery_association()
+  }
+  """
+  @type associate_ipam_resource_discovery_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_group_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("VerifiedAccessInstanceId") => String.t(),
+    required("VerifiedAccessGroupId") => String.t()
+  }
+  """
+  @type modify_verified_access_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_instance_logging_configurations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VerifiedAccessInstanceIds") => list(String.t()())
+  }
+  """
+  @type describe_verified_access_instance_logging_configurations_request() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  ipv6_prefix_specification_request() :: %{
+    "Ipv6Prefix" => String.t()
+  }
+  """
+  @type ipv6_prefix_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_acl_entry_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Egress") => boolean(),
+    required("NetworkAclId") => String.t(),
+    required("RuleNumber") => integer()
+  }
+  """
+  @type delete_network_acl_entry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route_table_propagation() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "State" => list(any()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayRouteTableAnnouncementId" => String.t()
+  }
+  """
+  @type transit_gateway_route_table_propagation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_launch_template_specification_request() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "Version" => String.t()
+  }
+  """
+  @type fleet_launch_template_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_flow_logs_result() :: %{
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type delete_flow_logs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_address_history_record() :: %{
+    "ResourceCidr" => String.t(),
+    "ResourceComplianceStatus" => list(any()),
+    "ResourceId" => String.t(),
+    "ResourceName" => String.t(),
+    "ResourceOverlapStatus" => list(any()),
+    "ResourceOwnerId" => String.t(),
+    "ResourceRegion" => String.t(),
+    "ResourceType" => list(any()),
+    "SampledEndTime" => non_neg_integer(),
+    "SampledStartTime" => non_neg_integer(),
+    "VpcId" => String.t()
+  }
+  """
+  @type ipam_address_history_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_security_group_rules_result() :: %{
+    "NextToken" => String.t(),
+    "SecurityGroupRules" => list(security_group_rule()())
+  }
+  """
+  @type describe_security_group_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_moving_addresses_result() :: %{
+    "MovingAddressStatuses" => list(moving_address_status()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_moving_addresses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_instance_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessInstanceId") => String.t()
+  }
+  """
+  @type modify_verified_access_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enclave_options_request() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type enclave_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_group() :: %{
+    "GroupArn" => String.t(),
+    "OwnerId" => String.t()
+  }
+  """
+  @type capacity_reservation_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_subnet_cidr_reservations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type get_subnet_cidr_reservations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_coip_pools_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PoolIds") => list(String.t()())
+  }
+  """
+  @type describe_coip_pools_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_route_tables_result() :: %{
+    "NextToken" => String.t(),
+    "RouteTables" => list(route_table()())
+  }
+  """
+  @type describe_route_tables_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_volume_result() :: %{
+    "ConversionTask" => conversion_task()
+  }
+  """
+  @type import_volume_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_coip_cidr_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t(),
+    required("CoipPoolId") => String.t()
+  }
+  """
+  @type create_coip_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_security_groups_for_vpc_result() :: %{
+    "NextToken" => String.t(),
+    "SecurityGroupForVpcs" => list(security_group_for_vpc()())
+  }
+  """
+  @type get_security_groups_for_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_filter_rule_result() :: %{
+    "ClientToken" => String.t(),
+    "TrafficMirrorFilterRule" => traffic_mirror_filter_rule()
+  }
+  """
+  @type create_traffic_mirror_filter_rule_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_elastic_inference_accelerator() :: %{
+    "Count" => integer(),
+    "Type" => String.t()
+  }
+  """
+  @type launch_template_elastic_inference_accelerator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_network_interface_specification() :: %{
+    "AssociateCarrierIpAddress" => boolean(),
+    "AssociatePublicIpAddress" => boolean(),
+    "ConnectionTrackingSpecification" => connection_tracking_specification(),
+    "DeleteOnTermination" => boolean(),
+    "Description" => String.t(),
+    "DeviceIndex" => integer(),
+    "EnaSrdSpecification" => launch_template_ena_srd_specification(),
+    "Groups" => list(String.t()()),
+    "InterfaceType" => String.t(),
+    "Ipv4PrefixCount" => integer(),
+    "Ipv4Prefixes" => list(ipv4_prefix_specification_response()()),
+    "Ipv6AddressCount" => integer(),
+    "Ipv6Addresses" => list(instance_ipv6_address()()),
+    "Ipv6PrefixCount" => integer(),
+    "Ipv6Prefixes" => list(ipv6_prefix_specification_response()()),
+    "NetworkCardIndex" => integer(),
+    "NetworkInterfaceId" => String.t(),
+    "PrimaryIpv6" => boolean(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateIpAddresses" => list(private_ip_address_specification()()),
+    "SecondaryPrivateIpAddressCount" => integer(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type launch_template_instance_network_interface_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associated_role() :: %{
+    "AssociatedRoleArn" => String.t(),
+    "CertificateS3BucketName" => String.t(),
+    "CertificateS3ObjectKey" => String.t(),
+    "EncryptionKmsKeyId" => String.t()
+  }
+  """
+  @type associated_role() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_iam_instance_profile_specification() :: %{
+    "Arn" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type launch_template_iam_instance_profile_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_gpu_health() :: %{
+    "Status" => list(any())
+  }
+  """
+  @type elastic_gpu_health() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_transit_gateway_policy_table_result() :: %{
+    "Association" => transit_gateway_policy_table_association()
+  }
+  """
+  @type disassociate_transit_gateway_policy_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_route_request() :: %{
+    optional("DryRun") => boolean(),
+    required("DestinationCidrBlock") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_reserved_instances_exchange_quote_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TargetConfigurations") => list(target_configuration_request()()),
+    required("ReservedInstanceIds") => list(String.t()())
+  }
+  """
+  @type get_reserved_instances_exchange_quote_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_resource_discovery() :: %{
+    "Description" => String.t(),
+    "IpamResourceDiscoveryArn" => String.t(),
+    "IpamResourceDiscoveryId" => String.t(),
+    "IpamResourceDiscoveryRegion" => String.t(),
+    "IsDefault" => boolean(),
+    "OperatingRegions" => list(ipam_operating_region()()),
+    "OwnerId" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type ipam_resource_discovery() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_snapshot_restores_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AvailabilityZones") => list(String.t()()),
+    required("SourceSnapshotIds") => list(String.t()())
+  }
+  """
+  @type enable_fast_snapshot_restores_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_endpoints_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcEndpointIds") => list(String.t()())
+  }
+  """
+  @type delete_vpc_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateways_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGateways" => list(transit_gateway()())
+  }
+  """
+  @type describe_transit_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_vpc_cidr_block_result() :: %{
+    "CidrBlockAssociation" => vpc_cidr_block_association(),
+    "Ipv6CidrBlockAssociation" => vpc_ipv6_cidr_block_association(),
+    "VpcId" => String.t()
+  }
+  """
+  @type associate_vpc_cidr_block_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_managed_prefix_list_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("PrefixListId") => String.t()
+  }
+  """
+  @type get_managed_prefix_list_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_principal_id_format_result() :: %{
+    "NextToken" => String.t(),
+    "Principals" => list(principal_id_format()())
+  }
+  """
+  @type describe_principal_id_format_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_maintenance_options_request() :: %{
+    optional("AutoRecovery") => list(any()),
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type modify_instance_maintenance_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  placement_group_info() :: %{
+    "SupportedStrategies" => list(list(any())())
+  }
+  """
+  @type placement_group_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_capacity_reservation_fleet_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_capacity_reservation_fleet_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_price_history_result() :: %{
+    "NextToken" => String.t(),
+    "SpotPriceHistory" => list(spot_price()())
+  }
+  """
+  @type describe_spot_price_history_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_volume_result() :: %{
+    "VolumeModification" => volume_modification()
+  }
+  """
+  @type modify_volume_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_virtual_interfaces_result() :: %{
+    "LocalGatewayVirtualInterfaces" => list(local_gateway_virtual_interface()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_local_gateway_virtual_interfaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_addresses_request() :: %{
+    optional("AllocationIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("PublicIps") => list(String.t()())
+  }
+  """
+  @type describe_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_connection() :: %{
+    "Category" => String.t(),
+    "CoreNetworkArn" => String.t(),
+    "CoreNetworkAttachmentArn" => String.t(),
+    "CustomerGatewayConfiguration" => String.t(),
+    "CustomerGatewayId" => String.t(),
+    "GatewayAssociationState" => list(any()),
+    "Options" => vpn_connection_options(),
+    "Routes" => list(vpn_static_route()()),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayId" => String.t(),
+    "Type" => list(any()),
+    "VgwTelemetry" => list(vgw_telemetry()()),
+    "VpnConnectionId" => String.t(),
+    "VpnGatewayId" => String.t()
+  }
+  """
+  @type vpn_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_data() :: %{
+    "Data" => String.t()
+  }
+  """
+  @type user_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  available_capacity() :: %{
+    "AvailableInstanceCapacity" => list(instance_capacity()()),
+    "AvailableVCpus" => integer()
+  }
+  """
+  @type available_capacity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_pool_cidrs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type get_ipam_pool_cidrs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_instance_requests_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SpotInstanceRequestIds") => list(String.t()())
+  }
+  """
+  @type describe_spot_instance_requests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_default_vpc_result() :: %{
+    "Vpc" => vpc()
+  }
+  """
+  @type create_default_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_tag_specification_request() :: %{
+    "ResourceType" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type launch_template_tag_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_table_virtual_interface_group_association_result() :: %{
+    "LocalGatewayRouteTableVirtualInterfaceGroupAssociation" => local_gateway_route_table_virtual_interface_group_association()
+  }
+  """
+  @type create_local_gateway_route_table_virtual_interface_group_association_result() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_result() :: %{
+    "Vpc" => vpc()
+  }
+  """
+  @type create_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_ipam_pool_cidr_result() :: %{
+    "IpamPoolCidr" => ipam_pool_cidr()
+  }
+  """
+  @type deprovision_ipam_pool_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_root_volume_task() :: %{
+    "CompleteTime" => String.t(),
+    "DeleteReplacedRootVolume" => boolean(),
+    "ImageId" => String.t(),
+    "InstanceId" => String.t(),
+    "ReplaceRootVolumeTaskId" => String.t(),
+    "SnapshotId" => String.t(),
+    "StartTime" => String.t(),
+    "Tags" => list(tag()()),
+    "TaskState" => list(any())
+  }
+  """
+  @type replace_root_volume_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_network() :: %{
+    "AssociationId" => String.t(),
+    "ClientVpnEndpointId" => String.t(),
+    "SecurityGroups" => list(String.t()()),
+    "Status" => association_status(),
+    "TargetNetworkId" => String.t(),
+    "VpcId" => String.t()
+  }
+  """
+  @type target_network() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_table_vpc_association_result() :: %{
+    "LocalGatewayRouteTableVpcAssociation" => local_gateway_route_table_vpc_association()
+  }
+  """
+  @type delete_local_gateway_route_table_vpc_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  byoasn() :: %{
+    "Asn" => String.t(),
+    "IpamId" => String.t(),
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type byoasn() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_endpoint_eni_options() :: %{
+    "Port" => integer(),
+    "Protocol" => list(any())
+  }
+  """
+  @type modify_verified_access_endpoint_eni_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_verified_access_trust_provider_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessInstanceId") => String.t(),
+    required("VerifiedAccessTrustProviderId") => String.t()
+  }
+  """
+  @type attach_verified_access_trust_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_connect_peer_result() :: %{
+    "TransitGatewayConnectPeer" => transit_gateway_connect_peer()
+  }
+  """
+  @type delete_transit_gateway_connect_peer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_transit_gateway_multicast_groups_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type search_transit_gateway_multicast_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cidr_block() :: %{
+    "CidrBlock" => String.t()
+  }
+  """
+  @type cidr_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_domain_association() :: %{
+    "ResourceId" => String.t(),
+    "ResourceOwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "Subnet" => subnet_association(),
+    "TransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_domain_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_trunk_interface_associations_result() :: %{
+    "InterfaceAssociations" => list(trunk_interface_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_trunk_interface_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_internet_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_internet_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_result() :: %{
+    "ReservedInstances" => list(reserved_instances()())
+  }
+  """
+  @type describe_reserved_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  credit_specification_request() :: %{
+    "CpuCredits" => String.t()
+  }
+  """
+  @type credit_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_fleet_launch_specification() :: %{
+    "AddressingType" => String.t(),
+    "BlockDeviceMappings" => list(block_device_mapping()()),
+    "EbsOptimized" => boolean(),
+    "IamInstanceProfile" => iam_instance_profile_specification(),
+    "ImageId" => String.t(),
+    "InstanceRequirements" => instance_requirements(),
+    "InstanceType" => list(any()),
+    "KernelId" => String.t(),
+    "KeyName" => String.t(),
+    "Monitoring" => spot_fleet_monitoring(),
+    "NetworkInterfaces" => list(instance_network_interface_specification()()),
+    "Placement" => spot_placement(),
+    "RamdiskId" => String.t(),
+    "SecurityGroups" => list(group_identifier()()),
+    "SpotPrice" => String.t(),
+    "SubnetId" => String.t(),
+    "TagSpecifications" => list(spot_fleet_tag_specification()()),
+    "UserData" => String.t(),
+    "WeightedCapacity" => float()
+  }
+  """
+  @type spot_fleet_launch_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_connect_options() :: %{
+    "Protocol" => list(any())
+  }
+  """
+  @type transit_gateway_connect_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_authorization_rules_result() :: %{
+    "AuthorizationRules" => list(authorization_rule()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_client_vpn_authorization_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_reserved_instances_exchange_quote_result() :: %{
+    "ExchangeId" => String.t()
+  }
+  """
+  @type accept_reserved_instances_exchange_quote_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_placement_score() :: %{
+    "AvailabilityZoneId" => String.t(),
+    "Region" => String.t(),
+    "Score" => integer()
+  }
+  """
+  @type spot_placement_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_instances_result() :: %{
+    "ActiveInstances" => list(active_instance()()),
+    "FleetId" => String.t(),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleet_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_endpoint_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LoadBalancerOptions") => modify_verified_access_endpoint_load_balancer_options(),
+    optional("NetworkInterfaceOptions") => modify_verified_access_endpoint_eni_options(),
+    optional("VerifiedAccessGroupId") => String.t(),
+    required("VerifiedAccessEndpointId") => String.t()
+  }
+  """
+  @type modify_verified_access_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ena_srd_udp_specification_request() :: %{
+    "EnaSrdUdpEnabled" => boolean()
+  }
+  """
+  @type ena_srd_udp_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_connect_endpoints_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceConnectEndpointIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_connect_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_tags_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Resources") => list(String.t()()),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type create_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_insights_access_scope_result() :: %{
+    "NetworkInsightsAccessScope" => network_insights_access_scope(),
+    "NetworkInsightsAccessScopeContent" => network_insights_access_scope_content()
+  }
+  """
+  @type create_network_insights_access_scope_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_peering_attachment() :: %{
+    "AccepterTgwInfo" => peering_tgw_info(),
+    "AccepterTransitGatewayAttachmentId" => String.t(),
+    "CreationTime" => non_neg_integer(),
+    "Options" => transit_gateway_peering_attachment_options(),
+    "RequesterTgwInfo" => peering_tgw_info(),
+    "State" => list(any()),
+    "Status" => peering_attachment_status(),
+    "Tags" => list(tag()()),
+    "TransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_peering_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_security_group_rule_descriptions_ingress_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupId") => String.t(),
+    optional("GroupName") => String.t(),
+    optional("IpPermissions") => list(ip_permission()()),
+    optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description()())
+  }
+  """
+  @type update_security_group_rule_descriptions_ingress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_endpoint_eni_options() :: %{
+    "NetworkInterfaceId" => String.t(),
+    "Port" => integer(),
+    "Protocol" => list(any())
+  }
+  """
+  @type verified_access_endpoint_eni_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_network_acl_association_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AssociationId") => String.t(),
+    required("NetworkAclId") => String.t()
+  }
+  """
+  @type replace_network_acl_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_connection_device_type() :: %{
+    "Platform" => String.t(),
+    "Software" => String.t(),
+    "Vendor" => String.t(),
+    "VpnConnectionDeviceTypeId" => String.t()
+  }
+  """
+  @type vpn_connection_device_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_request() :: %{
+    optional("Cascade") => boolean(),
+    optional("DryRun") => boolean(),
+    required("IpamId") => String.t()
+  }
+  """
+  @type delete_ipam_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_resource_discovery_result() :: %{
+    "IpamResourceDiscovery" => ipam_resource_discovery()
+  }
+  """
+  @type create_ipam_resource_discovery_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_regions_request() :: %{
+    optional("AllRegions") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("RegionNames") => list(String.t()())
+  }
+  """
+  @type describe_regions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_instance_event_notification_attributes_result() :: %{
+    "InstanceTagAttribute" => instance_tag_notification_attribute()
+  }
+  """
+  @type deregister_instance_event_notification_attributes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run_scheduled_instances_result() :: %{
+    "InstanceIdSet" => list(String.t()())
+  }
+  """
+  @type run_scheduled_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_spot_launch_specification() :: %{
+    "AddressingType" => String.t(),
+    "BlockDeviceMappings" => list(block_device_mapping()()),
+    "EbsOptimized" => boolean(),
+    "IamInstanceProfile" => iam_instance_profile_specification(),
+    "ImageId" => String.t(),
+    "InstanceType" => list(any()),
+    "KernelId" => String.t(),
+    "KeyName" => String.t(),
+    "Monitoring" => run_instances_monitoring_enabled(),
+    "NetworkInterfaces" => list(instance_network_interface_specification()()),
+    "Placement" => spot_placement(),
+    "RamdiskId" => String.t(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SecurityGroups" => list(String.t()()),
+    "SubnetId" => String.t(),
+    "UserData" => String.t()
+  }
+  """
+  @type request_spot_launch_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_endpoints_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VerifiedAccessEndpointIds") => list(String.t()()),
+    optional("VerifiedAccessGroupId") => String.t(),
+    optional("VerifiedAccessInstanceId") => String.t()
+  }
+  """
+  @type describe_verified_access_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  region() :: %{
+    "Endpoint" => String.t(),
+    "OptInStatus" => String.t(),
+    "RegionName" => String.t()
+  }
+  """
+  @type region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_policy_tables_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayPolicyTableIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_policy_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  classic_load_balancer() :: %{
+    "Name" => String.t()
+  }
+  """
+  @type classic_load_balancer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_attribute() :: %{
+    "BlockDeviceMappings" => list(instance_block_device_mapping()()),
+    "DisableApiStop" => attribute_boolean_value(),
+    "DisableApiTermination" => attribute_boolean_value(),
+    "EbsOptimized" => attribute_boolean_value(),
+    "EnaSupport" => attribute_boolean_value(),
+    "EnclaveOptions" => enclave_options(),
+    "Groups" => list(group_identifier()()),
+    "InstanceId" => String.t(),
+    "InstanceInitiatedShutdownBehavior" => attribute_value(),
+    "InstanceType" => attribute_value(),
+    "KernelId" => attribute_value(),
+    "ProductCodes" => list(product_code()()),
+    "RamdiskId" => attribute_value(),
+    "RootDeviceName" => attribute_value(),
+    "SourceDestCheck" => attribute_boolean_value(),
+    "SriovNetSupport" => attribute_value(),
+    "UserData" => attribute_value()
+  }
+  """
+  @type instance_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_credit_specifications_result() :: %{
+    "InstanceCreditSpecifications" => list(instance_credit_specification()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_credit_specifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_capacity_reservation_result() :: %{
+    "CapacityReservation" => capacity_reservation()
+  }
+  """
+  @type create_capacity_reservation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_image_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type deregister_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_classic_link_vpc_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type attach_classic_link_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase2_d_h_group_numbers_list_value() :: %{
+    "Value" => integer()
+  }
+  """
+  @type phase2_d_h_group_numbers_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_acl_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_network_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_connection_notifications_result() :: %{
+    "ConnectionNotificationSet" => list(connection_notification()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_vpc_endpoint_connection_notifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_pools_result() :: %{
+    "IpamPools" => list(ipam_pool()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipam_pools_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_authentication_request() :: %{
+    "ActiveDirectory" => directory_service_authentication_request(),
+    "FederatedAuthentication" => federated_authentication_request(),
+    "MutualAuthentication" => certificate_authentication_request(),
+    "Type" => list(any())
+  }
+  """
+  @type client_vpn_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_internet_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InternetGatewayId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type attach_internet_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_ipam_pool_cidr_result() :: %{
+    "IpamPoolCidr" => ipam_pool_cidr()
+  }
+  """
+  @type provision_ipam_pool_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_cidr_authorization_context() :: %{
+    "Message" => String.t(),
+    "Signature" => String.t()
+  }
+  """
+  @type ipam_cidr_authorization_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_filter_rule_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DestinationPortRange") => traffic_mirror_port_range_request(),
+    optional("DryRun") => boolean(),
+    optional("Protocol") => integer(),
+    optional("SourcePortRange") => traffic_mirror_port_range_request(),
+    required("DestinationCidrBlock") => String.t(),
+    required("RuleAction") => list(any()),
+    required("RuleNumber") => integer(),
+    required("SourceCidrBlock") => String.t(),
+    required("TrafficDirection") => list(any()),
+    required("TrafficMirrorFilterId") => String.t()
+  }
+  """
+  @type create_traffic_mirror_filter_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_interfaces_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkInterfaceIds") => list(String.t()()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_interfaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_trust_provider_device_options() :: %{
+    "PublicSigningKeyUrl" => String.t(),
+    "TenantId" => String.t()
+  }
+  """
+  @type create_verified_access_trust_provider_device_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_launch_template_versions_response_success_item() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "VersionNumber" => float()
+  }
+  """
+  @type delete_launch_template_versions_response_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_interface_attribute_result() :: %{
+    "Attachment" => network_interface_attachment(),
+    "Description" => attribute_value(),
+    "Groups" => list(group_identifier()()),
+    "NetworkInterfaceId" => String.t(),
+    "SourceDestCheck" => attribute_boolean_value()
+  }
+  """
+  @type describe_network_interface_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_attachment_bgp_configuration() :: %{
+    "BgpStatus" => list(any()),
+    "PeerAddress" => String.t(),
+    "PeerAsn" => float(),
+    "TransitGatewayAddress" => String.t(),
+    "TransitGatewayAsn" => float()
+  }
+  """
+  @type transit_gateway_attachment_bgp_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("OfferingClass") => list(any()),
+    optional("OfferingType") => list(any()),
+    optional("ReservedInstancesIds") => list(String.t()())
+  }
+  """
+  @type describe_reserved_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_bundle_tasks_result() :: %{
+    "BundleTasks" => list(bundle_task()())
+  }
+  """
+  @type describe_bundle_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpn_connection_device_sample_configuration_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("InternetKeyExchangeVersion") => String.t(),
+    required("VpnConnectionDeviceTypeId") => String.t(),
+    required("VpnConnectionId") => String.t()
+  }
+  """
+  @type get_vpn_connection_device_sample_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_association() :: %{
+    "AllocationId" => String.t(),
+    "AssociationId" => String.t(),
+    "CarrierIp" => String.t(),
+    "CustomerOwnedIp" => String.t(),
+    "IpOwnerId" => String.t(),
+    "PublicDnsName" => String.t(),
+    "PublicIp" => String.t()
+  }
+  """
+  @type network_interface_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances_id() :: %{
+    "ReservedInstancesId" => String.t()
+  }
+  """
+  @type reserved_instances_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_instance_result() :: %{
+    "ConversionTask" => conversion_task()
+  }
+  """
+  @type import_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_route_request() :: %{
+    optional("Blackhole") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    required("DestinationCidrBlock") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type create_transit_gateway_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpn_connections_result() :: %{
+    "VpnConnections" => list(vpn_connection()())
+  }
+  """
+  @type describe_vpn_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_client_vpn_connections_result() :: %{
+    "ClientVpnEndpointId" => String.t(),
+    "ConnectionStatuses" => list(terminate_connection_status()()),
+    "Username" => String.t()
+  }
+  """
+  @type terminate_client_vpn_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_replace_root_volume_tasks_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ReplaceRootVolumeTaskIds") => list(String.t()())
+  }
+  """
+  @type describe_replace_root_volume_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_aws_network_performance_metric_subscription_result() :: %{
+    "Output" => boolean()
+  }
+  """
+  @type enable_aws_network_performance_metric_subscription_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_security_group_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupId") => String.t(),
+    optional("GroupName") => String.t()
+  }
+  """
+  @type delete_security_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_classic_link() :: %{
+    "ClassicLinkEnabled" => boolean(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type vpc_classic_link() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_egress_only_internet_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("EgressOnlyInternetGatewayId") => String.t()
+  }
+  """
+  @type delete_egress_only_internet_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_public_ipv4_pools_result() :: %{
+    "NextToken" => String.t(),
+    "PublicIpv4Pools" => list(public_ipv4_pool()())
+  }
+  """
+  @type describe_public_ipv4_pools_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_ipv6_cidr_block_association() :: %{
+    "AssociationId" => String.t(),
+    "Ipv6CidrBlock" => String.t(),
+    "Ipv6CidrBlockState" => vpc_cidr_block_state(),
+    "Ipv6Pool" => String.t(),
+    "NetworkBorderGroup" => String.t()
+  }
+  """
+  @type vpc_ipv6_cidr_block_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_queued_reserved_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ReservedInstancesIds") => list(String.t()())
+  }
+  """
+  @type delete_queued_reserved_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_image_block_public_access_result() :: %{
+    "ImageBlockPublicAccessState" => list(any())
+  }
+  """
+  @type disable_image_block_public_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  private_dns_name_configuration() :: %{
+    "Name" => String.t(),
+    "State" => list(any()),
+    "Type" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type private_dns_name_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_peering_connection_result() :: %{
+    "VpcPeeringConnection" => vpc_peering_connection()
+  }
+  """
+  @type create_vpc_peering_connection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_launch_template_version_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LaunchTemplateId") => String.t(),
+    optional("LaunchTemplateName") => String.t(),
+    optional("ResolveAlias") => boolean(),
+    optional("SourceVersion") => String.t(),
+    optional("VersionDescription") => String.t(),
+    required("LaunchTemplateData") => request_launch_template_data()
+  }
+  """
+  @type create_launch_template_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_client_vpn_endpoint_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_client_vpn_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_transit_gateway_multicast_domain_result() :: %{
+    "Associations" => transit_gateway_multicast_domain_associations()
+  }
+  """
+  @type disassociate_transit_gateway_multicast_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_spot_fleet_request_request() :: %{
+    optional("Context") => String.t(),
+    optional("ExcessCapacityTerminationPolicy") => list(any()),
+    optional("LaunchTemplateConfigs") => list(launch_template_config()()),
+    optional("OnDemandTargetCapacity") => integer(),
+    optional("TargetCapacity") => integer(),
+    required("SpotFleetRequestId") => String.t()
+  }
+  """
+  @type modify_spot_fleet_request_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_subnet_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type delete_subnet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_capacity_reservation_request() :: %{
+    optional("AvailabilityZone") => String.t(),
+    optional("AvailabilityZoneId") => String.t(),
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EbsOptimized") => boolean(),
+    optional("EndDate") => non_neg_integer(),
+    optional("EndDateType") => list(any()),
+    optional("EphemeralStorage") => boolean(),
+    optional("InstanceMatchCriteria") => list(any()),
+    optional("OutpostArn") => String.t(),
+    optional("PlacementGroupArn") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("Tenancy") => list(any()),
+    required("InstanceCount") => integer(),
+    required("InstancePlatform") => list(any()),
+    required("InstanceType") => String.t()
+  }
+  """
+  @type create_capacity_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_analyses_result() :: %{
+    "NetworkInsightsAnalyses" => list(network_insights_analysis()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_insights_analyses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_launch_result() :: %{
+    "ImageId" => String.t(),
+    "LaunchTemplate" => fast_launch_launch_template_specification_response(),
+    "MaxParallelLaunches" => integer(),
+    "OwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "SnapshotConfiguration" => fast_launch_snapshot_configuration_response(),
+    "State" => list(any()),
+    "StateTransitionReason" => String.t(),
+    "StateTransitionTime" => non_neg_integer()
+  }
+  """
+  @type disable_fast_launch_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_traffic_mirror_sessions_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TrafficMirrorSessionIds") => list(String.t()())
+  }
+  """
+  @type describe_traffic_mirror_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_carrier_gateway_result() :: %{
+    "CarrierGateway" => carrier_gateway()
+  }
+  """
+  @type delete_carrier_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type describe_instance_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_client_vpn_route_result() :: %{
+    "Status" => client_vpn_route_status()
+  }
+  """
+  @type create_client_vpn_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_options_request() :: %{
+    "AllocationStrategy" => list(any()),
+    "InstanceInterruptionBehavior" => list(any()),
+    "InstancePoolsToUseCount" => integer(),
+    "MaintenanceStrategies" => fleet_spot_maintenance_strategies_request(),
+    "MaxTotalPrice" => String.t(),
+    "MinTargetCapacity" => integer(),
+    "SingleAvailabilityZone" => boolean(),
+    "SingleInstanceType" => boolean()
+  }
+  """
+  @type spot_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleets_instances() :: %{
+    "InstanceIds" => list(String.t()()),
+    "InstanceType" => list(any()),
+    "LaunchTemplateAndOverrides" => launch_template_and_overrides_response(),
+    "Lifecycle" => list(any()),
+    "Platform" => list(any())
+  }
+  """
+  @type describe_fleets_instances() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_address_transfer_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Address") => String.t()
+  }
+  """
+  @type accept_address_transfer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_network_insights_access_scope_analysis_result() :: %{
+    "NetworkInsightsAccessScopeAnalysis" => network_insights_access_scope_analysis()
+  }
+  """
+  @type start_network_insights_access_scope_analysis_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_maintenance_options_request() :: %{
+    "AutoRecovery" => list(any())
+  }
+  """
+  @type launch_template_instance_maintenance_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_security_groups_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("GroupIds") => list(String.t()()),
+    optional("GroupNames") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_security_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_import_task_request() :: %{
+    optional("CancelReason") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("ImportTaskId") => String.t()
+  }
+  """
+  @type cancel_import_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_client_vpn_route_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TargetVpcSubnetId") => String.t(),
+    required("ClientVpnEndpointId") => String.t(),
+    required("DestinationCidrBlock") => String.t()
+  }
+  """
+  @type delete_client_vpn_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_tunnel_options_result() :: %{
+    "VpnConnection" => vpn_connection()
+  }
+  """
+  @type modify_vpn_tunnel_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_card_info() :: %{
+    "BaselineBandwidthInGbps" => float(),
+    "MaximumNetworkInterfaces" => integer(),
+    "NetworkCardIndex" => integer(),
+    "NetworkPerformance" => String.t(),
+    "PeakBandwidthInGbps" => float()
+  }
+  """
+  @type network_card_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  id_format() :: %{
+    "Deadline" => non_neg_integer(),
+    "Resource" => String.t(),
+    "UseLongIds" => boolean()
+  }
+  """
+  @type id_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_capacity_reservations_request() :: %{
+    optional("CapacityReservationIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_capacity_reservations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  host_properties() :: %{
+    "Cores" => integer(),
+    "InstanceFamily" => String.t(),
+    "InstanceType" => String.t(),
+    "Sockets" => integer(),
+    "TotalVCpus" => integer()
+  }
+  """
+  @type host_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_launch_template_overrides() :: %{
+    "AvailabilityZone" => String.t(),
+    "ImageId" => String.t(),
+    "InstanceRequirements" => instance_requirements(),
+    "InstanceType" => list(any()),
+    "MaxPrice" => String.t(),
+    "Placement" => placement_response(),
+    "Priority" => float(),
+    "SubnetId" => String.t(),
+    "WeightedCapacity" => float()
+  }
+  """
+  @type fleet_launch_template_overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_fleet_request_history_response() :: %{
+    "HistoryRecords" => list(history_record()()),
+    "LastEvaluatedTime" => non_neg_integer(),
+    "NextToken" => String.t(),
+    "SpotFleetRequestId" => String.t(),
+    "StartTime" => non_neg_integer()
+  }
+  """
+  @type describe_spot_fleet_request_history_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_route_table_announcements_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayRouteTableAnnouncements" => list(transit_gateway_route_table_announcement()())
+  }
+  """
+  @type describe_transit_gateway_route_table_announcements_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_classic_link_vpc_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type detach_classic_link_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_export_tasks_result() :: %{
+    "ExportTasks" => list(export_task()())
+  }
+  """
+  @type describe_export_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_transit_gateway_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type disassociate_transit_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_classic_link_dns_support_result() :: %{
+    "NextToken" => String.t(),
+    "Vpcs" => list(classic_link_dns_support()())
+  }
+  """
+  @type describe_vpc_classic_link_dns_support_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_carrier_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CarrierGatewayId") => String.t()
+  }
+  """
+  @type delete_carrier_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dhcp_options_result() :: %{
+    "DhcpOptions" => list(dhcp_options()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_dhcp_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_placement_group_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupName") => String.t(),
+    optional("PartitionCount") => integer(),
+    optional("SpreadLevel") => list(any()),
+    optional("Strategy") => list(any()),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_placement_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_options() :: %{
+    "AddTransitGatewayCidrBlocks" => list(String.t()()),
+    "AmazonSideAsn" => float(),
+    "AssociationDefaultRouteTableId" => String.t(),
+    "AutoAcceptSharedAttachments" => list(any()),
+    "DefaultRouteTableAssociation" => list(any()),
+    "DefaultRouteTablePropagation" => list(any()),
+    "DnsSupport" => list(any()),
+    "PropagationDefaultRouteTableId" => String.t(),
+    "RemoveTransitGatewayCidrBlocks" => list(String.t()()),
+    "SecurityGroupReferencingSupport" => list(any()),
+    "VpnEcmpSupport" => list(any())
+  }
+  """
+  @type modify_transit_gateway_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_snapshot_restore_state_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type enable_fast_snapshot_restore_state_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  nitro_tpm_info() :: %{
+    "SupportedVersions" => list(String.t()())
+  }
+  """
+  @type nitro_tpm_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  propagating_vgw() :: %{
+    "GatewayId" => String.t()
+  }
+  """
+  @type propagating_vgw() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_nat_gateway_request() :: %{
+    optional("AllocationId") => String.t(),
+    optional("ClientToken") => String.t(),
+    optional("ConnectivityType") => list(any()),
+    optional("DryRun") => boolean(),
+    optional("PrivateIpAddress") => String.t(),
+    optional("SecondaryAllocationIds") => list(String.t()()),
+    optional("SecondaryPrivateIpAddressCount") => integer(),
+    optional("SecondaryPrivateIpAddresses") => list(String.t()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type create_nat_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  advertise_byoip_cidr_request() :: %{
+    optional("Asn") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("NetworkBorderGroup") => String.t(),
+    required("Cidr") => String.t()
+  }
+  """
+  @type advertise_byoip_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_export_tasks_request() :: %{
+    optional("ExportTaskIds") => list(String.t()()),
+    optional("Filters") => list(filter()())
+  }
+  """
+  @type describe_export_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_vpc_attachment_result() :: %{
+    "TransitGatewayVpcAttachment" => transit_gateway_vpc_attachment()
+  }
+  """
+  @type delete_transit_gateway_vpc_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_subnet_cidr_reservation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SubnetCidrReservationId") => String.t()
+  }
+  """
+  @type delete_subnet_cidr_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_scope_path() :: %{
+    "Destination" => path_statement(),
+    "Source" => path_statement(),
+    "ThroughResources" => list(through_resources_statement()())
+  }
+  """
+  @type access_scope_path() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_result() :: %{
+    "TransitGateway" => transit_gateway()
+  }
+  """
+  @type create_transit_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_filter_port_range() :: %{
+    "FromPort" => integer(),
+    "ToPort" => integer()
+  }
+  """
+  @type request_filter_port_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_inference_accelerator() :: %{
+    "Count" => integer(),
+    "Type" => String.t()
+  }
+  """
+  @type elastic_inference_accelerator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allocate_ipam_pool_cidr_request() :: %{
+    optional("AllowedCidrs") => list(String.t()()),
+    optional("Cidr") => String.t(),
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DisallowedCidrs") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("NetmaskLength") => integer(),
+    optional("PreviewNextCidr") => boolean(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type allocate_ipam_pool_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_locked_snapshots_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SnapshotIds") => list(String.t()())
+  }
+  """
+  @type describe_locked_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_reserved_instances_listing_result() :: %{
+    "ReservedInstancesListings" => list(reserved_instances_listing()())
+  }
+  """
+  @type create_reserved_instances_listing_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_launch_templates_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LaunchTemplateIds") => list(String.t()()),
+    optional("LaunchTemplateNames") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_launch_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_transit_gateway_peering_attachment_result() :: %{
+    "TransitGatewayPeeringAttachment" => transit_gateway_peering_attachment()
+  }
+  """
+  @type accept_transit_gateway_peering_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  successful_instance_credit_specification_item() :: %{
+    "InstanceId" => String.t()
+  }
+  """
+  @type successful_instance_credit_specification_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  icmp_type_code() :: %{
+    "Code" => integer(),
+    "Type" => integer()
+  }
+  """
+  @type icmp_type_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_transit_gateway_multicast_domain_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SubnetIds") => list(String.t()()),
+    required("TransitGatewayAttachmentId") => String.t(),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type associate_transit_gateway_multicast_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_cidr_block_association() :: %{
+    "AssociationId" => String.t(),
+    "CidrBlock" => String.t(),
+    "CidrBlockState" => vpc_cidr_block_state()
+  }
+  """
+  @type vpc_cidr_block_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  path_request_filter() :: %{
+    "DestinationAddress" => String.t(),
+    "DestinationPortRange" => request_filter_port_range(),
+    "SourceAddress" => String.t(),
+    "SourcePortRange" => request_filter_port_range()
+  }
+  """
+  @type path_request_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_hibernation_options() :: %{
+    "Configured" => boolean()
+  }
+  """
+  @type launch_template_hibernation_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_target_result() :: %{
+    "ClientToken" => String.t(),
+    "TrafficMirrorTarget" => traffic_mirror_target()
+  }
+  """
+  @type create_traffic_mirror_target_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unassign_ipv6_addresses_request() :: %{
+    optional("Ipv6Addresses") => list(String.t()()),
+    optional("Ipv6Prefixes") => list(String.t()()),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type unassign_ipv6_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_connect_peers_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayConnectPeerIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_connect_peers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_host_reservation_offerings_request() :: %{
+    optional("Filter") => list(filter()()),
+    optional("MaxDuration") => integer(),
+    optional("MaxResults") => integer(),
+    optional("MinDuration") => integer(),
+    optional("NextToken") => String.t(),
+    optional("OfferingId") => String.t()
+  }
+  """
+  @type describe_host_reservation_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_discovered_public_addresses_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("AddressRegion") => String.t(),
+    required("IpamResourceDiscoveryId") => String.t()
+  }
+  """
+  @type get_ipam_discovered_public_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unassign_private_nat_gateway_address_result() :: %{
+    "NatGatewayAddresses" => list(nat_gateway_address()()),
+    "NatGatewayId" => String.t()
+  }
+  """
+  @type unassign_private_nat_gateway_address_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv4_prefix_specification_request() :: %{
+    "Ipv4Prefix" => String.t()
+  }
+  """
+  @type ipv4_prefix_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_carrier_gateway_result() :: %{
+    "CarrierGateway" => carrier_gateway()
+  }
+  """
+  @type create_carrier_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_credit_specification() :: %{
+    "CpuCredits" => String.t(),
+    "InstanceId" => String.t()
+  }
+  """
+  @type instance_credit_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allocate_address_request() :: %{
+    optional("Address") => String.t(),
+    optional("CustomerOwnedIpv4Pool") => String.t(),
+    optional("Domain") => list(any()),
+    optional("DryRun") => boolean(),
+    optional("NetworkBorderGroup") => String.t(),
+    optional("PublicIpv4Pool") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type allocate_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type describe_vpc_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_image_request() :: %{
+    optional("BlockDeviceMappings") => list(block_device_mapping()()),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("NoReboot") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("InstanceId") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_instance_event_window_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AssociationTarget") => instance_event_window_association_request(),
+    required("InstanceEventWindowId") => String.t()
+  }
+  """
+  @type associate_instance_event_window_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  private_ip_address_specification() :: %{
+    "Primary" => boolean(),
+    "PrivateIpAddress" => String.t()
+  }
+  """
+  @type private_ip_address_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volumes_modifications_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VolumeIds") => list(String.t()())
+  }
+  """
+  @type describe_volumes_modifications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_enclave_options_request() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type launch_template_enclave_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_security_group_rules_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SecurityGroupRuleIds") => list(String.t()())
+  }
+  """
+  @type describe_security_group_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  hibernation_options_request() :: %{
+    "Configured" => boolean()
+  }
+  """
+  @type hibernation_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_public_address_tags() :: %{
+    "EipTags" => list(ipam_public_address_tag()())
+  }
+  """
+  @type ipam_public_address_tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_launch_template_config() :: %{
+    "LaunchTemplateSpecification" => fleet_launch_template_specification(),
+    "Overrides" => list(fleet_launch_template_overrides()())
+  }
+  """
+  @type fleet_launch_template_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_event_window_result() :: %{
+    "InstanceEventWindow" => instance_event_window()
+  }
+  """
+  @type modify_instance_event_window_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_availability_zone_group_request() :: %{
+    optional("DryRun") => boolean(),
+    required("GroupName") => String.t(),
+    required("OptInStatus") => list(any())
+  }
+  """
+  @type modify_availability_zone_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  price_schedule() :: %{
+    "Active" => boolean(),
+    "CurrencyCode" => list(any()),
+    "Price" => float(),
+    "Term" => float()
+  }
+  """
+  @type price_schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allocate_hosts_request() :: %{
+    optional("AssetIds") => list(String.t()()),
+    optional("AutoPlacement") => list(any()),
+    optional("ClientToken") => String.t(),
+    optional("HostMaintenance") => list(any()),
+    optional("HostRecovery") => list(any()),
+    optional("InstanceFamily") => String.t(),
+    optional("InstanceType") => String.t(),
+    optional("OutpostArn") => String.t(),
+    optional("Quantity") => integer(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("AvailabilityZone") => String.t()
+  }
+  """
+  @type allocate_hosts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_default_credit_specification_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceFamily") => list(any())
+  }
+  """
+  @type get_default_credit_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_trust_provider() :: %{
+    "CreationTime" => String.t(),
+    "Description" => String.t(),
+    "DeviceOptions" => device_options(),
+    "DeviceTrustProviderType" => list(any()),
+    "LastUpdatedTime" => String.t(),
+    "OidcOptions" => oidc_options(),
+    "PolicyReferenceName" => String.t(),
+    "SseSpecification" => verified_access_sse_specification_response(),
+    "Tags" => list(tag()()),
+    "TrustProviderType" => list(any()),
+    "UserTrustProviderType" => list(any()),
+    "VerifiedAccessTrustProviderId" => String.t()
+  }
+  """
+  @type verified_access_trust_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  response_error() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type response_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateways_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocalGatewayIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_local_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_pools_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamPoolIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ipam_pools_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_spot_maintenance_strategies() :: %{
+    "CapacityRebalance" => fleet_spot_capacity_rebalance()
+  }
+  """
+  @type fleet_spot_maintenance_strategies() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_datafeed_subscription() :: %{
+    "Bucket" => String.t(),
+    "Fault" => spot_instance_state_fault(),
+    "OwnerId" => String.t(),
+    "Prefix" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type spot_datafeed_subscription() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_to_s3_task() :: %{
+    "ContainerFormat" => list(any()),
+    "DiskImageFormat" => list(any()),
+    "S3Bucket" => String.t(),
+    "S3Key" => String.t()
+  }
+  """
+  @type export_to_s3_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_tier_status() :: %{
+    "ArchivalCompleteTime" => non_neg_integer(),
+    "LastTieringOperationStatus" => list(any()),
+    "LastTieringOperationStatusDetail" => String.t(),
+    "LastTieringProgress" => integer(),
+    "LastTieringStartTime" => non_neg_integer(),
+    "OwnerId" => String.t(),
+    "RestoreExpiryTime" => non_neg_integer(),
+    "SnapshotId" => String.t(),
+    "Status" => list(any()),
+    "StorageTier" => list(any()),
+    "Tags" => list(tag()()),
+    "VolumeId" => String.t()
+  }
+  """
+  @type snapshot_tier_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dhcp_options() :: %{
+    "DhcpConfigurations" => list(dhcp_configuration()()),
+    "DhcpOptionsId" => String.t(),
+    "OwnerId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type dhcp_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_policy_tables_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayPolicyTables" => list(transit_gateway_policy_table()())
+  }
+  """
+  @type describe_transit_gateway_policy_tables_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route_table_association() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "State" => list(any()),
+    "TransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_route_table_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_datafeed_subscription_result() :: %{
+    "SpotDatafeedSubscription" => spot_datafeed_subscription()
+  }
+  """
+  @type describe_spot_datafeed_subscription_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accelerator_count_request() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type accelerator_count_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_snapshot_restore_success_item() :: %{
+    "AvailabilityZone" => String.t(),
+    "DisabledTime" => non_neg_integer(),
+    "DisablingTime" => non_neg_integer(),
+    "EnabledTime" => non_neg_integer(),
+    "EnablingTime" => non_neg_integer(),
+    "OptimizingTime" => non_neg_integer(),
+    "OwnerAlias" => String.t(),
+    "OwnerId" => String.t(),
+    "SnapshotId" => String.t(),
+    "State" => list(any()),
+    "StateTransitionReason" => String.t()
+  }
+  """
+  @type enable_fast_snapshot_restore_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  hibernation_options() :: %{
+    "Configured" => boolean()
+  }
+  """
+  @type hibernation_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_traffic_mirror_targets_result() :: %{
+    "NextToken" => String.t(),
+    "TrafficMirrorTargets" => list(traffic_mirror_target()())
+  }
+  """
+  @type describe_traffic_mirror_targets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fast_launch_snapshot_configuration_response() :: %{
+    "TargetResourceCount" => integer()
+  }
+  """
+  @type fast_launch_snapshot_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bundle_instance_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t(),
+    required("Storage") => storage()
+  }
+  """
+  @type bundle_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_transit_gateway_route_result() :: %{
+    "Route" => transit_gateway_route()
+  }
+  """
+  @type replace_transit_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  iam_instance_profile_association() :: %{
+    "AssociationId" => String.t(),
+    "IamInstanceProfile" => iam_instance_profile(),
+    "InstanceId" => String.t(),
+    "State" => list(any()),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type iam_instance_profile_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_snapshot_result() :: %{
+    "Description" => String.t(),
+    "ImportTaskId" => String.t(),
+    "SnapshotTaskDetail" => snapshot_task_detail(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type import_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lock_snapshot_request() :: %{
+    optional("CoolOffPeriod") => integer(),
+    optional("DryRun") => boolean(),
+    optional("ExpirationDate") => non_neg_integer(),
+    optional("LockDuration") => integer(),
+    required("LockMode") => list(any()),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type lock_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_default_vpc_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type create_default_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_endpoint_connection_notifications_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ConnectionNotificationIds") => list(String.t()())
+  }
+  """
+  @type delete_vpc_endpoint_connection_notifications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  private_dns_name_options_request() :: %{
+    "EnableResourceNameDnsAAAARecord" => boolean(),
+    "EnableResourceNameDnsARecord" => boolean(),
+    "HostnameType" => list(any())
+  }
+  """
+  @type private_dns_name_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_requirements_with_metadata_request() :: %{
+    "ArchitectureTypes" => list(list(any())()),
+    "InstanceRequirements" => instance_requirements_request(),
+    "VirtualizationTypes" => list(list(any())())
+  }
+  """
+  @type instance_requirements_with_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_spot_capacity_rebalance_request() :: %{
+    "ReplacementStrategy" => list(any()),
+    "TerminationDelay" => integer()
+  }
+  """
+  @type fleet_spot_capacity_rebalance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_credit_specification_request() :: %{
+    "CpuCredits" => String.t(),
+    "InstanceId" => String.t()
+  }
+  """
+  @type instance_credit_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_reason() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type state_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_trust_provider_device_options() :: %{
+    "PublicSigningKeyUrl" => String.t()
+  }
+  """
+  @type modify_verified_access_trust_provider_device_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_endpoint_result() :: %{
+    "VerifiedAccessEndpoint" => verified_access_endpoint()
+  }
+  """
+  @type create_verified_access_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_target_response() :: %{
+    "CapacityReservationId" => String.t(),
+    "CapacityReservationResourceGroupArn" => String.t()
+  }
+  """
+  @type capacity_reservation_target_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_description() :: %{
+    "Key" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "Value" => String.t()
+  }
+  """
+  @type tag_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_service_payer_responsibility_result() :: %{
+    "ReturnValue" => boolean()
+  }
+  """
+  @type modify_vpc_endpoint_service_payer_responsibility_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_ebs_encryption_by_default_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type enable_ebs_encryption_by_default_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_default_credit_specification_result() :: %{
+    "InstanceFamilyCreditSpecification" => instance_family_credit_specification()
+  }
+  """
+  @type modify_default_credit_specification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_policy_table_result() :: %{
+    "TransitGatewayPolicyTable" => transit_gateway_policy_table()
+  }
+  """
+  @type delete_transit_gateway_policy_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_block_device_mapping() :: %{
+    "DeviceName" => String.t(),
+    "Ebs" => scheduled_instances_ebs(),
+    "NoDevice" => String.t(),
+    "VirtualName" => String.t()
+  }
+  """
+  @type scheduled_instances_block_device_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  confirm_product_instance_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t(),
+    required("ProductCode") => String.t()
+  }
+  """
+  @type confirm_product_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_statement_request() :: %{
+    "ResourceTypes" => list(String.t()()),
+    "Resources" => list(String.t()())
+  }
+  """
+  @type resource_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_range() :: %{
+    "CidrIp" => String.t(),
+    "Description" => String.t()
+  }
+  """
+  @type ip_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_monitoring() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type scheduled_instances_monitoring() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_managed_prefix_list_version_result() :: %{
+    "PrefixList" => managed_prefix_list()
+  }
+  """
+  @type restore_managed_prefix_list_version_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_transit_gateway_vpc_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type reject_transit_gateway_vpc_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_target_result() :: %{
+    "TrafficMirrorTargetId" => String.t()
+  }
+  """
+  @type delete_traffic_mirror_target_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_ebs_encryption_by_default_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type disable_ebs_encryption_by_default_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_subnet_cidr_block_result() :: %{
+    "Ipv6CidrBlockAssociation" => subnet_ipv6_cidr_block_association(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type associate_subnet_cidr_block_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_block_public_access_state_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type get_image_block_public_access_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  on_demand_options() :: %{
+    "AllocationStrategy" => list(any()),
+    "CapacityReservationOptions" => capacity_reservation_options(),
+    "MaxTotalPrice" => String.t(),
+    "MinTargetCapacity" => integer(),
+    "SingleAvailabilityZone" => boolean(),
+    "SingleInstanceType" => boolean()
+  }
+  """
+  @type on_demand_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_resource_discovery_associations_result() :: %{
+    "IpamResourceDiscoveryAssociations" => list(ipam_resource_discovery_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipam_resource_discovery_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_attachment() :: %{
+    "AttachTime" => non_neg_integer(),
+    "AttachmentId" => String.t(),
+    "DeleteOnTermination" => boolean(),
+    "DeviceIndex" => integer(),
+    "EnaSrdSpecification" => attachment_ena_srd_specification(),
+    "InstanceId" => String.t(),
+    "InstanceOwnerId" => String.t(),
+    "NetworkCardIndex" => integer(),
+    "Status" => list(any())
+  }
+  """
+  @type network_interface_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances_modification_result() :: %{
+    "ReservedInstancesId" => String.t(),
+    "TargetConfiguration" => reserved_instances_configuration()
+  }
+  """
+  @type reserved_instances_modification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_connect_request_bgp_options() :: %{
+    "PeerAsn" => float()
+  }
+  """
+  @type transit_gateway_connect_request_bgp_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_connection_result() :: %{
+    "VpnConnection" => vpn_connection()
+  }
+  """
+  @type modify_vpn_connection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase1_integrity_algorithms_request_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase1_integrity_algorithms_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_disk_container() :: %{
+    "Description" => String.t(),
+    "DeviceName" => String.t(),
+    "Format" => String.t(),
+    "SnapshotId" => String.t(),
+    "Url" => String.t(),
+    "UserBucket" => user_bucket()
+  }
+  """
+  @type image_disk_container() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_client_vpn_endpoint_result() :: %{
+    "ClientVpnEndpointId" => String.t(),
+    "DnsName" => String.t(),
+    "Status" => client_vpn_endpoint_status()
+  }
+  """
+  @type create_client_vpn_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  coip_pool() :: %{
+    "LocalGatewayRouteTableId" => String.t(),
+    "PoolArn" => String.t(),
+    "PoolCidrs" => list(String.t()()),
+    "PoolId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type coip_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_state_change() :: %{
+    "CurrentState" => instance_state(),
+    "InstanceId" => String.t(),
+    "PreviousState" => instance_state()
+  }
+  """
+  @type instance_state_change() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_prefix_list_entry() :: %{
+    "Cidr" => String.t()
+  }
+  """
+  @type remove_prefix_list_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleets_result() :: %{
+    "SuccessfulFleetDeletions" => list(delete_fleet_success_item()()),
+    "UnsuccessfulFleetDeletions" => list(delete_fleet_error_item()())
+  }
+  """
+  @type delete_fleets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_fpga_image_attribute_result() :: %{
+    "FpgaImageAttribute" => fpga_image_attribute()
+  }
+  """
+  @type modify_fpga_image_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window_time_range_request() :: %{
+    "EndHour" => integer(),
+    "EndWeekDay" => list(any()),
+    "StartHour" => integer(),
+    "StartWeekDay" => list(any())
+  }
+  """
+  @type instance_event_window_time_range_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_capacity_rebalance() :: %{
+    "ReplacementStrategy" => list(any()),
+    "TerminationDelay" => integer()
+  }
+  """
+  @type spot_capacity_rebalance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpn_connection_route_request() :: %{
+    required("DestinationCidrBlock") => String.t(),
+    required("VpnConnectionId") => String.t()
+  }
+  """
+  @type delete_vpn_connection_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_maintenance_options_result() :: %{
+    "AutoRecovery" => list(any()),
+    "InstanceId" => String.t()
+  }
+  """
+  @type modify_instance_maintenance_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_iam_instance_profile_association_request() :: %{
+    required("AssociationId") => String.t(),
+    required("IamInstanceProfile") => iam_instance_profile_specification()
+  }
+  """
+  @type replace_iam_instance_profile_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_classic_link_result() :: %{
+    "Vpcs" => list(vpc_classic_link()())
+  }
+  """
+  @type describe_vpc_classic_link_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_capacity_specification() :: %{
+    "DefaultTargetCapacityType" => list(any()),
+    "OnDemandTargetCapacity" => integer(),
+    "SpotTargetCapacity" => integer(),
+    "TargetCapacityUnitType" => list(any()),
+    "TotalTargetCapacity" => integer()
+  }
+  """
+  @type target_capacity_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_family_credit_specification() :: %{
+    "CpuCredits" => String.t(),
+    "InstanceFamily" => list(any())
+  }
+  """
+  @type instance_family_credit_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  route_table_association() :: %{
+    "AssociationState" => route_table_association_state(),
+    "GatewayId" => String.t(),
+    "Main" => boolean(),
+    "RouteTableAssociationId" => String.t(),
+    "RouteTableId" => String.t(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type route_table_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fpga_image_result() :: %{
+    "FpgaImageGlobalId" => String.t(),
+    "FpgaImageId" => String.t()
+  }
+  """
+  @type create_fpga_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_address_result() :: %{
+    "AssociationId" => String.t()
+  }
+  """
+  @type associate_address_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_fpga_image_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Name") => String.t(),
+    required("SourceFpgaImageId") => String.t(),
+    required("SourceRegion") => String.t()
+  }
+  """
+  @type copy_fpga_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_event_window_request() :: %{
+    optional("CronExpression") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Name") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TimeRanges") => list(instance_event_window_time_range_request()())
+  }
+  """
+  @type create_instance_event_window_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cpu_options() :: %{
+    "AmdSevSnp" => list(any()),
+    "CoreCount" => integer(),
+    "ThreadsPerCore" => integer()
+  }
+  """
+  @type cpu_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_dhcp_options_request() :: %{
+    optional("DryRun") => boolean(),
+    required("DhcpOptionsId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type associate_dhcp_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateways_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_launch_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Force") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type disable_fast_launch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_metadata_options_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("HttpEndpoint") => list(any()),
+    optional("HttpProtocolIpv6") => list(any()),
+    optional("HttpPutResponseHopLimit") => integer(),
+    optional("HttpTokens") => list(any()),
+    optional("InstanceMetadataTags") => list(any()),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type modify_instance_metadata_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_acl_rule() :: %{
+    "Cidr" => String.t(),
+    "Egress" => boolean(),
+    "PortRange" => port_range(),
+    "Protocol" => String.t(),
+    "RuleAction" => String.t(),
+    "RuleNumber" => integer()
+  }
+  """
+  @type analysis_acl_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_service_configuration_request() :: %{
+    optional("AcceptanceRequired") => boolean(),
+    optional("AddGatewayLoadBalancerArns") => list(String.t()()),
+    optional("AddNetworkLoadBalancerArns") => list(String.t()()),
+    optional("AddSupportedIpAddressTypes") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("PrivateDnsName") => String.t(),
+    optional("RemoveGatewayLoadBalancerArns") => list(String.t()()),
+    optional("RemoveNetworkLoadBalancerArns") => list(String.t()()),
+    optional("RemovePrivateDnsName") => boolean(),
+    optional("RemoveSupportedIpAddressTypes") => list(String.t()()),
+    required("ServiceId") => String.t()
+  }
+  """
+  @type modify_vpc_endpoint_service_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_pool_source_resource() :: %{
+    "ResourceId" => String.t(),
+    "ResourceOwner" => String.t(),
+    "ResourceRegion" => String.t(),
+    "ResourceType" => list(any())
+  }
+  """
+  @type ipam_pool_source_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_block_offering() :: %{
+    "AvailabilityZone" => String.t(),
+    "CapacityBlockDurationHours" => integer(),
+    "CapacityBlockOfferingId" => String.t(),
+    "CurrencyCode" => String.t(),
+    "EndDate" => non_neg_integer(),
+    "InstanceCount" => integer(),
+    "InstanceType" => String.t(),
+    "StartDate" => non_neg_integer(),
+    "Tenancy" => list(any()),
+    "UpfrontFee" => String.t()
+  }
+  """
+  @type capacity_block_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances() :: %{
+    "AvailabilityZone" => String.t(),
+    "CurrencyCode" => list(any()),
+    "Duration" => float(),
+    "End" => non_neg_integer(),
+    "FixedPrice" => float(),
+    "InstanceCount" => integer(),
+    "InstanceTenancy" => list(any()),
+    "InstanceType" => list(any()),
+    "OfferingClass" => list(any()),
+    "OfferingType" => list(any()),
+    "ProductDescription" => list(any()),
+    "RecurringCharges" => list(recurring_charge()()),
+    "ReservedInstancesId" => String.t(),
+    "Scope" => list(any()),
+    "Start" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "UsagePrice" => float()
+  }
+  """
+  @type reserved_instances() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_ipam_resource_discovery_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("IpamId") => String.t(),
+    required("IpamResourceDiscoveryId") => String.t()
+  }
+  """
+  @type associate_ipam_resource_discovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_endpoint_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type client_vpn_endpoint_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_ebs_block_device() :: %{
+    "DeleteOnTermination" => boolean(),
+    "Encrypted" => boolean(),
+    "Iops" => integer(),
+    "KmsKeyId" => String.t(),
+    "SnapshotId" => String.t(),
+    "Throughput" => integer(),
+    "VolumeSize" => integer(),
+    "VolumeType" => list(any())
+  }
+  """
+  @type launch_template_ebs_block_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  route() :: %{
+    "CarrierGatewayId" => String.t(),
+    "CoreNetworkArn" => String.t(),
+    "DestinationCidrBlock" => String.t(),
+    "DestinationIpv6CidrBlock" => String.t(),
+    "DestinationPrefixListId" => String.t(),
+    "EgressOnlyInternetGatewayId" => String.t(),
+    "GatewayId" => String.t(),
+    "InstanceId" => String.t(),
+    "InstanceOwnerId" => String.t(),
+    "LocalGatewayId" => String.t(),
+    "NatGatewayId" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "Origin" => list(any()),
+    "State" => list(any()),
+    "TransitGatewayId" => String.t(),
+    "VpcPeeringConnectionId" => String.t()
+  }
+  """
+  @type route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volumes_modifications_result() :: %{
+    "NextToken" => String.t(),
+    "VolumesModifications" => list(volume_modification()())
+  }
+  """
+  @type describe_volumes_modifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_restore_image_task_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Name") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Bucket") => String.t(),
+    required("ObjectKey") => String.t()
+  }
+  """
+  @type create_restore_image_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_instance_event_window_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AssociationTarget") => instance_event_window_disassociation_request(),
+    required("InstanceEventWindowId") => String.t()
+  }
+  """
+  @type disassociate_instance_event_window_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_private_dns_name_options() :: %{
+    "EnableResourceNameDnsAAAARecord" => boolean(),
+    "EnableResourceNameDnsARecord" => boolean(),
+    "HostnameType" => list(any())
+  }
+  """
+  @type launch_template_private_dns_name_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_permission() :: %{
+    "FromPort" => integer(),
+    "IpProtocol" => String.t(),
+    "IpRanges" => list(ip_range()()),
+    "Ipv6Ranges" => list(ipv6_range()()),
+    "PrefixListIds" => list(prefix_list_id()()),
+    "ToPort" => integer(),
+    "UserIdGroupPairs" => list(user_id_group_pair()())
+  }
+  """
+  @type ip_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_classic_link_instances_result() :: %{
+    "Instances" => list(classic_link_instance()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_classic_link_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_placement_request() :: %{
+    "Affinity" => String.t(),
+    "AvailabilityZone" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "HostId" => String.t(),
+    "HostResourceGroupArn" => String.t(),
+    "PartitionNumber" => integer(),
+    "SpreadDomain" => String.t(),
+    "Tenancy" => list(any())
+  }
+  """
+  @type launch_template_placement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_access_scopes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkInsightsAccessScopeIds") => list(String.t()()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_insights_access_scopes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_connect_response_options() :: %{
+    "Enabled" => boolean(),
+    "LambdaFunctionArn" => String.t(),
+    "Status" => client_vpn_endpoint_attribute_status()
+  }
+  """
+  @type client_connect_response_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_resource_discoveries_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamResourceDiscoveryIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ipam_resource_discoveries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_group_result() :: %{
+    "VerifiedAccessGroup" => verified_access_group()
+  }
+  """
+  @type create_verified_access_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fast_snapshot_restore_success_item() :: %{
+    "AvailabilityZone" => String.t(),
+    "DisabledTime" => non_neg_integer(),
+    "DisablingTime" => non_neg_integer(),
+    "EnabledTime" => non_neg_integer(),
+    "EnablingTime" => non_neg_integer(),
+    "OptimizingTime" => non_neg_integer(),
+    "OwnerAlias" => String.t(),
+    "OwnerId" => String.t(),
+    "SnapshotId" => String.t(),
+    "State" => list(any()),
+    "StateTransitionReason" => String.t()
+  }
+  """
+  @type describe_fast_snapshot_restore_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_spot_fleet_request_response() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_spot_fleet_request_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  maintenance_details() :: %{
+    "LastMaintenanceApplied" => non_neg_integer(),
+    "MaintenanceAutoAppliedAfter" => non_neg_integer(),
+    "PendingMaintenance" => String.t()
+  }
+  """
+  @type maintenance_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_volume_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Device") => String.t(),
+    required("InstanceId") => String.t(),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type attach_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_egress_only_internet_gateway_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_egress_only_internet_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_transit_gateway_multicast_domain_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("SubnetIds") => list(String.t()()),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    optional("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type accept_transit_gateway_multicast_domain_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_fleet_requests_response() :: %{
+    "NextToken" => String.t(),
+    "SpotFleetRequestConfigs" => list(spot_fleet_request_config()())
+  }
+  """
+  @type describe_spot_fleet_requests_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_acl_association() :: %{
+    "NetworkAclAssociationId" => String.t(),
+    "NetworkAclId" => String.t(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type network_acl_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_image_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type register_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_traffic_mirror_sessions_result() :: %{
+    "NextToken" => String.t(),
+    "TrafficMirrorSessions" => list(traffic_mirror_session()())
+  }
+  """
+  @type describe_traffic_mirror_sessions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_metadata_options() :: %{
+    "HttpEndpoint" => list(any()),
+    "HttpProtocolIpv6" => list(any()),
+    "HttpPutResponseHopLimit" => integer(),
+    "HttpTokens" => list(any()),
+    "InstanceMetadataTags" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type launch_template_instance_metadata_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_route_table_result() :: %{
+    "TransitGatewayRouteTable" => transit_gateway_route_table()
+  }
+  """
+  @type create_transit_gateway_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_network_acl_entry_request() :: %{
+    optional("CidrBlock") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("IcmpTypeCode") => icmp_type_code(),
+    optional("Ipv6CidrBlock") => String.t(),
+    optional("PortRange") => port_range(),
+    required("Egress") => boolean(),
+    required("NetworkAclId") => String.t(),
+    required("Protocol") => String.t(),
+    required("RuleAction") => list(any()),
+    required("RuleNumber") => integer()
+  }
+  """
+  @type replace_network_acl_entry_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_private_ip_address() :: %{
+    "Association" => instance_network_interface_association(),
+    "Primary" => boolean(),
+    "PrivateDnsName" => String.t(),
+    "PrivateIpAddress" => String.t()
+  }
+  """
+  @type instance_private_ip_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  egress_only_internet_gateway() :: %{
+    "Attachments" => list(internet_gateway_attachment()()),
+    "EgressOnlyInternetGatewayId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type egress_only_internet_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_host_reservations_result() :: %{
+    "HostReservationSet" => list(host_reservation()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_host_reservations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_group_rule_options_pair() :: %{
+    "RuleGroupArn" => String.t(),
+    "RuleOptions" => list(rule_option()())
+  }
+  """
+  @type rule_group_rule_options_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_virtual_interface_groups_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocalGatewayVirtualInterfaceGroupIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_local_gateway_virtual_interface_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_transit_gateway_vpc_attachment_result() :: %{
+    "TransitGatewayVpcAttachment" => transit_gateway_vpc_attachment()
+  }
+  """
+  @type accept_transit_gateway_vpc_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpn_connection_result() :: %{
+    "VpnConnection" => vpn_connection()
+  }
+  """
+  @type create_vpn_connection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_addresses_attribute_result() :: %{
+    "Addresses" => list(address_attribute()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_addresses_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_instance_logging_configuration_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("AccessLogs") => verified_access_log_options(),
+    required("VerifiedAccessInstanceId") => String.t()
+  }
+  """
+  @type modify_verified_access_instance_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  last_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type last_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_transit_gateway_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type associate_transit_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_scope_result() :: %{
+    "IpamScope" => ipam_scope()
+  }
+  """
+  @type delete_ipam_scope_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_transit_gateway_routes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    required("S3Bucket") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type export_transit_gateway_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_statement() :: %{
+    "ResourceTypes" => list(String.t()()),
+    "Resources" => list(String.t()())
+  }
+  """
+  @type resource_statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_public_ipv4_pool_request() :: %{
+    optional("DryRun") => boolean(),
+    required("PoolId") => String.t()
+  }
+  """
+  @type delete_public_ipv4_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_peering_connection_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcPeeringConnectionId") => String.t()
+  }
+  """
+  @type delete_vpc_peering_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  packet_header_statement() :: %{
+    "DestinationAddresses" => list(String.t()()),
+    "DestinationPorts" => list(String.t()()),
+    "DestinationPrefixLists" => list(String.t()()),
+    "Protocols" => list(list(any())()),
+    "SourceAddresses" => list(String.t()()),
+    "SourcePorts" => list(String.t()()),
+    "SourcePrefixLists" => list(String.t()())
+  }
+  """
+  @type packet_header_statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_availability_zone_group_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_availability_zone_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_policy_table_entry() :: %{
+    "PolicyRule" => transit_gateway_policy_rule(),
+    "PolicyRuleNumber" => String.t(),
+    "TargetRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_policy_table_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway() :: %{
+    "LocalGatewayId" => String.t(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "State" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type local_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpn_gateways_result() :: %{
+    "VpnGateways" => list(vpn_gateway()())
+  }
+  """
+  @type describe_vpn_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  traffic_mirror_port_range_request() :: %{
+    "FromPort" => integer(),
+    "ToPort" => integer()
+  }
+  """
+  @type traffic_mirror_port_range_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_insights_access_scope() :: %{
+    "CreatedDate" => non_neg_integer(),
+    "NetworkInsightsAccessScopeArn" => String.t(),
+    "NetworkInsightsAccessScopeId" => String.t(),
+    "Tags" => list(tag()()),
+    "UpdatedDate" => non_neg_integer()
+  }
+  """
+  @type network_insights_access_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_nat_gateway_result() :: %{
+    "NatGatewayId" => String.t()
+  }
+  """
+  @type delete_nat_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type validation_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_routes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type describe_client_vpn_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_filter_rule_result() :: %{
+    "TrafficMirrorFilterRuleId" => String.t()
+  }
+  """
+  @type delete_traffic_mirror_filter_rule_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_capacity_reservation_request() :: %{
+    optional("Accept") => boolean(),
+    optional("AdditionalInfo") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EndDate") => non_neg_integer(),
+    optional("EndDateType") => list(any()),
+    optional("InstanceCount") => integer(),
+    required("CapacityReservationId") => String.t()
+  }
+  """
+  @type modify_capacity_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_version() :: %{
+    "CreateTime" => non_neg_integer(),
+    "CreatedBy" => String.t(),
+    "DefaultVersion" => boolean(),
+    "LaunchTemplateData" => response_launch_template_data(),
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "VersionDescription" => String.t(),
+    "VersionNumber" => float()
+  }
+  """
+  @type launch_template_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_image_block_public_access_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type disable_image_block_public_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("TransitGatewayId") => String.t()
+  }
+  """
+  @type create_transit_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_attribute_request() :: %{
+    optional("EnableDnsHostnames") => attribute_boolean_value(),
+    optional("EnableDnsSupport") => attribute_boolean_value(),
+    optional("EnableNetworkAddressUsageMetrics") => attribute_boolean_value(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type modify_vpc_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_insights_path() :: %{
+    "CreatedDate" => non_neg_integer(),
+    "Destination" => String.t(),
+    "DestinationArn" => String.t(),
+    "DestinationIp" => String.t(),
+    "DestinationPort" => integer(),
+    "FilterAtDestination" => path_filter(),
+    "FilterAtSource" => path_filter(),
+    "NetworkInsightsPathArn" => String.t(),
+    "NetworkInsightsPathId" => String.t(),
+    "Protocol" => list(any()),
+    "Source" => String.t(),
+    "SourceArn" => String.t(),
+    "SourceIp" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type network_insights_path() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_iam_instance_profile_association_result() :: %{
+    "IamInstanceProfileAssociation" => iam_instance_profile_association()
+  }
+  """
+  @type replace_iam_instance_profile_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route() :: %{
+    "DestinationCidrBlock" => String.t(),
+    "PrefixListId" => String.t(),
+    "State" => list(any()),
+    "TransitGatewayAttachments" => list(transit_gateway_route_attachment()()),
+    "TransitGatewayRouteTableAnnouncementId" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type transit_gateway_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("LocalGatewayRouteTableId") => String.t()
+  }
+  """
+  @type delete_local_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_endpoints_result() :: %{
+    "NextToken" => String.t(),
+    "VerifiedAccessEndpoints" => list(verified_access_endpoint()())
+  }
+  """
+  @type describe_verified_access_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_addresses_result() :: %{
+    "Addresses" => list(address()())
+  }
+  """
+  @type describe_addresses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  locked_snapshots_info() :: %{
+    "CoolOffPeriod" => integer(),
+    "CoolOffPeriodExpiresOn" => non_neg_integer(),
+    "LockCreatedOn" => non_neg_integer(),
+    "LockDuration" => integer(),
+    "LockDurationStartTime" => non_neg_integer(),
+    "LockExpiresOn" => non_neg_integer(),
+    "LockState" => list(any()),
+    "OwnerId" => String.t(),
+    "SnapshotId" => String.t()
+  }
+  """
+  @type locked_snapshots_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_result() :: %{
+    "Ipam" => ipam()
+  }
+  """
+  @type modify_ipam_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_console_output_result() :: %{
+    "InstanceId" => String.t(),
+    "Output" => String.t(),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type get_console_output_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_multicast_domains_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayMulticastDomainIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_multicast_domains_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_client_vpn_client_configuration_result() :: %{
+    "ClientConfiguration" => String.t()
+  }
+  """
+  @type export_client_vpn_client_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_tracking_specification() :: %{
+    "TcpEstablishedTimeout" => integer(),
+    "UdpStreamTimeout" => integer(),
+    "UdpTimeout" => integer()
+  }
+  """
+  @type connection_tracking_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_enclave_options() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type launch_template_enclave_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_fleet_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type cancel_capacity_reservation_fleet_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ebs_default_kms_key_id_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type get_ebs_default_kms_key_id_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_trunk_interface_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("AssociationId") => String.t()
+  }
+  """
+  @type disassociate_trunk_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_nat_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NatGatewayId") => String.t()
+  }
+  """
+  @type delete_nat_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_transit_gateway_route_table_result() :: %{
+    "Association" => transit_gateway_association()
+  }
+  """
+  @type associate_transit_gateway_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_export_details() :: %{
+    "InstanceId" => String.t(),
+    "TargetEnvironment" => list(any())
+  }
+  """
+  @type instance_export_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reservation() :: %{
+    "Groups" => list(group_identifier()()),
+    "Instances" => list(instance()()),
+    "OwnerId" => String.t(),
+    "RequesterId" => String.t(),
+    "ReservationId" => String.t()
+  }
+  """
+  @type reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_endpoint() :: %{
+    "CreationTimestamp" => non_neg_integer(),
+    "DnsEntries" => list(dns_entry()()),
+    "DnsOptions" => dns_options(),
+    "Groups" => list(security_group_identifier()()),
+    "IpAddressType" => list(any()),
+    "LastError" => last_error(),
+    "NetworkInterfaceIds" => list(String.t()()),
+    "OwnerId" => String.t(),
+    "PolicyDocument" => String.t(),
+    "PrivateDnsEnabled" => boolean(),
+    "RequesterManaged" => boolean(),
+    "RouteTableIds" => list(String.t()()),
+    "ServiceName" => String.t(),
+    "State" => list(any()),
+    "SubnetIds" => list(String.t()()),
+    "Tags" => list(tag()()),
+    "VpcEndpointId" => String.t(),
+    "VpcEndpointType" => list(any()),
+    "VpcId" => String.t()
+  }
+  """
+  @type vpc_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_ipam_byoasn_result() :: %{
+    "Byoasn" => byoasn()
+  }
+  """
+  @type deprovision_ipam_byoasn_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_options() :: %{
+    "AllocationStrategy" => list(any()),
+    "InstanceInterruptionBehavior" => list(any()),
+    "InstancePoolsToUseCount" => integer(),
+    "MaintenanceStrategies" => fleet_spot_maintenance_strategies(),
+    "MaxTotalPrice" => String.t(),
+    "MinTargetCapacity" => integer(),
+    "SingleAvailabilityZone" => boolean(),
+    "SingleInstanceType" => boolean()
+  }
+  """
+  @type spot_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window_time_range() :: %{
+    "EndHour" => integer(),
+    "EndWeekDay" => list(any()),
+    "StartHour" => integer(),
+    "StartWeekDay" => list(any())
+  }
+  """
+  @type instance_event_window_time_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  response_launch_template_data() :: %{
+    "BlockDeviceMappings" => list(launch_template_block_device_mapping()()),
+    "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_response(),
+    "CpuOptions" => launch_template_cpu_options(),
+    "CreditSpecification" => credit_specification(),
+    "DisableApiStop" => boolean(),
+    "DisableApiTermination" => boolean(),
+    "EbsOptimized" => boolean(),
+    "ElasticGpuSpecifications" => list(elastic_gpu_specification_response()()),
+    "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator_response()()),
+    "EnclaveOptions" => launch_template_enclave_options(),
+    "HibernationOptions" => launch_template_hibernation_options(),
+    "IamInstanceProfile" => launch_template_iam_instance_profile_specification(),
+    "ImageId" => String.t(),
+    "InstanceInitiatedShutdownBehavior" => list(any()),
+    "InstanceMarketOptions" => launch_template_instance_market_options(),
+    "InstanceRequirements" => instance_requirements(),
+    "InstanceType" => list(any()),
+    "KernelId" => String.t(),
+    "KeyName" => String.t(),
+    "LicenseSpecifications" => list(launch_template_license_configuration()()),
+    "MaintenanceOptions" => launch_template_instance_maintenance_options(),
+    "MetadataOptions" => launch_template_instance_metadata_options(),
+    "Monitoring" => launch_templates_monitoring(),
+    "NetworkInterfaces" => list(launch_template_instance_network_interface_specification()()),
+    "Placement" => launch_template_placement(),
+    "PrivateDnsNameOptions" => launch_template_private_dns_name_options(),
+    "RamDiskId" => String.t(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SecurityGroups" => list(String.t()()),
+    "TagSpecifications" => list(launch_template_tag_specification()()),
+    "UserData" => String.t()
+  }
+  """
+  @type response_launch_template_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_service_configurations_result() :: %{
+    "NextToken" => String.t(),
+    "ServiceConfigurations" => list(service_configuration()())
+  }
+  """
+  @type describe_vpc_endpoint_service_configurations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_snapshot_block_public_access_state_result() :: %{
+    "State" => list(any())
+  }
+  """
+  @type get_snapshot_block_public_access_state_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_aws_network_performance_metric_subscription_request() :: %{
+    optional("Destination") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Metric") => list(any()),
+    optional("Source") => String.t(),
+    optional("Statistic") => list(any())
+  }
+  """
+  @type enable_aws_network_performance_metric_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_vpc_endpoint_connections_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ServiceId") => String.t(),
+    required("VpcEndpointIds") => list(String.t()())
+  }
+  """
+  @type reject_vpc_endpoint_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_volume_task_details() :: %{
+    "AvailabilityZone" => String.t(),
+    "BytesConverted" => float(),
+    "Description" => String.t(),
+    "Image" => disk_image_description(),
+    "Volume" => disk_image_volume_description()
+  }
+  """
+  @type import_volume_task_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  flow_log() :: %{
+    "CreationTime" => non_neg_integer(),
+    "DeliverCrossAccountRole" => String.t(),
+    "DeliverLogsErrorMessage" => String.t(),
+    "DeliverLogsPermissionArn" => String.t(),
+    "DeliverLogsStatus" => String.t(),
+    "DestinationOptions" => destination_options_response(),
+    "FlowLogId" => String.t(),
+    "FlowLogStatus" => String.t(),
+    "LogDestination" => String.t(),
+    "LogDestinationType" => list(any()),
+    "LogFormat" => String.t(),
+    "LogGroupName" => String.t(),
+    "MaxAggregationInterval" => integer(),
+    "ResourceId" => String.t(),
+    "Tags" => list(tag()()),
+    "TrafficType" => list(any())
+  }
+  """
+  @type flow_log() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_vpc_attachments_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayAttachmentIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_vpc_attachments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_instances_result() :: %{
+    "NextToken" => String.t(),
+    "VerifiedAccessInstances" => list(verified_access_instance()())
+  }
+  """
+  @type describe_verified_access_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_private_ip_address() :: %{
+    "Association" => network_interface_association(),
+    "Primary" => boolean(),
+    "PrivateDnsName" => String.t(),
+    "PrivateIpAddress" => String.t()
+  }
+  """
+  @type network_interface_private_ip_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshots_result() :: %{
+    "NextToken" => String.t(),
+    "Snapshots" => list(snapshot()())
+  }
+  """
+  @type describe_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window_association_target() :: %{
+    "DedicatedHostIds" => list(String.t()()),
+    "InstanceIds" => list(String.t()()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type instance_event_window_association_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_instance_launch_specification() :: %{
+    "AdditionalInfo" => String.t(),
+    "Architecture" => list(any()),
+    "GroupIds" => list(String.t()()),
+    "GroupNames" => list(String.t()()),
+    "InstanceInitiatedShutdownBehavior" => list(any()),
+    "InstanceType" => list(any()),
+    "Monitoring" => boolean(),
+    "Placement" => placement(),
+    "PrivateIpAddress" => String.t(),
+    "SubnetId" => String.t(),
+    "UserData" => user_data()
+  }
+  """
+  @type import_instance_launch_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_ipam_organization_admin_account_result() :: %{
+    "Success" => boolean()
+  }
+  """
+  @type disable_ipam_organization_admin_account_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_config() :: %{
+    "LaunchTemplateSpecification" => fleet_launch_template_specification(),
+    "Overrides" => list(launch_template_overrides()())
+  }
+  """
+  @type launch_template_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances_offering() :: %{
+    "AvailabilityZone" => String.t(),
+    "CurrencyCode" => list(any()),
+    "Duration" => float(),
+    "FixedPrice" => float(),
+    "InstanceTenancy" => list(any()),
+    "InstanceType" => list(any()),
+    "Marketplace" => boolean(),
+    "OfferingClass" => list(any()),
+    "OfferingType" => list(any()),
+    "PricingDetails" => list(pricing_detail()()),
+    "ProductDescription" => list(any()),
+    "RecurringCharges" => list(recurring_charge()()),
+    "ReservedInstancesOfferingId" => String.t(),
+    "Scope" => list(any()),
+    "UsagePrice" => float()
+  }
+  """
+  @type reserved_instances_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_ipam_byoasn_result() :: %{
+    "Byoasn" => byoasn()
+  }
+  """
+  @type provision_ipam_byoasn_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Mode") => list(any()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("LocalGatewayId") => String.t()
+  }
+  """
+  @type create_local_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  traffic_mirror_port_range() :: %{
+    "FromPort" => integer(),
+    "ToPort" => integer()
+  }
+  """
+  @type traffic_mirror_port_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group() :: %{
+    "Description" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "IpPermissions" => list(ip_permission()()),
+    "IpPermissionsEgress" => list(ip_permission()()),
+    "OwnerId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type security_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attribute_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_launch_specification() :: %{
+    "BlockDeviceMappings" => list(scheduled_instances_block_device_mapping()()),
+    "EbsOptimized" => boolean(),
+    "IamInstanceProfile" => scheduled_instances_iam_instance_profile(),
+    "ImageId" => String.t(),
+    "InstanceType" => String.t(),
+    "KernelId" => String.t(),
+    "KeyName" => String.t(),
+    "Monitoring" => scheduled_instances_monitoring(),
+    "NetworkInterfaces" => list(scheduled_instances_network_interface()()),
+    "Placement" => scheduled_instances_placement(),
+    "RamdiskId" => String.t(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SubnetId" => String.t(),
+    "UserData" => String.t()
+  }
+  """
+  @type scheduled_instances_launch_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_instance_logging_configuration() :: %{
+    "AccessLogs" => verified_access_logs(),
+    "VerifiedAccessInstanceId" => String.t()
+  }
+  """
+  @type verified_access_instance_logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  gpu_device_info() :: %{
+    "Count" => integer(),
+    "Manufacturer" => String.t(),
+    "MemoryInfo" => gpu_device_memory_info(),
+    "Name" => String.t()
+  }
+  """
+  @type gpu_device_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_internet_gateways_result() :: %{
+    "InternetGateways" => list(internet_gateway()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_internet_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_security_group_rules_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_security_group_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_network_interface_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("SourceDestCheck") => String.t(),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type reset_network_interface_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_component() :: %{
+    "Arn" => String.t(),
+    "Id" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type analysis_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_load_balancer_target() :: %{
+    "Address" => String.t(),
+    "AvailabilityZone" => String.t(),
+    "Instance" => analysis_component(),
+    "Port" => integer()
+  }
+  """
+  @type analysis_load_balancer_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_transit_gateway_vpc_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type accept_transit_gateway_vpc_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv6_cidr_block() :: %{
+    "Ipv6CidrBlock" => String.t()
+  }
+  """
+  @type ipv6_cidr_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway_virtual_interface() :: %{
+    "LocalAddress" => String.t(),
+    "LocalBgpAsn" => integer(),
+    "LocalGatewayId" => String.t(),
+    "LocalGatewayVirtualInterfaceId" => String.t(),
+    "OwnerId" => String.t(),
+    "PeerAddress" => String.t(),
+    "PeerBgpAsn" => integer(),
+    "Tags" => list(tag()()),
+    "Vlan" => integer()
+  }
+  """
+  @type local_gateway_virtual_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_byoip_cidrs_result() :: %{
+    "ByoipCidrs" => list(byoip_cidr()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_byoip_cidrs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_traffic_mirror_session_result() :: %{
+    "TrafficMirrorSession" => traffic_mirror_session()
+  }
+  """
+  @type modify_traffic_mirror_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_status_summary() :: %{
+    "Details" => list(instance_status_details()()),
+    "Status" => list(any())
+  }
+  """
+  @type instance_status_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_fpga_image_result() :: %{
+    "FpgaImageId" => String.t()
+  }
+  """
+  @type copy_fpga_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase2_encryption_algorithms_request_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase2_encryption_algorithms_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fast_snapshot_restores_result() :: %{
+    "FastSnapshotRestores" => list(describe_fast_snapshot_restore_success_item()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fast_snapshot_restores_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_table_vpc_association_request() :: %{
+    optional("DryRun") => boolean(),
+    required("LocalGatewayRouteTableVpcAssociationId") => String.t()
+  }
+  """
+  @type delete_local_gateway_route_table_vpc_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ebs_block_device() :: %{
+    "DeleteOnTermination" => boolean(),
+    "Encrypted" => boolean(),
+    "Iops" => integer(),
+    "KmsKeyId" => String.t(),
+    "OutpostArn" => String.t(),
+    "SnapshotId" => String.t(),
+    "Throughput" => integer(),
+    "VolumeSize" => integer(),
+    "VolumeType" => list(any())
+  }
+  """
+  @type ebs_block_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_specification() :: %{
+    "CapacityReservationPreference" => list(any()),
+    "CapacityReservationTarget" => capacity_reservation_target()
+  }
+  """
+  @type capacity_reservation_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  path_statement_request() :: %{
+    "PacketHeaderStatement" => packet_header_statement_request(),
+    "ResourceStatement" => resource_statement_request()
+  }
+  """
+  @type path_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_capacity_reservation_specification_request() :: %{
+    "CapacityReservationPreference" => list(any()),
+    "CapacityReservationTarget" => capacity_reservation_target()
+  }
+  """
+  @type launch_template_capacity_reservation_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_snapshots_in_recycle_bin_result() :: %{
+    "NextToken" => String.t(),
+    "Snapshots" => list(snapshot_recycle_bin_info()())
+  }
+  """
+  @type list_snapshots_in_recycle_bin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volume_status_result() :: %{
+    "NextToken" => String.t(),
+    "VolumeStatuses" => list(volume_status_item()())
+  }
+  """
+  @type describe_volume_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instance() :: %{
+    "AvailabilityZone" => String.t(),
+    "CreateDate" => non_neg_integer(),
+    "HourlyPrice" => String.t(),
+    "InstanceCount" => integer(),
+    "InstanceType" => String.t(),
+    "NetworkPlatform" => String.t(),
+    "NextSlotStartTime" => non_neg_integer(),
+    "Platform" => String.t(),
+    "PreviousSlotEndTime" => non_neg_integer(),
+    "Recurrence" => scheduled_instance_recurrence(),
+    "ScheduledInstanceId" => String.t(),
+    "SlotDurationInHours" => integer(),
+    "TermEndDate" => non_neg_integer(),
+    "TermStartDate" => non_neg_integer(),
+    "TotalScheduledInstanceHours" => integer()
+  }
+  """
+  @type scheduled_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_stale_security_groups_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type describe_stale_security_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_trunk_interface_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("GreKey") => integer(),
+    optional("VlanId") => integer(),
+    required("BranchInterfaceId") => String.t(),
+    required("TrunkInterfaceId") => String.t()
+  }
+  """
+  @type associate_trunk_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  nat_gateway() :: %{
+    "ConnectivityType" => list(any()),
+    "CreateTime" => non_neg_integer(),
+    "DeleteTime" => non_neg_integer(),
+    "FailureCode" => String.t(),
+    "FailureMessage" => String.t(),
+    "NatGatewayAddresses" => list(nat_gateway_address()()),
+    "NatGatewayId" => String.t(),
+    "ProvisionedBandwidth" => provisioned_bandwidth(),
+    "State" => list(any()),
+    "SubnetId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type nat_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_image_launch_permission_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type cancel_image_launch_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_private_dns_name_options_request() :: %{
+    "EnableResourceNameDnsAAAARecord" => boolean(),
+    "EnableResourceNameDnsARecord" => boolean(),
+    "HostnameType" => list(any())
+  }
+  """
+  @type launch_template_private_dns_name_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsuccessful_item() :: %{
+    "Error" => unsuccessful_item_error(),
+    "ResourceId" => String.t()
+  }
+  """
+  @type unsuccessful_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_endpoint_service_configuration_result() :: %{
+    "ClientToken" => String.t(),
+    "ServiceConfiguration" => service_configuration()
+  }
+  """
+  @type create_vpc_endpoint_service_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_route_table_propagations_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayRouteTablePropagations" => list(transit_gateway_route_table_propagation()())
+  }
+  """
+  @type get_transit_gateway_route_table_propagations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pool_cidr_block() :: %{
+    "Cidr" => String.t()
+  }
+  """
+  @type pool_cidr_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_scope_result() :: %{
+    "IpamScope" => ipam_scope()
+  }
+  """
+  @type modify_ipam_scope_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_disk_container() :: %{
+    "Description" => String.t(),
+    "Format" => String.t(),
+    "Url" => String.t(),
+    "UserBucket" => user_bucket()
+  }
+  """
+  @type snapshot_disk_container() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_type_offerings_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocationType") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_type_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_query() :: %{
+    "Destination" => String.t(),
+    "Id" => String.t(),
+    "Metric" => list(any()),
+    "Period" => list(any()),
+    "Source" => String.t(),
+    "Statistic" => list(any())
+  }
+  """
+  @type data_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_trust_providers_result() :: %{
+    "NextToken" => String.t(),
+    "VerifiedAccessTrustProviders" => list(verified_access_trust_provider()())
+  }
+  """
+  @type describe_verified_access_trust_providers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_connection_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type client_vpn_connection_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_prefix_list_references_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayPrefixListReferences" => list(transit_gateway_prefix_list_reference()())
+  }
+  """
+  @type get_transit_gateway_prefix_list_references_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disk_image_description() :: %{
+    "Checksum" => String.t(),
+    "Format" => list(any()),
+    "ImportManifestUrl" => String.t(),
+    "Size" => float()
+  }
+  """
+  @type disk_image_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_session_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PacketLength") => integer(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("VirtualNetworkId") => integer(),
+    required("NetworkInterfaceId") => String.t(),
+    required("SessionNumber") => integer(),
+    required("TrafficMirrorFilterId") => String.t(),
+    required("TrafficMirrorTargetId") => String.t()
+  }
+  """
+  @type create_traffic_mirror_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpn_connection_route_request() :: %{
+    required("DestinationCidrBlock") => String.t(),
+    required("VpnConnectionId") => String.t()
+  }
+  """
+  @type create_vpn_connection_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  carrier_gateway() :: %{
+    "CarrierGatewayId" => String.t(),
+    "OwnerId" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type carrier_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_client_vpn_ingress_result() :: %{
+    "Status" => client_vpn_authorization_rule_status()
+  }
+  """
+  @type authorize_client_vpn_ingress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_vpc_endpoint_connections_result() :: %{
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type reject_vpc_endpoint_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_scheduled_instances_result() :: %{
+    "NextToken" => String.t(),
+    "ScheduledInstanceSet" => list(scheduled_instance()())
+  }
+  """
+  @type describe_scheduled_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_overrides() :: %{
+    "AvailabilityZone" => String.t(),
+    "InstanceRequirements" => instance_requirements(),
+    "InstanceType" => list(any()),
+    "Priority" => float(),
+    "SpotPrice" => String.t(),
+    "SubnetId" => String.t(),
+    "WeightedCapacity" => float()
+  }
+  """
+  @type launch_template_overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_discovered_public_address() :: %{
+    "Address" => String.t(),
+    "AddressAllocationId" => String.t(),
+    "AddressOwnerId" => String.t(),
+    "AddressRegion" => String.t(),
+    "AddressType" => list(any()),
+    "AssociationStatus" => list(any()),
+    "InstanceId" => String.t(),
+    "IpamResourceDiscoveryId" => String.t(),
+    "NetworkBorderGroup" => String.t(),
+    "NetworkInterfaceDescription" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "PublicIpv4PoolId" => String.t(),
+    "SampleTime" => non_neg_integer(),
+    "SecurityGroups" => list(ipam_public_address_security_group()()),
+    "Service" => list(any()),
+    "ServiceResource" => String.t(),
+    "SubnetId" => String.t(),
+    "Tags" => ipam_public_address_tags(),
+    "VpcId" => String.t()
+  }
+  """
+  @type ipam_discovered_public_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  key_pair() :: %{
+    "KeyFingerprint" => String.t(),
+    "KeyMaterial" => String.t(),
+    "KeyName" => String.t(),
+    "KeyPairId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type key_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_peering_connections_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VpcPeeringConnectionIds") => list(String.t()())
+  }
+  """
+  @type describe_vpc_peering_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_vpc_attachments_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayVpcAttachments" => list(transit_gateway_vpc_attachment()())
+  }
+  """
+  @type describe_transit_gateway_vpc_attachments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_attachment_propagations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type get_transit_gateway_attachment_propagations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  product_code() :: %{
+    "ProductCodeId" => String.t(),
+    "ProductCodeType" => list(any())
+  }
+  """
+  @type product_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_options_request() :: %{
+    "UsageStrategy" => list(any())
+  }
+  """
+  @type capacity_reservation_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpc_endpoint_service_configurations_result() :: %{
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type delete_vpc_endpoint_service_configurations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_address_transfer_result() :: %{
+    "AddressTransfer" => address_transfer()
+  }
+  """
+  @type accept_address_transfer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_peering_connection_options_request() :: %{
+    optional("AccepterPeeringConnectionOptions") => peering_connection_options_request(),
+    optional("DryRun") => boolean(),
+    optional("RequesterPeeringConnectionOptions") => peering_connection_options_request(),
+    required("VpcPeeringConnectionId") => String.t()
+  }
+  """
+  @type modify_vpc_peering_connection_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter() :: %{
+    "Name" => String.t(),
+    "Values" => list(String.t()())
+  }
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway_route_table_virtual_interface_group_association() :: %{
+    "LocalGatewayId" => String.t(),
+    "LocalGatewayRouteTableArn" => String.t(),
+    "LocalGatewayRouteTableId" => String.t(),
+    "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId" => String.t(),
+    "LocalGatewayVirtualInterfaceGroupId" => String.t(),
+    "OwnerId" => String.t(),
+    "State" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type local_gateway_route_table_virtual_interface_group_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_type_detail() :: %{
+    "ServiceType" => list(any())
+  }
+  """
+  @type service_type_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_prefix_list_reference_result() :: %{
+    "TransitGatewayPrefixListReference" => transit_gateway_prefix_list_reference()
+  }
+  """
+  @type create_transit_gateway_prefix_list_reference_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  placement() :: %{
+    "Affinity" => String.t(),
+    "AvailabilityZone" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "HostId" => String.t(),
+    "HostResourceGroupArn" => String.t(),
+    "PartitionNumber" => integer(),
+    "SpreadDomain" => String.t(),
+    "Tenancy" => list(any())
+  }
+  """
+  @type placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_ipam_pool_cidr_request() :: %{
+    optional("Cidr") => String.t(),
+    optional("DryRun") => boolean(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type deprovision_ipam_pool_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_connect_peers_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayConnectPeers" => list(transit_gateway_connect_peer()())
+  }
+  """
+  @type describe_transit_gateway_connect_peers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_state() :: %{
+    "Code" => integer(),
+    "Name" => list(any())
+  }
+  """
+  @type instance_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_connect_peer_request() :: %{
+    optional("BgpOptions") => transit_gateway_connect_request_bgp_options(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TransitGatewayAddress") => String.t(),
+    required("InsideCidrBlocks") => list(String.t()()),
+    required("PeerAddress") => String.t(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type create_transit_gateway_connect_peer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_event_notification_attributes_result() :: %{
+    "InstanceTagAttribute" => instance_tag_notification_attribute()
+  }
+  """
+  @type describe_instance_event_notification_attributes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_connect_peer_configuration() :: %{
+    "BgpConfigurations" => list(transit_gateway_attachment_bgp_configuration()()),
+    "InsideCidrBlocks" => list(String.t()()),
+    "PeerAddress" => String.t(),
+    "Protocol" => list(any()),
+    "TransitGatewayAddress" => String.t()
+  }
+  """
+  @type transit_gateway_connect_peer_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_ena_srd_udp_specification() :: %{
+    "EnaSrdUdpEnabled" => boolean()
+  }
+  """
+  @type launch_template_ena_srd_udp_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_security_group_egress_request() :: %{
+    optional("CidrIp") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("FromPort") => integer(),
+    optional("IpPermissions") => list(ip_permission()()),
+    optional("IpProtocol") => String.t(),
+    optional("SourceSecurityGroupName") => String.t(),
+    optional("SourceSecurityGroupOwnerId") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("ToPort") => integer(),
+    required("GroupId") => String.t()
+  }
+  """
+  @type authorize_security_group_egress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_connections_result() :: %{
+    "NextToken" => String.t(),
+    "VpcEndpointConnections" => list(vpc_endpoint_connection()())
+  }
+  """
+  @type describe_vpc_endpoint_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_security_group_ingress_request() :: %{
+    optional("CidrIp") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("FromPort") => integer(),
+    optional("GroupId") => String.t(),
+    optional("GroupName") => String.t(),
+    optional("IpPermissions") => list(ip_permission()()),
+    optional("IpProtocol") => String.t(),
+    optional("SecurityGroupRuleIds") => list(String.t()()),
+    optional("SourceSecurityGroupName") => String.t(),
+    optional("SourceSecurityGroupOwnerId") => String.t(),
+    optional("ToPort") => integer()
+  }
+  """
+  @type revoke_security_group_ingress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_address_transfer_result() :: %{
+    "AddressTransfer" => address_transfer()
+  }
+  """
+  @type enable_address_transfer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_access_scope_analyses_request() :: %{
+    optional("AnalysisStartTimeBegin") => non_neg_integer(),
+    optional("AnalysisStartTimeEnd") => non_neg_integer(),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkInsightsAccessScopeAnalysisIds") => list(String.t()()),
+    optional("NetworkInsightsAccessScopeId") => String.t(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_insights_access_scope_analyses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_detail() :: %{
+    "AcceptanceRequired" => boolean(),
+    "AvailabilityZones" => list(String.t()()),
+    "BaseEndpointDnsNames" => list(String.t()()),
+    "ManagesVpcEndpoints" => boolean(),
+    "Owner" => String.t(),
+    "PayerResponsibility" => list(any()),
+    "PrivateDnsName" => String.t(),
+    "PrivateDnsNameVerificationState" => list(any()),
+    "PrivateDnsNames" => list(private_dns_details()()),
+    "ServiceId" => String.t(),
+    "ServiceName" => String.t(),
+    "ServiceType" => list(service_type_detail()()),
+    "SupportedIpAddressTypes" => list(list(any())()),
+    "Tags" => list(tag()()),
+    "VpcEndpointPolicySupported" => boolean()
+  }
+  """
+  @type service_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_launch_template_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DefaultVersion") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LaunchTemplateId") => String.t(),
+    optional("LaunchTemplateName") => String.t()
+  }
+  """
+  @type modify_launch_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_connects_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayConnects" => list(transit_gateway_connect()())
+  }
+  """
+  @type describe_transit_gateway_connects_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_vpc_endpoint_service_private_dns_verification_result() :: %{
+    "ReturnValue" => boolean()
+  }
+  """
+  @type start_vpc_endpoint_service_private_dns_verification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshot_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type describe_snapshot_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_allocation() :: %{
+    "AllocationType" => list(any()),
+    "Count" => integer()
+  }
+  """
+  @type capacity_allocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_subnets_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SubnetIds") => list(String.t()())
+  }
+  """
+  @type describe_subnets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_image_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type create_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  peering_connection_options_request() :: %{
+    "AllowDnsResolutionFromRemoteVpc" => boolean(),
+    "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
+    "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+  }
+  """
+  @type peering_connection_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_bandwidth_gbps_request() :: %{
+    "Max" => float(),
+    "Min" => float()
+  }
+  """
+  @type network_bandwidth_gbps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_capacity_reservation_fleets_request() :: %{
+    optional("CapacityReservationFleetIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_capacity_reservation_fleets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assign_ipv6_addresses_result() :: %{
+    "AssignedIpv6Addresses" => list(String.t()()),
+    "AssignedIpv6Prefixes" => list(String.t()()),
+    "NetworkInterfaceId" => String.t()
+  }
+  """
+  @type assign_ipv6_addresses_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_coip_pool_usage_result() :: %{
+    "CoipAddressUsages" => list(coip_address_usage()()),
+    "CoipPoolId" => String.t(),
+    "LocalGatewayRouteTableId" => String.t(),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_coip_pool_usage_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_trust_provider_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DeviceOptions") => modify_verified_access_trust_provider_device_options(),
+    optional("DryRun") => boolean(),
+    optional("OidcOptions") => modify_verified_access_trust_provider_oidc_options(),
+    optional("SseSpecification") => verified_access_sse_specification_request(),
+    required("VerifiedAccessTrustProviderId") => String.t()
+  }
+  """
+  @type modify_verified_access_trust_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_route_table_propagations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type get_transit_gateway_route_table_propagations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_public_ipv4_pool_result() :: %{
+    "ReturnValue" => boolean()
+  }
+  """
+  @type delete_public_ipv4_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_launch_template_data_result() :: %{
+    "LaunchTemplateData" => response_launch_template_data()
+  }
+  """
+  @type get_launch_template_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_recycle_bin_info() :: %{
+    "Description" => String.t(),
+    "ImageId" => String.t(),
+    "Name" => String.t(),
+    "RecycleBinEnterTime" => non_neg_integer(),
+    "RecycleBinExitTime" => non_neg_integer()
+  }
+  """
+  @type image_recycle_bin_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_route_table_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type get_transit_gateway_route_table_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_client_vpn_client_certificate_revocation_list_result() :: %{
+    "CertificateRevocationList" => String.t(),
+    "Status" => client_certificate_revocation_list_status()
+  }
+  """
+  @type export_client_vpn_client_certificate_revocation_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_table_virtual_interface_group_association_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("LocalGatewayRouteTableId") => String.t(),
+    required("LocalGatewayVirtualInterfaceGroupId") => String.t()
+  }
+  """
+  @type create_local_gateway_route_table_virtual_interface_group_association_request() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  network_info() :: %{
+    "DefaultNetworkCardIndex" => integer(),
+    "EfaInfo" => efa_info(),
+    "EfaSupported" => boolean(),
+    "EnaSrdSupported" => boolean(),
+    "EnaSupport" => list(any()),
+    "EncryptionInTransitSupported" => boolean(),
+    "Ipv4AddressesPerInterface" => integer(),
+    "Ipv6AddressesPerInterface" => integer(),
+    "Ipv6Supported" => boolean(),
+    "MaximumNetworkCards" => integer(),
+    "MaximumNetworkInterfaces" => integer(),
+    "NetworkCards" => list(network_card_info()()),
+    "NetworkPerformance" => String.t()
+  }
+  """
+  @type network_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_connect_result() :: %{
+    "TransitGatewayConnect" => transit_gateway_connect()
+  }
+  """
+  @type create_transit_gateway_connect_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  host() :: %{
+    "AllocationTime" => non_neg_integer(),
+    "AllowsMultipleInstanceTypes" => list(any()),
+    "AssetId" => String.t(),
+    "AutoPlacement" => list(any()),
+    "AvailabilityZone" => String.t(),
+    "AvailabilityZoneId" => String.t(),
+    "AvailableCapacity" => available_capacity(),
+    "ClientToken" => String.t(),
+    "HostId" => String.t(),
+    "HostMaintenance" => list(any()),
+    "HostProperties" => host_properties(),
+    "HostRecovery" => list(any()),
+    "HostReservationId" => String.t(),
+    "Instances" => list(host_instance()()),
+    "MemberOfServiceLinkedResourceGroup" => boolean(),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "ReleaseTime" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type host() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_offerings_request() :: %{
+    optional("AvailabilityZone") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IncludeMarketplace") => boolean(),
+    optional("InstanceTenancy") => list(any()),
+    optional("InstanceType") => list(any()),
+    optional("MaxDuration") => float(),
+    optional("MaxInstanceCount") => integer(),
+    optional("MaxResults") => integer(),
+    optional("MinDuration") => float(),
+    optional("NextToken") => String.t(),
+    optional("OfferingClass") => list(any()),
+    optional("OfferingType") => list(any()),
+    optional("ProductDescription") => list(any()),
+    optional("ReservedInstancesOfferingIds") => list(String.t()())
+  }
+  """
+  @type describe_reserved_instances_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_target_networks_result() :: %{
+    "ClientVpnTargetNetworks" => list(target_network()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_client_vpn_target_networks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_tunnel_options_specification() :: %{
+    "DPDTimeoutAction" => String.t(),
+    "DPDTimeoutSeconds" => integer(),
+    "EnableTunnelLifecycleControl" => boolean(),
+    "IKEVersions" => list(i_k_e_versions_request_list_value()()),
+    "LogOptions" => vpn_tunnel_log_options_specification(),
+    "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()()),
+    "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()()),
+    "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()()),
+    "Phase1LifetimeSeconds" => integer(),
+    "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()()),
+    "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()()),
+    "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()()),
+    "Phase2LifetimeSeconds" => integer(),
+    "PreSharedKey" => String.t(),
+    "RekeyFuzzPercentage" => integer(),
+    "RekeyMarginTimeSeconds" => integer(),
+    "ReplayWindowSize" => integer(),
+    "StartupAction" => String.t(),
+    "TunnelInsideCidr" => String.t(),
+    "TunnelInsideIpv6Cidr" => String.t()
+  }
+  """
+  @type vpn_tunnel_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_transit_gateway_policy_table_result() :: %{
+    "Association" => transit_gateway_policy_table_association()
+  }
+  """
+  @type associate_transit_gateway_policy_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allocate_hosts_result() :: %{
+    "HostIds" => list(String.t()())
+  }
+  """
+  @type allocate_hosts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VerifiedAccessInstanceIds") => list(String.t()())
+  }
+  """
+  @type describe_verified_access_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_image_deprecation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("DeprecateAt") => non_neg_integer(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type enable_image_deprecation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_queued_reserved_instances_error() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type delete_queued_reserved_instances_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_acls_result() :: %{
+    "NetworkAcls" => list(network_acl()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_acls_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_logs() :: %{
+    "CloudWatchLogs" => verified_access_log_cloud_watch_logs_destination(),
+    "IncludeTrustContext" => boolean(),
+    "KinesisDataFirehose" => verified_access_log_kinesis_data_firehose_destination(),
+    "LogVersion" => String.t(),
+    "S3" => verified_access_log_s3_destination()
+  }
+  """
+  @type verified_access_logs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_bundle_task_result() :: %{
+    "BundleTask" => bundle_task()
+  }
+  """
+  @type cancel_bundle_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_route_table_vpc_associations_result() :: %{
+    "LocalGatewayRouteTableVpcAssociations" => list(local_gateway_route_table_vpc_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_local_gateway_route_table_vpc_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_scope_request() :: %{
+    optional("DryRun") => boolean(),
+    required("IpamScopeId") => String.t()
+  }
+  """
+  @type delete_ipam_scope_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_vpc_endpoint_connections_result() :: %{
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type accept_vpc_endpoint_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_trust_provider_oidc_options() :: %{
+    "AuthorizationEndpoint" => String.t(),
+    "ClientId" => String.t(),
+    "ClientSecret" => String.t(),
+    "Issuer" => String.t(),
+    "Scope" => String.t(),
+    "TokenEndpoint" => String.t(),
+    "UserInfoEndpoint" => String.t()
+  }
+  """
+  @type modify_verified_access_trust_provider_oidc_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_policy_table_association() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "State" => list(any()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayPolicyTableId" => String.t()
+  }
+  """
+  @type transit_gateway_policy_table_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_client_vpn_client_certificate_revocation_list_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CertificateRevocationList") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type import_client_vpn_client_certificate_revocation_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_vpn_gateway_result() :: %{
+    "VpcAttachment" => vpc_attachment()
+  }
+  """
+  @type attach_vpn_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attachment_ena_srd_udp_specification() :: %{
+    "EnaSrdUdpEnabled" => boolean()
+  }
+  """
+  @type attachment_ena_srd_udp_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_launch_result() :: %{
+    "ImageId" => String.t(),
+    "LaunchTemplate" => fast_launch_launch_template_specification_response(),
+    "MaxParallelLaunches" => integer(),
+    "OwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "SnapshotConfiguration" => fast_launch_snapshot_configuration_response(),
+    "State" => list(any()),
+    "StateTransitionReason" => String.t(),
+    "StateTransitionTime" => non_neg_integer()
+  }
+  """
+  @type enable_fast_launch_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_capacity() :: %{
+    "AvailableCapacity" => integer(),
+    "InstanceType" => String.t(),
+    "TotalCapacity" => integer()
+  }
+  """
+  @type instance_capacity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_request() :: %{
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationPrefixListId") => String.t(),
+    optional("DryRun") => boolean(),
+    required("LocalGatewayRouteTableId") => String.t()
+  }
+  """
+  @type delete_local_gateway_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_connect_request_options() :: %{
+    "Protocol" => list(any())
+  }
+  """
+  @type create_transit_gateway_connect_request_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_snapshot_result() :: %{
+    "SnapshotId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type copy_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_local_gateway_route_result() :: %{
+    "Route" => local_gateway_route()
+  }
+  """
+  @type modify_local_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_services_result() :: %{
+    "NextToken" => String.t(),
+    "ServiceDetails" => list(service_detail()()),
+    "ServiceNames" => list(String.t()())
+  }
+  """
+  @type describe_vpc_endpoint_services_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_ipam_organization_admin_account_request() :: %{
+    optional("DryRun") => boolean(),
+    required("DelegatedAdminAccountId") => String.t()
+  }
+  """
+  @type enable_ipam_organization_admin_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_vpc_classic_link_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type enable_vpc_classic_link_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_customer_gateway_request() :: %{
+    optional("BgpAsn") => integer(),
+    optional("CertificateArn") => String.t(),
+    optional("DeviceName") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("IpAddress") => String.t(),
+    optional("PublicIp") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Type") => list(any())
+  }
+  """
+  @type create_customer_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_id_group_pair() :: %{
+    "Description" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "PeeringStatus" => String.t(),
+    "UserId" => String.t(),
+    "VpcId" => String.t(),
+    "VpcPeeringConnectionId" => String.t()
+  }
+  """
+  @type user_id_group_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_task() :: %{
+    "Description" => String.t(),
+    "ExportTaskId" => String.t(),
+    "ExportToS3Task" => export_to_s3_task(),
+    "InstanceExportDetails" => instance_export_details(),
+    "State" => list(any()),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type export_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("OperatingRegions") => list(add_ipam_operating_region()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("Tier") => list(any())
+  }
+  """
+  @type create_ipam_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_path_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkInsightsPathId") => String.t()
+  }
+  """
+  @type delete_network_insights_path_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_group() :: %{
+    "GroupIpAddress" => String.t(),
+    "GroupMember" => boolean(),
+    "GroupSource" => boolean(),
+    "MemberType" => list(any()),
+    "NetworkInterfaceId" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceOwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "SourceType" => list(any()),
+    "SubnetId" => String.t(),
+    "TransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_transit_gateway_multicast_group_sources_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupIpAddress") => String.t(),
+    optional("NetworkInterfaceIds") => list(String.t()()),
+    optional("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type deregister_transit_gateway_multicast_group_sources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_options() :: %{
+    "UsageStrategy" => list(any())
+  }
+  """
+  @type capacity_reservation_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_acls_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkAclIds") => list(String.t()()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_acls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_private_dns_name_options_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_private_dns_name_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_s3_destination() :: %{
+    "BucketName" => String.t(),
+    "BucketOwner" => String.t(),
+    "DeliveryStatus" => verified_access_log_delivery_status(),
+    "Enabled" => boolean(),
+    "Prefix" => String.t()
+  }
+  """
+  @type verified_access_log_s3_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_security_group_result() :: %{
+    "GroupId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type create_security_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_vpc_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Options") => create_transit_gateway_vpc_attachment_request_options(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("SubnetIds") => list(String.t()()),
+    required("TransitGatewayId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_transit_gateway_vpc_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_verified_access_group_policy_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessGroupId") => String.t()
+  }
+  """
+  @type get_verified_access_group_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_result() :: %{
+    "TransitGateway" => transit_gateway()
+  }
+  """
+  @type modify_transit_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipams_result() :: %{
+    "Ipams" => list(ipam()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipams_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  federated_authentication() :: %{
+    "SamlProviderArn" => String.t(),
+    "SelfServiceSamlProviderArn" => String.t()
+  }
+  """
+  @type federated_authentication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_placement() :: %{
+    "AvailabilityZone" => String.t(),
+    "GroupName" => String.t(),
+    "Tenancy" => list(any())
+  }
+  """
+  @type spot_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_flow_logs_result() :: %{
+    "FlowLogs" => list(flow_log()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_flow_logs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tunnel_option() :: %{
+    "DpdTimeoutAction" => String.t(),
+    "DpdTimeoutSeconds" => integer(),
+    "EnableTunnelLifecycleControl" => boolean(),
+    "IkeVersions" => list(i_k_e_versions_list_value()()),
+    "LogOptions" => vpn_tunnel_log_options(),
+    "OutsideIpAddress" => String.t(),
+    "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_list_value()()),
+    "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_list_value()()),
+    "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_list_value()()),
+    "Phase1LifetimeSeconds" => integer(),
+    "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_list_value()()),
+    "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_list_value()()),
+    "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_list_value()()),
+    "Phase2LifetimeSeconds" => integer(),
+    "PreSharedKey" => String.t(),
+    "RekeyFuzzPercentage" => integer(),
+    "RekeyMarginTimeSeconds" => integer(),
+    "ReplayWindowSize" => integer(),
+    "StartupAction" => String.t(),
+    "TunnelInsideCidr" => String.t(),
+    "TunnelInsideIpv6Cidr" => String.t()
+  }
+  """
+  @type tunnel_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_security_group_rule_descriptions_egress_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupId") => String.t(),
+    optional("GroupName") => String.t(),
+    optional("IpPermissions") => list(ip_permission()()),
+    optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description()())
+  }
+  """
+  @type update_security_group_rule_descriptions_egress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  apply_security_groups_to_client_vpn_target_network_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t(),
+    required("SecurityGroupIds") => list(String.t()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type apply_security_groups_to_client_vpn_target_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_verified_access_group_policy_result() :: %{
+    "PolicyDocument" => String.t(),
+    "PolicyEnabled" => boolean()
+  }
+  """
+  @type get_verified_access_group_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_service_permissions_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ServiceId") => String.t()
+  }
+  """
+  @type describe_vpc_endpoint_service_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_default_credit_specification_result() :: %{
+    "InstanceFamilyCreditSpecification" => instance_family_credit_specification()
+  }
+  """
+  @type get_default_credit_specification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase1_d_h_group_numbers_list_value() :: %{
+    "Value" => integer()
+  }
+  """
+  @type phase1_d_h_group_numbers_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_snapshot_tier_result() :: %{
+    "IsPermanentRestore" => boolean(),
+    "RestoreDuration" => integer(),
+    "RestoreStartTime" => non_neg_integer(),
+    "SnapshotId" => String.t()
+  }
+  """
+  @type restore_snapshot_tier_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_address_request() :: %{
+    optional("AllocationId") => String.t(),
+    optional("AllowReassociation") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("InstanceId") => String.t(),
+    optional("NetworkInterfaceId") => String.t(),
+    optional("PrivateIpAddress") => String.t(),
+    optional("PublicIp") => String.t()
+  }
+  """
+  @type associate_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_transit_gateway_policy_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t(),
+    required("TransitGatewayPolicyTableId") => String.t()
+  }
+  """
+  @type disassociate_transit_gateway_policy_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_start_time_range_request() :: %{
+    "EarliestTime" => non_neg_integer(),
+    "LatestTime" => non_neg_integer()
+  }
+  """
+  @type slot_start_time_range_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpn_gateway_request() :: %{
+    optional("AmazonSideAsn") => float(),
+    optional("AvailabilityZone") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("Type") => list(any())
+  }
+  """
+  @type create_vpn_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  advertise_byoip_cidr_result() :: %{
+    "ByoipCidr" => byoip_cidr()
+  }
+  """
+  @type advertise_byoip_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_insights_access_scope_analysis() :: %{
+    "AnalyzedEniCount" => integer(),
+    "EndDate" => non_neg_integer(),
+    "FindingsFound" => list(any()),
+    "NetworkInsightsAccessScopeAnalysisArn" => String.t(),
+    "NetworkInsightsAccessScopeAnalysisId" => String.t(),
+    "NetworkInsightsAccessScopeId" => String.t(),
+    "StartDate" => non_neg_integer(),
+    "Status" => list(any()),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()()),
+    "WarningMessage" => String.t()
+  }
+  """
+  @type network_insights_access_scope_analysis() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_endpoint_connection_notification_result() :: %{
+    "ClientToken" => String.t(),
+    "ConnectionNotification" => connection_notification()
+  }
+  """
+  @type create_vpc_endpoint_connection_notification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_launch_template_versions_result() :: %{
+    "SuccessfullyDeletedLaunchTemplateVersions" => list(delete_launch_template_versions_response_success_item()()),
+    "UnsuccessfullyDeletedLaunchTemplateVersions" => list(delete_launch_template_versions_response_error_item()())
+  }
+  """
+  @type delete_launch_template_versions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_metadata_options_response() :: %{
+    "HttpEndpoint" => list(any()),
+    "HttpProtocolIpv6" => list(any()),
+    "HttpPutResponseHopLimit" => integer(),
+    "HttpTokens" => list(any()),
+    "InstanceMetadataTags" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type instance_metadata_options_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volume_attribute_result() :: %{
+    "AutoEnableIO" => attribute_boolean_value(),
+    "ProductCodes" => list(product_code()()),
+    "VolumeId" => String.t()
+  }
+  """
+  @type describe_volume_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_topology_result() :: %{
+    "Instances" => list(instance_topology()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_topology_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_options() :: %{
+    "PublicSigningKeyUrl" => String.t(),
+    "TenantId" => String.t()
+  }
+  """
+  @type device_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fast_launch_images_result() :: %{
+    "FastLaunchImages" => list(describe_fast_launch_images_success_item()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fast_launch_images_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fpga_info() :: %{
+    "Fpgas" => list(fpga_device_info()()),
+    "TotalFpgaMemoryInMiB" => integer()
+  }
+  """
+  @type fpga_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_volume_permission_modifications() :: %{
+    "Add" => list(create_volume_permission()()),
+    "Remove" => list(create_volume_permission()())
+  }
+  """
+  @type create_volume_permission_modifications() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_login_banner_options() :: %{
+    "BannerText" => String.t(),
+    "Enabled" => boolean()
+  }
+  """
+  @type client_login_banner_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  path_statement() :: %{
+    "PacketHeaderStatement" => packet_header_statement(),
+    "ResourceStatement" => resource_statement()
+  }
+  """
+  @type path_statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_endpoint_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DnsOptions") => dns_options_specification(),
+    optional("DryRun") => boolean(),
+    optional("IpAddressType") => list(any()),
+    optional("PolicyDocument") => String.t(),
+    optional("PrivateDnsEnabled") => boolean(),
+    optional("RouteTableIds") => list(String.t()()),
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("SubnetConfigurations") => list(subnet_configuration()()),
+    optional("SubnetIds") => list(String.t()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("VpcEndpointType") => list(any()),
+    required("ServiceName") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_vpc_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_transit_gateway_route_table_propagation_result() :: %{
+    "Propagation" => transit_gateway_propagation()
+  }
+  """
+  @type disable_transit_gateway_route_table_propagation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  traffic_mirror_target() :: %{
+    "Description" => String.t(),
+    "GatewayLoadBalancerEndpointId" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "NetworkLoadBalancerArn" => String.t(),
+    "OwnerId" => String.t(),
+    "Tags" => list(tag()()),
+    "TrafficMirrorTargetId" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type traffic_mirror_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_transit_gateway_peering_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type accept_transit_gateway_peering_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CapacityReservationId") => String.t()
+  }
+  """
+  @type cancel_capacity_reservation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_image_result() :: %{
+    "Description" => String.t(),
+    "DiskImageFormat" => list(any()),
+    "ExportImageTaskId" => String.t(),
+    "ImageId" => String.t(),
+    "Progress" => String.t(),
+    "RoleName" => String.t(),
+    "S3ExportLocation" => export_task_s3_location(),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type export_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accelerator_total_memory_mi_b_request() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type accelerator_total_memory_mi_b_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  load_permission() :: %{
+    "Group" => list(any()),
+    "UserId" => String.t()
+  }
+  """
+  @type load_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  port_range() :: %{
+    "From" => integer(),
+    "To" => integer()
+  }
+  """
+  @type port_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_endpoint_connection() :: %{
+    "CreationTimestamp" => non_neg_integer(),
+    "DnsEntries" => list(dns_entry()()),
+    "GatewayLoadBalancerArns" => list(String.t()()),
+    "IpAddressType" => list(any()),
+    "NetworkLoadBalancerArns" => list(String.t()()),
+    "ServiceId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcEndpointConnectionId" => String.t(),
+    "VpcEndpointId" => String.t(),
+    "VpcEndpointOwner" => String.t(),
+    "VpcEndpointState" => list(any())
+  }
+  """
+  @type vpc_endpoint_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_network_interface_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EnaSrdSpecification") => ena_srd_specification(),
+    optional("NetworkCardIndex") => integer(),
+    required("DeviceIndex") => integer(),
+    required("InstanceId") => String.t(),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type attach_network_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpn_gateway_result() :: %{
+    "VpnGateway" => vpn_gateway()
+  }
+  """
+  @type create_vpn_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_session_result() :: %{
+    "TrafficMirrorSessionId" => String.t()
+  }
+  """
+  @type delete_traffic_mirror_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_trust_provider_result() :: %{
+    "VerifiedAccessTrustProvider" => verified_access_trust_provider()
+  }
+  """
+  @type delete_verified_access_trust_provider_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_attachment_propagations_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayAttachmentPropagations" => list(transit_gateway_attachment_propagation()())
+  }
+  """
+  @type get_transit_gateway_attachment_propagations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_endpoints_result() :: %{
+    "ClientVpnEndpoints" => list(client_vpn_endpoint()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_client_vpn_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_client_vpn_endpoint_result() :: %{
+    "Status" => client_vpn_endpoint_status()
+  }
+  """
+  @type delete_client_vpn_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_reserved_instances_listing_request() :: %{
+    required("ReservedInstancesListingId") => String.t()
+  }
+  """
+  @type cancel_reserved_instances_listing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_subnet_result() :: %{
+    "Subnet" => subnet()
+  }
+  """
+  @type create_subnet_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_tunnel_options_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("SkipTunnelReplacement") => boolean(),
+    required("TunnelOptions") => modify_vpn_tunnel_options_specification(),
+    required("VpnConnectionId") => String.t(),
+    required("VpnTunnelOutsideIpAddress") => String.t()
+  }
+  """
+  @type modify_vpn_tunnel_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_network_interface_attachment() :: %{
+    "AttachTime" => non_neg_integer(),
+    "AttachmentId" => String.t(),
+    "DeleteOnTermination" => boolean(),
+    "DeviceIndex" => integer(),
+    "EnaSrdSpecification" => instance_attachment_ena_srd_specification(),
+    "NetworkCardIndex" => integer(),
+    "Status" => list(any())
+  }
+  """
+  @type instance_network_interface_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_status_event() :: %{
+    "Code" => list(any()),
+    "Description" => String.t(),
+    "InstanceEventId" => String.t(),
+    "NotAfter" => non_neg_integer(),
+    "NotBefore" => non_neg_integer(),
+    "NotBeforeDeadline" => non_neg_integer()
+  }
+  """
+  @type instance_status_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_placement_request() :: %{
+    optional("Affinity") => list(any()),
+    optional("GroupId") => String.t(),
+    optional("GroupName") => String.t(),
+    optional("HostId") => String.t(),
+    optional("HostResourceGroupArn") => String.t(),
+    optional("PartitionNumber") => integer(),
+    optional("Tenancy") => list(any()),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type modify_instance_placement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_history_result() :: %{
+    "FleetId" => String.t(),
+    "HistoryRecords" => list(history_record_entry()()),
+    "LastEvaluatedTime" => non_neg_integer(),
+    "NextToken" => String.t(),
+    "StartTime" => non_neg_integer()
+  }
+  """
+  @type describe_fleet_history_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_reserved_instances_result() :: %{
+    "ReservedInstancesModificationId" => String.t()
+  }
+  """
+  @type modify_reserved_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_acl_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkAclId") => String.t()
+  }
+  """
+  @type delete_network_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_nat_gateway_address_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("PrivateIpAddresses") => list(String.t()()),
+    required("AllocationIds") => list(String.t()()),
+    required("NatGatewayId") => String.t()
+  }
+  """
+  @type associate_nat_gateway_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allowed_principal() :: %{
+    "Principal" => String.t(),
+    "PrincipalType" => list(any()),
+    "ServiceId" => String.t(),
+    "ServicePermissionId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type allowed_principal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_reserved_instances_exchange_quote_result() :: %{
+    "CurrencyCode" => String.t(),
+    "IsValidExchange" => boolean(),
+    "OutputReservedInstancesWillExpireAt" => non_neg_integer(),
+    "PaymentDue" => String.t(),
+    "ReservedInstanceValueRollup" => reservation_value(),
+    "ReservedInstanceValueSet" => list(reserved_instance_reservation_value()()),
+    "TargetConfigurationValueRollup" => reservation_value(),
+    "TargetConfigurationValueSet" => list(target_reservation_value()()),
+    "ValidationFailureReason" => String.t()
+  }
+  """
+  @type get_reserved_instances_exchange_quote_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_public_address_tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type ipam_public_address_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_attachment() :: %{
+    "Association" => transit_gateway_attachment_association(),
+    "CreationTime" => non_neg_integer(),
+    "ResourceId" => String.t(),
+    "ResourceOwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayId" => String.t(),
+    "TransitGatewayOwnerId" => String.t()
+  }
+  """
+  @type transit_gateway_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpn_connections_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("VpnConnectionIds") => list(String.t()())
+  }
+  """
+  @type describe_vpn_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route_table_route() :: %{
+    "AttachmentId" => String.t(),
+    "DestinationCidr" => String.t(),
+    "PrefixListId" => String.t(),
+    "ResourceId" => String.t(),
+    "ResourceType" => String.t(),
+    "RouteOrigin" => String.t(),
+    "State" => String.t()
+  }
+  """
+  @type transit_gateway_route_table_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_launch_template_data() :: %{
+    "BlockDeviceMappings" => list(launch_template_block_device_mapping_request()()),
+    "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_request(),
+    "CpuOptions" => launch_template_cpu_options_request(),
+    "CreditSpecification" => credit_specification_request(),
+    "DisableApiStop" => boolean(),
+    "DisableApiTermination" => boolean(),
+    "EbsOptimized" => boolean(),
+    "ElasticGpuSpecifications" => list(elastic_gpu_specification()()),
+    "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator()()),
+    "EnclaveOptions" => launch_template_enclave_options_request(),
+    "HibernationOptions" => launch_template_hibernation_options_request(),
+    "IamInstanceProfile" => launch_template_iam_instance_profile_specification_request(),
+    "ImageId" => String.t(),
+    "InstanceInitiatedShutdownBehavior" => list(any()),
+    "InstanceMarketOptions" => launch_template_instance_market_options_request(),
+    "InstanceRequirements" => instance_requirements_request(),
+    "InstanceType" => list(any()),
+    "KernelId" => String.t(),
+    "KeyName" => String.t(),
+    "LicenseSpecifications" => list(launch_template_license_configuration_request()()),
+    "MaintenanceOptions" => launch_template_instance_maintenance_options_request(),
+    "MetadataOptions" => launch_template_instance_metadata_options_request(),
+    "Monitoring" => launch_templates_monitoring_request(),
+    "NetworkInterfaces" => list(launch_template_instance_network_interface_specification_request()()),
+    "Placement" => launch_template_placement_request(),
+    "PrivateDnsNameOptions" => launch_template_private_dns_name_options_request(),
+    "RamDiskId" => String.t(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SecurityGroups" => list(String.t()()),
+    "TagSpecifications" => list(launch_template_tag_specification_request()()),
+    "UserData" => String.t()
+  }
+  """
+  @type request_launch_template_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_scheduled_instances_result() :: %{
+    "ScheduledInstanceSet" => list(scheduled_instance()())
+  }
+  """
+  @type purchase_scheduled_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_client_vpn_route_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t(),
+    required("DestinationCidrBlock") => String.t(),
+    required("TargetVpcSubnetId") => String.t()
+  }
+  """
+  @type create_client_vpn_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_key_pair_result() :: %{
+    "KeyFingerprint" => String.t(),
+    "KeyName" => String.t(),
+    "KeyPairId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type import_key_pair_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  placement_response() :: %{
+    "GroupName" => String.t()
+  }
+  """
+  @type placement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_result() :: %{
+    "Ipam" => ipam()
+  }
+  """
+  @type delete_ipam_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_client_vpn_endpoint_request() :: %{
+    optional("ClientConnectOptions") => client_connect_options(),
+    optional("ClientLoginBannerOptions") => client_login_banner_options(),
+    optional("ConnectionLogOptions") => connection_log_options(),
+    optional("Description") => String.t(),
+    optional("DnsServers") => dns_servers_options_modify_structure(),
+    optional("DryRun") => boolean(),
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("SelfServicePortal") => list(any()),
+    optional("ServerCertificateArn") => String.t(),
+    optional("SessionTimeoutHours") => integer(),
+    optional("SplitTunnel") => boolean(),
+    optional("VpcId") => String.t(),
+    optional("VpnPort") => integer(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type modify_client_vpn_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_image_request() :: %{
+    optional("Architecture") => list(any()),
+    optional("BillingProducts") => list(String.t()()),
+    optional("BlockDeviceMappings") => list(block_device_mapping()()),
+    optional("BootMode") => list(any()),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EnaSupport") => boolean(),
+    optional("ImageLocation") => String.t(),
+    optional("ImdsSupport") => list(any()),
+    optional("KernelId") => String.t(),
+    optional("RamdiskId") => String.t(),
+    optional("RootDeviceName") => String.t(),
+    optional("SriovNetSupport") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TpmSupport") => list(any()),
+    optional("UefiData") => String.t(),
+    optional("VirtualizationType") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type register_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_vpc_classic_link_dns_support_request() :: %{
+    optional("VpcId") => String.t()
+  }
+  """
+  @type disable_vpc_classic_link_dns_support_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_image_license_configuration_response() :: %{
+    "LicenseConfigurationArn" => String.t()
+  }
+  """
+  @type import_image_license_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_specification() :: %{
+    "AddressingType" => String.t(),
+    "BlockDeviceMappings" => list(block_device_mapping()()),
+    "EbsOptimized" => boolean(),
+    "IamInstanceProfile" => iam_instance_profile_specification(),
+    "ImageId" => String.t(),
+    "InstanceType" => list(any()),
+    "KernelId" => String.t(),
+    "KeyName" => String.t(),
+    "Monitoring" => run_instances_monitoring_enabled(),
+    "NetworkInterfaces" => list(instance_network_interface_specification()()),
+    "Placement" => spot_placement(),
+    "RamdiskId" => String.t(),
+    "SecurityGroups" => list(group_identifier()()),
+    "SubnetId" => String.t(),
+    "UserData" => String.t()
+  }
+  """
+  @type launch_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_local_gateway_route_request() :: %{
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationPrefixListId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LocalGatewayVirtualInterfaceGroupId") => String.t(),
+    optional("NetworkInterfaceId") => String.t(),
+    required("LocalGatewayRouteTableId") => String.t()
+  }
+  """
+  @type modify_local_gateway_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpn_connection_device_sample_configuration_result() :: %{
+    "VpnConnectionDeviceSampleConfiguration" => String.t()
+  }
+  """
+  @type get_vpn_connection_device_sample_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  iam_instance_profile_specification() :: %{
+    "Arn" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type iam_instance_profile_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_virtual_interfaces_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocalGatewayVirtualInterfaceIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_local_gateway_virtual_interfaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_domain() :: %{
+    "CreationTime" => non_neg_integer(),
+    "Options" => transit_gateway_multicast_domain_options(),
+    "OwnerId" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayId" => String.t(),
+    "TransitGatewayMulticastDomainArn" => String.t(),
+    "TransitGatewayMulticastDomainId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_domain() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_image_task() :: %{
+    "Description" => String.t(),
+    "ExportImageTaskId" => String.t(),
+    "ImageId" => String.t(),
+    "Progress" => String.t(),
+    "S3ExportLocation" => export_task_s3_location(),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type export_image_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  trunk_interface_association() :: %{
+    "AssociationId" => String.t(),
+    "BranchInterfaceId" => String.t(),
+    "GreKey" => integer(),
+    "InterfaceProtocol" => list(any()),
+    "Tags" => list(tag()()),
+    "TrunkInterfaceId" => String.t(),
+    "VlanId" => integer()
+  }
+  """
+  @type trunk_interface_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_instance_logging_configuration_result() :: %{
+    "LoggingConfiguration" => verified_access_instance_logging_configuration()
+  }
+  """
+  @type modify_verified_access_instance_logging_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_conversion_tasks_result() :: %{
+    "ConversionTasks" => list(conversion_task()())
+  }
+  """
+  @type describe_conversion_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_kinesis_data_firehose_destination() :: %{
+    "DeliveryStatus" => verified_access_log_delivery_status(),
+    "DeliveryStream" => String.t(),
+    "Enabled" => boolean()
+  }
+  """
+  @type verified_access_log_kinesis_data_firehose_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_subnet_cidr_block_result() :: %{
+    "Ipv6CidrBlockAssociation" => subnet_ipv6_cidr_block_association(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type disassociate_subnet_cidr_block_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_multicast_domain_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_multicast_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_specification() :: %{
+    "ResourceType" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type tag_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_vpc_endpoint_service_private_dns_verification_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ServiceId") => String.t()
+  }
+  """
+  @type start_vpc_endpoint_service_private_dns_verification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unlock_snapshot_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type unlock_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  firewall_stateful_rule() :: %{
+    "DestinationPorts" => list(port_range()()),
+    "Destinations" => list(String.t()()),
+    "Direction" => String.t(),
+    "Protocol" => String.t(),
+    "RuleAction" => String.t(),
+    "RuleGroupArn" => String.t(),
+    "SourcePorts" => list(port_range()()),
+    "Sources" => list(String.t()())
+  }
+  """
+  @type firewall_stateful_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_connection_notification_result() :: %{
+    "ReturnValue" => boolean()
+  }
+  """
+  @type modify_vpc_endpoint_connection_notification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_cidr_block_state() :: %{
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type subnet_cidr_block_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_vpc_classic_link_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type enable_vpc_classic_link_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot() :: %{
+    "DataEncryptionKeyId" => String.t(),
+    "Description" => String.t(),
+    "Encrypted" => boolean(),
+    "KmsKeyId" => String.t(),
+    "OutpostArn" => String.t(),
+    "OwnerAlias" => String.t(),
+    "OwnerId" => String.t(),
+    "Progress" => String.t(),
+    "RestoreExpiryTime" => non_neg_integer(),
+    "SnapshotId" => String.t(),
+    "SseType" => list(any()),
+    "StartTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateMessage" => String.t(),
+    "StorageTier" => list(any()),
+    "Tags" => list(tag()()),
+    "VolumeId" => String.t(),
+    "VolumeSize" => integer()
+  }
+  """
+  @type snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_default_subnet_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Ipv6Native") => boolean(),
+    required("AvailabilityZone") => String.t()
+  }
+  """
+  @type create_default_subnet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fpga_image_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LogsStorageLocation") => storage_location(),
+    optional("Name") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("InputStorageLocation") => storage_location()
+  }
+  """
+  @type create_fpga_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_availability_zones_request() :: %{
+    optional("AllAvailabilityZones") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("ZoneIds") => list(String.t()()),
+    optional("ZoneNames") => list(String.t()())
+  }
+  """
+  @type describe_availability_zones_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AssociationId") => String.t()
+  }
+  """
+  @type disassociate_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_verified_access_endpoint_policy_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessEndpointId") => String.t()
+  }
+  """
+  @type get_verified_access_endpoint_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_public_ipv4_pool_cidr_result() :: %{
+    "PoolAddressRange" => public_ipv4_pool_range(),
+    "PoolId" => String.t()
+  }
+  """
+  @type provision_public_ipv4_pool_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image() :: %{
+    "Architecture" => list(any()),
+    "BlockDeviceMappings" => list(block_device_mapping()()),
+    "BootMode" => list(any()),
+    "CreationDate" => String.t(),
+    "DeprecationTime" => String.t(),
+    "Description" => String.t(),
+    "EnaSupport" => boolean(),
+    "Hypervisor" => list(any()),
+    "ImageId" => String.t(),
+    "ImageLocation" => String.t(),
+    "ImageOwnerAlias" => String.t(),
+    "ImageType" => list(any()),
+    "ImdsSupport" => list(any()),
+    "KernelId" => String.t(),
+    "Name" => String.t(),
+    "OwnerId" => String.t(),
+    "Platform" => list(any()),
+    "PlatformDetails" => String.t(),
+    "ProductCodes" => list(product_code()()),
+    "Public" => boolean(),
+    "RamdiskId" => String.t(),
+    "RootDeviceName" => String.t(),
+    "RootDeviceType" => list(any()),
+    "SourceInstanceId" => String.t(),
+    "SriovNetSupport" => String.t(),
+    "State" => list(any()),
+    "StateReason" => state_reason(),
+    "Tags" => list(tag()()),
+    "TpmSupport" => list(any()),
+    "UsageOperation" => String.t(),
+    "VirtualizationType" => list(any())
+  }
+  """
+  @type image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_capacity_block_offerings_result() :: %{
+    "CapacityBlockOfferings" => list(capacity_block_offering()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_capacity_block_offerings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_instance_result() :: %{
+    "VerifiedAccessInstance" => verified_access_instance()
+  }
+  """
+  @type delete_verified_access_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_insights_access_scope_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ExcludePaths") => list(access_scope_path_request()()),
+    optional("MatchPaths") => list(access_scope_path_request()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("ClientToken") => String.t()
+  }
+  """
+  @type create_network_insights_access_scope_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_snapshot_restores_result() :: %{
+    "Successful" => list(disable_fast_snapshot_restore_success_item()()),
+    "Unsuccessful" => list(disable_fast_snapshot_restore_error_item()())
+  }
+  """
+  @type disable_fast_snapshot_restores_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_ipam_resource_discovery_request() :: %{
+    optional("DryRun") => boolean(),
+    required("IpamResourceDiscoveryAssociationId") => String.t()
+  }
+  """
+  @type disassociate_ipam_resource_discovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  key_pair_info() :: %{
+    "CreateTime" => non_neg_integer(),
+    "KeyFingerprint" => String.t(),
+    "KeyName" => String.t(),
+    "KeyPairId" => String.t(),
+    "KeyType" => list(any()),
+    "PublicKey" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type key_pair_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_address_transfers_request() :: %{
+    optional("AllocationIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_address_transfers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  monitoring() :: %{
+    "State" => list(any())
+  }
+  """
+  @type monitoring() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_vpc_attachment_request_options() :: %{
+    "ApplianceModeSupport" => list(any()),
+    "DnsSupport" => list(any()),
+    "Ipv6Support" => list(any()),
+    "SecurityGroupReferencingSupport" => list(any())
+  }
+  """
+  @type modify_transit_gateway_vpc_attachment_request_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase1_encryption_algorithms_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase1_encryption_algorithms_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_internet_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InternetGatewayId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type detach_internet_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_launch_template_specification() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "Version" => String.t()
+  }
+  """
+  @type fleet_launch_template_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_analysis_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkInsightsAnalysisId") => String.t()
+  }
+  """
+  @type delete_network_insights_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_diagnostic_interrupt_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type send_diagnostic_interrupt_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_interface_permission_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Force") => boolean(),
+    required("NetworkInterfacePermissionId") => String.t()
+  }
+  """
+  @type delete_network_interface_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_multicast_domain_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type get_transit_gateway_multicast_domain_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway() :: %{
+    "CreationTime" => non_neg_integer(),
+    "Description" => String.t(),
+    "Options" => transit_gateway_options(),
+    "OwnerId" => String.t(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayArn" => String.t(),
+    "TransitGatewayId" => String.t()
+  }
+  """
+  @type transit_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_scope_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    required("IpamScopeId") => String.t()
+  }
+  """
+  @type modify_ipam_scope_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  license_configuration_request() :: %{
+    "LicenseConfigurationArn" => String.t()
+  }
+  """
+  @type license_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_managed_prefix_list_result() :: %{
+    "PrefixList" => managed_prefix_list()
+  }
+  """
+  @type create_managed_prefix_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  athena_integration() :: %{
+    "IntegrationResultS3DestinationArn" => String.t(),
+    "PartitionEndDate" => non_neg_integer(),
+    "PartitionLoadFrequency" => list(any()),
+    "PartitionStartDate" => non_neg_integer()
+  }
+  """
+  @type athena_integration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_permission_modifications() :: %{
+    "Add" => list(launch_permission()()),
+    "Remove" => list(launch_permission()())
+  }
+  """
+  @type launch_permission_modifications() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_endpoint() :: %{
+    "AssociatedTargetNetworks" => list(associated_target_network()()),
+    "AuthenticationOptions" => list(client_vpn_authentication()()),
+    "ClientCidrBlock" => String.t(),
+    "ClientConnectOptions" => client_connect_response_options(),
+    "ClientLoginBannerOptions" => client_login_banner_response_options(),
+    "ClientVpnEndpointId" => String.t(),
+    "ConnectionLogOptions" => connection_log_response_options(),
+    "CreationTime" => String.t(),
+    "DeletionTime" => String.t(),
+    "Description" => String.t(),
+    "DnsName" => String.t(),
+    "DnsServers" => list(String.t()()),
+    "SecurityGroupIds" => list(String.t()()),
+    "SelfServicePortalUrl" => String.t(),
+    "ServerCertificateArn" => String.t(),
+    "SessionTimeoutHours" => integer(),
+    "SplitTunnel" => boolean(),
+    "Status" => client_vpn_endpoint_status(),
+    "Tags" => list(tag()()),
+    "TransportProtocol" => list(any()),
+    "VpcId" => String.t(),
+    "VpnPort" => integer(),
+    "VpnProtocol" => list(any())
+  }
+  """
+  @type client_vpn_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_snapshot_attribute_request() :: %{
+    optional("Attribute") => list(any()),
+    optional("CreateVolumePermission") => create_volume_permission_modifications(),
+    optional("DryRun") => boolean(),
+    optional("GroupNames") => list(String.t()()),
+    optional("OperationType") => list(any()),
+    optional("UserIds") => list(String.t()()),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type modify_snapshot_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internet_gateway_attachment() :: %{
+    "State" => list(any()),
+    "VpcId" => String.t()
+  }
+  """
+  @type internet_gateway_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_images_in_recycle_bin_result() :: %{
+    "Images" => list(image_recycle_bin_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_images_in_recycle_bin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_multicast_domain_request_options() :: %{
+    "AutoAcceptSharedAssociations" => list(any()),
+    "Igmpv2Support" => list(any()),
+    "StaticSourcesSupport" => list(any())
+  }
+  """
+  @type create_transit_gateway_multicast_domain_request_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_status_attachment_status() :: %{
+    "InstanceId" => String.t(),
+    "IoPerformance" => String.t()
+  }
+  """
+  @type volume_status_attachment_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_aws_network_performance_data_request() :: %{
+    optional("DataQueries") => list(data_query()()),
+    optional("DryRun") => boolean(),
+    optional("EndTime") => non_neg_integer(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StartTime") => non_neg_integer()
+  }
+  """
+  @type get_aws_network_performance_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_conversion_tasks_request() :: %{
+    optional("ConversionTaskIds") => list(String.t()()),
+    optional("DryRun") => boolean()
+  }
+  """
+  @type describe_conversion_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_type_info() :: %{
+    "AutoRecoverySupported" => boolean(),
+    "BareMetal" => boolean(),
+    "BurstablePerformanceSupported" => boolean(),
+    "CurrentGeneration" => boolean(),
+    "DedicatedHostsSupported" => boolean(),
+    "EbsInfo" => ebs_info(),
+    "FpgaInfo" => fpga_info(),
+    "FreeTierEligible" => boolean(),
+    "GpuInfo" => gpu_info(),
+    "HibernationSupported" => boolean(),
+    "Hypervisor" => list(any()),
+    "InferenceAcceleratorInfo" => inference_accelerator_info(),
+    "InstanceStorageInfo" => instance_storage_info(),
+    "InstanceStorageSupported" => boolean(),
+    "InstanceType" => list(any()),
+    "MemoryInfo" => memory_info(),
+    "NetworkInfo" => network_info(),
+    "NitroEnclavesSupport" => list(any()),
+    "NitroTpmInfo" => nitro_tpm_info(),
+    "NitroTpmSupport" => list(any()),
+    "PlacementGroupInfo" => placement_group_info(),
+    "ProcessorInfo" => processor_info(),
+    "SupportedBootModes" => list(list(any())()),
+    "SupportedRootDeviceTypes" => list(list(any())()),
+    "SupportedUsageClasses" => list(list(any())()),
+    "SupportedVirtualizationTypes" => list(list(any())()),
+    "VCpuInfo" => v_cpu_info()
+  }
+  """
+  @type instance_type_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_event_notification_attributes_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type describe_instance_event_notification_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  storage() :: %{
+    "S3" => s3_storage()
+  }
+  """
+  @type storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dhcp_options_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("DhcpConfigurations") => list(new_dhcp_configuration()())
+  }
+  """
+  @type create_dhcp_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vgw_telemetry() :: %{
+    "AcceptedRouteCount" => integer(),
+    "CertificateArn" => String.t(),
+    "LastStatusChange" => non_neg_integer(),
+    "OutsideIpAddress" => String.t(),
+    "Status" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type vgw_telemetry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance() :: %{
+    "SriovNetSupport" => String.t(),
+    "AmiLaunchIndex" => integer(),
+    "PublicDnsName" => String.t(),
+    "RootDeviceName" => String.t(),
+    "ElasticGpuAssociations" => list(elastic_gpu_association()()),
+    "ProductCodes" => list(product_code()()),
+    "Tags" => list(tag()()),
+    "LaunchTime" => non_neg_integer(),
+    "SubnetId" => String.t(),
+    "CapacityReservationId" => String.t(),
+    "InstanceLifecycle" => list(any()),
+    "ImageId" => String.t(),
+    "BlockDeviceMappings" => list(instance_block_device_mapping()()),
+    "TpmSupport" => String.t(),
+    "UsageOperationUpdateTime" => non_neg_integer(),
+    "Licenses" => list(license_configuration()()),
+    "NetworkInterfaces" => list(instance_network_interface()()),
+    "StateTransitionReason" => String.t(),
+    "Monitoring" => monitoring(),
+    "SpotInstanceRequestId" => String.t(),
+    "VpcId" => String.t(),
+    "RamdiskId" => String.t(),
+    "PrivateDnsNameOptions" => private_dns_name_options_response(),
+    "PublicIpAddress" => String.t(),
+    "PlatformDetails" => String.t(),
+    "CapacityReservationSpecification" => capacity_reservation_specification_response(),
+    "OutpostArn" => String.t(),
+    "InstanceType" => list(any()),
+    "KernelId" => String.t(),
+    "StateReason" => state_reason(),
+    "State" => instance_state(),
+    "Placement" => placement(),
+    "CurrentInstanceBootMode" => list(any()),
+    "InstanceId" => String.t(),
+    "EnclaveOptions" => enclave_options(),
+    "CpuOptions" => cpu_options(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateDnsName" => String.t(),
+    "IamInstanceProfile" => iam_instance_profile(),
+    "UsageOperation" => String.t(),
+    "HibernationOptions" => hibernation_options(),
+    "EnaSupport" => boolean(),
+    "Hypervisor" => list(any()),
+    "VirtualizationType" => list(any()),
+    "RootDeviceType" => list(any()),
+    "BootMode" => list(any()),
+    "SourceDestCheck" => boolean(),
+    "Architecture" => list(any()),
+    "MetadataOptions" => instance_metadata_options_response(),
+    "ElasticInferenceAcceleratorAssociations" => list(elastic_inference_accelerator_association()()),
+    "ClientToken" => String.t(),
+    "EbsOptimized" => boolean(),
+    "KeyName" => String.t(),
+    "SecurityGroups" => list(group_identifier()()),
+    "Ipv6Address" => String.t(),
+    "MaintenanceOptions" => instance_maintenance_options(),
+    "Platform" => list(any())
+  }
+  """
+  @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_verified_access_trust_provider_result() :: %{
+    "VerifiedAccessInstance" => verified_access_instance(),
+    "VerifiedAccessTrustProvider" => verified_access_trust_provider()
+  }
+  """
+  @type attach_verified_access_trust_provider_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fleet_result() :: %{
+    "Errors" => list(create_fleet_error()()),
+    "FleetId" => String.t(),
+    "Instances" => list(create_fleet_instance()())
+  }
+  """
+  @type create_fleet_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_resource_discovery_result() :: %{
+    "IpamResourceDiscovery" => ipam_resource_discovery()
+  }
+  """
+  @type modify_ipam_resource_discovery_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume() :: %{
+    "Attachments" => list(volume_attachment()()),
+    "AvailabilityZone" => String.t(),
+    "CreateTime" => non_neg_integer(),
+    "Encrypted" => boolean(),
+    "FastRestored" => boolean(),
+    "Iops" => integer(),
+    "KmsKeyId" => String.t(),
+    "MultiAttachEnabled" => boolean(),
+    "OutpostArn" => String.t(),
+    "Size" => integer(),
+    "SnapshotId" => String.t(),
+    "SseType" => list(any()),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "Throughput" => integer(),
+    "VolumeId" => String.t(),
+    "VolumeType" => list(any())
+  }
+  """
+  @type volume() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_connect_endpoint_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PreserveClientIp") => boolean(),
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type create_instance_connect_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_prefix_list_references_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type get_transit_gateway_prefix_list_references_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_pool_allocations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamPoolAllocationId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type get_ipam_pool_allocations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway_virtual_interface_group() :: %{
+    "LocalGatewayId" => String.t(),
+    "LocalGatewayVirtualInterfaceGroupId" => String.t(),
+    "LocalGatewayVirtualInterfaceIds" => list(String.t()()),
+    "OwnerId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type local_gateway_virtual_interface_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_client_vpn_route_result() :: %{
+    "Status" => client_vpn_route_status()
+  }
+  """
+  @type delete_client_vpn_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  release_ipam_pool_allocation_result() :: %{
+    "Success" => boolean()
+  }
+  """
+  @type release_ipam_pool_allocation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_route_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type create_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_association() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "State" => list(any()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_trust_providers_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VerifiedAccessTrustProviderIds") => list(String.t()())
+  }
+  """
+  @type describe_verified_access_trust_providers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fast_launch_launch_template_specification_response() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "Version" => String.t()
+  }
+  """
+  @type fast_launch_launch_template_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_images_in_recycle_bin_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ImageIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_images_in_recycle_bin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_tag_notification_attribute() :: %{
+    "IncludeAllTagsOfInstance" => boolean(),
+    "InstanceTagKeys" => list(String.t()())
+  }
+  """
+  @type instance_tag_notification_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_address_attribute_result() :: %{
+    "Address" => address_attribute()
+  }
+  """
+  @type reset_address_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_key_pair_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("KeyName") => String.t(),
+    required("PublicKeyMaterial") => binary()
+  }
+  """
+  @type import_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_local_gateway_routes_result() :: %{
+    "NextToken" => String.t(),
+    "Routes" => list(local_gateway_route()())
+  }
+  """
+  @type search_local_gateway_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_address_to_classic_request() :: %{
+    optional("DryRun") => boolean(),
+    required("PublicIp") => String.t()
+  }
+  """
+  @type restore_address_to_classic_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_carrier_gateways_result() :: %{
+    "CarrierGateways" => list(carrier_gateway()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_carrier_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances_listing() :: %{
+    "ClientToken" => String.t(),
+    "CreateDate" => non_neg_integer(),
+    "InstanceCounts" => list(instance_count()()),
+    "PriceSchedules" => list(price_schedule()()),
+    "ReservedInstancesId" => String.t(),
+    "ReservedInstancesListingId" => String.t(),
+    "Status" => list(any()),
+    "StatusMessage" => String.t(),
+    "Tags" => list(tag()()),
+    "UpdateDate" => non_neg_integer()
+  }
+  """
+  @type reserved_instances_listing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_prefix_list_reference_request() :: %{
+    optional("DryRun") => boolean(),
+    required("PrefixListId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_prefix_list_reference_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_resource_tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type ipam_resource_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_ebs() :: %{
+    "DeleteOnTermination" => boolean(),
+    "Encrypted" => boolean(),
+    "Iops" => integer(),
+    "SnapshotId" => String.t(),
+    "VolumeSize" => integer(),
+    "VolumeType" => String.t()
+  }
+  """
+  @type scheduled_instances_ebs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_password_data_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type get_password_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_type_info_from_instance_requirements() :: %{
+    "InstanceType" => String.t()
+  }
+  """
+  @type instance_type_info_from_instance_requirements() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_interface_permissions_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkInterfacePermissionIds") => list(String.t()()),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_interface_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_endpoint_attribute_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type client_vpn_endpoint_attribute_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_client_vpn_connections_request() :: %{
+    optional("ConnectionId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Username") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type terminate_client_vpn_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_credit_specification_result() :: %{
+    "SuccessfulInstanceCreditSpecifications" => list(successful_instance_credit_specification_item()()),
+    "UnsuccessfulInstanceCreditSpecifications" => list(unsuccessful_instance_credit_specification_item()())
+  }
+  """
+  @type modify_instance_credit_specification_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_launch_template_versions_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("LaunchTemplateId") => String.t(),
+    optional("LaunchTemplateName") => String.t(),
+    required("Versions") => list(String.t()())
+  }
+  """
+  @type delete_launch_template_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_enclave_certificate_iam_role_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CertificateArn") => String.t(),
+    required("RoleArn") => String.t()
+  }
+  """
+  @type disassociate_enclave_certificate_iam_role_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_public_ipv4_pools_request() :: %{
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PoolIds") => list(String.t()())
+  }
+  """
+  @type describe_public_ipv4_pools_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_locked_snapshots_result() :: %{
+    "NextToken" => String.t(),
+    "Snapshots" => list(locked_snapshots_info()())
+  }
+  """
+  @type describe_locked_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_key_pair_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("KeyFormat") => list(any()),
+    optional("KeyType") => list(any()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("KeyName") => String.t()
+  }
+  """
+  @type create_key_pair_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_serial_console_access_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type enable_serial_console_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_traffic_mirror_filter_rule_request() :: %{
+    optional("Description") => String.t(),
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationPortRange") => traffic_mirror_port_range_request(),
+    optional("DryRun") => boolean(),
+    optional("Protocol") => integer(),
+    optional("RemoveFields") => list(list(any())()),
+    optional("RuleAction") => list(any()),
+    optional("RuleNumber") => integer(),
+    optional("SourceCidrBlock") => String.t(),
+    optional("SourcePortRange") => traffic_mirror_port_range_request(),
+    optional("TrafficDirection") => list(any()),
+    required("TrafficMirrorFilterRuleId") => String.t()
+  }
+  """
+  @type modify_traffic_mirror_filter_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_fleet_cancellation_state() :: %{
+    "CapacityReservationFleetId" => String.t(),
+    "CurrentFleetState" => list(any()),
+    "PreviousFleetState" => list(any())
+  }
+  """
+  @type capacity_reservation_fleet_cancellation_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_vpc_classic_link_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type disable_vpc_classic_link_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_peering_attachment_request_options() :: %{
+    "DynamicRouting" => list(any())
+  }
+  """
+  @type create_transit_gateway_peering_attachment_request_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateways_result() :: %{
+    "LocalGateways" => list(local_gateway()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_local_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_resource_discovery_request() :: %{
+    optional("AddOperatingRegions") => list(add_ipam_operating_region()()),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()()),
+    required("IpamResourceDiscoveryId") => String.t()
+  }
+  """
+  @type modify_ipam_resource_discovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_byoasn_result() :: %{
+    "Byoasns" => list(byoasn()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipam_byoasn_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  storage_location() :: %{
+    "Bucket" => String.t(),
+    "Key" => String.t()
+  }
+  """
+  @type storage_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_group_policy_result() :: %{
+    "PolicyDocument" => String.t(),
+    "PolicyEnabled" => boolean(),
+    "SseSpecification" => verified_access_sse_specification_response()
+  }
+  """
+  @type modify_verified_access_group_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_warning() :: %{
+    "Errors" => list(validation_error()())
+  }
+  """
+  @type validation_warning() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_instance_tag_attribute_request() :: %{
+    "IncludeAllTagsOfInstance" => boolean(),
+    "InstanceTagKeys" => list(String.t()())
+  }
+  """
+  @type register_instance_tag_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_dhcp_options_request() :: %{
+    optional("DryRun") => boolean(),
+    required("DhcpOptionsId") => String.t()
+  }
+  """
+  @type delete_dhcp_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_vpc_classic_link_dns_support_request() :: %{
+    optional("VpcId") => String.t()
+  }
+  """
+  @type enable_vpc_classic_link_dns_support_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_public_ipv4_pool_result() :: %{
+    "PoolId" => String.t()
+  }
+  """
+  @type create_public_ipv4_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_public_ipv4_pool_cidr_result() :: %{
+    "DeprovisionedAddresses" => list(String.t()()),
+    "PoolId" => String.t()
+  }
+  """
+  @type deprovision_public_ipv4_pool_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_transit_gateway_routes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    required("Filters") => list(filter()()),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type search_transit_gateway_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_usage() :: %{
+    "AccountId" => String.t(),
+    "UsedInstanceCount" => integer()
+  }
+  """
+  @type instance_usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_authorization_rules_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type describe_client_vpn_authorization_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_route_table_virtual_interface_group_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_local_gateway_route_table_virtual_interface_group_associations_request() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  describe_vpcs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VpcIds") => list(String.t()())
+  }
+  """
+  @type describe_vpcs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_policy_table_associations_result() :: %{
+    "Associations" => list(transit_gateway_policy_table_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_transit_gateway_policy_table_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_import_image_tasks_result() :: %{
+    "ImportImageTasks" => list(import_image_task()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_import_image_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_launch_template_result() :: %{
+    "LaunchTemplate" => launch_template()
+  }
+  """
+  @type modify_launch_template_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_volume_attribute_request() :: %{
+    optional("AutoEnableIO") => attribute_boolean_value(),
+    optional("DryRun") => boolean(),
+    required("VolumeId") => String.t()
+  }
+  """
+  @type modify_volume_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_connect() :: %{
+    "CreationTime" => non_neg_integer(),
+    "Options" => transit_gateway_connect_options(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayId" => String.t(),
+    "TransportTransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_connect() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_capacity_reservation_fleet_cancellation_result() :: %{
+    "CancelCapacityReservationFleetError" => cancel_capacity_reservation_fleet_error(),
+    "CapacityReservationFleetId" => String.t()
+  }
+  """
+  @type failed_capacity_reservation_fleet_cancellation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fleet_instance() :: %{
+    "InstanceIds" => list(String.t()()),
+    "InstanceType" => list(any()),
+    "LaunchTemplateAndOverrides" => launch_template_and_overrides_response(),
+    "Lifecycle" => list(any()),
+    "Platform" => list(any())
+  }
+  """
+  @type create_fleet_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_error() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "LaunchTemplateAndOverrides" => launch_template_and_overrides_response(),
+    "Lifecycle" => list(any())
+  }
+  """
+  @type describe_fleet_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  path_filter() :: %{
+    "DestinationAddress" => String.t(),
+    "DestinationPortRange" => filter_port_range(),
+    "SourceAddress" => String.t(),
+    "SourcePortRange" => filter_port_range()
+  }
+  """
+  @type path_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_ipam_byoasn_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Asn") => String.t(),
+    required("Cidr") => String.t()
+  }
+  """
+  @type associate_ipam_byoasn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_policy_rule_meta_data() :: %{
+    "MetaDataKey" => String.t(),
+    "MetaDataValue" => String.t()
+  }
+  """
+  @type transit_gateway_policy_rule_meta_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_volume_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Encrypted") => boolean(),
+    optional("Iops") => integer(),
+    optional("KmsKeyId") => String.t(),
+    optional("MultiAttachEnabled") => boolean(),
+    optional("OutpostArn") => String.t(),
+    optional("Size") => integer(),
+    optional("SnapshotId") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("Throughput") => integer(),
+    optional("VolumeType") => list(any()),
+    required("AvailabilityZone") => String.t()
+  }
+  """
+  @type create_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_attributes_result() :: %{
+    "AccountAttributes" => list(account_attribute()())
+  }
+  """
+  @type describe_account_attributes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cidr_authorization_context() :: %{
+    "Message" => String.t(),
+    "Signature" => String.t()
+  }
+  """
+  @type cidr_authorization_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_resource_discovery_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamResourceDiscoveryAssociationIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ipam_resource_discovery_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv6_pool() :: %{
+    "Description" => String.t(),
+    "PoolCidrBlocks" => list(pool_cidr_block()()),
+    "PoolId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type ipv6_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_trust_provider_result() :: %{
+    "VerifiedAccessTrustProvider" => verified_access_trust_provider()
+  }
+  """
+  @type modify_verified_access_trust_provider_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_image_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("ImageId") => String.t()
+  }
+  """
+  @type reset_image_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_transit_gateway_route_table_propagation_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    optional("TransitGatewayRouteTableAnnouncementId") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type enable_transit_gateway_route_table_propagation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_endpoint_result() :: %{
+    "VerifiedAccessEndpoint" => verified_access_endpoint()
+  }
+  """
+  @type modify_verified_access_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_network_insights_analysis_request() :: %{
+    optional("AdditionalAccounts") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("FilterInArns") => list(String.t()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("ClientToken") => String.t(),
+    required("NetworkInsightsPathId") => String.t()
+  }
+  """
+  @type start_network_insights_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_security_group_ingress_request() :: %{
+    optional("CidrIp") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("FromPort") => integer(),
+    optional("GroupId") => String.t(),
+    optional("GroupName") => String.t(),
+    optional("IpPermissions") => list(ip_permission()()),
+    optional("IpProtocol") => String.t(),
+    optional("SourceSecurityGroupName") => String.t(),
+    optional("SourceSecurityGroupOwnerId") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("ToPort") => integer()
+  }
+  """
+  @type authorize_security_group_ingress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_acl_result() :: %{
+    "ClientToken" => String.t(),
+    "NetworkAcl" => network_acl()
+  }
+  """
+  @type create_network_acl_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipv6_pools_result() :: %{
+    "Ipv6Pools" => list(ipv6_pool()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ipv6_pools_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_insights_access_scope_content_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkInsightsAccessScopeId") => String.t()
+  }
+  """
+  @type get_network_insights_access_scope_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_route_tables_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("RouteTableIds") => list(String.t()())
+  }
+  """
+  @type describe_route_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_peering_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_peering_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_type_offering() :: %{
+    "InstanceType" => list(any()),
+    "Location" => String.t(),
+    "LocationType" => list(any())
+  }
+  """
+  @type instance_type_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window_disassociation_request() :: %{
+    "DedicatedHostIds" => list(String.t()()),
+    "InstanceIds" => list(String.t()()),
+    "InstanceTags" => list(tag()())
+  }
+  """
+  @type instance_event_window_disassociation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_route_table_virtual_interface_group_associations_result() :: %{
+    "LocalGatewayRouteTableVirtualInterfaceGroupAssociations" => list(local_gateway_route_table_virtual_interface_group_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_local_gateway_route_table_virtual_interface_group_associations_result() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  network_interface_permission() :: %{
+    "AwsAccountId" => String.t(),
+    "AwsService" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "NetworkInterfacePermissionId" => String.t(),
+    "Permission" => list(any()),
+    "PermissionState" => network_interface_permission_state()
+  }
+  """
+  @type network_interface_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase1_d_h_group_numbers_request_list_value() :: %{
+    "Value" => integer()
+  }
+  """
+  @type phase1_d_h_group_numbers_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_classic_link_vpc_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Groups") => list(String.t()()),
+    required("InstanceId") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type attach_classic_link_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_route_table_announcement_result() :: %{
+    "TransitGatewayRouteTableAnnouncement" => transit_gateway_route_table_announcement()
+  }
+  """
+  @type delete_transit_gateway_route_table_announcement_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_requirements() :: %{
+    "AcceleratorCount" => accelerator_count(),
+    "AcceleratorManufacturers" => list(list(any())()),
+    "AcceleratorNames" => list(list(any())()),
+    "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b(),
+    "AcceleratorTypes" => list(list(any())()),
+    "AllowedInstanceTypes" => list(String.t()()),
+    "BareMetal" => list(any()),
+    "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps(),
+    "BurstablePerformance" => list(any()),
+    "CpuManufacturers" => list(list(any())()),
+    "ExcludedInstanceTypes" => list(String.t()()),
+    "InstanceGenerations" => list(list(any())()),
+    "LocalStorage" => list(any()),
+    "LocalStorageTypes" => list(list(any())()),
+    "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice" => integer(),
+    "MemoryGiBPerVCpu" => memory_gi_b_per_v_cpu(),
+    "MemoryMiB" => memory_mi_b(),
+    "NetworkBandwidthGbps" => network_bandwidth_gbps(),
+    "NetworkInterfaceCount" => network_interface_count(),
+    "OnDemandMaxPricePercentageOverLowestPrice" => integer(),
+    "RequireHibernateSupport" => boolean(),
+    "SpotMaxPricePercentageOverLowestPrice" => integer(),
+    "TotalLocalStorageGB" => total_local_storage_g_b(),
+    "VCpuCount" => v_cpu_count_range()
+  }
+  """
+  @type instance_requirements() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_internet_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InternetGatewayId") => String.t()
+  }
+  """
+  @type delete_internet_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  assigned_private_ip_address() :: %{
+    "PrivateIpAddress" => String.t()
+  }
+  """
+  @type assigned_private_ip_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_data() :: %{
+    "ActivityStatus" => list(any()),
+    "ClientToken" => String.t(),
+    "Context" => String.t(),
+    "CreateTime" => non_neg_integer(),
+    "Errors" => list(describe_fleet_error()()),
+    "ExcessCapacityTerminationPolicy" => list(any()),
+    "FleetId" => String.t(),
+    "FleetState" => list(any()),
+    "FulfilledCapacity" => float(),
+    "FulfilledOnDemandCapacity" => float(),
+    "Instances" => list(describe_fleets_instances()()),
+    "LaunchTemplateConfigs" => list(fleet_launch_template_config()()),
+    "OnDemandOptions" => on_demand_options(),
+    "ReplaceUnhealthyInstances" => boolean(),
+    "SpotOptions" => spot_options(),
+    "Tags" => list(tag()()),
+    "TargetCapacitySpecification" => target_capacity_specification(),
+    "TerminateInstancesWithExpiration" => boolean(),
+    "Type" => list(any()),
+    "ValidFrom" => non_neg_integer(),
+    "ValidUntil" => non_neg_integer()
+  }
+  """
+  @type fleet_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  coip_cidr() :: %{
+    "Cidr" => String.t(),
+    "CoipPoolId" => String.t(),
+    "LocalGatewayRouteTableId" => String.t()
+  }
+  """
+  @type coip_cidr() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_reserved_instances_listing_request() :: %{
+    required("ClientToken") => String.t(),
+    required("InstanceCount") => integer(),
+    required("PriceSchedules") => list(price_schedule_specification()()),
+    required("ReservedInstancesId") => String.t()
+  }
+  """
+  @type create_reserved_instances_listing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_snapshot_request() :: %{
+    optional("Description") => String.t(),
+    optional("DestinationOutpostArn") => String.t(),
+    optional("DestinationRegion") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Encrypted") => boolean(),
+    optional("KmsKeyId") => String.t(),
+    optional("PresignedUrl") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("SourceRegion") => String.t(),
+    required("SourceSnapshotId") => String.t()
+  }
+  """
+  @type copy_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_monitoring() :: %{
+    "InstanceId" => String.t(),
+    "Monitoring" => monitoring()
+  }
+  """
+  @type instance_monitoring() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_multicast_domain_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Options") => create_transit_gateway_multicast_domain_request_options(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("TransitGatewayId") => String.t()
+  }
+  """
+  @type create_transit_gateway_multicast_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase2_encryption_algorithms_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type phase2_encryption_algorithms_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  memory_info() :: %{
+    "SizeInMiB" => float()
+  }
+  """
+  @type memory_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_groups_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VerifiedAccessGroupIds") => list(String.t()()),
+    optional("VerifiedAccessInstanceId") => String.t()
+  }
+  """
+  @type describe_verified_access_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_resource_discovery_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("OperatingRegions") => list(add_ipam_operating_region()()),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_ipam_resource_discovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_image_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type disable_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_spot_market_options() :: %{
+    "BlockDurationMinutes" => integer(),
+    "InstanceInterruptionBehavior" => list(any()),
+    "MaxPrice" => String.t(),
+    "SpotInstanceType" => list(any()),
+    "ValidUntil" => non_neg_integer()
+  }
+  """
+  @type launch_template_spot_market_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stale_security_group() :: %{
+    "Description" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "StaleIpPermissions" => list(stale_ip_permission()()),
+    "StaleIpPermissionsEgress" => list(stale_ip_permission()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type stale_security_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disk_image() :: %{
+    "Description" => String.t(),
+    "Image" => disk_image_detail(),
+    "Volume" => volume_detail()
+  }
+  """
+  @type disk_image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_ipam_byoasn_result() :: %{
+    "AsnAssociation" => asn_association()
+  }
+  """
+  @type associate_ipam_byoasn_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_block_device_mapping() :: %{
+    "DeviceName" => String.t(),
+    "Ebs" => launch_template_ebs_block_device(),
+    "NoDevice" => String.t(),
+    "VirtualName" => String.t()
+  }
+  """
+  @type launch_template_block_device_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_endpoint_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LoadBalancerOptions") => create_verified_access_endpoint_load_balancer_options(),
+    optional("NetworkInterfaceOptions") => create_verified_access_endpoint_eni_options(),
+    optional("PolicyDocument") => String.t(),
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("SseSpecification") => verified_access_sse_specification_request(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("ApplicationDomain") => String.t(),
+    required("AttachmentType") => list(any()),
+    required("DomainCertificateArn") => String.t(),
+    required("EndpointDomainPrefix") => String.t(),
+    required("EndpointType") => list(any()),
+    required("VerifiedAccessGroupId") => String.t()
+  }
+  """
+  @type create_verified_access_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_public_ipv4_pool_cidr_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t(),
+    required("PoolId") => String.t()
+  }
+  """
+  @type deprovision_public_ipv4_pool_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_transit_gateway_multicast_group_sources_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupIpAddress") => String.t(),
+    required("NetworkInterfaceIds") => list(String.t()()),
+    required("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type register_transit_gateway_multicast_group_sources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_ebs_default_kms_key_id_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type reset_ebs_default_kms_key_id_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fast_snapshot_restores_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fast_snapshot_restores_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  peering_tgw_info() :: %{
+    "CoreNetworkId" => String.t(),
+    "OwnerId" => String.t(),
+    "Region" => String.t(),
+    "TransitGatewayId" => String.t()
+  }
+  """
+  @type peering_tgw_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_traffic_mirror_filter_network_services_result() :: %{
+    "TrafficMirrorFilter" => traffic_mirror_filter()
+  }
+  """
+  @type modify_traffic_mirror_filter_network_services_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_launch_template_config_request() :: %{
+    "LaunchTemplateSpecification" => fleet_launch_template_specification_request(),
+    "Overrides" => list(fleet_launch_template_overrides_request()())
+  }
+  """
+  @type fleet_launch_template_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_vpc_cidr_block_result() :: %{
+    "CidrBlockAssociation" => vpc_cidr_block_association(),
+    "Ipv6CidrBlockAssociation" => vpc_ipv6_cidr_block_association(),
+    "VpcId" => String.t()
+  }
+  """
+  @type disassociate_vpc_cidr_block_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_image_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type enable_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_vpc_classic_link_dns_support_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type disable_vpc_classic_link_dns_support_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_group() :: %{
+    "Arn" => String.t()
+  }
+  """
+  @type target_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_hibernation_options_request() :: %{
+    "Configured" => boolean()
+  }
+  """
+  @type launch_template_hibernation_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fpga_images_result() :: %{
+    "FpgaImages" => list(fpga_image()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fpga_images_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_credit_specification_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("InstanceCreditSpecifications") => list(instance_credit_specification_request()())
+  }
+  """
+  @type modify_instance_credit_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_coip_cidr_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t(),
+    required("CoipPoolId") => String.t()
+  }
+  """
+  @type delete_coip_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_instance_volume_detail_item() :: %{
+    "AvailabilityZone" => String.t(),
+    "BytesConverted" => float(),
+    "Description" => String.t(),
+    "Image" => disk_image_description(),
+    "Status" => String.t(),
+    "StatusMessage" => String.t(),
+    "Volume" => disk_image_volume_description()
+  }
+  """
+  @type import_instance_volume_detail_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_client_vpn_ingress_request() :: %{
+    optional("AccessGroupId") => String.t(),
+    optional("AuthorizeAllGroups") => boolean(),
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t(),
+    required("TargetNetworkCidr") => String.t()
+  }
+  """
+  @type authorize_client_vpn_ingress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_managed_prefix_list_version_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CurrentVersion") => float(),
+    required("PrefixListId") => String.t(),
+    required("PreviousVersion") => float()
+  }
+  """
+  @type restore_managed_prefix_list_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_endpoint_load_balancer_options() :: %{
+    "LoadBalancerArn" => String.t(),
+    "Port" => integer(),
+    "Protocol" => list(any()),
+    "SubnetIds" => list(String.t()())
+  }
+  """
+  @type verified_access_endpoint_load_balancer_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  analysis_security_group_rule() :: %{
+    "Cidr" => String.t(),
+    "Direction" => String.t(),
+    "PortRange" => port_range(),
+    "PrefixListId" => String.t(),
+    "Protocol" => String.t(),
+    "SecurityGroupId" => String.t()
+  }
+  """
+  @type analysis_security_group_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_reserved_instances_offerings_result() :: %{
+    "NextToken" => String.t(),
+    "ReservedInstancesOfferings" => list(reserved_instances_offering()())
+  }
+  """
+  @type describe_reserved_instances_offerings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ptr_update_status() :: %{
+    "Reason" => String.t(),
+    "Status" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type ptr_update_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_services_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ServiceNames") => list(String.t()())
+  }
+  """
+  @type describe_vpc_endpoint_services_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ebs_instance_block_device() :: %{
+    "AssociatedResource" => String.t(),
+    "AttachTime" => non_neg_integer(),
+    "DeleteOnTermination" => boolean(),
+    "Status" => list(any()),
+    "VolumeId" => String.t(),
+    "VolumeOwnerId" => String.t()
+  }
+  """
+  @type ebs_instance_block_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_interface_permissions_result() :: %{
+    "NetworkInterfacePermissions" => list(network_interface_permission()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_interface_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_instances_result() :: %{
+    "StartingInstances" => list(instance_state_change()())
+  }
+  """
+  @type start_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_inference_accelerator_association() :: %{
+    "ElasticInferenceAcceleratorArn" => String.t(),
+    "ElasticInferenceAcceleratorAssociationId" => String.t(),
+    "ElasticInferenceAcceleratorAssociationState" => String.t(),
+    "ElasticInferenceAcceleratorAssociationTime" => non_neg_integer()
+  }
+  """
+  @type elastic_inference_accelerator_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  blob_attribute_value() :: %{
+    optional("Value") => binary()
+  }
+  """
+  @type blob_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allocate_ipam_pool_cidr_result() :: %{
+    "IpamPoolAllocation" => ipam_pool_allocation()
+  }
+  """
+  @type allocate_ipam_pool_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_managed_prefix_list_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Entries") => list(add_prefix_list_entry()()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("AddressFamily") => String.t(),
+    required("MaxEntries") => integer(),
+    required("PrefixListName") => String.t()
+  }
+  """
+  @type create_managed_prefix_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_snapshot_restores_result() :: %{
+    "Successful" => list(enable_fast_snapshot_restore_success_item()()),
+    "Unsuccessful" => list(enable_fast_snapshot_restore_error_item()())
+  }
+  """
+  @type enable_fast_snapshot_restores_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_transit_gateway_multicast_group_members_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GroupIpAddress") => String.t(),
+    optional("NetworkInterfaceIds") => list(String.t()()),
+    optional("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type deregister_transit_gateway_multicast_group_members_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleet_error_item() :: %{
+    "Error" => delete_fleet_error(),
+    "FleetId" => String.t()
+  }
+  """
+  @type delete_fleet_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_reservation_value() :: %{
+    "ReservationValue" => reservation_value(),
+    "TargetConfiguration" => target_configuration()
+  }
+  """
+  @type target_reservation_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_scopes_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamScopeIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ipam_scopes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_fleet_monitoring() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type spot_fleet_monitoring() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_authorization_rule_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type client_vpn_authorization_rule_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  address_attribute() :: %{
+    "AllocationId" => String.t(),
+    "PtrRecord" => String.t(),
+    "PtrRecordUpdate" => ptr_update_status(),
+    "PublicIp" => String.t()
+  }
+  """
+  @type address_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_capacity_reservation_specification_response() :: %{
+    "CapacityReservationPreference" => list(any()),
+    "CapacityReservationTarget" => capacity_reservation_target_response()
+  }
+  """
+  @type launch_template_capacity_reservation_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_cidr_reservation() :: %{
+    "Cidr" => String.t(),
+    "Description" => String.t(),
+    "OwnerId" => String.t(),
+    "ReservationType" => list(any()),
+    "SubnetCidrReservationId" => String.t(),
+    "SubnetId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type subnet_cidr_reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window_association_request() :: %{
+    "DedicatedHostIds" => list(String.t()()),
+    "InstanceIds" => list(String.t()()),
+    "InstanceTags" => list(tag()())
+  }
+  """
+  @type instance_event_window_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_interface_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type delete_network_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_spot_fleet_response() :: %{
+    "SpotFleetRequestId" => String.t()
+  }
+  """
+  @type request_spot_fleet_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_iam_instance_profile_associations_request() :: %{
+    optional("AssociationIds") => list(String.t()()),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_iam_instance_profile_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dns_options_specification() :: %{
+    "DnsRecordIpType" => list(any()),
+    "PrivateDnsOnlyForInboundResolverEndpoint" => boolean()
+  }
+  """
+  @type dns_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv4_prefix_specification() :: %{
+    "Ipv4Prefix" => String.t()
+  }
+  """
+  @type ipv4_prefix_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_access_scope_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkInsightsAccessScopeId") => String.t()
+  }
+  """
+  @type delete_network_insights_access_scope_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_instance_event_window_result() :: %{
+    "InstanceEventWindow" => instance_event_window()
+  }
+  """
+  @type associate_instance_event_window_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_password_data_result() :: %{
+    "InstanceId" => String.t(),
+    "PasswordData" => String.t(),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type get_password_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipv6_pools_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PoolIds") => list(String.t()())
+  }
+  """
+  @type describe_ipv6_pools_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_delivery_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type verified_access_log_delivery_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_insights_path_request() :: %{
+    optional("Destination") => String.t(),
+    optional("DestinationIp") => String.t(),
+    optional("DestinationPort") => integer(),
+    optional("DryRun") => boolean(),
+    optional("FilterAtDestination") => path_request_filter(),
+    optional("FilterAtSource") => path_request_filter(),
+    optional("SourceIp") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("ClientToken") => String.t(),
+    required("Protocol") => list(any()),
+    required("Source") => String.t()
+  }
+  """
+  @type create_network_insights_path_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_route_request() :: %{
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationIpv6CidrBlock") => String.t(),
+    optional("DestinationPrefixListId") => String.t(),
+    optional("DryRun") => boolean(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type delete_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_group_result() :: %{
+    "VerifiedAccessGroup" => verified_access_group()
+  }
+  """
+  @type delete_verified_access_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_aggregate_id_format_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type describe_aggregate_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_address_transfer_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AllocationId") => String.t(),
+    required("TransferAccountId") => String.t()
+  }
+  """
+  @type enable_address_transfer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bundle_task_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type bundle_task_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleet_history_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EventType") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("FleetId") => String.t(),
+    required("StartTime") => non_neg_integer()
+  }
+  """
+  @type describe_fleet_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_snapshots_in_recycle_bin_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SnapshotIds") => list(String.t()())
+  }
+  """
+  @type list_snapshots_in_recycle_bin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsuccessful_instance_credit_specification_item() :: %{
+    "Error" => unsuccessful_instance_credit_specification_item_error(),
+    "InstanceId" => String.t()
+  }
+  """
+  @type unsuccessful_instance_credit_specification_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_status_action() :: %{
+    "Code" => String.t(),
+    "Description" => String.t(),
+    "EventId" => String.t(),
+    "EventType" => String.t()
+  }
+  """
+  @type volume_status_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_capacity_reservation_fleet_request() :: %{
+    optional("AllocationStrategy") => String.t(),
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EndDate") => non_neg_integer(),
+    optional("InstanceMatchCriteria") => list(any()),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("Tenancy") => list(any()),
+    required("InstanceTypeSpecifications") => list(reservation_fleet_instance_specification()()),
+    required("TotalTargetCapacity") => integer()
+  }
+  """
+  @type create_capacity_reservation_fleet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_tag_specification() :: %{
+    "ResourceType" => list(any()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type launch_template_tag_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_route_result() :: %{
+    "Route" => transit_gateway_route()
+  }
+  """
+  @type create_transit_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  coip_address_usage() :: %{
+    "AllocationId" => String.t(),
+    "AwsAccountId" => String.t(),
+    "AwsService" => String.t(),
+    "CoIp" => String.t()
+  }
+  """
+  @type coip_address_usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_capacity_reservation_usage_result() :: %{
+    "AvailableInstanceCount" => integer(),
+    "CapacityReservationId" => String.t(),
+    "InstanceType" => String.t(),
+    "InstanceUsages" => list(instance_usage()()),
+    "NextToken" => String.t(),
+    "State" => list(any()),
+    "TotalInstanceCount" => integer()
+  }
+  """
+  @type get_capacity_reservation_usage_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_discovered_account() :: %{
+    "AccountId" => String.t(),
+    "DiscoveryRegion" => String.t(),
+    "FailureReason" => ipam_discovery_failure_reason(),
+    "LastAttemptedDiscoveryTime" => non_neg_integer(),
+    "LastSuccessfulDiscoveryTime" => non_neg_integer()
+  }
+  """
+  @type ipam_discovered_account() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_instance_result() :: %{
+    "VerifiedAccessInstance" => verified_access_instance()
+  }
+  """
+  @type create_verified_access_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_datafeed_subscription_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type describe_spot_datafeed_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_endpoint_connection_notification_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("ServiceId") => String.t(),
+    optional("VpcEndpointId") => String.t(),
+    required("ConnectionEvents") => list(String.t()()),
+    required("ConnectionNotificationArn") => String.t()
+  }
+  """
+  @type create_vpc_endpoint_connection_notification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_launch_template_data_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type get_launch_template_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_options() :: %{
+    "CloudWatchLogs" => verified_access_log_cloud_watch_logs_destination_options(),
+    "IncludeTrustContext" => boolean(),
+    "KinesisDataFirehose" => verified_access_log_kinesis_data_firehose_destination_options(),
+    "LogVersion" => String.t(),
+    "S3" => verified_access_log_s3_destination_options()
+  }
+  """
+  @type verified_access_log_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ipam_pool_request() :: %{
+    optional("AllocationDefaultNetmaskLength") => integer(),
+    optional("AllocationMaxNetmaskLength") => integer(),
+    optional("AllocationMinNetmaskLength") => integer(),
+    optional("AllocationResourceTags") => list(request_ipam_resource_tag()()),
+    optional("AutoImport") => boolean(),
+    optional("AwsService") => list(any()),
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Locale") => String.t(),
+    optional("PublicIpSource") => list(any()),
+    optional("PubliclyAdvertisable") => boolean(),
+    optional("SourceIpamPoolId") => String.t(),
+    optional("SourceResource") => ipam_pool_source_resource_request(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("AddressFamily") => list(any()),
+    required("IpamScopeId") => String.t()
+  }
+  """
+  @type create_ipam_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prefix_list() :: %{
+    "Cidrs" => list(String.t()()),
+    "PrefixListId" => String.t(),
+    "PrefixListName" => String.t()
+  }
+  """
+  @type prefix_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  through_resources_statement() :: %{
+    "ResourceStatement" => resource_statement()
+  }
+  """
+  @type through_resources_statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_coip_pool_result() :: %{
+    "CoipPool" => coip_pool()
+  }
+  """
+  @type delete_coip_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_identifier() :: %{
+    "GroupId" => String.t(),
+    "GroupName" => String.t()
+  }
+  """
+  @type security_group_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_interface_attribute_request() :: %{
+    optional("Attribute") => list(any()),
+    optional("DryRun") => boolean(),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type describe_network_interface_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_iam_instance_profile_result() :: %{
+    "IamInstanceProfileAssociation" => iam_instance_profile_association()
+  }
+  """
+  @type disassociate_iam_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_resource_discovery_request() :: %{
+    optional("DryRun") => boolean(),
+    required("IpamResourceDiscoveryId") => String.t()
+  }
+  """
+  @type delete_ipam_resource_discovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subscription() :: %{
+    "Destination" => String.t(),
+    "Metric" => list(any()),
+    "Period" => list(any()),
+    "Source" => String.t(),
+    "Statistic" => list(any())
+  }
+  """
+  @type subscription() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleet_error() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type delete_fleet_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template() :: %{
+    "CreateTime" => non_neg_integer(),
+    "CreatedBy" => String.t(),
+    "DefaultVersionNumber" => float(),
+    "LatestVersionNumber" => float(),
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type launch_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_instance_task_details() :: %{
+    "Description" => String.t(),
+    "InstanceId" => String.t(),
+    "Platform" => list(any()),
+    "Volumes" => list(import_instance_volume_detail_item()())
+  }
+  """
+  @type import_instance_task_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_customer_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CustomerGatewayId") => String.t()
+  }
+  """
+  @type delete_customer_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_trust_provider_oidc_options() :: %{
+    "AuthorizationEndpoint" => String.t(),
+    "ClientId" => String.t(),
+    "ClientSecret" => String.t(),
+    "Issuer" => String.t(),
+    "Scope" => String.t(),
+    "TokenEndpoint" => String.t(),
+    "UserInfoEndpoint" => String.t()
+  }
+  """
+  @type create_verified_access_trust_provider_oidc_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_interface_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("ConnectionTrackingSpecification") => connection_tracking_specification_request(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EnablePrimaryIpv6") => boolean(),
+    optional("Groups") => list(String.t()()),
+    optional("InterfaceType") => list(any()),
+    optional("Ipv4PrefixCount") => integer(),
+    optional("Ipv4Prefixes") => list(ipv4_prefix_specification_request()()),
+    optional("Ipv6AddressCount") => integer(),
+    optional("Ipv6Addresses") => list(instance_ipv6_address()()),
+    optional("Ipv6PrefixCount") => integer(),
+    optional("Ipv6Prefixes") => list(ipv6_prefix_specification_request()()),
+    optional("PrivateIpAddress") => String.t(),
+    optional("PrivateIpAddresses") => list(private_ip_address_specification()()),
+    optional("SecondaryPrivateIpAddressCount") => integer(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type create_network_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fpga_images_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("FpgaImageIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Owners") => list(String.t()())
+  }
+  """
+  @type describe_fpga_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpn_tunnel_replacement_status_result() :: %{
+    "CustomerGatewayId" => String.t(),
+    "MaintenanceDetails" => maintenance_details(),
+    "TransitGatewayId" => String.t(),
+    "VpnConnectionId" => String.t(),
+    "VpnGatewayId" => String.t(),
+    "VpnTunnelOutsideIpAddress" => String.t()
+  }
+  """
+  @type get_vpn_tunnel_replacement_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_verified_access_instance_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("VerifiedAccessInstanceId") => String.t()
+  }
+  """
+  @type delete_verified_access_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_connections_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type describe_client_vpn_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_capacity_block_offerings_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EndDateRange") => non_neg_integer(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("StartDateRange") => non_neg_integer(),
+    required("CapacityDurationHours") => integer(),
+    required("InstanceCount") => integer(),
+    required("InstanceType") => String.t()
+  }
+  """
+  @type describe_capacity_block_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fpga_image_request() :: %{
+    optional("DryRun") => boolean(),
+    required("FpgaImageId") => String.t()
+  }
+  """
+  @type delete_fpga_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_attribute() :: %{
+    "AttributeName" => String.t(),
+    "AttributeValues" => list(account_attribute_value()())
+  }
+  """
+  @type account_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_network_insights_analysis_result() :: %{
+    "NetworkInsightsAnalysis" => network_insights_analysis()
+  }
+  """
+  @type start_network_insights_analysis_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_capacity_reservation() :: %{
+    "AvailabilityZone" => String.t(),
+    "AvailabilityZoneId" => String.t(),
+    "CapacityReservationId" => String.t(),
+    "CreateDate" => non_neg_integer(),
+    "EbsOptimized" => boolean(),
+    "FulfilledCapacity" => float(),
+    "InstancePlatform" => list(any()),
+    "InstanceType" => list(any()),
+    "Priority" => integer(),
+    "TotalInstanceCount" => integer(),
+    "Weight" => float()
+  }
+  """
+  @type fleet_capacity_reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_placement_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_instance_placement_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_launch_template_versions_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LaunchTemplateId") => String.t(),
+    optional("LaunchTemplateName") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("MaxVersion") => String.t(),
+    optional("MinVersion") => String.t(),
+    optional("NextToken") => String.t(),
+    optional("ResolveAlias") => boolean(),
+    optional("Versions") => list(String.t()())
+  }
+  """
+  @type describe_launch_template_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fast_launch_images_success_item() :: %{
+    "ImageId" => String.t(),
+    "LaunchTemplate" => fast_launch_launch_template_specification_response(),
+    "MaxParallelLaunches" => integer(),
+    "OwnerId" => String.t(),
+    "ResourceType" => list(any()),
+    "SnapshotConfiguration" => fast_launch_snapshot_configuration_response(),
+    "State" => list(any()),
+    "StateTransitionReason" => String.t(),
+    "StateTransitionTime" => non_neg_integer()
+  }
+  """
+  @type describe_fast_launch_images_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_security_group_egress_request() :: %{
+    optional("CidrIp") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("FromPort") => integer(),
+    optional("IpPermissions") => list(ip_permission()()),
+    optional("IpProtocol") => String.t(),
+    optional("SecurityGroupRuleIds") => list(String.t()()),
+    optional("SourceSecurityGroupName") => String.t(),
+    optional("SourceSecurityGroupOwnerId") => String.t(),
+    optional("ToPort") => integer(),
+    required("GroupId") => String.t()
+  }
+  """
+  @type revoke_security_group_egress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_aws_network_performance_metric_subscriptions_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_aws_network_performance_metric_subscriptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_reserved_instances_request() :: %{
+    optional("ClientToken") => String.t(),
+    required("ReservedInstancesIds") => list(String.t()()),
+    required("TargetConfigurations") => list(reserved_instances_configuration()())
+  }
+  """
+  @type modify_reserved_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_ipv4_prefix() :: %{
+    "Ipv4Prefix" => String.t()
+  }
+  """
+  @type instance_ipv4_prefix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_client_vpn_target_network_result() :: %{
+    "AssociationId" => String.t(),
+    "Status" => association_status()
+  }
+  """
+  @type disassociate_client_vpn_target_network_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_instances_request() :: %{
+    optional("AdditionalInfo") => String.t(),
+    optional("DryRun") => boolean(),
+    required("InstanceIds") => list(String.t()())
+  }
+  """
+  @type start_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_carrier_gateways_request() :: %{
+    optional("CarrierGatewayIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_carrier_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_snapshots_result() :: %{
+    "Snapshots" => list(snapshot_info()())
+  }
+  """
+  @type create_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_associated_enclave_certificate_iam_roles_result() :: %{
+    "AssociatedRoles" => list(associated_role()())
+  }
+  """
+  @type get_associated_enclave_certificate_iam_roles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_replace_root_volume_task_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DeleteReplacedRootVolume") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("ImageId") => String.t(),
+    optional("SnapshotId") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type create_replace_root_volume_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_connection_options_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("LocalIpv4NetworkCidr") => String.t(),
+    optional("LocalIpv6NetworkCidr") => String.t(),
+    optional("RemoteIpv4NetworkCidr") => String.t(),
+    optional("RemoteIpv6NetworkCidr") => String.t(),
+    required("VpnConnectionId") => String.t()
+  }
+  """
+  @type modify_vpn_connection_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_pool_allocations_result() :: %{
+    "IpamPoolAllocations" => list(ipam_pool_allocation()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_ipam_pool_allocations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_deregistered_group_sources() :: %{
+    "DeregisteredNetworkInterfaceIds" => list(String.t()()),
+    "GroupIpAddress" => String.t(),
+    "TransitGatewayMulticastDomainId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_deregistered_group_sources() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_type_offerings_result() :: %{
+    "InstanceTypeOfferings" => list(instance_type_offering()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_type_offerings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  on_demand_options_request() :: %{
+    "AllocationStrategy" => list(any()),
+    "CapacityReservationOptions" => capacity_reservation_options_request(),
+    "MaxTotalPrice" => String.t(),
+    "MinTargetCapacity" => integer(),
+    "SingleAvailabilityZone" => boolean(),
+    "SingleInstanceType" => boolean()
+  }
+  """
+  @type on_demand_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_serial_console_access_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type disable_serial_console_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_snapshot_restore_error_item() :: %{
+    "FastSnapshotRestoreStateErrors" => list(enable_fast_snapshot_restore_state_error_item()()),
+    "SnapshotId" => String.t()
+  }
+  """
+  @type enable_fast_snapshot_restore_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fpga_image_attribute() :: %{
+    "Description" => String.t(),
+    "FpgaImageId" => String.t(),
+    "LoadPermissions" => list(load_permission()()),
+    "Name" => String.t(),
+    "ProductCodes" => list(product_code()())
+  }
+  """
+  @type fpga_image_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_rule_update() :: %{
+    "SecurityGroupRule" => security_group_rule_request(),
+    "SecurityGroupRuleId" => String.t()
+  }
+  """
+  @type security_group_rule_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_ipv6_address() :: %{
+    "Ipv6Address" => String.t()
+  }
+  """
+  @type scheduled_instances_ipv6_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpn_tunnel_replacement_status_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpnConnectionId") => String.t(),
+    required("VpnTunnelOutsideIpAddress") => String.t()
+  }
+  """
+  @type get_vpn_tunnel_replacement_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_tunnel_log_options_specification() :: %{
+    "CloudWatchLogOptions" => cloud_watch_log_options_specification()
+  }
+  """
+  @type vpn_tunnel_log_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_connect_endpoints_result() :: %{
+    "InstanceConnectEndpoints" => list(ec2_instance_connect_endpoint()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_connect_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_launch_templates_result() :: %{
+    "LaunchTemplates" => list(launch_template()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_launch_templates_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_managed_prefix_list_result() :: %{
+    "PrefixList" => managed_prefix_list()
+  }
+  """
+  @type modify_managed_prefix_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_prefix_list_reference_result() :: %{
+    "TransitGatewayPrefixListReference" => transit_gateway_prefix_list_reference()
+  }
+  """
+  @type delete_transit_gateway_prefix_list_reference_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancelled_spot_instance_request() :: %{
+    "SpotInstanceRequestId" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type cancelled_spot_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipams_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ipams_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_route_table_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("GatewayId") => String.t(),
+    optional("SubnetId") => String.t(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type associate_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_service_authentication() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type directory_service_authentication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_image_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type copy_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instances_result() :: %{
+    "NextToken" => String.t(),
+    "Reservations" => list(reservation()())
+  }
+  """
+  @type describe_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_connection_notifications_request() :: %{
+    optional("ConnectionNotificationId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_vpc_endpoint_connection_notifications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ipam_resource_discovery_result() :: %{
+    "IpamResourceDiscovery" => ipam_resource_discovery()
+  }
+  """
+  @type delete_ipam_resource_discovery_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  moving_address_status() :: %{
+    "MoveStatus" => list(any()),
+    "PublicIp" => String.t()
+  }
+  """
+  @type moving_address_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_elastic_gpus_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ElasticGpuIds") => list(String.t()()),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_elastic_gpus_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  oidc_options() :: %{
+    "AuthorizationEndpoint" => String.t(),
+    "ClientId" => String.t(),
+    "ClientSecret" => String.t(),
+    "Issuer" => String.t(),
+    "Scope" => String.t(),
+    "TokenEndpoint" => String.t(),
+    "UserInfoEndpoint" => String.t()
+  }
+  """
+  @type oidc_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshots_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("OwnerIds") => list(String.t()()),
+    optional("RestorableByUserIds") => list(String.t()()),
+    optional("SnapshotIds") => list(String.t()())
+  }
+  """
+  @type describe_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_snapshot_restore_state_error() :: %{
+    "Code" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type disable_fast_snapshot_restore_state_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_iam_instance_profile_request() :: %{
+    required("AssociationId") => String.t()
+  }
+  """
+  @type disassociate_iam_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dhcp_configuration() :: %{
+    "Key" => String.t(),
+    "Values" => list(attribute_value()())
+  }
+  """
+  @type dhcp_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  classic_load_balancers_config() :: %{
+    "ClassicLoadBalancers" => list(classic_load_balancer()())
+  }
+  """
+  @type classic_load_balancers_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_bandwidth_gbps() :: %{
+    "Max" => float(),
+    "Min" => float()
+  }
+  """
+  @type network_bandwidth_gbps() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ebs_optimized_info() :: %{
+    "BaselineBandwidthInMbps" => integer(),
+    "BaselineIops" => integer(),
+    "BaselineThroughputInMBps" => float(),
+    "MaximumBandwidthInMbps" => integer(),
+    "MaximumIops" => integer(),
+    "MaximumThroughputInMBps" => float()
+  }
+  """
+  @type ebs_optimized_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_route_table_announcement_result() :: %{
+    "TransitGatewayRouteTableAnnouncement" => transit_gateway_route_table_announcement()
+  }
+  """
+  @type create_transit_gateway_route_table_announcement_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  withdraw_byoip_cidr_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t()
+  }
+  """
+  @type withdraw_byoip_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_domain_options() :: %{
+    "AutoAcceptSharedAssociations" => list(any()),
+    "Igmpv2Support" => list(any()),
+    "StaticSourcesSupport" => list(any())
+  }
+  """
+  @type transit_gateway_multicast_domain_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_propagation() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "State" => list(any()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayRouteTableAnnouncementId" => String.t(),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_propagation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_image_from_recycle_bin_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type restore_image_from_recycle_bin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_coip_cidr_result() :: %{
+    "CoipCidr" => coip_cidr()
+  }
+  """
+  @type delete_coip_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_host_reservation_offerings_result() :: %{
+    "NextToken" => String.t(),
+    "OfferingSet" => list(host_offering()())
+  }
+  """
+  @type describe_host_reservation_offerings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_instance_market_options() :: %{
+    "MarketType" => list(any()),
+    "SpotOptions" => launch_template_spot_market_options()
+  }
+  """
+  @type launch_template_instance_market_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_client_vpn_ingress_request() :: %{
+    optional("AccessGroupId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("RevokeAllGroups") => boolean(),
+    required("ClientVpnEndpointId") => String.t(),
+    required("TargetNetworkCidr") => String.t()
+  }
+  """
+  @type revoke_client_vpn_ingress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_rule_request() :: %{
+    "CidrIpv4" => String.t(),
+    "CidrIpv6" => String.t(),
+    "Description" => String.t(),
+    "FromPort" => integer(),
+    "IpProtocol" => String.t(),
+    "PrefixListId" => String.t(),
+    "ReferencedGroupId" => String.t(),
+    "ToPort" => integer()
+  }
+  """
+  @type security_group_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  host_instance() :: %{
+    "InstanceId" => String.t(),
+    "InstanceType" => String.t(),
+    "OwnerId" => String.t()
+  }
+  """
+  @type host_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpn_gateways_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("VpnGatewayIds") => list(String.t()())
+  }
+  """
+  @type describe_vpn_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_connect_endpoint_result() :: %{
+    "InstanceConnectEndpoint" => ec2_instance_connect_endpoint()
+  }
+  """
+  @type delete_instance_connect_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_export_image_tasks_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("ExportImageTaskIds") => list(String.t()()),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_export_image_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_request() :: %{
+    optional("AddOperatingRegions") => list(add_ipam_operating_region()()),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()()),
+    optional("Tier") => list(any()),
+    required("IpamId") => String.t()
+  }
+  """
+  @type modify_ipam_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway_route_table() :: %{
+    "LocalGatewayId" => String.t(),
+    "LocalGatewayRouteTableArn" => String.t(),
+    "LocalGatewayRouteTableId" => String.t(),
+    "Mode" => list(any()),
+    "OutpostArn" => String.t(),
+    "OwnerId" => String.t(),
+    "State" => String.t(),
+    "StateReason" => state_reason(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type local_gateway_route_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshot_tier_status_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_snapshot_tier_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_capacity_reservation_fleets_result() :: %{
+    "CapacityReservationFleets" => list(capacity_reservation_fleet()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_capacity_reservation_fleets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_service_permissions_result() :: %{
+    "AllowedPrincipals" => list(allowed_principal()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_vpc_endpoint_service_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_spot_placement_scores_result() :: %{
+    "NextToken" => String.t(),
+    "SpotPlacementScores" => list(spot_placement_score()())
+  }
+  """
+  @type get_spot_placement_scores_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_image_deprecation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type disable_image_deprecation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inference_device_info() :: %{
+    "Count" => integer(),
+    "Manufacturer" => String.t(),
+    "MemoryInfo" => inference_device_memory_info(),
+    "Name" => String.t()
+  }
+  """
+  @type inference_device_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attach_network_interface_result() :: %{
+    "AttachmentId" => String.t(),
+    "NetworkCardIndex" => integer()
+  }
+  """
+  @type attach_network_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_route_table_result() :: %{
+    "AssociationId" => String.t(),
+    "AssociationState" => route_table_association_state()
+  }
+  """
+  @type associate_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_instance_event_window_result() :: %{
+    "InstanceEventWindow" => instance_event_window()
+  }
+  """
+  @type disassociate_instance_event_window_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_address_attribute_request() :: %{
+    optional("DomainName") => String.t(),
+    optional("DryRun") => boolean(),
+    required("AllocationId") => String.t()
+  }
+  """
+  @type modify_address_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_snapshot_task() :: %{
+    "Description" => String.t(),
+    "ImportTaskId" => String.t(),
+    "SnapshotTaskDetail" => snapshot_task_detail(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type import_snapshot_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_route_table_association_result() :: %{
+    "AssociationState" => route_table_association_state(),
+    "NewAssociationId" => String.t()
+  }
+  """
+  @type replace_route_table_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_image_deprecation_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type disable_image_deprecation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  availability_zone_message() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type availability_zone_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_transit_gateway_multicast_domain_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("SubnetIds") => list(String.t()()),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    optional("TransitGatewayMulticastDomainId") => String.t()
+  }
+  """
+  @type reject_transit_gateway_multicast_domain_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  metric_point() :: %{
+    "EndDate" => non_neg_integer(),
+    "StartDate" => non_neg_integer(),
+    "Status" => String.t(),
+    "Value" => float()
+  }
+  """
+  @type metric_point() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_launch_template_versions_response_error_item() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "ResponseError" => response_error(),
+    "VersionNumber" => float()
+  }
+  """
+  @type delete_launch_template_versions_response_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_reference() :: %{
+    "GroupId" => String.t(),
+    "ReferencingVpcId" => String.t(),
+    "TransitGatewayId" => String.t(),
+    "VpcPeeringConnectionId" => String.t()
+  }
+  """
+  @type security_group_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_resource_cidrs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IpamPoolId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ResourceId") => String.t(),
+    optional("ResourceOwner") => String.t(),
+    optional("ResourceTag") => request_ipam_resource_tag(),
+    optional("ResourceType") => list(any()),
+    required("IpamScopeId") => String.t()
+  }
+  """
+  @type get_ipam_resource_cidrs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_modification() :: %{
+    "EndTime" => non_neg_integer(),
+    "ModificationState" => list(any()),
+    "OriginalIops" => integer(),
+    "OriginalMultiAttachEnabled" => boolean(),
+    "OriginalSize" => integer(),
+    "OriginalThroughput" => integer(),
+    "OriginalVolumeType" => list(any()),
+    "Progress" => float(),
+    "StartTime" => non_neg_integer(),
+    "StatusMessage" => String.t(),
+    "TargetIops" => integer(),
+    "TargetMultiAttachEnabled" => boolean(),
+    "TargetSize" => integer(),
+    "TargetThroughput" => integer(),
+    "TargetVolumeType" => list(any()),
+    "VolumeId" => String.t()
+  }
+  """
+  @type volume_modification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_subnets_result() :: %{
+    "NextToken" => String.t(),
+    "Subnets" => list(subnet()())
+  }
+  """
+  @type describe_subnets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_peering_attachment_result() :: %{
+    "TransitGatewayPeeringAttachment" => transit_gateway_peering_attachment()
+  }
+  """
+  @type create_transit_gateway_peering_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_prefix_lists_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PrefixListIds") => list(String.t()())
+  }
+  """
+  @type describe_prefix_lists_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_certificate_revocation_list_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type client_certificate_revocation_list_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_topology_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("GroupNames") => list(String.t()()),
+    optional("InstanceIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_topology_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_vpn_tunnel_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type replace_vpn_tunnel_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ebs_default_kms_key_id_request() :: %{
+    optional("DryRun") => boolean(),
+    required("KmsKeyId") => String.t()
+  }
+  """
+  @type modify_ebs_default_kms_key_id_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reservation_fleet_instance_specification() :: %{
+    "AvailabilityZone" => String.t(),
+    "AvailabilityZoneId" => String.t(),
+    "EbsOptimized" => boolean(),
+    "InstancePlatform" => list(any()),
+    "InstanceType" => list(any()),
+    "Priority" => integer(),
+    "Weight" => float()
+  }
+  """
+  @type reservation_fleet_instance_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_configuration() :: %{
+    "InstanceCount" => integer(),
+    "OfferingId" => String.t()
+  }
+  """
+  @type target_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  public_ipv4_pool() :: %{
+    "Description" => String.t(),
+    "NetworkBorderGroup" => String.t(),
+    "PoolAddressRanges" => list(public_ipv4_pool_range()()),
+    "PoolId" => String.t(),
+    "Tags" => list(tag()()),
+    "TotalAddressCount" => integer(),
+    "TotalAvailableAddressCount" => integer()
+  }
+  """
+  @type public_ipv4_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  additional_detail() :: %{
+    "AdditionalDetailType" => String.t(),
+    "Component" => analysis_component(),
+    "LoadBalancers" => list(analysis_component()()),
+    "RuleGroupRuleOptionsPairs" => list(rule_group_rule_options_pair()()),
+    "RuleGroupTypePairs" => list(rule_group_type_pair()()),
+    "RuleOptions" => list(rule_option()()),
+    "ServiceName" => String.t(),
+    "VpcEndpointService" => analysis_component()
+  }
+  """
+  @type additional_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_filter_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TrafficMirrorFilterId") => String.t()
+  }
+  """
+  @type delete_traffic_mirror_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_insights_access_scope_analysis_findings_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("NetworkInsightsAccessScopeAnalysisId") => String.t()
+  }
+  """
+  @type get_network_insights_access_scope_analysis_findings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phase2_d_h_group_numbers_request_list_value() :: %{
+    "Value" => integer()
+  }
+  """
+  @type phase2_d_h_group_numbers_request_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_specification() :: %{
+    "LaunchTemplateId" => String.t(),
+    "LaunchTemplateName" => String.t(),
+    "Version" => String.t()
+  }
+  """
+  @type launch_template_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_event_windows_result() :: %{
+    "InstanceEventWindows" => list(instance_event_window()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_instance_event_windows_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  move_address_to_vpc_request() :: %{
+    optional("DryRun") => boolean(),
+    required("PublicIp") => String.t()
+  }
+  """
+  @type move_address_to_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_public_address_security_group() :: %{
+    "GroupId" => String.t(),
+    "GroupName" => String.t()
+  }
+  """
+  @type ipam_public_address_security_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpn_tunnel_certificate_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpnConnectionId") => String.t(),
+    required("VpnTunnelOutsideIpAddress") => String.t()
+  }
+  """
+  @type modify_vpn_tunnel_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type modify_vpc_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_customer_gateways_request() :: %{
+    optional("CustomerGatewayIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()())
+  }
+  """
+  @type describe_customer_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  apply_security_groups_to_client_vpn_target_network_result() :: %{
+    "SecurityGroupIds" => list(String.t()())
+  }
+  """
+  @type apply_security_groups_to_client_vpn_target_network_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prefix_list_entry() :: %{
+    "Cidr" => String.t(),
+    "Description" => String.t()
+  }
+  """
+  @type prefix_list_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_aws_network_performance_metric_subscriptions_result() :: %{
+    "NextToken" => String.t(),
+    "Subscriptions" => list(subscription()())
+  }
+  """
+  @type describe_aws_network_performance_metric_subscriptions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_connection_options() :: %{
+    "EnableAcceleration" => boolean(),
+    "LocalIpv4NetworkCidr" => String.t(),
+    "LocalIpv6NetworkCidr" => String.t(),
+    "OutsideIpAddressType" => String.t(),
+    "RemoteIpv4NetworkCidr" => String.t(),
+    "RemoteIpv6NetworkCidr" => String.t(),
+    "StaticRoutesOnly" => boolean(),
+    "TransportTransitGatewayAttachmentId" => String.t(),
+    "TunnelInsideIpVersion" => list(any()),
+    "TunnelOptions" => list(tunnel_option()())
+  }
+  """
+  @type vpn_connection_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleets_result() :: %{
+    "Fleets" => list(fleet_data()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_fleets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_endpoint_policy_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PolicyDocument") => String.t(),
+    optional("PolicyEnabled") => boolean(),
+    optional("SseSpecification") => verified_access_sse_specification_request(),
+    required("VerifiedAccessEndpointId") => String.t()
+  }
+  """
+  @type modify_verified_access_endpoint_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_export_image_tasks_result() :: %{
+    "ExportImageTasks" => list(export_image_task()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_export_image_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_local_gateway_route_table_result() :: %{
+    "LocalGatewayRouteTable" => local_gateway_route_table()
+  }
+  """
+  @type delete_local_gateway_route_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_image_launch_permission_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type cancel_image_launch_permission_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volume_status_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("VolumeIds") => list(String.t()())
+  }
+  """
+  @type describe_volume_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_tracking_configuration() :: %{
+    "TcpEstablishedTimeout" => integer(),
+    "UdpStreamTimeout" => integer(),
+    "UdpTimeout" => integer()
+  }
+  """
+  @type connection_tracking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_group_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PolicyDocument") => String.t(),
+    optional("SseSpecification") => verified_access_sse_specification_request(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VerifiedAccessInstanceId") => String.t()
+  }
+  """
+  @type create_verified_access_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_insights_analysis() :: %{
+    "AdditionalAccounts" => list(String.t()()),
+    "AlternatePathHints" => list(alternate_path_hint()()),
+    "Explanations" => list(explanation()()),
+    "FilterInArns" => list(String.t()()),
+    "ForwardPathComponents" => list(path_component()()),
+    "NetworkInsightsAnalysisArn" => String.t(),
+    "NetworkInsightsAnalysisId" => String.t(),
+    "NetworkInsightsPathId" => String.t(),
+    "NetworkPathFound" => boolean(),
+    "ReturnPathComponents" => list(path_component()()),
+    "StartDate" => non_neg_integer(),
+    "Status" => list(any()),
+    "StatusMessage" => String.t(),
+    "SuggestedAccounts" => list(String.t()()),
+    "Tags" => list(tag()()),
+    "WarningMessage" => String.t()
+  }
+  """
+  @type network_insights_analysis() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_import_snapshot_tasks_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("ImportTaskIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_import_snapshot_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prefix_list_association() :: %{
+    "ResourceId" => String.t(),
+    "ResourceOwner" => String.t()
+  }
+  """
+  @type prefix_list_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  release_hosts_request() :: %{
+    required("HostIds") => list(String.t()())
+  }
+  """
+  @type release_hosts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_sse_specification_response() :: %{
+    "CustomerManagedKeyEnabled" => boolean(),
+    "KmsKeyArn" => String.t()
+  }
+  """
+  @type verified_access_sse_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  destination_options_request() :: %{
+    "FileFormat" => list(any()),
+    "HiveCompatiblePartitions" => boolean(),
+    "PerHourPartition" => boolean()
+  }
+  """
+  @type destination_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_volumes_result() :: %{
+    "NextToken" => String.t(),
+    "Volumes" => list(volume()())
+  }
+  """
+  @type describe_volumes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  memory_mi_b_request() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type memory_mi_b_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_count_request() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type network_interface_count_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_flow_logs_integration_template_result() :: %{
+    "Result" => String.t()
+  }
+  """
+  @type get_flow_logs_integration_template_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_tags_result() :: %{
+    "NextToken" => String.t(),
+    "Tags" => list(tag_description()())
+  }
+  """
+  @type describe_tags_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_status() :: %{
+    "AvailabilityZone" => String.t(),
+    "Events" => list(instance_status_event()()),
+    "InstanceId" => String.t(),
+    "InstanceState" => instance_state(),
+    "InstanceStatus" => instance_status_summary(),
+    "OutpostArn" => String.t(),
+    "SystemStatus" => instance_status_summary()
+  }
+  """
+  @type instance_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instances_placement() :: %{
+    "AvailabilityZone" => String.t(),
+    "GroupName" => String.t()
+  }
+  """
+  @type scheduled_instances_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  i_k_e_versions_list_value() :: %{
+    "Value" => String.t()
+  }
+  """
+  @type i_k_e_versions_list_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_route_tables_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TransitGatewayRouteTableIds") => list(String.t()())
+  }
+  """
+  @type describe_transit_gateway_route_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  principal_id_format() :: %{
+    "Arn" => String.t(),
+    "Statuses" => list(id_format()())
+  }
+  """
+  @type principal_id_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dns_entry() :: %{
+    "DnsName" => String.t(),
+    "HostedZoneId" => String.t()
+  }
+  """
+  @type dns_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_resource_cidrs_result() :: %{
+    "IpamResourceCidrs" => list(ipam_resource_cidr()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_ipam_resource_cidrs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_fast_launch_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("LaunchTemplate") => fast_launch_launch_template_specification_request(),
+    optional("MaxParallelLaunches") => integer(),
+    optional("ResourceType") => String.t(),
+    optional("SnapshotConfiguration") => fast_launch_snapshot_configuration_request(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type enable_fast_launch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  through_resources_statement_request() :: %{
+    "ResourceStatement" => resource_statement_request()
+  }
+  """
+  @type through_resources_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_vpc_attachment_request() :: %{
+    optional("AddSubnetIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Options") => modify_transit_gateway_vpc_attachment_request_options(),
+    optional("RemoveSubnetIds") => list(String.t()()),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type modify_transit_gateway_vpc_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  total_local_storage_g_b() :: %{
+    "Max" => float(),
+    "Min" => float()
+  }
+  """
+  @type total_local_storage_g_b() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_capacity_reservation_fleets_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CapacityReservationFleetIds") => list(String.t()())
+  }
+  """
+  @type cancel_capacity_reservation_fleets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fpga_device_memory_info() :: %{
+    "SizeInMiB" => integer()
+  }
+  """
+  @type fpga_device_memory_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_vpc_endpoint_connections_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ServiceId") => String.t(),
+    required("VpcEndpointIds") => list(String.t()())
+  }
+  """
+  @type accept_vpc_endpoint_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_aggregate_id_format_result() :: %{
+    "Statuses" => list(id_format()()),
+    "UseLongIdsAggregated" => boolean()
+  }
+  """
+  @type describe_aggregate_id_format_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_launch_template_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("LaunchTemplateId") => String.t(),
+    optional("LaunchTemplateName") => String.t()
+  }
+  """
+  @type delete_launch_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  alternate_path_hint() :: %{
+    "ComponentArn" => String.t(),
+    "ComponentId" => String.t()
+  }
+  """
+  @type alternate_path_hint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_regions_result() :: %{
+    "Regions" => list(region()())
+  }
+  """
+  @type describe_regions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_vpc_attachment_options() :: %{
+    "ApplianceModeSupport" => list(any()),
+    "DnsSupport" => list(any()),
+    "Ipv6Support" => list(any()),
+    "SecurityGroupReferencingSupport" => list(any())
+  }
+  """
+  @type transit_gateway_vpc_attachment_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_connection_status() :: %{
+    "ConnectionId" => String.t(),
+    "CurrentStatus" => client_vpn_connection_status(),
+    "PreviousStatus" => client_vpn_connection_status()
+  }
+  """
+  @type terminate_connection_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_policy_table_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayPolicyTableId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_policy_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_address_transfer_request() :: %{
+    optional("DryRun") => boolean(),
+    required("AllocationId") => String.t()
+  }
+  """
+  @type disable_address_transfer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_host_reservations_request() :: %{
+    optional("Filter") => list(filter()()),
+    optional("HostReservationIdSet") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_host_reservations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_transit_gateway_policy_table_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("TransitGatewayId") => String.t()
+  }
+  """
+  @type create_transit_gateway_policy_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_traffic_mirror_filters_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TrafficMirrorFilterIds") => list(String.t()())
+  }
+  """
+  @type describe_traffic_mirror_filters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_tags_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  referenced_security_group() :: %{
+    "GroupId" => String.t(),
+    "PeeringStatus" => String.t(),
+    "UserId" => String.t(),
+    "VpcId" => String.t(),
+    "VpcPeeringConnectionId" => String.t()
+  }
+  """
+  @type referenced_security_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_security_group_ingress_result() :: %{
+    "Return" => boolean(),
+    "UnknownIpPermissions" => list(ip_permission()())
+  }
+  """
+  @type revoke_security_group_ingress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_launch_template_overrides_request() :: %{
+    "AvailabilityZone" => String.t(),
+    "ImageId" => String.t(),
+    "InstanceRequirements" => instance_requirements_request(),
+    "InstanceType" => list(any()),
+    "MaxPrice" => String.t(),
+    "Placement" => placement(),
+    "Priority" => float(),
+    "SubnetId" => String.t(),
+    "WeightedCapacity" => float()
+  }
+  """
+  @type fleet_launch_template_overrides_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_route_request() :: %{
+    optional("CarrierGatewayId") => String.t(),
+    optional("CoreNetworkArn") => String.t(),
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationIpv6CidrBlock") => String.t(),
+    optional("DestinationPrefixListId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EgressOnlyInternetGatewayId") => String.t(),
+    optional("GatewayId") => String.t(),
+    optional("InstanceId") => String.t(),
+    optional("LocalGatewayId") => String.t(),
+    optional("NatGatewayId") => String.t(),
+    optional("NetworkInterfaceId") => String.t(),
+    optional("TransitGatewayId") => String.t(),
+    optional("VpcEndpointId") => String.t(),
+    optional("VpcPeeringConnectionId") => String.t(),
+    required("RouteTableId") => String.t()
+  }
+  """
+  @type create_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  total_local_storage_g_b_request() :: %{
+    "Max" => float(),
+    "Min" => float()
+  }
+  """
+  @type total_local_storage_g_b_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_spot_maintenance_strategies_request() :: %{
+    "CapacityRebalance" => fleet_spot_capacity_rebalance_request()
+  }
+  """
+  @type fleet_spot_maintenance_strategies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_client_vpn_target_network_result() :: %{
+    "AssociationId" => String.t(),
+    "Status" => association_status()
+  }
+  """
+  @type associate_client_vpn_target_network_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipam_pool_source_resource_request() :: %{
+    "ResourceId" => String.t(),
+    "ResourceOwner" => String.t(),
+    "ResourceRegion" => String.t(),
+    "ResourceType" => list(any())
+  }
+  """
+  @type ipam_pool_source_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_host_reservation_purchase_preview_request() :: %{
+    required("HostIdSet") => list(String.t()()),
+    required("OfferingId") => String.t()
+  }
+  """
+  @type get_host_reservation_purchase_preview_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_elastic_gpus_result() :: %{
+    "ElasticGpuSet" => list(elastic_gpus()()),
+    "MaxResults" => integer(),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_elastic_gpus_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_endpoint_load_balancer_options() :: %{
+    "LoadBalancerArn" => String.t(),
+    "Port" => integer(),
+    "Protocol" => list(any()),
+    "SubnetIds" => list(String.t()())
+  }
+  """
+  @type create_verified_access_endpoint_load_balancer_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_export_task_request() :: %{
+    required("ExportTaskId") => String.t()
+  }
+  """
+  @type cancel_export_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_maintenance_options_request() :: %{
+    "AutoRecovery" => list(any())
+  }
+  """
+  @type instance_maintenance_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_attachment_association() :: %{
+    "State" => list(any()),
+    "TransitGatewayRouteTableId" => String.t()
+  }
+  """
+  @type transit_gateway_attachment_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_spot_instances_result() :: %{
+    "SpotInstanceRequests" => list(spot_instance_request()())
+  }
+  """
+  @type request_spot_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dhcp_options_result() :: %{
+    "DhcpOptions" => dhcp_options()
+  }
+  """
+  @type create_dhcp_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_ipam_byoasn_result() :: %{
+    "AsnAssociation" => asn_association()
+  }
+  """
+  @type disassociate_ipam_byoasn_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_capacity_block_result() :: %{
+    "CapacityReservation" => capacity_reservation()
+  }
+  """
+  @type purchase_capacity_block_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_request_options() :: %{
+    "AmazonSideAsn" => float(),
+    "AutoAcceptSharedAttachments" => list(any()),
+    "DefaultRouteTableAssociation" => list(any()),
+    "DefaultRouteTablePropagation" => list(any()),
+    "DnsSupport" => list(any()),
+    "MulticastSupport" => list(any()),
+    "SecurityGroupReferencingSupport" => list(any()),
+    "TransitGatewayCidrBlocks" => list(String.t()()),
+    "VpnEcmpSupport" => list(any())
+  }
+  """
+  @type transit_gateway_request_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_connection() :: %{
+    "ClientIp" => String.t(),
+    "ClientVpnEndpointId" => String.t(),
+    "CommonName" => String.t(),
+    "ConnectionEndTime" => String.t(),
+    "ConnectionEstablishedTime" => String.t(),
+    "ConnectionId" => String.t(),
+    "EgressBytes" => String.t(),
+    "EgressPackets" => String.t(),
+    "IngressBytes" => String.t(),
+    "IngressPackets" => String.t(),
+    "PostureComplianceStatuses" => list(String.t()()),
+    "Status" => client_vpn_connection_status(),
+    "Timestamp" => String.t(),
+    "Username" => String.t()
+  }
+  """
+  @type client_vpn_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  store_image_task_result() :: %{
+    "AmiId" => String.t(),
+    "Bucket" => String.t(),
+    "ProgressPercentage" => integer(),
+    "S3objectKey" => String.t(),
+    "StoreTaskFailureReason" => String.t(),
+    "StoreTaskState" => String.t(),
+    "TaskStartTime" => non_neg_integer()
+  }
+  """
+  @type store_image_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoint_service_configurations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ServiceIds") => list(String.t()())
+  }
+  """
+  @type describe_vpc_endpoint_service_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_transit_gateway_multicast_group_sources_result() :: %{
+    "DeregisteredMulticastGroupSources" => transit_gateway_multicast_deregistered_group_sources()
+  }
+  """
+  @type deregister_transit_gateway_multicast_group_sources_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_spot_placement_scores_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("InstanceRequirementsWithMetadata") => instance_requirements_with_metadata_request(),
+    optional("InstanceTypes") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("RegionNames") => list(String.t()()),
+    optional("SingleAvailabilityZone") => boolean(),
+    optional("TargetCapacityUnitType") => list(any()),
+    required("TargetCapacity") => integer()
+  }
+  """
+  @type get_spot_placement_scores_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_import_image_tasks_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("ImportTaskIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_import_image_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_routes_result() :: %{
+    "NextToken" => String.t(),
+    "Routes" => list(client_vpn_route()())
+  }
+  """
+  @type describe_client_vpn_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pricing_detail() :: %{
+    "Count" => integer(),
+    "Price" => float()
+  }
+  """
+  @type pricing_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  packet_header_statement_request() :: %{
+    "DestinationAddresses" => list(String.t()()),
+    "DestinationPorts" => list(String.t()()),
+    "DestinationPrefixLists" => list(String.t()()),
+    "Protocols" => list(list(any())()),
+    "SourceAddresses" => list(String.t()()),
+    "SourcePorts" => list(String.t()()),
+    "SourcePrefixLists" => list(String.t()())
+  }
+  """
+  @type packet_header_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_default_credit_specification_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CpuCredits") => String.t(),
+    required("InstanceFamily") => list(any())
+  }
+  """
+  @type modify_default_credit_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  history_record() :: %{
+    "EventInformation" => event_information(),
+    "EventType" => list(any()),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type history_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_peering_connection() :: %{
+    "AccepterVpcInfo" => vpc_peering_connection_vpc_info(),
+    "ExpirationTime" => non_neg_integer(),
+    "RequesterVpcInfo" => vpc_peering_connection_vpc_info(),
+    "Status" => vpc_peering_connection_state_reason(),
+    "Tags" => list(tag()()),
+    "VpcPeeringConnectionId" => String.t()
+  }
+  """
+  @type vpc_peering_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accelerator_total_memory_mi_b() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type accelerator_total_memory_mi_b() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instances_configuration() :: %{
+    "AvailabilityZone" => String.t(),
+    "InstanceCount" => integer(),
+    "InstanceType" => list(any()),
+    "Platform" => String.t(),
+    "Scope" => list(any())
+  }
+  """
+  @type reserved_instances_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  withdraw_byoip_cidr_result() :: %{
+    "ByoipCidr" => byoip_cidr()
+  }
+  """
+  @type withdraw_byoip_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_store_image_task_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("S3ObjectTags") => list(s3_object_tag()()),
+    required("Bucket") => String.t(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type create_store_image_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_tenancy_result() :: %{
+    "ReturnValue" => boolean()
+  }
+  """
+  @type modify_vpc_tenancy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_interface_result() :: %{
+    "ClientToken" => String.t(),
+    "NetworkInterface" => network_interface()
+  }
+  """
+  @type create_network_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_console_output_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Latest") => boolean(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type get_console_output_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  release_hosts_result() :: %{
+    "Successful" => list(String.t()()),
+    "Unsuccessful" => list(unsuccessful_item()())
+  }
+  """
+  @type release_hosts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disk_info() :: %{
+    "Count" => integer(),
+    "SizeInGB" => float(),
+    "Type" => list(any())
+  }
+  """
+  @type disk_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_public_ipv4_pool_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_public_ipv4_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  host_reservation() :: %{
+    "Count" => integer(),
+    "CurrencyCode" => list(any()),
+    "Duration" => integer(),
+    "End" => non_neg_integer(),
+    "HostIdSet" => list(String.t()()),
+    "HostReservationId" => String.t(),
+    "HourlyPrice" => String.t(),
+    "InstanceFamily" => String.t(),
+    "OfferingId" => String.t(),
+    "PaymentOption" => list(any()),
+    "Start" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "UpfrontPrice" => String.t()
+  }
+  """
+  @type host_reservation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_key_pairs_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("IncludePublicKey") => boolean(),
+    optional("KeyNames") => list(String.t()()),
+    optional("KeyPairIds") => list(String.t()())
+  }
+  """
+  @type describe_key_pairs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_traffic_mirror_filter_rule_result() :: %{
+    "TrafficMirrorFilterRule" => traffic_mirror_filter_rule()
+  }
+  """
+  @type modify_traffic_mirror_filter_rule_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  destination_options_response() :: %{
+    "FileFormat" => list(any()),
+    "HiveCompatiblePartitions" => boolean(),
+    "PerHourPartition" => boolean()
+  }
+  """
+  @type destination_options_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv6_prefix_specification_response() :: %{
+    "Ipv6Prefix" => String.t()
+  }
+  """
+  @type ipv6_prefix_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_address_history_result() :: %{
+    "HistoryRecords" => list(ipam_address_history_record()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_ipam_address_history_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  slot_date_time_range_request() :: %{
+    "EarliestTime" => non_neg_integer(),
+    "LatestTime" => non_neg_integer()
+  }
+  """
+  @type slot_date_time_range_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instance_limit_price() :: %{
+    "Amount" => float(),
+    "CurrencyCode" => list(any())
+  }
+  """
+  @type reserved_instance_limit_price() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ipam_byoasn_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ipam_byoasn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  report_instance_status_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("EndTime") => non_neg_integer(),
+    optional("StartTime") => non_neg_integer(),
+    required("Instances") => list(String.t()()),
+    required("ReasonCodes") => list(list(any())()),
+    required("Status") => list(any())
+  }
+  """
+  @type report_instance_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_fpga_image_attribute_request() :: %{
+    optional("Attribute") => list(any()),
+    optional("DryRun") => boolean(),
+    required("FpgaImageId") => String.t()
+  }
+  """
+  @type reset_fpga_image_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  integrate_services() :: %{
+    "AthenaIntegrations" => list(athena_integration()())
+  }
+  """
+  @type integrate_services() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_filter_result() :: %{
+    "ClientToken" => String.t(),
+    "TrafficMirrorFilter" => traffic_mirror_filter()
+  }
+  """
+  @type create_traffic_mirror_filter_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_trust_provider_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DeviceOptions") => create_verified_access_trust_provider_device_options(),
+    optional("DeviceTrustProviderType") => list(any()),
+    optional("DryRun") => boolean(),
+    optional("OidcOptions") => create_verified_access_trust_provider_oidc_options(),
+    optional("SseSpecification") => verified_access_sse_specification_request(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("UserTrustProviderType") => list(any()),
+    required("PolicyReferenceName") => String.t(),
+    required("TrustProviderType") => list(any())
+  }
+  """
+  @type create_verified_access_trust_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  address() :: %{
+    "AllocationId" => String.t(),
+    "AssociationId" => String.t(),
+    "CarrierIp" => String.t(),
+    "CustomerOwnedIp" => String.t(),
+    "CustomerOwnedIpv4Pool" => String.t(),
+    "Domain" => list(any()),
+    "InstanceId" => String.t(),
+    "NetworkBorderGroup" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "NetworkInterfaceOwnerId" => String.t(),
+    "PrivateIpAddress" => String.t(),
+    "PublicIp" => String.t(),
+    "PublicIpv4Pool" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_transit_gateway_vpc_attachment_result() :: %{
+    "TransitGatewayVpcAttachment" => transit_gateway_vpc_attachment()
+  }
+  """
+  @type modify_transit_gateway_vpc_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unlock_snapshot_result() :: %{
+    "SnapshotId" => String.t()
+  }
+  """
+  @type unlock_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run_instances_monitoring_enabled() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type run_instances_monitoring_enabled() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_capacity_reservation_usage_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("CapacityReservationId") => String.t()
+  }
+  """
+  @type get_capacity_reservation_usage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_traffic_mirror_filter_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_traffic_mirror_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_transit_gateway_route_request() :: %{
+    optional("Blackhole") => boolean(),
+    optional("DryRun") => boolean(),
+    optional("TransitGatewayAttachmentId") => String.t(),
+    required("DestinationCidrBlock") => String.t(),
+    required("TransitGatewayRouteTableId") => String.t()
+  }
+  """
+  @type replace_transit_gateway_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_fleet_requests_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SpotFleetRequestIds") => list(String.t()())
+  }
+  """
+  @type describe_spot_fleet_requests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  customer_gateway() :: %{
+    "BgpAsn" => String.t(),
+    "CertificateArn" => String.t(),
+    "CustomerGatewayId" => String.t(),
+    "DeviceName" => String.t(),
+    "IpAddress" => String.t(),
+    "State" => String.t(),
+    "Tags" => list(tag()()),
+    "Type" => String.t()
+  }
+  """
+  @type customer_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_ipam_operating_region() :: %{
+    "RegionName" => String.t()
+  }
+  """
+  @type add_ipam_operating_region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpn_connection_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpnConnectionId") => String.t()
+  }
+  """
+  @type delete_vpn_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  release_ipam_pool_allocation_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t(),
+    required("IpamPoolAllocationId") => String.t(),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type release_ipam_pool_allocation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_vpc_attachment() :: %{
+    "CreationTime" => non_neg_integer(),
+    "Options" => transit_gateway_vpc_attachment_options(),
+    "State" => list(any()),
+    "SubnetIds" => list(String.t()()),
+    "Tags" => list(tag()()),
+    "TransitGatewayAttachmentId" => String.t(),
+    "TransitGatewayId" => String.t(),
+    "VpcId" => String.t(),
+    "VpcOwnerId" => String.t()
+  }
+  """
+  @type transit_gateway_vpc_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_event_window_state_change() :: %{
+    "InstanceEventWindowId" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type instance_event_window_state_change() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  baseline_ebs_bandwidth_mbps() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type baseline_ebs_bandwidth_mbps() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_reserved_instances_offering_result() :: %{
+    "ReservedInstancesId" => String.t()
+  }
+  """
+  @type purchase_reserved_instances_offering_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshot_attribute_result() :: %{
+    "CreateVolumePermissions" => list(create_volume_permission()()),
+    "ProductCodes" => list(product_code()()),
+    "SnapshotId" => String.t()
+  }
+  """
+  @type describe_snapshot_attribute_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_transit_gateway_multicast_domains_result() :: %{
+    "NextToken" => String.t(),
+    "TransitGatewayMulticastDomains" => list(transit_gateway_multicast_domain()())
+  }
+  """
+  @type describe_transit_gateway_multicast_domains_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_group() :: %{
+    "CreationTime" => String.t(),
+    "DeletionTime" => String.t(),
+    "Description" => String.t(),
+    "LastUpdatedTime" => String.t(),
+    "Owner" => String.t(),
+    "SseSpecification" => verified_access_sse_specification_response(),
+    "Tags" => list(tag()()),
+    "VerifiedAccessGroupArn" => String.t(),
+    "VerifiedAccessGroupId" => String.t(),
+    "VerifiedAccessInstanceId" => String.t()
+  }
+  """
+  @type verified_access_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_fleet_requests_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SpotFleetRequestIds") => list(String.t()()),
+    required("TerminateInstances") => boolean()
+  }
+  """
+  @type cancel_spot_fleet_requests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_snapshot_block_public_access_result() :: %{
+    "State" => list(any())
+  }
+  """
+  @type disable_snapshot_block_public_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_spot_fleet_request_history_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("EventType") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("SpotFleetRequestId") => String.t(),
+    required("StartTime") => non_neg_integer()
+  }
+  """
+  @type describe_spot_fleet_request_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_queued_purchase_deletion() :: %{
+    "Error" => delete_queued_reserved_instances_error(),
+    "ReservedInstancesId" => String.t()
+  }
+  """
+  @type failed_queued_purchase_deletion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_endpoint_policy_result() :: %{
+    "PolicyDocument" => String.t(),
+    "PolicyEnabled" => boolean(),
+    "SseSpecification" => verified_access_sse_specification_response()
+  }
+  """
+  @type modify_verified_access_endpoint_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_bucket() :: %{
+    "S3Bucket" => String.t(),
+    "S3Key" => String.t()
+  }
+  """
+  @type user_bucket() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_block_device_mapping_specification() :: %{
+    "DeviceName" => String.t(),
+    "Ebs" => ebs_instance_block_device_specification(),
+    "NoDevice" => String.t(),
+    "VirtualName" => String.t()
+  }
+  """
+  @type instance_block_device_mapping_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_block_device_mapping_request() :: %{
+    "DeviceName" => String.t(),
+    "Ebs" => launch_template_ebs_block_device_request(),
+    "NoDevice" => String.t(),
+    "VirtualName" => String.t()
+  }
+  """
+  @type launch_template_block_device_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_storage_info() :: %{
+    "Disks" => list(disk_info()()),
+    "EncryptionSupport" => list(any()),
+    "NvmeSupport" => list(any()),
+    "TotalSizeInGB" => float()
+  }
+  """
+  @type instance_storage_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_iam_instance_profile_associations_result() :: %{
+    "IamInstanceProfileAssociations" => list(iam_instance_profile_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_iam_instance_profile_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_ena_srd_specification() :: %{
+    "EnaSrdEnabled" => boolean(),
+    "EnaSrdUdpSpecification" => launch_template_ena_srd_udp_specification()
+  }
+  """
+  @type launch_template_ena_srd_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_route_tables_result() :: %{
+    "LocalGatewayRouteTables" => list(local_gateway_route_table()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_local_gateway_route_tables_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_instance_capacity_reservation_attributes_request() :: %{
+    optional("DryRun") => boolean(),
+    required("CapacityReservationSpecification") => capacity_reservation_specification(),
+    required("InstanceId") => String.t()
+  }
+  """
+  @type modify_instance_capacity_reservation_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_instances_result() :: %{
+    "StoppingInstances" => list(instance_state_change()())
+  }
+  """
+  @type stop_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_block_public_access_state_result() :: %{
+    "ImageBlockPublicAccessState" => String.t()
+  }
+  """
+  @type get_image_block_public_access_state_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bundle_task() :: %{
+    "BundleId" => String.t(),
+    "BundleTaskError" => bundle_task_error(),
+    "InstanceId" => String.t(),
+    "Progress" => String.t(),
+    "StartTime" => non_neg_integer(),
+    "State" => list(any()),
+    "Storage" => storage(),
+    "UpdateTime" => non_neg_integer()
+  }
+  """
+  @type bundle_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_interfaces_result() :: %{
+    "NetworkInterfaces" => list(network_interface()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_interfaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_fleet_request_config_data() :: %{
+    "AllocationStrategy" => list(any()),
+    "ClientToken" => String.t(),
+    "Context" => String.t(),
+    "ExcessCapacityTerminationPolicy" => list(any()),
+    "FulfilledCapacity" => float(),
+    "IamFleetRole" => String.t(),
+    "InstanceInterruptionBehavior" => list(any()),
+    "InstancePoolsToUseCount" => integer(),
+    "LaunchSpecifications" => list(spot_fleet_launch_specification()()),
+    "LaunchTemplateConfigs" => list(launch_template_config()()),
+    "LoadBalancersConfig" => load_balancers_config(),
+    "OnDemandAllocationStrategy" => list(any()),
+    "OnDemandFulfilledCapacity" => float(),
+    "OnDemandMaxTotalPrice" => String.t(),
+    "OnDemandTargetCapacity" => integer(),
+    "ReplaceUnhealthyInstances" => boolean(),
+    "SpotMaintenanceStrategies" => spot_maintenance_strategies(),
+    "SpotMaxTotalPrice" => String.t(),
+    "SpotPrice" => String.t(),
+    "TagSpecifications" => list(tag_specification()()),
+    "TargetCapacity" => integer(),
+    "TargetCapacityUnitType" => list(any()),
+    "TerminateInstancesWithExpiration" => boolean(),
+    "Type" => list(any()),
+    "ValidFrom" => non_neg_integer(),
+    "ValidUntil" => non_neg_integer()
+  }
+  """
+  @type spot_fleet_request_config_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_ipam_pool_request() :: %{
+    optional("AddAllocationResourceTags") => list(request_ipam_resource_tag()()),
+    optional("AllocationDefaultNetmaskLength") => integer(),
+    optional("AllocationMaxNetmaskLength") => integer(),
+    optional("AllocationMinNetmaskLength") => integer(),
+    optional("AutoImport") => boolean(),
+    optional("ClearAllocationDefaultNetmaskLength") => boolean(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("RemoveAllocationResourceTags") => list(request_ipam_resource_tag()()),
+    required("IpamPoolId") => String.t()
+  }
+  """
+  @type modify_ipam_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  traffic_mirror_session() :: %{
+    "Description" => String.t(),
+    "NetworkInterfaceId" => String.t(),
+    "OwnerId" => String.t(),
+    "PacketLength" => integer(),
+    "SessionNumber" => integer(),
+    "Tags" => list(tag()()),
+    "TrafficMirrorFilterId" => String.t(),
+    "TrafficMirrorSessionId" => String.t(),
+    "TrafficMirrorTargetId" => String.t(),
+    "VirtualNetworkId" => integer()
+  }
+  """
+  @type traffic_mirror_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fleets_request() :: %{
+    optional("DryRun") => boolean(),
+    required("FleetIds") => list(String.t()()),
+    required("TerminateInstances") => boolean()
+  }
+  """
+  @type delete_fleets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_instances_result() :: %{
+    "TerminatingInstances" => list(instance_state_change()())
+  }
+  """
+  @type terminate_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_ipv6_address() :: %{
+    "Ipv6Address" => String.t(),
+    "IsPrimaryIpv6" => boolean()
+  }
+  """
+  @type instance_ipv6_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_transit_gateway_multicast_domain_associations_result() :: %{
+    "Associations" => transit_gateway_multicast_domain_associations()
+  }
+  """
+  @type reject_transit_gateway_multicast_domain_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_service_permissions_result() :: %{
+    "AddedPrincipals" => list(added_principal()()),
+    "ReturnValue" => boolean()
+  }
+  """
+  @type modify_vpc_endpoint_service_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  prefix_list_id() :: %{
+    "Description" => String.t(),
+    "PrefixListId" => String.t()
+  }
+  """
+  @type prefix_list_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_policy_table() :: %{
+    "CreationTime" => non_neg_integer(),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "TransitGatewayId" => String.t(),
+    "TransitGatewayPolicyTableId" => String.t()
+  }
+  """
+  @type transit_gateway_policy_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_reserved_instances_exchange_quote_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("TargetConfigurations") => list(target_configuration_request()()),
+    required("ReservedInstanceIds") => list(String.t()())
+  }
+  """
+  @type accept_reserved_instances_exchange_quote_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_local_gateway_route_tables_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("LocalGatewayRouteTableIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_local_gateway_route_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  v_cpu_count_range_request() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type v_cpu_count_range_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_types_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceTypes") => list(list(any())()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_egress_only_internet_gateway_result() :: %{
+    "ClientToken" => String.t(),
+    "EgressOnlyInternetGateway" => egress_only_internet_gateway()
+  }
+  """
+  @type create_egress_only_internet_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_log_cloud_watch_logs_destination() :: %{
+    "DeliveryStatus" => verified_access_log_delivery_status(),
+    "Enabled" => boolean(),
+    "LogGroup" => String.t()
+  }
+  """
+  @type verified_access_log_cloud_watch_logs_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  iam_instance_profile() :: %{
+    "Arn" => String.t(),
+    "Id" => String.t()
+  }
+  """
+  @type iam_instance_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  launch_template_ebs_block_device_request() :: %{
+    "DeleteOnTermination" => boolean(),
+    "Encrypted" => boolean(),
+    "Iops" => integer(),
+    "KmsKeyId" => String.t(),
+    "SnapshotId" => String.t(),
+    "Throughput" => integer(),
+    "VolumeSize" => integer(),
+    "VolumeType" => list(any())
+  }
+  """
+  @type launch_template_ebs_block_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_client_vpn_endpoint_request() :: %{
+    optional("ClientConnectOptions") => client_connect_options(),
+    optional("ClientLoginBannerOptions") => client_login_banner_options(),
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DnsServers") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("SelfServicePortal") => list(any()),
+    optional("SessionTimeoutHours") => integer(),
+    optional("SplitTunnel") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TransportProtocol") => list(any()),
+    optional("VpcId") => String.t(),
+    optional("VpnPort") => integer(),
+    required("AuthenticationOptions") => list(client_vpn_authentication_request()()),
+    required("ClientCidrBlock") => String.t(),
+    required("ConnectionLogOptions") => connection_log_options(),
+    required("ServerCertificateArn") => String.t()
+  }
+  """
+  @type create_client_vpn_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_ipam_resource_tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type request_ipam_resource_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_trust_provider_result() :: %{
+    "VerifiedAccessTrustProvider" => verified_access_trust_provider()
+  }
+  """
+  @type create_verified_access_trust_provider_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_internet_gateway_result() :: %{
+    "InternetGateway" => internet_gateway()
+  }
+  """
+  @type create_internet_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_verified_access_instance_result() :: %{
+    "VerifiedAccessInstance" => verified_access_instance()
+  }
+  """
+  @type modify_verified_access_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  gpu_device_memory_info() :: %{
+    "SizeInMiB" => integer()
+  }
+  """
+  @type gpu_device_memory_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_launch_template_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("VersionDescription") => String.t(),
+    required("LaunchTemplateData") => request_launch_template_data(),
+    required("LaunchTemplateName") => String.t()
+  }
+  """
+  @type create_launch_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_connection_options_specification() :: %{
+    "EnableAcceleration" => boolean(),
+    "LocalIpv4NetworkCidr" => String.t(),
+    "LocalIpv6NetworkCidr" => String.t(),
+    "OutsideIpAddressType" => String.t(),
+    "RemoteIpv4NetworkCidr" => String.t(),
+    "RemoteIpv6NetworkCidr" => String.t(),
+    "StaticRoutesOnly" => boolean(),
+    "TransportTransitGatewayAttachmentId" => String.t(),
+    "TunnelInsideIpVersion" => list(any()),
+    "TunnelOptions" => list(vpn_tunnel_options_specification()())
+  }
+  """
+  @type vpn_connection_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_multicast_deregistered_group_members() :: %{
+    "DeregisteredNetworkInterfaceIds" => list(String.t()()),
+    "GroupIpAddress" => String.t(),
+    "TransitGatewayMulticastDomainId" => String.t()
+  }
+  """
+  @type transit_gateway_multicast_deregistered_group_members() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_security_group_ingress_result() :: %{
+    "Return" => boolean(),
+    "SecurityGroupRules" => list(security_group_rule()())
+  }
+  """
+  @type authorize_security_group_ingress_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_for_vpc() :: %{
+    "Description" => String.t(),
+    "GroupId" => String.t(),
+    "GroupName" => String.t(),
+    "OwnerId" => String.t(),
+    "PrimaryVpcId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type security_group_for_vpc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  capacity_reservation_fleet() :: %{
+    "AllocationStrategy" => String.t(),
+    "CapacityReservationFleetArn" => String.t(),
+    "CapacityReservationFleetId" => String.t(),
+    "CreateTime" => non_neg_integer(),
+    "EndDate" => non_neg_integer(),
+    "InstanceMatchCriteria" => list(any()),
+    "InstanceTypeSpecifications" => list(fleet_capacity_reservation()()),
+    "State" => list(any()),
+    "Tags" => list(tag()()),
+    "Tenancy" => list(any()),
+    "TotalFulfilledCapacity" => float(),
+    "TotalTargetCapacity" => integer()
+  }
+  """
+  @type capacity_reservation_fleet() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_discovered_accounts_result() :: %{
+    "IpamDiscoveredAccounts" => list(ipam_discovered_account()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_ipam_discovered_accounts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_snapshot_block_public_access_request() :: %{
+    optional("DryRun") => boolean(),
+    required("State") => list(any())
+  }
+  """
+  @type enable_snapshot_block_public_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_vpc_attachment_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayAttachmentId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_vpc_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_attributes_request() :: %{
+    optional("AttributeNames") => list(list(any())()),
+    optional("DryRun") => boolean()
+  }
+  """
+  @type describe_account_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_store_image_task_result() :: %{
+    "ObjectKey" => String.t()
+  }
+  """
+  @type create_store_image_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  firewall_stateless_rule() :: %{
+    "DestinationPorts" => list(port_range()()),
+    "Destinations" => list(String.t()()),
+    "Priority" => integer(),
+    "Protocols" => list(integer()()),
+    "RuleAction" => String.t(),
+    "RuleGroupArn" => String.t(),
+    "SourcePorts" => list(port_range()()),
+    "Sources" => list(String.t()())
+  }
+  """
+  @type firewall_stateless_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provisioned_bandwidth() :: %{
+    "ProvisionTime" => non_neg_integer(),
+    "Provisioned" => String.t(),
+    "RequestTime" => non_neg_integer(),
+    "Requested" => String.t(),
+    "Status" => String.t()
+  }
+  """
+  @type provisioned_bandwidth() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_connect_result() :: %{
+    "TransitGatewayConnect" => transit_gateway_connect()
+  }
+  """
+  @type delete_transit_gateway_connect_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ipam_pool_cidrs_result() :: %{
+    "IpamPoolCidrs" => list(ipam_pool_cidr()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_ipam_pool_cidrs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_transit_gateway_peering_attachment_result() :: %{
+    "TransitGatewayPeeringAttachment" => transit_gateway_peering_attachment()
+  }
+  """
+  @type reject_transit_gateway_peering_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  classic_link_dns_support() :: %{
+    "ClassicLinkDnsSupported" => boolean(),
+    "VpcId" => String.t()
+  }
+  """
+  @type classic_link_dns_support() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_snapshot_from_recycle_bin_request() :: %{
+    optional("DryRun") => boolean(),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type restore_snapshot_from_recycle_bin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpc_endpoint_result() :: %{
+    "ClientToken" => String.t(),
+    "VpcEndpoint" => vpc_endpoint()
+  }
+  """
+  @type create_vpc_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_scheduled_instance_availability_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("MaxSlotDurationInHours") => integer(),
+    optional("MinSlotDurationInHours") => integer(),
+    optional("NextToken") => String.t(),
+    required("FirstSlotStartTimeRange") => slot_date_time_range_request(),
+    required("Recurrence") => scheduled_instance_recurrence_request()
+  }
+  """
+  @type describe_scheduled_instance_availability_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_vpn_gateway_request() :: %{
+    optional("DryRun") => boolean(),
+    required("VpcId") => String.t(),
+    required("VpnGatewayId") => String.t()
+  }
+  """
+  @type detach_vpn_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_paths_result() :: %{
+    "NetworkInsightsPaths" => list(network_insights_path()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_network_insights_paths_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpn_connection_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Options") => vpn_connection_options_specification(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    optional("TransitGatewayId") => String.t(),
+    optional("VpnGatewayId") => String.t(),
+    required("CustomerGatewayId") => String.t(),
+    required("Type") => String.t()
+  }
+  """
+  @type create_vpn_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_multicast_domain_result() :: %{
+    "TransitGatewayMulticastDomain" => transit_gateway_multicast_domain()
+  }
+  """
+  @type delete_transit_gateway_multicast_domain_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_serial_console_access_result() :: %{
+    "SerialConsoleAccessEnabled" => boolean()
+  }
+  """
+  @type disable_serial_console_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_fast_snapshot_restore_success_item() :: %{
+    "AvailabilityZone" => String.t(),
+    "DisabledTime" => non_neg_integer(),
+    "DisablingTime" => non_neg_integer(),
+    "EnabledTime" => non_neg_integer(),
+    "EnablingTime" => non_neg_integer(),
+    "OptimizingTime" => non_neg_integer(),
+    "OwnerAlias" => String.t(),
+    "OwnerId" => String.t(),
+    "SnapshotId" => String.t(),
+    "State" => list(any()),
+    "StateTransitionReason" => String.t()
+  }
+  """
+  @type disable_fast_snapshot_restore_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_sse_specification_request() :: %{
+    "CustomerManagedKeyEnabled" => boolean(),
+    "KmsKeyArn" => String.t()
+  }
+  """
+  @type verified_access_sse_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  replace_network_acl_association_result() :: %{
+    "NewAssociationId" => String.t()
+  }
+  """
+  @type replace_network_acl_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_export_task_request() :: %{
+    optional("Description") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("ExportToS3Task") => export_to_s3_task_specification(),
+    required("InstanceId") => String.t(),
+    required("TargetEnvironment") => list(any())
+  }
+  """
+  @type create_instance_export_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  release_address_request() :: %{
+    optional("AllocationId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("NetworkBorderGroup") => String.t(),
+    optional("PublicIp") => String.t()
+  }
+  """
+  @type release_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv6_cidr_association() :: %{
+    "AssociatedResource" => String.t(),
+    "Ipv6Cidr" => String.t()
+  }
+  """
+  @type ipv6_cidr_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bundle_instance_result() :: %{
+    "BundleTask" => bundle_task()
+  }
+  """
+  @type bundle_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_fpga_image_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type delete_fpga_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cloud_watch_log_options() :: %{
+    "LogEnabled" => boolean(),
+    "LogGroupArn" => String.t(),
+    "LogOutputFormat" => String.t()
+  }
+  """
+  @type cloud_watch_log_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  local_gateway_route_table_vpc_association() :: %{
+    "LocalGatewayId" => String.t(),
+    "LocalGatewayRouteTableArn" => String.t(),
+    "LocalGatewayRouteTableId" => String.t(),
+    "LocalGatewayRouteTableVpcAssociationId" => String.t(),
+    "OwnerId" => String.t(),
+    "State" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type local_gateway_route_table_vpc_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_byoip_cidr_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Cidr") => String.t()
+  }
+  """
+  @type deprovision_byoip_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scheduled_instance_recurrence_request() :: %{
+    "Frequency" => String.t(),
+    "Interval" => integer(),
+    "OccurrenceDays" => list(integer()()),
+    "OccurrenceRelativeToEnd" => boolean(),
+    "OccurrenceUnit" => String.t()
+  }
+  """
+  @type scheduled_instance_recurrence_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transit_gateway_route_attachment() :: %{
+    "ResourceId" => String.t(),
+    "ResourceType" => list(any()),
+    "TransitGatewayAttachmentId" => String.t()
+  }
+  """
+  @type transit_gateway_route_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  security_group_rule() :: %{
+    "CidrIpv4" => String.t(),
+    "CidrIpv6" => String.t(),
+    "Description" => String.t(),
+    "FromPort" => integer(),
+    "GroupId" => String.t(),
+    "GroupOwnerId" => String.t(),
+    "IpProtocol" => String.t(),
+    "IsEgress" => boolean(),
+    "PrefixListId" => String.t(),
+    "ReferencedGroupInfo" => referenced_security_group(),
+    "SecurityGroupRuleId" => String.t(),
+    "Tags" => list(tag()()),
+    "ToPort" => integer()
+  }
+  """
+  @type security_group_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fleets_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("FleetIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_fleets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_verified_access_groups_result() :: %{
+    "NextToken" => String.t(),
+    "VerifiedAccessGroups" => list(verified_access_group()())
+  }
+  """
+  @type describe_verified_access_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_vpc_endpoint_service_permissions_request() :: %{
+    optional("AddAllowedPrincipals") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("RemoveAllowedPrincipals") => list(String.t()()),
+    required("ServiceId") => String.t()
+  }
+  """
+  @type modify_vpc_endpoint_service_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_managed_prefix_list_request() :: %{
+    optional("DryRun") => boolean(),
+    required("PrefixListId") => String.t()
+  }
+  """
+  @type delete_managed_prefix_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_fleet_error() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "LaunchTemplateAndOverrides" => launch_template_and_overrides_response(),
+    "Lifecycle" => list(any())
+  }
+  """
+  @type create_fleet_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_client_vpn_endpoint_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type delete_client_vpn_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_local_gateway_route_request() :: %{
+    optional("DestinationCidrBlock") => String.t(),
+    optional("DestinationPrefixListId") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LocalGatewayVirtualInterfaceGroupId") => String.t(),
+    optional("NetworkInterfaceId") => String.t(),
+    required("LocalGatewayRouteTableId") => String.t()
+  }
+  """
+  @type create_local_gateway_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  price_schedule_specification() :: %{
+    "CurrencyCode" => list(any()),
+    "Price" => float(),
+    "Term" => float()
+  }
+  """
+  @type price_schedule_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_instance_event_windows_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("InstanceEventWindowIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_instance_event_windows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reservation_value() :: %{
+    "HourlyPrice" => String.t(),
+    "RemainingTotalValue" => String.t(),
+    "RemainingUpfrontValue" => String.t()
+  }
+  """
+  @type reservation_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enclave_options() :: %{
+    "Enabled" => boolean()
+  }
+  """
+  @type enclave_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_interface_permission_request() :: %{
+    optional("AwsAccountId") => String.t(),
+    optional("AwsService") => String.t(),
+    optional("DryRun") => boolean(),
+    required("NetworkInterfaceId") => String.t(),
+    required("Permission") => list(any())
+  }
+  """
+  @type create_network_interface_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_ebs_encryption_by_default_result() :: %{
+    "EbsEncryptionByDefault" => boolean(),
+    "SseType" => list(any())
+  }
+  """
+  @type get_ebs_encryption_by_default_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_serial_console_access_status_result() :: %{
+    "SerialConsoleAccessEnabled" => boolean()
+  }
+  """
+  @type get_serial_console_access_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  load_permission_modifications() :: %{
+    "Add" => list(load_permission_request()()),
+    "Remove" => list(load_permission_request()())
+  }
+  """
+  @type load_permission_modifications() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_connect_options() :: %{
+    "Enabled" => boolean(),
+    "LambdaFunctionArn" => String.t()
+  }
+  """
+  @type client_connect_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule_option() :: %{
+    "Keyword" => String.t(),
+    "Settings" => list(String.t()())
+  }
+  """
+  @type rule_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  baseline_ebs_bandwidth_mbps_request() :: %{
+    "Max" => integer(),
+    "Min" => integer()
+  }
+  """
+  @type baseline_ebs_bandwidth_mbps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_vpn_endpoints_request() :: %{
+    optional("ClientVpnEndpointIds") => list(String.t()()),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_client_vpn_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  monitor_instances_request() :: %{
+    optional("DryRun") => boolean(),
+    required("InstanceIds") => list(String.t()())
+  }
+  """
+  @type monitor_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_ebs_encryption_by_default_result() :: %{
+    "EbsEncryptionByDefault" => boolean()
+  }
+  """
+  @type disable_ebs_encryption_by_default_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_snapshot_tier_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("PermanentRestore") => boolean(),
+    optional("TemporaryRestoreDays") => integer(),
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type restore_snapshot_tier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_log_options() :: %{
+    "CloudwatchLogGroup" => String.t(),
+    "CloudwatchLogStream" => String.t(),
+    "Enabled" => boolean()
+  }
+  """
+  @type connection_log_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_transit_gateway_route_table_announcement_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TransitGatewayRouteTableAnnouncementId") => String.t()
+  }
+  """
+  @type delete_transit_gateway_route_table_announcement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_status_details() :: %{
+    "ImpairedSince" => non_neg_integer(),
+    "Name" => list(any()),
+    "Status" => list(any())
+  }
+  """
+  @type instance_status_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  detach_verified_access_trust_provider_result() :: %{
+    "VerifiedAccessInstance" => verified_access_instance(),
+    "VerifiedAccessTrustProvider" => verified_access_trust_provider()
+  }
+  """
+  @type detach_verified_access_trust_provider_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_address_to_classic_result() :: %{
+    "PublicIp" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type restore_address_to_classic_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  spot_instance_request() :: %{
+    "ActualBlockHourlyPrice" => String.t(),
+    "AvailabilityZoneGroup" => String.t(),
+    "BlockDurationMinutes" => integer(),
+    "CreateTime" => non_neg_integer(),
+    "Fault" => spot_instance_state_fault(),
+    "InstanceId" => String.t(),
+    "InstanceInterruptionBehavior" => list(any()),
+    "LaunchGroup" => String.t(),
+    "LaunchSpecification" => launch_specification(),
+    "LaunchedAvailabilityZone" => String.t(),
+    "ProductDescription" => list(any()),
+    "SpotInstanceRequestId" => String.t(),
+    "SpotPrice" => String.t(),
+    "State" => list(any()),
+    "Status" => spot_instance_status(),
+    "Tags" => list(tag()()),
+    "Type" => list(any()),
+    "ValidFrom" => non_neg_integer(),
+    "ValidUntil" => non_neg_integer()
+  }
+  """
+  @type spot_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_subnet_cidr_block_request() :: %{
+    optional("Ipv6CidrBlock") => String.t(),
+    optional("Ipv6IpamPoolId") => String.t(),
+    optional("Ipv6NetmaskLength") => integer(),
+    required("SubnetId") => String.t()
+  }
+  """
+  @type associate_subnet_cidr_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_access_scope_result() :: %{
+    "NetworkInsightsAccessScopeId" => String.t()
+  }
+  """
+  @type delete_network_insights_access_scope_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_scheduled_instances_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("DryRun") => boolean(),
+    required("PurchaseRequests") => list(purchase_request()())
+  }
+  """
+  @type purchase_scheduled_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fleet_spot_capacity_rebalance() :: %{
+    "ReplacementStrategy" => list(any()),
+    "TerminationDelay" => integer()
+  }
+  """
+  @type fleet_spot_capacity_rebalance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_spot_instance_requests_result() :: %{
+    "CancelledSpotInstanceRequests" => list(cancelled_spot_instance_request()())
+  }
+  """
+  @type cancel_spot_instance_requests_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_reserved_instances_listing_result() :: %{
+    "ReservedInstancesListings" => list(reserved_instances_listing()())
+  }
+  """
+  @type cancel_reserved_instances_listing_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprovision_byoip_cidr_result() :: %{
+    "ByoipCidr" => byoip_cidr()
+  }
+  """
+  @type deprovision_byoip_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_cidr_block_state() :: %{
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type vpc_cidr_block_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_fpga_image_attribute_request() :: %{
+    optional("DryRun") => boolean(),
+    required("Attribute") => list(any()),
+    required("FpgaImageId") => String.t()
+  }
+  """
+  @type describe_fpga_image_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dns_options() :: %{
+    "DnsRecordIpType" => list(any()),
+    "PrivateDnsOnlyForInboundResolverEndpoint" => boolean()
+  }
+  """
+  @type dns_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_configuration() :: %{
+    "AcceptanceRequired" => boolean(),
+    "AvailabilityZones" => list(String.t()()),
+    "BaseEndpointDnsNames" => list(String.t()()),
+    "GatewayLoadBalancerArns" => list(String.t()()),
+    "ManagesVpcEndpoints" => boolean(),
+    "NetworkLoadBalancerArns" => list(String.t()()),
+    "PayerResponsibility" => list(any()),
+    "PrivateDnsName" => String.t(),
+    "PrivateDnsNameConfiguration" => private_dns_name_configuration(),
+    "ServiceId" => String.t(),
+    "ServiceName" => String.t(),
+    "ServiceState" => list(any()),
+    "ServiceType" => list(service_type_detail()()),
+    "SupportedIpAddressTypes" => list(list(any())()),
+    "Tags" => list(tag()())
+  }
+  """
+  @type service_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_route_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type client_vpn_route_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reserved_instance_reservation_value() :: %{
+    "ReservationValue" => reservation_value(),
+    "ReservedInstanceId" => String.t()
+  }
+  """
+  @type reserved_instance_reservation_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_hosts_request() :: %{
+    optional("AutoPlacement") => list(any()),
+    optional("HostMaintenance") => list(any()),
+    optional("HostRecovery") => list(any()),
+    optional("InstanceFamily") => String.t(),
+    optional("InstanceType") => String.t(),
+    required("HostIds") => list(String.t()())
+  }
+  """
+  @type modify_hosts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_client_vpn_client_certificate_revocation_list_request() :: %{
+    optional("DryRun") => boolean(),
+    required("ClientVpnEndpointId") => String.t()
+  }
+  """
+  @type export_client_vpn_client_certificate_revocation_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_endpoints_result() :: %{
+    "NextToken" => String.t(),
+    "VpcEndpoints" => list(vpc_endpoint()())
+  }
+  """
+  @type describe_vpc_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_analysis_result() :: %{
+    "NetworkInsightsAnalysisId" => String.t()
+  }
+  """
+  @type delete_network_insights_analysis_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_instance() :: %{
+    "CreationTime" => String.t(),
+    "Description" => String.t(),
+    "FipsEnabled" => boolean(),
+    "LastUpdatedTime" => String.t(),
+    "Tags" => list(tag()()),
+    "VerifiedAccessInstanceId" => String.t(),
+    "VerifiedAccessTrustProviders" => list(verified_access_trust_provider_condensed()())
+  }
+  """
+  @type verified_access_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  load_balancers_config() :: %{
+    "ClassicLoadBalancersConfig" => classic_load_balancers_config(),
+    "TargetGroupsConfig" => target_groups_config()
+  }
+  """
+  @type load_balancers_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_target_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TrafficMirrorTargetId") => String.t()
+  }
+  """
+  @type delete_traffic_mirror_target_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_coip_cidr_result() :: %{
+    "CoipCidr" => coip_cidr()
+  }
+  """
+  @type create_coip_cidr_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_ebs_default_kms_key_id_result() :: %{
+    "KmsKeyId" => String.t()
+  }
+  """
+  @type reset_ebs_default_kms_key_id_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_subnet_request() :: %{
+    optional("AvailabilityZone") => String.t(),
+    optional("AvailabilityZoneId") => String.t(),
+    optional("CidrBlock") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("Ipv4IpamPoolId") => String.t(),
+    optional("Ipv4NetmaskLength") => integer(),
+    optional("Ipv6CidrBlock") => String.t(),
+    optional("Ipv6IpamPoolId") => String.t(),
+    optional("Ipv6Native") => boolean(),
+    optional("Ipv6NetmaskLength") => integer(),
+    optional("OutpostArn") => String.t(),
+    optional("TagSpecifications") => list(tag_specification()()),
+    required("VpcId") => String.t()
+  }
+  """
+  @type create_subnet_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  monitor_instances_result() :: %{
+    "InstanceMonitorings" => list(instance_monitoring()())
+  }
+  """
+  @type monitor_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  volume_status_details() :: %{
+    "Name" => list(any()),
+    "Status" => String.t()
+  }
+  """
+  @type volume_status_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ec2_instance_connect_endpoint() :: %{
+    "AvailabilityZone" => String.t(),
+    "CreatedAt" => non_neg_integer(),
+    "DnsName" => String.t(),
+    "FipsDnsName" => String.t(),
+    "InstanceConnectEndpointArn" => String.t(),
+    "InstanceConnectEndpointId" => String.t(),
+    "NetworkInterfaceIds" => list(String.t()()),
+    "OwnerId" => String.t(),
+    "PreserveClientIp" => boolean(),
+    "SecurityGroupIds" => list(String.t()()),
+    "State" => list(any()),
+    "StateMessage" => String.t(),
+    "SubnetId" => String.t(),
+    "Tags" => list(tag()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type ec2_instance_connect_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_traffic_mirror_session_request() :: %{
+    optional("DryRun") => boolean(),
+    required("TrafficMirrorSessionId") => String.t()
+  }
+  """
+  @type delete_traffic_mirror_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_launch_template_result() :: %{
+    "LaunchTemplate" => launch_template(),
+    "Warning" => validation_warning()
+  }
+  """
+  @type create_launch_template_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_trunk_interface_result() :: %{
+    "ClientToken" => String.t(),
+    "Return" => boolean()
+  }
+  """
+  @type disassociate_trunk_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  processor_info() :: %{
+    "Manufacturer" => String.t(),
+    "SupportedArchitectures" => list(list(any())()),
+    "SupportedFeatures" => list(list(any())()),
+    "SustainedClockSpeedInGhz" => float()
+  }
+  """
+  @type processor_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  elastic_gpu_specification_response() :: %{
+    "Type" => String.t()
+  }
+  """
+  @type elastic_gpu_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_vpc_peering_connections_result() :: %{
+    "NextToken" => String.t(),
+    "VpcPeeringConnections" => list(vpc_peering_connection()())
+  }
+  """
+  @type describe_vpc_peering_connections_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_security_groups_for_vpc_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("VpcId") => String.t()
+  }
+  """
+  @type get_security_groups_for_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_restore_image_task_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type create_restore_image_task_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_interface_ipv6_address() :: %{
+    "Ipv6Address" => String.t(),
+    "IsPrimaryIpv6" => boolean()
+  }
+  """
+  @type network_interface_ipv6_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_verified_access_instance_request() :: %{
+    optional("ClientToken") => String.t(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("FIPSEnabled") => boolean(),
+    optional("TagSpecifications") => list(tag_specification()())
+  }
+  """
+  @type create_verified_access_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_transit_gateway_policy_table_associations_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("TransitGatewayPolicyTableId") => String.t()
+  }
+  """
+  @type get_transit_gateway_policy_table_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target_capacity_specification_request() :: %{
+    "DefaultTargetCapacityType" => list(any()),
+    "OnDemandTargetCapacity" => integer(),
+    "SpotTargetCapacity" => integer(),
+    "TargetCapacityUnitType" => list(any()),
+    "TotalTargetCapacity" => integer()
+  }
+  """
+  @type target_capacity_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_associated_ipv6_pool_cidrs_result() :: %{
+    "Ipv6CidrAssociations" => list(ipv6_cidr_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_associated_ipv6_pool_cidrs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_insights_access_scope_analysis_request() :: %{
+    optional("DryRun") => boolean(),
+    required("NetworkInsightsAccessScopeAnalysisId") => String.t()
+  }
+  """
+  @type delete_network_insights_access_scope_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associated_target_network() :: %{
+    "NetworkId" => String.t(),
+    "NetworkType" => list(any())
+  }
+  """
+  @type associated_target_network() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_traffic_mirror_session_request() :: %{
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("PacketLength") => integer(),
+    optional("RemoveFields") => list(list(any())()),
+    optional("SessionNumber") => integer(),
+    optional("TrafficMirrorFilterId") => String.t(),
+    optional("TrafficMirrorTargetId") => String.t(),
+    optional("VirtualNetworkId") => integer(),
+    required("TrafficMirrorSessionId") => String.t()
+  }
+  """
+  @type modify_traffic_mirror_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_placement_group_request() :: %{
+    optional("DryRun") => boolean(),
+    required("GroupName") => String.t()
+  }
+  """
+  @type delete_placement_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_network_interface_specification() :: %{
+    "AssociateCarrierIpAddress" => boolean(),
+    "AssociatePublicIpAddress" => boolean(),
+    "ConnectionTrackingSpecification" => connection_tracking_specification_request(),
+    "DeleteOnTermination" => boolean(),
+    "Description" => String.t(),
+    "DeviceIndex" => integer(),
+    "EnaSrdSpecification" => ena_srd_specification_request(),
+    "Groups" => list(String.t()()),
+    "InterfaceType" => String.t(),
+    "Ipv4PrefixCount" => integer(),
+    "Ipv4Prefixes" => list(ipv4_prefix_specification_request()()),
+    "Ipv6AddressCount" => integer(),
+    "Ipv6Addresses" => list(instance_ipv6_address()()),
+    "Ipv6PrefixCount" => integer(),
+    "Ipv6Prefixes" => list(ipv6_prefix_specification_request()()),
+    "NetworkCardIndex" => integer(),
+    "NetworkInterfaceId" => String.t(),
+    "PrimaryIpv6" => boolean(),
+    "PrivateIpAddress" => String.t(),
+    "PrivateIpAddresses" => list(private_ip_address_specification()()),
+    "SecondaryPrivateIpAddressCount" => integer(),
+    "SubnetId" => String.t()
+  }
+  """
+  @type instance_network_interface_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attribute_boolean_value() :: %{
+    "Value" => boolean()
+  }
+  """
+  @type attribute_boolean_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disk_image_detail() :: %{
+    "Bytes" => float(),
+    "Format" => list(any()),
+    "ImportManifestUrl" => String.t()
+  }
+  """
+  @type disk_image_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_id_format_result() :: %{
+    "Statuses" => list(id_format()())
+  }
+  """
+  @type describe_id_format_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unassign_private_ip_addresses_request() :: %{
+    optional("Ipv4Prefixes") => list(String.t()()),
+    optional("PrivateIpAddresses") => list(String.t()()),
+    required("NetworkInterfaceId") => String.t()
+  }
+  """
+  @type unassign_private_ip_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provision_byoip_cidr_request() :: %{
+    optional("CidrAuthorizationContext") => cidr_authorization_context(),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("MultiRegion") => boolean(),
+    optional("NetworkBorderGroup") => String.t(),
+    optional("PoolTagSpecifications") => list(tag_specification()()),
+    optional("PubliclyAdvertisable") => boolean(),
+    required("Cidr") => String.t()
+  }
+  """
+  @type provision_byoip_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fpga_image_state() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type fpga_image_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_fpga_image_attribute_request() :: %{
+    optional("Attribute") => list(any()),
+    optional("Description") => String.t(),
+    optional("DryRun") => boolean(),
+    optional("LoadPermission") => load_permission_modifications(),
+    optional("Name") => String.t(),
+    optional("OperationType") => list(any()),
+    optional("ProductCodes") => list(String.t()()),
+    optional("UserGroups") => list(String.t()()),
+    optional("UserIds") => list(String.t()()),
+    required("FpgaImageId") => String.t()
+  }
+  """
+  @type modify_fpga_image_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_response() :: %{
+    "Destination" => String.t(),
+    "Id" => String.t(),
+    "Metric" => list(any()),
+    "MetricPoints" => list(metric_point()()),
+    "Period" => list(any()),
+    "Source" => String.t(),
+    "Statistic" => list(any())
+  }
+  """
+  @type data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpn_tunnel_log_options() :: %{
+    "CloudWatchLogOptions" => cloud_watch_log_options()
+  }
+  """
+  @type vpn_tunnel_log_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  route_table_association_state() :: %{
+    "State" => list(any()),
+    "StatusMessage" => String.t()
+  }
+  """
+  @type route_table_association_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ipv4_prefix_specification_response() :: %{
+    "Ipv4Prefix" => String.t()
+  }
+  """
+  @type ipv4_prefix_specification_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  memory_gi_b_per_v_cpu() :: %{
+    "Max" => float(),
+    "Min" => float()
+  }
+  """
+  @type memory_gi_b_per_v_cpu() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  v_cpu_info() :: %{
+    "DefaultCores" => integer(),
+    "DefaultThreadsPerCore" => integer(),
+    "DefaultVCpus" => integer(),
+    "ValidCores" => list(integer()()),
+    "ValidThreadsPerCore" => list(integer()())
+  }
+  """
+  @type v_cpu_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_types_from_instance_requirements_result() :: %{
+    "InstanceTypes" => list(instance_type_info_from_instance_requirements()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type get_instance_types_from_instance_requirements_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_vpc_classic_link_dns_support_result() :: %{
+    "Return" => boolean()
+  }
+  """
+  @type enable_vpc_classic_link_dns_support_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verified_access_endpoint_status() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type verified_access_endpoint_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_network_insights_analyses_request() :: %{
+    optional("AnalysisEndTime") => non_neg_integer(),
+    optional("AnalysisStartTime") => non_neg_integer(),
+    optional("DryRun") => boolean(),
+    optional("Filters") => list(filter()()),
+    optional("MaxResults") => integer(),
+    optional("NetworkInsightsAnalysisIds") => list(String.t()()),
+    optional("NetworkInsightsPathId") => String.t(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_network_insights_analyses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  new_dhcp_configuration() :: %{
+    "Key" => String.t(),
+    "Values" => list(String.t()())
+  }
+  """
+  @type new_dhcp_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  gpu_info() :: %{
+    "Gpus" => list(gpu_device_info()()),
+    "TotalGpuMemoryInMiB" => integer()
+  }
+  """
+  @type gpu_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_task_s3_location() :: %{
+    "S3Bucket" => String.t(),
+    "S3Prefix" => String.t()
+  }
+  """
+  @type export_task_s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_iam_instance_profile_result() :: %{
+    "IamInstanceProfileAssociation" => iam_instance_profile_association()
+  }
+  """
+  @type associate_iam_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase() :: %{
+    "CurrencyCode" => list(any()),
+    "Duration" => integer(),
+    "HostIdSet" => list(String.t()()),
+    "HostReservationId" => String.t(),
+    "HourlyPrice" => String.t(),
+    "InstanceFamily" => String.t(),
+    "PaymentOption" => list(any()),
+    "UpfrontPrice" => String.t()
+  }
+  """
+  @type purchase() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_reachability_analyzer_organization_sharing_request() :: %{
+    optional("DryRun") => boolean()
+  }
+  """
+  @type enable_reachability_analyzer_organization_sharing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  private_dns_name_options_on_launch() :: %{
+    "EnableResourceNameDnsAAAARecord" => boolean(),
+    "EnableResourceNameDnsARecord" => boolean(),
+    "HostnameType" => list(any())
+  }
+  """
+  @type private_dns_name_options_on_launch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_reserved_instances_offering_request() :: %{
+    optional("DryRun") => boolean(),
+    optional("LimitPrice") => reserved_instance_limit_price(),
+    optional("PurchaseTime") => non_neg_integer(),
+    required("InstanceCount") => integer(),
+    required("ReservedInstancesOfferingId") => String.t()
+  }
+  """
+  @type purchase_reserved_instances_offering_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_vpn_authentication() :: %{
+    "ActiveDirectory" => directory_service_authentication(),
+    "FederatedAuthentication" => federated_authentication(),
+    "MutualAuthentication" => certificate_authentication(),
+    "Type" => list(any())
+  }
+  """
+  @type client_vpn_authentication() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2016-11-15",
@@ -58,6 +22728,9 @@ defmodule AWS.EC2 do
   For more information, see [Accept a transferred Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept)
   in the *Amazon Virtual Private Cloud User Guide*.
   """
+  @spec accept_address_transfer(map(), accept_address_transfer_request(), list()) ::
+          {:ok, accept_address_transfer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_address_transfer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -68,6 +22741,13 @@ defmodule AWS.EC2 do
   Accepts the Convertible Reserved Instance exchange quote described in the
   `GetReservedInstancesExchangeQuote` call.
   """
+  @spec accept_reserved_instances_exchange_quote(
+          map(),
+          accept_reserved_instances_exchange_quote_request(),
+          list()
+        ) ::
+          {:ok, accept_reserved_instances_exchange_quote_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_reserved_instances_exchange_quote(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -77,6 +22757,13 @@ defmodule AWS.EC2 do
   @doc """
   Accepts a request to associate subnets with a transit gateway multicast domain.
   """
+  @spec accept_transit_gateway_multicast_domain_associations(
+          map(),
+          accept_transit_gateway_multicast_domain_associations_request(),
+          list()
+        ) ::
+          {:ok, accept_transit_gateway_multicast_domain_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_transit_gateway_multicast_domain_associations(
         %Client{} = client,
         input,
@@ -99,6 +22786,13 @@ defmodule AWS.EC2 do
   The peering attachment must be
   in the `pendingAcceptance` state.
   """
+  @spec accept_transit_gateway_peering_attachment(
+          map(),
+          accept_transit_gateway_peering_attachment_request(),
+          list()
+        ) ::
+          {:ok, accept_transit_gateway_peering_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -113,6 +22807,13 @@ defmodule AWS.EC2 do
   requests.
   Use `RejectTransitGatewayVpcAttachment` to reject a VPC attachment request.
   """
+  @spec accept_transit_gateway_vpc_attachment(
+          map(),
+          accept_transit_gateway_vpc_attachment_request(),
+          list()
+        ) ::
+          {:ok, accept_transit_gateway_vpc_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -122,6 +22823,9 @@ defmodule AWS.EC2 do
   @doc """
   Accepts connection requests to your VPC endpoint service.
   """
+  @spec accept_vpc_endpoint_connections(map(), accept_vpc_endpoint_connections_request(), list()) ::
+          {:ok, accept_vpc_endpoint_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -140,6 +22844,9 @@ defmodule AWS.EC2 do
   peering
   connection in the Region of the accepter VPC.
   """
+  @spec accept_vpc_peering_connection(map(), accept_vpc_peering_connection_request(), list()) ::
+          {:ok, accept_vpc_peering_connection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def accept_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -169,6 +22876,9 @@ defmodule AWS.EC2 do
 
   To stop advertising the BYOIP CIDR, use `WithdrawByoipCidr`.
   """
+  @spec advertise_byoip_cidr(map(), advertise_byoip_cidr_request(), list()) ::
+          {:ok, advertise_byoip_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -205,6 +22915,9 @@ defmodule AWS.EC2 do
   to a network interface which resides in a subnet in a Wavelength Zone (for
   example an EC2 instance).
   """
+  @spec allocate_address(map(), allocate_address_request(), list()) ::
+          {:ok, allocate_address_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def allocate_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -219,6 +22932,9 @@ defmodule AWS.EC2 do
   host,
   and the number of hosts to allocate.
   """
+  @spec allocate_hosts(map(), allocate_hosts_request(), list()) ::
+          {:ok, allocate_hosts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def allocate_hosts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -238,6 +22954,9 @@ defmodule AWS.EC2 do
   This action creates an allocation with strong consistency. The returned CIDR
   will not overlap with any other allocations from the same pool.
   """
+  @spec allocate_ipam_pool_cidr(map(), allocate_ipam_pool_cidr_request(), list()) ::
+          {:ok, allocate_ipam_pool_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def allocate_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -251,6 +22970,13 @@ defmodule AWS.EC2 do
   This action replaces the existing
   security groups with the specified security groups.
   """
+  @spec apply_security_groups_to_client_vpn_target_network(
+          map(),
+          apply_security_groups_to_client_vpn_target_network_request(),
+          list()
+        ) ::
+          {:ok, apply_security_groups_to_client_vpn_target_network_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def apply_security_groups_to_client_vpn_target_network(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -289,6 +23015,9 @@ defmodule AWS.EC2 do
   interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec assign_ipv6_addresses(map(), assign_ipv6_addresses_request(), list()) ::
+          {:ok, assign_ipv6_addresses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def assign_ipv6_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -331,6 +23060,9 @@ defmodule AWS.EC2 do
   interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec assign_private_ip_addresses(map(), assign_private_ip_addresses_request(), list()) ::
+          {:ok, assign_private_ip_addresses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def assign_private_ip_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -344,6 +23076,13 @@ defmodule AWS.EC2 do
   [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with)
   in the *Amazon VPC User Guide*.
   """
+  @spec assign_private_nat_gateway_address(
+          map(),
+          assign_private_nat_gateway_address_request(),
+          list()
+        ) ::
+          {:ok, assign_private_nat_gateway_address_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def assign_private_nat_gateway_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -381,6 +23120,9 @@ defmodule AWS.EC2 do
   Addresses* section of [Amazon EC2
   Pricing](http://aws.amazon.com/ec2/pricing/).
   """
+  @spec associate_address(map(), associate_address_request(), list()) ::
+          {:ok, associate_address_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -401,6 +23143,13 @@ defmodule AWS.EC2 do
   endpoint (`ModifyClientVpnEndpoint`) and change the VPC that's associated with
   it.
   """
+  @spec associate_client_vpn_target_network(
+          map(),
+          associate_client_vpn_target_network_request(),
+          list()
+        ) ::
+          {:ok, associate_client_vpn_target_network_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_client_vpn_target_network(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -420,6 +23169,9 @@ defmodule AWS.EC2 do
   For more information, see [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
   in the *Amazon VPC User Guide*.
   """
+  @spec associate_dhcp_options(map(), associate_dhcp_options_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_dhcp_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -455,6 +23207,13 @@ defmodule AWS.EC2 do
   in the
   *Amazon Web Services Nitro Enclaves User Guide*.
   """
+  @spec associate_enclave_certificate_iam_role(
+          map(),
+          associate_enclave_certificate_iam_role_request(),
+          list()
+        ) ::
+          {:ok, associate_enclave_certificate_iam_role_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_enclave_certificate_iam_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -467,6 +23226,9 @@ defmodule AWS.EC2 do
   You cannot
   associate more than one IAM instance profile with an instance.
   """
+  @spec associate_iam_instance_profile(map(), associate_iam_instance_profile_request(), list()) ::
+          {:ok, associate_iam_instance_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_iam_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -482,6 +23244,9 @@ defmodule AWS.EC2 do
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec associate_instance_event_window(map(), associate_instance_event_window_request(), list()) ::
+          {:ok, associate_instance_event_window_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_instance_event_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -500,6 +23265,9 @@ defmodule AWS.EC2 do
   [DescribeByoipCidrs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html). You can advertise the CIDR with
   [AdvertiseByoipCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AdvertiseByoipCidr.html).
   """
+  @spec associate_ipam_byoasn(map(), associate_ipam_byoasn_request(), list()) ::
+          {:ok, associate_ipam_byoasn_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_ipam_byoasn(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -512,6 +23280,13 @@ defmodule AWS.EC2 do
   A resource discovery is an IPAM component that enables IPAM to manage and
   monitor resources that belong to the owning account.
   """
+  @spec associate_ipam_resource_discovery(
+          map(),
+          associate_ipam_resource_discovery_request(),
+          list()
+        ) ::
+          {:ok, associate_ipam_resource_discovery_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -541,6 +23316,9 @@ defmodule AWS.EC2 do
   address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip)
   in the *Amazon VPC User Guide*.
   """
+  @spec associate_nat_gateway_address(map(), associate_nat_gateway_address_request(), list()) ::
+          {:ok, associate_nat_gateway_address_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_nat_gateway_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -563,6 +23341,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec associate_route_table(map(), associate_route_table_request(), list()) ::
+          {:ok, associate_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -575,6 +23356,9 @@ defmodule AWS.EC2 do
   You can only associate a single IPv6 CIDR
   block with your subnet.
   """
+  @spec associate_subnet_cidr_block(map(), associate_subnet_cidr_block_request(), list()) ::
+          {:ok, associate_subnet_cidr_block_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_subnet_cidr_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -590,6 +23374,13 @@ defmodule AWS.EC2 do
   [DescribeTransitGatewayAttachments](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
   to see the state of the attachment.
   """
+  @spec associate_transit_gateway_multicast_domain(
+          map(),
+          associate_transit_gateway_multicast_domain_request(),
+          list()
+        ) ::
+          {:ok, associate_transit_gateway_multicast_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -600,6 +23391,13 @@ defmodule AWS.EC2 do
   Associates the specified transit gateway attachment with a transit gateway
   policy table.
   """
+  @spec associate_transit_gateway_policy_table(
+          map(),
+          associate_transit_gateway_policy_table_request(),
+          list()
+        ) ::
+          {:ok, associate_transit_gateway_policy_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -613,6 +23411,13 @@ defmodule AWS.EC2 do
   You can
   associate only one route table with an attachment.
   """
+  @spec associate_transit_gateway_route_table(
+          map(),
+          associate_transit_gateway_route_table_request(),
+          list()
+        ) ::
+          {:ok, associate_transit_gateway_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -629,6 +23434,9 @@ defmodule AWS.EC2 do
   branch network interface that you want to associate with the trunk network
   interface.
   """
+  @spec associate_trunk_interface(map(), associate_trunk_interface_request(), list()) ::
+          {:ok, associate_trunk_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_trunk_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -651,6 +23459,9 @@ defmodule AWS.EC2 do
   subnets](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html)
   in the *Amazon VPC User Guide*.
   """
+  @spec associate_vpc_cidr_block(map(), associate_vpc_cidr_block_request(), list()) ::
+          {:ok, associate_vpc_cidr_block_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def associate_vpc_cidr_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -677,6 +23488,9 @@ defmodule AWS.EC2 do
   Linking your instance to a VPC is sometimes referred to as *attaching* your
   instance.
   """
+  @spec attach_classic_link_vpc(map(), attach_classic_link_vpc_request(), list()) ::
+          {:ok, attach_classic_link_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def attach_classic_link_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -692,6 +23506,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec attach_internet_gateway(map(), attach_internet_gateway_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def attach_internet_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -701,6 +23518,9 @@ defmodule AWS.EC2 do
   @doc """
   Attaches a network interface to an instance.
   """
+  @spec attach_network_interface(map(), attach_network_interface_request(), list()) ::
+          {:ok, attach_network_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def attach_network_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -711,6 +23531,13 @@ defmodule AWS.EC2 do
   Attaches the specified Amazon Web Services Verified Access trust provider to the
   specified Amazon Web Services Verified Access instance.
   """
+  @spec attach_verified_access_trust_provider(
+          map(),
+          attach_verified_access_trust_provider_request(),
+          list()
+        ) ::
+          {:ok, attach_verified_access_trust_provider_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def attach_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -754,6 +23581,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec attach_volume(map(), attach_volume_request(), list()) ::
+          {:ok, volume_attachment(), any()}
+          | {:error, {:unexpected_response, any()}}
   def attach_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -770,6 +23600,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec attach_vpn_gateway(map(), attach_vpn_gateway_request(), list()) ::
+          {:ok, attach_vpn_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def attach_vpn_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -785,6 +23618,9 @@ defmodule AWS.EC2 do
   enable clients to access resources in Amazon Web Services or on-premises
   networks.
   """
+  @spec authorize_client_vpn_ingress(map(), authorize_client_vpn_ingress_request(), list()) ::
+          {:ok, authorize_client_vpn_ingress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def authorize_client_vpn_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -821,6 +23657,9 @@ defmodule AWS.EC2 do
   note that you can only reference security groups
   for ingress rules. You cannot reference a security group for egress rules.
   """
+  @spec authorize_security_group_egress(map(), authorize_security_group_egress_request(), list()) ::
+          {:ok, authorize_security_group_egress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def authorize_security_group_egress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -848,6 +23687,13 @@ defmodule AWS.EC2 do
 
   For more information about VPC security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).
   """
+  @spec authorize_security_group_ingress(
+          map(),
+          authorize_security_group_ingress_request(),
+          list()
+        ) ::
+          {:ok, authorize_security_group_ingress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def authorize_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -865,6 +23711,9 @@ defmodule AWS.EC2 do
   are
   backed by Amazon EBS.
   """
+  @spec bundle_instance(map(), bundle_instance_request(), list()) ::
+          {:ok, bundle_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def bundle_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -874,6 +23723,9 @@ defmodule AWS.EC2 do
   @doc """
   Cancels a bundling operation for an instance store-backed Windows instance.
   """
+  @spec cancel_bundle_task(map(), cancel_bundle_task_request(), list()) ::
+          {:ok, cancel_bundle_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_bundle_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -893,6 +23745,9 @@ defmodule AWS.EC2 do
   run in any open Capacity Reservation
   that has matching attributes and sufficient capacity.
   """
+  @spec cancel_capacity_reservation(map(), cancel_capacity_reservation_request(), list()) ::
+          {:ok, cancel_capacity_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -918,6 +23773,13 @@ defmodule AWS.EC2 do
     *
   The Fleet stops creating new Capacity Reservations.
   """
+  @spec cancel_capacity_reservation_fleets(
+          map(),
+          cancel_capacity_reservation_fleets_request(),
+          list()
+        ) ::
+          {:ok, cancel_capacity_reservation_fleets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_capacity_reservation_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -936,6 +23798,9 @@ defmodule AWS.EC2 do
   For more information, see [Importing a Virtual Machine Using the Amazon EC2
   CLI](https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html).
   """
+  @spec cancel_conversion_task(map(), cancel_conversion_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_conversion_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -950,6 +23815,9 @@ defmodule AWS.EC2 do
   transferring the final disk image, the
   command fails and returns an error.
   """
+  @spec cancel_export_task(map(), cancel_export_task_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -964,6 +23832,9 @@ defmodule AWS.EC2 do
   account](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec cancel_image_launch_permission(map(), cancel_image_launch_permission_request(), list()) ::
+          {:ok, cancel_image_launch_permission_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_image_launch_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -973,6 +23844,9 @@ defmodule AWS.EC2 do
   @doc """
   Cancels an in-process import virtual machine or import snapshot task.
   """
+  @spec cancel_import_task(map(), cancel_import_task_request(), list()) ::
+          {:ok, cancel_import_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_import_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -987,6 +23861,13 @@ defmodule AWS.EC2 do
   [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec cancel_reserved_instances_listing(
+          map(),
+          cancel_reserved_instances_listing_request(),
+          list()
+        ) ::
+          {:ok, cancel_reserved_instances_listing_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_reserved_instances_listing(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1005,6 +23886,9 @@ defmodule AWS.EC2 do
   the `cancelled_running` state and the instances continue to run until they
   are interrupted or you terminate them manually.
   """
+  @spec cancel_spot_fleet_requests(map(), cancel_spot_fleet_requests_request(), list()) ::
+          {:ok, cancel_spot_fleet_requests_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_spot_fleet_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1017,6 +23901,9 @@ defmodule AWS.EC2 do
   Canceling a Spot Instance request does not terminate running Spot Instances
   associated with the request.
   """
+  @spec cancel_spot_instance_requests(map(), cancel_spot_instance_requests_request(), list()) ::
+          {:ok, cancel_spot_instance_requests_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def cancel_spot_instance_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1031,6 +23918,9 @@ defmodule AWS.EC2 do
   must
   verify whether another user's instance is eligible for support.
   """
+  @spec confirm_product_instance(map(), confirm_product_instance_request(), list()) ::
+          {:ok, confirm_product_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def confirm_product_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1040,6 +23930,9 @@ defmodule AWS.EC2 do
   @doc """
   Copies the specified Amazon FPGA Image (AFI) to the current Region.
   """
+  @spec copy_fpga_image(map(), copy_fpga_image_request(), list()) ::
+          {:ok, copy_fpga_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def copy_fpga_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1080,6 +23973,9 @@ defmodule AWS.EC2 do
   the
   *Amazon EC2 User Guide*.
   """
+  @spec copy_image(map(), copy_image_request(), list()) ::
+          {:ok, copy_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def copy_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1126,6 +24022,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec copy_snapshot(map(), copy_snapshot_request(), list()) ::
+          {:ok, copy_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1163,6 +24062,9 @@ defmodule AWS.EC2 do
   more information about increasing your instance limits, see [Amazon EC2 Service Quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec create_capacity_reservation(map(), create_capacity_reservation_request(), list()) ::
+          {:ok, create_capacity_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1176,6 +24078,13 @@ defmodule AWS.EC2 do
   Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet)
   in the Amazon EC2 User Guide.
   """
+  @spec create_capacity_reservation_fleet(
+          map(),
+          create_capacity_reservation_fleet_request(),
+          list()
+        ) ::
+          {:ok, create_capacity_reservation_fleet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_capacity_reservation_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1188,6 +24097,9 @@ defmodule AWS.EC2 do
   For more information about carrier gateways, see [Carrier gateways](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway)
   in the *Amazon Web Services Wavelength Developer Guide*.
   """
+  @spec create_carrier_gateway(map(), create_carrier_gateway_request(), list()) ::
+          {:ok, create_carrier_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_carrier_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1202,6 +24114,9 @@ defmodule AWS.EC2 do
   all client VPN sessions
   are terminated.
   """
+  @spec create_client_vpn_endpoint(map(), create_client_vpn_endpoint_request(), list()) ::
+          {:ok, create_client_vpn_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1215,6 +24130,9 @@ defmodule AWS.EC2 do
   available destination network routes. Each route in the route table specifies
   the path for traﬃc to speciﬁc resources or networks.
   """
+  @spec create_client_vpn_route(map(), create_client_vpn_route_request(), list()) ::
+          {:ok, create_client_vpn_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_client_vpn_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1225,6 +24143,9 @@ defmodule AWS.EC2 do
 
   Creates a range of customer-owned IP addresses.
   """
+  @spec create_coip_cidr(map(), create_coip_cidr_request(), list()) ::
+          {:ok, create_coip_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_coip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1234,6 +24155,9 @@ defmodule AWS.EC2 do
   @doc """
   Creates a pool of customer-owned IP (CoIP) addresses.
   """
+  @spec create_coip_pool(map(), create_coip_pool_request(), list()) ::
+          {:ok, create_coip_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_coip_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1267,6 +24191,9 @@ defmodule AWS.EC2 do
   customer
   gateway.
   """
+  @spec create_customer_gateway(map(), create_customer_gateway_request(), list()) ::
+          {:ok, create_customer_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_customer_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1281,6 +24208,9 @@ defmodule AWS.EC2 do
   per Availability Zone. For more information, see [Create a default subnet](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet)
   in the *Amazon VPC User Guide*.
   """
+  @spec create_default_subnet(map(), create_default_subnet_request(), list()) ::
+          {:ok, create_default_subnet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_default_subnet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1300,6 +24230,9 @@ defmodule AWS.EC2 do
   cannot have
   more than one default VPC per Region.
   """
+  @spec create_default_vpc(map(), create_default_vpc_request(), list()) ::
+          {:ok, create_default_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_default_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1367,6 +24300,9 @@ defmodule AWS.EC2 do
   the
   *Amazon VPC User Guide*.
   """
+  @spec create_dhcp_options(map(), create_dhcp_options_request(), list()) ::
+          {:ok, create_dhcp_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_dhcp_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1383,6 +24319,13 @@ defmodule AWS.EC2 do
   an IPv6
   connection with your instance.
   """
+  @spec create_egress_only_internet_gateway(
+          map(),
+          create_egress_only_internet_gateway_request(),
+          list()
+        ) ::
+          {:ok, create_egress_only_internet_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_egress_only_internet_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1402,6 +24345,9 @@ defmodule AWS.EC2 do
   For more information, see [EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html) in
   the *Amazon EC2 User Guide*.
   """
+  @spec create_fleet(map(), create_fleet_request(), list()) ::
+          {:ok, create_fleet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1430,6 +24376,9 @@ defmodule AWS.EC2 do
   For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the
   *Amazon Virtual Private Cloud User Guide*.
   """
+  @spec create_flow_logs(map(), create_flow_logs_request(), list()) ::
+          {:ok, create_flow_logs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_flow_logs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1446,6 +24395,9 @@ defmodule AWS.EC2 do
   You can securely deploy an AFI on multiple FPGA-accelerated instances.
   For more information, see the [Amazon Web Services FPGA Hardware Development Kit](https://github.com/aws/aws-fpga/).
   """
+  @spec create_fpga_image(map(), create_fpga_image_request(), list()) ::
+          {:ok, create_fpga_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_fpga_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1468,6 +24420,9 @@ defmodule AWS.EC2 do
   For more information, see [Create an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_image(map(), create_image_request(), list()) ::
+          {:ok, create_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1484,6 +24439,13 @@ defmodule AWS.EC2 do
   in the *Amazon EC2 User
   Guide*.
   """
+  @spec create_instance_connect_endpoint(
+          map(),
+          create_instance_connect_endpoint_request(),
+          list()
+        ) ::
+          {:ok, create_instance_connect_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1522,6 +24484,9 @@ defmodule AWS.EC2 do
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec create_instance_event_window(map(), create_instance_event_window_request(), list()) ::
+          {:ok, create_instance_event_window_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_instance_event_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1537,6 +24502,9 @@ defmodule AWS.EC2 do
   see [Exporting an instance as a VM Using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html)
   in the *VM Import/Export User Guide*.
   """
+  @spec create_instance_export_task(map(), create_instance_export_task_request(), list()) ::
+          {:ok, create_instance_export_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_instance_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1553,6 +24521,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec create_internet_gateway(map(), create_internet_gateway_request(), list()) ::
+          {:ok, create_internet_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_internet_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1571,6 +24542,9 @@ defmodule AWS.EC2 do
   For more information, see [Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec create_ipam(map(), create_ipam_request(), list()) ::
+          {:ok, create_ipam_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_ipam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1588,6 +24562,9 @@ defmodule AWS.EC2 do
   For more information, see [Create a top-level pool](https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec create_ipam_pool(map(), create_ipam_pool_request(), list()) ::
+          {:ok, create_ipam_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_ipam_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1600,6 +24577,9 @@ defmodule AWS.EC2 do
   A resource discovery is an IPAM component that enables IPAM to manage and
   monitor resources that belong to the owning account.
   """
+  @spec create_ipam_resource_discovery(map(), create_ipam_resource_discovery_request(), list()) ::
+          {:ok, create_ipam_resource_discovery_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1619,6 +24599,9 @@ defmodule AWS.EC2 do
   For more information, see [Add a scope](https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec create_ipam_scope(map(), create_ipam_scope_request(), list()) ::
+          {:ok, create_ipam_scope_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_ipam_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1648,6 +24631,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_key_pair(map(), create_key_pair_request(), list()) ::
+          {:ok, key_pair(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1674,6 +24660,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_launch_template(map(), create_launch_template_request(), list()) ::
+          {:ok, create_launch_template_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_launch_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1700,6 +24689,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_launch_template_version(map(), create_launch_template_version_request(), list()) ::
+          {:ok, create_launch_template_version_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_launch_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1720,6 +24712,9 @@ defmodule AWS.EC2 do
 
   `NetworkInterfaceId`
   """
+  @spec create_local_gateway_route(map(), create_local_gateway_route_request(), list()) ::
+          {:ok, create_local_gateway_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_local_gateway_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1730,6 +24725,13 @@ defmodule AWS.EC2 do
 
   Creates a local gateway route table.
   """
+  @spec create_local_gateway_route_table(
+          map(),
+          create_local_gateway_route_table_request(),
+          list()
+        ) ::
+          {:ok, create_local_gateway_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_local_gateway_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1740,6 +24742,14 @@ defmodule AWS.EC2 do
 
   Creates a local gateway route table virtual interface group association.
   """
+  @spec create_local_gateway_route_table_virtual_interface_group_association(
+          map(),
+          create_local_gateway_route_table_virtual_interface_group_association_request(),
+          list()
+        ) ::
+          {:ok, create_local_gateway_route_table_virtual_interface_group_association_result(),
+           any()}
+          | {:error, {:unexpected_response, any()}}
   def create_local_gateway_route_table_virtual_interface_group_association(
         %Client{} = client,
         input,
@@ -1759,6 +24769,13 @@ defmodule AWS.EC2 do
   @doc """
   Associates the specified VPC with the specified local gateway route table.
   """
+  @spec create_local_gateway_route_table_vpc_association(
+          map(),
+          create_local_gateway_route_table_vpc_association_request(),
+          list()
+        ) ::
+          {:ok, create_local_gateway_route_table_vpc_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1777,6 +24794,9 @@ defmodule AWS.EC2 do
   You can specify one or more entries for the prefix list.
   Each entry consists of a CIDR block and an optional description.
   """
+  @spec create_managed_prefix_list(map(), create_managed_prefix_list_request(), list()) ::
+          {:ok, create_managed_prefix_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_managed_prefix_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1817,6 +24837,9 @@ defmodule AWS.EC2 do
   address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip)
   in the *Amazon VPC User Guide*.
   """
+  @spec create_nat_gateway(map(), create_nat_gateway_request(), list()) ::
+          {:ok, create_nat_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_nat_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1833,6 +24856,9 @@ defmodule AWS.EC2 do
   the
   *Amazon VPC User Guide*.
   """
+  @spec create_network_acl(map(), create_network_acl_request(), list()) ::
+          {:ok, create_network_acl_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_network_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1860,6 +24886,9 @@ defmodule AWS.EC2 do
   For more information about network ACLs, see [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)
   in the *Amazon VPC User Guide*.
   """
+  @spec create_network_acl_entry(map(), create_network_acl_entry_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def create_network_acl_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1876,6 +24905,13 @@ defmodule AWS.EC2 do
   objectives. For more information, see the [Amazon Web Services Network Access Analyzer
   Guide](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/).
   """
+  @spec create_network_insights_access_scope(
+          map(),
+          create_network_insights_access_scope_request(),
+          list()
+        ) ::
+          {:ok, create_network_insights_access_scope_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_network_insights_access_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1890,6 +24926,9 @@ defmodule AWS.EC2 do
   two resources in your virtual private cloud (VPC). For more information, see the
   [Reachability Analyzer Guide](https://docs.aws.amazon.com/vpc/latest/reachability/).
   """
+  @spec create_network_insights_path(map(), create_network_insights_path_request(), list()) ::
+          {:ok, create_network_insights_path_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_network_insights_path(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1908,6 +24947,9 @@ defmodule AWS.EC2 do
   For more information about network interfaces, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_network_interface(map(), create_network_interface_request(), list()) ::
+          {:ok, create_network_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_network_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1922,6 +24964,13 @@ defmodule AWS.EC2 do
   You can grant permission to a single Amazon Web Services account only, and only
   one account at a time.
   """
+  @spec create_network_interface_permission(
+          map(),
+          create_network_interface_permission_request(),
+          list()
+        ) ::
+          {:ok, create_network_interface_permission_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_network_interface_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1946,6 +24995,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec create_placement_group(map(), create_placement_group_request(), list()) ::
+          {:ok, create_placement_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_placement_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1961,6 +25013,9 @@ defmodule AWS.EC2 do
   monitor the status of pool creation, use
   [DescribePublicIpv4Pools](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
   """
+  @spec create_public_ipv4_pool(map(), create_public_ipv4_pool_request(), list()) ::
+          {:ok, create_public_ipv4_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_public_ipv4_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1978,6 +25033,9 @@ defmodule AWS.EC2 do
   For more information, see [Replace a root volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_replace_root_volume_task(map(), create_replace_root_volume_task_request(), list()) ::
+          {:ok, create_replace_root_volume_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_replace_root_volume_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2018,6 +25076,13 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec create_reserved_instances_listing(
+          map(),
+          create_reserved_instances_listing_request(),
+          list()
+        ) ::
+          {:ok, create_reserved_instances_listing_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_reserved_instances_listing(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2039,6 +25104,9 @@ defmodule AWS.EC2 do
   S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec create_restore_image_task(map(), create_restore_image_task_request(), list()) ::
+          {:ok, create_restore_image_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_restore_image_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2075,6 +25143,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec create_route(map(), create_route_request(), list()) ::
+          {:ok, create_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2091,6 +25162,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec create_route_table(map(), create_route_table_request(), list()) ::
+          {:ok, create_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2129,6 +25203,9 @@ defmodule AWS.EC2 do
 
   For more information about VPC security group limits, see [Amazon VPC Limits](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).
   """
+  @spec create_security_group(map(), create_security_group_request(), list()) ::
+          {:ok, create_security_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2189,6 +25266,9 @@ defmodule AWS.EC2 do
   [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_snapshot(map(), create_snapshot_request(), list()) ::
+          {:ok, snapshot(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2218,6 +25298,9 @@ defmodule AWS.EC2 do
   Region for that
   Outpost.
   """
+  @spec create_snapshots(map(), create_snapshots_request(), list()) ::
+          {:ok, create_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2233,6 +25316,13 @@ defmodule AWS.EC2 do
   [Spot Instance data feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html)
   in the *Amazon EC2 User Guide for Linux Instances*.
   """
+  @spec create_spot_datafeed_subscription(
+          map(),
+          create_spot_datafeed_subscription_request(),
+          list()
+        ) ::
+          {:ok, create_spot_datafeed_subscription_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2251,6 +25341,9 @@ defmodule AWS.EC2 do
   S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec create_store_image_task(map(), create_store_image_task_request(), list()) ::
+          {:ok, create_store_image_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_store_image_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2295,6 +25388,9 @@ defmodule AWS.EC2 do
   [Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html)
   in the *Amazon VPC User Guide*.
   """
+  @spec create_subnet(map(), create_subnet_request(), list()) ::
+          {:ok, create_subnet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_subnet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2309,6 +25405,9 @@ defmodule AWS.EC2 do
   interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_subnet_cidr_reservation(map(), create_subnet_cidr_reservation_request(), list()) ::
+          {:ok, create_subnet_cidr_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_subnet_cidr_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2334,6 +25433,9 @@ defmodule AWS.EC2 do
   in the *Amazon
   Elastic Compute Cloud User Guide*.
   """
+  @spec create_tags(map(), create_tags_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def create_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2351,6 +25453,9 @@ defmodule AWS.EC2 do
   [ModifyTrafficMirrorFilterNetworkServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html)
   to mirror supported network services.
   """
+  @spec create_traffic_mirror_filter(map(), create_traffic_mirror_filter_request(), list()) ::
+          {:ok, create_traffic_mirror_filter_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_traffic_mirror_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2364,6 +25469,13 @@ defmodule AWS.EC2 do
 
   You need the Traffic Mirror filter ID when you create the rule.
   """
+  @spec create_traffic_mirror_filter_rule(
+          map(),
+          create_traffic_mirror_filter_rule_request(),
+          list()
+        ) ::
+          {:ok, create_traffic_mirror_filter_rule_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2387,6 +25499,9 @@ defmodule AWS.EC2 do
   to
   create filter rules that specify the traffic to mirror.
   """
+  @spec create_traffic_mirror_session(map(), create_traffic_mirror_session_request(), list()) ::
+          {:ok, create_traffic_mirror_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_traffic_mirror_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2407,6 +25522,9 @@ defmodule AWS.EC2 do
   To use the target in a Traffic Mirror session, use
   [CreateTrafficMirrorSession](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm).
   """
+  @spec create_traffic_mirror_target(map(), create_traffic_mirror_target_request(), list()) ::
+          {:ok, create_traffic_mirror_target_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_traffic_mirror_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2441,6 +25559,9 @@ defmodule AWS.EC2 do
   associations, you can use `AssociateTransitGatewayRouteTable` to associate a
   resource attachment with a transit gateway route table.
   """
+  @spec create_transit_gateway(map(), create_transit_gateway_request(), list()) ::
+          {:ok, create_transit_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2456,6 +25577,9 @@ defmodule AWS.EC2 do
   A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect
   attachment as the underlying transport mechanism.
   """
+  @spec create_transit_gateway_connect(map(), create_transit_gateway_connect_request(), list()) ::
+          {:ok, create_transit_gateway_connect_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_connect(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2473,6 +25597,13 @@ defmodule AWS.EC2 do
   For more information, see [Connect peers](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer)
   in the *Transit Gateways Guide*.
   """
+  @spec create_transit_gateway_connect_peer(
+          map(),
+          create_transit_gateway_connect_peer_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_connect_peer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_connect_peer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2487,6 +25618,13 @@ defmodule AWS.EC2 do
   [DescribeTransitGateways](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html)
   to see the state of transit gateway.
   """
+  @spec create_transit_gateway_multicast_domain(
+          map(),
+          create_transit_gateway_multicast_domain_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_multicast_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2505,6 +25643,13 @@ defmodule AWS.EC2 do
   gateway
   must accept the attachment request.
   """
+  @spec create_transit_gateway_peering_attachment(
+          map(),
+          create_transit_gateway_peering_attachment_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_peering_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2514,6 +25659,13 @@ defmodule AWS.EC2 do
   @doc """
   Creates a transit gateway policy table.
   """
+  @spec create_transit_gateway_policy_table(
+          map(),
+          create_transit_gateway_policy_table_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_policy_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2524,6 +25676,13 @@ defmodule AWS.EC2 do
   Creates a reference (route) to a prefix list in a specified transit gateway
   route table.
   """
+  @spec create_transit_gateway_prefix_list_reference(
+          map(),
+          create_transit_gateway_prefix_list_reference_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_prefix_list_reference_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2533,6 +25692,9 @@ defmodule AWS.EC2 do
   @doc """
   Creates a static route for the specified transit gateway route table.
   """
+  @spec create_transit_gateway_route(map(), create_transit_gateway_route_request(), list()) ::
+          {:ok, create_transit_gateway_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2542,6 +25704,13 @@ defmodule AWS.EC2 do
   @doc """
   Creates a route table for the specified transit gateway.
   """
+  @spec create_transit_gateway_route_table(
+          map(),
+          create_transit_gateway_route_table_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2551,6 +25720,13 @@ defmodule AWS.EC2 do
   @doc """
   Advertises a new transit gateway route table.
   """
+  @spec create_transit_gateway_route_table_announcement(
+          map(),
+          create_transit_gateway_route_table_announcement_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_route_table_announcement_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2573,6 +25749,13 @@ defmodule AWS.EC2 do
   To send VPC traffic to an attached transit gateway, add a route to the VPC route
   table using `CreateRoute`.
   """
+  @spec create_transit_gateway_vpc_attachment(
+          map(),
+          create_transit_gateway_vpc_attachment_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_vpc_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2583,6 +25766,9 @@ defmodule AWS.EC2 do
   An Amazon Web Services Verified Access endpoint is where you define your
   application along with an optional endpoint-level access policy.
   """
+  @spec create_verified_access_endpoint(map(), create_verified_access_endpoint_request(), list()) ::
+          {:ok, create_verified_access_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_verified_access_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2600,6 +25786,9 @@ defmodule AWS.EC2 do
   applications together and
   use one common Verified Access policy.
   """
+  @spec create_verified_access_group(map(), create_verified_access_group_request(), list()) ::
+          {:ok, create_verified_access_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_verified_access_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2611,6 +25800,9 @@ defmodule AWS.EC2 do
   evaluates application requests and grants
   access only when your security requirements are met.
   """
+  @spec create_verified_access_instance(map(), create_verified_access_instance_request(), list()) ::
+          {:ok, create_verified_access_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_verified_access_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2627,6 +25819,13 @@ defmodule AWS.EC2 do
   allowing or
   denying the application request.
   """
+  @spec create_verified_access_trust_provider(
+          map(),
+          create_verified_access_trust_provider_request(),
+          list()
+        ) ::
+          {:ok, create_verified_access_trust_provider_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2656,6 +25855,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec create_volume(map(), create_volume_request(), list()) ::
+          {:ok, volume(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2687,6 +25889,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec create_vpc(map(), create_vpc_request(), list()) ::
+          {:ok, create_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2703,6 +25908,9 @@ defmodule AWS.EC2 do
   another
   Amazon Web Services account. For more information, see the [Amazon Web Services PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
   """
+  @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
+          {:ok, create_vpc_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2719,6 +25927,13 @@ defmodule AWS.EC2 do
 
   You can create a connection notification for interface endpoints only.
   """
+  @spec create_vpc_endpoint_connection_notification(
+          map(),
+          create_vpc_endpoint_connection_notification_request(),
+          list()
+        ) ::
+          {:ok, create_vpc_endpoint_connection_notification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2748,6 +25963,13 @@ defmodule AWS.EC2 do
 
   For more information, see the [Amazon Web Services PrivateLink Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
   """
+  @spec create_vpc_endpoint_service_configuration(
+          map(),
+          create_vpc_endpoint_service_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_vpc_endpoint_service_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2780,6 +26002,9 @@ defmodule AWS.EC2 do
   CIDR
   blocks, the VPC peering connection has a status of `failed`.
   """
+  @spec create_vpc_peering_connection(map(), create_vpc_peering_connection_request(), list()) ::
+          {:ok, create_vpc_peering_connection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2816,6 +26041,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec create_vpn_connection(map(), create_vpn_connection_request(), list()) ::
+          {:ok, create_vpn_connection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpn_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2834,6 +26062,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec create_vpn_connection_route(map(), create_vpn_connection_route_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpn_connection_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2851,6 +26082,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec create_vpn_gateway(map(), create_vpn_gateway_request(), list()) ::
+          {:ok, create_vpn_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def create_vpn_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2865,6 +26099,9 @@ defmodule AWS.EC2 do
   route, see
   [DeleteRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html).
   """
+  @spec delete_carrier_gateway(map(), delete_carrier_gateway_request(), list()) ::
+          {:ok, delete_carrier_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_carrier_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2877,6 +26114,9 @@ defmodule AWS.EC2 do
   You must disassociate all target networks before you
   can delete a Client VPN endpoint.
   """
+  @spec delete_client_vpn_endpoint(map(), delete_client_vpn_endpoint_request(), list()) ::
+          {:ok, delete_client_vpn_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2892,6 +26132,9 @@ defmodule AWS.EC2 do
   automatically added,
   disassociate the target subnet from the Client VPN endpoint.
   """
+  @spec delete_client_vpn_route(map(), delete_client_vpn_route_request(), list()) ::
+          {:ok, delete_client_vpn_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_client_vpn_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2902,6 +26145,9 @@ defmodule AWS.EC2 do
 
   Deletes a range of customer-owned IP addresses.
   """
+  @spec delete_coip_cidr(map(), delete_coip_cidr_request(), list()) ::
+          {:ok, delete_coip_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_coip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2911,6 +26157,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes a pool of customer-owned IP (CoIP) addresses.
   """
+  @spec delete_coip_pool(map(), delete_coip_pool_request(), list()) ::
+          {:ok, delete_coip_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_coip_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2923,6 +26172,9 @@ defmodule AWS.EC2 do
   You must delete the VPN connection before you
   can delete the customer gateway.
   """
+  @spec delete_customer_gateway(map(), delete_customer_gateway_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_customer_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2936,6 +26188,9 @@ defmodule AWS.EC2 do
   disassociate the set of DHCP options by associating either a new set of options
   or the default set of options with the VPC.
   """
+  @spec delete_dhcp_options(map(), delete_dhcp_options_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_dhcp_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2945,6 +26200,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes an egress-only internet gateway.
   """
+  @spec delete_egress_only_internet_gateway(
+          map(),
+          delete_egress_only_internet_gateway_request(),
+          list()
+        ) ::
+          {:ok, delete_egress_only_internet_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_egress_only_internet_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2984,6 +26246,9 @@ defmodule AWS.EC2 do
   For more information, see [Delete an EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet)
   in the *Amazon EC2 User Guide*.
   """
+  @spec delete_fleets(map(), delete_fleets_request(), list()) ::
+          {:ok, delete_fleets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2993,6 +26258,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes one or more flow logs.
   """
+  @spec delete_flow_logs(map(), delete_flow_logs_request(), list()) ::
+          {:ok, delete_flow_logs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_flow_logs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3002,6 +26270,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified Amazon FPGA Image (AFI).
   """
+  @spec delete_fpga_image(map(), delete_fpga_image_request(), list()) ::
+          {:ok, delete_fpga_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_fpga_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3011,6 +26282,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified EC2 Instance Connect Endpoint.
   """
+  @spec delete_instance_connect_endpoint(
+          map(),
+          delete_instance_connect_endpoint_request(),
+          list()
+        ) ::
+          {:ok, delete_instance_connect_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3023,6 +26301,9 @@ defmodule AWS.EC2 do
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec delete_instance_event_window(map(), delete_instance_event_window_request(), list()) ::
+          {:ok, delete_instance_event_window_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_instance_event_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3035,6 +26316,9 @@ defmodule AWS.EC2 do
   You must detach the internet gateway from the
   VPC before you can delete it.
   """
+  @spec delete_internet_gateway(map(), delete_internet_gateway_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_internet_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3050,6 +26334,9 @@ defmodule AWS.EC2 do
   For more information, see [Delete an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec delete_ipam(map(), delete_ipam_request(), list()) ::
+          {:ok, delete_ipam_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_ipam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3069,6 +26356,9 @@ defmodule AWS.EC2 do
   For more information, see [Delete a pool](https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec delete_ipam_pool(map(), delete_ipam_pool_request(), list()) ::
+          {:ok, delete_ipam_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_ipam_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3081,6 +26371,9 @@ defmodule AWS.EC2 do
   A resource discovery is an IPAM component that enables IPAM to manage and
   monitor resources that belong to the owning account.
   """
+  @spec delete_ipam_resource_discovery(map(), delete_ipam_resource_discovery_request(), list()) ::
+          {:ok, delete_ipam_resource_discovery_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3095,6 +26388,9 @@ defmodule AWS.EC2 do
   For more information, see [Delete a scope](https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html) in
   the *Amazon VPC IPAM User Guide*.
   """
+  @spec delete_ipam_scope(map(), delete_ipam_scope_request(), list()) ::
+          {:ok, delete_ipam_scope_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_ipam_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3104,6 +26400,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified key pair, by removing the public key from Amazon EC2.
   """
+  @spec delete_key_pair(map(), delete_key_pair_request(), list()) ::
+          {:ok, delete_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3116,6 +26415,9 @@ defmodule AWS.EC2 do
   Deleting a launch template deletes all of its
   versions.
   """
+  @spec delete_launch_template(map(), delete_launch_template_request(), list()) ::
+          {:ok, delete_launch_template_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_launch_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3141,6 +26443,9 @@ defmodule AWS.EC2 do
   in the *EC2 User
   Guide*.
   """
+  @spec delete_launch_template_versions(map(), delete_launch_template_versions_request(), list()) ::
+          {:ok, delete_launch_template_versions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_launch_template_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3150,6 +26455,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified route from the specified local gateway route table.
   """
+  @spec delete_local_gateway_route(map(), delete_local_gateway_route_request(), list()) ::
+          {:ok, delete_local_gateway_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_local_gateway_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3160,6 +26468,13 @@ defmodule AWS.EC2 do
 
   Deletes a local gateway route table.
   """
+  @spec delete_local_gateway_route_table(
+          map(),
+          delete_local_gateway_route_table_request(),
+          list()
+        ) ::
+          {:ok, delete_local_gateway_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_local_gateway_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3170,6 +26485,14 @@ defmodule AWS.EC2 do
 
   Deletes a local gateway route table virtual interface group association.
   """
+  @spec delete_local_gateway_route_table_virtual_interface_group_association(
+          map(),
+          delete_local_gateway_route_table_virtual_interface_group_association_request(),
+          list()
+        ) ::
+          {:ok, delete_local_gateway_route_table_virtual_interface_group_association_result(),
+           any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_local_gateway_route_table_virtual_interface_group_association(
         %Client{} = client,
         input,
@@ -3189,6 +26512,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified association between a VPC and local gateway route table.
   """
+  @spec delete_local_gateway_route_table_vpc_association(
+          map(),
+          delete_local_gateway_route_table_vpc_association_request(),
+          list()
+        ) ::
+          {:ok, delete_local_gateway_route_table_vpc_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3206,6 +26536,9 @@ defmodule AWS.EC2 do
 
   You must first remove all references to the prefix list in your resources.
   """
+  @spec delete_managed_prefix_list(map(), delete_managed_prefix_list_request(), list()) ::
+          {:ok, delete_managed_prefix_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_managed_prefix_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3220,6 +26553,9 @@ defmodule AWS.EC2 do
   not delete any NAT gateway
   routes in your route tables.
   """
+  @spec delete_nat_gateway(map(), delete_nat_gateway_request(), list()) ::
+          {:ok, delete_nat_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_nat_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3232,6 +26568,9 @@ defmodule AWS.EC2 do
   You can't delete the ACL if it's associated with any subnets. You can't delete
   the default network ACL.
   """
+  @spec delete_network_acl(map(), delete_network_acl_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3242,6 +26581,9 @@ defmodule AWS.EC2 do
   Deletes the specified ingress or egress entry (rule) from the specified network
   ACL.
   """
+  @spec delete_network_acl_entry(map(), delete_network_acl_entry_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_acl_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3251,6 +26593,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified Network Access Scope.
   """
+  @spec delete_network_insights_access_scope(
+          map(),
+          delete_network_insights_access_scope_request(),
+          list()
+        ) ::
+          {:ok, delete_network_insights_access_scope_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_insights_access_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3260,6 +26609,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified Network Access Scope analysis.
   """
+  @spec delete_network_insights_access_scope_analysis(
+          map(),
+          delete_network_insights_access_scope_analysis_request(),
+          list()
+        ) ::
+          {:ok, delete_network_insights_access_scope_analysis_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_insights_access_scope_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3269,6 +26625,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified network insights analysis.
   """
+  @spec delete_network_insights_analysis(
+          map(),
+          delete_network_insights_analysis_request(),
+          list()
+        ) ::
+          {:ok, delete_network_insights_analysis_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_insights_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3278,6 +26641,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified path.
   """
+  @spec delete_network_insights_path(map(), delete_network_insights_path_request(), list()) ::
+          {:ok, delete_network_insights_path_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_insights_path(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3289,6 +26655,9 @@ defmodule AWS.EC2 do
 
   You must detach the network interface before you can delete it.
   """
+  @spec delete_network_interface(map(), delete_network_interface_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3304,6 +26673,13 @@ defmodule AWS.EC2 do
   network interface to an instance. However, you can force delete the permission,
   regardless of any attachment.
   """
+  @spec delete_network_interface_permission(
+          map(),
+          delete_network_interface_permission_request(),
+          list()
+        ) ::
+          {:ok, delete_network_interface_permission_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_network_interface_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3319,6 +26695,9 @@ defmodule AWS.EC2 do
   [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec delete_placement_group(map(), delete_placement_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_placement_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3332,6 +26711,9 @@ defmodule AWS.EC2 do
   that you own and bring to Amazon Web Services to manage with IPAM. IPv6
   addresses you bring to Amazon Web Services, however, use IPAM pools only.
   """
+  @spec delete_public_ipv4_pool(map(), delete_public_ipv4_pool_request(), list()) ::
+          {:ok, delete_public_ipv4_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_public_ipv4_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3341,6 +26723,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the queued purchases for the specified Reserved Instances.
   """
+  @spec delete_queued_reserved_instances(
+          map(),
+          delete_queued_reserved_instances_request(),
+          list()
+        ) ::
+          {:ok, delete_queued_reserved_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_queued_reserved_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3350,6 +26739,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified route from the specified route table.
   """
+  @spec delete_route(map(), delete_route_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3362,6 +26754,9 @@ defmodule AWS.EC2 do
   You must disassociate the route table from any subnets before you can delete it.
   You can't delete the main route table.
   """
+  @spec delete_route_table(map(), delete_route_table_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3376,6 +26771,9 @@ defmodule AWS.EC2 do
   referenced by another security group, the operation fails with
   `DependencyViolation`.
   """
+  @spec delete_security_group(map(), delete_security_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3403,6 +26801,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3412,6 +26813,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the data feed for Spot Instances.
   """
+  @spec delete_spot_datafeed_subscription(
+          map(),
+          delete_spot_datafeed_subscription_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3424,6 +26832,9 @@ defmodule AWS.EC2 do
   You must terminate all running instances in the subnet before you can delete the
   subnet.
   """
+  @spec delete_subnet(map(), delete_subnet_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_subnet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3433,6 +26844,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes a subnet CIDR reservation.
   """
+  @spec delete_subnet_cidr_reservation(map(), delete_subnet_cidr_reservation_request(), list()) ::
+          {:ok, delete_subnet_cidr_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_subnet_cidr_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3448,6 +26862,9 @@ defmodule AWS.EC2 do
   in the *Amazon Elastic Compute Cloud User
   Guide*.
   """
+  @spec delete_tags(map(), delete_tags_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3460,6 +26877,9 @@ defmodule AWS.EC2 do
   You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror
   session.
   """
+  @spec delete_traffic_mirror_filter(map(), delete_traffic_mirror_filter_request(), list()) ::
+          {:ok, delete_traffic_mirror_filter_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_traffic_mirror_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3469,6 +26889,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified Traffic Mirror rule.
   """
+  @spec delete_traffic_mirror_filter_rule(
+          map(),
+          delete_traffic_mirror_filter_rule_request(),
+          list()
+        ) ::
+          {:ok, delete_traffic_mirror_filter_rule_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3478,6 +26905,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified Traffic Mirror session.
   """
+  @spec delete_traffic_mirror_session(map(), delete_traffic_mirror_session_request(), list()) ::
+          {:ok, delete_traffic_mirror_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_traffic_mirror_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3490,6 +26920,9 @@ defmodule AWS.EC2 do
   You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror
   session.
   """
+  @spec delete_traffic_mirror_target(map(), delete_traffic_mirror_target_request(), list()) ::
+          {:ok, delete_traffic_mirror_target_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_traffic_mirror_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3499,6 +26932,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified transit gateway.
   """
+  @spec delete_transit_gateway(map(), delete_transit_gateway_request(), list()) ::
+          {:ok, delete_transit_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3511,6 +26947,9 @@ defmodule AWS.EC2 do
   You must first delete any Connect peers for
   the attachment.
   """
+  @spec delete_transit_gateway_connect(map(), delete_transit_gateway_connect_request(), list()) ::
+          {:ok, delete_transit_gateway_connect_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_connect(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3520,6 +26959,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified Connect peer.
   """
+  @spec delete_transit_gateway_connect_peer(
+          map(),
+          delete_transit_gateway_connect_peer_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_connect_peer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_connect_peer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3529,6 +26975,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified transit gateway multicast domain.
   """
+  @spec delete_transit_gateway_multicast_domain(
+          map(),
+          delete_transit_gateway_multicast_domain_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_multicast_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3538,6 +26991,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes a transit gateway peering attachment.
   """
+  @spec delete_transit_gateway_peering_attachment(
+          map(),
+          delete_transit_gateway_peering_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_peering_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3547,6 +27007,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified transit gateway policy table.
   """
+  @spec delete_transit_gateway_policy_table(
+          map(),
+          delete_transit_gateway_policy_table_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_policy_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3557,6 +27024,13 @@ defmodule AWS.EC2 do
   Deletes a reference (route) to a prefix list in a specified transit gateway
   route table.
   """
+  @spec delete_transit_gateway_prefix_list_reference(
+          map(),
+          delete_transit_gateway_prefix_list_reference_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_prefix_list_reference_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3566,6 +27040,9 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified route from the specified transit gateway route table.
   """
+  @spec delete_transit_gateway_route(map(), delete_transit_gateway_route_request(), list()) ::
+          {:ok, delete_transit_gateway_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3578,6 +27055,13 @@ defmodule AWS.EC2 do
   You must disassociate the route table from any
   transit gateway route tables before you can delete it.
   """
+  @spec delete_transit_gateway_route_table(
+          map(),
+          delete_transit_gateway_route_table_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3587,6 +27071,13 @@ defmodule AWS.EC2 do
   @doc """
   Advertises to the transit gateway that a transit gateway route table is deleted.
   """
+  @spec delete_transit_gateway_route_table_announcement(
+          map(),
+          delete_transit_gateway_route_table_announcement_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_route_table_announcement_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3602,6 +27093,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified VPC attachment.
   """
+  @spec delete_transit_gateway_vpc_attachment(
+          map(),
+          delete_transit_gateway_vpc_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_vpc_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3611,6 +27109,9 @@ defmodule AWS.EC2 do
   @doc """
   Delete an Amazon Web Services Verified Access endpoint.
   """
+  @spec delete_verified_access_endpoint(map(), delete_verified_access_endpoint_request(), list()) ::
+          {:ok, delete_verified_access_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_verified_access_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3620,6 +27121,9 @@ defmodule AWS.EC2 do
   @doc """
   Delete an Amazon Web Services Verified Access group.
   """
+  @spec delete_verified_access_group(map(), delete_verified_access_group_request(), list()) ::
+          {:ok, delete_verified_access_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_verified_access_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3629,6 +27133,9 @@ defmodule AWS.EC2 do
   @doc """
   Delete an Amazon Web Services Verified Access instance.
   """
+  @spec delete_verified_access_instance(map(), delete_verified_access_instance_request(), list()) ::
+          {:ok, delete_verified_access_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_verified_access_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3638,6 +27145,13 @@ defmodule AWS.EC2 do
   @doc """
   Delete an Amazon Web Services Verified Access trust provider.
   """
+  @spec delete_verified_access_trust_provider(
+          map(),
+          delete_verified_access_trust_provider_request(),
+          list()
+        ) ::
+          {:ok, delete_verified_access_trust_provider_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3656,6 +27170,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec delete_volume(map(), delete_volume_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3672,6 +27189,9 @@ defmodule AWS.EC2 do
   default one), and so on. When you delete the VPC, it deletes the VPC's default
   security group, network ACL, and route table.
   """
+  @spec delete_vpc(map(), delete_vpc_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3681,6 +27201,13 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified VPC endpoint connection notifications.
   """
+  @spec delete_vpc_endpoint_connection_notifications(
+          map(),
+          delete_vpc_endpoint_connection_notifications_request(),
+          list()
+        ) ::
+          {:ok, delete_vpc_endpoint_connection_notifications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3695,6 +27222,13 @@ defmodule AWS.EC2 do
   `PendingAcceptance` interface endpoint connections that are attached to
   the service.
   """
+  @spec delete_vpc_endpoint_service_configurations(
+          map(),
+          delete_vpc_endpoint_service_configurations_request(),
+          list()
+        ) ::
+          {:ok, delete_vpc_endpoint_service_configurations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3715,6 +27249,9 @@ defmodule AWS.EC2 do
   When you delete an interface endpoint, we delete its endpoint network
   interfaces.
   """
+  @spec delete_vpc_endpoints(map(), delete_vpc_endpoints_request(), list()) ::
+          {:ok, delete_vpc_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpc_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3730,6 +27267,9 @@ defmodule AWS.EC2 do
   connection in the `pending-acceptance` state. You cannot delete a VPC peering
   connection that's in the `failed` or `rejected` state.
   """
+  @spec delete_vpc_peering_connection(map(), delete_vpc_peering_connection_request(), list()) ::
+          {:ok, delete_vpc_peering_connection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3758,6 +27298,9 @@ defmodule AWS.EC2 do
   certificates used for the Amazon Web Services-side tunnel endpoints for the VPN
   connection before deleting the VPN connection.
   """
+  @spec delete_vpn_connection(map(), delete_vpn_connection_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpn_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3772,6 +27315,9 @@ defmodule AWS.EC2 do
   traffic to be routed from the virtual private gateway to the VPN customer
   gateway.
   """
+  @spec delete_vpn_connection_route(map(), delete_vpn_connection_route_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpn_connection_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3788,6 +27334,9 @@ defmodule AWS.EC2 do
   and your
   network.
   """
+  @spec delete_vpn_gateway(map(), delete_vpn_gateway_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def delete_vpn_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3804,6 +27353,9 @@ defmodule AWS.EC2 do
   `WithdrawByoipCidr` and you must not have any IP addresses allocated from its
   address range.
   """
+  @spec deprovision_byoip_cidr(map(), deprovision_byoip_cidr_request(), list()) ::
+          {:ok, deprovision_byoip_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3820,6 +27372,9 @@ defmodule AWS.EC2 do
   IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html) in the
   *Amazon VPC IPAM guide*.
   """
+  @spec deprovision_ipam_byoasn(map(), deprovision_ipam_byoasn_request(), list()) ::
+          {:ok, deprovision_ipam_byoasn_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deprovision_ipam_byoasn(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3833,6 +27388,9 @@ defmodule AWS.EC2 do
   recycled back into the source pool. For more information, see [Deprovision pool CIDRs](https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html) in
   the *Amazon VPC IPAM User Guide*.
   """
+  @spec deprovision_ipam_pool_cidr(map(), deprovision_ipam_pool_cidr_request(), list()) ::
+          {:ok, deprovision_ipam_pool_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deprovision_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3842,6 +27400,13 @@ defmodule AWS.EC2 do
   @doc """
   Deprovision a CIDR from a public IPv4 pool.
   """
+  @spec deprovision_public_ipv4_pool_cidr(
+          map(),
+          deprovision_public_ipv4_pool_cidr_request(),
+          list()
+        ) ::
+          {:ok, deprovision_public_ipv4_pool_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deprovision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3874,6 +27439,9 @@ defmodule AWS.EC2 do
   Amazon S3 when you
   created the AMI.
   """
+  @spec deregister_image(map(), deregister_image_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def deregister_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3885,6 +27453,13 @@ defmodule AWS.EC2 do
   included
   in scheduled event notifications for resources in the Region.
   """
+  @spec deregister_instance_event_notification_attributes(
+          map(),
+          deregister_instance_event_notification_attributes_request(),
+          list()
+        ) ::
+          {:ok, deregister_instance_event_notification_attributes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deregister_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3901,6 +27476,13 @@ defmodule AWS.EC2 do
   Deregisters the specified members (network interfaces) from the transit gateway
   multicast group.
   """
+  @spec deregister_transit_gateway_multicast_group_members(
+          map(),
+          deregister_transit_gateway_multicast_group_members_request(),
+          list()
+        ) ::
+          {:ok, deregister_transit_gateway_multicast_group_members_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deregister_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3917,6 +27499,13 @@ defmodule AWS.EC2 do
   Deregisters the specified sources (network interfaces) from the transit gateway
   multicast group.
   """
+  @spec deregister_transit_gateway_multicast_group_sources(
+          map(),
+          deregister_transit_gateway_multicast_group_sources_request(),
+          list()
+        ) ::
+          {:ok, deregister_transit_gateway_multicast_group_sources_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def deregister_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3965,6 +27554,9 @@ defmodule AWS.EC2 do
   `vpc-max-security-groups-per-interface`: The maximum number of security groups
   that you can assign to a network interface.
   """
+  @spec describe_account_attributes(map(), describe_account_attributes_request(), list()) ::
+          {:ok, describe_account_attributes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3988,6 +27580,9 @@ defmodule AWS.EC2 do
   account. Accepted transfers are visible to the source account for three days
   after the transfers have been accepted.
   """
+  @spec describe_address_transfers(map(), describe_address_transfers_request(), list()) ::
+          {:ok, describe_address_transfers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_address_transfers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3998,6 +27593,9 @@ defmodule AWS.EC2 do
   Describes the specified Elastic IP addresses or all of your Elastic IP
   addresses.
   """
+  @spec describe_addresses(map(), describe_addresses_request(), list()) ::
+          {:ok, describe_addresses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4009,6 +27607,9 @@ defmodule AWS.EC2 do
 
   For requirements, see [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
   """
+  @spec describe_addresses_attribute(map(), describe_addresses_attribute_request(), list()) ::
+          {:ok, describe_addresses_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_addresses_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4039,6 +27640,9 @@ defmodule AWS.EC2 do
   `vpc-cidr-block-association` | `vpc-endpoint` |
   `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
   """
+  @spec describe_aggregate_id_format(map(), describe_aggregate_id_format_request(), list()) ::
+          {:ok, describe_aggregate_id_format_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_aggregate_id_format(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4059,6 +27663,9 @@ defmodule AWS.EC2 do
   [Regions and zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_availability_zones(map(), describe_availability_zones_request(), list()) ::
+          {:ok, describe_availability_zones_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_availability_zones(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4068,6 +27675,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the current Infrastructure Performance metric subscriptions.
   """
+  @spec describe_aws_network_performance_metric_subscriptions(
+          map(),
+          describe_aws_network_performance_metric_subscriptions_request(),
+          list()
+        ) ::
+          {:ok, describe_aws_network_performance_metric_subscriptions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_aws_network_performance_metric_subscriptions(
         %Client{} = client,
         input,
@@ -4099,6 +27713,9 @@ defmodule AWS.EC2 do
   might vary. Applications should not assume the elements appear in a particular
   order.
   """
+  @spec describe_bundle_tasks(map(), describe_bundle_tasks_request(), list()) ::
+          {:ok, describe_bundle_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_bundle_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4112,6 +27729,9 @@ defmodule AWS.EC2 do
   To describe the address pools that were created when you provisioned the address
   ranges, use `DescribePublicIpv4Pools` or `DescribeIpv6Pools`.
   """
+  @spec describe_byoip_cidrs(map(), describe_byoip_cidrs_request(), list()) ::
+          {:ok, describe_byoip_cidrs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_byoip_cidrs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4125,6 +27745,13 @@ defmodule AWS.EC2 do
   With Capacity Blocks, you purchase a specific instance type for a period of
   time.
   """
+  @spec describe_capacity_block_offerings(
+          map(),
+          describe_capacity_block_offerings_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_block_offerings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_capacity_block_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4134,6 +27761,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more Capacity Reservation Fleets.
   """
+  @spec describe_capacity_reservation_fleets(
+          map(),
+          describe_capacity_reservation_fleets_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_reservation_fleets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_capacity_reservation_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4146,6 +27780,9 @@ defmodule AWS.EC2 do
   The results describe only the Capacity Reservations in the
   Amazon Web Services Region that you're currently using.
   """
+  @spec describe_capacity_reservations(map(), describe_capacity_reservations_request(), list()) ::
+          {:ok, describe_capacity_reservations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_capacity_reservations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4155,6 +27792,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your carrier gateways.
   """
+  @spec describe_carrier_gateways(map(), describe_carrier_gateways_request(), list()) ::
+          {:ok, describe_carrier_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_carrier_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4171,6 +27811,9 @@ defmodule AWS.EC2 do
   cannot
   use this request to return information about other instances.
   """
+  @spec describe_classic_link_instances(map(), describe_classic_link_instances_request(), list()) ::
+          {:ok, describe_classic_link_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_classic_link_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4180,6 +27823,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the authorization rules for a specified Client VPN endpoint.
   """
+  @spec describe_client_vpn_authorization_rules(
+          map(),
+          describe_client_vpn_authorization_rules_request(),
+          list()
+        ) ::
+          {:ok, describe_client_vpn_authorization_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_client_vpn_authorization_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4191,6 +27841,9 @@ defmodule AWS.EC2 do
   within the last 60
   minutes for the specified Client VPN endpoint.
   """
+  @spec describe_client_vpn_connections(map(), describe_client_vpn_connections_request(), list()) ::
+          {:ok, describe_client_vpn_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_client_vpn_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4200,6 +27853,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more Client VPN endpoints in the account.
   """
+  @spec describe_client_vpn_endpoints(map(), describe_client_vpn_endpoints_request(), list()) ::
+          {:ok, describe_client_vpn_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_client_vpn_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4209,6 +27865,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the routes for the specified Client VPN endpoint.
   """
+  @spec describe_client_vpn_routes(map(), describe_client_vpn_routes_request(), list()) ::
+          {:ok, describe_client_vpn_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_client_vpn_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4218,6 +27877,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the target networks associated with the specified Client VPN endpoint.
   """
+  @spec describe_client_vpn_target_networks(
+          map(),
+          describe_client_vpn_target_networks_request(),
+          list()
+        ) ::
+          {:ok, describe_client_vpn_target_networks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_client_vpn_target_networks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4228,6 +27894,9 @@ defmodule AWS.EC2 do
   Describes the specified customer-owned address pools or all of your
   customer-owned address pools.
   """
+  @spec describe_coip_pools(map(), describe_coip_pools_request(), list()) ::
+          {:ok, describe_coip_pools_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_coip_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4243,6 +27912,9 @@ defmodule AWS.EC2 do
   For information about the import manifest referenced by this API action, see [VM Import
   Manifest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
   """
+  @spec describe_conversion_tasks(map(), describe_conversion_tasks_request(), list()) ::
+          {:ok, describe_conversion_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_conversion_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4256,6 +27928,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec describe_customer_gateways(map(), describe_customer_gateways_request(), list()) ::
+          {:ok, describe_customer_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_customer_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4269,6 +27944,9 @@ defmodule AWS.EC2 do
   the
   *Amazon VPC User Guide*.
   """
+  @spec describe_dhcp_options(map(), describe_dhcp_options_request(), list()) ::
+          {:ok, describe_dhcp_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_dhcp_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4278,6 +27956,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your egress-only internet gateways.
   """
+  @spec describe_egress_only_internet_gateways(
+          map(),
+          describe_egress_only_internet_gateways_request(),
+          list()
+        ) ::
+          {:ok, describe_egress_only_internet_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_egress_only_internet_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4297,6 +27982,9 @@ defmodule AWS.EC2 do
   more information
   about Elastic Graphics, see [Amazon Elastic Graphics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html).
   """
+  @spec describe_elastic_gpus(map(), describe_elastic_gpus_request(), list()) ::
+          {:ok, describe_elastic_gpus_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_elastic_gpus(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4306,6 +27994,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified export image tasks or all of your export image tasks.
   """
+  @spec describe_export_image_tasks(map(), describe_export_image_tasks_request(), list()) ::
+          {:ok, describe_export_image_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_export_image_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4316,6 +28007,9 @@ defmodule AWS.EC2 do
   Describes the specified export instance tasks or all of your export instance
   tasks.
   """
+  @spec describe_export_tasks(map(), describe_export_tasks_request(), list()) ::
+          {:ok, describe_export_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4325,6 +28019,9 @@ defmodule AWS.EC2 do
   @doc """
   Describe details for Windows AMIs that are configured for Windows fast launch.
   """
+  @spec describe_fast_launch_images(map(), describe_fast_launch_images_request(), list()) ::
+          {:ok, describe_fast_launch_images_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fast_launch_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4334,6 +28031,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the state of fast snapshot restores for your snapshots.
   """
+  @spec describe_fast_snapshot_restores(map(), describe_fast_snapshot_restores_request(), list()) ::
+          {:ok, describe_fast_snapshot_restores_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4353,6 +28053,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec describe_fleet_history(map(), describe_fleet_history_request(), list()) ::
+          {:ok, describe_fleet_history_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fleet_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4370,6 +28073,9 @@ defmodule AWS.EC2 do
   Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_fleet_instances(map(), describe_fleet_instances_request(), list()) ::
+          {:ok, describe_fleet_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fleet_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4386,6 +28092,9 @@ defmodule AWS.EC2 do
   Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_fleets(map(), describe_fleets_request(), list()) ::
+          {:ok, describe_fleets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4400,6 +28109,9 @@ defmodule AWS.EC2 do
   the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data
   Firehose delivery stream.
   """
+  @spec describe_flow_logs(map(), describe_flow_logs_request(), list()) ::
+          {:ok, describe_flow_logs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_flow_logs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4409,6 +28121,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified attribute of the specified Amazon FPGA Image (AFI).
   """
+  @spec describe_fpga_image_attribute(map(), describe_fpga_image_attribute_request(), list()) ::
+          {:ok, describe_fpga_image_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fpga_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4423,6 +28138,9 @@ defmodule AWS.EC2 do
   for which you have load
   permissions.
   """
+  @spec describe_fpga_images(map(), describe_fpga_images_request(), list()) ::
+          {:ok, describe_fpga_images_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_fpga_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4441,6 +28159,13 @@ defmodule AWS.EC2 do
   information about supported instance types, see [Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_host_reservation_offerings(
+          map(),
+          describe_host_reservation_offerings_request(),
+          list()
+        ) ::
+          {:ok, describe_host_reservation_offerings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_host_reservation_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4451,6 +28176,9 @@ defmodule AWS.EC2 do
   Describes reservations that are associated with Dedicated Hosts in your
   account.
   """
+  @spec describe_host_reservations(map(), describe_host_reservations_request(), list()) ::
+          {:ok, describe_host_reservations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_host_reservations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4466,6 +28194,9 @@ defmodule AWS.EC2 do
   that have
   recently been released are listed with the state `released`.
   """
+  @spec describe_hosts(map(), describe_hosts_request(), list()) ::
+          {:ok, describe_hosts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_hosts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4475,6 +28206,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes your IAM instance profile associations.
   """
+  @spec describe_iam_instance_profile_associations(
+          map(),
+          describe_iam_instance_profile_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_iam_instance_profile_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_iam_instance_profile_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4514,6 +28252,9 @@ defmodule AWS.EC2 do
   the
   resource type.
   """
+  @spec describe_id_format(map(), describe_id_format_request(), list()) ::
+          {:ok, describe_id_format_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_id_format(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4550,6 +28291,9 @@ defmodule AWS.EC2 do
   apply to the
   principal that makes the request.
   """
+  @spec describe_identity_id_format(map(), describe_identity_id_format_request(), list()) ::
+          {:ok, describe_identity_id_format_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_identity_id_format(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4567,6 +28311,9 @@ defmodule AWS.EC2 do
   might vary. Applications should not assume the elements appear in a particular
   order.
   """
+  @spec describe_image_attribute(map(), describe_image_attribute_request(), list()) ::
+          {:ok, image_attribute(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4597,6 +28344,9 @@ defmodule AWS.EC2 do
   might vary. Applications should not assume the elements appear in a particular
   order.
   """
+  @spec describe_images(map(), describe_images_request(), list()) ::
+          {:ok, describe_images_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4607,6 +28357,9 @@ defmodule AWS.EC2 do
   Displays details about an import virtual machine or import snapshot tasks that
   are already created.
   """
+  @spec describe_import_image_tasks(map(), describe_import_image_tasks_request(), list()) ::
+          {:ok, describe_import_image_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_import_image_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4616,6 +28369,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes your import snapshot tasks.
   """
+  @spec describe_import_snapshot_tasks(map(), describe_import_snapshot_tasks_request(), list()) ::
+          {:ok, describe_import_snapshot_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_import_snapshot_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4633,6 +28389,9 @@ defmodule AWS.EC2 do
   `productCodes` | `sourceDestCheck` | `groupSet` |
   `ebsOptimized` | `sriovNetSupport`
   """
+  @spec describe_instance_attribute(map(), describe_instance_attribute_request(), list()) ::
+          {:ok, instance_attribute(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4643,6 +28402,13 @@ defmodule AWS.EC2 do
   Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance
   Connect Endpoints.
   """
+  @spec describe_instance_connect_endpoints(
+          map(),
+          describe_instance_connect_endpoints_request(),
+          list()
+        ) ::
+          {:ok, describe_instance_connect_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_connect_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4682,6 +28448,13 @@ defmodule AWS.EC2 do
   instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_instance_credit_specifications(
+          map(),
+          describe_instance_credit_specifications_request(),
+          list()
+        ) ::
+          {:ok, describe_instance_credit_specifications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_credit_specifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4693,6 +28466,13 @@ defmodule AWS.EC2 do
   notifications for
   resources in the current Region.
   """
+  @spec describe_instance_event_notification_attributes(
+          map(),
+          describe_instance_event_notification_attributes_request(),
+          list()
+        ) ::
+          {:ok, describe_instance_event_notification_attributes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4723,6 +28503,9 @@ defmodule AWS.EC2 do
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_instance_event_windows(map(), describe_instance_event_windows_request(), list()) ::
+          {:ok, describe_instance_event_windows_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_event_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4769,6 +28552,9 @@ defmodule AWS.EC2 do
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
   """
+  @spec describe_instance_status(map(), describe_instance_status_request(), list()) ::
+          {:ok, describe_instance_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4820,6 +28606,9 @@ defmodule AWS.EC2 do
   For more information, see [Amazon EC2 instance topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_instance_topology(map(), describe_instance_topology_request(), list()) ::
+          {:ok, describe_instance_topology_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_topology(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4833,6 +28622,13 @@ defmodule AWS.EC2 do
   Zone). If no location is specified, the instance types offered in the current
   Region are returned.
   """
+  @spec describe_instance_type_offerings(
+          map(),
+          describe_instance_type_offerings_request(),
+          list()
+        ) ::
+          {:ok, describe_instance_type_offerings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_type_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4845,6 +28641,9 @@ defmodule AWS.EC2 do
   The results can be filtered by the
   attributes of the instance types.
   """
+  @spec describe_instance_types(map(), describe_instance_types_request(), list()) ::
+          {:ok, describe_instance_types_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instance_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4887,6 +28686,9 @@ defmodule AWS.EC2 do
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
   """
+  @spec describe_instances(map(), describe_instances_request(), list()) ::
+          {:ok, describe_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4896,6 +28698,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your internet gateways.
   """
+  @spec describe_internet_gateways(map(), describe_internet_gateways_request(), list()) ::
+          {:ok, describe_internet_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_internet_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4909,6 +28714,9 @@ defmodule AWS.EC2 do
   For more information, see [Tutorial: Bring your ASN to IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html) in the
   *Amazon VPC IPAM guide*.
   """
+  @spec describe_ipam_byoasn(map(), describe_ipam_byoasn_request(), list()) ::
+          {:ok, describe_ipam_byoasn_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipam_byoasn(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4918,6 +28726,9 @@ defmodule AWS.EC2 do
   @doc """
   Get information about your IPAM pools.
   """
+  @spec describe_ipam_pools(map(), describe_ipam_pools_request(), list()) ::
+          {:ok, describe_ipam_pools_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipam_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4930,6 +28741,13 @@ defmodule AWS.EC2 do
   A resource discovery is an IPAM component that enables IPAM to manage and
   monitor resources that belong to the owning account.
   """
+  @spec describe_ipam_resource_discoveries(
+          map(),
+          describe_ipam_resource_discoveries_request(),
+          list()
+        ) ::
+          {:ok, describe_ipam_resource_discoveries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipam_resource_discoveries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4942,6 +28760,13 @@ defmodule AWS.EC2 do
   An associated resource discovery is a resource discovery that has been
   associated with an IPAM..
   """
+  @spec describe_ipam_resource_discovery_associations(
+          map(),
+          describe_ipam_resource_discovery_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_ipam_resource_discovery_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipam_resource_discovery_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4957,6 +28782,9 @@ defmodule AWS.EC2 do
   @doc """
   Get information about your IPAM scopes.
   """
+  @spec describe_ipam_scopes(map(), describe_ipam_scopes_request(), list()) ::
+          {:ok, describe_ipam_scopes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipam_scopes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4969,6 +28797,9 @@ defmodule AWS.EC2 do
   For more information, see [What is IPAM?](https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec describe_ipams(map(), describe_ipams_request(), list()) ::
+          {:ok, describe_ipams_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4978,6 +28809,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes your IPv6 address pools.
   """
+  @spec describe_ipv6_pools(map(), describe_ipv6_pools_request(), list()) ::
+          {:ok, describe_ipv6_pools_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_ipv6_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4990,6 +28824,9 @@ defmodule AWS.EC2 do
   For more information about key pairs, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_key_pairs(map(), describe_key_pairs_request(), list()) ::
+          {:ok, describe_key_pairs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_key_pairs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5005,6 +28842,13 @@ defmodule AWS.EC2 do
   latest versions or all the default versions of all the launch templates in your
   account.
   """
+  @spec describe_launch_template_versions(
+          map(),
+          describe_launch_template_versions_request(),
+          list()
+        ) ::
+          {:ok, describe_launch_template_versions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_launch_template_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5014,6 +28858,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more launch templates.
   """
+  @spec describe_launch_templates(map(), describe_launch_templates_request(), list()) ::
+          {:ok, describe_launch_templates_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_launch_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5024,6 +28871,14 @@ defmodule AWS.EC2 do
   Describes the associations between virtual interface groups and local gateway
   route tables.
   """
+  @spec describe_local_gateway_route_table_virtual_interface_group_associations(
+          map(),
+          describe_local_gateway_route_table_virtual_interface_group_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_local_gateway_route_table_virtual_interface_group_associations_result(),
+           any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_local_gateway_route_table_virtual_interface_group_associations(
         %Client{} = client,
         input,
@@ -5044,6 +28899,13 @@ defmodule AWS.EC2 do
   Describes the specified associations between VPCs and local gateway route
   tables.
   """
+  @spec describe_local_gateway_route_table_vpc_associations(
+          map(),
+          describe_local_gateway_route_table_vpc_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_local_gateway_route_table_vpc_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_local_gateway_route_table_vpc_associations(
         %Client{} = client,
         input,
@@ -5066,6 +28928,13 @@ defmodule AWS.EC2 do
   By default, all local gateway route tables are described.
   Alternatively, you can filter the results.
   """
+  @spec describe_local_gateway_route_tables(
+          map(),
+          describe_local_gateway_route_tables_request(),
+          list()
+        ) ::
+          {:ok, describe_local_gateway_route_tables_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_local_gateway_route_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5075,6 +28944,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified local gateway virtual interface groups.
   """
+  @spec describe_local_gateway_virtual_interface_groups(
+          map(),
+          describe_local_gateway_virtual_interface_groups_request(),
+          list()
+        ) ::
+          {:ok, describe_local_gateway_virtual_interface_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_local_gateway_virtual_interface_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5090,6 +28966,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified local gateway virtual interfaces.
   """
+  @spec describe_local_gateway_virtual_interfaces(
+          map(),
+          describe_local_gateway_virtual_interfaces_request(),
+          list()
+        ) ::
+          {:ok, describe_local_gateway_virtual_interfaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_local_gateway_virtual_interfaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5102,6 +28985,9 @@ defmodule AWS.EC2 do
   By default, all local gateways are described.
   Alternatively, you can filter the results.
   """
+  @spec describe_local_gateways(map(), describe_local_gateways_request(), list()) ::
+          {:ok, describe_local_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_local_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5111,6 +28997,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the lock status for a snapshot.
   """
+  @spec describe_locked_snapshots(map(), describe_locked_snapshots_request(), list()) ::
+          {:ok, describe_locked_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_locked_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5123,6 +29012,9 @@ defmodule AWS.EC2 do
 
   To view the entries for your prefix list, use `GetManagedPrefixListEntries`.
   """
+  @spec describe_managed_prefix_lists(map(), describe_managed_prefix_lists_request(), list()) ::
+          {:ok, describe_managed_prefix_lists_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_managed_prefix_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5138,6 +29030,9 @@ defmodule AWS.EC2 do
   This request does not return information about any other Elastic IP addresses in
   your account.
   """
+  @spec describe_moving_addresses(map(), describe_moving_addresses_request(), list()) ::
+          {:ok, describe_moving_addresses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_moving_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5147,6 +29042,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your NAT gateways.
   """
+  @spec describe_nat_gateways(map(), describe_nat_gateways_request(), list()) ::
+          {:ok, describe_nat_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_nat_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5160,6 +29058,9 @@ defmodule AWS.EC2 do
   the
   *Amazon VPC User Guide*.
   """
+  @spec describe_network_acls(map(), describe_network_acls_request(), list()) ::
+          {:ok, describe_network_acls_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_acls(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5169,6 +29070,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Network Access Scope analyses.
   """
+  @spec describe_network_insights_access_scope_analyses(
+          map(),
+          describe_network_insights_access_scope_analyses_request(),
+          list()
+        ) ::
+          {:ok, describe_network_insights_access_scope_analyses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_insights_access_scope_analyses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5184,6 +29092,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Network Access Scopes.
   """
+  @spec describe_network_insights_access_scopes(
+          map(),
+          describe_network_insights_access_scopes_request(),
+          list()
+        ) ::
+          {:ok, describe_network_insights_access_scopes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_insights_access_scopes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5193,6 +29108,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your network insights analyses.
   """
+  @spec describe_network_insights_analyses(
+          map(),
+          describe_network_insights_analyses_request(),
+          list()
+        ) ::
+          {:ok, describe_network_insights_analyses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_insights_analyses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5202,6 +29124,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your paths.
   """
+  @spec describe_network_insights_paths(map(), describe_network_insights_paths_request(), list()) ::
+          {:ok, describe_network_insights_paths_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_insights_paths(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5213,6 +29138,13 @@ defmodule AWS.EC2 do
 
   You can specify only one attribute at a time.
   """
+  @spec describe_network_interface_attribute(
+          map(),
+          describe_network_interface_attribute_request(),
+          list()
+        ) ::
+          {:ok, describe_network_interface_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_interface_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5222,6 +29154,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the permissions for your network interfaces.
   """
+  @spec describe_network_interface_permissions(
+          map(),
+          describe_network_interface_permissions_request(),
+          list()
+        ) ::
+          {:ok, describe_network_interface_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_interface_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5236,6 +29175,9 @@ defmodule AWS.EC2 do
   `mac-address`, `private-dns-name`, `private-ip-address`,
   `private-dns-name`, `subnet-id`, or `vpc-id`.
   """
+  @spec describe_network_interfaces(map(), describe_network_interfaces_request(), list()) ::
+          {:ok, describe_network_interfaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_network_interfaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5250,6 +29192,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec describe_placement_groups(map(), describe_placement_groups_request(), list()) ::
+          {:ok, describe_placement_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_placement_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5263,6 +29208,9 @@ defmodule AWS.EC2 do
 
   We recommend that you use `DescribeManagedPrefixLists` instead.
   """
+  @spec describe_prefix_lists(map(), describe_prefix_lists_request(), list()) ::
+          {:ok, describe_prefix_lists_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_prefix_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5294,6 +29242,9 @@ defmodule AWS.EC2 do
   | `vpc-cidr-block-association` | `vpc-endpoint` |
   `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
   """
+  @spec describe_principal_id_format(map(), describe_principal_id_format_request(), list()) ::
+          {:ok, describe_principal_id_format_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_principal_id_format(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5303,6 +29254,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified IPv4 address pools.
   """
+  @spec describe_public_ipv4_pools(map(), describe_public_ipv4_pools_request(), list()) ::
+          {:ok, describe_public_ipv4_pools_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_public_ipv4_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5320,6 +29274,9 @@ defmodule AWS.EC2 do
   [Managing Amazon Web Services Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the
   *Amazon Web Services General Reference*.
   """
+  @spec describe_regions(map(), describe_regions_request(), list()) ::
+          {:ok, describe_regions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5333,6 +29290,13 @@ defmodule AWS.EC2 do
   [Replace a root volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_replace_root_volume_tasks(
+          map(),
+          describe_replace_root_volume_tasks_request(),
+          list()
+        ) ::
+          {:ok, describe_replace_root_volume_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_replace_root_volume_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5349,6 +29313,9 @@ defmodule AWS.EC2 do
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
   """
+  @spec describe_reserved_instances(map(), describe_reserved_instances_request(), list()) ::
+          {:ok, describe_reserved_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_reserved_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5382,6 +29349,13 @@ defmodule AWS.EC2 do
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
   """
+  @spec describe_reserved_instances_listings(
+          map(),
+          describe_reserved_instances_listings_request(),
+          list()
+        ) ::
+          {:ok, describe_reserved_instances_listings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_reserved_instances_listings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5402,6 +29376,13 @@ defmodule AWS.EC2 do
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
   """
+  @spec describe_reserved_instances_modifications(
+          map(),
+          describe_reserved_instances_modifications_request(),
+          list()
+        ) ::
+          {:ok, describe_reserved_instances_modifications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_reserved_instances_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5427,6 +29408,13 @@ defmodule AWS.EC2 do
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
   """
+  @spec describe_reserved_instances_offerings(
+          map(),
+          describe_reserved_instances_offerings_request(),
+          list()
+        ) ::
+          {:ok, describe_reserved_instances_offerings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_reserved_instances_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5445,6 +29433,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec describe_route_tables(map(), describe_route_tables_request(), list()) ::
+          {:ok, describe_route_tables_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_route_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5463,6 +29454,13 @@ defmodule AWS.EC2 do
   `PurchaseScheduledInstances`
   to purchase Scheduled Instances with that schedule.
   """
+  @spec describe_scheduled_instance_availability(
+          map(),
+          describe_scheduled_instance_availability_request(),
+          list()
+        ) ::
+          {:ok, describe_scheduled_instance_availability_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_scheduled_instance_availability(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5472,6 +29470,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Scheduled Instances or all your Scheduled Instances.
   """
+  @spec describe_scheduled_instances(map(), describe_scheduled_instances_request(), list()) ::
+          {:ok, describe_scheduled_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_scheduled_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5483,6 +29484,13 @@ defmodule AWS.EC2 do
   attached to a transit gateway that are referencing the security groups you've
   specified in this request.
   """
+  @spec describe_security_group_references(
+          map(),
+          describe_security_group_references_request(),
+          list()
+        ) ::
+          {:ok, describe_security_group_references_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_security_group_references(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5492,6 +29500,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your security group rules.
   """
+  @spec describe_security_group_rules(map(), describe_security_group_rules_request(), list()) ::
+          {:ok, describe_security_group_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_security_group_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5501,6 +29512,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified security groups or all of your security groups.
   """
+  @spec describe_security_groups(map(), describe_security_groups_request(), list()) ::
+          {:ok, describe_security_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5516,6 +29530,9 @@ defmodule AWS.EC2 do
   For more information about EBS snapshots, see [Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_snapshot_attribute(map(), describe_snapshot_attribute_request(), list()) ::
+          {:ok, describe_snapshot_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5525,6 +29542,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the storage tier status of one or more Amazon EBS snapshots.
   """
+  @spec describe_snapshot_tier_status(map(), describe_snapshot_tier_status_request(), list()) ::
+          {:ok, describe_snapshot_tier_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_snapshot_tier_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5599,6 +29619,9 @@ defmodule AWS.EC2 do
   snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
+          {:ok, describe_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5612,6 +29635,13 @@ defmodule AWS.EC2 do
   feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html)
   in the *Amazon EC2 User Guide for Linux Instances*.
   """
+  @spec describe_spot_datafeed_subscription(
+          map(),
+          describe_spot_datafeed_subscription_request(),
+          list()
+        ) ::
+          {:ok, describe_spot_datafeed_subscription_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5621,6 +29651,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the running instances for the specified Spot Fleet.
   """
+  @spec describe_spot_fleet_instances(map(), describe_spot_fleet_instances_request(), list()) ::
+          {:ok, describe_spot_fleet_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_spot_fleet_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5640,6 +29673,13 @@ defmodule AWS.EC2 do
   For more information, see [Monitor fleet events using Amazon EventBridge](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_spot_fleet_request_history(
+          map(),
+          describe_spot_fleet_request_history_request(),
+          list()
+        ) ::
+          {:ok, describe_spot_fleet_request_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_spot_fleet_request_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5653,6 +29693,9 @@ defmodule AWS.EC2 do
   instances
   are terminated.
   """
+  @spec describe_spot_fleet_requests(map(), describe_spot_fleet_requests_request(), list()) ::
+          {:ok, describe_spot_fleet_requests_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_spot_fleet_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5683,6 +29726,9 @@ defmodule AWS.EC2 do
   instances are
   terminated.
   """
+  @spec describe_spot_instance_requests(map(), describe_spot_instance_requests_request(), list()) ::
+          {:ok, describe_spot_instance_requests_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_spot_instance_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5701,6 +29747,9 @@ defmodule AWS.EC2 do
   before the
   start time, which is the effective price as of the start time.
   """
+  @spec describe_spot_price_history(map(), describe_spot_price_history_request(), list()) ::
+          {:ok, describe_spot_price_history_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_spot_price_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5718,6 +29767,9 @@ defmodule AWS.EC2 do
   been deleted or if they reference a security group in a VPC that has been
   detached from a transit gateway.
   """
+  @spec describe_stale_security_groups(map(), describe_stale_security_groups_request(), list()) ::
+          {:ok, describe_stale_security_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_stale_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5749,6 +29801,9 @@ defmodule AWS.EC2 do
   S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec describe_store_image_tasks(map(), describe_store_image_tasks_request(), list()) ::
+          {:ok, describe_store_image_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_store_image_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5763,6 +29818,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec describe_subnets(map(), describe_subnets_request(), list()) ::
+          {:ok, describe_subnets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5776,6 +29834,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_tags(map(), describe_tags_request(), list()) ::
+          {:ok, describe_tags_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5785,6 +29846,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more Traffic Mirror filters.
   """
+  @spec describe_traffic_mirror_filters(map(), describe_traffic_mirror_filters_request(), list()) ::
+          {:ok, describe_traffic_mirror_filters_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_traffic_mirror_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5797,6 +29861,13 @@ defmodule AWS.EC2 do
   By default, all Traffic Mirror sessions are described. Alternatively, you can
   filter the results.
   """
+  @spec describe_traffic_mirror_sessions(
+          map(),
+          describe_traffic_mirror_sessions_request(),
+          list()
+        ) ::
+          {:ok, describe_traffic_mirror_sessions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_traffic_mirror_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5806,6 +29877,9 @@ defmodule AWS.EC2 do
   @doc """
   Information about one or more Traffic Mirror targets.
   """
+  @spec describe_traffic_mirror_targets(map(), describe_traffic_mirror_targets_request(), list()) ::
+          {:ok, describe_traffic_mirror_targets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_traffic_mirror_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5819,6 +29893,13 @@ defmodule AWS.EC2 do
   Alternatively, you can filter the results by attachment ID, attachment state,
   resource ID, or resource owner.
   """
+  @spec describe_transit_gateway_attachments(
+          map(),
+          describe_transit_gateway_attachments_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_attachments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5828,6 +29909,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more Connect peers.
   """
+  @spec describe_transit_gateway_connect_peers(
+          map(),
+          describe_transit_gateway_connect_peers_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_connect_peers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_connect_peers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5837,6 +29925,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more Connect attachments.
   """
+  @spec describe_transit_gateway_connects(
+          map(),
+          describe_transit_gateway_connects_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_connects_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_connects(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5846,6 +29941,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more transit gateway multicast domains.
   """
+  @spec describe_transit_gateway_multicast_domains(
+          map(),
+          describe_transit_gateway_multicast_domains_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_multicast_domains_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_multicast_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5855,6 +29957,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes your transit gateway peering attachments.
   """
+  @spec describe_transit_gateway_peering_attachments(
+          map(),
+          describe_transit_gateway_peering_attachments_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_peering_attachments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_peering_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5864,6 +29973,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more transit gateway route policy tables.
   """
+  @spec describe_transit_gateway_policy_tables(
+          map(),
+          describe_transit_gateway_policy_tables_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_policy_tables_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_policy_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5873,6 +29989,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more transit gateway route table advertisements.
   """
+  @spec describe_transit_gateway_route_table_announcements(
+          map(),
+          describe_transit_gateway_route_table_announcements_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_route_table_announcements_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_route_table_announcements(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5891,6 +30014,13 @@ defmodule AWS.EC2 do
   By default, all transit gateway route tables are described.
   Alternatively, you can filter the results.
   """
+  @spec describe_transit_gateway_route_tables(
+          map(),
+          describe_transit_gateway_route_tables_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_route_tables_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_route_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5903,6 +30033,13 @@ defmodule AWS.EC2 do
   By default, all VPC attachments are described.
   Alternatively, you can filter the results.
   """
+  @spec describe_transit_gateway_vpc_attachments(
+          map(),
+          describe_transit_gateway_vpc_attachments_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_vpc_attachments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateway_vpc_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5915,6 +30052,9 @@ defmodule AWS.EC2 do
   By default, all transit gateways are described. Alternatively, you can
   filter the results.
   """
+  @spec describe_transit_gateways(map(), describe_transit_gateways_request(), list()) ::
+          {:ok, describe_transit_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_transit_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5924,6 +30064,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more network interface trunk associations.
   """
+  @spec describe_trunk_interface_associations(
+          map(),
+          describe_trunk_interface_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_trunk_interface_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_trunk_interface_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5933,6 +30080,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Amazon Web Services Verified Access endpoints.
   """
+  @spec describe_verified_access_endpoints(
+          map(),
+          describe_verified_access_endpoints_request(),
+          list()
+        ) ::
+          {:ok, describe_verified_access_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_verified_access_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5942,6 +30096,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Verified Access groups.
   """
+  @spec describe_verified_access_groups(map(), describe_verified_access_groups_request(), list()) ::
+          {:ok, describe_verified_access_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_verified_access_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5951,6 +30108,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Amazon Web Services Verified Access instances.
   """
+  @spec describe_verified_access_instance_logging_configurations(
+          map(),
+          describe_verified_access_instance_logging_configurations_request(),
+          list()
+        ) ::
+          {:ok, describe_verified_access_instance_logging_configurations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_verified_access_instance_logging_configurations(
         %Client{} = client,
         input,
@@ -5970,6 +30134,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Amazon Web Services Verified Access instances.
   """
+  @spec describe_verified_access_instances(
+          map(),
+          describe_verified_access_instances_request(),
+          list()
+        ) ::
+          {:ok, describe_verified_access_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_verified_access_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5979,6 +30150,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified Amazon Web Services Verified Access trust providers.
   """
+  @spec describe_verified_access_trust_providers(
+          map(),
+          describe_verified_access_trust_providers_request(),
+          list()
+        ) ::
+          {:ok, describe_verified_access_trust_providers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_verified_access_trust_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5994,6 +30172,9 @@ defmodule AWS.EC2 do
   For more information about EBS volumes, see [Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) in
   the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_volume_attribute(map(), describe_volume_attribute_request(), list()) ::
+          {:ok, describe_volume_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_volume_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6053,6 +30234,9 @@ defmodule AWS.EC2 do
   Therefore, volume status does not indicate volumes in the `error` state (for
   example, when a volume is incapable of accepting I/O.)
   """
+  @spec describe_volume_status(map(), describe_volume_status_request(), list()) ::
+          {:ok, describe_volume_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_volume_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6069,6 +30253,9 @@ defmodule AWS.EC2 do
   volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) in
   the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_volumes(map(), describe_volumes_request(), list()) ::
+          {:ok, describe_volumes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6091,6 +30278,9 @@ defmodule AWS.EC2 do
   [Monitor the progress of volume modifications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec describe_volumes_modifications(map(), describe_volumes_modifications_request(), list()) ::
+          {:ok, describe_volumes_modifications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_volumes_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6102,6 +30292,9 @@ defmodule AWS.EC2 do
 
   You can specify only one attribute at a time.
   """
+  @spec describe_vpc_attribute(map(), describe_vpc_attribute_request(), list()) ::
+          {:ok, describe_vpc_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6114,6 +30307,9 @@ defmodule AWS.EC2 do
 
   Describes the ClassicLink status of the specified VPCs.
   """
+  @spec describe_vpc_classic_link(map(), describe_vpc_classic_link_request(), list()) ::
+          {:ok, describe_vpc_classic_link_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_classic_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6134,6 +30330,13 @@ defmodule AWS.EC2 do
   linked
   EC2-Classic instance.
   """
+  @spec describe_vpc_classic_link_dns_support(
+          map(),
+          describe_vpc_classic_link_dns_support_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_classic_link_dns_support_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6144,6 +30347,13 @@ defmodule AWS.EC2 do
   Describes the connection notifications for VPC endpoints and VPC endpoint
   services.
   """
+  @spec describe_vpc_endpoint_connection_notifications(
+          map(),
+          describe_vpc_endpoint_connection_notifications_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_endpoint_connection_notifications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6161,6 +30371,13 @@ defmodule AWS.EC2 do
   any
   endpoints that are pending your acceptance.
   """
+  @spec describe_vpc_endpoint_connections(
+          map(),
+          describe_vpc_endpoint_connections_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_endpoint_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6171,6 +30388,13 @@ defmodule AWS.EC2 do
   Describes the VPC endpoint service configurations in your account (your
   services).
   """
+  @spec describe_vpc_endpoint_service_configurations(
+          map(),
+          describe_vpc_endpoint_service_configurations_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_endpoint_service_configurations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6182,6 +30406,13 @@ defmodule AWS.EC2 do
   VPC
   endpoint service.
   """
+  @spec describe_vpc_endpoint_service_permissions(
+          map(),
+          describe_vpc_endpoint_service_permissions_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_endpoint_service_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6201,6 +30432,9 @@ defmodule AWS.EC2 do
   the VPC endpoint services in the common Availability Zone,
   `us-east-1a`.
   """
+  @spec describe_vpc_endpoint_services(map(), describe_vpc_endpoint_services_request(), list()) ::
+          {:ok, describe_vpc_endpoint_services_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_endpoint_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6210,6 +30444,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes your VPC endpoints.
   """
+  @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
+          {:ok, describe_vpc_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6219,6 +30456,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your VPC peering connections.
   """
+  @spec describe_vpc_peering_connections(
+          map(),
+          describe_vpc_peering_connections_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_peering_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6228,6 +30472,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your VPCs.
   """
+  @spec describe_vpcs(map(), describe_vpcs_request(), list()) ::
+          {:ok, describe_vpcs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpcs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6241,6 +30488,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec describe_vpn_connections(map(), describe_vpn_connections_request(), list()) ::
+          {:ok, describe_vpn_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpn_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6254,6 +30504,9 @@ defmodule AWS.EC2 do
   Web Services Site-to-Site VPN
   User Guide*.
   """
+  @spec describe_vpn_gateways(map(), describe_vpn_gateways_request(), list()) ::
+          {:ok, describe_vpn_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_vpn_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6270,6 +30523,9 @@ defmodule AWS.EC2 do
   automatically unlinked from
   a VPC when it's stopped.
   """
+  @spec detach_classic_link_vpc(map(), detach_classic_link_vpc_request(), list()) ::
+          {:ok, detach_classic_link_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def detach_classic_link_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6284,6 +30540,9 @@ defmodule AWS.EC2 do
   The VPC must not contain any running instances with Elastic IP addresses or
   public IPv4 addresses.
   """
+  @spec detach_internet_gateway(map(), detach_internet_gateway_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def detach_internet_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6293,6 +30552,9 @@ defmodule AWS.EC2 do
   @doc """
   Detaches a network interface from an instance.
   """
+  @spec detach_network_interface(map(), detach_network_interface_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def detach_network_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6303,6 +30565,13 @@ defmodule AWS.EC2 do
   Detaches the specified Amazon Web Services Verified Access trust provider from
   the specified Amazon Web Services Verified Access instance.
   """
+  @spec detach_verified_access_trust_provider(
+          map(),
+          detach_verified_access_trust_provider_request(),
+          list()
+        ) ::
+          {:ok, detach_verified_access_trust_provider_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def detach_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6339,6 +30608,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec detach_volume(map(), detach_volume_request(), list()) ::
+          {:ok, volume_attachment(), any()}
+          | {:error, {:unexpected_response, any()}}
   def detach_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6357,6 +30629,9 @@ defmodule AWS.EC2 do
   You must wait for the attachment's state to switch to `detached` before you
   can delete the VPC or attach a different VPC to the virtual private gateway.
   """
+  @spec detach_vpn_gateway(map(), detach_vpn_gateway_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def detach_vpn_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6369,6 +30644,9 @@ defmodule AWS.EC2 do
   For more information, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
   in the *Amazon Virtual Private Cloud User Guide*.
   """
+  @spec disable_address_transfer(map(), disable_address_transfer_request(), list()) ::
+          {:ok, disable_address_transfer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_address_transfer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6378,6 +30656,13 @@ defmodule AWS.EC2 do
   @doc """
   Disables Infrastructure Performance metric subscriptions.
   """
+  @spec disable_aws_network_performance_metric_subscription(
+          map(),
+          disable_aws_network_performance_metric_subscription_request(),
+          list()
+        ) ::
+          {:ok, disable_aws_network_performance_metric_subscription_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_aws_network_performance_metric_subscription(
         %Client{} = client,
         input,
@@ -6408,6 +30693,13 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec disable_ebs_encryption_by_default(
+          map(),
+          disable_ebs_encryption_by_default_request(),
+          list()
+        ) ::
+          {:ok, disable_ebs_encryption_by_default_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6429,6 +30721,9 @@ defmodule AWS.EC2 do
   been
   shared with you.
   """
+  @spec disable_fast_launch(map(), disable_fast_launch_request(), list()) ::
+          {:ok, disable_fast_launch_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_fast_launch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6439,6 +30734,9 @@ defmodule AWS.EC2 do
   Disables fast snapshot restores for the specified snapshots in the specified
   Availability Zones.
   """
+  @spec disable_fast_snapshot_restores(map(), disable_fast_snapshot_restores_request(), list()) ::
+          {:ok, disable_fast_snapshot_restores_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6470,6 +30768,9 @@ defmodule AWS.EC2 do
   the
   *Amazon EC2 User Guide*.
   """
+  @spec disable_image(map(), disable_image_request(), list()) ::
+          {:ok, disable_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6496,6 +30797,13 @@ defmodule AWS.EC2 do
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
   in the *Amazon EC2 User Guide*.
   """
+  @spec disable_image_block_public_access(
+          map(),
+          disable_image_block_public_access_request(),
+          list()
+        ) ::
+          {:ok, disable_image_block_public_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_image_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6509,6 +30817,9 @@ defmodule AWS.EC2 do
   the
   *Amazon EC2 User Guide*.
   """
+  @spec disable_image_deprecation(map(), disable_image_deprecation_request(), list()) ::
+          {:ok, disable_image_deprecation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_image_deprecation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6521,6 +30832,13 @@ defmodule AWS.EC2 do
   For more information, see [Enable integration with Organizations](https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html)
   in the *Amazon VPC IPAM User Guide*.
   """
+  @spec disable_ipam_organization_admin_account(
+          map(),
+          disable_ipam_organization_admin_account_request(),
+          list()
+        ) ::
+          {:ok, disable_ipam_organization_admin_account_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_ipam_organization_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6537,6 +30855,9 @@ defmodule AWS.EC2 do
   in the *Amazon EC2
   User Guide*.
   """
+  @spec disable_serial_console_access(map(), disable_serial_console_access_request(), list()) ::
+          {:ok, disable_serial_console_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_serial_console_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6561,6 +30882,13 @@ defmodule AWS.EC2 do
   snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html)
   in the *Amazon Elastic Compute Cloud User Guide* .
   """
+  @spec disable_snapshot_block_public_access(
+          map(),
+          disable_snapshot_block_public_access_request(),
+          list()
+        ) ::
+          {:ok, disable_snapshot_block_public_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6572,6 +30900,13 @@ defmodule AWS.EC2 do
   specified
   propagation route table.
   """
+  @spec disable_transit_gateway_route_table_propagation(
+          map(),
+          disable_transit_gateway_route_table_propagation_request(),
+          list()
+        ) ::
+          {:ok, disable_transit_gateway_route_table_propagation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6589,6 +30924,9 @@ defmodule AWS.EC2 do
   route
   table of a VPC.
   """
+  @spec disable_vgw_route_propagation(map(), disable_vgw_route_propagation_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_vgw_route_propagation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6603,6 +30941,9 @@ defmodule AWS.EC2 do
   has EC2-Classic instances
   linked to it.
   """
+  @spec disable_vpc_classic_link(map(), disable_vpc_classic_link_request(), list()) ::
+          {:ok, disable_vpc_classic_link_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_vpc_classic_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6621,6 +30962,13 @@ defmodule AWS.EC2 do
 
   You must specify a VPC ID in the request.
   """
+  @spec disable_vpc_classic_link_dns_support(
+          map(),
+          disable_vpc_classic_link_dns_support_request(),
+          list()
+        ) ::
+          {:ok, disable_vpc_classic_link_dns_support_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6634,6 +30982,9 @@ defmodule AWS.EC2 do
   This is an idempotent operation. If you perform the operation more than once,
   Amazon EC2 doesn't return an error.
   """
+  @spec disassociate_address(map(), disassociate_address_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6658,6 +31009,13 @@ defmodule AWS.EC2 do
     *
   The Client VPN endpoint's status changes to `pending-associate`
   """
+  @spec disassociate_client_vpn_target_network(
+          map(),
+          disassociate_client_vpn_target_network_request(),
+          list()
+        ) ::
+          {:ok, disassociate_client_vpn_target_network_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_client_vpn_target_network(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6676,6 +31034,13 @@ defmodule AWS.EC2 do
   permission
   to use the certificate.
   """
+  @spec disassociate_enclave_certificate_iam_role(
+          map(),
+          disassociate_enclave_certificate_iam_role_request(),
+          list()
+        ) ::
+          {:ok, disassociate_enclave_certificate_iam_role_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_enclave_certificate_iam_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6688,6 +31053,13 @@ defmodule AWS.EC2 do
   Use `DescribeIamInstanceProfileAssociations` to get the association
   ID.
   """
+  @spec disassociate_iam_instance_profile(
+          map(),
+          disassociate_iam_instance_profile_request(),
+          list()
+        ) ::
+          {:ok, disassociate_iam_instance_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_iam_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6700,6 +31072,13 @@ defmodule AWS.EC2 do
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec disassociate_instance_event_window(
+          map(),
+          disassociate_instance_event_window_request(),
+          list()
+        ) ::
+          {:ok, disassociate_instance_event_window_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_instance_event_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6715,6 +31094,9 @@ defmodule AWS.EC2 do
   For more information, see [Tutorial: Bring your ASN to IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html) in the
   *Amazon VPC IPAM guide*.
   """
+  @spec disassociate_ipam_byoasn(map(), disassociate_ipam_byoasn_request(), list()) ::
+          {:ok, disassociate_ipam_byoasn_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_ipam_byoasn(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6727,6 +31109,13 @@ defmodule AWS.EC2 do
   A resource discovery is an IPAM component that enables IPAM to manage and
   monitor resources that belong to the owning account.
   """
+  @spec disassociate_ipam_resource_discovery(
+          map(),
+          disassociate_ipam_resource_discovery_request(),
+          list()
+        ) ::
+          {:ok, disassociate_ipam_resource_discovery_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6753,6 +31142,13 @@ defmodule AWS.EC2 do
   mapped to them)
   are released.
   """
+  @spec disassociate_nat_gateway_address(
+          map(),
+          disassociate_nat_gateway_address_request(),
+          list()
+        ) ::
+          {:ok, disassociate_nat_gateway_address_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_nat_gateway_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6768,6 +31164,9 @@ defmodule AWS.EC2 do
   about route tables, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
   in the *Amazon VPC User Guide*.
   """
+  @spec disassociate_route_table(map(), disassociate_route_table_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6781,6 +31180,9 @@ defmodule AWS.EC2 do
   delete all gateways and resources that are associated with the CIDR block before
   you can disassociate it.
   """
+  @spec disassociate_subnet_cidr_block(map(), disassociate_subnet_cidr_block_request(), list()) ::
+          {:ok, disassociate_subnet_cidr_block_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_subnet_cidr_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6790,6 +31192,13 @@ defmodule AWS.EC2 do
   @doc """
   Disassociates the specified subnets from the transit gateway multicast domain.
   """
+  @spec disassociate_transit_gateway_multicast_domain(
+          map(),
+          disassociate_transit_gateway_multicast_domain_request(),
+          list()
+        ) ::
+          {:ok, disassociate_transit_gateway_multicast_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6805,6 +31214,13 @@ defmodule AWS.EC2 do
   @doc """
   Removes the association between an an attachment and a policy table.
   """
+  @spec disassociate_transit_gateway_policy_table(
+          map(),
+          disassociate_transit_gateway_policy_table_request(),
+          list()
+        ) ::
+          {:ok, disassociate_transit_gateway_policy_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6814,6 +31230,13 @@ defmodule AWS.EC2 do
   @doc """
   Disassociates a resource attachment from a transit gateway route table.
   """
+  @spec disassociate_transit_gateway_route_table(
+          map(),
+          disassociate_transit_gateway_route_table_request(),
+          list()
+        ) ::
+          {:ok, disassociate_transit_gateway_route_table_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6824,6 +31247,9 @@ defmodule AWS.EC2 do
   Removes an association between a branch network interface with a trunk network
   interface.
   """
+  @spec disassociate_trunk_interface(map(), disassociate_trunk_interface_request(), list()) ::
+          {:ok, disassociate_trunk_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_trunk_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6842,6 +31268,9 @@ defmodule AWS.EC2 do
   (the
   primary CIDR block).
   """
+  @spec disassociate_vpc_cidr_block(map(), disassociate_vpc_cidr_block_request(), list()) ::
+          {:ok, disassociate_vpc_cidr_block_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def disassociate_vpc_cidr_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6854,6 +31283,9 @@ defmodule AWS.EC2 do
   For more information, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
   in the *Amazon Virtual Private Cloud User Guide*.
   """
+  @spec enable_address_transfer(map(), enable_address_transfer_request(), list()) ::
+          {:ok, enable_address_transfer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_address_transfer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6863,6 +31295,13 @@ defmodule AWS.EC2 do
   @doc """
   Enables Infrastructure Performance subscriptions.
   """
+  @spec enable_aws_network_performance_metric_subscription(
+          map(),
+          enable_aws_network_performance_metric_subscription_request(),
+          list()
+        ) ::
+          {:ok, enable_aws_network_performance_metric_subscription_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_aws_network_performance_metric_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6897,6 +31336,13 @@ defmodule AWS.EC2 do
   [Supported instance
   types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
   """
+  @spec enable_ebs_encryption_by_default(
+          map(),
+          enable_ebs_encryption_by_default_request(),
+          list()
+        ) ::
+          {:ok, enable_ebs_encryption_by_default_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6921,6 +31367,9 @@ defmodule AWS.EC2 do
   been
   shared with you.
   """
+  @spec enable_fast_launch(map(), enable_fast_launch_request(), list()) ::
+          {:ok, enable_fast_launch_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_fast_launch(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6940,6 +31389,9 @@ defmodule AWS.EC2 do
   For more information, see [Amazon EBS fast snapshot restore](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec enable_fast_snapshot_restores(map(), enable_fast_snapshot_restores_request(), list()) ::
+          {:ok, enable_fast_snapshot_restores_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6964,6 +31416,9 @@ defmodule AWS.EC2 do
   the
   *Amazon EC2 User Guide*.
   """
+  @spec enable_image(map(), enable_image_request(), list()) ::
+          {:ok, enable_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6988,6 +31443,13 @@ defmodule AWS.EC2 do
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
   in the *Amazon EC2 User Guide*.
   """
+  @spec enable_image_block_public_access(
+          map(),
+          enable_image_block_public_access_request(),
+          list()
+        ) ::
+          {:ok, enable_image_block_public_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_image_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7001,6 +31463,9 @@ defmodule AWS.EC2 do
   the
   *Amazon EC2 User Guide*.
   """
+  @spec enable_image_deprecation(map(), enable_image_deprecation_request(), list()) ::
+          {:ok, enable_image_deprecation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_image_deprecation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7014,6 +31479,13 @@ defmodule AWS.EC2 do
   account. For more information, see [Enable integration with Organizations](https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html)
   in the *Amazon VPC IPAM User Guide*.
   """
+  @spec enable_ipam_organization_admin_account(
+          map(),
+          enable_ipam_organization_admin_account_request(),
+          list()
+        ) ::
+          {:ok, enable_ipam_organization_admin_account_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_ipam_organization_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7031,6 +31503,13 @@ defmodule AWS.EC2 do
   resources
   from the member accounts.
   """
+  @spec enable_reachability_analyzer_organization_sharing(
+          map(),
+          enable_reachability_analyzer_organization_sharing_request(),
+          list()
+        ) ::
+          {:ok, enable_reachability_analyzer_organization_sharing_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_reachability_analyzer_organization_sharing(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7051,6 +31530,9 @@ defmodule AWS.EC2 do
   information, see [Manage account access to the EC2 serial console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access)
   in the *Amazon EC2 User Guide*.
   """
+  @spec enable_serial_console_access(map(), enable_serial_console_access_request(), list()) ::
+          {:ok, enable_serial_console_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_serial_console_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7080,6 +31562,13 @@ defmodule AWS.EC2 do
   snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec enable_snapshot_block_public_access(
+          map(),
+          enable_snapshot_block_public_access_request(),
+          list()
+        ) ::
+          {:ok, enable_snapshot_block_public_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7090,6 +31579,13 @@ defmodule AWS.EC2 do
   Enables the specified attachment to propagate routes to the specified
   propagation route table.
   """
+  @spec enable_transit_gateway_route_table_propagation(
+          map(),
+          enable_transit_gateway_route_table_propagation_request(),
+          list()
+        ) ::
+          {:ok, enable_transit_gateway_route_table_propagation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7107,6 +31603,9 @@ defmodule AWS.EC2 do
   route
   table of a VPC.
   """
+  @spec enable_vgw_route_propagation(map(), enable_vgw_route_propagation_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_vgw_route_propagation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7118,6 +31617,9 @@ defmodule AWS.EC2 do
   data on
   the volume was potentially inconsistent.
   """
+  @spec enable_volume_i_o(map(), enable_volume_i_o_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_volume_i_o(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7137,6 +31639,9 @@ defmodule AWS.EC2 do
   routes for VPCs in the `10.0.0.0/16` and `10.1.0.0/16` IP address
   ranges.
   """
+  @spec enable_vpc_classic_link(map(), enable_vpc_classic_link_request(), list()) ::
+          {:ok, enable_vpc_classic_link_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_vpc_classic_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7159,6 +31664,13 @@ defmodule AWS.EC2 do
 
   You must specify a VPC ID in the request.
   """
+  @spec enable_vpc_classic_link_dns_support(
+          map(),
+          enable_vpc_classic_link_dns_support_request(),
+          list()
+        ) ::
+          {:ok, enable_vpc_classic_link_dns_support_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def enable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7169,6 +31681,13 @@ defmodule AWS.EC2 do
   Downloads the client certificate revocation list for the specified Client VPN
   endpoint.
   """
+  @spec export_client_vpn_client_certificate_revocation_list(
+          map(),
+          export_client_vpn_client_certificate_revocation_list_request(),
+          list()
+        ) ::
+          {:ok, export_client_vpn_client_certificate_revocation_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def export_client_vpn_client_certificate_revocation_list(
         %Client{} = client,
         input,
@@ -7194,6 +31713,13 @@ defmodule AWS.EC2 do
   to establish a connection
   with the Client VPN endpoint.
   """
+  @spec export_client_vpn_client_configuration(
+          map(),
+          export_client_vpn_client_configuration_request(),
+          list()
+        ) ::
+          {:ok, export_client_vpn_client_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def export_client_vpn_client_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7208,6 +31734,9 @@ defmodule AWS.EC2 do
   in the
   *VM Import/Export User Guide*.
   """
+  @spec export_image(map(), export_image_request(), list()) ::
+          {:ok, export_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def export_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7227,6 +31756,9 @@ defmodule AWS.EC2 do
   S3](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables)
   in *Transit Gateways*.
   """
+  @spec export_transit_gateway_routes(map(), export_transit_gateway_routes_request(), list()) ::
+          {:ok, export_transit_gateway_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def export_transit_gateway_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7243,6 +31775,13 @@ defmodule AWS.EC2 do
   the KMS key
   that's used to encrypt the private key.
   """
+  @spec get_associated_enclave_certificate_iam_roles(
+          map(),
+          get_associated_enclave_certificate_iam_roles_request(),
+          list()
+        ) ::
+          {:ok, get_associated_enclave_certificate_iam_roles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_associated_enclave_certificate_iam_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7253,6 +31792,9 @@ defmodule AWS.EC2 do
   Gets information about the IPv6 CIDR block associations for a specified IPv6
   address pool.
   """
+  @spec get_associated_ipv6_pool_cidrs(map(), get_associated_ipv6_pool_cidrs_request(), list()) ::
+          {:ok, get_associated_ipv6_pool_cidrs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_associated_ipv6_pool_cidrs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7262,6 +31804,13 @@ defmodule AWS.EC2 do
   @doc """
   Gets network performance data.
   """
+  @spec get_aws_network_performance_data(
+          map(),
+          get_aws_network_performance_data_request(),
+          list()
+        ) ::
+          {:ok, get_aws_network_performance_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_aws_network_performance_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7277,6 +31826,9 @@ defmodule AWS.EC2 do
   capacity. If the Capacity Reservation is not shared, it shows only
   the Capacity Reservation owner's usage.
   """
+  @spec get_capacity_reservation_usage(map(), get_capacity_reservation_usage_request(), list()) ::
+          {:ok, get_capacity_reservation_usage_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_capacity_reservation_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7286,6 +31838,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the allocations from the specified customer-owned address pool.
   """
+  @spec get_coip_pool_usage(map(), get_coip_pool_usage_request(), list()) ::
+          {:ok, get_coip_pool_usage_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_coip_pool_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7320,6 +31875,9 @@ defmodule AWS.EC2 do
   output](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output)
   in the *Amazon EC2 User Guide*.
   """
+  @spec get_console_output(map(), get_console_output_request(), list()) ::
+          {:ok, get_console_output_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_console_output(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7332,6 +31890,9 @@ defmodule AWS.EC2 do
 
   The returned content is Base64-encoded.
   """
+  @spec get_console_screenshot(map(), get_console_screenshot_request(), list()) ::
+          {:ok, get_console_screenshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_console_screenshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7347,6 +31908,13 @@ defmodule AWS.EC2 do
   instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec get_default_credit_specification(
+          map(),
+          get_default_credit_specification_request(),
+          list()
+        ) ::
+          {:ok, get_default_credit_specification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_default_credit_specification(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7364,6 +31932,9 @@ defmodule AWS.EC2 do
   For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec get_ebs_default_kms_key_id(map(), get_ebs_default_kms_key_id_request(), list()) ::
+          {:ok, get_ebs_default_kms_key_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7378,6 +31949,9 @@ defmodule AWS.EC2 do
   For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec get_ebs_encryption_by_default(map(), get_ebs_encryption_by_default_request(), list()) ::
+          {:ok, get_ebs_encryption_by_default_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7410,6 +31984,13 @@ defmodule AWS.EC2 do
   `GetFlowLogsIntegrationTemplate` does not support integration between
   Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
   """
+  @spec get_flow_logs_integration_template(
+          map(),
+          get_flow_logs_integration_template_request(),
+          list()
+        ) ::
+          {:ok, get_flow_logs_integration_template_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_flow_logs_integration_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7419,6 +32000,13 @@ defmodule AWS.EC2 do
   @doc """
   Lists the resource groups to which a Capacity Reservation has been added.
   """
+  @spec get_groups_for_capacity_reservation(
+          map(),
+          get_groups_for_capacity_reservation_request(),
+          list()
+        ) ::
+          {:ok, get_groups_for_capacity_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_groups_for_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7436,6 +32024,13 @@ defmodule AWS.EC2 do
   This is a preview of the `PurchaseHostReservation` action and does not
   result in the offering being purchased.
   """
+  @spec get_host_reservation_purchase_preview(
+          map(),
+          get_host_reservation_purchase_preview_request(),
+          list()
+        ) ::
+          {:ok, get_host_reservation_purchase_preview_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_host_reservation_purchase_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7450,6 +32045,13 @@ defmodule AWS.EC2 do
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
   in the *Amazon EC2 User Guide*.
   """
+  @spec get_image_block_public_access_state(
+          map(),
+          get_image_block_public_access_state_request(),
+          list()
+        ) ::
+          {:ok, get_image_block_public_access_state_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_image_block_public_access_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7479,6 +32081,13 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 Auto Scaling User Guide*.
   """
+  @spec get_instance_types_from_instance_requirements(
+          map(),
+          get_instance_types_from_instance_requirements_request(),
+          list()
+        ) ::
+          {:ok, get_instance_types_from_instance_requirements_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_instance_types_from_instance_requirements(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7509,6 +32118,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec get_instance_uefi_data(map(), get_instance_uefi_data_request(), list()) ::
+          {:ok, get_instance_uefi_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_instance_uefi_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7521,6 +32133,9 @@ defmodule AWS.EC2 do
   For more information, see [View the history of IP addresses](https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html)
   in the *Amazon VPC IPAM User Guide*.
   """
+  @spec get_ipam_address_history(map(), get_ipam_address_history_request(), list()) ::
+          {:ok, get_ipam_address_history_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_address_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7535,6 +32150,9 @@ defmodule AWS.EC2 do
   Organizations, all accounts in the organization are discovered accounts. Only
   the IPAM account can get all discovered accounts in the organization.
   """
+  @spec get_ipam_discovered_accounts(map(), get_ipam_discovered_accounts_request(), list()) ::
+          {:ok, get_ipam_discovered_accounts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_discovered_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7544,6 +32162,13 @@ defmodule AWS.EC2 do
   @doc """
   Gets the public IP addresses that have been discovered by IPAM.
   """
+  @spec get_ipam_discovered_public_addresses(
+          map(),
+          get_ipam_discovered_public_addresses_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_discovered_public_addresses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_discovered_public_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7557,6 +32182,13 @@ defmodule AWS.EC2 do
   The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets,
   and Elastic IP addresses.
   """
+  @spec get_ipam_discovered_resource_cidrs(
+          map(),
+          get_ipam_discovered_resource_cidrs_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_discovered_resource_cidrs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_discovered_resource_cidrs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7575,6 +32207,9 @@ defmodule AWS.EC2 do
   note that all EC2 API actions follow an [eventual consistency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency)
   model.
   """
+  @spec get_ipam_pool_allocations(map(), get_ipam_pool_allocations_request(), list()) ::
+          {:ok, get_ipam_pool_allocations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_pool_allocations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7584,6 +32219,9 @@ defmodule AWS.EC2 do
   @doc """
   Get the CIDRs provisioned to an IPAM pool.
   """
+  @spec get_ipam_pool_cidrs(map(), get_ipam_pool_cidrs_request(), list()) ::
+          {:ok, get_ipam_pool_cidrs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_pool_cidrs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7598,6 +32236,9 @@ defmodule AWS.EC2 do
   is an IPAM component that enables IPAM to manage and monitor resources that
   belong to the owning account.
   """
+  @spec get_ipam_resource_cidrs(map(), get_ipam_resource_cidrs_request(), list()) ::
+          {:ok, get_ipam_resource_cidrs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_ipam_resource_cidrs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7618,6 +32259,9 @@ defmodule AWS.EC2 do
   `DescribeVolumes`, and `DescribeInstanceAttribute`. Or,
   you can allow `describe*` depending on your instance requirements.
   """
+  @spec get_launch_template_data(map(), get_launch_template_data_request(), list()) ::
+          {:ok, get_launch_template_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_launch_template_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7628,6 +32272,13 @@ defmodule AWS.EC2 do
   Gets information about the resources that are associated with the specified
   managed prefix list.
   """
+  @spec get_managed_prefix_list_associations(
+          map(),
+          get_managed_prefix_list_associations_request(),
+          list()
+        ) ::
+          {:ok, get_managed_prefix_list_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_managed_prefix_list_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7637,6 +32288,9 @@ defmodule AWS.EC2 do
   @doc """
   Gets information about the entries for a specified managed prefix list.
   """
+  @spec get_managed_prefix_list_entries(map(), get_managed_prefix_list_entries_request(), list()) ::
+          {:ok, get_managed_prefix_list_entries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_managed_prefix_list_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7646,6 +32300,13 @@ defmodule AWS.EC2 do
   @doc """
   Gets the findings for the specified Network Access Scope analysis.
   """
+  @spec get_network_insights_access_scope_analysis_findings(
+          map(),
+          get_network_insights_access_scope_analysis_findings_request(),
+          list()
+        ) ::
+          {:ok, get_network_insights_access_scope_analysis_findings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_network_insights_access_scope_analysis_findings(
         %Client{} = client,
         input,
@@ -7665,6 +32326,13 @@ defmodule AWS.EC2 do
   @doc """
   Gets the content for the specified Network Access Scope.
   """
+  @spec get_network_insights_access_scope_content(
+          map(),
+          get_network_insights_access_scope_content_request(),
+          list()
+        ) ::
+          {:ok, get_network_insights_access_scope_content_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_network_insights_access_scope_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7696,6 +32364,9 @@ defmodule AWS.EC2 do
   instance
   before trying to retrieve the generated password.
   """
+  @spec get_password_data(map(), get_password_data_request(), list()) ::
+          {:ok, get_password_data_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_password_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7710,6 +32381,13 @@ defmodule AWS.EC2 do
   cannot be performed, the reason is returned in the response. Use
   `AcceptReservedInstancesExchangeQuote` to perform the exchange.
   """
+  @spec get_reserved_instances_exchange_quote(
+          map(),
+          get_reserved_instances_exchange_quote_request(),
+          list()
+        ) ::
+          {:ok, get_reserved_instances_exchange_quote_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_reserved_instances_exchange_quote(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7720,6 +32398,9 @@ defmodule AWS.EC2 do
   Gets security groups that can be associated by the Amazon Web Services account
   making the request with network interfaces in the specified VPC.
   """
+  @spec get_security_groups_for_vpc(map(), get_security_groups_for_vpc_request(), list()) ::
+          {:ok, get_security_groups_for_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_security_groups_for_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7736,6 +32417,13 @@ defmodule AWS.EC2 do
   in the *Amazon EC2
   User Guide*.
   """
+  @spec get_serial_console_access_status(
+          map(),
+          get_serial_console_access_status_request(),
+          list()
+        ) ::
+          {:ok, get_serial_console_access_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_serial_console_access_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7751,6 +32439,13 @@ defmodule AWS.EC2 do
   snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec get_snapshot_block_public_access_state(
+          map(),
+          get_snapshot_block_public_access_state_request(),
+          list()
+        ) ::
+          {:ok, get_snapshot_block_public_access_state_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_snapshot_block_public_access_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7772,6 +32467,9 @@ defmodule AWS.EC2 do
   in
   the Amazon EC2 User Guide.
   """
+  @spec get_spot_placement_scores(map(), get_spot_placement_scores_request(), list()) ::
+          {:ok, get_spot_placement_scores_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_spot_placement_scores(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7781,6 +32479,9 @@ defmodule AWS.EC2 do
   @doc """
   Gets information about the subnet CIDR reservations.
   """
+  @spec get_subnet_cidr_reservations(map(), get_subnet_cidr_reservations_request(), list()) ::
+          {:ok, get_subnet_cidr_reservations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_subnet_cidr_reservations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7791,6 +32492,13 @@ defmodule AWS.EC2 do
   Lists the route tables to which the specified resource attachment propagates
   routes.
   """
+  @spec get_transit_gateway_attachment_propagations(
+          map(),
+          get_transit_gateway_attachment_propagations_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_attachment_propagations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_attachment_propagations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7801,6 +32509,13 @@ defmodule AWS.EC2 do
   Gets information about the associations for the transit gateway multicast
   domain.
   """
+  @spec get_transit_gateway_multicast_domain_associations(
+          map(),
+          get_transit_gateway_multicast_domain_associations_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_multicast_domain_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_multicast_domain_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7816,6 +32531,13 @@ defmodule AWS.EC2 do
   @doc """
   Gets a list of the transit gateway policy table associations.
   """
+  @spec get_transit_gateway_policy_table_associations(
+          map(),
+          get_transit_gateway_policy_table_associations_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_policy_table_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_policy_table_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7825,6 +32547,13 @@ defmodule AWS.EC2 do
   @doc """
   Returns a list of transit gateway policy table entries.
   """
+  @spec get_transit_gateway_policy_table_entries(
+          map(),
+          get_transit_gateway_policy_table_entries_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_policy_table_entries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_policy_table_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7835,6 +32564,13 @@ defmodule AWS.EC2 do
   Gets information about the prefix list references in a specified transit gateway
   route table.
   """
+  @spec get_transit_gateway_prefix_list_references(
+          map(),
+          get_transit_gateway_prefix_list_references_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_prefix_list_references_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_prefix_list_references(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7845,6 +32581,13 @@ defmodule AWS.EC2 do
   Gets information about the associations for the specified transit gateway route
   table.
   """
+  @spec get_transit_gateway_route_table_associations(
+          map(),
+          get_transit_gateway_route_table_associations_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_route_table_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_route_table_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7855,6 +32598,13 @@ defmodule AWS.EC2 do
   Gets information about the route table propagations for the specified transit
   gateway route table.
   """
+  @spec get_transit_gateway_route_table_propagations(
+          map(),
+          get_transit_gateway_route_table_propagations_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_route_table_propagations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_transit_gateway_route_table_propagations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7864,6 +32614,13 @@ defmodule AWS.EC2 do
   @doc """
   Get the Verified Access policy associated with the endpoint.
   """
+  @spec get_verified_access_endpoint_policy(
+          map(),
+          get_verified_access_endpoint_policy_request(),
+          list()
+        ) ::
+          {:ok, get_verified_access_endpoint_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_verified_access_endpoint_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7873,6 +32630,13 @@ defmodule AWS.EC2 do
   @doc """
   Shows the contents of the Verified Access policy associated with the group.
   """
+  @spec get_verified_access_group_policy(
+          map(),
+          get_verified_access_group_policy_request(),
+          list()
+        ) ::
+          {:ok, get_verified_access_group_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_verified_access_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7884,6 +32648,13 @@ defmodule AWS.EC2 do
   with the customer
   gateway device specified for your Site-to-Site VPN connection.
   """
+  @spec get_vpn_connection_device_sample_configuration(
+          map(),
+          get_vpn_connection_device_sample_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_vpn_connection_device_sample_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_vpn_connection_device_sample_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7905,6 +32676,9 @@ defmodule AWS.EC2 do
   device](https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html) in the
   *Amazon Web Services Site-to-Site VPN User Guide*.
   """
+  @spec get_vpn_connection_device_types(map(), get_vpn_connection_device_types_request(), list()) ::
+          {:ok, get_vpn_connection_device_types_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_vpn_connection_device_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7914,6 +32688,13 @@ defmodule AWS.EC2 do
   @doc """
   Get details of available tunnel endpoint maintenance.
   """
+  @spec get_vpn_tunnel_replacement_status(
+          map(),
+          get_vpn_tunnel_replacement_status_request(),
+          list()
+        ) ::
+          {:ok, get_vpn_tunnel_replacement_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def get_vpn_tunnel_replacement_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7930,6 +32711,13 @@ defmodule AWS.EC2 do
   Uploading a client certificate revocation list resets existing client
   connections.
   """
+  @spec import_client_vpn_client_certificate_revocation_list(
+          map(),
+          import_client_vpn_client_certificate_revocation_list_request(),
+          list()
+        ) ::
+          {:ok, import_client_vpn_client_certificate_revocation_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def import_client_vpn_client_certificate_revocation_list(
         %Client{} = client,
         input,
@@ -7972,6 +32760,9 @@ defmodule AWS.EC2 do
   Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)
   in the *VM Import/Export User Guide*.
   """
+  @spec import_image(map(), import_image_request(), list()) ::
+          {:ok, import_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def import_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8002,6 +32793,9 @@ defmodule AWS.EC2 do
   For information about the import manifest referenced by this API action, see [VM Import
   Manifest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
   """
+  @spec import_instance(map(), import_instance_request(), list()) ::
+          {:ok, import_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def import_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8021,6 +32815,9 @@ defmodule AWS.EC2 do
   For more information about key pairs, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec import_key_pair(map(), import_key_pair_request(), list()) ::
+          {:ok, import_key_pair_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def import_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8034,6 +32831,9 @@ defmodule AWS.EC2 do
   in the
   *VM Import/Export User Guide*.
   """
+  @spec import_snapshot(map(), import_snapshot_request(), list()) ::
+          {:ok, import_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def import_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8055,6 +32855,9 @@ defmodule AWS.EC2 do
   For information about the import manifest referenced by this API action, see [VM Import
   Manifest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
   """
+  @spec import_volume(map(), import_volume_request(), list()) ::
+          {:ok, import_volume_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def import_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8068,6 +32871,9 @@ defmodule AWS.EC2 do
   [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
   """
+  @spec list_images_in_recycle_bin(map(), list_images_in_recycle_bin_request(), list()) ::
+          {:ok, list_images_in_recycle_bin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_images_in_recycle_bin(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8077,6 +32883,9 @@ defmodule AWS.EC2 do
   @doc """
   Lists one or more snapshots that are currently in the Recycle Bin.
   """
+  @spec list_snapshots_in_recycle_bin(map(), list_snapshots_in_recycle_bin_request(), list()) ::
+          {:ok, list_snapshots_in_recycle_bin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_snapshots_in_recycle_bin(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8110,6 +32919,9 @@ defmodule AWS.EC2 do
   lapsed, you can
   only increase the lock duration or extend the lock expiration date.
   """
+  @spec lock_snapshot(map(), lock_snapshot_request(), list()) ::
+          {:ok, lock_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def lock_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8121,6 +32933,9 @@ defmodule AWS.EC2 do
 
   For requirements, see [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
   """
+  @spec modify_address_attribute(map(), modify_address_attribute_request(), list()) ::
+          {:ok, modify_address_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_address_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8135,6 +32950,9 @@ defmodule AWS.EC2 do
   DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html)
   to view the value for `GroupName`.
   """
+  @spec modify_availability_zone_group(map(), modify_availability_zone_group_request(), list()) ::
+          {:ok, modify_availability_zone_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_availability_zone_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8154,6 +32972,9 @@ defmodule AWS.EC2 do
   create a new one with
   the required attributes.
   """
+  @spec modify_capacity_reservation(map(), modify_capacity_reservation_request(), list()) ::
+          {:ok, modify_capacity_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8172,6 +32993,13 @@ defmodule AWS.EC2 do
   all of the individual Capacity Reservations in the Fleet are updated
   accordingly.
   """
+  @spec modify_capacity_reservation_fleet(
+          map(),
+          modify_capacity_reservation_fleet_request(),
+          list()
+        ) ::
+          {:ok, modify_capacity_reservation_fleet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_capacity_reservation_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8183,6 +33011,9 @@ defmodule AWS.EC2 do
 
   Modifying the DNS server resets existing client connections.
   """
+  @spec modify_client_vpn_endpoint(map(), modify_client_vpn_endpoint_request(), list()) ::
+          {:ok, modify_client_vpn_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8214,6 +33045,13 @@ defmodule AWS.EC2 do
   instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec modify_default_credit_specification(
+          map(),
+          modify_default_credit_specification_request(),
+          list()
+        ) ::
+          {:ok, modify_default_credit_specification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_default_credit_specification(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8239,6 +33077,9 @@ defmodule AWS.EC2 do
   For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec modify_ebs_default_kms_key_id(map(), modify_ebs_default_kms_key_id_request(), list()) ::
+          {:ok, modify_ebs_default_kms_key_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8288,6 +33129,9 @@ defmodule AWS.EC2 do
   you can set the
   target capacity to 0.
   """
+  @spec modify_fleet(map(), modify_fleet_request(), list()) ::
+          {:ok, modify_fleet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8297,6 +33141,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified attribute of the specified Amazon FPGA Image (AFI).
   """
+  @spec modify_fpga_image_attribute(map(), modify_fpga_image_attribute_request(), list()) ::
+          {:ok, modify_fpga_image_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_fpga_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8319,6 +33166,9 @@ defmodule AWS.EC2 do
   instance types in an instance family, or to support a specific instance type
   only.
   """
+  @spec modify_hosts(map(), modify_hosts_request(), list()) ::
+          {:ok, modify_hosts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_hosts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8365,6 +33215,9 @@ defmodule AWS.EC2 do
   of these settings and provided that they have permission to use the relevant
   `Describe` command for the resource type.
   """
+  @spec modify_id_format(map(), modify_id_format_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_id_format(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8409,6 +33262,9 @@ defmodule AWS.EC2 do
   settings and provided that they have permission to use the relevant `Describe`
   command for the resource type.
   """
+  @spec modify_identity_id_format(map(), modify_identity_id_format_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_identity_id_format(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8431,6 +33287,9 @@ defmodule AWS.EC2 do
   To enable the SriovNetSupport enhanced networking attribute of an image, enable
   SriovNetSupport on an instance and create an AMI from the instance.
   """
+  @spec modify_image_attribute(map(), modify_image_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8457,6 +33316,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec modify_instance_attribute(map(), modify_instance_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8471,6 +33333,13 @@ defmodule AWS.EC2 do
   Reservation with matching
   attributes, or run On-Demand Instance capacity.
   """
+  @spec modify_instance_capacity_reservation_attributes(
+          map(),
+          modify_instance_capacity_reservation_attributes_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_capacity_reservation_attributes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_capacity_reservation_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8495,6 +33364,13 @@ defmodule AWS.EC2 do
   instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec modify_instance_credit_specification(
+          map(),
+          modify_instance_credit_specification_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_credit_specification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_credit_specification(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8504,6 +33380,13 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the start time for a scheduled Amazon EC2 instance event.
   """
+  @spec modify_instance_event_start_time(
+          map(),
+          modify_instance_event_start_time_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_event_start_time_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_event_start_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8527,6 +33410,9 @@ defmodule AWS.EC2 do
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec modify_instance_event_window(map(), modify_instance_event_window_request(), list()) ::
+          {:ok, modify_instance_event_window_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_event_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8541,6 +33427,13 @@ defmodule AWS.EC2 do
   enable simplified automatic recovery for an unsupported instance type. For more
   information, see [Simplified automatic recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery).
   """
+  @spec modify_instance_maintenance_options(
+          map(),
+          modify_instance_maintenance_options_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_maintenance_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_maintenance_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8563,6 +33456,13 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec modify_instance_metadata_options(
+          map(),
+          modify_instance_metadata_options_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_metadata_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_metadata_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8600,6 +33500,9 @@ defmodule AWS.EC2 do
   the
   instance must be in the `stopped` state.
   """
+  @spec modify_instance_placement(map(), modify_instance_placement_request(), list()) ::
+          {:ok, modify_instance_placement_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_instance_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8609,6 +33512,9 @@ defmodule AWS.EC2 do
   @doc """
   Modify the configurations of an IPAM.
   """
+  @spec modify_ipam(map(), modify_ipam_request(), list()) ::
+          {:ok, modify_ipam_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_ipam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8621,6 +33527,9 @@ defmodule AWS.EC2 do
   For more information, see [Modify a pool](https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec modify_ipam_pool(map(), modify_ipam_pool_request(), list()) ::
+          {:ok, modify_ipam_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_ipam_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8639,6 +33548,9 @@ defmodule AWS.EC2 do
   [Change the monitoring state of resource CIDRs](https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html)
   in the *Amazon VPC IPAM User Guide*.
   """
+  @spec modify_ipam_resource_cidr(map(), modify_ipam_resource_cidr_request(), list()) ::
+          {:ok, modify_ipam_resource_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_ipam_resource_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8651,6 +33563,9 @@ defmodule AWS.EC2 do
   A resource discovery is an IPAM component that enables IPAM to manage and
   monitor resources that belong to the owning account.
   """
+  @spec modify_ipam_resource_discovery(map(), modify_ipam_resource_discovery_request(), list()) ::
+          {:ok, modify_ipam_resource_discovery_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8660,6 +33575,9 @@ defmodule AWS.EC2 do
   @doc """
   Modify an IPAM scope.
   """
+  @spec modify_ipam_scope(map(), modify_ipam_scope_request(), list()) ::
+          {:ok, modify_ipam_scope_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_ipam_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8674,6 +33592,9 @@ defmodule AWS.EC2 do
   applies when
   a launch template version is not specified.
   """
+  @spec modify_launch_template(map(), modify_launch_template_request(), list()) ::
+          {:ok, modify_launch_template_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_launch_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8683,6 +33604,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified local gateway route.
   """
+  @spec modify_local_gateway_route(map(), modify_local_gateway_route_request(), list()) ::
+          {:ok, modify_local_gateway_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_local_gateway_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8700,6 +33624,9 @@ defmodule AWS.EC2 do
   version
   number, the request fails.
   """
+  @spec modify_managed_prefix_list(map(), modify_managed_prefix_list_request(), list()) ::
+          {:ok, modify_managed_prefix_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_managed_prefix_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8714,6 +33641,13 @@ defmodule AWS.EC2 do
   groups from
   an existing EC2 instance.
   """
+  @spec modify_network_interface_attribute(
+          map(),
+          modify_network_interface_attribute_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_network_interface_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8723,6 +33657,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the options for instance hostnames for the specified instance.
   """
+  @spec modify_private_dns_name_options(map(), modify_private_dns_name_options_request(), list()) ::
+          {:ok, modify_private_dns_name_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_private_dns_name_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8740,6 +33677,9 @@ defmodule AWS.EC2 do
   For more information, see [Modifying Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec modify_reserved_instances(map(), modify_reserved_instances_request(), list()) ::
+          {:ok, modify_reserved_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_reserved_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8749,6 +33689,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the rules of a security group.
   """
+  @spec modify_security_group_rules(map(), modify_security_group_rules_request(), list()) ::
+          {:ok, modify_security_group_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_security_group_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8775,6 +33718,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec modify_snapshot_attribute(map(), modify_snapshot_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8791,6 +33737,9 @@ defmodule AWS.EC2 do
   tier. For more information, see [Archive Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec modify_snapshot_tier(map(), modify_snapshot_tier_request(), list()) ::
+          {:ok, modify_snapshot_tier_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_snapshot_tier(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8841,6 +33790,9 @@ defmodule AWS.EC2 do
   you can
   set the target capacity to 0.
   """
+  @spec modify_spot_fleet_request(map(), modify_spot_fleet_request_request(), list()) ::
+          {:ok, modify_spot_fleet_request_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_spot_fleet_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8875,6 +33827,9 @@ defmodule AWS.EC2 do
 
   [Outpost racks](https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html)
   """
+  @spec modify_subnet_attribute(map(), modify_subnet_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_subnet_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8891,6 +33846,13 @@ defmodule AWS.EC2 do
   When you no longer want to mirror network services, use `RemoveNetworkServices`
   to remove the network services from the Traffic Mirror filter.
   """
+  @spec modify_traffic_mirror_filter_network_services(
+          map(),
+          modify_traffic_mirror_filter_network_services_request(),
+          list()
+        ) ::
+          {:ok, modify_traffic_mirror_filter_network_services_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_traffic_mirror_filter_network_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8903,6 +33865,13 @@ defmodule AWS.EC2 do
   `DestinationCidrBlock` and `SourceCidrBlock` must both be an IPv4
   range or an IPv6 range.
   """
+  @spec modify_traffic_mirror_filter_rule(
+          map(),
+          modify_traffic_mirror_filter_rule_request(),
+          list()
+        ) ::
+          {:ok, modify_traffic_mirror_filter_rule_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8912,6 +33881,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies a Traffic Mirror session.
   """
+  @spec modify_traffic_mirror_session(map(), modify_traffic_mirror_session_request(), list()) ::
+          {:ok, modify_traffic_mirror_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_traffic_mirror_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8925,6 +33897,9 @@ defmodule AWS.EC2 do
   transit gateway attachments only. Your existing transit gateway attachments are
   not modified.
   """
+  @spec modify_transit_gateway(map(), modify_transit_gateway_request(), list()) ::
+          {:ok, modify_transit_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_transit_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8935,6 +33910,13 @@ defmodule AWS.EC2 do
   Modifies a reference (route) to a prefix list in a specified transit gateway
   route table.
   """
+  @spec modify_transit_gateway_prefix_list_reference(
+          map(),
+          modify_transit_gateway_prefix_list_reference_request(),
+          list()
+        ) ::
+          {:ok, modify_transit_gateway_prefix_list_reference_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8944,6 +33926,13 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified VPC attachment.
   """
+  @spec modify_transit_gateway_vpc_attachment(
+          map(),
+          modify_transit_gateway_vpc_attachment_request(),
+          list()
+        ) ::
+          {:ok, modify_transit_gateway_vpc_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8954,6 +33943,9 @@ defmodule AWS.EC2 do
   Modifies the configuration of the specified Amazon Web Services Verified Access
   endpoint.
   """
+  @spec modify_verified_access_endpoint(map(), modify_verified_access_endpoint_request(), list()) ::
+          {:ok, modify_verified_access_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8963,6 +33955,13 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified Amazon Web Services Verified Access endpoint policy.
   """
+  @spec modify_verified_access_endpoint_policy(
+          map(),
+          modify_verified_access_endpoint_policy_request(),
+          list()
+        ) ::
+          {:ok, modify_verified_access_endpoint_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_endpoint_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8972,6 +33971,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified Amazon Web Services Verified Access group configuration.
   """
+  @spec modify_verified_access_group(map(), modify_verified_access_group_request(), list()) ::
+          {:ok, modify_verified_access_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8981,6 +33983,13 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified Amazon Web Services Verified Access group policy.
   """
+  @spec modify_verified_access_group_policy(
+          map(),
+          modify_verified_access_group_policy_request(),
+          list()
+        ) ::
+          {:ok, modify_verified_access_group_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8991,6 +34000,9 @@ defmodule AWS.EC2 do
   Modifies the configuration of the specified Amazon Web Services Verified Access
   instance.
   """
+  @spec modify_verified_access_instance(map(), modify_verified_access_instance_request(), list()) ::
+          {:ok, modify_verified_access_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9001,6 +34013,13 @@ defmodule AWS.EC2 do
   Modifies the logging configuration for the specified Amazon Web Services
   Verified Access instance.
   """
+  @spec modify_verified_access_instance_logging_configuration(
+          map(),
+          modify_verified_access_instance_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, modify_verified_access_instance_logging_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_instance_logging_configuration(
         %Client{} = client,
         input,
@@ -9021,6 +34040,13 @@ defmodule AWS.EC2 do
   Modifies the configuration of the specified Amazon Web Services Verified Access
   trust provider.
   """
+  @spec modify_verified_access_trust_provider(
+          map(),
+          modify_verified_access_trust_provider_request(),
+          list()
+        ) ::
+          {:ok, modify_verified_access_trust_provider_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9065,6 +34091,9 @@ defmodule AWS.EC2 do
   is in the `in-use` or `available` state before you can modify the same
   volume. This is sometimes referred to as a cooldown period.
   """
+  @spec modify_volume(map(), modify_volume_request(), list()) ::
+          {:ok, modify_volume_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9086,6 +34115,9 @@ defmodule AWS.EC2 do
   you change
   this only for boot volumes or for volumes that are stateless or disposable.
   """
+  @spec modify_volume_attribute(map(), modify_volume_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_volume_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9095,6 +34127,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified attribute of the specified VPC.
   """
+  @spec modify_vpc_attribute(map(), modify_vpc_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9109,6 +34144,9 @@ defmodule AWS.EC2 do
   Balancer). For more information,
   see the [Amazon Web Services PrivateLink Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
   """
+  @spec modify_vpc_endpoint(map(), modify_vpc_endpoint_request(), list()) ::
+          {:ok, modify_vpc_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9122,6 +34160,13 @@ defmodule AWS.EC2 do
   can change the SNS topic for the notification, or the events for which to be
   notified.
   """
+  @spec modify_vpc_endpoint_connection_notification(
+          map(),
+          modify_vpc_endpoint_connection_notification_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_endpoint_connection_notification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9142,6 +34187,13 @@ defmodule AWS.EC2 do
   private DNS
   domain name.
   """
+  @spec modify_vpc_endpoint_service_configuration(
+          map(),
+          modify_vpc_endpoint_service_configuration_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_endpoint_service_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9151,6 +34203,13 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the payer responsibility for your VPC endpoint service.
   """
+  @spec modify_vpc_endpoint_service_payer_responsibility(
+          map(),
+          modify_vpc_endpoint_service_payer_responsibility_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_endpoint_service_payer_responsibility_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_endpoint_service_payer_responsibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9177,6 +34236,13 @@ defmodule AWS.EC2 do
   require manual approval,
   attachments are automatically approved.
   """
+  @spec modify_vpc_endpoint_service_permissions(
+          map(),
+          modify_vpc_endpoint_service_permissions_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_endpoint_service_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9207,6 +34273,13 @@ defmodule AWS.EC2 do
   requester for a VPC peering connection, use the `DescribeVpcPeeringConnections`
   command.
   """
+  @spec modify_vpc_peering_connection_options(
+          map(),
+          modify_vpc_peering_connection_options_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_peering_connection_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_peering_connection_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9229,6 +34302,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec modify_vpc_tenancy(map(), modify_vpc_tenancy_request(), list()) ::
+          {:ok, modify_vpc_tenancy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpc_tenancy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9289,6 +34365,9 @@ defmodule AWS.EC2 do
   be temporarily unavailable for a brief period while we provision the new
   endpoints.
   """
+  @spec modify_vpn_connection(map(), modify_vpn_connection_request(), list()) ::
+          {:ok, modify_vpn_connection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpn_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9304,6 +34383,9 @@ defmodule AWS.EC2 do
   VPN connection will be temporarily unavailable for a brief period while the VPN
   connection is updated.
   """
+  @spec modify_vpn_connection_options(map(), modify_vpn_connection_options_request(), list()) ::
+          {:ok, modify_vpn_connection_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpn_connection_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9313,6 +34395,9 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the VPN tunnel endpoint certificate.
   """
+  @spec modify_vpn_tunnel_certificate(map(), modify_vpn_tunnel_certificate_request(), list()) ::
+          {:ok, modify_vpn_tunnel_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpn_tunnel_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9330,6 +34415,9 @@ defmodule AWS.EC2 do
   connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html) in
   the *Amazon Web Services Site-to-Site VPN User Guide*.
   """
+  @spec modify_vpn_tunnel_options(map(), modify_vpn_tunnel_options_request(), list()) ::
+          {:ok, modify_vpn_tunnel_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def modify_vpn_tunnel_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9346,6 +34434,9 @@ defmodule AWS.EC2 do
   To disable detailed monitoring, see
   [UnmonitorInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html).
   """
+  @spec monitor_instances(map(), monitor_instances_request(), list()) ::
+          {:ok, monitor_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def monitor_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9368,6 +34459,9 @@ defmodule AWS.EC2 do
   originally allocated for use in the EC2-VPC platform to the EC2-Classic
   platform.
   """
+  @spec move_address_to_vpc(map(), move_address_to_vpc_request(), list()) ::
+          {:ok, move_address_to_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def move_address_to_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9382,6 +34476,9 @@ defmodule AWS.EC2 do
   you are bringing a new IP address to Amazon Web Services for the first time,
   complete the steps in [Tutorial: BYOIP address CIDRs to IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html).
   """
+  @spec move_byoip_cidr_to_ipam(map(), move_byoip_cidr_to_ipam_request(), list()) ::
+          {:ok, move_byoip_cidr_to_ipam_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def move_byoip_cidr_to_ipam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9416,6 +34513,9 @@ defmodule AWS.EC2 do
   with either the specific address from the address pool or the ID of the address
   pool.
   """
+  @spec provision_byoip_cidr(map(), provision_byoip_cidr_request(), list()) ::
+          {:ok, provision_byoip_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9430,6 +34530,9 @@ defmodule AWS.EC2 do
   Amazon Web Services account. For more information, see [Tutorial: Bring your ASN to IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html) in
   the *Amazon VPC IPAM guide*.
   """
+  @spec provision_ipam_byoasn(map(), provision_ipam_byoasn_request(), list()) ::
+          {:ok, provision_ipam_byoasn_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def provision_ipam_byoasn(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9445,6 +34548,9 @@ defmodule AWS.EC2 do
   For more information, see [Provision CIDRs to pools](https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec provision_ipam_pool_cidr(map(), provision_ipam_pool_cidr_request(), list()) ::
+          {:ok, provision_ipam_pool_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def provision_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9457,6 +34563,9 @@ defmodule AWS.EC2 do
   For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html) in the
   *Amazon VPC IPAM User Guide*.
   """
+  @spec provision_public_ipv4_pool_cidr(map(), provision_public_ipv4_pool_cidr_request(), list()) ::
+          {:ok, provision_public_ipv4_pool_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def provision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9470,6 +34579,9 @@ defmodule AWS.EC2 do
   (ML) workloads. You must specify the ID of the Capacity Block offering you are
   purchasing.
   """
+  @spec purchase_capacity_block(map(), purchase_capacity_block_request(), list()) ::
+          {:ok, purchase_capacity_block_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def purchase_capacity_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9486,6 +34598,9 @@ defmodule AWS.EC2 do
   your
   account.
   """
+  @spec purchase_host_reservation(map(), purchase_host_reservation_request(), list()) ::
+          {:ok, purchase_host_reservation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def purchase_host_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9513,6 +34628,13 @@ defmodule AWS.EC2 do
   [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec purchase_reserved_instances_offering(
+          map(),
+          purchase_reserved_instances_offering_request(),
+          list()
+        ) ::
+          {:ok, purchase_reserved_instances_offering_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def purchase_reserved_instances_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9536,6 +34658,9 @@ defmodule AWS.EC2 do
   After you purchase a Scheduled Instance, you can't cancel, modify, or resell
   your purchase.
   """
+  @spec purchase_scheduled_instances(map(), purchase_scheduled_instances_request(), list()) ::
+          {:ok, purchase_scheduled_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def purchase_scheduled_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9559,6 +34684,9 @@ defmodule AWS.EC2 do
   For more information about troubleshooting, see [Troubleshoot an unreachable instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec reboot_instances(map(), reboot_instances_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def reboot_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9640,6 +34768,9 @@ defmodule AWS.EC2 do
   information](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec register_image(map(), register_image_request(), list()) ::
+          {:ok, register_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def register_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9653,6 +34784,13 @@ defmodule AWS.EC2 do
   To remove tags, use
   [DeregisterInstanceEventNotificationAttributes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html).
   """
+  @spec register_instance_event_notification_attributes(
+          map(),
+          register_instance_event_notification_attributes_request(),
+          list()
+        ) ::
+          {:ok, register_instance_event_notification_attributes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def register_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9679,6 +34817,13 @@ defmodule AWS.EC2 do
   to verify that the members were added
   to the transit gateway multicast group.
   """
+  @spec register_transit_gateway_multicast_group_members(
+          map(),
+          register_transit_gateway_multicast_group_members_request(),
+          list()
+        ) ::
+          {:ok, register_transit_gateway_multicast_group_members_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def register_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9705,6 +34850,13 @@ defmodule AWS.EC2 do
   to verify that the source was added to the multicast
   group.
   """
+  @spec register_transit_gateway_multicast_group_sources(
+          map(),
+          register_transit_gateway_multicast_group_sources_request(),
+          list()
+        ) ::
+          {:ok, register_transit_gateway_multicast_group_sources_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def register_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9721,6 +34873,13 @@ defmodule AWS.EC2 do
   Rejects a request to associate cross-account subnets with a transit gateway
   multicast domain.
   """
+  @spec reject_transit_gateway_multicast_domain_associations(
+          map(),
+          reject_transit_gateway_multicast_domain_associations_request(),
+          list()
+        ) ::
+          {:ok, reject_transit_gateway_multicast_domain_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reject_transit_gateway_multicast_domain_associations(
         %Client{} = client,
         input,
@@ -9740,6 +34899,13 @@ defmodule AWS.EC2 do
   @doc """
   Rejects a transit gateway peering attachment request.
   """
+  @spec reject_transit_gateway_peering_attachment(
+          map(),
+          reject_transit_gateway_peering_attachment_request(),
+          list()
+        ) ::
+          {:ok, reject_transit_gateway_peering_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reject_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9754,6 +34920,13 @@ defmodule AWS.EC2 do
   requests.
   Use `AcceptTransitGatewayVpcAttachment` to accept a VPC attachment request.
   """
+  @spec reject_transit_gateway_vpc_attachment(
+          map(),
+          reject_transit_gateway_vpc_attachment_request(),
+          list()
+        ) ::
+          {:ok, reject_transit_gateway_vpc_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reject_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9763,6 +34936,9 @@ defmodule AWS.EC2 do
   @doc """
   Rejects VPC endpoint connection requests to your VPC endpoint service.
   """
+  @spec reject_vpc_endpoint_connections(map(), reject_vpc_endpoint_connections_request(), list()) ::
+          {:ok, reject_vpc_endpoint_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reject_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9779,6 +34955,9 @@ defmodule AWS.EC2 do
   connection, or to delete a VPC peering connection request that you initiated,
   use `DeleteVpcPeeringConnection`.
   """
+  @spec reject_vpc_peering_connection(map(), reject_vpc_peering_connection_request(), list()) ::
+          {:ok, reject_vpc_peering_connection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reject_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9808,6 +34987,9 @@ defmodule AWS.EC2 do
   After you release an Elastic IP address, you might be able to recover it.
   For more information, see `AllocateAddress`.
   """
+  @spec release_address(map(), release_address_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def release_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9832,6 +35014,9 @@ defmodule AWS.EC2 do
 
   Released hosts still appear in a `DescribeHosts` response.
   """
+  @spec release_hosts(map(), release_hosts_request(), list()) ::
+          {:ok, release_hosts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def release_hosts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9852,6 +35037,9 @@ defmodule AWS.EC2 do
   All EC2 API actions follow an [eventual consistency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency)
   model.
   """
+  @spec release_ipam_pool_allocation(map(), release_ipam_pool_allocation_request(), list()) ::
+          {:ok, release_ipam_pool_allocation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def release_ipam_pool_allocation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9869,6 +35057,13 @@ defmodule AWS.EC2 do
   Use `DescribeIamInstanceProfileAssociations` to get the association
   ID.
   """
+  @spec replace_iam_instance_profile_association(
+          map(),
+          replace_iam_instance_profile_association_request(),
+          list()
+        ) ::
+          {:ok, replace_iam_instance_profile_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_iam_instance_profile_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9885,6 +35080,9 @@ defmodule AWS.EC2 do
 
   This is an idempotent operation.
   """
+  @spec replace_network_acl_association(map(), replace_network_acl_association_request(), list()) ::
+          {:ok, replace_network_acl_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_network_acl_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9898,6 +35096,9 @@ defmodule AWS.EC2 do
   the
   *Amazon VPC User Guide*.
   """
+  @spec replace_network_acl_entry(map(), replace_network_acl_entry_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_network_acl_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9917,6 +35118,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec replace_route(map(), replace_route_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9937,6 +35141,9 @@ defmodule AWS.EC2 do
   the VPC. Specify the main route table's association ID and the route table ID of
   the new main route table.
   """
+  @spec replace_route_table_association(map(), replace_route_table_association_request(), list()) ::
+          {:ok, replace_route_table_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_route_table_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9946,6 +35153,9 @@ defmodule AWS.EC2 do
   @doc """
   Replaces the specified route in the specified transit gateway route table.
   """
+  @spec replace_transit_gateway_route(map(), replace_transit_gateway_route_request(), list()) ::
+          {:ok, replace_transit_gateway_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_transit_gateway_route(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9955,6 +35165,9 @@ defmodule AWS.EC2 do
   @doc """
   Trigger replacement of specified VPN tunnel.
   """
+  @spec replace_vpn_tunnel(map(), replace_vpn_tunnel_request(), list()) ::
+          {:ok, replace_vpn_tunnel_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def replace_vpn_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -9973,6 +35186,9 @@ defmodule AWS.EC2 do
   Use of this action does not change the value returned by
   `DescribeInstanceStatus`.
   """
+  @spec report_instance_status(map(), report_instance_status_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def report_instance_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10022,6 +35238,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec request_spot_fleet(map(), request_spot_fleet_request(), list()) ::
+          {:ok, request_spot_fleet_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def request_spot_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10042,6 +35261,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide for Linux Instances*.
   """
+  @spec request_spot_instances(map(), request_spot_instances_request(), list()) ::
+          {:ok, request_spot_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def request_spot_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10053,6 +35275,9 @@ defmodule AWS.EC2 do
 
   For requirements, see [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
   """
+  @spec reset_address_attribute(map(), reset_address_attribute_request(), list()) ::
+          {:ok, reset_address_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_address_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10070,6 +35295,9 @@ defmodule AWS.EC2 do
   [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec reset_ebs_default_kms_key_id(map(), reset_ebs_default_kms_key_id_request(), list()) ::
+          {:ok, reset_ebs_default_kms_key_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10082,6 +35310,9 @@ defmodule AWS.EC2 do
 
   You can only reset the load permission attribute.
   """
+  @spec reset_fpga_image_attribute(map(), reset_fpga_image_attribute_request(), list()) ::
+          {:ok, reset_fpga_image_attribute_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_fpga_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10091,6 +35322,9 @@ defmodule AWS.EC2 do
   @doc """
   Resets an attribute of an AMI to its default value.
   """
+  @spec reset_image_attribute(map(), reset_image_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_image_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10112,6 +35346,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon VPC User Guide*.
   """
+  @spec reset_instance_attribute(map(), reset_instance_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_instance_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10123,6 +35360,13 @@ defmodule AWS.EC2 do
 
   You can specify only one attribute at a time.
   """
+  @spec reset_network_interface_attribute(
+          map(),
+          reset_network_interface_attribute_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_network_interface_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10136,6 +35380,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec reset_snapshot_attribute(map(), reset_snapshot_attribute_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def reset_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10151,6 +35398,9 @@ defmodule AWS.EC2 do
   originally allocated for use in EC2-VPC. The Elastic IP address must not be
   associated with an instance or network interface.
   """
+  @spec restore_address_to_classic(map(), restore_address_to_classic_request(), list()) ::
+          {:ok, restore_address_to_classic_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def restore_address_to_classic(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10163,6 +35413,9 @@ defmodule AWS.EC2 do
   For more information, see [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
   """
+  @spec restore_image_from_recycle_bin(map(), restore_image_from_recycle_bin_request(), list()) ::
+          {:ok, restore_image_from_recycle_bin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def restore_image_from_recycle_bin(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10173,6 +35426,13 @@ defmodule AWS.EC2 do
   Restores the entries from a previous version of a managed prefix list to a new
   version of the prefix list.
   """
+  @spec restore_managed_prefix_list_version(
+          map(),
+          restore_managed_prefix_list_version_request(),
+          list()
+        ) ::
+          {:ok, restore_managed_prefix_list_version_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def restore_managed_prefix_list_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10186,6 +35446,13 @@ defmodule AWS.EC2 do
   Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec restore_snapshot_from_recycle_bin(
+          map(),
+          restore_snapshot_from_recycle_bin_request(),
+          list()
+        ) ::
+          {:ok, restore_snapshot_from_recycle_bin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def restore_snapshot_from_recycle_bin(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10205,6 +35472,9 @@ defmodule AWS.EC2 do
   snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
+  @spec restore_snapshot_tier(map(), restore_snapshot_tier_request(), list()) ::
+          {:ok, restore_snapshot_tier_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def restore_snapshot_tier(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10214,6 +35484,9 @@ defmodule AWS.EC2 do
   @doc """
   Removes an ingress authorization rule from a Client VPN endpoint.
   """
+  @spec revoke_client_vpn_ingress(map(), revoke_client_vpn_ingress_request(), list()) ::
+          {:ok, revoke_client_vpn_ingress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def revoke_client_vpn_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10249,6 +35522,9 @@ defmodule AWS.EC2 do
   possible. However,
   a small delay might occur.
   """
+  @spec revoke_security_group_egress(map(), revoke_security_group_egress_request(), list()) ::
+          {:ok, revoke_security_group_egress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def revoke_security_group_egress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10290,6 +35566,9 @@ defmodule AWS.EC2 do
   possible.
   However, a small delay might occur.
   """
+  @spec revoke_security_group_ingress(map(), revoke_security_group_ingress_request(), list()) ::
+          {:ok, revoke_security_group_ingress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def revoke_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10354,6 +35633,9 @@ defmodule AWS.EC2 do
   terminates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html),
   and [Troubleshooting connecting to your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html).
   """
+  @spec run_instances(map(), run_instances_request(), list()) ::
+          {:ok, reservation(), any()}
+          | {:error, {:unexpected_response, any()}}
   def run_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10374,6 +35656,9 @@ defmodule AWS.EC2 do
   [Scheduled Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec run_scheduled_instances(map(), run_scheduled_instances_request(), list()) ::
+          {:ok, run_scheduled_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def run_scheduled_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10383,6 +35668,9 @@ defmodule AWS.EC2 do
   @doc """
   Searches for routes in the specified local gateway route table.
   """
+  @spec search_local_gateway_routes(map(), search_local_gateway_routes_request(), list()) ::
+          {:ok, search_local_gateway_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def search_local_gateway_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10393,6 +35681,13 @@ defmodule AWS.EC2 do
   Searches one or more transit gateway multicast groups and returns the group
   membership information.
   """
+  @spec search_transit_gateway_multicast_groups(
+          map(),
+          search_transit_gateway_multicast_groups_request(),
+          list()
+        ) ::
+          {:ok, search_transit_gateway_multicast_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def search_transit_gateway_multicast_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10402,6 +35697,9 @@ defmodule AWS.EC2 do
   @doc """
   Searches for routes in the specified transit gateway route table.
   """
+  @spec search_transit_gateway_routes(map(), search_transit_gateway_routes_request(), list()) ::
+          {:ok, search_transit_gateway_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def search_transit_gateway_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10437,6 +35735,9 @@ defmodule AWS.EC2 do
   users)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html)
   (Windows instances).
   """
+  @spec send_diagnostic_interrupt(map(), send_diagnostic_interrupt_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def send_diagnostic_interrupt(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10475,6 +35776,9 @@ defmodule AWS.EC2 do
   For more information, see [Stop and start your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec start_instances(map(), start_instances_request(), list()) ::
+          {:ok, start_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10484,6 +35788,13 @@ defmodule AWS.EC2 do
   @doc """
   Starts analyzing the specified Network Access Scope.
   """
+  @spec start_network_insights_access_scope_analysis(
+          map(),
+          start_network_insights_access_scope_analysis_request(),
+          list()
+        ) ::
+          {:ok, start_network_insights_access_scope_analysis_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_network_insights_access_scope_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10496,6 +35807,9 @@ defmodule AWS.EC2 do
   If the path is reachable, the
   operation returns the shortest feasible path.
   """
+  @spec start_network_insights_analysis(map(), start_network_insights_analysis_request(), list()) ::
+          {:ok, start_network_insights_analysis_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_network_insights_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10513,6 +35827,13 @@ defmodule AWS.EC2 do
   Before the service provider runs this command, they must add a record to the DNS
   server.
   """
+  @spec start_vpc_endpoint_service_private_dns_verification(
+          map(),
+          start_vpc_endpoint_service_private_dns_verification_request(),
+          list()
+        ) ::
+          {:ok, start_vpc_endpoint_service_private_dns_verification_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_vpc_endpoint_service_private_dns_verification(
         %Client{} = client,
         input,
@@ -10594,6 +35915,9 @@ defmodule AWS.EC2 do
   instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html)
   in the *Amazon EC2 User Guide*.
   """
+  @spec stop_instances(map(), stop_instances_request(), list()) ::
+          {:ok, stop_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def stop_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10606,6 +35930,13 @@ defmodule AWS.EC2 do
   This action can be used to terminate a specific client connection, or up to five
   connections established by a specific user.
   """
+  @spec terminate_client_vpn_connections(
+          map(),
+          terminate_client_vpn_connections_request(),
+          list()
+        ) ::
+          {:ok, terminate_client_vpn_connections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def terminate_client_vpn_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10688,6 +36019,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec terminate_instances(map(), terminate_instances_request(), list()) ::
+          {:ok, terminate_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def terminate_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10698,6 +36032,9 @@ defmodule AWS.EC2 do
   Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a
   network interface.
   """
+  @spec unassign_ipv6_addresses(map(), unassign_ipv6_addresses_request(), list()) ::
+          {:ok, unassign_ipv6_addresses_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def unassign_ipv6_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10709,6 +36046,9 @@ defmodule AWS.EC2 do
   prefixes from a
   network interface.
   """
+  @spec unassign_private_ip_addresses(map(), unassign_private_ip_addresses_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
   def unassign_private_ip_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10736,6 +36076,13 @@ defmodule AWS.EC2 do
   private IP
   addresses are released.
   """
+  @spec unassign_private_nat_gateway_address(
+          map(),
+          unassign_private_nat_gateway_address_request(),
+          list()
+        ) ::
+          {:ok, unassign_private_nat_gateway_address_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def unassign_private_nat_gateway_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10750,6 +36097,9 @@ defmodule AWS.EC2 do
   You can't unlock a snapshot that is locked in compliance
   mode after the cooling-off period has expired.
   """
+  @spec unlock_snapshot(map(), unlock_snapshot_request(), list()) ::
+          {:ok, unlock_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def unlock_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10764,6 +36114,9 @@ defmodule AWS.EC2 do
   in the
   *Amazon EC2 User Guide*.
   """
+  @spec unmonitor_instances(map(), unmonitor_instances_request(), list()) ::
+          {:ok, unmonitor_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def unmonitor_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10780,6 +36133,13 @@ defmodule AWS.EC2 do
   the
   description parameter in the request.
   """
+  @spec update_security_group_rule_descriptions_egress(
+          map(),
+          update_security_group_rule_descriptions_egress_request(),
+          list()
+        ) ::
+          {:ok, update_security_group_rule_descriptions_egress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def update_security_group_rule_descriptions_egress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10802,6 +36162,13 @@ defmodule AWS.EC2 do
   description
   parameter in the request.
   """
+  @spec update_security_group_rule_descriptions_ingress(
+          map(),
+          update_security_group_rule_descriptions_ingress_request(),
+          list()
+        ) ::
+          {:ok, update_security_group_rule_descriptions_ingress_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def update_security_group_rule_descriptions_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10825,6 +36192,9 @@ defmodule AWS.EC2 do
   routing to Amazon Web Services
   because of BGP propagation delays.
   """
+  @spec withdraw_byoip_cidr(map(), withdraw_byoip_cidr_request(), list()) ::
+          {:ok, withdraw_byoip_cidr_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

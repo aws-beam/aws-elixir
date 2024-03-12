@@ -26,6 +26,455 @@ defmodule AWS.IotDeviceAdvisor do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  list_suite_definitions_response() :: %{
+    "nextToken" => String.t(),
+    "suiteDefinitionInformationList" => list(suite_definition_information()())
+  }
+  """
+  @type list_suite_definitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_run_request() :: %{
+
+  }
+  """
+  @type get_suite_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_suite_run_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "endpoint" => String.t(),
+    "suiteRunArn" => String.t(),
+    "suiteRunId" => String.t()
+  }
+  """
+  @type start_suite_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  suite_run_configuration() :: %{
+    "parallelRun" => boolean(),
+    "primaryDevice" => device_under_test(),
+    "selectedTestList" => list(String.t()())
+  }
+  """
+  @type suite_run_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  suite_definition_information() :: %{
+    "createdAt" => non_neg_integer(),
+    "defaultDevices" => list(device_under_test()()),
+    "intendedForQualification" => boolean(),
+    "isLongDurationTest" => boolean(),
+    "protocol" => list(any()),
+    "suiteDefinitionId" => String.t(),
+    "suiteDefinitionName" => String.t()
+  }
+  """
+  @type suite_definition_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_suite_definition_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "suiteDefinitionArn" => String.t(),
+    "suiteDefinitionId" => String.t(),
+    "suiteDefinitionName" => String.t()
+  }
+  """
+  @type create_suite_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_result() :: %{
+    "groups" => list(group_result()())
+  }
+  """
+  @type test_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  suite_run_information() :: %{
+    "createdAt" => non_neg_integer(),
+    "endAt" => non_neg_integer(),
+    "failed" => integer(),
+    "passed" => integer(),
+    "startedAt" => non_neg_integer(),
+    "status" => list(any()),
+    "suiteDefinitionId" => String.t(),
+    "suiteDefinitionName" => String.t(),
+    "suiteDefinitionVersion" => String.t(),
+    "suiteRunId" => String.t()
+  }
+  """
+  @type suite_run_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_under_test() :: %{
+    "certificateArn" => String.t(),
+    "deviceRoleArn" => String.t(),
+    "thingArn" => String.t()
+  }
+  """
+  @type device_under_test() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_suite_run_response() :: %{
+
+  }
+  """
+  @type stop_suite_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_run_report_response() :: %{
+    "qualificationReportDownloadUrl" => String.t()
+  }
+  """
+  @type get_suite_run_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suite_definitions_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_suite_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_run_report_request() :: %{
+
+  }
+  """
+  @type get_suite_run_report_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_endpoint_response() :: %{
+    "endpoint" => String.t()
+  }
+  """
+  @type get_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_run_response() :: %{
+    "endTime" => non_neg_integer(),
+    "errorReason" => String.t(),
+    "startTime" => non_neg_integer(),
+    "status" => list(any()),
+    "suiteDefinitionId" => String.t(),
+    "suiteDefinitionVersion" => String.t(),
+    "suiteRunArn" => String.t(),
+    "suiteRunConfiguration" => suite_run_configuration(),
+    "suiteRunId" => String.t(),
+    "tags" => map(),
+    "testResult" => test_result()
+  }
+  """
+  @type get_suite_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_suite_definition_request() :: %{
+    optional("tags") => map(),
+    required("suiteDefinitionConfiguration") => suite_definition_configuration()
+  }
+  """
+  @type create_suite_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_suite_run_request() :: %{
+
+  }
+  """
+  @type stop_suite_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_definition_request() :: %{
+    optional("suiteDefinitionVersion") => String.t()
+  }
+  """
+  @type get_suite_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suite_runs_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("suiteDefinitionId") => String.t(),
+    optional("suiteDefinitionVersion") => String.t()
+  }
+  """
+  @type list_suite_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_suite_definition_request() :: %{
+
+  }
+  """
+  @type delete_suite_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  suite_definition_configuration() :: %{
+    "devicePermissionRoleArn" => String.t(),
+    "devices" => list(device_under_test()()),
+    "intendedForQualification" => boolean(),
+    "isLongDurationTest" => boolean(),
+    "protocol" => list(any()),
+    "rootGroup" => String.t(),
+    "suiteDefinitionName" => String.t()
+  }
+  """
+  @type suite_definition_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_case_scenario() :: %{
+    "failure" => String.t(),
+    "status" => list(any()),
+    "systemMessage" => String.t(),
+    "testCaseScenarioId" => String.t(),
+    "testCaseScenarioType" => list(any())
+  }
+  """
+  @type test_case_scenario() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_suite_definition_response() :: %{
+
+  }
+  """
+  @type delete_suite_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_suite_definition_request() :: %{
+    required("suiteDefinitionConfiguration") => suite_definition_configuration()
+  }
+  """
+  @type update_suite_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_definition_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "lastModifiedAt" => non_neg_integer(),
+    "latestVersion" => String.t(),
+    "suiteDefinitionArn" => String.t(),
+    "suiteDefinitionConfiguration" => suite_definition_configuration(),
+    "suiteDefinitionId" => String.t(),
+    "suiteDefinitionVersion" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type get_suite_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suite_runs_response() :: %{
+    "nextToken" => String.t(),
+    "suiteRunsList" => list(suite_run_information()())
+  }
+  """
+  @type list_suite_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_result() :: %{
+    "groupId" => String.t(),
+    "groupName" => String.t(),
+    "tests" => list(test_case_run()())
+  }
+  """
+  @type group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_suite_run_request() :: %{
+    optional("suiteDefinitionVersion") => String.t(),
+    optional("tags") => map(),
+    required("suiteRunConfiguration") => suite_run_configuration()
+  }
+  """
+  @type start_suite_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_case_run() :: %{
+    "endTime" => non_neg_integer(),
+    "failure" => String.t(),
+    "logUrl" => String.t(),
+    "startTime" => non_neg_integer(),
+    "status" => list(any()),
+    "testCaseDefinitionId" => String.t(),
+    "testCaseDefinitionName" => String.t(),
+    "testCaseRunId" => String.t(),
+    "testScenarios" => list(test_case_scenario()()),
+    "warnings" => String.t()
+  }
+  """
+  @type test_case_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_endpoint_request() :: %{
+    optional("authenticationMethod") => list(any()),
+    optional("certificateArn") => String.t(),
+    optional("deviceRoleArn") => String.t(),
+    optional("thingArn") => String.t()
+  }
+  """
+  @type get_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_suite_definition_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "lastUpdatedAt" => non_neg_integer(),
+    "suiteDefinitionArn" => String.t(),
+    "suiteDefinitionId" => String.t(),
+    "suiteDefinitionName" => String.t(),
+    "suiteDefinitionVersion" => String.t()
+  }
+  """
+  @type update_suite_definition_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2020-09-18",
@@ -48,6 +497,11 @@ defmodule AWS.IotDeviceAdvisor do
   [CreateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec create_suite_definition(map(), create_suite_definition_request(), list()) ::
+          {:ok, create_suite_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def create_suite_definition(%Client{} = client, input, options \\ []) do
     url_path = "/suiteDefinitions"
     headers = []
@@ -75,6 +529,11 @@ defmodule AWS.IotDeviceAdvisor do
   [DeleteSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec delete_suite_definition(map(), String.t(), delete_suite_definition_request(), list()) ::
+          {:ok, delete_suite_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def delete_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []
@@ -98,6 +557,19 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about an Device Advisor endpoint.
   """
+  @spec get_endpoint(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_endpoint(
         %Client{} = client,
         authentication_method \\ nil,
@@ -150,6 +622,12 @@ defmodule AWS.IotDeviceAdvisor do
   [GetSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec get_suite_definition(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_suite_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_suite_definition(
         %Client{} = client,
         suite_definition_id,
@@ -179,6 +657,12 @@ defmodule AWS.IotDeviceAdvisor do
   [GetSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec get_suite_run(map(), String.t(), String.t(), list()) ::
+          {:ok, get_suite_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}"
@@ -199,6 +683,12 @@ defmodule AWS.IotDeviceAdvisor do
   [GetSuiteRunReport](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec get_suite_run_report(map(), String.t(), String.t(), list()) ::
+          {:ok, get_suite_run_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_suite_run_report(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/report"
@@ -218,6 +708,11 @@ defmodule AWS.IotDeviceAdvisor do
   [ListSuiteDefinitions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec list_suite_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_suite_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def list_suite_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -257,6 +752,18 @@ defmodule AWS.IotDeviceAdvisor do
   [ListSuiteRuns](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec list_suite_runs(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_suite_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def list_suite_runs(
         %Client{} = client,
         max_results \\ nil,
@@ -309,6 +816,12 @@ defmodule AWS.IotDeviceAdvisor do
   [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -326,6 +839,12 @@ defmodule AWS.IotDeviceAdvisor do
   [StartSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec start_suite_run(map(), String.t(), start_suite_run_request(), list()) ::
+          {:ok, start_suite_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns"
     headers = []
@@ -353,6 +872,12 @@ defmodule AWS.IotDeviceAdvisor do
   [StopSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec stop_suite_run(map(), String.t(), String.t(), stop_suite_run_request(), list()) ::
+          {:ok, stop_suite_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, input, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/stop"
@@ -382,6 +907,12 @@ defmodule AWS.IotDeviceAdvisor do
   [TagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -409,6 +940,12 @@ defmodule AWS.IotDeviceAdvisor do
   [UntagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -441,6 +978,11 @@ defmodule AWS.IotDeviceAdvisor do
   [UpdateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec update_suite_definition(map(), String.t(), update_suite_definition_request(), list()) ::
+          {:ok, update_suite_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def update_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []

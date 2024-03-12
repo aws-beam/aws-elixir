@@ -73,6 +73,98 @@ defmodule AWS.AppConfigData do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  bad_request_exception() :: %{
+    "Details" => list(),
+    "Message" => String.t(),
+    "Reason" => String.t()
+  }
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_latest_configuration_request() :: %{
+    required("ConfigurationToken") => String.t()
+  }
+  """
+  @type get_latest_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_latest_configuration_response() :: %{
+    optional("Configuration") => binary(),
+    optional("ContentType") => String.t(),
+    optional("NextPollConfigurationToken") => String.t(),
+    optional("NextPollIntervalInSeconds") => integer(),
+    optional("VersionLabel") => String.t()
+  }
+  """
+  @type get_latest_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_detail() :: %{
+    "Problem" => String.t()
+  }
+  """
+  @type invalid_parameter_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => String.t(),
+    "ReferencedBy" => map(),
+    "ResourceType" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_configuration_session_request() :: %{
+    optional("RequiredMinimumPollIntervalInSeconds") => integer(),
+    required("ApplicationIdentifier") => String.t(),
+    required("ConfigurationProfileIdentifier") => String.t(),
+    required("EnvironmentIdentifier") => String.t()
+  }
+  """
+  @type start_configuration_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_configuration_session_response() :: %{
+    optional("InitialConfigurationToken") => String.t()
+  }
+  """
+  @type start_configuration_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2021-11-11",
@@ -112,6 +204,13 @@ defmodule AWS.AppConfigData do
   `GetLatestConfiguration` is a priced call. For more information, see
   [Pricing](https://aws.amazon.com/systems-manager/pricing/).
   """
+  @spec get_latest_configuration(map(), String.t(), list()) ::
+          {:ok, get_latest_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def get_latest_configuration(%Client{} = client, configuration_token, options \\ []) do
     url_path = "/configuration"
     headers = []
@@ -150,6 +249,13 @@ defmodule AWS.AppConfigData do
   it with the `GetLatestConfiguration` API action, see [Retrieving the configuration](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration)
   in the *AppConfig User Guide*.
   """
+  @spec start_configuration_session(map(), start_configuration_session_request(), list()) ::
+          {:ok, start_configuration_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def start_configuration_session(%Client{} = client, input, options \\ []) do
     url_path = "/configurationsessions"
     headers = []

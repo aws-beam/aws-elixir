@@ -157,6 +157,660 @@ defmodule AWS.MedicalImaging do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  get_image_set_metadata_request() :: %{
+    optional("versionId") => String.t()
+  }
+  """
+  @type get_image_set_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_d_i_c_o_m_import_job_request() :: %{
+    optional("jobName") => String.t(),
+    required("clientToken") => String.t(),
+    required("dataAccessRoleArn") => String.t(),
+    required("inputS3Uri") => String.t(),
+    required("outputS3Uri") => String.t()
+  }
+  """
+  @type start_d_i_c_o_m_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_image_sets_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t(),
+    optional("searchCriteria") => search_criteria()
+  }
+  """
+  @type search_image_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_sets_metadata_summary() :: %{
+    "DICOMTags" => d_i_c_o_m_tags(),
+    "createdAt" => non_neg_integer(),
+    "imageSetId" => String.t(),
+    "updatedAt" => non_neg_integer(),
+    "version" => [integer()]
+  }
+  """
+  @type image_sets_metadata_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_image_set_request() :: %{
+    required("copyImageSetInformation") => copy_image_set_information()
+  }
+  """
+  @type copy_image_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_source_image_set_information() :: %{
+    "latestVersionId" => String.t()
+  }
+  """
+  @type copy_source_image_set_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_source_image_set_properties() :: %{
+    "createdAt" => non_neg_integer(),
+    "imageSetArn" => String.t(),
+    "imageSetId" => String.t(),
+    "imageSetState" => list(any()),
+    "imageSetWorkflowStatus" => list(any()),
+    "latestVersionId" => String.t(),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type copy_source_image_set_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_datastore_request() :: %{
+
+  }
+  """
+  @type get_datastore_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_image_set_versions_request() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_image_set_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  d_i_c_o_m_import_job_summary() :: %{
+    "dataAccessRoleArn" => String.t(),
+    "datastoreId" => String.t(),
+    "endedAt" => non_neg_integer(),
+    "jobId" => String.t(),
+    "jobName" => String.t(),
+    "jobStatus" => list(any()),
+    "message" => String.t(),
+    "submittedAt" => non_neg_integer()
+  }
+  """
+  @type d_i_c_o_m_import_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_set_properties() :: %{
+    "ImageSetWorkflowStatus" => list(any()),
+    "createdAt" => non_neg_integer(),
+    "deletedAt" => non_neg_integer(),
+    "imageSetId" => String.t(),
+    "imageSetState" => list(any()),
+    "message" => String.t(),
+    "updatedAt" => non_neg_integer(),
+    "versionId" => String.t()
+  }
+  """
+  @type image_set_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_frame_information() :: %{
+    "imageFrameId" => String.t()
+  }
+  """
+  @type image_frame_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_filter() :: %{
+    "operator" => list(any()),
+    "values" => list(list()())
+  }
+  """
+  @type search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_d_i_c_o_m_import_job_request() :: %{
+
+  }
+  """
+  @type get_d_i_c_o_m_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_set_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "datastoreId" => String.t(),
+    "deletedAt" => non_neg_integer(),
+    "imageSetArn" => String.t(),
+    "imageSetId" => String.t(),
+    "imageSetState" => list(any()),
+    "imageSetWorkflowStatus" => list(any()),
+    "message" => String.t(),
+    "updatedAt" => non_neg_integer(),
+    "versionId" => String.t()
+  }
+  """
+  @type get_image_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_datastore_response() :: %{
+    "datastoreId" => String.t(),
+    "datastoreStatus" => list(any())
+  }
+  """
+  @type delete_datastore_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_set_request() :: %{
+    optional("versionId") => String.t()
+  }
+  """
+  @type get_image_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_image_sets_response() :: %{
+    "imageSetsMetadataSummaries" => list(image_sets_metadata_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type search_image_sets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_image_set_metadata_request() :: %{
+    required("latestVersionId") => String.t(),
+    required("updateImageSetMetadataUpdates") => list()
+  }
+  """
+  @type update_image_set_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_image_set_response() :: %{
+    "datastoreId" => String.t(),
+    "destinationImageSetProperties" => copy_destination_image_set_properties(),
+    "sourceImageSetProperties" => copy_source_image_set_properties()
+  }
+  """
+  @type copy_image_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_datastore_response() :: %{
+    "datastoreProperties" => datastore_properties()
+  }
+  """
+  @type get_datastore_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_datastores_response() :: %{
+    "datastoreSummaries" => list(datastore_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_datastores_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_d_i_c_o_m_import_job_response() :: %{
+    "datastoreId" => String.t(),
+    "jobId" => String.t(),
+    "jobStatus" => list(any()),
+    "submittedAt" => non_neg_integer()
+  }
+  """
+  @type start_d_i_c_o_m_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_frame_request() :: %{
+    required("imageFrameInformation") => image_frame_information()
+  }
+  """
+  @type get_image_frame_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  d_i_c_o_m_import_job_properties() :: %{
+    "dataAccessRoleArn" => String.t(),
+    "datastoreId" => String.t(),
+    "endedAt" => non_neg_integer(),
+    "inputS3Uri" => String.t(),
+    "jobId" => String.t(),
+    "jobName" => String.t(),
+    "jobStatus" => list(any()),
+    "message" => String.t(),
+    "outputS3Uri" => String.t(),
+    "submittedAt" => non_neg_integer()
+  }
+  """
+  @type d_i_c_o_m_import_job_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_datastores_request() :: %{
+    optional("datastoreStatus") => list(any()),
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_datastores_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  datastore_properties() :: %{
+    "createdAt" => non_neg_integer(),
+    "datastoreArn" => String.t(),
+    "datastoreId" => String.t(),
+    "datastoreName" => String.t(),
+    "datastoreStatus" => list(any()),
+    "kmsKeyArn" => String.t(),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type datastore_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  d_i_c_o_m_tags() :: %{
+    "DICOMAccessionNumber" => String.t(),
+    "DICOMNumberOfStudyRelatedInstances" => integer(),
+    "DICOMNumberOfStudyRelatedSeries" => integer(),
+    "DICOMPatientBirthDate" => String.t(),
+    "DICOMPatientId" => String.t(),
+    "DICOMPatientName" => String.t(),
+    "DICOMPatientSex" => String.t(),
+    "DICOMStudyDate" => String.t(),
+    "DICOMStudyDescription" => String.t(),
+    "DICOMStudyId" => String.t(),
+    "DICOMStudyInstanceUID" => String.t(),
+    "DICOMStudyTime" => String.t()
+  }
+  """
+  @type d_i_c_o_m_tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_destination_image_set_properties() :: %{
+    "createdAt" => non_neg_integer(),
+    "imageSetArn" => String.t(),
+    "imageSetId" => String.t(),
+    "imageSetState" => list(any()),
+    "imageSetWorkflowStatus" => list(any()),
+    "latestVersionId" => String.t(),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type copy_destination_image_set_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  datastore_summary() :: %{
+    "createdAt" => non_neg_integer(),
+    "datastoreArn" => String.t(),
+    "datastoreId" => String.t(),
+    "datastoreName" => String.t(),
+    "datastoreStatus" => list(any()),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type datastore_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  d_i_c_o_m_updates() :: %{
+    "removableAttributes" => binary(),
+    "updatableAttributes" => binary()
+  }
+  """
+  @type d_i_c_o_m_updates() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_image_set_versions_response() :: %{
+    "imageSetPropertiesList" => list(image_set_properties()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_image_set_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_destination_image_set() :: %{
+    "imageSetId" => String.t(),
+    "latestVersionId" => String.t()
+  }
+  """
+  @type copy_destination_image_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_d_i_c_o_m_import_jobs_request() :: %{
+    optional("jobStatus") => list(any()),
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_d_i_c_o_m_import_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_image_set_request() :: %{
+
+  }
+  """
+  @type delete_image_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_datastore_request() :: %{
+    optional("datastoreName") => String.t(),
+    optional("kmsKeyArn") => String.t(),
+    optional("tags") => map(),
+    required("clientToken") => String.t()
+  }
+  """
+  @type create_datastore_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_set_metadata_response() :: %{
+    "contentEncoding" => [String.t()],
+    "contentType" => [String.t()],
+    "imageSetMetadataBlob" => binary()
+  }
+  """
+  @type get_image_set_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_image_set_metadata_response() :: %{
+    "createdAt" => non_neg_integer(),
+    "datastoreId" => String.t(),
+    "imageSetId" => String.t(),
+    "imageSetState" => list(any()),
+    "imageSetWorkflowStatus" => list(any()),
+    "latestVersionId" => String.t(),
+    "message" => String.t(),
+    "updatedAt" => non_neg_integer()
+  }
+  """
+  @type update_image_set_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  d_i_c_o_m_study_date_and_time() :: %{
+    "DICOMStudyDate" => String.t(),
+    "DICOMStudyTime" => String.t()
+  }
+  """
+  @type d_i_c_o_m_study_date_and_time() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_datastore_response() :: %{
+    "datastoreId" => String.t(),
+    "datastoreStatus" => list(any())
+  }
+  """
+  @type create_datastore_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_image_set_information() :: %{
+    "destinationImageSet" => copy_destination_image_set(),
+    "sourceImageSet" => copy_source_image_set_information()
+  }
+  """
+  @type copy_image_set_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_image_set_response() :: %{
+    "datastoreId" => String.t(),
+    "imageSetId" => String.t(),
+    "imageSetState" => list(any()),
+    "imageSetWorkflowStatus" => list(any())
+  }
+  """
+  @type delete_image_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_criteria() :: %{
+    "filters" => list(search_filter()())
+  }
+  """
+  @type search_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_image_frame_response() :: %{
+    "contentType" => [String.t()],
+    "imageFrameBlob" => binary()
+  }
+  """
+  @type get_image_frame_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_d_i_c_o_m_import_jobs_response() :: %{
+    "jobSummaries" => list(d_i_c_o_m_import_job_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_d_i_c_o_m_import_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_datastore_request() :: %{
+
+  }
+  """
+  @type delete_datastore_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_d_i_c_o_m_import_job_response() :: %{
+    "jobProperties" => d_i_c_o_m_import_job_properties()
+  }
+  """
+  @type get_d_i_c_o_m_import_job_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2023-07-19",
@@ -175,6 +829,16 @@ defmodule AWS.MedicalImaging do
   @doc """
   Copy an image set.
   """
+  @spec copy_image_set(map(), String.t(), String.t(), copy_image_set_request(), list()) ::
+          {:ok, copy_image_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def copy_image_set(%Client{} = client, datastore_id, source_image_set_id, input, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(source_image_set_id)}/copyImageSet"
@@ -200,6 +864,15 @@ defmodule AWS.MedicalImaging do
   @doc """
   Create a data store.
   """
+  @spec create_datastore(map(), create_datastore_request(), list()) ::
+          {:ok, create_datastore_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastore"
     headers = []
@@ -226,6 +899,15 @@ defmodule AWS.MedicalImaging do
   Before a data store can be deleted, you must first delete all image sets within
   it.
   """
+  @spec delete_datastore(map(), String.t(), delete_datastore_request(), list()) ::
+          {:ok, delete_datastore_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_datastore(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
     headers = []
@@ -249,6 +931,15 @@ defmodule AWS.MedicalImaging do
   @doc """
   Delete an image set.
   """
+  @spec delete_image_set(map(), String.t(), String.t(), delete_image_set_request(), list()) ::
+          {:ok, delete_image_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_image_set(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/deleteImageSet"
@@ -274,6 +965,15 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get the import job properties to learn more about the job or job progress.
   """
+  @spec get_d_i_c_o_m_import_job(map(), String.t(), String.t(), list()) ::
+          {:ok, get_d_i_c_o_m_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_d_i_c_o_m_import_job(%Client{} = client, datastore_id, job_id, options \\ []) do
     url_path =
       "/getDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}/job/#{AWS.Util.encode_uri(job_id)}"
@@ -289,6 +989,14 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get data store properties.
   """
+  @spec get_datastore(map(), String.t(), list()) ::
+          {:ok, get_datastore_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_datastore(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
     headers = []
@@ -302,6 +1010,15 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get an image frame (pixel data) for an image set.
   """
+  @spec get_image_frame(map(), String.t(), String.t(), get_image_frame_request(), list()) ::
+          {:ok, get_image_frame_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_image_frame(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageFrame"
@@ -334,6 +1051,15 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get image set properties.
   """
+  @spec get_image_set(map(), String.t(), String.t(), get_image_set_request(), list()) ::
+          {:ok, get_image_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_image_set(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageSet"
@@ -364,6 +1090,21 @@ defmodule AWS.MedicalImaging do
   @doc """
   Get metadata attributes for an image set.
   """
+  @spec get_image_set_metadata(
+          map(),
+          String.t(),
+          String.t(),
+          get_image_set_metadata_request(),
+          list()
+        ) ::
+          {:ok, get_image_set_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_image_set_metadata(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageSetMetadata"
@@ -401,6 +1142,22 @@ defmodule AWS.MedicalImaging do
   @doc """
   List import jobs created for a specific data store.
   """
+  @spec list_d_i_c_o_m_import_jobs(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_d_i_c_o_m_import_jobs(
         %Client{} = client,
         datastore_id,
@@ -442,6 +1199,13 @@ defmodule AWS.MedicalImaging do
   @doc """
   List data stores.
   """
+  @spec list_datastores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_datastores_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_datastores(
         %Client{} = client,
         datastore_status \\ nil,
@@ -482,6 +1246,21 @@ defmodule AWS.MedicalImaging do
   @doc """
   List image set versions.
   """
+  @spec list_image_set_versions(
+          map(),
+          String.t(),
+          String.t(),
+          list_image_set_versions_request(),
+          list()
+        ) ::
+          {:ok, list_image_set_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_image_set_versions(
         %Client{} = client,
         datastore_id,
@@ -519,6 +1298,14 @@ defmodule AWS.MedicalImaging do
   @doc """
   Lists all tags associated with a medical imaging resource.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -540,6 +1327,15 @@ defmodule AWS.MedicalImaging do
   `SearchImageSets` uses the `updatedAt` field for sorting
   in decreasing order from latest to oldest.
   """
+  @spec search_image_sets(map(), String.t(), search_image_sets_request(), list()) ::
+          {:ok, search_image_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def search_image_sets(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}/searchImageSets"
     headers = []
@@ -574,6 +1370,21 @@ defmodule AWS.MedicalImaging do
   stores
   processing results in the file specified by the `outputS3Uri` parameter.
   """
+  @spec start_d_i_c_o_m_import_job(
+          map(),
+          String.t(),
+          start_d_i_c_o_m_import_job_request(),
+          list()
+        ) ::
+          {:ok, start_d_i_c_o_m_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def start_d_i_c_o_m_import_job(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/startDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}"
     headers = []
@@ -597,6 +1408,14 @@ defmodule AWS.MedicalImaging do
   @doc """
   Adds a user-specifed key and value tag to a medical imaging resource.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -620,6 +1439,14 @@ defmodule AWS.MedicalImaging do
   @doc """
   Removes tags from a medical imaging resource.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -648,6 +1475,22 @@ defmodule AWS.MedicalImaging do
   @doc """
   Update image set metadata attributes.
   """
+  @spec update_image_set_metadata(
+          map(),
+          String.t(),
+          String.t(),
+          update_image_set_metadata_request(),
+          list()
+        ) ::
+          {:ok, update_image_set_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_image_set_metadata(
         %Client{} = client,
         datastore_id,

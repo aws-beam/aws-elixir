@@ -11,6 +11,2219 @@ defmodule AWS.Personalize do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  hyper_parameter_ranges() :: %{
+    "categoricalHyperParameterRanges" => list(categorical_hyper_parameter_range()()),
+    "continuousHyperParameterRanges" => list(continuous_hyper_parameter_range()()),
+    "integerHyperParameterRanges" => list(integer_hyper_parameter_range()())
+  }
+  """
+  @type hyper_parameter_ranges() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_event_tracker_request() :: %{
+    optional("tags") => list(tag()()),
+    required("datasetGroupArn") => String.t(),
+    required("name") => String.t()
+  }
+  """
+  @type create_event_tracker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_tracker_request() :: %{
+    required("eventTrackerArn") => String.t()
+  }
+  """
+  @type describe_event_tracker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_metric_attribution_request() :: %{
+    required("metricAttributionArn") => String.t()
+  }
+  """
+  @type delete_metric_attribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_solution_response() :: %{
+    "solution" => solution()
+  }
+  """
+  @type describe_solution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metric_attribution_request() :: %{
+    required("metricAttributionArn") => String.t()
+  }
+  """
+  @type describe_metric_attribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_batch_segment_jobs_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("solutionVersionArn") => String.t()
+  }
+  """
+  @type list_batch_segment_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_campaign_response() :: %{
+    "campaign" => campaign()
+  }
+  """
+  @type describe_campaign_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_campaign_response() :: %{
+    "campaignArn" => String.t()
+  }
+  """
+  @type update_campaign_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_batch_inference_job_response() :: %{
+    "batchInferenceJob" => batch_inference_job()
+  }
+  """
+  @type describe_batch_inference_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_batch_inference_job_request() :: %{
+    optional("batchInferenceJobConfig") => batch_inference_job_config(),
+    optional("batchInferenceJobMode") => list(any()),
+    optional("filterArn") => String.t(),
+    optional("numResults") => integer(),
+    optional("tags") => list(tag()()),
+    optional("themeGenerationConfig") => theme_generation_config(),
+    required("jobInput") => batch_inference_job_input(),
+    required("jobName") => String.t(),
+    required("jobOutput") => batch_inference_job_output(),
+    required("roleArn") => String.t(),
+    required("solutionVersionArn") => String.t()
+  }
+  """
+  @type create_batch_inference_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "failureReason" => String.t(),
+    "filterArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type filter_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("resourceArn") => String.t(),
+    required("tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_batch_inference_jobs_response() :: %{
+    "batchInferenceJobs" => list(batch_inference_job_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_batch_inference_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_schema_request() :: %{
+    optional("domain") => list(any()),
+    required("name") => String.t(),
+    required("schema") => String.t()
+  }
+  """
+  @type create_schema_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign() :: %{
+    "campaignArn" => String.t(),
+    "campaignConfig" => campaign_config(),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "latestCampaignUpdate" => campaign_update_summary(),
+    "minProvisionedTPS" => integer(),
+    "name" => String.t(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type campaign() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recipes_response() :: %{
+    "nextToken" => String.t(),
+    "recipes" => list(recipe_summary()())
+  }
+  """
+  @type list_recipes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommender_update_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "recommenderConfig" => recommender_config(),
+    "status" => String.t()
+  }
+  """
+  @type recommender_update_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_event_tracker_response() :: %{
+    "eventTrackerArn" => String.t(),
+    "trackingId" => String.t()
+  }
+  """
+  @type create_event_tracker_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_recommender_request() :: %{
+    optional("recommenderConfig") => recommender_config(),
+    optional("tags") => list(tag()()),
+    required("datasetGroupArn") => String.t(),
+    required("name") => String.t(),
+    required("recipeArn") => String.t()
+  }
+  """
+  @type create_recommender_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_integer_hyper_parameter_range() :: %{
+    "isTunable" => boolean(),
+    "maxValue" => integer(),
+    "minValue" => integer(),
+    "name" => String.t()
+  }
+  """
+  @type default_integer_hyper_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_recommender_response() :: %{
+    "recommenderArn" => String.t()
+  }
+  """
+  @type update_recommender_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_schema_request() :: %{
+    required("schemaArn") => String.t()
+  }
+  """
+  @type describe_schema_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_dataset_response() :: %{
+    "datasetArn" => String.t()
+  }
+  """
+  @type update_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_categorical_hyper_parameter_range() :: %{
+    "isTunable" => boolean(),
+    "name" => String.t(),
+    "values" => list(String.t()())
+  }
+  """
+  @type default_categorical_hyper_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_solution_version_request() :: %{
+    required("solutionVersionArn") => String.t()
+  }
+  """
+  @type describe_solution_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  continuous_hyper_parameter_range() :: %{
+    "maxValue" => float(),
+    "minValue" => float(),
+    "name" => String.t()
+  }
+  """
+  @type continuous_hyper_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_solution_request() :: %{
+    optional("eventType") => String.t(),
+    optional("performAutoML") => boolean(),
+    optional("performHPO") => boolean(),
+    optional("recipeArn") => String.t(),
+    optional("solutionConfig") => solution_config(),
+    optional("tags") => list(tag()()),
+    required("datasetGroupArn") => String.t(),
+    required("name") => String.t()
+  }
+  """
+  @type create_solution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_metric_attribution_response() :: %{
+    "metricAttributionArn" => String.t()
+  }
+  """
+  @type create_metric_attribution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_schema_request() :: %{
+    required("schemaArn") => String.t()
+  }
+  """
+  @type delete_schema_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  metric_attribution_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "metricAttributionArn" => String.t(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type metric_attribution_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_in_use_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_in_use_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_segment_job_output() :: %{
+    "s3DataDestination" => s3_data_config()
+  }
+  """
+  @type batch_segment_job_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_import_job_response() :: %{
+    "datasetImportJob" => dataset_import_job()
+  }
+  """
+  @type describe_dataset_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  solution() :: %{
+    "autoMLResult" => auto_ml_result(),
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "eventType" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "latestSolutionVersion" => solution_version_summary(),
+    "name" => String.t(),
+    "performAutoML" => boolean(),
+    "performHPO" => boolean(),
+    "recipeArn" => String.t(),
+    "solutionArn" => String.t(),
+    "solutionConfig" => solution_config(),
+    "status" => String.t()
+  }
+  """
+  @type solution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_batch_segment_job_response() :: %{
+    "batchSegmentJobArn" => String.t()
+  }
+  """
+  @type create_batch_segment_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_recommender_response() :: %{
+    "recommenderArn" => String.t()
+  }
+  """
+  @type start_recommender_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_schema() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "domain" => list(any()),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "schema" => String.t(),
+    "schemaArn" => String.t()
+  }
+  """
+  @type dataset_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  algorithm() :: %{
+    "algorithmArn" => String.t(),
+    "algorithmImage" => algorithm_image(),
+    "creationDateTime" => non_neg_integer(),
+    "defaultHyperParameterRanges" => default_hyper_parameter_ranges(),
+    "defaultHyperParameters" => map(),
+    "defaultResourceConfig" => map(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "roleArn" => String.t(),
+    "trainingInputMode" => String.t()
+  }
+  """
+  @type algorithm() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recipe_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "domain" => list(any()),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "recipeArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type recipe_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_datasets_request() :: %{
+    optional("datasetGroupArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_datasets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_campaigns_response() :: %{
+    "campaigns" => list(campaign_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_campaigns_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_filter_response() :: %{
+    "filterArn" => String.t()
+  }
+  """
+  @type create_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  theme_generation_config() :: %{
+    "fieldsForThemeGeneration" => fields_for_theme_generation()
+  }
+  """
+  @type theme_generation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_hyper_parameter_ranges() :: %{
+    "categoricalHyperParameterRanges" => list(default_categorical_hyper_parameter_range()()),
+    "continuousHyperParameterRanges" => list(default_continuous_hyper_parameter_range()()),
+    "integerHyperParameterRanges" => list(default_integer_hyper_parameter_range()())
+  }
+  """
+  @type default_hyper_parameter_ranges() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_schema_response() :: %{
+    "schema" => dataset_schema()
+  }
+  """
+  @type describe_schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_campaign_request() :: %{
+    required("campaignArn") => String.t()
+  }
+  """
+  @type delete_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_campaign_request() :: %{
+    required("campaignArn") => String.t()
+  }
+  """
+  @type describe_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_metric_attribution_metrics_request() :: %{
+    optional("maxResults") => integer(),
+    optional("metricAttributionArn") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_metric_attribution_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_solutions_request() :: %{
+    optional("datasetGroupArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_solutions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_algorithm_request() :: %{
+    required("algorithmArn") => String.t()
+  }
+  """
+  @type describe_algorithm_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_schema_response() :: %{
+    "schemaArn" => String.t()
+  }
+  """
+  @type create_schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("resourceArn") => String.t(),
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_inference_job_input() :: %{
+    "s3DataSource" => s3_data_config()
+  }
+  """
+  @type batch_inference_job_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_inference_job_config() :: %{
+    "itemExplorationConfig" => map()
+  }
+  """
+  @type batch_inference_job_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_solution_metrics_request() :: %{
+    required("solutionVersionArn") => String.t()
+  }
+  """
+  @type get_solution_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign_config() :: %{
+    "enableMetadataWithRecommendations" => boolean(),
+    "itemExplorationConfig" => map()
+  }
+  """
+  @type campaign_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_event_trackers_request() :: %{
+    optional("datasetGroupArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_event_trackers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_group_request() :: %{
+    optional("domain") => list(any()),
+    optional("kmsKeyArn") => String.t(),
+    optional("roleArn") => String.t(),
+    optional("tags") => list(tag()()),
+    required("name") => String.t()
+  }
+  """
+  @type create_dataset_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tag_keys_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type too_many_tag_keys_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  solution_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "recipeArn" => String.t(),
+    "solutionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type solution_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_schemas_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_schemas_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommender_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "recipeArn" => String.t(),
+    "recommenderArn" => String.t(),
+    "recommenderConfig" => recommender_config(),
+    "status" => String.t()
+  }
+  """
+  @type recommender_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_solution_request() :: %{
+    required("solutionArn") => String.t()
+  }
+  """
+  @type describe_solution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_recommender_request() :: %{
+    required("recommenderArn") => String.t(),
+    required("recommenderConfig") => recommender_config()
+  }
+  """
+  @type update_recommender_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_metric_attribution_request() :: %{
+    required("datasetGroupArn") => String.t(),
+    required("metrics") => list(metric_attribute()()),
+    required("metricsOutputConfig") => metric_attribution_output(),
+    required("name") => String.t()
+  }
+  """
+  @type create_metric_attribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_inference_job() :: %{
+    "batchInferenceJobArn" => String.t(),
+    "batchInferenceJobConfig" => batch_inference_job_config(),
+    "batchInferenceJobMode" => list(any()),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "filterArn" => String.t(),
+    "jobInput" => batch_inference_job_input(),
+    "jobName" => String.t(),
+    "jobOutput" => batch_inference_job_output(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "numResults" => integer(),
+    "roleArn" => String.t(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t(),
+    "themeGenerationConfig" => theme_generation_config()
+  }
+  """
+  @type batch_inference_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetArn" => String.t(),
+    "datasetGroupArn" => String.t(),
+    "datasetType" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "latestDatasetUpdate" => dataset_update_summary(),
+    "name" => String.t(),
+    "schemaArn" => String.t(),
+    "status" => String.t(),
+    "trackingId" => String.t()
+  }
+  """
+  @type dataset() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_export_job_response() :: %{
+    "datasetExportJob" => dataset_export_job()
+  }
+  """
+  @type describe_dataset_export_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_response() :: %{
+    "datasetArn" => String.t()
+  }
+  """
+  @type create_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_campaigns_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("solutionArn") => String.t()
+  }
+  """
+  @type list_campaigns_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_segment_job_summary() :: %{
+    "batchSegmentJobArn" => String.t(),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "jobName" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type batch_segment_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_batch_segment_job_response() :: %{
+    "batchSegmentJob" => batch_segment_job()
+  }
+  """
+  @type describe_batch_segment_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign_update_summary() :: %{
+    "campaignConfig" => campaign_config(),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "minProvisionedTPS" => integer(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type campaign_update_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_inference_job_output() :: %{
+    "s3DataDestination" => s3_data_config()
+  }
+  """
+  @type batch_inference_job_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_import_job() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "dataSource" => data_source(),
+    "datasetArn" => String.t(),
+    "datasetImportJobArn" => String.t(),
+    "failureReason" => String.t(),
+    "importMode" => list(any()),
+    "jobName" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "publishAttributionMetricsToS3" => boolean(),
+    "roleArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_import_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  metric_attribute() :: %{
+    "eventType" => String.t(),
+    "expression" => String.t(),
+    "metricName" => String.t()
+  }
+  """
+  @type metric_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  solution_version() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "eventType" => String.t(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "performAutoML" => boolean(),
+    "performHPO" => boolean(),
+    "recipeArn" => String.t(),
+    "solutionArn" => String.t(),
+    "solutionConfig" => solution_config(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t(),
+    "trainingHours" => float(),
+    "trainingMode" => list(any()),
+    "tunedHPOParams" => tuned_h_p_o_params()
+  }
+  """
+  @type solution_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_export_job_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetExportJobArn" => String.t(),
+    "failureReason" => String.t(),
+    "jobName" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_export_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fields_for_theme_generation() :: %{
+    "itemName" => String.t()
+  }
+  """
+  @type fields_for_theme_generation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dataset_import_jobs_request() :: %{
+    optional("datasetArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_dataset_import_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_event_tracker_request() :: %{
+    required("eventTrackerArn") => String.t()
+  }
+  """
+  @type delete_event_tracker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_filter_request() :: %{
+    optional("tags") => list(tag()()),
+    required("datasetGroupArn") => String.t(),
+    required("filterExpression") => String.t(),
+    required("name") => String.t()
+  }
+  """
+  @type create_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommender() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "latestRecommenderUpdate" => recommender_update_summary(),
+    "modelMetrics" => map(),
+    "name" => String.t(),
+    "recipeArn" => String.t(),
+    "recommenderArn" => String.t(),
+    "recommenderConfig" => recommender_config(),
+    "status" => String.t()
+  }
+  """
+  @type recommender() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_solution_version_request() :: %{
+    optional("name") => String.t(),
+    optional("tags") => list(tag()()),
+    optional("trainingMode") => list(any()),
+    required("solutionArn") => String.t()
+  }
+  """
+  @type create_solution_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  metric_attribution() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "metricAttributionArn" => String.t(),
+    "metricsOutputConfig" => metric_attribution_output(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type metric_attribution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_solution_version_response() :: %{
+    "solutionVersion" => solution_version()
+  }
+  """
+  @type describe_solution_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_batch_segment_job_request() :: %{
+    required("batchSegmentJobArn") => String.t()
+  }
+  """
+  @type describe_batch_segment_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetArn" => String.t(),
+    "datasetType" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tuned_h_p_o_params() :: %{
+    "algorithmHyperParameters" => map()
+  }
+  """
+  @type tuned_h_p_o_params() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "tagKey" => String.t(),
+    "tagValue" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_segment_job_input() :: %{
+    "s3DataSource" => s3_data_config()
+  }
+  """
+  @type batch_segment_job_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_solution_version_response() :: %{
+    "solutionVersionArn" => String.t()
+  }
+  """
+  @type create_solution_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_batch_inference_job_response() :: %{
+    "batchInferenceJobArn" => String.t()
+  }
+  """
+  @type create_batch_inference_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  solution_version_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type solution_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_recommender_request() :: %{
+    required("recommenderArn") => String.t()
+  }
+  """
+  @type delete_recommender_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_next_token_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_next_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recipe_response() :: %{
+    "recipe" => recipe()
+  }
+  """
+  @type describe_recipe_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_metric_attributions_request() :: %{
+    optional("datasetGroupArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_metric_attributions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dataset_groups_response() :: %{
+    "datasetGroups" => list(dataset_group_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_dataset_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recipe() :: %{
+    "algorithmArn" => String.t(),
+    "creationDateTime" => non_neg_integer(),
+    "description" => String.t(),
+    "featureTransformationArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "recipeArn" => String.t(),
+    "recipeType" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type recipe() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_segment_job() :: %{
+    "batchSegmentJobArn" => String.t(),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "filterArn" => String.t(),
+    "jobInput" => batch_segment_job_input(),
+    "jobName" => String.t(),
+    "jobOutput" => batch_segment_job_output(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "numResults" => integer(),
+    "roleArn" => String.t(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type batch_segment_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  optimization_objective() :: %{
+    "itemAttribute" => String.t(),
+    "objectiveSensitivity" => list(any())
+  }
+  """
+  @type optimization_objective() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_metric_attribution_metrics_response() :: %{
+    "metrics" => list(metric_attribute()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_metric_attribution_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dataset_groups_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_dataset_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_input_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_recommender_request() :: %{
+    required("recommenderArn") => String.t()
+  }
+  """
+  @type start_recommender_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_recommender_response() :: %{
+    "recommenderArn" => String.t()
+  }
+  """
+  @type stop_recommender_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  integer_hyper_parameter_range() :: %{
+    "maxValue" => integer(),
+    "minValue" => integer(),
+    "name" => String.t()
+  }
+  """
+  @type integer_hyper_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  categorical_hyper_parameter_range() :: %{
+    "name" => String.t(),
+    "values" => list(String.t()())
+  }
+  """
+  @type categorical_hyper_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recommender_request() :: %{
+    required("recommenderArn") => String.t()
+  }
+  """
+  @type describe_recommender_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_batch_segment_jobs_response() :: %{
+    "batchSegmentJobs" => list(batch_segment_job_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_batch_segment_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_dataset_request() :: %{
+    required("datasetArn") => String.t(),
+    required("schemaArn") => String.t()
+  }
+  """
+  @type update_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_solutions_response() :: %{
+    "nextToken" => String.t(),
+    "solutions" => list(solution_summary()())
+  }
+  """
+  @type list_solutions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_solution_request() :: %{
+    required("solutionArn") => String.t()
+  }
+  """
+  @type delete_solution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "failureReason" => String.t(),
+    "filterArn" => String.t(),
+    "filterExpression" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_feature_transformation_request() :: %{
+    required("featureTransformationArn") => String.t()
+  }
+  """
+  @type describe_feature_transformation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_update_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "schemaArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_update_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_algorithm_response() :: %{
+    "algorithm" => algorithm()
+  }
+  """
+  @type describe_algorithm_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recipe_request() :: %{
+    required("recipeArn") => String.t()
+  }
+  """
+  @type describe_recipe_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_filter_request() :: %{
+    required("filterArn") => String.t()
+  }
+  """
+  @type describe_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  h_p_o_objective() :: %{
+    "metricName" => String.t(),
+    "metricRegex" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type h_p_o_objective() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_recommender_response() :: %{
+    "recommenderArn" => String.t()
+  }
+  """
+  @type create_recommender_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_recommender_response() :: %{
+    "recommender" => recommender()
+  }
+  """
+  @type describe_recommender_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_batch_inference_jobs_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("solutionVersionArn") => String.t()
+  }
+  """
+  @type list_batch_inference_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_export_job() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetArn" => String.t(),
+    "datasetExportJobArn" => String.t(),
+    "failureReason" => String.t(),
+    "ingestionMode" => list(any()),
+    "jobName" => String.t(),
+    "jobOutput" => dataset_export_job_output(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "roleArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_export_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  auto_ml_config() :: %{
+    "metricName" => String.t(),
+    "recipeList" => list(String.t()())
+  }
+  """
+  @type auto_ml_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_recommender_request() :: %{
+    required("recommenderArn") => String.t()
+  }
+  """
+  @type stop_recommender_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_batch_inference_job_request() :: %{
+    required("batchInferenceJobArn") => String.t()
+  }
+  """
+  @type describe_batch_inference_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_import_job_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetImportJobArn" => String.t(),
+    "failureReason" => String.t(),
+    "importMode" => list(any()),
+    "jobName" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_import_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_batch_segment_job_request() :: %{
+    optional("filterArn") => String.t(),
+    optional("numResults") => integer(),
+    optional("tags") => list(tag()()),
+    required("jobInput") => batch_segment_job_input(),
+    required("jobName") => String.t(),
+    required("jobOutput") => batch_segment_job_output(),
+    required("roleArn") => String.t(),
+    required("solutionVersionArn") => String.t()
+  }
+  """
+  @type create_batch_segment_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dataset_import_jobs_response() :: %{
+    "datasetImportJobs" => list(dataset_import_job_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_dataset_import_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  h_p_o_resource_config() :: %{
+    "maxNumberOfTrainingJobs" => String.t(),
+    "maxParallelTrainingJobs" => String.t()
+  }
+  """
+  @type h_p_o_resource_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_tracker_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "eventTrackerArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type event_tracker_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_dataset_group_request() :: %{
+    required("datasetGroupArn") => String.t()
+  }
+  """
+  @type delete_dataset_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_campaign_request() :: %{
+    optional("campaignConfig") => campaign_config(),
+    optional("minProvisionedTPS") => integer(),
+    optional("tags") => list(tag()()),
+    required("name") => String.t(),
+    required("solutionVersionArn") => String.t()
+  }
+  """
+  @type create_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dataset_export_jobs_response() :: %{
+    "datasetExportJobs" => list(dataset_export_job_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_dataset_export_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_tracker() :: %{
+    "accountId" => String.t(),
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "eventTrackerArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t(),
+    "trackingId" => String.t()
+  }
+  """
+  @type event_tracker() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_group_response() :: %{
+    "datasetGroupArn" => String.t(),
+    "domain" => list(any())
+  }
+  """
+  @type create_dataset_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_inference_job_summary() :: %{
+    "batchInferenceJobArn" => String.t(),
+    "batchInferenceJobMode" => list(any()),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "jobName" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "solutionVersionArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type batch_inference_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_feature_transformation_response() :: %{
+    "featureTransformation" => feature_transformation()
+  }
+  """
+  @type describe_feature_transformation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_tracker_response() :: %{
+    "eventTracker" => event_tracker()
+  }
+  """
+  @type describe_event_tracker_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recommenders_response() :: %{
+    "nextToken" => String.t(),
+    "recommenders" => list(recommender_summary()())
+  }
+  """
+  @type list_recommenders_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_metric_attribution_response() :: %{
+    "metricAttribution" => metric_attribution()
+  }
+  """
+  @type describe_metric_attribution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_response() :: %{
+    "dataset" => dataset()
+  }
+  """
+  @type describe_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommender_config() :: %{
+    "enableMetadataWithRecommendations" => boolean(),
+    "itemExplorationConfig" => map(),
+    "minRecommendationRequestsPerSecond" => integer(),
+    "trainingDataConfig" => training_data_config()
+  }
+  """
+  @type recommender_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  auto_ml_result() :: %{
+    "bestRecipeArn" => String.t()
+  }
+  """
+  @type auto_ml_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_solution_version_creation_request() :: %{
+    required("solutionVersionArn") => String.t()
+  }
+  """
+  @type stop_solution_version_creation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    required("resourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_request() :: %{
+    optional("tags") => list(tag()()),
+    required("datasetGroupArn") => String.t(),
+    required("datasetType") => String.t(),
+    required("name") => String.t(),
+    required("schemaArn") => String.t()
+  }
+  """
+  @type create_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_group_request() :: %{
+    required("datasetGroupArn") => String.t()
+  }
+  """
+  @type describe_dataset_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_metric_attributions_response() :: %{
+    "metricAttributions" => list(metric_attribution_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_metric_attributions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_event_trackers_response() :: %{
+    "eventTrackers" => list(event_tracker_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_event_trackers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  feature_transformation() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "defaultParameters" => map(),
+    "featureTransformationArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type feature_transformation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_import_job_request() :: %{
+    optional("importMode") => list(any()),
+    optional("publishAttributionMetricsToS3") => boolean(),
+    optional("tags") => list(tag()()),
+    required("dataSource") => data_source(),
+    required("datasetArn") => String.t(),
+    required("jobName") => String.t(),
+    required("roleArn") => String.t()
+  }
+  """
+  @type create_dataset_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  solution_config() :: %{
+    "algorithmHyperParameters" => map(),
+    "autoMLConfig" => auto_ml_config(),
+    "eventValueThreshold" => String.t(),
+    "featureTransformationParameters" => map(),
+    "hpoConfig" => h_p_o_config(),
+    "optimizationObjective" => optimization_objective(),
+    "trainingDataConfig" => training_data_config()
+  }
+  """
+  @type solution_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_solution_versions_response() :: %{
+    "nextToken" => String.t(),
+    "solutionVersions" => list(solution_version_summary()())
+  }
+  """
+  @type list_solution_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_schema_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "domain" => list(any()),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "schemaArn" => String.t()
+  }
+  """
+  @type dataset_schema_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_import_job_request() :: %{
+    required("datasetImportJobArn") => String.t()
+  }
+  """
+  @type describe_dataset_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_metric_attribution_request() :: %{
+    optional("addMetrics") => list(metric_attribute()()),
+    optional("metricAttributionArn") => String.t(),
+    optional("metricsOutputConfig") => metric_attribution_output(),
+    optional("removeMetrics") => list(String.t()())
+  }
+  """
+  @type update_metric_attribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_data_config() :: %{
+    "kmsKeyArn" => String.t(),
+    "path" => String.t()
+  }
+  """
+  @type s3_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_solution_response() :: %{
+    "solutionArn" => String.t()
+  }
+  """
+  @type create_solution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  metric_attribution_output() :: %{
+    "roleArn" => String.t(),
+    "s3DataDestination" => s3_data_config()
+  }
+  """
+  @type metric_attribution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_metric_attribution_response() :: %{
+    "metricAttributionArn" => String.t()
+  }
+  """
+  @type update_metric_attribution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_group_response() :: %{
+    "datasetGroup" => dataset_group()
+  }
+  """
+  @type describe_dataset_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_continuous_hyper_parameter_range() :: %{
+    "isTunable" => boolean(),
+    "maxValue" => float(),
+    "minValue" => float(),
+    "name" => String.t()
+  }
+  """
+  @type default_continuous_hyper_parameter_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_solution_metrics_response() :: %{
+    "metrics" => map(),
+    "solutionVersionArn" => String.t()
+  }
+  """
+  @type get_solution_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_campaign_request() :: %{
+    optional("campaignConfig") => campaign_config(),
+    optional("minProvisionedTPS") => integer(),
+    optional("solutionVersionArn") => String.t(),
+    required("campaignArn") => String.t()
+  }
+  """
+  @type update_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_request() :: %{
+    required("datasetArn") => String.t()
+  }
+  """
+  @type describe_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_dataset_request() :: %{
+    required("datasetArn") => String.t()
+  }
+  """
+  @type delete_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_datasets_response() :: %{
+    "datasets" => list(dataset_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_datasets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  algorithm_image() :: %{
+    "dockerURI" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type algorithm_image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_dataset_export_jobs_request() :: %{
+    optional("datasetArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_dataset_export_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  h_p_o_config() :: %{
+    "algorithmHyperParameterRanges" => hyper_parameter_ranges(),
+    "hpoObjective" => h_p_o_objective(),
+    "hpoResourceConfig" => h_p_o_resource_config()
+  }
+  """
+  @type h_p_o_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_source() :: %{
+    "dataLocation" => String.t()
+  }
+  """
+  @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_export_job_output() :: %{
+    "s3DataDestination" => s3_data_config()
+  }
+  """
+  @type dataset_export_job_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_campaign_response() :: %{
+    "campaignArn" => String.t()
+  }
+  """
+  @type create_campaign_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_schemas_response() :: %{
+    "nextToken" => String.t(),
+    "schemas" => list(dataset_schema_summary()())
+  }
+  """
+  @type list_schemas_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_export_job_response() :: %{
+    "datasetExportJobArn" => String.t()
+  }
+  """
+  @type create_dataset_export_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_export_job_request() :: %{
+    optional("ingestionMode") => list(any()),
+    optional("tags") => list(tag()()),
+    required("datasetArn") => String.t(),
+    required("jobName") => String.t(),
+    required("jobOutput") => dataset_export_job_output(),
+    required("roleArn") => String.t()
+  }
+  """
+  @type create_dataset_export_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  training_data_config() :: %{
+    "excludedDatasetColumns" => map()
+  }
+  """
+  @type training_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recipes_request() :: %{
+    optional("domain") => list(any()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("recipeProvider") => list(any())
+  }
+  """
+  @type list_recipes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_solution_versions_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("solutionArn") => String.t()
+  }
+  """
+  @type list_solution_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_filters_response() :: %{
+    "Filters" => list(filter_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_filters_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_filter_response() :: %{
+    "filter" => filter()
+  }
+  """
+  @type describe_filter_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_group() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "domain" => list(any()),
+    "failureReason" => String.t(),
+    "kmsKeyArn" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "roleArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign_summary() :: %{
+    "campaignArn" => String.t(),
+    "creationDateTime" => non_neg_integer(),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type campaign_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_dataset_export_job_request() :: %{
+    required("datasetExportJobArn") => String.t()
+  }
+  """
+  @type describe_dataset_export_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tags_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_filter_request() :: %{
+    required("filterArn") => String.t()
+  }
+  """
+  @type delete_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recommenders_request() :: %{
+    optional("datasetGroupArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_recommenders_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_dataset_import_job_response() :: %{
+    "datasetImportJobArn" => String.t()
+  }
+  """
+  @type create_dataset_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_filters_request() :: %{
+    optional("datasetGroupArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_filters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dataset_group_summary() :: %{
+    "creationDateTime" => non_neg_integer(),
+    "datasetGroupArn" => String.t(),
+    "domain" => list(any()),
+    "failureReason" => String.t(),
+    "lastUpdatedDateTime" => non_neg_integer(),
+    "name" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type dataset_group_summary() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2018-05-22",
@@ -55,6 +2268,15 @@ defmodule AWS.Personalize do
   You can't get batch recommendations with the Trending-Now or Next-Best-Action
   recipes.
   """
+  @spec create_batch_inference_job(map(), create_batch_inference_job_request(), list()) ::
+          {:ok, create_batch_inference_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -68,6 +2290,15 @@ defmodule AWS.Personalize do
   input file must be in JSON format. For more information, see
   [Getting batch recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
   """
+  @spec create_batch_segment_job(map(), create_batch_segment_job_request(), list()) ::
+          {:ok, create_batch_segment_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_batch_segment_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -148,6 +2379,15 @@ defmodule AWS.Personalize do
 
   [DeleteCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html)
   """
+  @spec create_campaign(map(), create_campaign_request(), list()) ::
+          {:ok, create_campaign_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -212,6 +2452,15 @@ defmodule AWS.Personalize do
 
   [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
   """
+  @spec create_dataset(map(), create_dataset_request(), list()) ::
+          {:ok, create_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -242,6 +2491,15 @@ defmodule AWS.Personalize do
   includes a `failureReason` key, which describes why the job
   failed.
   """
+  @spec create_dataset_export_job(map(), create_dataset_export_job_request(), list()) ::
+          {:ok, create_dataset_export_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_dataset_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -329,6 +2587,13 @@ defmodule AWS.Personalize do
 
   [DeleteDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html)
   """
+  @spec create_dataset_group(map(), create_dataset_group_request(), list()) ::
+          {:ok, create_dataset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, too_many_tags_exception()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -385,6 +2650,15 @@ defmodule AWS.Personalize do
 
   [DescribeDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html)
   """
+  @spec create_dataset_import_job(map(), create_dataset_import_job_request(), list()) ::
+          {:ok, create_dataset_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -435,6 +2709,15 @@ defmodule AWS.Personalize do
 
   [DeleteEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html)
   """
+  @spec create_event_tracker(map(), create_event_tracker_request(), list()) ::
+          {:ok, create_event_tracker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_event_tracker(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -446,6 +2729,14 @@ defmodule AWS.Personalize do
 
   For more information, see [Filtering recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html).
   """
+  @spec create_filter(map(), create_filter_request(), list()) ::
+          {:ok, create_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -460,6 +2751,14 @@ defmodule AWS.Personalize do
   Amazon CloudWatch or Amazon S3.
   For more information, see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
   """
+  @spec create_metric_attribution(map(), create_metric_attribution_request(), list()) ::
+          {:ok, create_metric_attribution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def create_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -551,6 +2850,15 @@ defmodule AWS.Personalize do
 
   [DeleteRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html)
   """
+  @spec create_recommender(map(), create_recommender_request(), list()) ::
+          {:ok, create_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -584,6 +2892,12 @@ defmodule AWS.Personalize do
 
   [DeleteSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html)
   """
+  @spec create_schema(map(), create_schema_request(), list()) ::
+          {:ok, create_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
   def create_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -659,6 +2973,15 @@ defmodule AWS.Personalize do
 
   [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html)
   """
+  @spec create_solution(map(), create_solution_request(), list()) ::
+          {:ok, create_solution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -729,6 +3052,15 @@ defmodule AWS.Personalize do
 
   [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html)
   """
+  @spec create_solution_version(map(), create_solution_version_request(), list()) ::
+          {:ok, create_solution_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def create_solution_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -746,6 +3078,12 @@ defmodule AWS.Personalize do
   For information on creating campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
+  @spec delete_campaign(map(), delete_campaign_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -760,6 +3098,12 @@ defmodule AWS.Personalize do
   CREATE PENDING or IN PROGRESS state. For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
+  @spec delete_dataset(map(), delete_dataset_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -781,6 +3125,12 @@ defmodule AWS.Personalize do
     *
   All datasets in the dataset group.
   """
+  @spec delete_dataset_group(map(), delete_dataset_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -795,6 +3145,12 @@ defmodule AWS.Personalize do
   information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
+  @spec delete_event_tracker(map(), delete_event_tracker_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -804,6 +3160,12 @@ defmodule AWS.Personalize do
   @doc """
   Deletes a filter.
   """
+  @spec delete_filter(map(), delete_filter_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -813,6 +3175,12 @@ defmodule AWS.Personalize do
   @doc """
   Deletes a metric attribution.
   """
+  @spec delete_metric_attribution(map(), delete_metric_attribution_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -826,6 +3194,12 @@ defmodule AWS.Personalize do
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   request.
   """
+  @spec delete_recommender(map(), delete_recommender_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -839,6 +3213,12 @@ defmodule AWS.Personalize do
   datasets referencing the schema. For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
+  @spec delete_schema(map(), delete_schema_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -856,6 +3236,12 @@ defmodule AWS.Personalize do
   For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
+  @spec delete_solution(map(), delete_solution_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -865,6 +3251,11 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given algorithm.
   """
+  @spec describe_algorithm(map(), describe_algorithm_request(), list()) ::
+          {:ok, describe_algorithm_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -878,6 +3269,11 @@ defmodule AWS.Personalize do
   used to generate
   the recommendations.
   """
+  @spec describe_batch_inference_job(map(), describe_batch_inference_job_request(), list()) ::
+          {:ok, describe_batch_inference_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -891,6 +3287,11 @@ defmodule AWS.Personalize do
   used to generate
   segments.
   """
+  @spec describe_batch_segment_job(map(), describe_batch_segment_job_request(), list()) ::
+          {:ok, describe_batch_segment_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -914,6 +3315,11 @@ defmodule AWS.Personalize do
   For more information on campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
+  @spec describe_campaign(map(), describe_campaign_request(), list()) ::
+          {:ok, describe_campaign_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -926,6 +3332,11 @@ defmodule AWS.Personalize do
   For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
+  @spec describe_dataset(map(), describe_dataset_request(), list()) ::
+          {:ok, describe_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -937,6 +3348,11 @@ defmodule AWS.Personalize do
   [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html),
   including the export job status.
   """
+  @spec describe_dataset_export_job(map(), describe_dataset_export_job_request(), list()) ::
+          {:ok, describe_dataset_export_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -950,6 +3366,11 @@ defmodule AWS.Personalize do
   groups, see
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
+  @spec describe_dataset_group(map(), describe_dataset_group_request(), list()) ::
+          {:ok, describe_dataset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -961,6 +3382,11 @@ defmodule AWS.Personalize do
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html),
   including the import job status.
   """
+  @spec describe_dataset_import_job(map(), describe_dataset_import_job_request(), list()) ::
+          {:ok, describe_dataset_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -975,6 +3401,11 @@ defmodule AWS.Personalize do
   For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
+  @spec describe_event_tracker(map(), describe_event_tracker_request(), list()) ::
+          {:ok, describe_event_tracker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_event_tracker(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -984,6 +3415,11 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given feature transformation.
   """
+  @spec describe_feature_transformation(map(), describe_feature_transformation_request(), list()) ::
+          {:ok, describe_feature_transformation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_feature_transformation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -993,6 +3429,11 @@ defmodule AWS.Personalize do
   @doc """
   Describes a filter's properties.
   """
+  @spec describe_filter(map(), describe_filter_request(), list()) ::
+          {:ok, describe_filter_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1002,6 +3443,11 @@ defmodule AWS.Personalize do
   @doc """
   Describes a metric attribution.
   """
+  @spec describe_metric_attribution(map(), describe_metric_attribution_request(), list()) ::
+          {:ok, describe_metric_attribution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1033,6 +3479,11 @@ defmodule AWS.Personalize do
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   API.
   """
+  @spec describe_recipe(map(), describe_recipe_request(), list()) ::
+          {:ok, describe_recipe_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_recipe(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1063,6 +3514,11 @@ defmodule AWS.Personalize do
   For more information on recommenders, see
   [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
   """
+  @spec describe_recommender(map(), describe_recommender_request(), list()) ::
+          {:ok, describe_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1075,6 +3531,11 @@ defmodule AWS.Personalize do
   For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
+  @spec describe_schema(map(), describe_schema_request(), list()) ::
+          {:ok, describe_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1087,6 +3548,11 @@ defmodule AWS.Personalize do
   For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
+  @spec describe_solution(map(), describe_solution_request(), list()) ::
+          {:ok, describe_solution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1099,6 +3565,11 @@ defmodule AWS.Personalize do
   For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
   """
+  @spec describe_solution_version(map(), describe_solution_version_request(), list()) ::
+          {:ok, describe_solution_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_solution_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1108,6 +3579,12 @@ defmodule AWS.Personalize do
   @doc """
   Gets the metrics for the specified solution version.
   """
+  @spec get_solution_metrics(map(), get_solution_metrics_request(), list()) ::
+          {:ok, get_solution_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def get_solution_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1119,6 +3596,11 @@ defmodule AWS.Personalize do
   solution
   version.
   """
+  @spec list_batch_inference_jobs(map(), list_batch_inference_jobs_request(), list()) ::
+          {:ok, list_batch_inference_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1129,6 +3611,11 @@ defmodule AWS.Personalize do
   Gets a list of the batch segment jobs that have been performed off of a solution
   version that you specify.
   """
+  @spec list_batch_segment_jobs(map(), list_batch_segment_jobs_request(), list()) ::
+          {:ok, list_batch_segment_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1145,6 +3632,11 @@ defmodule AWS.Personalize do
   For more information on campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
   """
+  @spec list_campaigns(map(), list_campaigns_request(), list()) ::
+          {:ok, list_campaigns_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1162,6 +3654,11 @@ defmodule AWS.Personalize do
   [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html). For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
+  @spec list_dataset_export_jobs(map(), list_dataset_export_jobs_request(), list()) ::
+          {:ok, list_dataset_export_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1176,6 +3673,10 @@ defmodule AWS.Personalize do
   information on dataset groups, see
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
   """
+  @spec list_dataset_groups(map(), list_dataset_groups_request(), list()) ::
+          {:ok, list_dataset_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_next_token_exception()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1193,6 +3694,11 @@ defmodule AWS.Personalize do
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html). For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
+  @spec list_dataset_import_jobs(map(), list_dataset_import_jobs_request(), list()) ::
+          {:ok, list_dataset_import_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1207,6 +3713,11 @@ defmodule AWS.Personalize do
   Resource Name (ARN). For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   """
+  @spec list_datasets(map(), list_datasets_request(), list()) ::
+          {:ok, list_datasets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_datasets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1222,6 +3733,11 @@ defmodule AWS.Personalize do
   information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
   """
+  @spec list_event_trackers(map(), list_event_trackers_request(), list()) ::
+          {:ok, list_event_trackers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_event_trackers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1231,6 +3747,11 @@ defmodule AWS.Personalize do
   @doc """
   Lists all filters that belong to a given dataset group.
   """
+  @spec list_filters(map(), list_filters_request(), list()) ::
+          {:ok, list_filters_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1240,6 +3761,11 @@ defmodule AWS.Personalize do
   @doc """
   Lists the metrics for the metric attribution.
   """
+  @spec list_metric_attribution_metrics(map(), list_metric_attribution_metrics_request(), list()) ::
+          {:ok, list_metric_attribution_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_metric_attribution_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1249,6 +3775,11 @@ defmodule AWS.Personalize do
   @doc """
   Lists metric attributions.
   """
+  @spec list_metric_attributions(map(), list_metric_attributions_request(), list()) ::
+          {:ok, list_metric_attributions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_metric_attributions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1261,6 +3792,11 @@ defmodule AWS.Personalize do
   The response provides the properties
   for each recipe, including the recipe's Amazon Resource Name (ARN).
   """
+  @spec list_recipes(map(), list_recipes_request(), list()) ::
+          {:ok, list_recipes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_recipes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1277,6 +3813,11 @@ defmodule AWS.Personalize do
   For more information on recommenders, see
   [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
   """
+  @spec list_recommenders(map(), list_recommenders_request(), list()) ::
+          {:ok, list_recommenders_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_recommenders(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1291,6 +3832,10 @@ defmodule AWS.Personalize do
   For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
   """
+  @spec list_schemas(map(), list_schemas_request(), list()) ::
+          {:ok, list_schemas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_next_token_exception()}
   def list_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1306,6 +3851,12 @@ defmodule AWS.Personalize do
   provides the properties for each solution version, including the Amazon Resource
   Name (ARN).
   """
+  @spec list_solution_versions(map(), list_solution_versions_request(), list()) ::
+          {:ok, list_solution_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, resource_not_found_exception()}
   def list_solution_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1322,6 +3873,11 @@ defmodule AWS.Personalize do
   For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
   """
+  @spec list_solutions(map(), list_solutions_request(), list()) ::
+          {:ok, list_solutions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, invalid_next_token_exception()}
   def list_solutions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1333,6 +3889,12 @@ defmodule AWS.Personalize do
   [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
   attached to a resource.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1346,6 +3908,12 @@ defmodule AWS.Personalize do
   create any new models, but resumes billing and automatic retraining for the
   recommender.
   """
+  @spec start_recommender(map(), start_recommender_request(), list()) ::
+          {:ok, start_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def start_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1358,6 +3926,12 @@ defmodule AWS.Personalize do
   Stopping a recommender halts billing and automatic retraining for the
   recommender.
   """
+  @spec stop_recommender(map(), stop_recommender_request(), list()) ::
+          {:ok, stop_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def stop_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1383,6 +3957,12 @@ defmodule AWS.Personalize do
   until you stop the solution version creation. You cannot resume creating a
   solution version once it has been stopped.
   """
+  @spec stop_solution_version_creation(map(), stop_solution_version_creation_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1392,6 +3972,14 @@ defmodule AWS.Personalize do
   @doc """
   Add a list of tags to a resource.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tags_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1403,6 +3991,13 @@ defmodule AWS.Personalize do
   [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
   that are attached to a resource.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_tag_keys_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1429,6 +4024,12 @@ defmodule AWS.Personalize do
   campaign](https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html).
   For more information about campaigns, see [Creating a campaign](https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html).
   """
+  @spec update_campaign(map(), update_campaign_request(), list()) ::
+          {:ok, update_campaign_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def update_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1440,6 +4041,12 @@ defmodule AWS.Personalize do
 
   For more information, see [Replacing a dataset's schema](https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html).
   """
+  @spec update_dataset(map(), update_dataset_request(), list()) ::
+          {:ok, update_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def update_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1449,6 +4056,13 @@ defmodule AWS.Personalize do
   @doc """
   Updates a metric attribution.
   """
+  @spec update_metric_attribution(map(), update_metric_attribution_request(), list()) ::
+          {:ok, update_metric_attribution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def update_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1468,6 +4082,12 @@ defmodule AWS.Personalize do
   [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
   operation.
   """
+  @spec update_recommender(map(), update_recommender_request(), list()) ::
+          {:ok, update_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_input_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def update_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

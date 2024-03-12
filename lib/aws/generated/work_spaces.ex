@@ -33,6 +33,2344 @@ defmodule AWS.WorkSpaces do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  create_connect_client_add_in_result() :: %{
+    "AddInId" => String.t()
+  }
+  """
+  @type create_connect_client_add_in_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  association_state_reason() :: %{
+    "ErrorCode" => list(any()),
+    "ErrorMessage" => String.t()
+  }
+  """
+  @type association_state_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_modifications_result() :: %{
+    "AccountModifications" => list(account_modification()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_account_modifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_selfservice_permissions_result() :: %{
+
+  }
+  """
+  @type modify_selfservice_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_workspace_bundle_result() :: %{
+
+  }
+  """
+  @type update_workspace_bundle_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_workspaces_result() :: %{
+    "FailedRequests" => list(failed_workspace_change_request()())
+  }
+  """
+  @type start_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_workspaces_request() :: %{
+    required("StartWorkspaceRequests") => list(start_request()())
+  }
+  """
+  @type start_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_workspace_result() :: %{
+
+  }
+  """
+  @type restore_workspace_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_associations_request() :: %{
+    required("AssociatedResourceTypes") => list(list(any())()),
+    required("ImageId") => String.t()
+  }
+  """
+  @type describe_image_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_account_request() :: %{
+    optional("DedicatedTenancyManagementCidrRange") => String.t(),
+    optional("DedicatedTenancySupport") => list(any())
+  }
+  """
+  @type modify_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_state_request() :: %{
+    required("WorkspaceId") => String.t(),
+    required("WorkspaceState") => list(any())
+  }
+  """
+  @type modify_workspace_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_workspace_directory_result() :: %{
+
+  }
+  """
+  @type register_workspace_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_tags_request() :: %{
+    required("ResourceId") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type delete_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspaces_request() :: %{
+    optional("BundleId") => String.t(),
+    optional("DirectoryId") => String.t(),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("UserName") => String.t(),
+    optional("WorkspaceIds") => list(String.t()()),
+    optional("WorkspaceName") => String.t()
+  }
+  """
+  @type describe_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_request() :: %{
+
+  }
+  """
+  @type describe_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_bundle() :: %{
+    "BundleId" => String.t(),
+    "BundleType" => list(any()),
+    "ComputeType" => compute_type(),
+    "CreationTime" => non_neg_integer(),
+    "Description" => String.t(),
+    "ImageId" => String.t(),
+    "LastUpdatedTime" => non_neg_integer(),
+    "Name" => String.t(),
+    "Owner" => String.t(),
+    "RootStorage" => root_storage(),
+    "State" => list(any()),
+    "UserStorage" => user_storage()
+  }
+  """
+  @type workspace_bundle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  standby_workspaces_properties() :: %{
+    "DataReplication" => list(any()),
+    "RecoverySnapshotTime" => non_neg_integer(),
+    "StandbyWorkspaceId" => String.t()
+  }
+  """
+  @type standby_workspaces_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modification_state() :: %{
+    "Resource" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type modification_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connection_alias_permissions_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("AliasId") => String.t()
+  }
+  """
+  @type describe_connection_alias_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_image() :: %{
+    "Created" => non_neg_integer(),
+    "Description" => String.t(),
+    "ErrorCode" => String.t(),
+    "ErrorDetails" => list(error_details()()),
+    "ErrorMessage" => String.t(),
+    "ImageId" => String.t(),
+    "Name" => String.t(),
+    "OperatingSystem" => operating_system(),
+    "OwnerAccountId" => String.t(),
+    "RequiredTenancy" => list(any()),
+    "State" => list(any()),
+    "Updates" => update_result()
+  }
+  """
+  @type workspace_image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_associations_request() :: %{
+    required("AssociatedResourceTypes") => list(list(any())()),
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type describe_workspace_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_in_use_exception() :: %{
+    "ResourceId" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type resource_in_use_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_access_properties_result() :: %{
+
+  }
+  """
+  @type modify_workspace_access_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_ip_groups_result() :: %{
+
+  }
+  """
+  @type disassociate_ip_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_workspace_bundle_request() :: %{
+    optional("BundleId") => String.t()
+  }
+  """
+  @type delete_workspace_bundle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_connect_client_add_in_result() :: %{
+
+  }
+  """
+  @type update_connect_client_add_in_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_client_properties_request() :: %{
+    required("ClientProperties") => client_properties(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type modify_client_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_result() :: %{
+    "Description" => String.t(),
+    "UpdateAvailable" => boolean()
+  }
+  """
+  @type update_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_workspace_application_request() :: %{
+    required("ApplicationId") => String.t(),
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type associate_workspace_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  saml_properties() :: %{
+    "RelayStateParameterName" => String.t(),
+    "Status" => list(any()),
+    "UserAccessUrl" => String.t()
+  }
+  """
+  @type saml_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rebuild_workspaces_request() :: %{
+    required("RebuildWorkspaceRequests") => list(rebuild_request()())
+  }
+  """
+  @type rebuild_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_unavailable_exception() :: %{
+    "ResourceId" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type resource_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_images_request() :: %{
+    optional("ImageIds") => list(String.t()()),
+    optional("ImageType") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_workspace_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_workspace_image_request() :: %{
+    optional("Description") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("Name") => String.t(),
+    required("SourceImageId") => String.t(),
+    required("SourceRegion") => String.t()
+  }
+  """
+  @type copy_workspace_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_ip_rules_request() :: %{
+    required("GroupId") => String.t(),
+    required("UserRules") => list(String.t()())
+  }
+  """
+  @type revoke_ip_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reboot_request() :: %{
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type reboot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reboot_workspaces_request() :: %{
+    required("RebootWorkspaceRequests") => list(reboot_request()())
+  }
+  """
+  @type reboot_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_create_standby_workspaces_request() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "StandbyWorkspaceRequest" => standby_workspace()
+  }
+  """
+  @type failed_create_standby_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connection_aliases_result() :: %{
+    "ConnectionAliases" => list(connection_alias()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_connection_aliases_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_image_permissions_result() :: %{
+    "ImageId" => String.t(),
+    "ImagePermissions" => list(image_permission()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_workspace_image_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_client_branding_result() :: %{
+
+  }
+  """
+  @type delete_client_branding_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ios_client_branding_attributes() :: %{
+    "ForgotPasswordLink" => String.t(),
+    "LoginMessage" => map(),
+    "Logo2xUrl" => String.t(),
+    "Logo3xUrl" => String.t(),
+    "LogoUrl" => String.t(),
+    "SupportEmail" => String.t(),
+    "SupportLink" => String.t()
+  }
+  """
+  @type ios_client_branding_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_resource_association() :: %{
+    "AssociatedResourceId" => String.t(),
+    "AssociatedResourceType" => list(any()),
+    "Created" => non_neg_integer(),
+    "ImageId" => String.t(),
+    "LastUpdatedTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateReason" => association_state_reason()
+  }
+  """
+  @type image_resource_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  operating_system() :: %{
+    "Type" => list(any())
+  }
+  """
+  @type operating_system() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_application_associations_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ApplicationId") => String.t(),
+    required("AssociatedResourceTypes") => list(list(any())())
+  }
+  """
+  @type describe_application_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_workspace_bundle_request() :: %{
+    optional("RootStorage") => root_storage(),
+    optional("Tags") => list(tag()()),
+    required("BundleDescription") => String.t(),
+    required("BundleName") => String.t(),
+    required("ComputeType") => compute_type(),
+    required("ImageId") => String.t(),
+    required("UserStorage") => user_storage()
+  }
+  """
+  @type create_workspace_bundle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  related_workspace_properties() :: %{
+    "Region" => String.t(),
+    "State" => list(any()),
+    "Type" => list(any()),
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type related_workspace_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_resource_association() :: %{
+    "AssociatedResourceId" => String.t(),
+    "AssociatedResourceType" => list(any()),
+    "Created" => non_neg_integer(),
+    "LastUpdatedTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateReason" => association_state_reason(),
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type workspace_resource_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_connection_alias_request() :: %{
+    required("AliasId") => String.t()
+  }
+  """
+  @type disassociate_connection_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_creation_properties_result() :: %{
+
+  }
+  """
+  @type modify_workspace_creation_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_branding_result() :: %{
+    "DeviceTypeAndroid" => default_client_branding_attributes(),
+    "DeviceTypeIos" => ios_client_branding_attributes(),
+    "DeviceTypeLinux" => default_client_branding_attributes(),
+    "DeviceTypeOsx" => default_client_branding_attributes(),
+    "DeviceTypeWeb" => default_client_branding_attributes(),
+    "DeviceTypeWindows" => default_client_branding_attributes()
+  }
+  """
+  @type describe_client_branding_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_workspace_image_request() :: %{
+    required("ImageId") => String.t()
+  }
+  """
+  @type delete_workspace_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_available_management_cidr_ranges_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ManagementCidrRangeConstraint") => String.t()
+  }
+  """
+  @type list_available_management_cidr_ranges_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_properties() :: %{
+    "LogUploadEnabled" => list(any()),
+    "ReconnectEnabled" => list(any())
+  }
+  """
+  @type client_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_properties() :: %{
+    "ComputeTypeName" => list(any()),
+    "OperatingSystemName" => list(any()),
+    "Protocols" => list(list(any())()),
+    "RootVolumeSizeGib" => integer(),
+    "RunningMode" => list(any()),
+    "RunningModeAutoStopTimeoutInMinutes" => integer(),
+    "UserVolumeSizeGib" => integer()
+  }
+  """
+  @type workspace_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_ip_groups_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("GroupIds") => list(String.t()())
+  }
+  """
+  @type associate_ip_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_modifications_request() :: %{
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_account_modifications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_network_configuration_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unsupported_network_configuration_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rebuild_workspaces_result() :: %{
+    "FailedRequests" => list(failed_workspace_change_request()())
+  }
+  """
+  @type rebuild_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_workspace_bundle_result() :: %{
+    "WorkspaceBundle" => workspace_bundle()
+  }
+  """
+  @type create_workspace_bundle_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_workspace_change_request() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type failed_workspace_change_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_available_management_cidr_ranges_result() :: %{
+    "ManagementCidrRanges" => list(String.t()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_available_management_cidr_ranges_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_certificate_based_auth_properties_result() :: %{
+
+  }
+  """
+  @type modify_certificate_based_auth_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_ip_groups_result() :: %{
+
+  }
+  """
+  @type associate_ip_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_tags_request() :: %{
+    required("ResourceId") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type create_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_workspaces_result() :: %{
+    "FailedRequests" => list(failed_workspace_change_request()())
+  }
+  """
+  @type terminate_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_workspaces_request() :: %{
+    required("Workspaces") => list(workspace_request()())
+  }
+  """
+  @type create_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_alias_permission() :: %{
+    "AllowAssociation" => boolean(),
+    "SharedAccountId" => String.t()
+  }
+  """
+  @type connection_alias_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_standby_workspaces_request() :: %{
+    required("PrimaryRegion") => String.t(),
+    required("StandbyWorkspaces") => list(standby_workspace()())
+  }
+  """
+  @type create_standby_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pending_create_standby_workspaces_request() :: %{
+    "DirectoryId" => String.t(),
+    "State" => list(any()),
+    "UserName" => String.t(),
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type pending_create_standby_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_modification() :: %{
+    "DedicatedTenancyManagementCidrRange" => String.t(),
+    "DedicatedTenancySupport" => list(any()),
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "ModificationState" => list(any()),
+    "StartTime" => non_neg_integer()
+  }
+  """
+  @type account_modification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_based_auth_properties() :: %{
+    "CertificateAuthorityArn" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type certificate_based_auth_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspaces_ip_group() :: %{
+    "groupDesc" => String.t(),
+    "groupId" => String.t(),
+    "groupName" => String.t(),
+    "userRules" => list(ip_rule_item()())
+  }
+  """
+  @type workspaces_ip_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "ResourceId" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_workspace_application_result() :: %{
+    "Association" => workspace_resource_association()
+  }
+  """
+  @type disassociate_workspace_application_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  root_storage() :: %{
+    "Capacity" => String.t()
+  }
+  """
+  @type root_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ip_group_request() :: %{
+    required("GroupId") => String.t()
+  }
+  """
+  @type delete_ip_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_workspace_creation_properties() :: %{
+    "CustomSecurityGroupId" => String.t(),
+    "DefaultOu" => String.t(),
+    "EnableInternetAccess" => boolean(),
+    "EnableMaintenanceMode" => boolean(),
+    "EnableWorkDocs" => boolean(),
+    "UserEnabledAsLocalAdministrator" => boolean()
+  }
+  """
+  @type default_workspace_creation_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bundle_resource_association() :: %{
+    "AssociatedResourceId" => String.t(),
+    "AssociatedResourceType" => list(any()),
+    "BundleId" => String.t(),
+    "Created" => non_neg_integer(),
+    "LastUpdatedTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateReason" => association_state_reason()
+  }
+  """
+  @type bundle_resource_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connect_client_add_in() :: %{
+    "AddInId" => String.t(),
+    "Name" => String.t(),
+    "ResourceId" => String.t(),
+    "URL" => String.t()
+  }
+  """
+  @type connect_client_add_in() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_bundle_associations_request() :: %{
+    required("AssociatedResourceTypes") => list(list(any())()),
+    required("BundleId") => String.t()
+  }
+  """
+  @type describe_bundle_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  operation_in_progress_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type operation_in_progress_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_workspace_image_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type import_workspace_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_workspaces_request() :: %{
+    required("TerminateWorkspaceRequests") => list(terminate_request()())
+  }
+  """
+  @type terminate_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rules_of_ip_group_request() :: %{
+    required("GroupId") => String.t(),
+    required("UserRules") => list(ip_rule_item()())
+  }
+  """
+  @type update_rules_of_ip_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deploy_workspace_applications_request() :: %{
+    optional("Force") => boolean(),
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type deploy_workspace_applications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_account_result() :: %{
+
+  }
+  """
+  @type modify_account_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_bundles_request() :: %{
+    optional("BundleIds") => list(String.t()()),
+    optional("NextToken") => String.t(),
+    optional("Owner") => String.t()
+  }
+  """
+  @type describe_workspace_bundles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_request() :: %{
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type stop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connection_aliases_request() :: %{
+    optional("AliasIds") => list(String.t()()),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ResourceId") => String.t()
+  }
+  """
+  @type describe_connection_aliases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_workspace_bundle_request() :: %{
+    optional("BundleId") => String.t(),
+    optional("ImageId") => String.t()
+  }
+  """
+  @type update_workspace_bundle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_workspace_image_permission_result() :: %{
+
+  }
+  """
+  @type update_workspace_image_permission_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_ip_rules_request() :: %{
+    required("GroupId") => String.t(),
+    required("UserRules") => list(ip_rule_item()())
+  }
+  """
+  @type authorize_ip_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connection_alias_permissions_result() :: %{
+    "AliasId" => String.t(),
+    "ConnectionAliasPermissions" => list(connection_alias_permission()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_connection_alias_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deploy_workspace_applications_result() :: %{
+    "Deployment" => work_space_application_deployment()
+  }
+  """
+  @type deploy_workspace_applications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_workspace_bundle_result() :: %{
+
+  }
+  """
+  @type delete_workspace_bundle_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_associations_result() :: %{
+    "Associations" => list(workspace_resource_association()())
+  }
+  """
+  @type describe_workspace_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_creation_properties_request() :: %{
+    required("ResourceId") => String.t(),
+    required("WorkspaceCreationProperties") => workspace_creation_properties()
+  }
+  """
+  @type modify_workspace_creation_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_permission() :: %{
+    "SharedAccountId" => String.t()
+  }
+  """
+  @type image_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_creation_properties() :: %{
+    "CustomSecurityGroupId" => String.t(),
+    "DefaultOu" => String.t(),
+    "EnableInternetAccess" => boolean(),
+    "EnableMaintenanceMode" => boolean(),
+    "EnableWorkDocs" => boolean(),
+    "UserEnabledAsLocalAdministrator" => boolean()
+  }
+  """
+  @type workspace_creation_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  error_details() :: %{
+    "ErrorCode" => list(any()),
+    "ErrorMessage" => String.t()
+  }
+  """
+  @type error_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_applications_request() :: %{
+    optional("ApplicationIds") => list(String.t()()),
+    optional("ComputeTypeNames") => list(list(any())()),
+    optional("LicenseType") => list(any()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("OperatingSystemNames") => list(list(any())()),
+    optional("Owner") => String.t()
+  }
+  """
+  @type describe_applications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_application_associations_result() :: %{
+    "Associations" => list(application_resource_association()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_application_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_updated_workspace_image_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("Description") => String.t(),
+    required("Name") => String.t(),
+    required("SourceImageId") => String.t()
+  }
+  """
+  @type create_updated_workspace_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ios_import_client_branding_attributes() :: %{
+    "ForgotPasswordLink" => String.t(),
+    "LoginMessage" => map(),
+    "Logo" => binary(),
+    "Logo2x" => binary(),
+    "Logo3x" => binary(),
+    "SupportEmail" => String.t(),
+    "SupportLink" => String.t()
+  }
+  """
+  @type ios_import_client_branding_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_workspace_image_result() :: %{
+    "Created" => non_neg_integer(),
+    "Description" => String.t(),
+    "ImageId" => String.t(),
+    "Name" => String.t(),
+    "OperatingSystem" => operating_system(),
+    "OwnerAccountId" => String.t(),
+    "RequiredTenancy" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type create_workspace_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_access_properties() :: %{
+    "DeviceTypeAndroid" => list(any()),
+    "DeviceTypeChromeOs" => list(any()),
+    "DeviceTypeIos" => list(any()),
+    "DeviceTypeLinux" => list(any()),
+    "DeviceTypeOsx" => list(any()),
+    "DeviceTypeWeb" => list(any()),
+    "DeviceTypeWindows" => list(any()),
+    "DeviceTypeZeroClient" => list(any())
+  }
+  """
+  @type workspace_access_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_directories_request() :: %{
+    optional("DirectoryIds") => list(String.t()()),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_workspace_directories_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_saml_properties_result() :: %{
+
+  }
+  """
+  @type modify_saml_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_image_associations_result() :: %{
+    "Associations" => list(image_resource_association()())
+  }
+  """
+  @type describe_image_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspaces_connection_status_result() :: %{
+    "NextToken" => String.t(),
+    "WorkspacesConnectionStatus" => list(workspace_connection_status()())
+  }
+  """
+  @type describe_workspaces_connection_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_space_application() :: %{
+    "ApplicationId" => String.t(),
+    "Created" => non_neg_integer(),
+    "Description" => String.t(),
+    "LicenseType" => list(any()),
+    "Name" => String.t(),
+    "Owner" => String.t(),
+    "State" => list(any()),
+    "SupportedComputeTypeNames" => list(list(any())()),
+    "SupportedOperatingSystemNames" => list(list(any())())
+  }
+  """
+  @type work_space_application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connect_client_add_in_result() :: %{
+
+  }
+  """
+  @type delete_connect_client_add_in_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_import_client_branding_attributes() :: %{
+    "ForgotPasswordLink" => String.t(),
+    "LoginMessage" => map(),
+    "Logo" => binary(),
+    "SupportEmail" => String.t(),
+    "SupportLink" => String.t()
+  }
+  """
+  @type default_import_client_branding_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_connection_alias_result() :: %{
+    "AliasId" => String.t()
+  }
+  """
+  @type create_connection_alias_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_saml_properties_request() :: %{
+    optional("PropertiesToDelete") => list(list(any())()),
+    optional("SamlProperties") => saml_properties(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type modify_saml_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_rule_item() :: %{
+    "ipRule" => String.t(),
+    "ruleDesc" => String.t()
+  }
+  """
+  @type ip_rule_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_images_result() :: %{
+    "Images" => list(workspace_image()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_workspace_images_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_workspace_request() :: %{
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type restore_workspace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_resource_state_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_resource_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_creation_failed_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_creation_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_updated_workspace_image_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type create_updated_workspace_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_connect_client_add_in_request() :: %{
+    required("Name") => String.t(),
+    required("ResourceId") => String.t(),
+    required("URL") => String.t()
+  }
+  """
+  @type create_connect_client_add_in_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_properties_result() :: %{
+
+  }
+  """
+  @type modify_workspace_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  application_resource_association() :: %{
+    "ApplicationId" => String.t(),
+    "AssociatedResourceId" => String.t(),
+    "AssociatedResourceType" => list(any()),
+    "Created" => non_neg_integer(),
+    "LastUpdatedTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateReason" => association_state_reason()
+  }
+  """
+  @type application_resource_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_client_branding_request() :: %{
+    required("Platforms") => list(list(any())()),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type delete_client_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  data_replication_settings() :: %{
+    "DataReplication" => list(any()),
+    "RecoverySnapshotTime" => non_neg_integer()
+  }
+  """
+  @type data_replication_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspaces_result() :: %{
+    "NextToken" => String.t(),
+    "Workspaces" => list(workspace()())
+  }
+  """
+  @type describe_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_workspaces_result() :: %{
+    "FailedRequests" => list(failed_create_workspace_request()()),
+    "PendingRequests" => list(workspace()())
+  }
+  """
+  @type create_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_values_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_parameter_values_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_client_branding_attributes() :: %{
+    "ForgotPasswordLink" => String.t(),
+    "LoginMessage" => map(),
+    "LogoUrl" => String.t(),
+    "SupportEmail" => String.t(),
+    "SupportLink" => String.t()
+  }
+  """
+  @type default_client_branding_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_workspace_application_request() :: %{
+    required("ApplicationId") => String.t(),
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type disassociate_workspace_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_properties_request() :: %{
+    optional("DataReplication") => list(any()),
+    optional("WorkspaceProperties") => workspace_properties(),
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type modify_workspace_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_tags_result() :: %{
+
+  }
+  """
+  @type create_tags_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace() :: %{
+    "BundleId" => String.t(),
+    "ComputerName" => String.t(),
+    "DataReplicationSettings" => data_replication_settings(),
+    "DirectoryId" => String.t(),
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "IpAddress" => String.t(),
+    "ModificationStates" => list(modification_state()()),
+    "RelatedWorkspaces" => list(related_workspace_properties()()),
+    "RootVolumeEncryptionEnabled" => boolean(),
+    "StandbyWorkspacesProperties" => list(standby_workspaces_properties()()),
+    "State" => list(any()),
+    "SubnetId" => String.t(),
+    "UserName" => String.t(),
+    "UserVolumeEncryptionEnabled" => boolean(),
+    "VolumeEncryptionKey" => String.t(),
+    "WorkspaceId" => String.t(),
+    "WorkspaceName" => String.t(),
+    "WorkspaceProperties" => workspace_properties()
+  }
+  """
+  @type workspace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  selfservice_permissions() :: %{
+    "ChangeComputeType" => list(any()),
+    "IncreaseVolumeSize" => list(any()),
+    "RebuildWorkspace" => list(any()),
+    "RestartWorkspace" => list(any()),
+    "SwitchRunningMode" => list(any())
+  }
+  """
+  @type selfservice_permissions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspaces_default_role_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type workspaces_default_role_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_properties_result() :: %{
+    "ClientPropertiesList" => list(client_properties_result()())
+  }
+  """
+  @type describe_client_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_connection_alias_permission_request() :: %{
+    required("AliasId") => String.t(),
+    required("ConnectionAliasPermission") => connection_alias_permission()
+  }
+  """
+  @type update_connection_alias_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_snapshots_result() :: %{
+    "RebuildSnapshots" => list(snapshot()()),
+    "RestoreSnapshots" => list(snapshot()())
+  }
+  """
+  @type describe_workspace_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ip_groups_result() :: %{
+    "NextToken" => String.t(),
+    "Result" => list(workspaces_ip_group()())
+  }
+  """
+  @type describe_ip_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_workspace_image_request() :: %{
+    optional("Applications") => list(list(any())()),
+    optional("Tags") => list(tag()()),
+    required("Ec2ImageId") => String.t(),
+    required("ImageDescription") => String.t(),
+    required("ImageName") => String.t(),
+    required("IngestionProcess") => list(any())
+  }
+  """
+  @type import_workspace_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_connection_alias_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("ConnectionString") => String.t()
+  }
+  """
+  @type create_connection_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revoke_ip_rules_result() :: %{
+
+  }
+  """
+  @type revoke_ip_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot() :: %{
+    "SnapshotTime" => non_neg_integer()
+  }
+  """
+  @type snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_client_branding_result() :: %{
+    "DeviceTypeAndroid" => default_client_branding_attributes(),
+    "DeviceTypeIos" => ios_client_branding_attributes(),
+    "DeviceTypeLinux" => default_client_branding_attributes(),
+    "DeviceTypeOsx" => default_client_branding_attributes(),
+    "DeviceTypeWeb" => default_client_branding_attributes(),
+    "DeviceTypeWindows" => default_client_branding_attributes()
+  }
+  """
+  @type import_client_branding_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ip_group_request() :: %{
+    optional("GroupDesc") => String.t(),
+    optional("Tags") => list(tag()()),
+    optional("UserRules") => list(ip_rule_item()()),
+    required("GroupName") => String.t()
+  }
+  """
+  @type create_ip_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_connection_status() :: %{
+    "ConnectionState" => list(any()),
+    "ConnectionStateCheckTimestamp" => non_neg_integer(),
+    "LastKnownUserConnectionTimestamp" => non_neg_integer(),
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type workspace_connection_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_tags_result() :: %{
+
+  }
+  """
+  @type delete_tags_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_workspace_directory_request() :: %{
+    optional("EnableSelfService") => boolean(),
+    optional("SubnetIds") => list(String.t()()),
+    optional("Tags") => list(tag()()),
+    optional("Tenancy") => list(any()),
+    required("DirectoryId") => String.t(),
+    required("EnableWorkDocs") => boolean()
+  }
+  """
+  @type register_workspace_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  compute_type() :: %{
+    "Name" => list(any())
+  }
+  """
+  @type compute_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_workspace_image_permission_request() :: %{
+    required("AllowCopyImage") => boolean(),
+    required("ImageId") => String.t(),
+    required("SharedAccountId") => String.t()
+  }
+  """
+  @type update_workspace_image_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connection_alias_result() :: %{
+
+  }
+  """
+  @type delete_connection_alias_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_workspace_image_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("Description") => String.t(),
+    required("Name") => String.t(),
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type create_workspace_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  copy_workspace_image_result() :: %{
+    "ImageId" => String.t()
+  }
+  """
+  @type copy_workspace_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_access_properties_request() :: %{
+    required("ResourceId") => String.t(),
+    required("WorkspaceAccessProperties") => workspace_access_properties()
+  }
+  """
+  @type modify_workspace_access_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_storage() :: %{
+    "Capacity" => String.t()
+  }
+  """
+  @type user_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  migrate_workspace_request() :: %{
+    required("BundleId") => String.t(),
+    required("SourceWorkspaceId") => String.t()
+  }
+  """
+  @type migrate_workspace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_workspace_application_result() :: %{
+    "Association" => workspace_resource_association()
+  }
+  """
+  @type associate_workspace_application_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_workspace_directory_result() :: %{
+
+  }
+  """
+  @type deregister_workspace_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_associated_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_associated_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_directory() :: %{
+    "Alias" => String.t(),
+    "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
+    "CustomerUserName" => String.t(),
+    "DirectoryId" => String.t(),
+    "DirectoryName" => String.t(),
+    "DirectoryType" => list(any()),
+    "DnsIpAddresses" => list(String.t()()),
+    "IamRoleId" => String.t(),
+    "RegistrationCode" => String.t(),
+    "SamlProperties" => saml_properties(),
+    "SelfservicePermissions" => selfservice_permissions(),
+    "State" => list(any()),
+    "SubnetIds" => list(String.t()()),
+    "Tenancy" => list(any()),
+    "WorkspaceAccessProperties" => workspace_access_properties(),
+    "WorkspaceCreationProperties" => default_workspace_creation_properties(),
+    "WorkspaceSecurityGroupId" => String.t(),
+    "ipGroupIds" => list(String.t()())
+  }
+  """
+  @type workspace_directory() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_workspaces_result() :: %{
+    "FailedRequests" => list(failed_workspace_change_request()())
+  }
+  """
+  @type stop_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_client_properties_result() :: %{
+
+  }
+  """
+  @type modify_client_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  standby_workspace() :: %{
+    "DataReplication" => list(any()),
+    "DirectoryId" => String.t(),
+    "PrimaryWorkspaceId" => String.t(),
+    "Tags" => list(tag()()),
+    "VolumeEncryptionKey" => String.t()
+  }
+  """
+  @type standby_workspace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_standby_workspaces_result() :: %{
+    "FailedStandbyRequests" => list(failed_create_standby_workspaces_request()()),
+    "PendingStandbyRequests" => list(pending_create_standby_workspaces_request()())
+  }
+  """
+  @type create_standby_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_result() :: %{
+    "DedicatedTenancyManagementCidrRange" => String.t(),
+    "DedicatedTenancySupport" => list(any())
+  }
+  """
+  @type describe_account_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_connection_alias_result() :: %{
+    "ConnectionIdentifier" => String.t()
+  }
+  """
+  @type associate_connection_alias_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_workspace_image_result() :: %{
+
+  }
+  """
+  @type delete_workspace_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_ip_group_result() :: %{
+
+  }
+  """
+  @type delete_ip_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connect_client_add_in_request() :: %{
+    required("AddInId") => String.t(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type delete_connect_client_add_in_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_certificate_based_auth_properties_request() :: %{
+    optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
+    optional("PropertiesToDelete") => list(list(any())()),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type modify_certificate_based_auth_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_bundle_associations_result() :: %{
+    "Associations" => list(bundle_resource_association()())
+  }
+  """
+  @type describe_bundle_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_connect_client_add_in_request() :: %{
+    optional("Name") => String.t(),
+    optional("URL") => String.t(),
+    required("AddInId") => String.t(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type update_connect_client_add_in_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  incompatible_applications_exception() :: %{
+
+  }
+  """
+  @type incompatible_applications_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_request() :: %{
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type terminate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  compute_not_compatible_exception() :: %{
+
+  }
+  """
+  @type compute_not_compatible_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rebuild_request() :: %{
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type rebuild_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_properties_request() :: %{
+    required("ResourceIds") => list(String.t()())
+  }
+  """
+  @type describe_client_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_workspace_directory_request() :: %{
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type deregister_workspace_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  operating_system_not_compatible_exception() :: %{
+
+  }
+  """
+  @type operating_system_not_compatible_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_rules_of_ip_group_result() :: %{
+
+  }
+  """
+  @type update_rules_of_ip_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_tags_result() :: %{
+    "TagList" => list(tag()())
+  }
+  """
+  @type describe_tags_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_selfservice_permissions_request() :: %{
+    required("ResourceId") => String.t(),
+    required("SelfservicePermissions") => selfservice_permissions()
+  }
+  """
+  @type modify_selfservice_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  modify_workspace_state_result() :: %{
+
+  }
+  """
+  @type modify_workspace_state_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_bundles_result() :: %{
+    "Bundles" => list(workspace_bundle()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_workspace_bundles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_request() :: %{
+    "WorkspaceId" => String.t()
+  }
+  """
+  @type start_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ip_groups_request() :: %{
+    optional("GroupIds") => list(String.t()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_ip_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_connection_alias_permission_result() :: %{
+
+  }
+  """
+  @type update_connection_alias_permission_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  work_space_application_deployment() :: %{
+    "Associations" => list(workspace_resource_association()())
+  }
+  """
+  @type work_space_application_deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_workspace_configuration_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unsupported_workspace_configuration_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  application_not_supported_exception() :: %{
+
+  }
+  """
+  @type application_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_tags_request() :: %{
+    required("ResourceId") => String.t()
+  }
+  """
+  @type describe_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reboot_workspaces_result() :: %{
+    "FailedRequests" => list(failed_workspace_change_request()())
+  }
+  """
+  @type reboot_workspaces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_already_exists_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  operation_not_supported_exception() :: %{
+    "message" => String.t(),
+    "reason" => String.t()
+  }
+  """
+  @type operation_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_ip_groups_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("GroupIds") => list(String.t()())
+  }
+  """
+  @type disassociate_ip_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_alias_association() :: %{
+    "AssociatedAccountId" => String.t(),
+    "AssociationStatus" => list(any()),
+    "ConnectionIdentifier" => String.t(),
+    "ResourceId" => String.t()
+  }
+  """
+  @type connection_alias_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_image_permissions_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ImageId") => String.t()
+  }
+  """
+  @type describe_workspace_image_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_create_workspace_request() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "WorkspaceRequest" => workspace_request()
+  }
+  """
+  @type failed_create_workspace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authorize_ip_rules_result() :: %{
+
+  }
+  """
+  @type authorize_ip_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_alias() :: %{
+    "AliasId" => String.t(),
+    "Associations" => list(connection_alias_association()()),
+    "ConnectionString" => String.t(),
+    "OwnerAccountId" => String.t(),
+    "State" => list(any())
+  }
+  """
+  @type connection_alias() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workspace_request() :: %{
+    "BundleId" => String.t(),
+    "DirectoryId" => String.t(),
+    "RootVolumeEncryptionEnabled" => boolean(),
+    "Tags" => list(tag()()),
+    "UserName" => String.t(),
+    "UserVolumeEncryptionEnabled" => boolean(),
+    "VolumeEncryptionKey" => String.t(),
+    "WorkspaceName" => String.t(),
+    "WorkspaceProperties" => workspace_properties()
+  }
+  """
+  @type workspace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspaces_connection_status_request() :: %{
+    optional("NextToken") => String.t(),
+    optional("WorkspaceIds") => list(String.t()())
+  }
+  """
+  @type describe_workspaces_connection_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connection_alias_request() :: %{
+    required("AliasId") => String.t()
+  }
+  """
+  @type delete_connection_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connect_client_add_ins_result() :: %{
+    "AddIns" => list(connect_client_add_in()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_connect_client_add_ins_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_directories_result() :: %{
+    "Directories" => list(workspace_directory()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_workspace_directories_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_branding_request() :: %{
+    required("ResourceId") => String.t()
+  }
+  """
+  @type describe_client_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_properties_result() :: %{
+    "ClientProperties" => client_properties(),
+    "ResourceId" => String.t()
+  }
+  """
+  @type client_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_applications_result() :: %{
+    "Applications" => list(work_space_application()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_applications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workspace_snapshots_request() :: %{
+    required("WorkspaceId") => String.t()
+  }
+  """
+  @type describe_workspace_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_connection_alias_result() :: %{
+
+  }
+  """
+  @type disassociate_connection_alias_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_workspaces_request() :: %{
+    required("StopWorkspaceRequests") => list(stop_request()())
+  }
+  """
+  @type stop_workspaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_connect_client_add_ins_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type describe_connect_client_add_ins_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_client_branding_request() :: %{
+    optional("DeviceTypeAndroid") => default_import_client_branding_attributes(),
+    optional("DeviceTypeIos") => ios_import_client_branding_attributes(),
+    optional("DeviceTypeLinux") => default_import_client_branding_attributes(),
+    optional("DeviceTypeOsx") => default_import_client_branding_attributes(),
+    optional("DeviceTypeWeb") => default_import_client_branding_attributes(),
+    optional("DeviceTypeWindows") => default_import_client_branding_attributes(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type import_client_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_connection_alias_request() :: %{
+    required("AliasId") => String.t(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type associate_connection_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_ip_group_result() :: %{
+    "GroupId" => String.t()
+  }
+  """
+  @type create_ip_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  migrate_workspace_result() :: %{
+    "SourceWorkspaceId" => String.t(),
+    "TargetWorkspaceId" => String.t()
+  }
+  """
+  @type migrate_workspace_result() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2015-04-08",
@@ -60,6 +2398,15 @@ defmodule AWS.WorkSpaces do
   to make sure that the current state of the
   connection alias is `CREATED`.
   """
+  @spec associate_connection_alias(map(), associate_connection_alias_request(), list()) ::
+          {:ok, associate_connection_alias_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_associated_exception()}
+          | {:error, resource_not_found_exception()}
   def associate_connection_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -69,6 +2416,15 @@ defmodule AWS.WorkSpaces do
   @doc """
   Associates the specified IP access control group with the specified directory.
   """
+  @spec associate_ip_groups(map(), associate_ip_groups_request(), list()) ::
+          {:ok, associate_ip_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def associate_ip_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -78,6 +2434,19 @@ defmodule AWS.WorkSpaces do
   @doc """
   Associates the specified application to the specified WorkSpace.
   """
+  @spec associate_workspace_application(map(), associate_workspace_application_request(), list()) ::
+          {:ok, associate_workspace_application_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, application_not_supported_exception()}
+          | {:error, compute_not_compatible_exception()}
+          | {:error, incompatible_applications_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operating_system_not_compatible_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def associate_workspace_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -91,6 +2460,14 @@ defmodule AWS.WorkSpaces do
   address
   ranges specified in the rules.
   """
+  @spec authorize_ip_rules(map(), authorize_ip_rules_request(), list()) ::
+          {:ok, authorize_ip_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def authorize_ip_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -117,6 +2494,16 @@ defmodule AWS.WorkSpaces do
   [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html)
   API operations.
   """
+  @spec copy_workspace_image(map(), copy_workspace_image_request(), list()) ::
+          {:ok, copy_workspace_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
   def copy_workspace_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -132,6 +2519,14 @@ defmodule AWS.WorkSpaces do
   This client add-in allows WorkSpaces users to seamlessly connect to Amazon
   Connect.
   """
+  @spec create_connect_client_add_in(map(), create_connect_client_add_in_request(), list()) ::
+          {:ok, create_connect_client_add_in_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_creation_failed_exception()}
+          | {:error, resource_not_found_exception()}
   def create_connect_client_add_in(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -145,6 +2540,15 @@ defmodule AWS.WorkSpaces do
   information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
+  @spec create_connection_alias(map(), create_connection_alias_request(), list()) ::
+          {:ok, create_connection_alias_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
   def create_connection_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -172,6 +2576,14 @@ defmodule AWS.WorkSpaces do
   anywhere. You cannot modify the default IP access control group for your
   directory.
   """
+  @spec create_ip_group(map(), create_ip_group_request(), list()) ::
+          {:ok, create_ip_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_creation_failed_exception()}
+          | {:error, resource_limit_exceeded_exception()}
   def create_ip_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -181,6 +2593,14 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates a standby WorkSpace in a secondary Region.
   """
+  @spec create_standby_workspaces(map(), create_standby_workspaces_request(), list()) ::
+          {:ok, create_standby_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def create_standby_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -190,6 +2610,12 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates the specified tags for the specified WorkSpaces resource.
   """
+  @spec create_tags(map(), create_tags_request(), list()) ::
+          {:ok, create_tags_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def create_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -220,6 +2646,16 @@ defmodule AWS.WorkSpaces do
   The source WorkSpace image is not deleted. You can delete the source image
   after you've verified your new updated image and created a new bundle.
   """
+  @spec create_updated_workspace_image(map(), create_updated_workspace_image_request(), list()) ::
+          {:ok, create_updated_workspace_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def create_updated_workspace_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -234,6 +2670,15 @@ defmodule AWS.WorkSpaces do
   Create a Custom WorkSpaces Image and
   Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html).
   """
+  @spec create_workspace_bundle(map(), create_workspace_bundle_request(), list()) ::
+          {:ok, create_workspace_bundle_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
   def create_workspace_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -243,6 +2688,16 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates a new WorkSpace image from an existing WorkSpace.
   """
+  @spec create_workspace_image(map(), create_workspace_image_request(), list()) ::
+          {:ok, create_workspace_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def create_workspace_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -267,6 +2722,11 @@ defmodule AWS.WorkSpaces do
   User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
   Core.
   """
+  @spec create_workspaces(map(), create_workspaces_request(), list()) ::
+          {:ok, create_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_limit_exceeded_exception()}
   def create_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -287,6 +2747,12 @@ defmodule AWS.WorkSpaces do
   the
   default client branding.
   """
+  @spec delete_client_branding(map(), delete_client_branding_request(), list()) ::
+          {:ok, delete_client_branding_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_client_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -297,6 +2763,12 @@ defmodule AWS.WorkSpaces do
   Deletes a client-add-in for Amazon Connect that is configured within a
   directory.
   """
+  @spec delete_connect_client_add_in(map(), delete_connect_client_add_in_request(), list()) ::
+          {:ok, delete_connect_client_add_in_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_connect_client_add_in(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -323,6 +2795,15 @@ defmodule AWS.WorkSpaces do
   delete a connection alias only after it is no longer shared with any accounts or
   associated with any directories.
   """
+  @spec delete_connection_alias(map(), delete_connection_alias_request(), list()) ::
+          {:ok, delete_connection_alias_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_associated_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_connection_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -335,6 +2816,13 @@ defmodule AWS.WorkSpaces do
   You cannot delete an IP access control group that is associated with a
   directory.
   """
+  @spec delete_ip_group(map(), delete_ip_group_request(), list()) ::
+          {:ok, delete_ip_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_associated_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_ip_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -344,6 +2832,11 @@ defmodule AWS.WorkSpaces do
   @doc """
   Deletes the specified tags from the specified WorkSpaces resource.
   """
+  @spec delete_tags(map(), delete_tags_request(), list()) ::
+          {:ok, delete_tags_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -358,6 +2851,13 @@ defmodule AWS.WorkSpaces do
   Delete a Custom WorkSpaces Bundle or
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html).
   """
+  @spec delete_workspace_bundle(map(), delete_workspace_bundle_request(), list()) ::
+          {:ok, delete_workspace_bundle_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_associated_exception()}
+          | {:error, resource_not_found_exception()}
   def delete_workspace_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -372,6 +2872,12 @@ defmodule AWS.WorkSpaces do
   shared with
   other accounts.
   """
+  @spec delete_workspace_image(map(), delete_workspace_image_request(), list()) ::
+          {:ok, delete_workspace_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, resource_associated_exception()}
   def delete_workspace_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -381,6 +2887,15 @@ defmodule AWS.WorkSpaces do
   @doc """
   Deploys associated applications to the specified WorkSpace
   """
+  @spec deploy_workspace_applications(map(), deploy_workspace_applications_request(), list()) ::
+          {:ok, deploy_workspace_applications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, incompatible_applications_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def deploy_workspace_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -410,6 +2925,14 @@ defmodule AWS.WorkSpaces do
   WorkSpaces
   again.
   """
+  @spec deregister_workspace_directory(map(), deregister_workspace_directory_request(), list()) ::
+          {:ok, deregister_workspace_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def deregister_workspace_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -421,6 +2944,10 @@ defmodule AWS.WorkSpaces do
   (BYOL) for
   the specified account.
   """
+  @spec describe_account(map(), describe_account_request(), list()) ::
+          {:ok, describe_account_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
   def describe_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -432,6 +2959,10 @@ defmodule AWS.WorkSpaces do
   Own
   License (BYOL) for the specified account.
   """
+  @spec describe_account_modifications(map(), describe_account_modifications_request(), list()) ::
+          {:ok, describe_account_modifications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
   def describe_account_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -442,6 +2973,17 @@ defmodule AWS.WorkSpaces do
   Describes the associations between the application and the specified associated
   resources.
   """
+  @spec describe_application_associations(
+          map(),
+          describe_application_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_application_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_application_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -452,6 +2994,13 @@ defmodule AWS.WorkSpaces do
   Describes the specified applications by filtering based on their compute types,
   license availability, operating systems, and owners.
   """
+  @spec describe_applications(map(), describe_applications_request(), list()) ::
+          {:ok, describe_applications_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -461,6 +3010,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations between the applications and the specified bundle.
   """
+  @spec describe_bundle_associations(map(), describe_bundle_associations_request(), list()) ::
+          {:ok, describe_bundle_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_bundle_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -480,6 +3036,12 @@ defmodule AWS.WorkSpaces do
   Only device types that have branding information configured will be shown in the
   response.
   """
+  @spec describe_client_branding(map(), describe_client_branding_request(), list()) ::
+          {:ok, describe_client_branding_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_client_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -489,6 +3051,12 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list that describes one or more specified Amazon WorkSpaces clients.
   """
+  @spec describe_client_properties(map(), describe_client_properties_request(), list()) ::
+          {:ok, describe_client_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_client_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -498,6 +3066,12 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list of Amazon Connect client add-ins that have been created.
   """
+  @spec describe_connect_client_add_ins(map(), describe_connect_client_add_ins_request(), list()) ::
+          {:ok, describe_connect_client_add_ins_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_connect_client_add_ins(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -513,6 +3087,17 @@ defmodule AWS.WorkSpaces do
   [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
+  @spec describe_connection_alias_permissions(
+          map(),
+          describe_connection_alias_permissions_request(),
+          list()
+        ) ::
+          {:ok, describe_connection_alias_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_connection_alias_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -526,6 +3111,12 @@ defmodule AWS.WorkSpaces do
   For more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
   """
+  @spec describe_connection_aliases(map(), describe_connection_aliases_request(), list()) ::
+          {:ok, describe_connection_aliases_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
   def describe_connection_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -535,6 +3126,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations between the applications and the specified image.
   """
+  @spec describe_image_associations(map(), describe_image_associations_request(), list()) ::
+          {:ok, describe_image_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_image_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -544,6 +3142,11 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes one or more of your IP access control groups.
   """
+  @spec describe_ip_groups(map(), describe_ip_groups_request(), list()) ::
+          {:ok, describe_ip_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
   def describe_ip_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -553,6 +3156,10 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the specified tags for the specified WorkSpaces resource.
   """
+  @spec describe_tags(map(), describe_tags_request(), list()) ::
+          {:ok, describe_tags_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -562,6 +3169,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations betweens applications and the specified WorkSpace.
   """
+  @spec describe_workspace_associations(map(), describe_workspace_associations_request(), list()) ::
+          {:ok, describe_workspace_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_workspace_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -573,6 +3187,10 @@ defmodule AWS.WorkSpaces do
 
   You can filter the results using either bundle ID or owner, but not both.
   """
+  @spec describe_workspace_bundles(map(), describe_workspace_bundles_request(), list()) ::
+          {:ok, describe_workspace_bundles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
   def describe_workspace_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -582,6 +3200,10 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the available directories that are registered with Amazon WorkSpaces.
   """
+  @spec describe_workspace_directories(map(), describe_workspace_directories_request(), list()) ::
+          {:ok, describe_workspace_directories_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
   def describe_workspace_directories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -592,6 +3214,16 @@ defmodule AWS.WorkSpaces do
   Describes the permissions that the owner of an image has granted to other Amazon
   Web Services accounts for an image.
   """
+  @spec describe_workspace_image_permissions(
+          map(),
+          describe_workspace_image_permissions_request(),
+          list()
+        ) ::
+          {:ok, describe_workspace_image_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_workspace_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -605,6 +3237,10 @@ defmodule AWS.WorkSpaces do
 
   Otherwise, all images in the account are described.
   """
+  @spec describe_workspace_images(map(), describe_workspace_images_request(), list()) ::
+          {:ok, describe_workspace_images_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
   def describe_workspace_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -614,6 +3250,12 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the snapshots for the specified WorkSpace.
   """
+  @spec describe_workspace_snapshots(map(), describe_workspace_snapshots_request(), list()) ::
+          {:ok, describe_workspace_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_workspace_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -627,6 +3269,11 @@ defmodule AWS.WorkSpaces do
   or
   owner, but you can specify only one filter at a time.
   """
+  @spec describe_workspaces(map(), describe_workspaces_request(), list()) ::
+          {:ok, describe_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_unavailable_exception()}
   def describe_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -636,6 +3283,14 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the connection status of the specified WorkSpaces.
   """
+  @spec describe_workspaces_connection_status(
+          map(),
+          describe_workspaces_connection_status_request(),
+          list()
+        ) ::
+          {:ok, describe_workspaces_connection_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
   def describe_workspaces_connection_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -656,6 +3311,14 @@ defmodule AWS.WorkSpaces do
   to make sure that the current state of the
   connection alias is `CREATED`.
   """
+  @spec disassociate_connection_alias(map(), disassociate_connection_alias_request(), list()) ::
+          {:ok, disassociate_connection_alias_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def disassociate_connection_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -666,6 +3329,13 @@ defmodule AWS.WorkSpaces do
   Disassociates the specified IP access control group from the specified
   directory.
   """
+  @spec disassociate_ip_groups(map(), disassociate_ip_groups_request(), list()) ::
+          {:ok, disassociate_ip_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, resource_not_found_exception()}
   def disassociate_ip_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -675,6 +3345,18 @@ defmodule AWS.WorkSpaces do
   @doc """
   Disassociates the specified application from a WorkSpace.
   """
+  @spec disassociate_workspace_application(
+          map(),
+          disassociate_workspace_application_request(),
+          list()
+        ) ::
+          {:ok, disassociate_workspace_application_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
   def disassociate_workspace_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -713,6 +3395,13 @@ defmodule AWS.WorkSpaces do
   Imported data can take up to a minute to appear in the WorkSpaces
   client.
   """
+  @spec import_client_branding(map(), import_client_branding_request(), list()) ::
+          {:ok, import_client_branding_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def import_client_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -729,6 +3418,15 @@ defmodule AWS.WorkSpaces do
   creating BYOL images, see [ Bring Your Own Windows Desktop
   Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
   """
+  @spec import_workspace_image(map(), import_workspace_image_request(), list()) ::
+          {:ok, import_workspace_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def import_workspace_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -752,6 +3450,15 @@ defmodule AWS.WorkSpaces do
   WorkSpaces
   clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
   """
+  @spec list_available_management_cidr_ranges(
+          map(),
+          list_available_management_cidr_ranges_request(),
+          list()
+        ) ::
+          {:ok, list_available_management_cidr_ranges_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
   def list_available_management_cidr_ranges(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -775,6 +3482,15 @@ defmodule AWS.WorkSpaces do
   and best
   practices, see [Migrate a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html).
   """
+  @spec migrate_workspace(map(), migrate_workspace_request(), list()) ::
+          {:ok, migrate_workspace_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_in_progress_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
   def migrate_workspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -785,6 +3501,14 @@ defmodule AWS.WorkSpaces do
   Modifies the configuration of Bring Your Own License (BYOL) for the specified
   account.
   """
+  @spec modify_account(map(), modify_account_request(), list()) ::
+          {:ok, modify_account_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
   def modify_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -795,6 +3519,17 @@ defmodule AWS.WorkSpaces do
   Modifies the properties of the certificate-based authentication you want
   to use with your WorkSpaces.
   """
+  @spec modify_certificate_based_auth_properties(
+          map(),
+          modify_certificate_based_auth_properties_request(),
+          list()
+        ) ::
+          {:ok, modify_certificate_based_auth_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_certificate_based_auth_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -804,6 +3539,12 @@ defmodule AWS.WorkSpaces do
   @doc """
   Modifies the properties of the specified Amazon WorkSpaces clients.
   """
+  @spec modify_client_properties(map(), modify_client_properties_request(), list()) ::
+          {:ok, modify_client_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_client_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -817,6 +3558,13 @@ defmodule AWS.WorkSpaces do
   federation with an
   SAML 2.0 identity provider.
   """
+  @spec modify_saml_properties(map(), modify_saml_properties_request(), list()) ::
+          {:ok, modify_saml_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_saml_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -829,6 +3577,12 @@ defmodule AWS.WorkSpaces do
   For more
   information, see [Enable Self-Service WorkSpace Management Capabilities for Your Users](https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html).
   """
+  @spec modify_selfservice_permissions(map(), modify_selfservice_permissions_request(), list()) ::
+          {:ok, modify_selfservice_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_selfservice_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -843,6 +3597,15 @@ defmodule AWS.WorkSpaces do
   Control Device
   Access](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access).
   """
+  @spec modify_workspace_access_properties(
+          map(),
+          modify_workspace_access_properties_request(),
+          list()
+        ) ::
+          {:ok, modify_workspace_access_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_workspace_access_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -852,6 +3615,17 @@ defmodule AWS.WorkSpaces do
   @doc """
   Modify the default properties used to create WorkSpaces.
   """
+  @spec modify_workspace_creation_properties(
+          map(),
+          modify_workspace_creation_properties_request(),
+          list()
+        ) ::
+          {:ok, modify_workspace_creation_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_workspace_creation_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -868,6 +3642,16 @@ defmodule AWS.WorkSpaces do
   Core. Contact your account team to be allow-listed to use this value. For more
   information, see [Amazon WorkSpaces Core](http://aws.amazon.com/workspaces/core/).
   """
+  @spec modify_workspace_properties(map(), modify_workspace_properties_request(), list()) ::
+          {:ok, modify_workspace_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_in_progress_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
+          | {:error, unsupported_workspace_configuration_exception()}
   def modify_workspace_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -884,6 +3668,13 @@ defmodule AWS.WorkSpaces do
   stopped. Users cannot log into a WorkSpace in the `ADMIN_MAINTENANCE`
   state.
   """
+  @spec modify_workspace_state(map(), modify_workspace_state_request(), list()) ::
+          {:ok, modify_workspace_state_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def modify_workspace_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -900,6 +3691,10 @@ defmodule AWS.WorkSpaces do
 
   This operation is asynchronous and returns before the WorkSpaces have rebooted.
   """
+  @spec reboot_workspaces(map(), reboot_workspaces_request(), list()) ::
+          {:ok, reboot_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_supported_exception()}
   def reboot_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -921,6 +3716,10 @@ defmodule AWS.WorkSpaces do
   completely
   rebuilt.
   """
+  @spec rebuild_workspaces(map(), rebuild_workspaces_request(), list()) ::
+          {:ok, rebuild_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_supported_exception()}
   def rebuild_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -939,6 +3738,17 @@ defmodule AWS.WorkSpaces do
   Creating the workspaces_DefaultRole
   Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
   """
+  @spec register_workspace_directory(map(), register_workspace_directory_request(), list()) ::
+          {:ok, register_workspace_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, unsupported_network_configuration_exception()}
+          | {:error, workspaces_default_role_not_found_exception()}
   def register_workspace_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -958,6 +3768,13 @@ defmodule AWS.WorkSpaces do
   This operation is asynchronous and returns before the WorkSpace is completely
   restored.
   """
+  @spec restore_workspace(map(), restore_workspace_request(), list()) ::
+          {:ok, restore_workspace_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
   def restore_workspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -967,6 +3784,13 @@ defmodule AWS.WorkSpaces do
   @doc """
   Removes one or more rules from the specified IP access control group.
   """
+  @spec revoke_ip_rules(map(), revoke_ip_rules_request(), list()) ::
+          {:ok, revoke_ip_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, resource_not_found_exception()}
   def revoke_ip_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -979,6 +3803,9 @@ defmodule AWS.WorkSpaces do
   You cannot start a WorkSpace unless it has a running mode of `AutoStop` and a
   state of `STOPPED`.
   """
+  @spec start_workspaces(map(), start_workspaces_request(), list()) ::
+          {:ok, start_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def start_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -992,6 +3819,9 @@ defmodule AWS.WorkSpaces do
   state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or
   `ERROR`.
   """
+  @spec stop_workspaces(map(), stop_workspaces_request(), list()) ::
+          {:ok, stop_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def stop_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1036,6 +3866,9 @@ defmodule AWS.WorkSpaces do
   WorkSpaces
   again.
   """
+  @spec terminate_workspaces(map(), terminate_workspaces_request(), list()) ::
+          {:ok, terminate_workspaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def terminate_workspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1048,6 +3881,12 @@ defmodule AWS.WorkSpaces do
   Use this action to update the name and
   endpoint URL of a Amazon Connect client add-in.
   """
+  @spec update_connect_client_add_in(map(), update_connect_client_add_in_request(), list()) ::
+          {:ok, update_connect_client_add_in_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, resource_not_found_exception()}
   def update_connect_client_add_in(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1081,6 +3920,20 @@ defmodule AWS.WorkSpaces do
   longer
   shared with any accounts or associated with any directories.
   """
+  @spec update_connection_alias_permission(
+          map(),
+          update_connection_alias_permission_request(),
+          list()
+        ) ::
+          {:ok, update_connection_alias_permission_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_associated_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def update_connection_alias_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1092,6 +3945,14 @@ defmodule AWS.WorkSpaces do
   specified
   rules.
   """
+  @spec update_rules_of_ip_group(map(), update_rules_of_ip_group_request(), list()) ::
+          {:ok, update_rules_of_ip_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, invalid_resource_state_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
   def update_rules_of_ip_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1112,6 +3973,14 @@ defmodule AWS.WorkSpaces do
   updated, you
   must either rebuild the WorkSpaces or delete and recreate them.
   """
+  @spec update_workspace_bundle(map(), update_workspace_bundle_request(), list()) ::
+          {:ok, update_workspace_bundle_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
   def update_workspace_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1151,6 +4020,18 @@ defmodule AWS.WorkSpaces do
   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web
   Services Support.
   """
+  @spec update_workspace_image_permission(
+          map(),
+          update_workspace_image_permission_request(),
+          list()
+        ) ::
+          {:ok, update_workspace_image_permission_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, invalid_parameter_values_exception()}
+          | {:error, operation_not_supported_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_unavailable_exception()}
   def update_workspace_image_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -10,6 +10,218 @@ defmodule AWS.CloudFrontKeyValueStore do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => [String.t()]
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "Message" => [String.t()]
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_key_request() :: %{
+    required("IfMatch") => String.t()
+  }
+  """
+  @type delete_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_key_request_list_item() :: %{
+    "Key" => String.t()
+  }
+  """
+  @type delete_key_request_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_key_response() :: %{
+    "ETag" => String.t(),
+    "ItemCount" => [integer()],
+    "TotalSizeInBytes" => [float()]
+  }
+  """
+  @type delete_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_key_value_store_request() :: %{
+
+  }
+  """
+  @type describe_key_value_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_key_value_store_response() :: %{
+    "Created" => [non_neg_integer()],
+    "ETag" => String.t(),
+    "FailureReason" => [String.t()],
+    "ItemCount" => [integer()],
+    "KvsARN" => String.t(),
+    "LastModified" => [non_neg_integer()],
+    "Status" => [String.t()],
+    "TotalSizeInBytes" => [float()]
+  }
+  """
+  @type describe_key_value_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_key_request() :: %{
+
+  }
+  """
+  @type get_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_key_response() :: %{
+    "ItemCount" => [integer()],
+    "Key" => String.t(),
+    "TotalSizeInBytes" => [float()],
+    "Value" => String.t()
+  }
+  """
+  @type get_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "Message" => [String.t()]
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_keys_request() :: %{
+    optional("MaxResults") => [integer()],
+    optional("NextToken") => [String.t()]
+  }
+  """
+  @type list_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_keys_response() :: %{
+    "Items" => list(list_keys_response_list_item()()),
+    "NextToken" => [String.t()]
+  }
+  """
+  @type list_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_keys_response_list_item() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type list_keys_response_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_key_request() :: %{
+    required("IfMatch") => String.t(),
+    required("Value") => String.t()
+  }
+  """
+  @type put_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_key_request_list_item() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type put_key_request_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_key_response() :: %{
+    "ETag" => String.t(),
+    "ItemCount" => [integer()],
+    "TotalSizeInBytes" => [float()]
+  }
+  """
+  @type put_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => [String.t()]
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "Message" => [String.t()]
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_keys_request() :: %{
+    optional("Deletes") => list(delete_key_request_list_item()()),
+    optional("Puts") => list(put_key_request_list_item()()),
+    required("IfMatch") => String.t()
+  }
+  """
+  @type update_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_keys_response() :: %{
+    "ETag" => String.t(),
+    "ItemCount" => [integer()],
+    "TotalSizeInBytes" => [float()]
+  }
+  """
+  @type update_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "Message" => [String.t()]
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2022-07-26",
@@ -28,6 +240,15 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Deletes the key value pair specified by the key.
   """
+  @spec delete_key(map(), String.t(), String.t(), delete_key_request(), list()) ::
+          {:ok, delete_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def delete_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
@@ -65,6 +286,13 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns metadata information about Key Value Store.
   """
+  @spec describe_key_value_store(map(), String.t(), list()) ::
+          {:ok, describe_key_value_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
   def describe_key_value_store(%Client{} = client, kvs_arn, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}"
     headers = []
@@ -85,6 +313,13 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns a key value pair.
   """
+  @spec get_key(map(), String.t(), String.t(), list()) ::
+          {:ok, get_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
   def get_key(%Client{} = client, key, kvs_arn, options \\ []) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
@@ -100,6 +335,14 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns a list of key value pairs.
   """
+  @spec list_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_keys(%Client{} = client, kvs_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
     headers = []
@@ -127,6 +370,15 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Creates a new key value pair or replaces the value of an existing key.
   """
+  @spec put_key(map(), String.t(), String.t(), put_key_request(), list()) ::
+          {:ok, put_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def put_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
@@ -154,6 +406,15 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
   """
+  @spec update_keys(map(), String.t(), update_keys_request(), list()) ::
+          {:ok, update_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, validation_exception()}
   def update_keys(%Client{} = client, kvs_arn, input, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
 

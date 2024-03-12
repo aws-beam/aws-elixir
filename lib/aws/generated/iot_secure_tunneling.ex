@@ -15,6 +15,254 @@ defmodule AWS.IoTSecureTunneling do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  close_tunnel_request() :: %{
+    optional("delete") => boolean()
+  }
+  """
+  @type close_tunnel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  close_tunnel_response() :: %{
+
+  }
+  """
+  @type close_tunnel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connection_state() :: %{
+    "lastUpdatedAt" => non_neg_integer(),
+    "status" => list(any())
+  }
+  """
+  @type connection_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_tunnel_request() :: %{
+
+  }
+  """
+  @type describe_tunnel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_tunnel_response() :: %{
+    "tunnel" => tunnel()
+  }
+  """
+  @type describe_tunnel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  destination_config() :: %{
+    "services" => list(String.t()()),
+    "thingName" => String.t()
+  }
+  """
+  @type destination_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    required("resourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tunnels_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("thingName") => String.t()
+  }
+  """
+  @type list_tunnels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tunnels_response() :: %{
+    "nextToken" => String.t(),
+    "tunnelSummaries" => list(tunnel_summary()())
+  }
+  """
+  @type list_tunnels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  open_tunnel_request() :: %{
+    optional("description") => String.t(),
+    optional("destinationConfig") => destination_config(),
+    optional("tags") => list(tag()()),
+    optional("timeoutConfig") => timeout_config()
+  }
+  """
+  @type open_tunnel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  open_tunnel_response() :: %{
+    "destinationAccessToken" => String.t(),
+    "sourceAccessToken" => String.t(),
+    "tunnelArn" => String.t(),
+    "tunnelId" => String.t()
+  }
+  """
+  @type open_tunnel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rotate_tunnel_access_token_request() :: %{
+    optional("destinationConfig") => destination_config(),
+    required("clientMode") => list(any())
+  }
+  """
+  @type rotate_tunnel_access_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rotate_tunnel_access_token_response() :: %{
+    "destinationAccessToken" => String.t(),
+    "sourceAccessToken" => String.t(),
+    "tunnelArn" => String.t()
+  }
+  """
+  @type rotate_tunnel_access_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("resourceArn") => String.t(),
+    required("tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  timeout_config() :: %{
+    "maxLifetimeTimeoutMinutes" => integer()
+  }
+  """
+  @type timeout_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tunnel() :: %{
+    "createdAt" => non_neg_integer(),
+    "description" => String.t(),
+    "destinationConfig" => destination_config(),
+    "destinationConnectionState" => connection_state(),
+    "lastUpdatedAt" => non_neg_integer(),
+    "sourceConnectionState" => connection_state(),
+    "status" => list(any()),
+    "tags" => list(tag()()),
+    "timeoutConfig" => timeout_config(),
+    "tunnelArn" => String.t(),
+    "tunnelId" => String.t()
+  }
+  """
+  @type tunnel() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tunnel_summary() :: %{
+    "createdAt" => non_neg_integer(),
+    "description" => String.t(),
+    "lastUpdatedAt" => non_neg_integer(),
+    "status" => list(any()),
+    "tunnelArn" => String.t(),
+    "tunnelId" => String.t()
+  }
+  """
+  @type tunnel_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("resourceArn") => String.t(),
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2018-10-05",
@@ -42,6 +290,10 @@ defmodule AWS.IoTSecureTunneling do
   [CloseTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec close_tunnel(map(), close_tunnel_request(), list()) ::
+          {:ok, close_tunnel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def close_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -55,6 +307,10 @@ defmodule AWS.IoTSecureTunneling do
   [DescribeTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec describe_tunnel(map(), describe_tunnel_request(), list()) ::
+          {:ok, describe_tunnel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def describe_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -64,6 +320,10 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   Lists the tags for the specified resource.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -80,6 +340,9 @@ defmodule AWS.IoTSecureTunneling do
   [ListTunnels](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec list_tunnels(map(), list_tunnels_request(), list()) ::
+          {:ok, list_tunnels_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def list_tunnels(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -94,6 +357,10 @@ defmodule AWS.IoTSecureTunneling do
   [OpenTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
+  @spec open_tunnel(map(), open_tunnel_request(), list()) ::
+          {:ok, open_tunnel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_exception()}
   def open_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -114,6 +381,10 @@ defmodule AWS.IoTSecureTunneling do
   the
   remaining 8 hours.
   """
+  @spec rotate_tunnel_access_token(map(), rotate_tunnel_access_token_request(), list()) ::
+          {:ok, rotate_tunnel_access_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -123,6 +394,10 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   A resource tag.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -132,6 +407,10 @@ defmodule AWS.IoTSecureTunneling do
   @doc """
   Removes a tag from a resource.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

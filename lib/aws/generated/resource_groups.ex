@@ -55,6 +55,586 @@ defmodule AWS.ResourceGroups do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  resource_filter() :: %{
+    "Name" => list(any()),
+    "Values" => list(String.t()())
+  }
+  """
+  @type resource_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unauthorized_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_group_input() :: %{
+    optional("Configuration") => list(group_configuration_item()()),
+    optional("Description") => String.t(),
+    optional("ResourceQuery") => resource_query(),
+    optional("Tags") => map(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_group_query_output() :: %{
+    "GroupQuery" => group_query()
+  }
+  """
+  @type update_group_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_group_resources_item() :: %{
+    "Identifier" => resource_identifier(),
+    "Status" => resource_status()
+  }
+  """
+  @type list_group_resources_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  forbidden_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type forbidden_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_output() :: %{
+    "Arn" => String.t(),
+    "Tags" => map()
+  }
+  """
+  @type tag_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  method_not_allowed_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type method_not_allowed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_group_query_input() :: %{
+    optional("Group") => String.t(),
+    optional("GroupName") => String.t(),
+    required("ResourceQuery") => resource_query()
+  }
+  """
+  @type update_group_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_group_configuration_input() :: %{
+    optional("Group") => String.t()
+  }
+  """
+  @type get_group_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_status() :: %{
+    "Name" => list(any())
+  }
+  """
+  @type resource_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_query() :: %{
+    "Query" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type resource_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_requests_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_identifier() :: %{
+    "GroupArn" => String.t(),
+    "GroupName" => String.t()
+  }
+  """
+  @type group_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_tags_output() :: %{
+    "Arn" => String.t(),
+    "Tags" => map()
+  }
+  """
+  @type get_tags_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_input() :: %{
+    required("Keys") => list(String.t()())
+  }
+  """
+  @type untag_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_group_output() :: %{
+    "Group" => group()
+  }
+  """
+  @type update_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_group_configuration_input() :: %{
+    optional("Configuration") => list(group_configuration_item()()),
+    optional("Group") => String.t()
+  }
+  """
+  @type put_group_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_groups_output() :: %{
+    "GroupIdentifiers" => list(group_identifier()()),
+    "Groups" => list(group()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_groups_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_group_query_input() :: %{
+    optional("Group") => String.t(),
+    optional("GroupName") => String.t()
+  }
+  """
+  @type get_group_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_group_configuration_output() :: %{
+    "GroupConfiguration" => group_configuration()
+  }
+  """
+  @type get_group_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pending_resource() :: %{
+    "ResourceArn" => String.t()
+  }
+  """
+  @type pending_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_group_query_output() :: %{
+    "GroupQuery" => group_query()
+  }
+  """
+  @type get_group_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_resources_output() :: %{
+    "Failed" => list(failed_resource()()),
+    "Pending" => list(pending_resource()()),
+    "Succeeded" => list(String.t()())
+  }
+  """
+  @type group_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_identifier() :: %{
+    "ResourceArn" => String.t(),
+    "ResourceType" => String.t()
+  }
+  """
+  @type resource_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_configuration_parameter() :: %{
+    "Name" => String.t(),
+    "Values" => list(String.t()())
+  }
+  """
+  @type group_configuration_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_group_output() :: %{
+    "Group" => group(),
+    "GroupConfiguration" => group_configuration(),
+    "ResourceQuery" => resource_query(),
+    "Tags" => map()
+  }
+  """
+  @type create_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ungroup_resources_output() :: %{
+    "Failed" => list(failed_resource()()),
+    "Pending" => list(pending_resource()()),
+    "Succeeded" => list(String.t()())
+  }
+  """
+  @type ungroup_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_resources_input() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ResourceQuery") => resource_query()
+  }
+  """
+  @type search_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_found_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_filter() :: %{
+    "Name" => list(any()),
+    "Values" => list(String.t()())
+  }
+  """
+  @type group_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_resources_input() :: %{
+    required("Group") => String.t(),
+    required("ResourceArns") => list(String.t()())
+  }
+  """
+  @type group_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_resources_output() :: %{
+    "NextToken" => String.t(),
+    "QueryErrors" => list(query_error()()),
+    "ResourceIdentifiers" => list(resource_identifier()())
+  }
+  """
+  @type search_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_group_resources_output() :: %{
+    "NextToken" => String.t(),
+    "QueryErrors" => list(query_error()()),
+    "ResourceIdentifiers" => list(resource_identifier()()),
+    "Resources" => list(list_group_resources_item()())
+  }
+  """
+  @type list_group_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_group_input() :: %{
+    optional("Group") => String.t(),
+    optional("GroupName") => String.t()
+  }
+  """
+  @type delete_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_query() :: %{
+    "GroupName" => String.t(),
+    "ResourceQuery" => resource_query()
+  }
+  """
+  @type group_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_settings_input() :: %{
+    optional("GroupLifecycleEventsDesiredStatus") => list(any())
+  }
+  """
+  @type update_account_settings_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_group_output() :: %{
+    "Group" => group()
+  }
+  """
+  @type get_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_settings_output() :: %{
+    "AccountSettings" => account_settings()
+  }
+  """
+  @type update_account_settings_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_group_input() :: %{
+    optional("Group") => String.t(),
+    optional("GroupName") => String.t()
+  }
+  """
+  @type get_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_group_resources_input() :: %{
+    optional("Filters") => list(resource_filter()()),
+    optional("Group") => String.t(),
+    optional("GroupName") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_group_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_settings() :: %{
+    "GroupLifecycleEventsDesiredStatus" => list(any()),
+    "GroupLifecycleEventsStatus" => list(any()),
+    "GroupLifecycleEventsStatusMessage" => String.t()
+  }
+  """
+  @type account_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_group_input() :: %{
+    optional("Description") => String.t(),
+    optional("Group") => String.t(),
+    optional("GroupName") => String.t()
+  }
+  """
+  @type update_group_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_error_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_server_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_tags_input() :: %{
+
+  }
+  """
+  @type get_tags_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group() :: %{
+    "Description" => String.t(),
+    "GroupArn" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_output() :: %{
+    "AccountSettings" => account_settings()
+  }
+  """
+  @type get_account_settings_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ungroup_resources_input() :: %{
+    required("Group") => String.t(),
+    required("ResourceArns") => list(String.t()())
+  }
+  """
+  @type ungroup_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_groups_input() :: %{
+    optional("Filters") => list(group_filter()()),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_groups_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_output() :: %{
+    "Arn" => String.t(),
+    "Keys" => list(String.t()())
+  }
+  """
+  @type untag_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_resource() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "ResourceArn" => String.t()
+  }
+  """
+  @type failed_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bad_request_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_group_output() :: %{
+    "Group" => group()
+  }
+  """
+  @type delete_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_configuration() :: %{
+    "Configuration" => list(group_configuration_item()()),
+    "FailureReason" => String.t(),
+    "ProposedConfiguration" => list(group_configuration_item()()),
+    "Status" => list(any())
+  }
+  """
+  @type group_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  query_error() :: %{
+    "ErrorCode" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type query_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_group_configuration_output() :: %{
+
+  }
+  """
+  @type put_group_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  group_configuration_item() :: %{
+    "Parameters" => list(group_configuration_parameter()()),
+    "Type" => String.t()
+  }
+  """
+  @type group_configuration_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_input() :: %{
+    required("Tags") => map()
+  }
+  """
+  @type tag_input() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2017-11-27",
@@ -90,6 +670,14 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:CreateGroup`
   """
+  @spec create_group(map(), create_group_input(), list()) ::
+          {:ok, create_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, too_many_requests_exception()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
     headers = []
@@ -124,6 +712,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:DeleteGroup`
   """
+  @spec delete_group(map(), delete_group_input(), list()) ::
+          {:ok, delete_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-group"
     headers = []
@@ -147,6 +744,14 @@ defmodule AWS.ResourceGroups do
   @doc """
   Retrieves the current status of optional features in Resource Groups.
   """
+  @spec get_account_settings(map(), %{}, list()) ::
+          {:ok, get_account_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, too_many_requests_exception()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/get-account-settings"
     headers = []
@@ -178,6 +783,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:GetGroup`
   """
+  @spec get_group(map(), get_group_input(), list()) ::
+          {:ok, get_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/get-group"
     headers = []
@@ -214,6 +828,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:GetGroupConfiguration`
   """
+  @spec get_group_configuration(map(), get_group_configuration_input(), list()) ::
+          {:ok, get_group_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-configuration"
     headers = []
@@ -249,6 +872,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:GetGroupQuery`
   """
+  @spec get_group_query(map(), get_group_query_input(), list()) ::
+          {:ok, get_group_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-query"
     headers = []
@@ -282,6 +914,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:GetTags`
   """
+  @spec get_tags(map(), String.t(), list()) ::
+          {:ok, get_tags_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
@@ -318,6 +959,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:GroupResources`
   """
+  @spec group_resources(map(), group_resources_input(), list()) ::
+          {:ok, group_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/group-resources"
     headers = []
@@ -362,6 +1012,16 @@ defmodule AWS.ResourceGroups do
 
   `tag:GetResources`
   """
+  @spec list_group_resources(map(), list_group_resources_input(), list()) ::
+          {:ok, list_group_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unauthorized_exception()}
   def list_group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-group-resources"
     headers = []
@@ -393,6 +1053,14 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:ListGroups`
   """
+  @spec list_groups(map(), list_groups_input(), list()) ::
+          {:ok, list_groups_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, too_many_requests_exception()}
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups-list"
     headers = []
@@ -434,6 +1102,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:PutGroupConfiguration`
   """
+  @spec put_group_configuration(map(), put_group_configuration_input(), list()) ::
+          {:ok, put_group_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def put_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/put-group-configuration"
     headers = []
@@ -482,6 +1159,15 @@ defmodule AWS.ResourceGroups do
 
   `tag:GetResources`
   """
+  @spec search_resources(map(), search_resources_input(), list()) ::
+          {:ok, search_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unauthorized_exception()}
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resources/search"
     headers = []
@@ -522,6 +1208,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:Tag`
   """
+  @spec tag(map(), String.t(), tag_input(), list()) ::
+          {:ok, tag_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def tag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
@@ -549,6 +1244,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:UngroupResources`
   """
+  @spec ungroup_resources(map(), ungroup_resources_input(), list()) ::
+          {:ok, ungroup_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def ungroup_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ungroup-resources"
     headers = []
@@ -580,6 +1284,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:Untag`
   """
+  @spec untag(map(), String.t(), untag_input(), list()) ::
+          {:ok, untag_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def untag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
@@ -609,6 +1322,14 @@ defmodule AWS.ResourceGroups do
   operation to check for completion by looking for `GroupLifecycleEventsStatus`
   to change to `ACTIVE`.
   """
+  @spec update_account_settings(map(), update_account_settings_input(), list()) ::
+          {:ok, update_account_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, too_many_requests_exception()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-account-settings"
     headers = []
@@ -643,6 +1364,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:UpdateGroup`
   """
+  @spec update_group(map(), update_group_input(), list()) ::
+          {:ok, update_group_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-group"
     headers = []
@@ -677,6 +1407,15 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:UpdateGroupQuery`
   """
+  @spec update_group_query(map(), update_group_query_input(), list()) ::
+          {:ok, update_group_query_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, internal_server_error_exception()}
+          | {:error, method_not_allowed_exception()}
+          | {:error, not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def update_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/update-group-query"
     headers = []

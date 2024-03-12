@@ -16,6 +16,47 @@ defmodule AWS.SageMakerMetrics do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  batch_put_metrics_error() :: %{
+    "Code" => list(any()),
+    "MetricIndex" => integer()
+  }
+  """
+  @type batch_put_metrics_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_put_metrics_request() :: %{
+    required("MetricData") => list(raw_metric_data()()),
+    required("TrialComponentName") => String.t()
+  }
+  """
+  @type batch_put_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_put_metrics_response() :: %{
+    "Errors" => list(batch_put_metrics_error()())
+  }
+  """
+  @type batch_put_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  raw_metric_data() :: %{
+    "MetricName" => String.t(),
+    "Step" => integer(),
+    "Timestamp" => non_neg_integer(),
+    "Value" => float()
+  }
+  """
+  @type raw_metric_data() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2022-09-30",
@@ -37,6 +78,9 @@ defmodule AWS.SageMakerMetrics do
   These metrics can be visualized in SageMaker Studio and
   retrieved with the `GetMetrics` API.
   """
+  @spec batch_put_metrics(map(), batch_put_metrics_request(), list()) ::
+          {:ok, batch_put_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def batch_put_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutMetrics"
     headers = []

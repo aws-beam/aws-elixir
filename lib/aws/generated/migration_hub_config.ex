@@ -37,6 +37,162 @@ defmodule AWS.MigrationHubConfig do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_home_region_control_request() :: %{
+    optional("DryRun") => boolean(),
+    required("HomeRegion") => String.t(),
+    required("Target") => target()
+  }
+  """
+  @type create_home_region_control_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_home_region_control_result() :: %{
+    "HomeRegionControl" => home_region_control()
+  }
+  """
+  @type create_home_region_control_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_home_region_control_request() :: %{
+    required("ControlId") => String.t()
+  }
+  """
+  @type delete_home_region_control_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_home_region_control_result() :: %{
+
+  }
+  """
+  @type delete_home_region_control_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_home_region_controls_request() :: %{
+    optional("ControlId") => String.t(),
+    optional("HomeRegion") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Target") => target()
+  }
+  """
+  @type describe_home_region_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_home_region_controls_result() :: %{
+    "HomeRegionControls" => list(home_region_control()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_home_region_controls_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dry_run_operation() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type dry_run_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_home_region_request() :: %{
+
+  }
+  """
+  @type get_home_region_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_home_region_result() :: %{
+    "HomeRegion" => String.t()
+  }
+  """
+  @type get_home_region_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  home_region_control() :: %{
+    "ControlId" => String.t(),
+    "HomeRegion" => String.t(),
+    "RequestedTime" => non_neg_integer(),
+    "Target" => target()
+  }
+  """
+  @type home_region_control() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_error() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type internal_server_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_input_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_unavailable_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  target() :: %{
+    "Id" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "Message" => String.t(),
+    "RetryAfterSeconds" => integer()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2019-06-30",
@@ -55,6 +211,15 @@ defmodule AWS.MigrationHubConfig do
   @doc """
   This API sets up the home region for the calling account only.
   """
+  @spec create_home_region_control(map(), create_home_region_control_request(), list()) ::
+          {:ok, create_home_region_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, dry_run_operation()}
+          | {:error, internal_server_error()}
+          | {:error, invalid_input_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttling_exception()}
   def create_home_region_control(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -67,6 +232,14 @@ defmodule AWS.MigrationHubConfig do
   The operation does not delete discovery or migration tracking data in the home
   region.
   """
+  @spec delete_home_region_control(map(), delete_home_region_control_request(), list()) ::
+          {:ok, delete_home_region_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_error()}
+          | {:error, invalid_input_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttling_exception()}
   def delete_home_region_control(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -77,6 +250,14 @@ defmodule AWS.MigrationHubConfig do
   This API permits filtering on the `ControlId` and `HomeRegion`
   fields.
   """
+  @spec describe_home_region_controls(map(), describe_home_region_controls_request(), list()) ::
+          {:ok, describe_home_region_controls_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_error()}
+          | {:error, invalid_input_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttling_exception()}
   def describe_home_region_controls(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -94,6 +275,14 @@ defmodule AWS.MigrationHubConfig do
   the account's
   Migration Hub home region.
   """
+  @spec get_home_region(map(), get_home_region_request(), list()) ::
+          {:ok, get_home_region_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_error()}
+          | {:error, invalid_input_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttling_exception()}
   def get_home_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

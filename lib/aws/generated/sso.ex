@@ -31,6 +31,147 @@ defmodule AWS.SSO do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  account_info() :: %{
+    "accountId" => String.t(),
+    "accountName" => String.t(),
+    "emailAddress" => String.t()
+  }
+  """
+  @type account_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_role_credentials_request() :: %{
+    required("accessToken") => String.t(),
+    required("accountId") => String.t(),
+    required("roleName") => String.t()
+  }
+  """
+  @type get_role_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_role_credentials_response() :: %{
+    "roleCredentials" => role_credentials()
+  }
+  """
+  @type get_role_credentials_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_request_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_account_roles_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("accessToken") => String.t(),
+    required("accountId") => String.t()
+  }
+  """
+  @type list_account_roles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_account_roles_response() :: %{
+    "nextToken" => String.t(),
+    "roleList" => list(role_info()())
+  }
+  """
+  @type list_account_roles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_accounts_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("accessToken") => String.t()
+  }
+  """
+  @type list_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_accounts_response() :: %{
+    "accountList" => list(account_info()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logout_request() :: %{
+    required("accessToken") => String.t()
+  }
+  """
+  @type logout_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  role_credentials() :: %{
+    "accessKeyId" => String.t(),
+    "expiration" => float(),
+    "secretAccessKey" => String.t(),
+    "sessionToken" => String.t()
+  }
+  """
+  @type role_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  role_info() :: %{
+    "accountId" => String.t(),
+    "roleName" => String.t()
+  }
+  """
+  @type role_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_requests_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unauthorized_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2019-06-10",
@@ -51,6 +192,13 @@ defmodule AWS.SSO do
   the
   user.
   """
+  @spec get_role_credentials(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_role_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unauthorized_exception()}
   def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ []) do
     url_path = "/federation/credentials"
     headers = []
@@ -86,6 +234,20 @@ defmodule AWS.SSO do
   @doc """
   Lists all roles that are assigned to the user for a given AWS account.
   """
+  @spec list_account_roles(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_account_roles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unauthorized_exception()}
   def list_account_roles(
         %Client{} = client,
         account_id,
@@ -140,6 +302,13 @@ defmodule AWS.SSO do
   in the *IAM Identity Center User Guide*. This operation
   returns a paginated response.
   """
+  @spec list_accounts(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+          {:ok, list_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unauthorized_exception()}
   def list_accounts(
         %Client{} = client,
         max_results \\ nil,
@@ -200,6 +369,12 @@ defmodule AWS.SSO do
   in the *IAM Identity Center User
   Guide*.
   """
+  @spec logout(map(), logout_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_request_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unauthorized_exception()}
   def logout(%Client{} = client, input, options \\ []) do
     url_path = "/logout"
 

@@ -98,6 +98,2161 @@ defmodule AWS.Lambda do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  list_functions_by_code_signing_config_response() :: %{
+    "FunctionArns" => list(String.t()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_functions_by_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_usage() :: %{
+    "FunctionCount" => float(),
+    "TotalCodeSize" => float()
+  }
+  """
+  @type account_usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  function_event_invoke_config() :: %{
+    optional("DestinationConfig") => destination_config(),
+    optional("FunctionArn") => String.t(),
+    optional("LastModified") => non_neg_integer(),
+    optional("MaximumEventAgeInSeconds") => integer(),
+    optional("MaximumRetryAttempts") => integer()
+  }
+  """
+  @type function_event_invoke_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_aliases_response() :: %{
+    "Aliases" => list(alias_configuration()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_aliases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_media_type_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type unsupported_media_type_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_disabled_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type kms_disabled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_aliases_request() :: %{
+    optional("FunctionVersion") => String.t(),
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_aliases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  function_code() :: %{
+    "ImageUri" => String.t(),
+    "S3Bucket" => String.t(),
+    "S3Key" => String.t(),
+    "S3ObjectVersion" => String.t(),
+    "ZipFile" => binary()
+  }
+  """
+  @type function_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_security_group_id_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type invalid_security_group_id_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_event_source_mapping_request() :: %{
+    optional("BatchSize") => integer(),
+    optional("BisectBatchOnFunctionError") => boolean(),
+    optional("DestinationConfig") => destination_config(),
+    optional("DocumentDBEventSourceConfig") => document_db_event_source_config(),
+    optional("Enabled") => boolean(),
+    optional("FilterCriteria") => filter_criteria(),
+    optional("FunctionName") => String.t(),
+    optional("FunctionResponseTypes") => list(list(any())()),
+    optional("MaximumBatchingWindowInSeconds") => integer(),
+    optional("MaximumRecordAgeInSeconds") => integer(),
+    optional("MaximumRetryAttempts") => integer(),
+    optional("ParallelizationFactor") => integer(),
+    optional("ScalingConfig") => scaling_config(),
+    optional("SourceAccessConfigurations") => list(source_access_configuration()()),
+    optional("TumblingWindowInSeconds") => integer()
+  }
+  """
+  @type update_event_source_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  runtime_version_config() :: %{
+    "Error" => runtime_version_error(),
+    "RuntimeVersionArn" => String.t()
+  }
+  """
+  @type runtime_version_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snap_start() :: %{
+    "ApplyOn" => list(any())
+  }
+  """
+  @type snap_start() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("Tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_code_signing_config_request() :: %{
+
+  }
+  """
+  @type get_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_layer_version_permission_request() :: %{
+    optional("RevisionId") => String.t()
+  }
+  """
+  @type remove_layer_version_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_function_code_signing_config_request() :: %{
+
+  }
+  """
+  @type delete_function_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_response() :: %{
+    "Error" => environment_error(),
+    "Variables" => map()
+  }
+  """
+  @type environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provisioned_concurrency_config_list_item() :: %{
+    "AllocatedProvisionedConcurrentExecutions" => integer(),
+    "AvailableProvisionedConcurrentExecutions" => integer(),
+    "FunctionArn" => String.t(),
+    "LastModified" => String.t(),
+    "RequestedProvisionedConcurrentExecutions" => integer(),
+    "Status" => list(any()),
+    "StatusReason" => String.t()
+  }
+  """
+  @type provisioned_concurrency_config_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_alias_request() :: %{
+    optional("Description") => String.t(),
+    optional("FunctionVersion") => String.t(),
+    optional("RevisionId") => String.t(),
+    optional("RoutingConfig") => alias_routing_configuration()
+  }
+  """
+  @type update_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_functions_response() :: %{
+    "Functions" => list(function_configuration()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_functions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_function_concurrency_request() :: %{
+    required("ReservedConcurrentExecutions") => integer()
+  }
+  """
+  @type put_function_concurrency_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  policy_length_exceeded_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type policy_length_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_provisioned_concurrency_configs_response() :: %{
+    "NextMarker" => String.t(),
+    "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item()())
+  }
+  """
+  @type list_provisioned_concurrency_configs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_code_signing_configs_response() :: %{
+    "CodeSigningConfigs" => list(code_signing_config()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_code_signing_configs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  amazon_managed_kafka_event_source_config() :: %{
+    "ConsumerGroupId" => String.t()
+  }
+  """
+  @type amazon_managed_kafka_event_source_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invoke_with_response_stream_response() :: %{
+    "EventStream" => list(),
+    "ExecutedVersion" => String.t(),
+    "ResponseStreamContentType" => String.t(),
+    "StatusCode" => integer()
+  }
+  """
+  @type invoke_with_response_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter_criteria() :: %{
+    "Filters" => list(filter()())
+  }
+  """
+  @type filter_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  function_code_location() :: %{
+    "ImageUri" => String.t(),
+    "Location" => String.t(),
+    "RepositoryType" => String.t(),
+    "ResolvedImageUri" => String.t()
+  }
+  """
+  @type function_code_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_request() :: %{
+
+  }
+  """
+  @type get_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_alias_request() :: %{
+    optional("Description") => String.t(),
+    optional("RoutingConfig") => alias_routing_configuration(),
+    required("FunctionVersion") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_in_use_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type resource_in_use_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_layer_version_policy_response() :: %{
+    "Policy" => String.t(),
+    "RevisionId" => String.t()
+  }
+  """
+  @type get_layer_version_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_response() :: %{
+    "AccountLimit" => account_limit(),
+    "AccountUsage" => account_usage()
+  }
+  """
+  @type get_account_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_policy_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type get_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_layer_version_response() :: %{
+    optional("CompatibleArchitectures") => list(list(any())()),
+    optional("CompatibleRuntimes") => list(list(any())()),
+    optional("Content") => layer_version_content_output(),
+    optional("CreatedDate") => String.t(),
+    optional("Description") => String.t(),
+    optional("LayerArn") => String.t(),
+    optional("LayerVersionArn") => String.t(),
+    optional("LicenseInfo") => String.t(),
+    optional("Version") => float()
+  }
+  """
+  @type get_layer_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_function_event_invoke_config_request() :: %{
+    optional("DestinationConfig") => destination_config(),
+    optional("MaximumEventAgeInSeconds") => integer(),
+    optional("MaximumRetryAttempts") => integer(),
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type put_function_event_invoke_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invoke_async_request() :: %{
+    required("InvokeArgs") => binary()
+  }
+  """
+  @type invoke_async_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_layers_response() :: %{
+    "Layers" => list(layers_list_item()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_layers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  source_access_configuration() :: %{
+    "Type" => list(any()),
+    "URI" => String.t()
+  }
+  """
+  @type source_access_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_layer_version_policy_request() :: %{
+
+  }
+  """
+  @type get_layer_version_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_code_signing_configs_request() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_code_signing_configs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_version_content_output() :: %{
+    "CodeSha256" => String.t(),
+    "CodeSize" => float(),
+    "Location" => String.t(),
+    "SigningJobArn" => String.t(),
+    "SigningProfileVersionArn" => String.t()
+  }
+  """
+  @type layer_version_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_response() :: %{
+    "Tags" => map()
+  }
+  """
+  @type list_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invocation_response() :: %{
+    "ExecutedVersion" => String.t(),
+    "FunctionError" => String.t(),
+    "LogResult" => String.t(),
+    "Payload" => binary(),
+    "StatusCode" => integer()
+  }
+  """
+  @type invocation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_function_url_config_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type delete_function_url_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ec2_access_denied_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type ec2_access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_function_url_config_request() :: %{
+    optional("AuthType") => list(any()),
+    optional("Cors") => cors(),
+    optional("InvokeMode") => list(any()),
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type update_function_url_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  self_managed_kafka_event_source_config() :: %{
+    "ConsumerGroupId" => String.t()
+  }
+  """
+  @type self_managed_kafka_event_source_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snap_start_not_ready_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type snap_start_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_configuration_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type get_function_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_response() :: %{
+    "Code" => function_code_location(),
+    "Concurrency" => concurrency(),
+    "Configuration" => function_configuration(),
+    "Tags" => map()
+  }
+  """
+  @type get_function_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logging_config() :: %{
+    "ApplicationLogLevel" => list(any()),
+    "LogFormat" => list(any()),
+    "LogGroup" => String.t(),
+    "SystemLogLevel" => list(any())
+  }
+  """
+  @type logging_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_function_concurrency_request() :: %{
+
+  }
+  """
+  @type delete_function_concurrency_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_config() :: %{
+    "Command" => list(String.t()()),
+    "EntryPoint" => list(String.t()()),
+    "WorkingDirectory" => String.t()
+  }
+  """
+  @type image_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_function_url_config_response() :: %{
+    "AuthType" => list(any()),
+    "Cors" => cors(),
+    "CreationTime" => String.t(),
+    "FunctionArn" => String.t(),
+    "FunctionUrl" => String.t(),
+    "InvokeMode" => list(any()),
+    "LastModifiedTime" => String.t()
+  }
+  """
+  @type update_function_url_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_requests_exception() :: %{
+    "Reason" => list(any()),
+    "Type" => String.t(),
+    "message" => String.t(),
+    "retryAfterSeconds" => String.t()
+  }
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_code_signing_config_request() :: %{
+
+  }
+  """
+  @type get_function_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  destination_config() :: %{
+    "OnFailure" => on_failure(),
+    "OnSuccess" => on_success()
+  }
+  """
+  @type destination_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snap_start_timeout_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type snap_start_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_provisioned_concurrency_config_request() :: %{
+    required("ProvisionedConcurrentExecutions") => integer(),
+    required("Qualifier") => String.t()
+  }
+  """
+  @type put_provisioned_concurrency_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_layer_version_request() :: %{
+
+  }
+  """
+  @type delete_layer_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_code_signing_config_response() :: %{
+    "CodeSigningConfig" => code_signing_config()
+  }
+  """
+  @type create_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invoke_response_stream_update() :: %{
+    "Payload" => binary()
+  }
+  """
+  @type invoke_response_stream_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_function_event_invoke_configs_response() :: %{
+    "FunctionEventInvokeConfigs" => list(function_event_invoke_config()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_function_event_invoke_configs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_concurrency_response() :: %{
+    "ReservedConcurrentExecutions" => integer()
+  }
+  """
+  @type get_function_concurrency_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_event_source_mapping_request() :: %{
+
+  }
+  """
+  @type delete_event_source_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recursive_invocation_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type recursive_invocation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_runtime_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type invalid_runtime_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_concurrency_request() :: %{
+
+  }
+  """
+  @type get_function_concurrency_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_alias_request() :: %{
+
+  }
+  """
+  @type get_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  on_failure() :: %{
+    "Destination" => String.t()
+  }
+  """
+  @type on_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_event_source_mappings_response() :: %{
+    "EventSourceMappings" => list(event_source_mapping_configuration()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_event_source_mappings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_runtime_management_config_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type get_runtime_management_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_request_content_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type invalid_request_content_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_runtime_management_config_request() :: %{
+    optional("Qualifier") => String.t(),
+    optional("RuntimeVersionArn") => String.t(),
+    required("UpdateRuntimeOn") => list(any())
+  }
+  """
+  @type put_runtime_management_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type get_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_layer_version_response() :: %{
+    "CompatibleArchitectures" => list(list(any())()),
+    "CompatibleRuntimes" => list(list(any())()),
+    "Content" => layer_version_content_output(),
+    "CreatedDate" => String.t(),
+    "Description" => String.t(),
+    "LayerArn" => String.t(),
+    "LayerVersionArn" => String.t(),
+    "LicenseInfo" => String.t(),
+    "Version" => float()
+  }
+  """
+  @type publish_layer_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  document_db_event_source_config() :: %{
+    "CollectionName" => String.t(),
+    "DatabaseName" => String.t(),
+    "FullDocument" => list(any())
+  }
+  """
+  @type document_db_event_source_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_code_signing_config_request() :: %{
+
+  }
+  """
+  @type delete_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_function_url_config_response() :: %{
+    "AuthType" => list(any()),
+    "Cors" => cors(),
+    "CreationTime" => String.t(),
+    "FunctionArn" => String.t(),
+    "FunctionUrl" => String.t(),
+    "InvokeMode" => list(any())
+  }
+  """
+  @type create_function_url_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  code_signing_config_not_found_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type code_signing_config_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment() :: %{
+    "Variables" => map()
+  }
+  """
+  @type environment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_function_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type delete_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_version_request() :: %{
+    optional("CodeSha256") => String.t(),
+    optional("Description") => String.t(),
+    optional("RevisionId") => String.t()
+  }
+  """
+  @type publish_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_function_code_signing_config_response() :: %{
+    "CodeSigningConfigArn" => String.t(),
+    "FunctionName" => String.t()
+  }
+  """
+  @type put_function_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  alias_configuration() :: %{
+    "AliasArn" => String.t(),
+    "Description" => String.t(),
+    "FunctionVersion" => String.t(),
+    "Name" => String.t(),
+    "RevisionId" => String.t(),
+    "RoutingConfig" => alias_routing_configuration()
+  }
+  """
+  @type alias_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_function_code_request() :: %{
+    optional("Architectures") => list(list(any())()),
+    optional("DryRun") => boolean(),
+    optional("ImageUri") => String.t(),
+    optional("Publish") => boolean(),
+    optional("RevisionId") => String.t(),
+    optional("S3Bucket") => String.t(),
+    optional("S3Key") => String.t(),
+    optional("S3ObjectVersion") => String.t(),
+    optional("ZipFile") => binary()
+  }
+  """
+  @type update_function_code_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_code_signing_config_request() :: %{
+    optional("CodeSigningPolicies") => code_signing_policies(),
+    optional("Description") => String.t(),
+    required("AllowedPublishers") => allowed_publishers()
+  }
+  """
+  @type create_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_value_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_source_mapping_configuration() :: %{
+    "AmazonManagedKafkaEventSourceConfig" => amazon_managed_kafka_event_source_config(),
+    "BatchSize" => integer(),
+    "BisectBatchOnFunctionError" => boolean(),
+    "DestinationConfig" => destination_config(),
+    "DocumentDBEventSourceConfig" => document_db_event_source_config(),
+    "EventSourceArn" => String.t(),
+    "FilterCriteria" => filter_criteria(),
+    "FunctionArn" => String.t(),
+    "FunctionResponseTypes" => list(list(any())()),
+    "LastModified" => non_neg_integer(),
+    "LastProcessingResult" => String.t(),
+    "MaximumBatchingWindowInSeconds" => integer(),
+    "MaximumRecordAgeInSeconds" => integer(),
+    "MaximumRetryAttempts" => integer(),
+    "ParallelizationFactor" => integer(),
+    "Queues" => list(String.t()()),
+    "ScalingConfig" => scaling_config(),
+    "SelfManagedEventSource" => self_managed_event_source(),
+    "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
+    "SourceAccessConfigurations" => list(source_access_configuration()()),
+    "StartingPosition" => list(any()),
+    "StartingPositionTimestamp" => non_neg_integer(),
+    "State" => String.t(),
+    "StateTransitionReason" => String.t(),
+    "Topics" => list(String.t()()),
+    "TumblingWindowInSeconds" => integer(),
+    "UUID" => String.t()
+  }
+  """
+  @type event_source_mapping_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_event_source_mapping_request() :: %{
+    optional("AmazonManagedKafkaEventSourceConfig") => amazon_managed_kafka_event_source_config(),
+    optional("BatchSize") => integer(),
+    optional("BisectBatchOnFunctionError") => boolean(),
+    optional("DestinationConfig") => destination_config(),
+    optional("DocumentDBEventSourceConfig") => document_db_event_source_config(),
+    optional("Enabled") => boolean(),
+    optional("EventSourceArn") => String.t(),
+    optional("FilterCriteria") => filter_criteria(),
+    optional("FunctionResponseTypes") => list(list(any())()),
+    optional("MaximumBatchingWindowInSeconds") => integer(),
+    optional("MaximumRecordAgeInSeconds") => integer(),
+    optional("MaximumRetryAttempts") => integer(),
+    optional("ParallelizationFactor") => integer(),
+    optional("Queues") => list(String.t()()),
+    optional("ScalingConfig") => scaling_config(),
+    optional("SelfManagedEventSource") => self_managed_event_source(),
+    optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
+    optional("SourceAccessConfigurations") => list(source_access_configuration()()),
+    optional("StartingPosition") => list(any()),
+    optional("StartingPositionTimestamp") => non_neg_integer(),
+    optional("Topics") => list(String.t()()),
+    optional("TumblingWindowInSeconds") => integer(),
+    required("FunctionName") => String.t()
+  }
+  """
+  @type create_event_source_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_function_url_config_request() :: %{
+    optional("Cors") => cors(),
+    optional("InvokeMode") => list(any()),
+    optional("Qualifier") => String.t(),
+    required("AuthType") => list(any())
+  }
+  """
+  @type create_function_url_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer() :: %{
+    "Arn" => String.t(),
+    "CodeSize" => float(),
+    "SigningJobArn" => String.t(),
+    "SigningProfileVersionArn" => String.t()
+  }
+  """
+  @type layer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_provisioned_concurrency_config_response() :: %{
+    "AllocatedProvisionedConcurrentExecutions" => integer(),
+    "AvailableProvisionedConcurrentExecutions" => integer(),
+    "LastModified" => String.t(),
+    "RequestedProvisionedConcurrentExecutions" => integer(),
+    "Status" => list(any()),
+    "StatusReason" => String.t()
+  }
+  """
+  @type get_provisioned_concurrency_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_config() :: %{
+    "Ipv6AllowedForDualStack" => boolean(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SubnetIds" => list(String.t()())
+  }
+  """
+  @type vpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_layer_version_request() :: %{
+    optional("CompatibleArchitectures") => list(list(any())()),
+    optional("CompatibleRuntimes") => list(list(any())()),
+    optional("Description") => String.t(),
+    optional("LicenseInfo") => String.t(),
+    required("Content") => layer_version_content_input()
+  }
+  """
+  @type publish_layer_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  subnet_ip_address_limit_reached_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type subnet_ip_address_limit_reached_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_permission_request() :: %{
+    optional("Qualifier") => String.t(),
+    optional("RevisionId") => String.t()
+  }
+  """
+  @type remove_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_limit() :: %{
+    "CodeSizeUnzipped" => float(),
+    "CodeSizeZipped" => float(),
+    "ConcurrentExecutions" => integer(),
+    "TotalCodeSize" => float(),
+    "UnreservedConcurrentExecutions" => integer()
+  }
+  """
+  @type account_limit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_function_event_invoke_config_request() :: %{
+    optional("DestinationConfig") => destination_config(),
+    optional("MaximumEventAgeInSeconds") => integer(),
+    optional("MaximumRetryAttempts") => integer(),
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type update_function_event_invoke_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_code_signing_config_response() :: %{
+
+  }
+  """
+  @type delete_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  file_system_config() :: %{
+    "Arn" => String.t(),
+    "LocalMountPath" => String.t()
+  }
+  """
+  @type file_system_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tracing_config() :: %{
+    "Mode" => list(any())
+  }
+  """
+  @type tracing_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_layer_version_by_arn_request() :: %{
+    required("Arn") => String.t()
+  }
+  """
+  @type get_layer_version_by_arn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  code_verification_failed_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type code_verification_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ephemeral_storage() :: %{
+    "Size" => integer()
+  }
+  """
+  @type ephemeral_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_provisioned_concurrency_config_response() :: %{
+    "AllocatedProvisionedConcurrentExecutions" => integer(),
+    "AvailableProvisionedConcurrentExecutions" => integer(),
+    "LastModified" => String.t(),
+    "RequestedProvisionedConcurrentExecutions" => integer(),
+    "Status" => list(any()),
+    "StatusReason" => String.t()
+  }
+  """
+  @type put_provisioned_concurrency_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  filter() :: %{
+    "Pattern" => String.t()
+  }
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_versions_list_item() :: %{
+    "CompatibleArchitectures" => list(list(any())()),
+    "CompatibleRuntimes" => list(list(any())()),
+    "CreatedDate" => String.t(),
+    "Description" => String.t(),
+    "LayerVersionArn" => String.t(),
+    "LicenseInfo" => String.t(),
+    "Version" => float()
+  }
+  """
+  @type layer_versions_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_layer_versions_response() :: %{
+    "LayerVersions" => list(layer_versions_list_item()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_layer_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invoke_async_response() :: %{
+    "Status" => integer()
+  }
+  """
+  @type invoke_async_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_versions_by_function_request() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_versions_by_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_too_large_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type request_too_large_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scaling_config() :: %{
+    "MaximumConcurrency" => integer()
+  }
+  """
+  @type scaling_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_policy_response() :: %{
+    "Policy" => String.t(),
+    "RevisionId" => String.t()
+  }
+  """
+  @type get_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_provisioned_concurrency_config_request() :: %{
+    required("Qualifier") => String.t()
+  }
+  """
+  @type get_provisioned_concurrency_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_functions_request() :: %{
+    optional("FunctionVersion") => list(any()),
+    optional("Marker") => String.t(),
+    optional("MasterRegion") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_functions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_layer_version_permission_request() :: %{
+    optional("OrganizationId") => String.t(),
+    optional("RevisionId") => String.t(),
+    required("Action") => String.t(),
+    required("Principal") => String.t(),
+    required("StatementId") => String.t()
+  }
+  """
+  @type add_layer_version_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_functions_by_code_signing_config_request() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_functions_by_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_event_source_mappings_request() :: %{
+    optional("EventSourceArn") => String.t(),
+    optional("FunctionName") => String.t(),
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_event_source_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_access_denied_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type kms_access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_code_signing_config_request() :: %{
+    optional("AllowedPublishers") => allowed_publishers(),
+    optional("CodeSigningPolicies") => code_signing_policies(),
+    optional("Description") => String.t()
+  }
+  """
+  @type update_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_function_code_signing_config_request() :: %{
+    required("CodeSigningConfigArn") => String.t()
+  }
+  """
+  @type put_function_code_signing_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_layer_version_permission_response() :: %{
+    "RevisionId" => String.t(),
+    "Statement" => String.t()
+  }
+  """
+  @type add_layer_version_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_event_source_mapping_request() :: %{
+
+  }
+  """
+  @type get_event_source_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invocation_request() :: %{
+    optional("ClientContext") => String.t(),
+    optional("InvocationType") => list(any()),
+    optional("LogType") => list(any()),
+    optional("Payload") => binary(),
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type invocation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_zip_file_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type invalid_zip_file_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invoke_with_response_stream_complete_event() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorDetails" => String.t(),
+    "LogResult" => String.t()
+  }
+  """
+  @type invoke_with_response_stream_complete_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_not_found_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type kms_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invoke_with_response_stream_request() :: %{
+    optional("ClientContext") => String.t(),
+    optional("InvocationType") => list(any()),
+    optional("LogType") => list(any()),
+    optional("Payload") => binary(),
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type invoke_with_response_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_url_config_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type get_function_url_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_code_signing_config_response() :: %{
+    "CodeSigningConfig" => code_signing_config()
+  }
+  """
+  @type update_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dead_letter_config() :: %{
+    "TargetArn" => String.t()
+  }
+  """
+  @type dead_letter_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  e_f_s_mount_timeout_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type e_f_s_mount_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_provisioned_concurrency_config_request() :: %{
+    required("Qualifier") => String.t()
+  }
+  """
+  @type delete_provisioned_concurrency_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_config_error() :: %{
+    "ErrorCode" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type image_config_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_layers_request() :: %{
+    optional("CompatibleArchitecture") => list(any()),
+    optional("CompatibleRuntime") => list(any()),
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_layers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provisioned_concurrency_config_not_found_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type provisioned_concurrency_config_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_code_signing_config_response() :: %{
+    "CodeSigningConfig" => code_signing_config()
+  }
+  """
+  @type get_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  runtime_version_error() :: %{
+    "ErrorCode" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type runtime_version_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_layer_version_request() :: %{
+
+  }
+  """
+  @type get_layer_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  function_configuration() :: %{
+    "VpcConfig" => vpc_config_response(),
+    "TracingConfig" => tracing_config_response(),
+    "MemorySize" => integer(),
+    "Version" => String.t(),
+    "Handler" => String.t(),
+    "KMSKeyArn" => String.t(),
+    "SigningProfileVersionArn" => String.t(),
+    "MasterArn" => String.t(),
+    "Role" => String.t(),
+    "PackageType" => list(any()),
+    "StateReason" => String.t(),
+    "State" => list(any()),
+    "LastUpdateStatus" => list(any()),
+    "Architectures" => list(list(any())()),
+    "Environment" => environment_response(),
+    "Timeout" => integer(),
+    "LastModified" => String.t(),
+    "StateReasonCode" => list(any()),
+    "DeadLetterConfig" => dead_letter_config(),
+    "EphemeralStorage" => ephemeral_storage(),
+    "Layers" => list(layer()()),
+    "CodeSha256" => String.t(),
+    "FileSystemConfigs" => list(file_system_config()()),
+    "LastUpdateStatusReason" => String.t(),
+    "LastUpdateStatusReasonCode" => list(any()),
+    "SnapStart" => snap_start_response(),
+    "Runtime" => list(any()),
+    "ImageConfigResponse" => image_config_response(),
+    "Description" => String.t(),
+    "RevisionId" => String.t(),
+    "FunctionArn" => String.t(),
+    "SigningJobArn" => String.t(),
+    "LoggingConfig" => logging_config(),
+    "CodeSize" => float(),
+    "RuntimeVersionConfig" => runtime_version_config(),
+    "FunctionName" => String.t()
+  }
+  """
+  @type function_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  e_f_s_mount_connectivity_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type e_f_s_mount_connectivity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_runtime_management_config_response() :: %{
+    "FunctionArn" => String.t(),
+    "RuntimeVersionArn" => String.t(),
+    "UpdateRuntimeOn" => list(any())
+  }
+  """
+  @type get_runtime_management_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_runtime_management_config_response() :: %{
+    "FunctionArn" => String.t(),
+    "RuntimeVersionArn" => String.t(),
+    "UpdateRuntimeOn" => list(any())
+  }
+  """
+  @type put_runtime_management_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  e_n_i_limit_reached_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type e_n_i_limit_reached_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_function_url_configs_request() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_function_url_configs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_layer_versions_request() :: %{
+    optional("CompatibleArchitecture") => list(any()),
+    optional("CompatibleRuntime") => list(any()),
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_layer_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_function_event_invoke_config_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type delete_function_event_invoke_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  e_f_s_mount_failure_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type e_f_s_mount_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cors() :: %{
+    "AllowCredentials" => boolean(),
+    "AllowHeaders" => list(String.t()()),
+    "AllowMethods" => list(String.t()()),
+    "AllowOrigins" => list(String.t()()),
+    "ExposeHeaders" => list(String.t()()),
+    "MaxAge" => integer()
+  }
+  """
+  @type cors() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  function_url_config() :: %{
+    "AuthType" => list(any()),
+    "Cors" => cors(),
+    "CreationTime" => String.t(),
+    "FunctionArn" => String.t(),
+    "FunctionUrl" => String.t(),
+    "InvokeMode" => list(any()),
+    "LastModifiedTime" => String.t()
+  }
+  """
+  @type function_url_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  on_success() :: %{
+    "Destination" => String.t()
+  }
+  """
+  @type on_success() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  self_managed_event_source() :: %{
+    "Endpoints" => map()
+  }
+  """
+  @type self_managed_event_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_function_configuration_request() :: %{
+    optional("DeadLetterConfig") => dead_letter_config(),
+    optional("Description") => String.t(),
+    optional("Environment") => environment(),
+    optional("EphemeralStorage") => ephemeral_storage(),
+    optional("FileSystemConfigs") => list(file_system_config()()),
+    optional("Handler") => String.t(),
+    optional("ImageConfig") => image_config(),
+    optional("KMSKeyArn") => String.t(),
+    optional("Layers") => list(String.t()()),
+    optional("LoggingConfig") => logging_config(),
+    optional("MemorySize") => integer(),
+    optional("RevisionId") => String.t(),
+    optional("Role") => String.t(),
+    optional("Runtime") => list(any()),
+    optional("SnapStart") => snap_start(),
+    optional("Timeout") => integer(),
+    optional("TracingConfig") => tracing_config(),
+    optional("VpcConfig") => vpc_config()
+  }
+  """
+  @type update_function_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_code_signing_config_response() :: %{
+    "CodeSigningConfigArn" => String.t(),
+    "FunctionName" => String.t()
+  }
+  """
+  @type get_function_code_signing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_code_signature_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type invalid_code_signature_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_function_url_configs_response() :: %{
+    "FunctionUrlConfigs" => list(function_url_config()()),
+    "NextMarker" => String.t()
+  }
+  """
+  @type list_function_url_configs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  allowed_publishers() :: %{
+    "SigningProfileVersionArns" => list(String.t()())
+  }
+  """
+  @type allowed_publishers() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_versions_by_function_response() :: %{
+    "NextMarker" => String.t(),
+    "Versions" => list(function_configuration()())
+  }
+  """
+  @type list_versions_by_function_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_config_response() :: %{
+    "Ipv6AllowedForDualStack" => boolean(),
+    "SecurityGroupIds" => list(String.t()()),
+    "SubnetIds" => list(String.t()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type vpc_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ec2_unexpected_exception() :: %{
+    "EC2ErrorCode" => String.t(),
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type ec2_unexpected_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_url_config_response() :: %{
+    "AuthType" => list(any()),
+    "Cors" => cors(),
+    "CreationTime" => String.t(),
+    "FunctionArn" => String.t(),
+    "FunctionUrl" => String.t(),
+    "InvokeMode" => list(any()),
+    "LastModifiedTime" => String.t()
+  }
+  """
+  @type get_function_url_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_function_event_invoke_config_request() :: %{
+    optional("Qualifier") => String.t()
+  }
+  """
+  @type get_function_event_invoke_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_function_request() :: %{
+    optional("Architectures") => list(list(any())()),
+    optional("CodeSigningConfigArn") => String.t(),
+    optional("DeadLetterConfig") => dead_letter_config(),
+    optional("Description") => String.t(),
+    optional("Environment") => environment(),
+    optional("EphemeralStorage") => ephemeral_storage(),
+    optional("FileSystemConfigs") => list(file_system_config()()),
+    optional("Handler") => String.t(),
+    optional("ImageConfig") => image_config(),
+    optional("KMSKeyArn") => String.t(),
+    optional("Layers") => list(String.t()()),
+    optional("LoggingConfig") => logging_config(),
+    optional("MemorySize") => integer(),
+    optional("PackageType") => list(any()),
+    optional("Publish") => boolean(),
+    optional("Runtime") => list(any()),
+    optional("SnapStart") => snap_start(),
+    optional("Tags") => map(),
+    optional("Timeout") => integer(),
+    optional("TracingConfig") => tracing_config(),
+    optional("VpcConfig") => vpc_config(),
+    required("Code") => function_code(),
+    required("FunctionName") => String.t(),
+    required("Role") => String.t()
+  }
+  """
+  @type create_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_error() :: %{
+    "ErrorCode" => String.t(),
+    "Message" => String.t()
+  }
+  """
+  @type environment_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ec2_throttled_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type ec2_throttled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_request() :: %{
+
+  }
+  """
+  @type list_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  e_f_s_i_o_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type e_f_s_i_o_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  kms_invalid_state_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type kms_invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layers_list_item() :: %{
+    "LatestMatchingVersion" => layer_versions_list_item(),
+    "LayerArn" => String.t(),
+    "LayerName" => String.t()
+  }
+  """
+  @type layers_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  alias_routing_configuration() :: %{
+    "AdditionalVersionWeights" => map()
+  }
+  """
+  @type alias_routing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  image_config_response() :: %{
+    "Error" => image_config_error(),
+    "ImageConfig" => image_config()
+  }
+  """
+  @type image_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_subnet_id_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type invalid_subnet_id_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snap_start_response() :: %{
+    "ApplyOn" => list(any()),
+    "OptimizationStatus" => list(any())
+  }
+  """
+  @type snap_start_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  code_storage_exceeded_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type code_storage_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  layer_version_content_input() :: %{
+    "S3Bucket" => String.t(),
+    "S3Key" => String.t(),
+    "S3ObjectVersion" => String.t(),
+    "ZipFile" => binary()
+  }
+  """
+  @type layer_version_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_ready_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type resource_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  code_signing_policies() :: %{
+    "UntrustedArtifactOnDeployment" => list(any())
+  }
+  """
+  @type code_signing_policies() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  precondition_failed_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type precondition_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_function_event_invoke_configs_request() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_function_event_invoke_configs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_conflict_exception() :: %{
+    "Type" => String.t(),
+    "message" => String.t()
+  }
+  """
+  @type resource_conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  concurrency() :: %{
+    optional("ReservedConcurrentExecutions") => integer()
+  }
+  """
+  @type concurrency() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_alias_request() :: %{
+
+  }
+  """
+  @type delete_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_provisioned_concurrency_configs_request() :: %{
+    optional("Marker") => String.t(),
+    optional("MaxItems") => integer()
+  }
+  """
+  @type list_provisioned_concurrency_configs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_permission_request() :: %{
+    optional("EventSourceToken") => String.t(),
+    optional("FunctionUrlAuthType") => list(any()),
+    optional("PrincipalOrgID") => String.t(),
+    optional("Qualifier") => String.t(),
+    optional("RevisionId") => String.t(),
+    optional("SourceAccount") => String.t(),
+    optional("SourceArn") => String.t(),
+    required("Action") => String.t(),
+    required("Principal") => String.t(),
+    required("StatementId") => String.t()
+  }
+  """
+  @type add_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tracing_config_response() :: %{
+    "Mode" => list(any())
+  }
+  """
+  @type tracing_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snap_start_exception() :: %{
+    "Message" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type snap_start_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_permission_response() :: %{
+    "Statement" => String.t()
+  }
+  """
+  @type add_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  code_signing_config() :: %{
+    "AllowedPublishers" => allowed_publishers(),
+    "CodeSigningConfigArn" => String.t(),
+    "CodeSigningConfigId" => String.t(),
+    "CodeSigningPolicies" => code_signing_policies(),
+    "Description" => String.t(),
+    "LastModified" => String.t()
+  }
+  """
+  @type code_signing_config() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2015-03-31",
@@ -125,6 +2280,22 @@ defmodule AWS.Lambda do
   that you
   specified when you added it.
   """
+  @spec add_layer_version_permission(
+          map(),
+          String.t(),
+          String.t(),
+          add_layer_version_permission_request(),
+          list()
+        ) ::
+          {:ok, add_layer_version_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, policy_length_exceeded_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def add_layer_version_permission(
         %Client{} = client,
         layer_name,
@@ -188,6 +2359,16 @@ defmodule AWS.Lambda do
   function. For more information
   about function policies, see [Using resource-based policies for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
   """
+  @spec add_permission(map(), String.t(), add_permission_request(), list()) ::
+          {:ok, add_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, policy_length_exceeded_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def add_permission(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
     headers = []
@@ -229,6 +2410,14 @@ defmodule AWS.Lambda do
   invocation requests that
   it receives.
   """
+  @spec create_alias(map(), String.t(), create_alias_request(), list()) ::
+          {:ok, alias_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def create_alias(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
     headers = []
@@ -258,6 +2447,11 @@ defmodule AWS.Lambda do
   to be taken if deployment
   validation checks fail).
   """
+  @spec create_code_signing_config(map(), create_code_signing_config_request(), list()) ::
+          {:ok, create_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, service_exception()}
   def create_code_signing_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs"
     headers = []
@@ -400,6 +2594,14 @@ defmodule AWS.Lambda do
   Amazon
   DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
   """
+  @spec create_event_source_mapping(map(), create_event_source_mapping_request(), list()) ::
+          {:ok, event_source_mapping_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def create_event_source_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings"
     headers = []
@@ -498,6 +2700,18 @@ defmodule AWS.Lambda do
   or configure a function trigger in the other service. For more information, see
   [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
   """
+  @spec create_function(map(), create_function_request(), list()) ::
+          {:ok, function_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_signing_config_not_found_exception()}
+          | {:error, code_storage_exceeded_exception()}
+          | {:error, code_verification_failed_exception()}
+          | {:error, invalid_code_signature_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/functions"
     headers = []
@@ -524,6 +2738,19 @@ defmodule AWS.Lambda do
   A function URL is
   a dedicated HTTP(S) endpoint that you can use to invoke your function.
   """
+  @spec create_function_url_config(
+          map(),
+          String.t(),
+          create_function_url_config_request(),
+          list()
+        ) ::
+          {:ok, create_function_url_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def create_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
@@ -553,6 +2780,13 @@ defmodule AWS.Lambda do
   Deletes a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
+  @spec delete_alias(map(), String.t(), String.t(), delete_alias_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_alias(%Client{} = client, function_name, name, input, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -581,6 +2815,18 @@ defmodule AWS.Lambda do
   You can delete the code signing configuration only if no function is
   using it.
   """
+  @spec delete_code_signing_config(
+          map(),
+          String.t(),
+          delete_code_signing_config_request(),
+          list()
+        ) ::
+          {:ok, delete_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
   def delete_code_signing_config(
         %Client{} = client,
         code_signing_config_arn,
@@ -616,6 +2862,20 @@ defmodule AWS.Lambda do
   not be completely
   deleted for several seconds.
   """
+  @spec delete_event_source_mapping(
+          map(),
+          String.t(),
+          delete_event_source_mapping_request(),
+          list()
+        ) ::
+          {:ok, event_source_mapping_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
@@ -649,6 +2909,14 @@ defmodule AWS.Lambda do
   your function
   directly, delete the trigger in the service where you originally configured it.
   """
+  @spec delete_function(map(), String.t(), delete_function_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_function(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
     headers = []
@@ -677,6 +2945,20 @@ defmodule AWS.Lambda do
   @doc """
   Removes the code signing configuration from the function.
   """
+  @spec delete_function_code_signing_config(
+          map(),
+          String.t(),
+          delete_function_code_signing_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_signing_config_not_found_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
@@ -700,6 +2982,19 @@ defmodule AWS.Lambda do
   @doc """
   Removes a concurrent execution limit from a function.
   """
+  @spec delete_function_concurrency(
+          map(),
+          String.t(),
+          delete_function_concurrency_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
@@ -727,6 +3022,19 @@ defmodule AWS.Lambda do
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
   """
+  @spec delete_function_event_invoke_config(
+          map(),
+          String.t(),
+          delete_function_event_invoke_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
@@ -759,6 +3067,18 @@ defmodule AWS.Lambda do
   can't recover it. Creating a new function URL results in a different URL
   address.
   """
+  @spec delete_function_url_config(
+          map(),
+          String.t(),
+          delete_function_url_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
@@ -791,6 +3111,17 @@ defmodule AWS.Lambda do
   breaking functions, a copy of the version remains in Lambda until no functions
   refer to it.
   """
+  @spec delete_layer_version(
+          map(),
+          String.t(),
+          String.t(),
+          delete_layer_version_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_layer_version(%Client{} = client, layer_name, version_number, input, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
@@ -816,6 +3147,19 @@ defmodule AWS.Lambda do
   @doc """
   Deletes the provisioned concurrency configuration for a function.
   """
+  @spec delete_provisioned_concurrency_config(
+          map(),
+          String.t(),
+          delete_provisioned_concurrency_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_provisioned_concurrency_config(
         %Client{} = client,
         function_name,
@@ -853,6 +3197,11 @@ defmodule AWS.Lambda do
   [limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) and usage in
   an Amazon Web Services Region.
   """
+  @spec get_account_settings(map(), list()) ::
+          {:ok, get_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/2016-08-19/account-settings"
     headers = []
@@ -867,6 +3216,13 @@ defmodule AWS.Lambda do
   Returns details about a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
+  @spec get_alias(map(), String.t(), String.t(), list()) ::
+          {:ok, alias_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_alias(%Client{} = client, function_name, name, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -882,6 +3238,12 @@ defmodule AWS.Lambda do
   @doc """
   Returns information about the specified code signing configuration.
   """
+  @spec get_code_signing_config(map(), String.t(), list()) ::
+          {:ok, get_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
   def get_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
@@ -898,6 +3260,13 @@ defmodule AWS.Lambda do
   You can get the identifier of a mapping from the output of
   `ListEventSourceMappings`.
   """
+  @spec get_event_source_mapping(map(), String.t(), list()) ::
+          {:ok, event_source_mapping_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_event_source_mapping(%Client{} = client, uuid, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
@@ -917,6 +3286,13 @@ defmodule AWS.Lambda do
   version are
   returned.
   """
+  @spec get_function(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_function(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
     headers = []
@@ -937,6 +3313,13 @@ defmodule AWS.Lambda do
   @doc """
   Returns the code signing configuration for the specified function.
   """
+  @spec get_function_code_signing_config(map(), String.t(), list()) ::
+          {:ok, get_function_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
@@ -953,6 +3336,13 @@ defmodule AWS.Lambda do
   To set a concurrency limit for a
   function, use `PutFunctionConcurrency`.
   """
+  @spec get_function_concurrency(map(), String.t(), list()) ::
+          {:ok, get_function_concurrency_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_function_concurrency(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
@@ -973,6 +3363,13 @@ defmodule AWS.Lambda do
   To get all of a function's details, including function-level settings, use
   `GetFunction`.
   """
+  @spec get_function_configuration(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, function_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_function_configuration(
         %Client{} = client,
         function_name,
@@ -1002,6 +3399,13 @@ defmodule AWS.Lambda do
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
   """
+  @spec get_function_event_invoke_config(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, function_event_invoke_config(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_function_event_invoke_config(
         %Client{} = client,
         function_name,
@@ -1027,6 +3431,13 @@ defmodule AWS.Lambda do
   @doc """
   Returns details about a Lambda function URL.
   """
+  @spec get_function_url_config(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_function_url_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_function_url_config(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
@@ -1049,6 +3460,13 @@ defmodule AWS.Lambda do
   with a link to download the layer archive
   that's valid for 10 minutes.
   """
+  @spec get_layer_version(map(), String.t(), String.t(), list()) ::
+          {:ok, get_layer_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_layer_version(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
@@ -1066,6 +3484,13 @@ defmodule AWS.Lambda do
   with a link to download the layer archive
   that's valid for 10 minutes.
   """
+  @spec get_layer_version_by_arn(map(), String.t(), list()) ::
+          {:ok, get_layer_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_layer_version_by_arn(%Client{} = client, arn, options \\ []) do
     url_path = "/2018-10-31/layers?find=LayerVersion"
     headers = []
@@ -1088,6 +3513,13 @@ defmodule AWS.Lambda do
 
   For more information, see `AddLayerVersionPermission`.
   """
+  @spec get_layer_version_policy(map(), String.t(), String.t(), list()) ::
+          {:ok, get_layer_version_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_layer_version_policy(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
@@ -1104,6 +3536,13 @@ defmodule AWS.Lambda do
   Returns the [resource-based IAM policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
   for a function, version, or alias.
   """
+  @spec get_policy(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_policy(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
     headers = []
@@ -1125,6 +3564,14 @@ defmodule AWS.Lambda do
   Retrieves the provisioned concurrency configuration for a function's alias or
   version.
   """
+  @spec get_provisioned_concurrency_config(map(), String.t(), String.t(), list()) ::
+          {:ok, get_provisioned_concurrency_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, provisioned_concurrency_config_not_found_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_provisioned_concurrency_config(
         %Client{} = client,
         function_name,
@@ -1158,6 +3605,13 @@ defmodule AWS.Lambda do
   this includes the runtime update mode and `null` is returned for the ARN. For
   more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
   """
+  @spec get_runtime_management_config(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_runtime_management_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def get_runtime_management_config(
         %Client{} = client,
         function_name,
@@ -1236,6 +3690,39 @@ defmodule AWS.Lambda do
   permissions for cross-account invocations, see [Granting function access to other
   accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
   """
+  @spec invoke(map(), String.t(), invocation_request(), list()) ::
+          {:ok, invocation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, ec2_access_denied_exception()}
+          | {:error, ec2_throttled_exception()}
+          | {:error, ec2_unexpected_exception()}
+          | {:error, e_f_s_i_o_exception()}
+          | {:error, e_f_s_mount_connectivity_exception()}
+          | {:error, e_f_s_mount_failure_exception()}
+          | {:error, e_f_s_mount_timeout_exception()}
+          | {:error, e_n_i_limit_reached_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, invalid_request_content_exception()}
+          | {:error, invalid_runtime_exception()}
+          | {:error, invalid_security_group_id_exception()}
+          | {:error, invalid_subnet_id_exception()}
+          | {:error, invalid_zip_file_exception()}
+          | {:error, kms_access_denied_exception()}
+          | {:error, kms_disabled_exception()}
+          | {:error, kms_invalid_state_exception()}
+          | {:error, kms_not_found_exception()}
+          | {:error, recursive_invocation_exception()}
+          | {:error, request_too_large_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, service_exception()}
+          | {:error, snap_start_exception()}
+          | {:error, snap_start_not_ready_exception()}
+          | {:error, snap_start_timeout_exception()}
+          | {:error, subnet_ip_address_limit_reached_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unsupported_media_type_exception()}
   def invoke(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
 
@@ -1289,6 +3776,14 @@ defmodule AWS.Lambda do
   X-Ray active tracing. Trace ID is not
   propagated to the function, even if X-Ray active tracing is turned on.
   """
+  @spec invoke_async(map(), String.t(), invoke_async_request(), list()) ::
+          {:ok, invoke_async_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_request_content_exception()}
+          | {:error, invalid_runtime_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
   def invoke_async(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2014-11-13/functions/#{AWS.Util.encode_uri(function_name)}/invoke-async"
     headers = []
@@ -1320,6 +3815,44 @@ defmodule AWS.Lambda do
   access to other
   accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
   """
+  @spec invoke_with_response_stream(
+          map(),
+          String.t(),
+          invoke_with_response_stream_request(),
+          list()
+        ) ::
+          {:ok, invoke_with_response_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, ec2_access_denied_exception()}
+          | {:error, ec2_throttled_exception()}
+          | {:error, ec2_unexpected_exception()}
+          | {:error, e_f_s_i_o_exception()}
+          | {:error, e_f_s_mount_connectivity_exception()}
+          | {:error, e_f_s_mount_failure_exception()}
+          | {:error, e_f_s_mount_timeout_exception()}
+          | {:error, e_n_i_limit_reached_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, invalid_request_content_exception()}
+          | {:error, invalid_runtime_exception()}
+          | {:error, invalid_security_group_id_exception()}
+          | {:error, invalid_subnet_id_exception()}
+          | {:error, invalid_zip_file_exception()}
+          | {:error, kms_access_denied_exception()}
+          | {:error, kms_disabled_exception()}
+          | {:error, kms_invalid_state_exception()}
+          | {:error, kms_not_found_exception()}
+          | {:error, recursive_invocation_exception()}
+          | {:error, request_too_large_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, resource_not_ready_exception()}
+          | {:error, service_exception()}
+          | {:error, snap_start_exception()}
+          | {:error, snap_start_not_ready_exception()}
+          | {:error, snap_start_timeout_exception()}
+          | {:error, subnet_ip_address_limit_reached_exception()}
+          | {:error, too_many_requests_exception()}
+          | {:error, unsupported_media_type_exception()}
   def invoke_with_response_stream(%Client{} = client, function_name, input, options \\ []) do
     url_path =
       "/2021-11-15/functions/#{AWS.Util.encode_uri(function_name)}/response-streaming-invocations"
@@ -1368,6 +3901,20 @@ defmodule AWS.Lambda do
   [aliases](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
   for a Lambda function.
   """
+  @spec list_aliases(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_aliases(
         %Client{} = client,
         function_name,
@@ -1414,6 +3961,11 @@ defmodule AWS.Lambda do
   call. You can use the `MaxItems` parameter to return fewer configurations per
   call.
   """
+  @spec list_code_signing_configs(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_code_signing_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, service_exception()}
   def list_code_signing_configs(
         %Client{} = client,
         marker \\ nil,
@@ -1449,6 +4001,20 @@ defmodule AWS.Lambda do
   Specify an `EventSourceArn` to show only event source mappings for a
   single event source.
   """
+  @spec list_event_source_mappings(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_event_source_mappings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_event_source_mappings(
         %Client{} = client,
         event_source_arn \\ nil,
@@ -1500,6 +4066,19 @@ defmodule AWS.Lambda do
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
   """
+  @spec list_function_event_invoke_configs(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_function_event_invoke_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_function_event_invoke_configs(
         %Client{} = client,
         function_name,
@@ -1535,6 +4114,13 @@ defmodule AWS.Lambda do
   @doc """
   Returns a list of Lambda function URLs for the specified function.
   """
+  @spec list_function_url_configs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_function_url_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_function_url_configs(
         %Client{} = client,
         function_name,
@@ -1583,6 +4169,19 @@ defmodule AWS.Lambda do
   LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function or version, use
   `GetFunction`.
   """
+  @spec list_functions(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_functions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_functions(
         %Client{} = client,
         function_version \\ nil,
@@ -1634,6 +4233,18 @@ defmodule AWS.Lambda do
   You can use this method prior to deleting a
   code signing configuration, to verify that no functions are using it.
   """
+  @spec list_functions_by_code_signing_config(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_functions_by_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
   def list_functions_by_code_signing_config(
         %Client{} = client,
         code_signing_config_arn,
@@ -1675,6 +4286,21 @@ defmodule AWS.Lambda do
   compatible architecture to include only
   layer versions that are compatible with that architecture.
   """
+  @spec list_layer_versions(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_layer_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_layer_versions(
         %Client{} = client,
         layer_name,
@@ -1732,6 +4358,19 @@ defmodule AWS.Lambda do
   compatible with
   that [instruction set architecture](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
   """
+  @spec list_layers(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_layers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_layers(
         %Client{} = client,
         compatible_architecture \\ nil,
@@ -1780,6 +4419,19 @@ defmodule AWS.Lambda do
   @doc """
   Retrieves a list of provisioned concurrency configurations for a function.
   """
+  @spec list_provisioned_concurrency_configs(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_provisioned_concurrency_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_provisioned_concurrency_configs(
         %Client{} = client,
         function_name,
@@ -1819,6 +4471,13 @@ defmodule AWS.Lambda do
   You can
   also view tags with `GetFunction`.
   """
+  @spec list_tags(map(), String.t(), list()) ::
+          {:ok, list_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_tags(%Client{} = client, resource, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
@@ -1836,6 +4495,13 @@ defmodule AWS.Lambda do
 
   Lambda returns up to 50 versions per call.
   """
+  @spec list_versions_by_function(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_versions_by_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def list_versions_by_function(
         %Client{} = client,
         function_name,
@@ -1876,6 +4542,14 @@ defmodule AWS.Lambda do
   Add layers to your function with `CreateFunction` or
   `UpdateFunctionConfiguration`.
   """
+  @spec publish_layer_version(map(), String.t(), publish_layer_version_request(), list()) ::
+          {:ok, publish_layer_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_storage_exceeded_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def publish_layer_version(%Client{} = client, layer_name, input, options \\ []) do
     url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
     headers = []
@@ -1913,6 +4587,16 @@ defmodule AWS.Lambda do
   Clients can invoke versions directly or with an alias. To create an alias, use
   `CreateAlias`.
   """
+  @spec publish_version(map(), String.t(), publish_version_request(), list()) ::
+          {:ok, function_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_storage_exceeded_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def publish_version(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
     headers = []
@@ -1939,6 +4623,20 @@ defmodule AWS.Lambda do
   Changes to the code signing configuration take effect the
   next time a user tries to deploy a code package to the function.
   """
+  @spec put_function_code_signing_config(
+          map(),
+          String.t(),
+          put_function_code_signing_config_request(),
+          list()
+        ) ::
+          {:ok, put_function_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_signing_config_not_found_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def put_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
@@ -1969,6 +4667,14 @@ defmodule AWS.Lambda do
   functions that aren't configured with a per-function limit. For more
   information, see [Lambda function scaling](https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html).
   """
+  @spec put_function_concurrency(map(), String.t(), put_function_concurrency_request(), list()) ::
+          {:ok, concurrency(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def put_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
@@ -2006,6 +4712,19 @@ defmodule AWS.Lambda do
   in addition to or instead of a
   dead-letter queue.
   """
+  @spec put_function_event_invoke_config(
+          map(),
+          String.t(),
+          put_function_event_invoke_config_request(),
+          list()
+        ) ::
+          {:ok, function_event_invoke_config(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def put_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
@@ -2024,6 +4743,19 @@ defmodule AWS.Lambda do
   @doc """
   Adds a provisioned concurrency configuration to a function's alias or version.
   """
+  @spec put_provisioned_concurrency_config(
+          map(),
+          String.t(),
+          put_provisioned_concurrency_config_request(),
+          list()
+        ) ::
+          {:ok, put_provisioned_concurrency_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def put_provisioned_concurrency_config(%Client{} = client, function_name, input, options \\ []) do
     url_path =
       "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
@@ -2047,6 +4779,19 @@ defmodule AWS.Lambda do
   For more information,
   see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
   """
+  @spec put_runtime_management_config(
+          map(),
+          String.t(),
+          put_runtime_management_config_request(),
+          list()
+        ) ::
+          {:ok, put_runtime_management_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def put_runtime_management_config(%Client{} = client, function_name, input, options \\ []) do
     url_path =
       "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
@@ -2070,6 +4815,21 @@ defmodule AWS.Lambda do
   For more information, see
   `AddLayerVersionPermission`.
   """
+  @spec remove_layer_version_permission(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          remove_layer_version_permission_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def remove_layer_version_permission(
         %Client{} = client,
         layer_name,
@@ -2111,6 +4871,14 @@ defmodule AWS.Lambda do
   You
   can get the ID of the statement from the output of `GetPolicy`.
   """
+  @spec remove_permission(map(), String.t(), String.t(), remove_permission_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def remove_permission(%Client{} = client, function_name, statement_id, input, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy/#{AWS.Util.encode_uri(statement_id)}"
@@ -2143,6 +4911,14 @@ defmodule AWS.Lambda do
   Adds [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to a
   function.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def tag_resource(%Client{} = client, resource, input, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
@@ -2167,6 +4943,14 @@ defmodule AWS.Lambda do
   Removes [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) from a
   function.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def untag_resource(%Client{} = client, resource, input, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
@@ -2196,6 +4980,15 @@ defmodule AWS.Lambda do
   Updates the configuration of a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
+  @spec update_alias(map(), String.t(), String.t(), update_alias_request(), list()) ::
+          {:ok, alias_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def update_alias(%Client{} = client, function_name, name, input, options \\ []) do
     url_path =
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -2214,6 +5007,17 @@ defmodule AWS.Lambda do
   Changes to the code signing configuration take effect the next time a
   user tries to deploy a code package to the function.
   """
+  @spec update_code_signing_config(
+          map(),
+          String.t(),
+          update_code_signing_config_request(),
+          list()
+        ) ::
+          {:ok, update_code_signing_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
   def update_code_signing_config(
         %Client{} = client,
         code_signing_config_arn,
@@ -2352,6 +5156,20 @@ defmodule AWS.Lambda do
   Amazon
   DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
   """
+  @spec update_event_source_mapping(
+          map(),
+          String.t(),
+          update_event_source_mapping_request(),
+          list()
+        ) ::
+          {:ok, event_source_mapping_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_in_use_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def update_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
@@ -2394,6 +5212,19 @@ defmodule AWS.Lambda do
   automatically
   update the function.
   """
+  @spec update_function_code(map(), String.t(), update_function_code_request(), list()) ::
+          {:ok, function_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_signing_config_not_found_exception()}
+          | {:error, code_storage_exceeded_exception()}
+          | {:error, code_verification_failed_exception()}
+          | {:error, invalid_code_signature_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def update_function_code(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/code"
     headers = []
@@ -2428,6 +5259,23 @@ defmodule AWS.Lambda do
   permissions
   to an Amazon Web Services account or Amazon Web Service, use `AddPermission`.
   """
+  @spec update_function_configuration(
+          map(),
+          String.t(),
+          update_function_configuration_request(),
+          list()
+        ) ::
+          {:ok, function_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, code_signing_config_not_found_exception()}
+          | {:error, code_verification_failed_exception()}
+          | {:error, invalid_code_signature_exception()}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, precondition_failed_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def update_function_configuration(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
     headers = []
@@ -2445,6 +5293,19 @@ defmodule AWS.Lambda do
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
   """
+  @spec update_function_event_invoke_config(
+          map(),
+          String.t(),
+          update_function_event_invoke_config_request(),
+          list()
+        ) ::
+          {:ok, function_event_invoke_config(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def update_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
@@ -2473,6 +5334,19 @@ defmodule AWS.Lambda do
   @doc """
   Updates the configuration for a Lambda function URL.
   """
+  @spec update_function_url_config(
+          map(),
+          String.t(),
+          update_function_url_config_request(),
+          list()
+        ) ::
+          {:ok, update_function_url_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_parameter_value_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_exception()}
+          | {:error, too_many_requests_exception()}
   def update_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []

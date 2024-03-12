@@ -13,6 +13,238 @@ defmodule AWS.IoTFleetHub do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  application_summary() :: %{
+    "applicationCreationDate" => float(),
+    "applicationDescription" => String.t(),
+    "applicationId" => String.t(),
+    "applicationLastUpdateDate" => float(),
+    "applicationName" => String.t(),
+    "applicationState" => list(any()),
+    "applicationUrl" => String.t()
+  }
+  """
+  @type application_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_application_request() :: %{
+    optional("applicationDescription") => String.t(),
+    optional("clientToken") => String.t(),
+    optional("tags") => map(),
+    required("applicationName") => String.t(),
+    required("roleArn") => String.t()
+  }
+  """
+  @type create_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_application_response() :: %{
+    "applicationArn" => String.t(),
+    "applicationId" => String.t()
+  }
+  """
+  @type create_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_application_request() :: %{
+    optional("clientToken") => String.t()
+  }
+  """
+  @type delete_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_application_response() :: %{
+
+  }
+  """
+  @type delete_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_application_request() :: %{
+
+  }
+  """
+  @type describe_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_application_response() :: %{
+    "applicationArn" => String.t(),
+    "applicationCreationDate" => float(),
+    "applicationDescription" => String.t(),
+    "applicationId" => String.t(),
+    "applicationLastUpdateDate" => float(),
+    "applicationName" => String.t(),
+    "applicationState" => list(any()),
+    "applicationUrl" => String.t(),
+    "errorMessage" => String.t(),
+    "roleArn" => String.t(),
+    "ssoClientId" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type describe_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_failure_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_request_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_applications_request() :: %{
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_applications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_applications_response() :: %{
+    "applicationSummaries" => list(application_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_applications_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_application_request() :: %{
+    optional("applicationDescription") => String.t(),
+    optional("applicationName") => String.t(),
+    optional("clientToken") => String.t()
+  }
+  """
+  @type update_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_application_response() :: %{
+
+  }
+  """
+  @type update_application_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2020-11-03",
@@ -34,6 +266,13 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec create_application(map(), create_application_request(), list()) ::
+          {:ok, create_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, throttling_exception()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
@@ -60,6 +299,13 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+          {:ok, delete_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -92,6 +338,13 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec describe_application(map(), String.t(), list()) ::
+          {:ok, describe_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def describe_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
@@ -109,6 +362,12 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec list_applications(map(), String.t() | nil, list()) ::
+          {:ok, list_applications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, throttling_exception()}
   def list_applications(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/applications"
     headers = []
@@ -132,6 +391,12 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -150,6 +415,12 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -176,6 +447,12 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -208,6 +485,14 @@ defmodule AWS.IoTFleetHub do
   Fleet Hub for AWS IoT Device Management is in public preview and is subject to
   change.
   """
+  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+          {:ok, update_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, internal_failure_exception()}
+          | {:error, invalid_request_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []

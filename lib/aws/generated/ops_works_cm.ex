@@ -106,6 +106,565 @@ defmodule AWS.OpsWorksCM do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  describe_node_association_status_response() :: %{
+    "EngineAttributes" => list(engine_attribute()()),
+    "NodeAssociationStatus" => list(any())
+  }
+  """
+  @type describe_node_association_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_server_engine_attribute_response() :: %{
+    "EngineAttribute" => engine_attribute(),
+    "ServerName" => String.t()
+  }
+  """
+  @type export_server_engine_attribute_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_node_response() :: %{
+    "NodeAssociationStatusToken" => String.t()
+  }
+  """
+  @type associate_node_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("ResourceArn") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_server_response() :: %{
+    "Server" => server()
+  }
+  """
+  @type update_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_server_request() :: %{
+    optional("BackupRetentionCount") => integer(),
+    optional("DisableAutomatedBackup") => boolean(),
+    optional("PreferredBackupWindow") => String.t(),
+    optional("PreferredMaintenanceWindow") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type update_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_maintenance_request() :: %{
+    optional("EngineAttributes") => list(engine_attribute()()),
+    required("ServerName") => String.t()
+  }
+  """
+  @type start_maintenance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_server_engine_attributes_request() :: %{
+    optional("AttributeValue") => String.t(),
+    required("AttributeName") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type update_server_engine_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_server_response() :: %{
+    "Server" => server()
+  }
+  """
+  @type restore_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("ResourceArn") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_state_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_server_request() :: %{
+    optional("AssociatePublicIpAddress") => boolean(),
+    optional("BackupId") => String.t(),
+    optional("BackupRetentionCount") => integer(),
+    optional("CustomCertificate") => String.t(),
+    optional("CustomDomain") => String.t(),
+    optional("CustomPrivateKey") => String.t(),
+    optional("DisableAutomatedBackup") => boolean(),
+    optional("EngineAttributes") => list(engine_attribute()()),
+    optional("EngineModel") => String.t(),
+    optional("EngineVersion") => String.t(),
+    optional("KeyPair") => String.t(),
+    optional("PreferredBackupWindow") => String.t(),
+    optional("PreferredMaintenanceWindow") => String.t(),
+    optional("SecurityGroupIds") => list(String.t()()),
+    optional("SubnetIds") => list(String.t()()),
+    optional("Tags") => list(tag()()),
+    required("Engine") => String.t(),
+    required("InstanceProfileArn") => String.t(),
+    required("InstanceType") => String.t(),
+    required("ServerName") => String.t(),
+    required("ServiceRoleArn") => String.t()
+  }
+  """
+  @type create_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_server_request() :: %{
+    optional("InstanceType") => String.t(),
+    optional("KeyPair") => String.t(),
+    required("BackupId") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type restore_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  engine_attribute() :: %{
+    "Name" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type engine_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_backups_request() :: %{
+    optional("BackupId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ServerName") => String.t()
+  }
+  """
+  @type describe_backups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_server_response() :: %{
+    "Server" => server()
+  }
+  """
+  @type create_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_next_token_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type invalid_next_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_backup_response() :: %{
+
+  }
+  """
+  @type delete_backup_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_node_association_status_request() :: %{
+    required("NodeAssociationStatusToken") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type describe_node_association_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "NextToken" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_attributes_response() :: %{
+    "Attributes" => list(account_attribute()())
+  }
+  """
+  @type describe_account_attributes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  export_server_engine_attribute_request() :: %{
+    optional("InputAttributes") => list(engine_attribute()()),
+    required("ExportAttributeName") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type export_server_engine_attribute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  backup() :: %{
+    "BackupArn" => String.t(),
+    "BackupId" => String.t(),
+    "BackupType" => list(any()),
+    "CreatedAt" => non_neg_integer(),
+    "Description" => String.t(),
+    "Engine" => String.t(),
+    "EngineModel" => String.t(),
+    "EngineVersion" => String.t(),
+    "InstanceProfileArn" => String.t(),
+    "InstanceType" => String.t(),
+    "KeyPair" => String.t(),
+    "PreferredBackupWindow" => String.t(),
+    "PreferredMaintenanceWindow" => String.t(),
+    "S3DataSize" => integer(),
+    "S3DataUrl" => String.t(),
+    "S3LogUrl" => String.t(),
+    "SecurityGroupIds" => list(String.t()()),
+    "ServerName" => String.t(),
+    "ServiceRoleArn" => String.t(),
+    "Status" => list(any()),
+    "StatusDescription" => String.t(),
+    "SubnetIds" => list(String.t()()),
+    "ToolsVersion" => String.t(),
+    "UserArn" => String.t()
+  }
+  """
+  @type backup() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type describe_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_node_request() :: %{
+    optional("EngineAttributes") => list(engine_attribute()()),
+    required("NodeName") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type disassociate_node_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_server_response() :: %{
+
+  }
+  """
+  @type delete_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_server_engine_attributes_response() :: %{
+    "Server" => server()
+  }
+  """
+  @type update_server_engine_attributes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  server() :: %{
+    "AssociatePublicIpAddress" => boolean(),
+    "BackupRetentionCount" => integer(),
+    "CloudFormationStackArn" => String.t(),
+    "CreatedAt" => non_neg_integer(),
+    "CustomDomain" => String.t(),
+    "DisableAutomatedBackup" => boolean(),
+    "Endpoint" => String.t(),
+    "Engine" => String.t(),
+    "EngineAttributes" => list(engine_attribute()()),
+    "EngineModel" => String.t(),
+    "EngineVersion" => String.t(),
+    "InstanceProfileArn" => String.t(),
+    "InstanceType" => String.t(),
+    "KeyPair" => String.t(),
+    "MaintenanceStatus" => list(any()),
+    "PreferredBackupWindow" => String.t(),
+    "PreferredMaintenanceWindow" => String.t(),
+    "SecurityGroupIds" => list(String.t()()),
+    "ServerArn" => String.t(),
+    "ServerName" => String.t(),
+    "ServiceRoleArn" => String.t(),
+    "Status" => list(any()),
+    "StatusReason" => String.t(),
+    "SubnetIds" => list(String.t()())
+  }
+  """
+  @type server() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_servers_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ServerName") => String.t()
+  }
+  """
+  @type describe_servers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_node_request() :: %{
+    required("EngineAttributes") => list(engine_attribute()()),
+    required("NodeName") => String.t(),
+    required("ServerName") => String.t()
+  }
+  """
+  @type associate_node_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_servers_response() :: %{
+    "NextToken" => String.t(),
+    "Servers" => list(server()())
+  }
+  """
+  @type describe_servers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_maintenance_response() :: %{
+    "Server" => server()
+  }
+  """
+  @type start_maintenance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_attribute() :: %{
+    "Maximum" => integer(),
+    "Name" => String.t(),
+    "Used" => integer()
+  }
+  """
+  @type account_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_backups_response() :: %{
+    "Backups" => list(backup()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_backups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_backup_request() :: %{
+    required("BackupId") => String.t()
+  }
+  """
+  @type delete_backup_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_backup_request() :: %{
+    optional("Description") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("ServerName") => String.t()
+  }
+  """
+  @type create_backup_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_node_response() :: %{
+    "NodeAssociationStatusToken" => String.t()
+  }
+  """
+  @type disassociate_node_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_already_exists_exception() :: %{
+    "Message" => String.t()
+  }
+  """
+  @type resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  server_event() :: %{
+    "CreatedAt" => non_neg_integer(),
+    "LogUrl" => String.t(),
+    "Message" => String.t(),
+    "ServerName" => String.t()
+  }
+  """
+  @type server_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_account_attributes_request() :: %{
+
+  }
+  """
+  @type describe_account_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_backup_response() :: %{
+    "Backup" => backup()
+  }
+  """
+  @type create_backup_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_response() :: %{
+    "NextToken" => String.t(),
+    "ServerEvents" => list(server_event()())
+  }
+  """
+  @type describe_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_server_request() :: %{
+    required("ServerName") => String.t()
+  }
+  """
+  @type delete_server_request() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2016-11-01",
@@ -147,6 +706,12 @@ defmodule AWS.OpsWorksCM do
   The AssociateNode API call can be integrated into Auto Scaling configurations,
   AWS Cloudformation templates, or the user data of a server's instance.
   """
+  @spec associate_node(map(), associate_node_request(), list()) ::
+          {:ok, associate_node_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def associate_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -174,6 +739,13 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server is not found.
   A `ValidationException` is thrown when parameters of the request are not valid.
   """
+  @spec create_backup(map(), create_backup_request(), list()) ::
+          {:ok, create_backup_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def create_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -218,6 +790,13 @@ defmodule AWS.OpsWorksCM do
   CA-signed certificate and private key, specify values for `CustomDomain`,
   `CustomCertificate`, and `CustomPrivateKey`.
   """
+  @spec create_server(map(), create_server_request(), list()) ::
+          {:ok, create_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_exception()}
+          | {:error, resource_already_exists_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def create_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -236,6 +815,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the backup does not exist.
   A `ValidationException` is thrown when parameters of the request are not valid.
   """
+  @spec delete_backup(map(), delete_backup_request(), list()) ::
+          {:ok, delete_backup_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -259,6 +844,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist.
   A `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec delete_server(map(), delete_server_request(), list()) ::
+          {:ok, delete_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -271,6 +862,9 @@ defmodule AWS.OpsWorksCM do
 
   This operation is synchronous.
   """
+  @spec describe_account_attributes(map(), describe_account_attributes_request(), list()) ::
+          {:ok, describe_account_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -289,6 +883,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the backup does not exist.
   A `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec describe_backups(map(), describe_backups_request(), list()) ::
+          {:ok, describe_backups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_next_token_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def describe_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -306,6 +906,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist.
   A `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec describe_events(map(), describe_events_request(), list()) ::
+          {:ok, describe_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_next_token_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -321,6 +927,15 @@ defmodule AWS.OpsWorksCM do
   or when the server does not exist. A `ValidationException` is raised when
   parameters of the request are not valid.
   """
+  @spec describe_node_association_status(
+          map(),
+          describe_node_association_status_request(),
+          list()
+        ) ::
+          {:ok, describe_node_association_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def describe_node_association_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -340,6 +955,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist.
   A `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec describe_servers(map(), describe_servers_request(), list()) ::
+          {:ok, describe_servers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_next_token_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def describe_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -360,6 +981,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist.
   A `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec disassociate_node(map(), disassociate_node_request(), list()) ::
+          {:ok, disassociate_node_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def disassociate_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -381,6 +1008,12 @@ defmodule AWS.OpsWorksCM do
   states: CREATING, TERMINATED,
   FAILED or DELETING.
   """
+  @spec export_server_engine_attribute(map(), export_server_engine_attribute_request(), list()) ::
+          {:ok, export_server_engine_attribute_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def export_server_engine_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -392,6 +1025,11 @@ defmodule AWS.OpsWorksCM do
   Automate or
   AWS OpsWorks for Puppet Enterprise servers or backups.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -421,6 +1059,12 @@ defmodule AWS.OpsWorksCM do
   when the server does not exist. A `ValidationException` is raised when
   parameters of the request are not valid.
   """
+  @spec restore_server(map(), restore_server_request(), list()) ::
+          {:ok, restore_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def restore_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -441,6 +1085,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec start_maintenance(map(), start_maintenance_request(), list()) ::
+          {:ok, start_maintenance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def start_maintenance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -451,6 +1101,12 @@ defmodule AWS.OpsWorksCM do
   Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet
   Enterprise server, or to server backups.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -460,6 +1116,12 @@ defmodule AWS.OpsWorksCM do
   @doc """
   Removes specified tags from an AWS OpsWorks-CM server or backup.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -472,6 +1134,12 @@ defmodule AWS.OpsWorksCM do
 
   This operation is synchronous.
   """
+  @spec update_server(map(), update_server_request(), list()) ::
+          {:ok, update_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def update_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -496,6 +1164,12 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
+  @spec update_server_engine_attributes(map(), update_server_engine_attributes_request(), list()) ::
+          {:ok, update_server_engine_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def update_server_engine_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

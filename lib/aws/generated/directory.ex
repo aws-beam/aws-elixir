@@ -32,6 +32,2199 @@ defmodule AWS.Directory do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  enable_radius_result() :: %{
+
+  }
+  """
+  @type enable_radius_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_certificates_result() :: %{
+    "CertificatesInfo" => list(certificate_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_certificates_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_controller() :: %{
+    "AvailabilityZone" => String.t(),
+    "DirectoryId" => String.t(),
+    "DnsIpAddr" => String.t(),
+    "DomainControllerId" => String.t(),
+    "LaunchTime" => non_neg_integer(),
+    "Status" => list(any()),
+    "StatusLastUpdatedDateTime" => non_neg_integer(),
+    "StatusReason" => String.t(),
+    "SubnetId" => String.t(),
+    "VpcId" => String.t()
+  }
+  """
+  @type domain_controller() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_log_subscription_request() :: %{
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type delete_log_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  entity_already_exists_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type entity_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_authentication_setting_info() :: %{
+    "LastUpdatedDateTime" => non_neg_integer(),
+    "Status" => list(any()),
+    "Type" => list(any())
+  }
+  """
+  @type client_authentication_setting_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_value() :: %{
+    "OSUpdateSettings" => o_s_update_settings()
+  }
+  """
+  @type update_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_number_of_domain_controllers_result() :: %{
+
+  }
+  """
+  @type update_number_of_domain_controllers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unshare_target() :: %{
+    "Id" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type unshare_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_directory_request() :: %{
+    optional("Description") => String.t(),
+    optional("ShortName") => String.t(),
+    optional("Tags") => list(tag()()),
+    optional("VpcSettings") => directory_vpc_settings(),
+    required("Name") => String.t(),
+    required("Password") => String.t(),
+    required("Size") => list(any())
+  }
+  """
+  @type create_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_snapshot_request() :: %{
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type delete_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ldaps_settings_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Type") => list(any()),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_ldaps_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verify_trust_request() :: %{
+    required("TrustId") => String.t()
+  }
+  """
+  @type verify_trust_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_topics_request() :: %{
+    optional("DirectoryId") => String.t(),
+    optional("TopicNames") => list(String.t()())
+  }
+  """
+  @type describe_event_topics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_ldaps_settings_result() :: %{
+    "LDAPSSettingsInfo" => list(ldaps_setting_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_ldaps_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_conditional_forwarder_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("DnsIpAddrs") => list(String.t()()),
+    required("RemoteDomainName") => String.t()
+  }
+  """
+  @type update_conditional_forwarder_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type snapshot_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_route() :: %{
+    "CidrIp" => String.t(),
+    "Description" => String.t()
+  }
+  """
+  @type ip_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_target_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_target_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_snapshot_limits_result() :: %{
+    "SnapshotLimits" => snapshot_limits()
+  }
+  """
+  @type get_snapshot_limits_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unshare_directory_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("UnshareTarget") => unshare_target()
+  }
+  """
+  @type unshare_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_controller_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type domain_controller_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_directory_result() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type create_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_operation_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type unsupported_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_ldaps_status_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_ldaps_status_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_trust_request() :: %{
+    optional("ConditionalForwarderIpAddrs") => list(String.t()()),
+    optional("SelectiveAuth") => list(any()),
+    optional("TrustType") => list(any()),
+    required("DirectoryId") => String.t(),
+    required("RemoteDomainName") => String.t(),
+    required("TrustDirection") => list(any()),
+    required("TrustPassword") => String.t()
+  }
+  """
+  @type create_trust_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_ip_routes_result() :: %{
+
+  }
+  """
+  @type remove_ip_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_shared_directory_request() :: %{
+    required("SharedDirectoryId") => String.t()
+  }
+  """
+  @type reject_shared_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  o_s_update_settings() :: %{
+    "OSVersion" => list(any())
+  }
+  """
+  @type o_s_update_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  insufficient_permissions_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type insufficient_permissions_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_info() :: %{
+    "CertificateId" => String.t(),
+    "CommonName" => String.t(),
+    "ExpiryDateTime" => non_neg_integer(),
+    "State" => list(any()),
+    "Type" => list(any())
+  }
+  """
+  @type certificate_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  setting() :: %{
+    "Name" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type setting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_conditional_forwarder_result() :: %{
+
+  }
+  """
+  @type create_conditional_forwarder_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  share_directory_request() :: %{
+    optional("ShareNotes") => String.t(),
+    required("DirectoryId") => String.t(),
+    required("ShareMethod") => list(any()),
+    required("ShareTarget") => share_target()
+  }
+  """
+  @type share_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  setting_entry() :: %{
+    "AllowedValues" => String.t(),
+    "AppliedValue" => String.t(),
+    "DataType" => String.t(),
+    "LastRequestedDateTime" => non_neg_integer(),
+    "LastUpdatedDateTime" => non_neg_integer(),
+    "Name" => String.t(),
+    "RequestDetailedStatus" => map(),
+    "RequestStatus" => list(any()),
+    "RequestStatusMessage" => String.t(),
+    "RequestedValue" => String.t(),
+    "Type" => String.t()
+  }
+  """
+  @type setting_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_conditional_forwarder_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("DnsIpAddrs") => list(String.t()()),
+    required("RemoteDomainName") => String.t()
+  }
+  """
+  @type create_conditional_forwarder_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_alias_request() :: %{
+    required("Alias") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type create_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  no_available_certificate_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type no_available_certificate_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_in_desired_state_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_in_desired_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  region_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type region_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_snapshot_request() :: %{
+    optional("Name") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type create_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_certificate_result() :: %{
+    "CertificateId" => String.t()
+  }
+  """
+  @type register_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_log_subscriptions_request() :: %{
+    optional("DirectoryId") => String.t(),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_log_subscriptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_already_shared_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_already_shared_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_client_authentication_result() :: %{
+
+  }
+  """
+  @type disable_client_authentication_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unshare_directory_result() :: %{
+    "SharedDirectoryId" => String.t()
+  }
+  """
+  @type unshare_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_region_request() :: %{
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type remove_region_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_trust_result() :: %{
+    "RequestId" => String.t(),
+    "TrustId" => String.t()
+  }
+  """
+  @type update_trust_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_radius_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("RadiusSettings") => radius_settings()
+  }
+  """
+  @type enable_radius_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_settings_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type unsupported_settings_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_from_snapshot_request() :: %{
+    required("SnapshotId") => String.t()
+  }
+  """
+  @type restore_from_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  computer() :: %{
+    "ComputerAttributes" => list(attribute()()),
+    "ComputerId" => String.t(),
+    "ComputerName" => String.t()
+  }
+  """
+  @type computer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_directory_limits_result() :: %{
+    "DirectoryLimits" => directory_limits()
+  }
+  """
+  @type get_directory_limits_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  verify_trust_result() :: %{
+    "TrustId" => String.t()
+  }
+  """
+  @type verify_trust_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_certificate_request() :: %{
+    required("CertificateId") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type deregister_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_schema_extensions_result() :: %{
+    "NextToken" => String.t(),
+    "SchemaExtensionsInfo" => list(schema_extension_info()())
+  }
+  """
+  @type list_schema_extensions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_tags_to_resource_request() :: %{
+    required("ResourceId") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type add_tags_to_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_region_result() :: %{
+
+  }
+  """
+  @type remove_region_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_sso_request() :: %{
+    optional("Password") => String.t(),
+    optional("UserName") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type disable_sso_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_info_entry() :: %{
+    "InitiatedBy" => String.t(),
+    "LastUpdatedDateTime" => non_neg_integer(),
+    "NewValue" => update_value(),
+    "PreviousValue" => update_value(),
+    "Region" => String.t(),
+    "StartTime" => non_neg_integer(),
+    "Status" => list(any()),
+    "StatusReason" => String.t()
+  }
+  """
+  @type update_info_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_region_result() :: %{
+
+  }
+  """
+  @type add_region_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_schema_extension_result() :: %{
+
+  }
+  """
+  @type cancel_schema_extension_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_not_shared_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_not_shared_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_update_directory_result() :: %{
+    "NextToken" => String.t(),
+    "UpdateActivities" => list(update_info_entry()())
+  }
+  """
+  @type describe_update_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_cert_auth_settings() :: %{
+    "OCSPUrl" => String.t()
+  }
+  """
+  @type client_cert_auth_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_log_subscription_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("LogGroupName") => String.t()
+  }
+  """
+  @type create_log_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_computer_result() :: %{
+    "Computer" => computer()
+  }
+  """
+  @type create_computer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_trusts_result() :: %{
+    "NextToken" => String.t(),
+    "Trusts" => list(trust()())
+  }
+  """
+  @type describe_trusts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_certificates_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type list_certificates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  share_directory_result() :: %{
+    "SharedDirectoryId" => String.t()
+  }
+  """
+  @type share_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_microsoft_ad_result() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type create_microsoft_ad_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_limits() :: %{
+    "CloudOnlyDirectoriesCurrentCount" => integer(),
+    "CloudOnlyDirectoriesLimit" => integer(),
+    "CloudOnlyDirectoriesLimitReached" => boolean(),
+    "CloudOnlyMicrosoftADCurrentCount" => integer(),
+    "CloudOnlyMicrosoftADLimit" => integer(),
+    "CloudOnlyMicrosoftADLimitReached" => boolean(),
+    "ConnectedDirectoriesCurrentCount" => integer(),
+    "ConnectedDirectoriesLimit" => integer(),
+    "ConnectedDirectoriesLimitReached" => boolean()
+  }
+  """
+  @type directory_limits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  owner_directory_description() :: %{
+    "AccountId" => String.t(),
+    "DirectoryId" => String.t(),
+    "DnsIpAddrs" => list(String.t()()),
+    "RadiusSettings" => radius_settings(),
+    "RadiusStatus" => list(any()),
+    "VpcSettings" => directory_vpc_settings_description()
+  }
+  """
+  @type owner_directory_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_directory_setup_result() :: %{
+
+  }
+  """
+  @type update_directory_setup_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_directories_request() :: %{
+    optional("DirectoryIds") => list(String.t()()),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type describe_directories_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_ip_routes_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type list_ip_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_already_exists_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type certificate_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_snapshot_limits_request() :: %{
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type get_snapshot_limits_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_ldaps_result() :: %{
+
+  }
+  """
+  @type disable_ldaps_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_regions_request() :: %{
+    optional("NextToken") => String.t(),
+    optional("RegionName") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_regions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_ldaps_result() :: %{
+
+  }
+  """
+  @type enable_ldaps_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_event_topic_result() :: %{
+
+  }
+  """
+  @type deregister_event_topic_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_sso_result() :: %{
+
+  }
+  """
+  @type enable_sso_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  shared_directory() :: %{
+    "CreatedDateTime" => non_neg_integer(),
+    "LastUpdatedDateTime" => non_neg_integer(),
+    "OwnerAccountId" => String.t(),
+    "OwnerDirectoryId" => String.t(),
+    "ShareMethod" => list(any()),
+    "ShareNotes" => String.t(),
+    "ShareStatus" => list(any()),
+    "SharedAccountId" => String.t(),
+    "SharedDirectoryId" => String.t()
+  }
+  """
+  @type shared_directory() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  client_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  radius_settings() :: %{
+    "AuthenticationProtocol" => list(any()),
+    "DisplayLabel" => String.t(),
+    "RadiusPort" => integer(),
+    "RadiusRetries" => integer(),
+    "RadiusServers" => list(String.t()()),
+    "RadiusTimeout" => integer(),
+    "SharedSecret" => String.t(),
+    "UseSameUsername" => boolean()
+  }
+  """
+  @type radius_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_ip_routes_result() :: %{
+
+  }
+  """
+  @type add_ip_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_ldaps_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type disable_ldaps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_topics_result() :: %{
+    "EventTopics" => list(event_topic()())
+  }
+  """
+  @type describe_event_topics_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_does_not_exist_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_does_not_exist_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  log_subscription() :: %{
+    "DirectoryId" => String.t(),
+    "LogGroupName" => String.t(),
+    "SubscriptionCreatedDateTime" => non_neg_integer()
+  }
+  """
+  @type log_subscription() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  incompatible_settings_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type incompatible_settings_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_authentication_settings_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Type") => list(any()),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_client_authentication_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_event_topic_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("TopicName") => String.t()
+  }
+  """
+  @type deregister_event_topic_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organizations_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type organizations_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_conditional_forwarder_result() :: %{
+
+  }
+  """
+  @type delete_conditional_forwarder_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_vpc_settings() :: %{
+    "SubnetIds" => list(String.t()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type directory_vpc_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_schema_extension_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("SchemaExtensionId") => String.t()
+  }
+  """
+  @type cancel_schema_extension_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_user_password_result() :: %{
+
+  }
+  """
+  @type reset_user_password_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_next_token_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_next_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_certificate_request() :: %{
+    required("CertificateId") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_client_authentication_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type enable_client_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connect_directory_request() :: %{
+    optional("Description") => String.t(),
+    optional("ShortName") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("ConnectSettings") => directory_connect_settings(),
+    required("Name") => String.t(),
+    required("Password") => String.t(),
+    required("Size") => list(any())
+  }
+  """
+  @type connect_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_vpc_settings_description() :: %{
+    "AvailabilityZones" => list(String.t()()),
+    "SecurityGroupId" => String.t(),
+    "SubnetIds" => list(String.t()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type directory_vpc_settings_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_conditional_forwarders_result() :: %{
+    "ConditionalForwarders" => list(conditional_forwarder()())
+  }
+  """
+  @type describe_conditional_forwarders_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_shared_directories_result() :: %{
+    "NextToken" => String.t(),
+    "SharedDirectories" => list(shared_directory()())
+  }
+  """
+  @type describe_shared_directories_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_client_authentication_settings_result() :: %{
+    "ClientAuthenticationSettingsInfo" => list(client_authentication_setting_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_client_authentication_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type tag_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_trust_result() :: %{
+    "TrustId" => String.t()
+  }
+  """
+  @type create_trust_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_description() :: %{
+    "AccessUrl" => String.t(),
+    "Alias" => String.t(),
+    "ConnectSettings" => directory_connect_settings_description(),
+    "Description" => String.t(),
+    "DesiredNumberOfDomainControllers" => integer(),
+    "DirectoryId" => String.t(),
+    "DnsIpAddrs" => list(String.t()()),
+    "Edition" => list(any()),
+    "LaunchTime" => non_neg_integer(),
+    "Name" => String.t(),
+    "OsVersion" => list(any()),
+    "OwnerDirectoryDescription" => owner_directory_description(),
+    "RadiusSettings" => radius_settings(),
+    "RadiusStatus" => list(any()),
+    "RegionsInfo" => regions_info(),
+    "ShareMethod" => list(any()),
+    "ShareNotes" => String.t(),
+    "ShareStatus" => list(any()),
+    "ShortName" => String.t(),
+    "Size" => list(any()),
+    "SsoEnabled" => boolean(),
+    "Stage" => list(any()),
+    "StageLastUpdatedDateTime" => non_neg_integer(),
+    "StageReason" => String.t(),
+    "Type" => list(any()),
+    "VpcSettings" => directory_vpc_settings_description()
+  }
+  """
+  @type directory_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_certificate_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_certificate_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schema_extension_info() :: %{
+    "Description" => String.t(),
+    "DirectoryId" => String.t(),
+    "EndDateTime" => non_neg_integer(),
+    "SchemaExtensionId" => String.t(),
+    "SchemaExtensionStatus" => list(any()),
+    "SchemaExtensionStatusReason" => String.t(),
+    "StartDateTime" => non_neg_integer()
+  }
+  """
+  @type schema_extension_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_ip_routes_request() :: %{
+    optional("UpdateSecurityGroupForDirectoryControllers") => boolean(),
+    required("DirectoryId") => String.t(),
+    required("IpRoutes") => list(ip_route()())
+  }
+  """
+  @type add_ip_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conditional_forwarder() :: %{
+    "DnsIpAddrs" => list(String.t()()),
+    "RemoteDomainName" => String.t(),
+    "ReplicationScope" => list(any())
+  }
+  """
+  @type conditional_forwarder() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deregister_certificate_result() :: %{
+
+  }
+  """
+  @type deregister_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_settings_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("Settings") => list(setting()())
+  }
+  """
+  @type update_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_certificate_request() :: %{
+    optional("ClientCertAuthSettings") => client_cert_auth_settings(),
+    optional("Type") => list(any()),
+    required("CertificateData") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type register_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_directory_result() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type delete_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshots_result() :: %{
+    "NextToken" => String.t(),
+    "Snapshots" => list(snapshot()())
+  }
+  """
+  @type describe_snapshots_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_directories_result() :: %{
+    "DirectoryDescriptions" => list(directory_description()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_directories_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_trust_request() :: %{
+    optional("SelectiveAuth") => list(any()),
+    required("TrustId") => String.t()
+  }
+  """
+  @type update_trust_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_domain_controllers_result() :: %{
+    "DomainControllers" => list(domain_controller()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type describe_domain_controllers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_tags_from_resource_request() :: %{
+    required("ResourceId") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type remove_tags_from_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  connect_directory_result() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type connect_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_update_directory_request() :: %{
+    optional("NextToken") => String.t(),
+    optional("RegionName") => String.t(),
+    required("DirectoryId") => String.t(),
+    required("UpdateType") => list(any())
+  }
+  """
+  @type describe_update_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_directory_limits_request() :: %{
+
+  }
+  """
+  @type get_directory_limits_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_event_topic_result() :: %{
+
+  }
+  """
+  @type register_event_topic_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  region_description() :: %{
+    "DesiredNumberOfDomainControllers" => integer(),
+    "DirectoryId" => String.t(),
+    "LastUpdatedDateTime" => non_neg_integer(),
+    "LaunchTime" => non_neg_integer(),
+    "RegionName" => String.t(),
+    "RegionType" => list(any()),
+    "Status" => list(any()),
+    "StatusLastUpdatedDateTime" => non_neg_integer(),
+    "VpcSettings" => directory_vpc_settings()
+  }
+  """
+  @type region_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_from_snapshot_result() :: %{
+
+  }
+  """
+  @type restore_from_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_radius_result() :: %{
+
+  }
+  """
+  @type disable_radius_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_conditional_forwarders_request() :: %{
+    optional("RemoteDomainNames") => list(String.t()()),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_conditional_forwarders_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_trusts_request() :: %{
+    optional("DirectoryId") => String.t(),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("TrustIds") => list(String.t()())
+  }
+  """
+  @type describe_trusts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_in_use_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type certificate_in_use_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_user_password_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("NewPassword") => String.t(),
+    required("UserName") => String.t()
+  }
+  """
+  @type reset_user_password_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  trust() :: %{
+    "CreatedDateTime" => non_neg_integer(),
+    "DirectoryId" => String.t(),
+    "LastUpdatedDateTime" => non_neg_integer(),
+    "RemoteDomainName" => String.t(),
+    "SelectiveAuth" => list(any()),
+    "StateLastUpdatedDateTime" => non_neg_integer(),
+    "TrustDirection" => list(any()),
+    "TrustId" => String.t(),
+    "TrustState" => list(any()),
+    "TrustStateReason" => String.t(),
+    "TrustType" => list(any())
+  }
+  """
+  @type trust() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_result() :: %{
+    "NextToken" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate() :: %{
+    "CertificateId" => String.t(),
+    "ClientCertAuthSettings" => client_cert_auth_settings(),
+    "CommonName" => String.t(),
+    "ExpiryDateTime" => non_neg_integer(),
+    "RegisteredDateTime" => non_neg_integer(),
+    "State" => list(any()),
+    "StateReason" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_shared_directory_request() :: %{
+    required("SharedDirectoryId") => String.t()
+  }
+  """
+  @type accept_shared_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ldaps_setting_info() :: %{
+    "LDAPSStatus" => list(any()),
+    "LDAPSStatusReason" => String.t(),
+    "LastUpdatedDateTime" => non_neg_integer()
+  }
+  """
+  @type ldaps_setting_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_snapshot_result() :: %{
+    "SnapshotId" => String.t()
+  }
+  """
+  @type delete_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_ip_routes_result() :: %{
+    "IpRoutesInfo" => list(ip_route_info()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_ip_routes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_radius_request() :: %{
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type disable_radius_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_does_not_exist_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type user_does_not_exist_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot() :: %{
+    "DirectoryId" => String.t(),
+    "Name" => String.t(),
+    "SnapshotId" => String.t(),
+    "StartTime" => non_neg_integer(),
+    "Status" => list(any()),
+    "Type" => list(any())
+  }
+  """
+  @type snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_route_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type ip_route_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_shared_directory_result() :: %{
+    "SharedDirectoryId" => String.t()
+  }
+  """
+  @type reject_shared_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_log_subscription_result() :: %{
+
+  }
+  """
+  @type delete_log_subscription_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_shared_directories_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SharedDirectoryIds") => list(String.t()()),
+    required("OwnerDirectoryId") => String.t()
+  }
+  """
+  @type describe_shared_directories_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  entity_does_not_exist_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type entity_does_not_exist_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_sso_result() :: %{
+
+  }
+  """
+  @type disable_sso_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_directory_request() :: %{
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type delete_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_conditional_forwarder_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("RemoteDomainName") => String.t()
+  }
+  """
+  @type delete_conditional_forwarder_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_client_auth_status_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_client_auth_status_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_already_in_region_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_already_in_region_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_log_subscriptions_result() :: %{
+    "LogSubscriptions" => list(log_subscription()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_log_subscriptions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_unavailable_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_snapshot_result() :: %{
+    "SnapshotId" => String.t()
+  }
+  """
+  @type create_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    required("ResourceId") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_settings_result() :: %{
+    "DirectoryId" => String.t()
+  }
+  """
+  @type update_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_number_of_domain_controllers_request() :: %{
+    required("DesiredNumber") => integer(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type update_number_of_domain_controllers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_settings_result() :: %{
+    "DirectoryId" => String.t(),
+    "NextToken" => String.t(),
+    "SettingEntries" => list(setting_entry()())
+  }
+  """
+  @type describe_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_event_topic_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("TopicName") => String.t()
+  }
+  """
+  @type register_event_topic_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_ip_routes_request() :: %{
+    required("CidrIps") => list(String.t()()),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type remove_ip_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_sso_request() :: %{
+    optional("Password") => String.t(),
+    optional("UserName") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type enable_sso_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_trust_result() :: %{
+    "TrustId" => String.t()
+  }
+  """
+  @type delete_trust_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attribute() :: %{
+    "Name" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_snapshots_request() :: %{
+    optional("DirectoryId") => String.t(),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SnapshotIds") => list(String.t()())
+  }
+  """
+  @type describe_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_alias_result() :: %{
+    "Alias" => String.t(),
+    "DirectoryId" => String.t()
+  }
+  """
+  @type create_alias_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_log_subscription_result() :: %{
+
+  }
+  """
+  @type create_log_subscription_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type directory_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_schema_extension_result() :: %{
+    "SchemaExtensionId" => String.t()
+  }
+  """
+  @type start_schema_extension_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_schema_extension_request() :: %{
+    required("CreateSnapshotBeforeSchemaExtension") => boolean(),
+    required("Description") => String.t(),
+    required("DirectoryId") => String.t(),
+    required("LdifContent") => String.t()
+  }
+  """
+  @type start_schema_extension_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_tags_from_resource_result() :: %{
+
+  }
+  """
+  @type remove_tags_from_resource_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_ldaps_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type enable_ldaps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_settings_request() :: %{
+    optional("NextToken") => String.t(),
+    optional("Status") => list(any()),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_connect_settings_description() :: %{
+    "AvailabilityZones" => list(String.t()()),
+    "ConnectIps" => list(String.t()()),
+    "CustomerUserName" => String.t(),
+    "SecurityGroupId" => String.t(),
+    "SubnetIds" => list(String.t()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type directory_connect_settings_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_does_not_exist_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type certificate_does_not_exist_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_schema_extensions_request() :: %{
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type list_schema_extensions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  authentication_failed_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type authentication_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  share_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type share_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_microsoft_ad_request() :: %{
+    optional("Description") => String.t(),
+    optional("Edition") => list(any()),
+    optional("ShortName") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("Name") => String.t(),
+    required("Password") => String.t(),
+    required("VpcSettings") => directory_vpc_settings()
+  }
+  """
+  @type create_microsoft_ad_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_regions_result() :: %{
+    "NextToken" => String.t(),
+    "RegionsDescription" => list(region_description()())
+  }
+  """
+  @type describe_regions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  enable_client_authentication_result() :: %{
+
+  }
+  """
+  @type enable_client_authentication_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_tags_to_resource_result() :: %{
+
+  }
+  """
+  @type add_tags_to_resource_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ip_route_info() :: %{
+    "AddedDateTime" => non_neg_integer(),
+    "CidrIp" => String.t(),
+    "Description" => String.t(),
+    "DirectoryId" => String.t(),
+    "IpRouteStatusMsg" => list(any()),
+    "IpRouteStatusReason" => String.t()
+  }
+  """
+  @type ip_route_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regions_info() :: %{
+    "AdditionalRegions" => list(String.t()()),
+    "PrimaryRegion" => String.t()
+  }
+  """
+  @type regions_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  snapshot_limits() :: %{
+    "ManualSnapshotsCurrentCount" => integer(),
+    "ManualSnapshotsLimit" => integer(),
+    "ManualSnapshotsLimitReached" => boolean()
+  }
+  """
+  @type snapshot_limits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_trust_request() :: %{
+    optional("DeleteAssociatedConditionalForwarder") => boolean(),
+    required("TrustId") => String.t()
+  }
+  """
+  @type delete_trust_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_shared_directory_result() :: %{
+    "SharedDirectory" => shared_directory()
+  }
+  """
+  @type accept_shared_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_computer_request() :: %{
+    optional("ComputerAttributes") => list(attribute()()),
+    optional("OrganizationalUnitDistinguishedName") => String.t(),
+    required("ComputerName") => String.t(),
+    required("DirectoryId") => String.t(),
+    required("Password") => String.t()
+  }
+  """
+  @type create_computer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_conditional_forwarder_result() :: %{
+
+  }
+  """
+  @type update_conditional_forwarder_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_certificate_result() :: %{
+    "Certificate" => certificate()
+  }
+  """
+  @type describe_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_topic() :: %{
+    "CreatedDateTime" => non_neg_integer(),
+    "DirectoryId" => String.t(),
+    "Status" => list(any()),
+    "TopicArn" => String.t(),
+    "TopicName" => String.t()
+  }
+  """
+  @type event_topic() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  directory_connect_settings() :: %{
+    "CustomerDnsIps" => list(String.t()()),
+    "CustomerUserName" => String.t(),
+    "SubnetIds" => list(String.t()()),
+    "VpcId" => String.t()
+  }
+  """
+  @type directory_connect_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_password_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type invalid_password_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disable_client_authentication_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type disable_client_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_domain_controllers_request() :: %{
+    optional("DomainControllerIds") => list(String.t()()),
+    optional("Limit") => integer(),
+    optional("NextToken") => String.t(),
+    required("DirectoryId") => String.t()
+  }
+  """
+  @type describe_domain_controllers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_directory_setup_request() :: %{
+    optional("CreateSnapshotBeforeUpdate") => boolean(),
+    optional("OSUpdateSettings") => o_s_update_settings(),
+    required("DirectoryId") => String.t(),
+    required("UpdateType") => list(any())
+  }
+  """
+  @type update_directory_setup_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  share_target() :: %{
+    "Id" => String.t(),
+    "Type" => list(any())
+  }
+  """
+  @type share_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_radius_result() :: %{
+
+  }
+  """
+  @type update_radius_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_region_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("RegionName") => String.t(),
+    required("VPCSettings") => directory_vpc_settings()
+  }
+  """
+  @type add_region_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  certificate_limit_exceeded_exception() :: %{
+    "Message" => String.t(),
+    "RequestId" => String.t()
+  }
+  """
+  @type certificate_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_radius_request() :: %{
+    required("DirectoryId") => String.t(),
+    required("RadiusSettings") => radius_settings()
+  }
+  """
+  @type update_radius_request() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2015-04-16",
@@ -51,6 +2244,14 @@ defmodule AWS.Directory do
   Accepts a directory sharing request that was sent from the directory owner
   account.
   """
+  @spec accept_shared_directory(map(), accept_shared_directory_request(), list()) ::
+          {:ok, accept_shared_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_already_shared_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def accept_shared_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -74,6 +2275,16 @@ defmodule AWS.Directory do
   permissions are required to run the *AddIpRoutes* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
+  @spec add_ip_routes(map(), add_ip_routes_request(), list()) ::
+          {:ok, add_ip_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, ip_route_limit_exceeded_exception()}
+          | {:error, service_exception()}
   def add_ip_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -83,6 +2294,19 @@ defmodule AWS.Directory do
   @doc """
   Adds two domain controllers in the specified Region for the specified directory.
   """
+  @spec add_region(map(), add_region_request(), list()) ::
+          {:ok, add_region_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_already_in_region_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, region_limit_exceeded_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def add_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -97,6 +2321,14 @@ defmodule AWS.Directory do
   keys must be
   unique to each resource.
   """
+  @spec add_tags_to_resource(map(), add_tags_to_resource_request(), list()) ::
+          {:ok, add_tags_to_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, tag_limit_exceeded_exception()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -113,6 +2345,12 @@ defmodule AWS.Directory do
   `Initializing`, `CreatingSnapshot`, and
   `UpdatingSchema`.
   """
+  @spec cancel_schema_extension(map(), cancel_schema_extension_request(), list()) ::
+          {:ok, cancel_schema_extension_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, service_exception()}
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -128,6 +2366,13 @@ defmodule AWS.Directory do
   to run the `ConnectDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
+  @spec connect_directory(map(), connect_directory_request(), list()) ::
+          {:ok, connect_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_limit_exceeded_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def connect_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -144,6 +2389,14 @@ defmodule AWS.Directory do
   After an alias has been created, it cannot be deleted or reused, so this
   operation should only be used when absolutely necessary.
   """
+  @spec create_alias(map(), create_alias_request(), list()) ::
+          {:ok, create_alias_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -153,6 +2406,17 @@ defmodule AWS.Directory do
   @doc """
   Creates an Active Directory computer object in the specified directory.
   """
+  @spec create_computer(map(), create_computer_request(), list()) ::
+          {:ok, create_computer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, authentication_failed_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def create_computer(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -168,6 +2432,16 @@ defmodule AWS.Directory do
   domain. The
   conditional forwarder points to the trusted domain.
   """
+  @spec create_conditional_forwarder(map(), create_conditional_forwarder_request(), list()) ::
+          {:ok, create_conditional_forwarder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -187,6 +2461,13 @@ defmodule AWS.Directory do
   to run the `CreateDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
+  @spec create_directory(map(), create_directory_request(), list()) ::
+          {:ok, create_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_limit_exceeded_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def create_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -199,6 +2480,15 @@ defmodule AWS.Directory do
   logs to the specified Amazon CloudWatch log group in your Amazon Web Services
   account.
   """
+  @spec create_log_subscription(map(), create_log_subscription_request(), list()) ::
+          {:ok, create_log_subscription_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, insufficient_permissions_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def create_log_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -217,6 +2507,14 @@ defmodule AWS.Directory do
   are required to run the *CreateMicrosoftAD* operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
+  @spec create_microsoft_ad(map(), create_microsoft_ad_request(), list()) ::
+          {:ok, create_microsoft_ad_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_limit_exceeded_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -229,6 +2527,14 @@ defmodule AWS.Directory do
 
   You cannot take snapshots of AD Connector directories.
   """
+  @spec create_snapshot(map(), create_snapshot_request(), list()) ::
+          {:ok, create_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, snapshot_limit_exceeded_exception()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -252,6 +2558,15 @@ defmodule AWS.Directory do
   forest trust or an
   external trust.
   """
+  @spec create_trust(map(), create_trust_request(), list()) ::
+          {:ok, create_trust_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def create_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -263,6 +2578,15 @@ defmodule AWS.Directory do
   Services
   directory.
   """
+  @spec delete_conditional_forwarder(map(), delete_conditional_forwarder_request(), list()) ::
+          {:ok, delete_conditional_forwarder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -278,6 +2602,12 @@ defmodule AWS.Directory do
   to run the `DeleteDirectory` operation, see [Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
+  @spec delete_directory(map(), delete_directory_request(), list()) ::
+          {:ok, delete_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, service_exception()}
   def delete_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -287,6 +2617,13 @@ defmodule AWS.Directory do
   @doc """
   Deletes the specified log subscription.
   """
+  @spec delete_log_subscription(map(), delete_log_subscription_request(), list()) ::
+          {:ok, delete_log_subscription_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def delete_log_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -296,6 +2633,13 @@ defmodule AWS.Directory do
   @doc """
   Deletes a directory snapshot.
   """
+  @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
+          {:ok, delete_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -307,6 +2651,14 @@ defmodule AWS.Directory do
   directory and an external
   domain.
   """
+  @spec delete_trust(map(), delete_trust_request(), list()) ::
+          {:ok, delete_trust_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def delete_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -317,6 +2669,17 @@ defmodule AWS.Directory do
   Deletes from the system the certificate that was registered for secure LDAP or
   client certificate authentication.
   """
+  @spec deregister_certificate(map(), deregister_certificate_request(), list()) ::
+          {:ok, deregister_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, certificate_does_not_exist_exception()}
+          | {:error, certificate_in_use_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def deregister_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -327,6 +2690,13 @@ defmodule AWS.Directory do
   Removes the specified directory as a publisher to the specified Amazon SNS
   topic.
   """
+  @spec deregister_event_topic(map(), deregister_event_topic_request(), list()) ::
+          {:ok, deregister_event_topic_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def deregister_event_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -337,6 +2707,15 @@ defmodule AWS.Directory do
   Displays information about the certificate registered for secure LDAP or client
   certificate authentication.
   """
+  @spec describe_certificate(map(), describe_certificate_request(), list()) ::
+          {:ok, describe_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, certificate_does_not_exist_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -351,6 +2730,19 @@ defmodule AWS.Directory do
   are supported for the specified directory is retrieved. Currently, only
   `SmartCard` is supported.
   """
+  @spec describe_client_authentication_settings(
+          map(),
+          describe_client_authentication_settings_request(),
+          list()
+        ) ::
+          {:ok, describe_client_authentication_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -364,6 +2756,15 @@ defmodule AWS.Directory do
   describes all
   conditional forwarders for the specified directory ID.
   """
+  @spec describe_conditional_forwarders(map(), describe_conditional_forwarders_request(), list()) ::
+          {:ok, describe_conditional_forwarders_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -387,6 +2788,14 @@ defmodule AWS.Directory do
   You can also specify a maximum number of return results with the `Limit`
   parameter.
   """
+  @spec describe_directories(map(), describe_directories_request(), list()) ::
+          {:ok, describe_directories_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def describe_directories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -396,6 +2805,15 @@ defmodule AWS.Directory do
   @doc """
   Provides information about any domain controllers in your directory.
   """
+  @spec describe_domain_controllers(map(), describe_domain_controllers_request(), list()) ::
+          {:ok, describe_domain_controllers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_domain_controllers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -411,6 +2829,13 @@ defmodule AWS.Directory do
   request
   describes all of the associations in the account.
   """
+  @spec describe_event_topics(map(), describe_event_topics_request(), list()) ::
+          {:ok, describe_event_topics_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def describe_event_topics(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -420,6 +2845,15 @@ defmodule AWS.Directory do
   @doc """
   Describes the status of LDAP security for the specified directory.
   """
+  @spec describe_ldaps_settings(map(), describe_ldaps_settings_request(), list()) ::
+          {:ok, describe_ldaps_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -430,6 +2864,16 @@ defmodule AWS.Directory do
   Provides information about the Regions that are configured for multi-Region
   replication.
   """
+  @spec describe_regions(map(), describe_regions_request(), list()) ::
+          {:ok, describe_regions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -440,6 +2884,15 @@ defmodule AWS.Directory do
   Retrieves information about the configurable settings for the specified
   directory.
   """
+  @spec describe_settings(map(), describe_settings_request(), list()) ::
+          {:ok, describe_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -449,6 +2902,15 @@ defmodule AWS.Directory do
   @doc """
   Returns the shared directories in your account.
   """
+  @spec describe_shared_directories(map(), describe_shared_directories_request(), list()) ::
+          {:ok, describe_shared_directories_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -467,6 +2929,14 @@ defmodule AWS.Directory do
   You can also specify a maximum number of return results with the *Limit*
   parameter.
   """
+  @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
+          {:ok, describe_snapshots_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -480,6 +2950,15 @@ defmodule AWS.Directory do
   request
   describes all the trust relationships belonging to the account.
   """
+  @spec describe_trusts(map(), describe_trusts_request(), list()) ::
+          {:ok, describe_trusts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def describe_trusts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -490,6 +2969,15 @@ defmodule AWS.Directory do
 
   Describes the updates of a directory for a particular update type.
   """
+  @spec describe_update_directory(map(), describe_update_directory_request(), list()) ::
+          {:ok, describe_update_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def describe_update_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -499,6 +2987,15 @@ defmodule AWS.Directory do
   @doc """
   Disables alternative client authentication methods for the specified directory.
   """
+  @spec disable_client_authentication(map(), disable_client_authentication_request(), list()) ::
+          {:ok, disable_client_authentication_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_client_auth_status_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -508,6 +3005,16 @@ defmodule AWS.Directory do
   @doc """
   Deactivates LDAP secure calls for the specified directory.
   """
+  @spec disable_ldaps(map(), disable_ldaps_request(), list()) ::
+          {:ok, disable_ldaps_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, invalid_ldaps_status_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def disable_ldaps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -519,6 +3026,12 @@ defmodule AWS.Directory do
   In
   User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
+  @spec disable_radius(map(), disable_radius_request(), list()) ::
+          {:ok, disable_radius_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, service_exception()}
   def disable_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -528,6 +3041,14 @@ defmodule AWS.Directory do
   @doc """
   Disables single-sign on for a directory.
   """
+  @spec disable_sso(map(), disable_sso_request(), list()) ::
+          {:ok, disable_sso_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, authentication_failed_exception()}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, insufficient_permissions_exception()}
+          | {:error, service_exception()}
   def disable_sso(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -537,6 +3058,16 @@ defmodule AWS.Directory do
   @doc """
   Enables alternative client authentication methods for the specified directory.
   """
+  @spec enable_client_authentication(map(), enable_client_authentication_request(), list()) ::
+          {:ok, enable_client_authentication_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_client_auth_status_exception()}
+          | {:error, no_available_certificate_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def enable_client_authentication(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -546,6 +3077,17 @@ defmodule AWS.Directory do
   @doc """
   Activates the switch for the specific directory to always use LDAP secure calls.
   """
+  @spec enable_ldaps(map(), enable_ldaps_request(), list()) ::
+          {:ok, enable_ldaps_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, invalid_ldaps_status_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, no_available_certificate_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def enable_ldaps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -557,6 +3099,14 @@ defmodule AWS.Directory do
   User
   Service (RADIUS) server for an AD Connector or Microsoft AD directory.
   """
+  @spec enable_radius(map(), enable_radius_request(), list()) ::
+          {:ok, enable_radius_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_already_exists_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def enable_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -571,6 +3121,14 @@ defmodule AWS.Directory do
   directory without having to enter
   their credentials separately.
   """
+  @spec enable_sso(map(), enable_sso_request(), list()) ::
+          {:ok, enable_sso_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, authentication_failed_exception()}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, insufficient_permissions_exception()}
+          | {:error, service_exception()}
   def enable_sso(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -580,6 +3138,12 @@ defmodule AWS.Directory do
   @doc """
   Obtains directory limit information for the current Region.
   """
+  @spec get_directory_limits(map(), get_directory_limits_request(), list()) ::
+          {:ok, get_directory_limits_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, service_exception()}
   def get_directory_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -589,6 +3153,12 @@ defmodule AWS.Directory do
   @doc """
   Obtains the manual snapshot limits for a directory.
   """
+  @spec get_snapshot_limits(map(), get_snapshot_limits_request(), list()) ::
+          {:ok, get_snapshot_limits_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, service_exception()}
   def get_snapshot_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -599,6 +3169,15 @@ defmodule AWS.Directory do
   For the specified directory, lists all the certificates registered for a secure
   LDAP or client certificate authentication.
   """
+  @spec list_certificates(map(), list_certificates_request(), list()) ::
+          {:ok, list_certificates_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def list_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -608,6 +3187,14 @@ defmodule AWS.Directory do
   @doc """
   Lists the address blocks that you have added to a directory.
   """
+  @spec list_ip_routes(map(), list_ip_routes_request(), list()) ::
+          {:ok, list_ip_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def list_ip_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -617,6 +3204,13 @@ defmodule AWS.Directory do
   @doc """
   Lists the active log subscriptions for the Amazon Web Services account.
   """
+  @spec list_log_subscriptions(map(), list_log_subscriptions_request(), list()) ::
+          {:ok, list_log_subscriptions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, service_exception()}
   def list_log_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -626,6 +3220,13 @@ defmodule AWS.Directory do
   @doc """
   Lists all schema extensions applied to a Microsoft AD Directory.
   """
+  @spec list_schema_extensions(map(), list_schema_extensions_request(), list()) ::
+          {:ok, list_schema_extensions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, service_exception()}
   def list_schema_extensions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -635,6 +3236,14 @@ defmodule AWS.Directory do
   @doc """
   Lists all tags on a directory.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_next_token_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -644,6 +3253,18 @@ defmodule AWS.Directory do
   @doc """
   Registers a certificate for a secure LDAP or client certificate authentication.
   """
+  @spec register_certificate(map(), register_certificate_request(), list()) ::
+          {:ok, register_certificate_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, certificate_already_exists_exception()}
+          | {:error, certificate_limit_exceeded_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, invalid_certificate_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def register_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -662,6 +3283,13 @@ defmodule AWS.Directory do
   the directory
   returns to an Active status.
   """
+  @spec register_event_topic(map(), register_event_topic_request(), list()) ::
+          {:ok, register_event_topic_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def register_event_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -672,6 +3300,14 @@ defmodule AWS.Directory do
   Rejects a directory sharing request that was sent from the directory owner
   account.
   """
+  @spec reject_shared_directory(map(), reject_shared_directory_request(), list()) ::
+          {:ok, reject_shared_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_already_shared_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def reject_shared_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -681,6 +3317,14 @@ defmodule AWS.Directory do
   @doc """
   Removes IP address blocks from a directory.
   """
+  @spec remove_ip_routes(map(), remove_ip_routes_request(), list()) ::
+          {:ok, remove_ip_routes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def remove_ip_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -695,6 +3339,15 @@ defmodule AWS.Directory do
   cannot remove the primary Region with this operation. Instead, use the
   `DeleteDirectory` API.
   """
+  @spec remove_region(map(), remove_region_request(), list()) ::
+          {:ok, remove_region_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def remove_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -704,6 +3357,13 @@ defmodule AWS.Directory do
   @doc """
   Removes tags from a directory.
   """
+  @spec remove_tags_from_resource(map(), remove_tags_from_resource_request(), list()) ::
+          {:ok, remove_tags_from_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -734,6 +3394,16 @@ defmodule AWS.Directory do
   in the *Directory Service Administration
   Guide*.
   """
+  @spec reset_user_password(map(), reset_user_password_request(), list()) ::
+          {:ok, reset_user_password_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_password_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
+          | {:error, user_does_not_exist_exception()}
   def reset_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -754,6 +3424,13 @@ defmodule AWS.Directory do
   to
   `Active`, the restore operation is complete.
   """
+  @spec restore_from_snapshot(map(), restore_from_snapshot_request(), list()) ::
+          {:ok, restore_from_snapshot_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -786,6 +3463,19 @@ defmodule AWS.Directory do
   The `ShareNotes` parameter is only used when `HANDSHAKE` is called,
   which sends a directory sharing request to the directory consumer.
   """
+  @spec share_directory(map(), share_directory_request(), list()) ::
+          {:ok, share_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_already_shared_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, invalid_target_exception()}
+          | {:error, organizations_exception()}
+          | {:error, service_exception()}
+          | {:error, share_limit_exceeded_exception()}
+          | {:error, unsupported_operation_exception()}
   def share_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -795,6 +3485,15 @@ defmodule AWS.Directory do
   @doc """
   Applies a schema extension to a Microsoft AD directory.
   """
+  @spec start_schema_extension(map(), start_schema_extension_request(), list()) ::
+          {:ok, start_schema_extension_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, snapshot_limit_exceeded_exception()}
   def start_schema_extension(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -804,6 +3503,14 @@ defmodule AWS.Directory do
   @doc """
   Stops the directory sharing between the directory owner and consumer accounts.
   """
+  @spec unshare_directory(map(), unshare_directory_request(), list()) ::
+          {:ok, unshare_directory_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_not_shared_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_target_exception()}
+          | {:error, service_exception()}
   def unshare_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -815,6 +3522,15 @@ defmodule AWS.Directory do
   Services
   directory.
   """
+  @spec update_conditional_forwarder(map(), update_conditional_forwarder_request(), list()) ::
+          {:ok, update_conditional_forwarder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -825,6 +3541,18 @@ defmodule AWS.Directory do
 
   Updates the directory for a particular update type.
   """
+  @spec update_directory_setup(map(), update_directory_setup_request(), list()) ::
+          {:ok, update_directory_setup_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_in_desired_state_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, snapshot_limit_exceeded_exception()}
+          | {:error, unsupported_operation_exception()}
   def update_directory_setup(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -843,6 +3571,20 @@ defmodule AWS.Directory do
   this time, you
   cannot make another update request.
   """
+  @spec update_number_of_domain_controllers(
+          map(),
+          update_number_of_domain_controllers_request(),
+          list()
+        ) ::
+          {:ok, update_number_of_domain_controllers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, domain_controller_limit_exceeded_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -854,6 +3596,13 @@ defmodule AWS.Directory do
   information
   for an AD Connector or Microsoft AD directory.
   """
+  @spec update_radius(map(), update_radius_request(), list()) ::
+          {:ok, update_radius_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def update_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -863,6 +3612,17 @@ defmodule AWS.Directory do
   @doc """
   Updates the configurable settings for the specified directory.
   """
+  @spec update_settings(map(), update_settings_request(), list()) ::
+          {:ok, update_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, directory_does_not_exist_exception()}
+          | {:error, directory_unavailable_exception()}
+          | {:error, incompatible_settings_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
+          | {:error, unsupported_settings_exception()}
   def update_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -874,6 +3634,13 @@ defmodule AWS.Directory do
   directory and an
   self-managed Active Directory.
   """
+  @spec update_trust(map(), update_trust_request(), list()) ::
+          {:ok, update_trust_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
   def update_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -889,6 +3656,14 @@ defmodule AWS.Directory do
   directory and an
   external domain.
   """
+  @spec verify_trust(map(), verify_trust_request(), list()) ::
+          {:ok, verify_trust_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, client_exception()}
+          | {:error, entity_does_not_exist_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, service_exception()}
+          | {:error, unsupported_operation_exception()}
   def verify_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

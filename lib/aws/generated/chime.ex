@@ -70,6 +70,4589 @@ defmodule AWS.Chime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  create_media_capture_pipeline_response() :: %{
+    "MediaCapturePipeline" => media_capture_pipeline()
+  }
+  """
+  @type create_media_capture_pipeline_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_meeting_dial_out_response() :: %{
+    "TransactionId" => String.t()
+  }
+  """
+  @type create_meeting_dial_out_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  events_configuration() :: %{
+    "BotId" => String.t(),
+    "LambdaFunctionArn" => String.t(),
+    "OutboundEventsHTTPSEndpoint" => String.t()
+  }
+  """
+  @type events_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  streaming_configuration() :: %{
+    "DataRetentionInHours" => integer(),
+    "Disabled" => boolean(),
+    "StreamingNotificationTargets" => list(streaming_notification_target()())
+  }
+  """
+  @type streaming_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_memberships_for_app_instance_user_request() :: %{
+    optional("AppInstanceUserArn") => String.t(),
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_channel_memberships_for_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  business_calling_settings() :: %{
+    "CdrBucket" => String.t()
+  }
+  """
+  @type business_calling_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_channel_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type delete_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_delete_phone_number_request() :: %{
+    required("PhoneNumberIds") => list(String.t()())
+  }
+  """
+  @type batch_delete_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_instances_response() :: %{
+    "AppInstances" => list(app_instance_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_app_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_bans_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_channel_bans_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_termination_credentials_request() :: %{
+    optional("Credentials") => list(credential()())
+  }
+  """
+  @type put_voice_connector_termination_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sip_rule_request() :: %{
+    optional("Disabled") => boolean(),
+    optional("TargetApplications") => list(sip_rule_target_application()()),
+    required("Name") => String.t()
+  }
+  """
+  @type update_sip_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sip_rule() :: %{
+    "CreatedTimestamp" => non_neg_integer(),
+    "Disabled" => boolean(),
+    "Name" => String.t(),
+    "SipRuleId" => String.t(),
+    "TargetApplications" => list(sip_rule_target_application()()),
+    "TriggerType" => list(any()),
+    "TriggerValue" => String.t(),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type sip_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_moderated_by_app_instance_user_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    required("AppInstanceUserArn") => String.t()
+  }
+  """
+  @type describe_channel_moderated_by_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_phone_number_order_response() :: %{
+    "PhoneNumberOrder" => phone_number_order()
+  }
+  """
+  @type create_phone_number_order_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_instance_admin_request() :: %{
+
+  }
+  """
+  @type delete_app_instance_admin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_moderator_response() :: %{
+    "ChannelModerator" => channel_moderator()
+  }
+  """
+  @type describe_channel_moderator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_user_response() :: %{
+    "UserErrors" => list(user_error()())
+  }
+  """
+  @type batch_update_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sip_media_application_request() :: %{
+    required("AwsRegion") => String.t(),
+    required("Endpoints") => list(sip_media_application_endpoint()()),
+    required("Name") => String.t()
+  }
+  """
+  @type create_sip_media_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_instance_user_request() :: %{
+
+  }
+  """
+  @type delete_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sip_media_application_call_response() :: %{
+    "SipMediaApplicationCall" => sip_media_application_call()
+  }
+  """
+  @type update_sip_media_application_call_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("ResourceARN") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_room_membership_response() :: %{
+    "Errors" => list(member_error()())
+  }
+  """
+  @type batch_create_room_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_instance_admins_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_app_instance_admins_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member_error() :: %{
+    "ErrorCode" => list(any()),
+    "ErrorMessage" => String.t(),
+    "MemberId" => String.t()
+  }
+  """
+  @type member_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sip_media_application_logging_configuration_request() :: %{
+    optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
+  }
+  """
+  @type put_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  proxy() :: %{
+    "DefaultSessionExpiryMinutes" => integer(),
+    "Disabled" => boolean(),
+    "FallBackPhoneNumber" => String.t(),
+    "PhoneNumberCountries" => list(String.t()())
+  }
+  """
+  @type proxy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_proxy_session_request() :: %{
+    optional("ExpiryMinutes") => integer(),
+    required("Capabilities") => list(list(any())())
+  }
+  """
+  @type update_proxy_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redact_room_message_request() :: %{
+
+  }
+  """
+  @type redact_room_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_phone_number_response() :: %{
+    "PhoneNumberErrors" => list(phone_number_error()())
+  }
+  """
+  @type batch_update_phone_number_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_response() :: %{
+    "Account" => account()
+  }
+  """
+  @type get_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redact_channel_message_response() :: %{
+    "ChannelArn" => String.t(),
+    "MessageId" => String.t()
+  }
+  """
+  @type redact_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_termination_health_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_termination_health_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_e911_address_response() :: %{
+    "Address" => address(),
+    "AddressExternalId" => String.t(),
+    "CandidateAddressList" => list(candidate_address()()),
+    "ValidationResult" => integer()
+  }
+  """
+  @type validate_e911_address_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_attendee_response() :: %{
+    "Attendee" => attendee()
+  }
+  """
+  @type get_attendee_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_room_request() :: %{
+
+  }
+  """
+  @type delete_room_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_personal_pin_request() :: %{
+
+  }
+  """
+  @type reset_personal_pin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_moderator_response() :: %{
+    "ChannelArn" => String.t(),
+    "ChannelModerator" => identity()
+  }
+  """
+  @type create_channel_moderator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_voice_connector_response() :: %{
+    "VoiceConnector" => voice_connector()
+  }
+  """
+  @type update_voice_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_phone_number_orders_response() :: %{
+    "NextToken" => String.t(),
+    "PhoneNumberOrders" => list(phone_number_order()())
+  }
+  """
+  @type list_phone_number_orders_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  termination_health() :: %{
+    "Source" => String.t(),
+    "Timestamp" => non_neg_integer()
+  }
+  """
+  @type termination_health() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_channel_moderator_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type delete_channel_moderator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redact_conversation_message_response() :: %{
+
+  }
+  """
+  @type redact_conversation_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  room() :: %{
+    "AccountId" => String.t(),
+    "CreatedBy" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "Name" => String.t(),
+    "RoomId" => String.t(),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type room() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_response() :: %{
+    "ChannelArn" => String.t()
+  }
+  """
+  @type create_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_instance_response() :: %{
+    "AppInstanceArn" => String.t()
+  }
+  """
+  @type create_app_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_instance_response() :: %{
+    "AppInstanceArn" => String.t()
+  }
+  """
+  @type update_app_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_membership_for_app_instance_user_summary() :: %{
+    "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
+    "ChannelSummary" => channel_summary()
+  }
+  """
+  @type channel_membership_for_app_instance_user_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  participant() :: %{
+    "PhoneNumber" => String.t(),
+    "ProxyPhoneNumber" => String.t()
+  }
+  """
+  @type participant() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sip_media_application_request() :: %{
+    optional("Endpoints") => list(sip_media_application_endpoint()()),
+    optional("Name") => String.t()
+  }
+  """
+  @type update_sip_media_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_unsuspend_user_response() :: %{
+    "UserErrors" => list(user_error()())
+  }
+  """
+  @type batch_unsuspend_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_group_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  origination() :: %{
+    "Disabled" => boolean(),
+    "Routes" => list(origination_route()())
+  }
+  """
+  @type origination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_room_memberships_response() :: %{
+    "NextToken" => String.t(),
+    "RoomMemberships" => list(room_membership()())
+  }
+  """
+  @type list_room_memberships_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_voice_connectors_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_voice_connectors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_user_response() :: %{
+    "User" => user()
+  }
+  """
+  @type update_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phone_number_country() :: %{
+    "CountryCode" => String.t(),
+    "SupportedPhoneNumberTypes" => list(list(any())())
+  }
+  """
+  @type phone_number_country() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_meetings_response() :: %{
+    "Meetings" => list(meeting()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_meetings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  geo_match_params() :: %{
+    "AreaCode" => String.t(),
+    "Country" => String.t()
+  }
+  """
+  @type geo_match_params() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_available_phone_numbers_response() :: %{
+    "E164PhoneNumbers" => list(String.t()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type search_available_phone_numbers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_origination_response() :: %{
+    "Origination" => origination()
+  }
+  """
+  @type put_voice_connector_origination_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_messages_response() :: %{
+    "ChannelArn" => String.t(),
+    "ChannelMessages" => list(channel_message_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channel_messages_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_meeting_request() :: %{
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_meeting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_attendee_request() :: %{
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rooms_response() :: %{
+    "NextToken" => String.t(),
+    "Rooms" => list(room()())
+  }
+  """
+  @type list_rooms_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sip_rule_response() :: %{
+    "SipRule" => sip_rule()
+  }
+  """
+  @type create_sip_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_phone_numbers_with_voice_connector_group_request() :: %{
+    optional("ForceAssociate") => boolean(),
+    required("E164PhoneNumbers") => list(String.t()())
+  }
+  """
+  @type associate_phone_numbers_with_voice_connector_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_channel_membership_response() :: %{
+    "BatchChannelMemberships" => batch_channel_memberships(),
+    "Errors" => list(batch_create_channel_membership_error()())
+  }
+  """
+  @type batch_create_channel_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_media_capture_pipeline_response() :: %{
+    "MediaCapturePipeline" => media_capture_pipeline()
+  }
+  """
+  @type get_media_capture_pipeline_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_voice_connector_group_response() :: %{
+    "VoiceConnectorGroup" => voice_connector_group()
+  }
+  """
+  @type create_voice_connector_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_voice_connector_termination_credentials_request() :: %{
+
+  }
+  """
+  @type list_voice_connector_termination_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_request() :: %{
+
+  }
+  """
+  @type get_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_meeting_with_attendees_request() :: %{
+    optional("Attendees") => list(create_attendee_request_item()()),
+    optional("ExternalMeetingId") => String.t(),
+    optional("MediaRegion") => String.t(),
+    optional("MeetingHostId") => String.t(),
+    optional("NotificationsConfiguration") => meeting_notification_configuration(),
+    optional("Tags") => list(tag()()),
+    required("ClientRequestToken") => String.t()
+  }
+  """
+  @type create_meeting_with_attendees_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_phone_number_settings_request() :: %{
+    required("CallingName") => String.t()
+  }
+  """
+  @type update_phone_number_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  video_artifacts_configuration() :: %{
+    "MuxType" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type video_artifacts_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_proxy_response() :: %{
+    "Proxy" => proxy()
+  }
+  """
+  @type get_voice_connector_proxy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_instance_admins_response() :: %{
+    "AppInstanceAdmins" => list(app_instance_admin_summary()()),
+    "AppInstanceArn" => String.t(),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_app_instance_admins_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_request() :: %{
+
+  }
+  """
+  @type get_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_logging_configuration_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_failure_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type service_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_response() :: %{
+    "AccountSettings" => account_settings()
+  }
+  """
+  @type get_account_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sip_rule_request() :: %{
+
+  }
+  """
+  @type delete_sip_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_emergency_calling_configuration_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_phone_number_request() :: %{
+
+  }
+  """
+  @type restore_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_meeting_transcription_response() :: %{
+
+  }
+  """
+  @type start_meeting_transcription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  identity() :: %{
+    "Arn" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_emergency_calling_configuration_request() :: %{
+    required("EmergencyCallingConfiguration") => emergency_calling_configuration()
+  }
+  """
+  @type put_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  forbidden_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type forbidden_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  meeting() :: %{
+    "ExternalMeetingId" => String.t(),
+    "MediaPlacement" => media_placement(),
+    "MediaRegion" => String.t(),
+    "MeetingId" => String.t()
+  }
+  """
+  @type meeting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_media_capture_pipeline_request() :: %{
+
+  }
+  """
+  @type get_media_capture_pipeline_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_response() :: %{
+    "VoiceConnector" => voice_connector()
+  }
+  """
+  @type get_voice_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_bot_response() :: %{
+    "Bot" => bot()
+  }
+  """
+  @type get_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_proxy_session_response() :: %{
+    "ProxySession" => proxy_session()
+  }
+  """
+  @type create_proxy_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_termination_request() :: %{
+    required("Termination") => termination()
+  }
+  """
+  @type put_voice_connector_termination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_moderated_by_app_instance_user_response() :: %{
+    "Channel" => channel_moderated_by_app_instance_user_summary()
+  }
+  """
+  @type describe_channel_moderated_by_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logout_user_request() :: %{
+
+  }
+  """
+  @type logout_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_settings_response() :: %{
+
+  }
+  """
+  @type update_account_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_membership() :: %{
+    "ChannelArn" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "InvitedBy" => identity(),
+    "LastUpdatedTimestamp" => non_neg_integer(),
+    "Member" => identity(),
+    "Type" => list(any())
+  }
+  """
+  @type channel_membership() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  selected_video_streams() :: %{
+    "AttendeeIds" => list(String.t()()),
+    "ExternalUserIds" => list(String.t()())
+  }
+  """
+  @type selected_video_streams() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  telephony_settings() :: %{
+    "InboundCalling" => boolean(),
+    "OutboundCalling" => boolean(),
+    "SMS" => boolean()
+  }
+  """
+  @type telephony_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phone_number_association() :: %{
+    "AssociatedTimestamp" => non_neg_integer(),
+    "Name" => list(any()),
+    "Value" => String.t()
+  }
+  """
+  @type phone_number_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_user_response() :: %{
+    "User" => user()
+  }
+  """
+  @type get_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unauthorized_client_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type unauthorized_client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_streaming_configuration_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phone_number() :: %{
+    "Associations" => list(phone_number_association()()),
+    "CallingName" => String.t(),
+    "CallingNameStatus" => list(any()),
+    "Capabilities" => phone_number_capabilities(),
+    "Country" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "DeletionTimestamp" => non_neg_integer(),
+    "E164PhoneNumber" => String.t(),
+    "PhoneNumberId" => String.t(),
+    "ProductType" => list(any()),
+    "Status" => list(any()),
+    "Type" => list(any()),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type phone_number() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redact_channel_message_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type redact_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_instance_request() :: %{
+
+  }
+  """
+  @type describe_app_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_instance_streaming_configurations_request() :: %{
+
+  }
+  """
+  @type delete_app_instance_streaming_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  termination() :: %{
+    "CallingRegions" => list(String.t()()),
+    "CidrAllowedList" => list(String.t()()),
+    "CpsLimit" => integer(),
+    "DefaultPhoneNumber" => String.t(),
+    "Disabled" => boolean()
+  }
+  """
+  @type termination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_phone_number_order_request() :: %{
+
+  }
+  """
+  @type get_phone_number_order_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_instances_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_app_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_message_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("Content") => String.t(),
+    optional("Metadata") => String.t()
+  }
+  """
+  @type update_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_room_membership_request() :: %{
+
+  }
+  """
+  @type delete_room_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_phone_number_response() :: %{
+    "PhoneNumber" => phone_number()
+  }
+  """
+  @type update_phone_number_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_moderator_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    required("ChannelModeratorArn") => String.t()
+  }
+  """
+  @type create_channel_moderator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_instance_request() :: %{
+    optional("Metadata") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type update_app_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  content_artifacts_configuration() :: %{
+    "MuxType" => list(any()),
+    "State" => list(any())
+  }
+  """
+  @type content_artifacts_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttled_client_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type throttled_client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_events_configuration_request() :: %{
+
+  }
+  """
+  @type delete_events_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  signin_delegate_group() :: %{
+    "GroupName" => String.t()
+  }
+  """
+  @type signin_delegate_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_membership_response() :: %{
+    "ChannelMembership" => channel_membership()
+  }
+  """
+  @type describe_channel_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_room_response() :: %{
+    "Room" => room()
+  }
+  """
+  @type update_room_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_termination_health_response() :: %{
+    "TerminationHealth" => termination_health()
+  }
+  """
+  @type get_voice_connector_termination_health_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_phone_numbers_with_voice_connector_request() :: %{
+    optional("ForceAssociate") => boolean(),
+    required("E164PhoneNumbers") => list(String.t()())
+  }
+  """
+  @type associate_phone_numbers_with_voice_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_user_settings_response() :: %{
+    "UserSettings" => user_settings()
+  }
+  """
+  @type get_user_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_ban_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    required("MemberArn") => String.t()
+  }
+  """
+  @type create_channel_ban_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_origination_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_origination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_meeting_response() :: %{
+    "Meeting" => meeting()
+  }
+  """
+  @type create_meeting_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_user_membership_summary() :: %{
+    "ReadMarkerTimestamp" => non_neg_integer(),
+    "Type" => list(any())
+  }
+  """
+  @type app_instance_user_membership_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_meeting_tags_response() :: %{
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_meeting_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_meeting_request() :: %{
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_meeting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_instance_users_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("AppInstanceArn") => String.t()
+  }
+  """
+  @type list_app_instance_users_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_media_capture_pipelines_response() :: %{
+    "MediaCapturePipelines" => list(media_capture_pipeline()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_media_capture_pipelines_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_channel_message_response() :: %{
+    "ChannelArn" => String.t(),
+    "MessageId" => String.t()
+  }
+  """
+  @type send_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_meeting_response() :: %{
+    "Meeting" => meeting()
+  }
+  """
+  @type get_meeting_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sip_media_applications_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_sip_media_applications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("ResourceARN") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  ordered_phone_number() :: %{
+    "E164PhoneNumber" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type ordered_phone_number() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_app_instance_retention_settings_request() :: %{
+    required("AppInstanceRetentionSettings") => app_instance_retention_settings()
+  }
+  """
+  @type put_app_instance_retention_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sip_media_application_logging_configuration_response() :: %{
+    "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+  }
+  """
+  @type get_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_proxy_session_response() :: %{
+    "ProxySession" => proxy_session()
+  }
+  """
+  @type update_proxy_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_phone_number_order_request() :: %{
+    required("E164PhoneNumbers") => list(String.t()()),
+    required("ProductType") => list(any())
+  }
+  """
+  @type create_phone_number_order_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sip_media_application_request() :: %{
+
+  }
+  """
+  @type delete_sip_media_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sip_media_application_response() :: %{
+    "SipMediaApplication" => sip_media_application()
+  }
+  """
+  @type get_sip_media_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_meeting_transcription_request() :: %{
+
+  }
+  """
+  @type stop_meeting_transcription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sip_rule_response() :: %{
+    "SipRule" => sip_rule()
+  }
+  """
+  @type get_sip_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  voice_connector_settings() :: %{
+    "CdrBucket" => String.t()
+  }
+  """
+  @type voice_connector_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_proxy_session_request() :: %{
+
+  }
+  """
+  @type delete_proxy_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logging_configuration() :: %{
+    "EnableMediaMetricLogs" => boolean(),
+    "EnableSIPLogs" => boolean()
+  }
+  """
+  @type logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_app_instance_streaming_configurations_request() :: %{
+
+  }
+  """
+  @type get_app_instance_streaming_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  engine_transcribe_settings() :: %{
+    "ContentIdentificationType" => list(any()),
+    "ContentRedactionType" => list(any()),
+    "EnablePartialResultsStabilization" => boolean(),
+    "IdentifyLanguage" => boolean(),
+    "LanguageCode" => list(any()),
+    "LanguageModelName" => String.t(),
+    "LanguageOptions" => String.t(),
+    "PartialResultsStability" => list(any()),
+    "PiiEntityTypes" => String.t(),
+    "PreferredLanguage" => list(any()),
+    "Region" => list(any()),
+    "VocabularyFilterMethod" => list(any()),
+    "VocabularyFilterName" => String.t(),
+    "VocabularyFilterNames" => String.t(),
+    "VocabularyName" => String.t(),
+    "VocabularyNames" => String.t()
+  }
+  """
+  @type engine_transcribe_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_media_capture_pipeline_request() :: %{
+
+  }
+  """
+  @type delete_media_capture_pipeline_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  restore_phone_number_response() :: %{
+    "PhoneNumber" => phone_number()
+  }
+  """
+  @type restore_phone_number_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_phone_number_orders_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_phone_number_orders_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  meeting_notification_configuration() :: %{
+    "SnsTopicArn" => String.t(),
+    "SqsQueueArn" => String.t()
+  }
+  """
+  @type meeting_notification_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channels_moderated_by_app_instance_user_response() :: %{
+    "Channels" => list(channel_moderated_by_app_instance_user_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channels_moderated_by_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_termination_response() :: %{
+    "Termination" => termination()
+  }
+  """
+  @type put_voice_connector_termination_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_retention_settings_response() :: %{
+    "InitiateDeletionTimestamp" => non_neg_integer(),
+    "RetentionSettings" => retention_settings()
+  }
+  """
+  @type put_retention_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_voice_connector_group_request() :: %{
+    required("Name") => String.t(),
+    required("VoiceConnectorItems") => list(voice_connector_item()())
+  }
+  """
+  @type update_voice_connector_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_attendees_response() :: %{
+    "Attendees" => list(attendee()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_attendees_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_meeting_with_attendees_response() :: %{
+    "Attendees" => list(attendee()()),
+    "Errors" => list(create_attendee_error()()),
+    "Meeting" => meeting()
+  }
+  """
+  @type create_meeting_with_attendees_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_supported_phone_number_countries_response() :: %{
+    "PhoneNumberCountries" => list(phone_number_country()())
+  }
+  """
+  @type list_supported_phone_number_countries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sip_media_application_response() :: %{
+    "SipMediaApplication" => sip_media_application()
+  }
+  """
+  @type update_sip_media_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channels_moderated_by_app_instance_user_request() :: %{
+    optional("AppInstanceUserArn") => String.t(),
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_channels_moderated_by_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  d_n_i_s_emergency_calling_configuration() :: %{
+    "CallingCountry" => String.t(),
+    "EmergencyPhoneNumber" => String.t(),
+    "TestPhoneNumber" => String.t()
+  }
+  """
+  @type d_n_i_s_emergency_calling_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_logging_configuration_response() :: %{
+    "LoggingConfiguration" => logging_configuration()
+  }
+  """
+  @type get_voice_connector_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_room_membership_request() :: %{
+    required("MembershipItemList") => list(membership_item()())
+  }
+  """
+  @type batch_create_room_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_app_instance_streaming_configurations_response() :: %{
+    "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
+  }
+  """
+  @type get_app_instance_streaming_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  retention_settings() :: %{
+    "ConversationRetentionSettings" => conversation_retention_settings(),
+    "RoomRetentionSettings" => room_retention_settings()
+  }
+  """
+  @type retention_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_phone_numbers_from_voice_connector_request() :: %{
+    required("E164PhoneNumbers") => list(String.t()())
+  }
+  """
+  @type disassociate_phone_numbers_from_voice_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_proxy_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_proxy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_voice_connector_groups_response() :: %{
+    "NextToken" => String.t(),
+    "VoiceConnectorGroups" => list(voice_connector_group()())
+  }
+  """
+  @type list_voice_connector_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_phone_number_with_user_response() :: %{
+
+  }
+  """
+  @type associate_phone_number_with_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sip_rules_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("SipMediaApplicationId") => String.t()
+  }
+  """
+  @type list_sip_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_moderator_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type describe_channel_moderator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  transcription_configuration() :: %{
+    "EngineTranscribeMedicalSettings" => engine_transcribe_medical_settings(),
+    "EngineTranscribeSettings" => engine_transcribe_settings()
+  }
+  """
+  @type transcription_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  room_membership() :: %{
+    "InvitedBy" => String.t(),
+    "Member" => member(),
+    "Role" => list(any()),
+    "RoomId" => String.t(),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type room_membership() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_summary() :: %{
+    "ChannelArn" => String.t(),
+    "LastMessageTimestamp" => non_neg_integer(),
+    "Metadata" => String.t(),
+    "Mode" => list(any()),
+    "Name" => String.t(),
+    "Privacy" => list(any())
+  }
+  """
+  @type channel_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_app_instance_retention_settings_request() :: %{
+
+  }
+  """
+  @type get_app_instance_retention_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  media_capture_pipeline() :: %{
+    "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "MediaPipelineId" => String.t(),
+    "SinkArn" => String.t(),
+    "SinkType" => list(any()),
+    "SourceArn" => String.t(),
+    "SourceType" => list(any()),
+    "Status" => list(any()),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type media_capture_pipeline() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_channel_message_response() :: %{
+    "ChannelMessage" => channel_message()
+  }
+  """
+  @type get_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_proxy_sessions_response() :: %{
+    "NextToken" => String.t(),
+    "ProxySessions" => list(proxy_session()())
+  }
+  """
+  @type list_proxy_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_bots_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_bots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_membership_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type describe_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_meeting_request() :: %{
+
+  }
+  """
+  @type delete_meeting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_room_memberships_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_room_memberships_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_accounts_response() :: %{
+    "Accounts" => list(account()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_streaming_configuration_response() :: %{
+    "StreamingConfiguration" => streaming_configuration()
+  }
+  """
+  @type put_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_e911_address_request() :: %{
+    required("AwsAccountId") => String.t(),
+    required("City") => String.t(),
+    required("Country") => String.t(),
+    required("PostalCode") => String.t(),
+    required("State") => String.t(),
+    required("StreetInfo") => String.t(),
+    required("StreetNumber") => String.t()
+  }
+  """
+  @type validate_e911_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_user_request() :: %{
+
+  }
+  """
+  @type get_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_voice_connector_groups_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_voice_connector_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_phone_numbers_from_voice_connector_response() :: %{
+    "PhoneNumberErrors" => list(phone_number_error()())
+  }
+  """
+  @type disassociate_phone_numbers_from_voice_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_termination_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_termination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sip_rules_response() :: %{
+    "NextToken" => String.t(),
+    "SipRules" => list(sip_rule()())
+  }
+  """
+  @type list_sip_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_phone_number_with_user_request() :: %{
+    required("E164PhoneNumber") => String.t()
+  }
+  """
+  @type associate_phone_number_with_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_phone_numbers_from_voice_connector_group_request() :: %{
+    required("E164PhoneNumbers") => list(String.t()())
+  }
+  """
+  @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_instance_user_response() :: %{
+    "AppInstanceUser" => app_instance_user()
+  }
+  """
+  @type describe_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sip_rule_request() :: %{
+    optional("Disabled") => boolean(),
+    required("Name") => String.t(),
+    required("TargetApplications") => list(sip_rule_target_application()()),
+    required("TriggerType") => list(any()),
+    required("TriggerValue") => String.t()
+  }
+  """
+  @type create_sip_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  engine_transcribe_medical_settings() :: %{
+    "ContentIdentificationType" => list(any()),
+    "LanguageCode" => list(any()),
+    "Region" => list(any()),
+    "Specialty" => list(any()),
+    "Type" => list(any()),
+    "VocabularyName" => String.t()
+  }
+  """
+  @type engine_transcribe_medical_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_user_settings_request() :: %{
+
+  }
+  """
+  @type get_user_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_ban_summary() :: %{
+    "Member" => identity()
+  }
+  """
+  @type channel_ban_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_streaming_configuration_request() :: %{
+    required("StreamingConfiguration") => streaming_configuration()
+  }
+  """
+  @type put_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_delete_phone_number_response() :: %{
+    "PhoneNumberErrors" => list(phone_number_error()())
+  }
+  """
+  @type batch_delete_phone_number_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_streaming_configuration_response() :: %{
+    "StreamingConfiguration" => streaming_configuration()
+  }
+  """
+  @type get_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  proxy_session() :: %{
+    "Capabilities" => list(list(any())()),
+    "CreatedTimestamp" => non_neg_integer(),
+    "EndedTimestamp" => non_neg_integer(),
+    "ExpiryMinutes" => integer(),
+    "GeoMatchLevel" => list(any()),
+    "GeoMatchParams" => geo_match_params(),
+    "Name" => String.t(),
+    "NumberSelectionBehavior" => list(any()),
+    "Participants" => list(participant()()),
+    "ProxySessionId" => String.t(),
+    "Status" => list(any()),
+    "UpdatedTimestamp" => non_neg_integer(),
+    "VoiceConnectorId" => String.t()
+  }
+  """
+  @type proxy_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_phone_number_order_response() :: %{
+    "PhoneNumberOrder" => phone_number_order()
+  }
+  """
+  @type get_phone_number_order_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_instance_response() :: %{
+    "AppInstance" => app_instance()
+  }
+  """
+  @type describe_app_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_response() :: %{
+    "Channel" => channel()
+  }
+  """
+  @type describe_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_meeting_tags_request() :: %{
+
+  }
+  """
+  @type list_meeting_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_channel_ban_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type delete_channel_ban_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_instance_user_response() :: %{
+    "AppInstanceUserArn" => String.t()
+  }
+  """
+  @type update_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_room_membership_response() :: %{
+    "RoomMembership" => room_membership()
+  }
+  """
+  @type create_room_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_instance_users_response() :: %{
+    "AppInstanceArn" => String.t(),
+    "AppInstanceUsers" => list(app_instance_user_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_app_instance_users_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_phone_numbers_request() :: %{
+    optional("FilterName") => list(any()),
+    optional("FilterValue") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("ProductType") => list(any()),
+    optional("Status") => list(any())
+  }
+  """
+  @type list_phone_numbers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_limit_exceeded_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_summary() :: %{
+    "AppInstanceArn" => String.t(),
+    "Metadata" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type app_instance_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_voice_connector_request() :: %{
+    optional("AwsRegion") => list(any()),
+    required("Name") => String.t(),
+    required("RequireEncryption") => boolean()
+  }
+  """
+  @type create_voice_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_phone_number_request() :: %{
+
+  }
+  """
+  @type get_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_bans_response() :: %{
+    "ChannelArn" => String.t(),
+    "ChannelBans" => list(channel_ban_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channel_bans_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_users_response() :: %{
+    "NextToken" => String.t(),
+    "Users" => list(user()())
+  }
+  """
+  @type list_users_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_meeting_request() :: %{
+    optional("ExternalMeetingId") => String.t(),
+    optional("MediaRegion") => String.t(),
+    optional("MeetingHostId") => String.t(),
+    optional("NotificationsConfiguration") => meeting_notification_configuration(),
+    optional("Tags") => list(tag()()),
+    required("ClientRequestToken") => String.t()
+  }
+  """
+  @type create_meeting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_found_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type describe_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account() :: %{
+    "AccountId" => String.t(),
+    "AccountStatus" => list(any()),
+    "AccountType" => list(any()),
+    "AwsAccountId" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "DefaultLicense" => list(any()),
+    "Name" => String.t(),
+    "SigninDelegateGroups" => list(signin_delegate_group()()),
+    "SupportedLicenses" => list(list(any())())
+  }
+  """
+  @type account() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_app_instance_streaming_configurations_response() :: %{
+    "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
+  }
+  """
+  @type put_app_instance_streaming_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_proxy_request() :: %{
+    optional("Disabled") => boolean(),
+    optional("FallBackPhoneNumber") => String.t(),
+    required("DefaultSessionExpiryMinutes") => integer(),
+    required("PhoneNumberPoolCountries") => list(String.t()())
+  }
+  """
+  @type put_voice_connector_proxy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_phone_numbers_with_voice_connector_response() :: %{
+    "PhoneNumberErrors" => list(phone_number_error()())
+  }
+  """
+  @type associate_phone_numbers_with_voice_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_logging_configuration_request() :: %{
+    required("LoggingConfiguration") => logging_configuration()
+  }
+  """
+  @type put_voice_connector_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_memberships_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Type") => list(any())
+  }
+  """
+  @type list_channel_memberships_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_membership_summary() :: %{
+    "Member" => identity()
+  }
+  """
+  @type channel_membership_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phone_number_order() :: %{
+    "CreatedTimestamp" => non_neg_integer(),
+    "OrderedPhoneNumbers" => list(ordered_phone_number()()),
+    "PhoneNumberOrderId" => String.t(),
+    "ProductType" => list(any()),
+    "Status" => list(any()),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type phone_number_order() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_user() :: %{
+    "AppInstanceUserArn" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "LastUpdatedTimestamp" => non_neg_integer(),
+    "Metadata" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type app_instance_user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_attendee_request_item() :: %{
+    "ExternalUserId" => String.t(),
+    "Tags" => list(tag()())
+  }
+  """
+  @type create_attendee_request_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("Metadata") => String.t(),
+    optional("Mode") => list(any()),
+    optional("Privacy") => list(any()),
+    optional("Tags") => list(tag()()),
+    required("AppInstanceArn") => String.t(),
+    required("ClientRequestToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  audio_artifacts_configuration() :: %{
+    "MuxType" => list(any())
+  }
+  """
+  @type audio_artifacts_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_messaging_session_endpoint_request() :: %{
+
+  }
+  """
+  @type get_messaging_session_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_media_capture_pipelines_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_media_capture_pipelines_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_retention_settings_request() :: %{
+    required("RetentionSettings") => retention_settings()
+  }
+  """
+  @type put_retention_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_phone_number_request() :: %{
+
+  }
+  """
+  @type delete_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_attendee_response() :: %{
+    "Attendee" => attendee()
+  }
+  """
+  @type create_attendee_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_streaming_configuration() :: %{
+    "AppInstanceDataType" => list(any()),
+    "ResourceArn" => String.t()
+  }
+  """
+  @type app_instance_streaming_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_signin_delegate_groups_from_account_request() :: %{
+    required("GroupNames") => list(String.t()())
+  }
+  """
+  @type disassociate_signin_delegate_groups_from_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_room_membership_request() :: %{
+    optional("Role") => list(any())
+  }
+  """
+  @type update_room_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sip_media_application_endpoint() :: %{
+    "LambdaArn" => String.t()
+  }
+  """
+  @type sip_media_application_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_phone_numbers_from_voice_connector_group_response() :: %{
+    "PhoneNumberErrors" => list(phone_number_error()())
+  }
+  """
+  @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_retention_settings() :: %{
+    "RetentionDays" => integer()
+  }
+  """
+  @type channel_retention_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_global_settings_response() :: %{
+    "BusinessCalling" => business_calling_settings(),
+    "VoiceConnector" => voice_connector_settings()
+  }
+  """
+  @type get_global_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  voice_connector() :: %{
+    "AwsRegion" => list(any()),
+    "CreatedTimestamp" => non_neg_integer(),
+    "Name" => String.t(),
+    "OutboundHostName" => String.t(),
+    "RequireEncryption" => boolean(),
+    "UpdatedTimestamp" => non_neg_integer(),
+    "VoiceConnectorArn" => String.t(),
+    "VoiceConnectorId" => String.t()
+  }
+  """
+  @type voice_connector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_proxy_sessions_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Status") => list(any())
+  }
+  """
+  @type list_proxy_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  source_configuration() :: %{
+    "SelectedVideoStreams" => selected_video_streams()
+  }
+  """
+  @type source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  origination_route() :: %{
+    "Host" => String.t(),
+    "Port" => integer(),
+    "Priority" => integer(),
+    "Protocol" => list(any()),
+    "Weight" => integer()
+  }
+  """
+  @type origination_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_settings_request() :: %{
+    required("AccountSettings") => account_settings()
+  }
+  """
+  @type update_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_unavailable_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_memberships_for_app_instance_user_response() :: %{
+    "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channel_memberships_for_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_signin_delegate_groups_with_account_response() :: %{
+
+  }
+  """
+  @type associate_signin_delegate_groups_with_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  streaming_notification_target() :: %{
+    "NotificationTarget" => list(any())
+  }
+  """
+  @type streaming_notification_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  voice_connector_item() :: %{
+    "Priority" => integer(),
+    "VoiceConnectorId" => String.t()
+  }
+  """
+  @type voice_connector_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_app_instance_retention_settings_response() :: %{
+    "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+    "InitiateDeletionTimestamp" => non_neg_integer()
+  }
+  """
+  @type get_app_instance_retention_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channels_response() :: %{
+    "Channels" => list(channel_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_membership_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    required("MemberArn") => String.t(),
+    required("Type") => list(any())
+  }
+  """
+  @type create_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sip_media_application_logging_configuration_response() :: %{
+    "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+  }
+  """
+  @type put_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_voice_connector_group_response() :: %{
+    "VoiceConnectorGroup" => voice_connector_group()
+  }
+  """
+  @type update_voice_connector_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  chime_sdk_meeting_configuration() :: %{
+    "ArtifactsConfiguration" => artifacts_configuration(),
+    "SourceConfiguration" => source_configuration()
+  }
+  """
+  @type chime_sdk_meeting_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_phone_number_response() :: %{
+    "PhoneNumber" => phone_number()
+  }
+  """
+  @type get_phone_number_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_messaging_session_endpoint_response() :: %{
+    "Endpoint" => messaging_session_endpoint()
+  }
+  """
+  @type get_messaging_session_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_voice_connector_termination_credentials_response() :: %{
+    "Usernames" => list(String.t()())
+  }
+  """
+  @type list_voice_connector_termination_credentials_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("Metadata") => String.t(),
+    required("Mode") => list(any()),
+    required("Name") => String.t()
+  }
+  """
+  @type update_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_global_settings_request() :: %{
+    optional("BusinessCalling") => business_calling_settings(),
+    optional("VoiceConnector") => voice_connector_settings()
+  }
+  """
+  @type update_global_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_read_marker_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type update_channel_read_marker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_user_settings_request() :: %{
+    required("UserSettings") => user_settings()
+  }
+  """
+  @type update_user_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_request() :: %{
+    optional("DefaultLicense") => list(any()),
+    optional("Name") => String.t()
+  }
+  """
+  @type update_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_meeting_request() :: %{
+
+  }
+  """
+  @type get_meeting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_error() :: %{
+    "ErrorCode" => list(any()),
+    "ErrorMessage" => String.t(),
+    "UserId" => String.t()
+  }
+  """
+  @type user_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_admin() :: %{
+    "Admin" => identity(),
+    "AppInstanceArn" => String.t(),
+    "CreatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type app_instance_admin() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_moderated_by_app_instance_user_summary() :: %{
+    "ChannelSummary" => channel_summary()
+  }
+  """
+  @type channel_moderated_by_app_instance_user_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_proxy_session_request() :: %{
+    optional("ExpiryMinutes") => integer(),
+    optional("GeoMatchLevel") => list(any()),
+    optional("GeoMatchParams") => geo_match_params(),
+    optional("Name") => String.t(),
+    optional("NumberSelectionBehavior") => list(any()),
+    required("Capabilities") => list(list(any())()),
+    required("ParticipantPhoneNumbers") => list(String.t()())
+  }
+  """
+  @type create_proxy_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  candidate_address() :: %{
+    "city" => String.t(),
+    "country" => String.t(),
+    "postalCode" => String.t(),
+    "postalCodePlus4" => String.t(),
+    "state" => String.t(),
+    "streetInfo" => String.t(),
+    "streetNumber" => String.t()
+  }
+  """
+  @type candidate_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sip_rule_request() :: %{
+
+  }
+  """
+  @type get_sip_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_message() :: %{
+    "ChannelArn" => String.t(),
+    "Content" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "LastEditedTimestamp" => non_neg_integer(),
+    "LastUpdatedTimestamp" => non_neg_integer(),
+    "MessageId" => String.t(),
+    "Metadata" => String.t(),
+    "Persistence" => list(any()),
+    "Redacted" => boolean(),
+    "Sender" => identity(),
+    "Type" => list(any())
+  }
+  """
+  @type channel_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_proxy_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_proxy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_account_request() :: %{
+
+  }
+  """
+  @type delete_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redact_conversation_message_request() :: %{
+
+  }
+  """
+  @type redact_conversation_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  messaging_session_endpoint() :: %{
+    "Url" => String.t()
+  }
+  """
+  @type messaging_session_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_message_response() :: %{
+    "ChannelArn" => String.t(),
+    "MessageId" => String.t()
+  }
+  """
+  @type update_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sip_media_applications_response() :: %{
+    "NextToken" => String.t(),
+    "SipMediaApplications" => list(sip_media_application()())
+  }
+  """
+  @type list_sip_media_applications_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_account_response() :: %{
+
+  }
+  """
+  @type delete_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  alexa_for_business_metadata() :: %{
+    "AlexaForBusinessRoomArn" => String.t(),
+    "IsAlexaForBusinessEnabled" => boolean()
+  }
+  """
+  @type alexa_for_business_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sip_media_application_logging_configuration_request() :: %{
+
+  }
+  """
+  @type get_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_account_request() :: %{
+    required("Name") => String.t()
+  }
+  """
+  @type create_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invite_users_response() :: %{
+    "Invites" => list(invite()())
+  }
+  """
+  @type invite_users_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_meeting_transcription_response() :: %{
+
+  }
+  """
+  @type stop_meeting_transcription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_room_request() :: %{
+
+  }
+  """
+  @type get_room_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sip_media_application_logging_configuration() :: %{
+    "EnableSipMediaApplicationMessageLogs" => boolean()
+  }
+  """
+  @type sip_media_application_logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_bots_response() :: %{
+    "Bots" => list(bot()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_bots_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_proxy_session_response() :: %{
+    "ProxySession" => proxy_session()
+  }
+  """
+  @type get_proxy_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_attendee_request() :: %{
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_channel_message_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type delete_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sip_rule_response() :: %{
+    "SipRule" => sip_rule()
+  }
+  """
+  @type update_sip_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_phone_number_from_user_request() :: %{
+
+  }
+  """
+  @type disassociate_phone_number_from_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_app_instance_streaming_configurations_request() :: %{
+    required("AppInstanceStreamingConfigurations") => list(app_instance_streaming_configuration()())
+  }
+  """
+  @type put_app_instance_streaming_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_moderators_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_channel_moderators_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_attendee_error() :: %{
+    "ErrorCode" => String.t(),
+    "ErrorMessage" => String.t(),
+    "ExternalUserId" => String.t()
+  }
+  """
+  @type create_attendee_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unprocessable_entity_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type unprocessable_entity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_voice_connector_group_request() :: %{
+    optional("VoiceConnectorItems") => list(voice_connector_item()()),
+    required("Name") => String.t()
+  }
+  """
+  @type create_voice_connector_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_channel_membership_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("Type") => list(any()),
+    required("MemberArns") => list(String.t()())
+  }
+  """
+  @type batch_create_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_room_response() :: %{
+    "Room" => room()
+  }
+  """
+  @type get_room_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_instance_user_request() :: %{
+    optional("Metadata") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type update_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_instance_admin_response() :: %{
+    "AppInstanceAdmin" => app_instance_admin()
+  }
+  """
+  @type describe_app_instance_admin_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sip_media_application_call_response() :: %{
+    "SipMediaApplicationCall" => sip_media_application_call()
+  }
+  """
+  @type create_sip_media_application_call_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_media_capture_pipeline_request() :: %{
+    optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
+    optional("ClientRequestToken") => String.t(),
+    required("SinkArn") => String.t(),
+    required("SinkType") => list(any()),
+    required("SourceArn") => String.t(),
+    required("SourceType") => list(any())
+  }
+  """
+  @type create_media_capture_pipeline_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_instance_request() :: %{
+    optional("Metadata") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("ClientRequestToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_app_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phone_number_error() :: %{
+    "ErrorCode" => list(any()),
+    "ErrorMessage" => String.t(),
+    "PhoneNumberId" => String.t()
+  }
+  """
+  @type phone_number_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_attendee_request() :: %{
+
+  }
+  """
+  @type get_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_phone_number_request_item() :: %{
+    "CallingName" => String.t(),
+    "PhoneNumberId" => String.t(),
+    "ProductType" => list(any())
+  }
+  """
+  @type update_phone_number_request_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_membership_for_app_instance_user_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    required("AppInstanceUserArn") => String.t()
+  }
+  """
+  @type describe_channel_membership_for_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_channel_membership_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type delete_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_settings() :: %{
+    "DisableRemoteControl" => boolean(),
+    "EnableDialOut" => boolean()
+  }
+  """
+  @type account_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_attendee_tags_request() :: %{
+
+  }
+  """
+  @type list_attendee_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_admin_summary() :: %{
+    "Admin" => identity()
+  }
+  """
+  @type app_instance_admin_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_suspend_user_request() :: %{
+    required("UserIdList") => list(String.t()())
+  }
+  """
+  @type batch_suspend_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_messages_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("NotAfter") => non_neg_integer(),
+    optional("NotBefore") => non_neg_integer(),
+    optional("SortOrder") => list(any())
+  }
+  """
+  @type list_channel_messages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_phone_numbers_with_voice_connector_group_response() :: %{
+    "PhoneNumberErrors" => list(phone_number_error()())
+  }
+  """
+  @type associate_phone_numbers_with_voice_connector_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_bot_request() :: %{
+    optional("Disabled") => boolean()
+  }
+  """
+  @type update_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_channel_message_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("Metadata") => String.t(),
+    required("ClientRequestToken") => String.t(),
+    required("Content") => String.t(),
+    required("Persistence") => list(any()),
+    required("Type") => list(any())
+  }
+  """
+  @type send_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_user_request() :: %{
+    optional("AlexaForBusinessMetadata") => alexa_for_business_metadata(),
+    optional("LicenseType") => list(any()),
+    optional("UserType") => list(any())
+  }
+  """
+  @type update_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_user_request_item() :: %{
+    "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
+    "LicenseType" => list(any()),
+    "UserId" => String.t(),
+    "UserType" => list(any())
+  }
+  """
+  @type update_user_request_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_events_configuration_request() :: %{
+
+  }
+  """
+  @type get_events_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    required("ResourceARN") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_origination_request() :: %{
+    required("Origination") => origination()
+  }
+  """
+  @type put_voice_connector_origination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_termination_credentials_request() :: %{
+    required("Usernames") => list(String.t()())
+  }
+  """
+  @type delete_voice_connector_termination_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_moderators_response() :: %{
+    "ChannelArn" => String.t(),
+    "ChannelModerators" => list(channel_moderator_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channel_moderators_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_room_membership_request() :: %{
+    optional("Role") => list(any()),
+    required("MemberId") => String.t()
+  }
+  """
+  @type create_room_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_room_request() :: %{
+    optional("ClientRequestToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_room_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_voice_connectors_response() :: %{
+    "NextToken" => String.t(),
+    "VoiceConnectors" => list(voice_connector()())
+  }
+  """
+  @type list_voice_connectors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_channel_message_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type get_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_unsuspend_user_request() :: %{
+    required("UserIdList") => list(String.t()())
+  }
+  """
+  @type batch_unsuspend_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_ban_response() :: %{
+    "ChannelBan" => channel_ban()
+  }
+  """
+  @type describe_channel_ban_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_group_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  voice_connector_group() :: %{
+    "CreatedTimestamp" => non_neg_integer(),
+    "Name" => String.t(),
+    "UpdatedTimestamp" => non_neg_integer(),
+    "VoiceConnectorGroupArn" => String.t(),
+    "VoiceConnectorGroupId" => String.t(),
+    "VoiceConnectorItems" => list(voice_connector_item()())
+  }
+  """
+  @type voice_connector_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_meeting_transcription_request() :: %{
+    required("TranscriptionConfiguration") => transcription_configuration()
+  }
+  """
+  @type start_meeting_transcription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_ban() :: %{
+    "ChannelArn" => String.t(),
+    "CreatedBy" => identity(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "Member" => identity()
+  }
+  """
+  @type channel_ban() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_rooms_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("MemberId") => String.t(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_rooms_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_origination_response() :: %{
+    "Origination" => origination()
+  }
+  """
+  @type get_voice_connector_origination_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user() :: %{
+    "AccountId" => String.t(),
+    "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
+    "DisplayName" => String.t(),
+    "InvitedOn" => non_neg_integer(),
+    "LicenseType" => list(any()),
+    "PersonalPIN" => String.t(),
+    "PrimaryEmail" => String.t(),
+    "PrimaryProvisionedNumber" => String.t(),
+    "RegisteredOn" => non_neg_integer(),
+    "UserId" => String.t(),
+    "UserInvitationStatus" => list(any()),
+    "UserRegistrationStatus" => list(any()),
+    "UserType" => list(any())
+  }
+  """
+  @type user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invite_users_request() :: %{
+    optional("UserType") => list(any()),
+    required("UserEmailList") => list(String.t()())
+  }
+  """
+  @type invite_users_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_attendee_request() :: %{
+    required("Attendees") => list(create_attendee_request_item()())
+  }
+  """
+  @type batch_create_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel() :: %{
+    "ChannelArn" => String.t(),
+    "CreatedBy" => identity(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "LastMessageTimestamp" => non_neg_integer(),
+    "LastUpdatedTimestamp" => non_neg_integer(),
+    "Metadata" => String.t(),
+    "Mode" => list(any()),
+    "Name" => String.t(),
+    "Privacy" => list(any())
+  }
+  """
+  @type channel() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_phone_number_settings_response() :: %{
+    "CallingName" => String.t(),
+    "CallingNameUpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type get_phone_number_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  membership_item() :: %{
+    "MemberId" => String.t(),
+    "Role" => list(any())
+  }
+  """
+  @type membership_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_bot_request() :: %{
+    optional("Domain") => String.t(),
+    required("DisplayName") => String.t()
+  }
+  """
+  @type create_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_attendee_response() :: %{
+    "Attendees" => list(attendee()()),
+    "Errors" => list(create_attendee_error()())
+  }
+  """
+  @type batch_create_attendee_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_instance_admin_response() :: %{
+    "AppInstanceAdmin" => identity(),
+    "AppInstanceArn" => String.t()
+  }
+  """
+  @type create_app_instance_admin_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regenerate_security_token_response() :: %{
+    "Bot" => bot()
+  }
+  """
+  @type regenerate_security_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_app_instance_retention_settings_response() :: %{
+    "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+    "InitiateDeletionTimestamp" => non_neg_integer()
+  }
+  """
+  @type put_app_instance_retention_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channel_memberships_response() :: %{
+    "ChannelArn" => String.t(),
+    "ChannelMemberships" => list(channel_membership_summary()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_channel_memberships_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sip_media_application_call_request() :: %{
+    optional("SipHeaders") => map(),
+    required("FromPhoneNumber") => String.t(),
+    required("ToPhoneNumber") => String.t()
+  }
+  """
+  @type create_sip_media_application_call_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sip_media_application_call_request() :: %{
+    required("Arguments") => map()
+  }
+  """
+  @type update_sip_media_application_call_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_attendee_tags_response() :: %{
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_attendee_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_attendees_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_attendees_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_retention_settings() :: %{
+    "ChannelRetentionSettings" => channel_retention_settings()
+  }
+  """
+  @type app_instance_retention_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  member() :: %{
+    "AccountId" => String.t(),
+    "Email" => String.t(),
+    "FullName" => String.t(),
+    "MemberId" => String.t(),
+    "MemberType" => list(any())
+  }
+  """
+  @type member() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_users_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("UserEmail") => String.t(),
+    optional("UserType") => list(any())
+  }
+  """
+  @type list_users_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_termination_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_termination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_group_response() :: %{
+    "VoiceConnectorGroup" => voice_connector_group()
+  }
+  """
+  @type get_voice_connector_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_events_configuration_response() :: %{
+    "EventsConfiguration" => events_configuration()
+  }
+  """
+  @type get_events_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_moderator() :: %{
+    "ChannelArn" => String.t(),
+    "CreatedBy" => identity(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "Moderator" => identity()
+  }
+  """
+  @type channel_moderator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  attendee() :: %{
+    "AttendeeId" => String.t(),
+    "ExternalUserId" => String.t(),
+    "JoinToken" => String.t()
+  }
+  """
+  @type attendee() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_logging_configuration_response() :: %{
+    "LoggingConfiguration" => logging_configuration()
+  }
+  """
+  @type put_voice_connector_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_ban_response() :: %{
+    "ChannelArn" => String.t(),
+    "Member" => identity()
+  }
+  """
+  @type create_channel_ban_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_bot_response() :: %{
+    "Bot" => bot()
+  }
+  """
+  @type create_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_account_response() :: %{
+    "Account" => account()
+  }
+  """
+  @type create_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_voice_connector_response() :: %{
+    "VoiceConnector" => voice_connector()
+  }
+  """
+  @type create_voice_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_create_channel_membership_error() :: %{
+    "ErrorCode" => list(any()),
+    "ErrorMessage" => String.t(),
+    "MemberArn" => String.t()
+  }
+  """
+  @type batch_create_channel_membership_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_proxy_session_request() :: %{
+
+  }
+  """
+  @type get_proxy_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_instance_admin_request() :: %{
+    required("AppInstanceAdminArn") => String.t()
+  }
+  """
+  @type create_app_instance_admin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sip_media_application_call() :: %{
+    "TransactionId" => String.t()
+  }
+  """
+  @type sip_media_application_call() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reset_personal_pin_response() :: %{
+    "User" => user()
+  }
+  """
+  @type reset_personal_pin_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bad_request_exception() :: %{
+    "Code" => list(any()),
+    "Message" => String.t()
+  }
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_instance_admin_request() :: %{
+
+  }
+  """
+  @type describe_app_instance_admin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_phone_numbers_response() :: %{
+    "NextToken" => String.t(),
+    "PhoneNumbers" => list(phone_number()())
+  }
+  """
+  @type list_phone_numbers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_voice_connector_request() :: %{
+    required("Name") => String.t(),
+    required("RequireEncryption") => boolean()
+  }
+  """
+  @type update_voice_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invite() :: %{
+    "EmailAddress" => String.t(),
+    "EmailStatus" => list(any()),
+    "InviteId" => String.t(),
+    "Status" => list(any())
+  }
+  """
+  @type invite() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  user_settings() :: %{
+    "Telephony" => telephony_settings()
+  }
+  """
+  @type user_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_read_marker_response() :: %{
+    "ChannelArn" => String.t()
+  }
+  """
+  @type update_channel_read_marker_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_moderator_summary() :: %{
+    "Moderator" => identity()
+  }
+  """
+  @type channel_moderator_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_channel_memberships() :: %{
+    "ChannelArn" => String.t(),
+    "InvitedBy" => identity(),
+    "Members" => list(identity()()),
+    "Type" => list(any())
+  }
+  """
+  @type batch_channel_memberships() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  credential() :: %{
+    "Password" => String.t(),
+    "Username" => String.t()
+  }
+  """
+  @type credential() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_room_membership_response() :: %{
+    "RoomMembership" => room_membership()
+  }
+  """
+  @type update_room_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logout_user_response() :: %{
+
+  }
+  """
+  @type logout_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_phone_number_from_user_response() :: %{
+
+  }
+  """
+  @type disassociate_phone_number_from_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  associate_signin_delegate_groups_with_account_request() :: %{
+    required("SigninDelegateGroups") => list(signin_delegate_group()())
+  }
+  """
+  @type associate_signin_delegate_groups_with_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_channel_response() :: %{
+    "ChannelArn" => String.t()
+  }
+  """
+  @type update_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_instance_request() :: %{
+
+  }
+  """
+  @type delete_app_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance_user_summary() :: %{
+    "AppInstanceUserArn" => String.t(),
+    "Metadata" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type app_instance_user_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  phone_number_capabilities() :: %{
+    "InboundCall" => boolean(),
+    "InboundMMS" => boolean(),
+    "InboundSMS" => boolean(),
+    "OutboundCall" => boolean(),
+    "OutboundMMS" => boolean(),
+    "OutboundSMS" => boolean()
+  }
+  """
+  @type phone_number_capabilities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_ban_request() :: %{
+    optional("ChimeBearer") => String.t()
+  }
+  """
+  @type describe_channel_ban_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_meetings_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t()
+  }
+  """
+  @type list_meetings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_streaming_configuration_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_emergency_calling_configuration_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sip_media_application_request() :: %{
+
+  }
+  """
+  @type get_sip_media_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_channel_membership_for_app_instance_user_response() :: %{
+    "ChannelMembership" => channel_membership_for_app_instance_user_summary()
+  }
+  """
+  @type describe_channel_membership_for_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sip_media_application_response() :: %{
+    "SipMediaApplication" => sip_media_application()
+  }
+  """
+  @type create_sip_media_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_proxy_response() :: %{
+    "Proxy" => proxy()
+  }
+  """
+  @type put_voice_connector_proxy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  bot() :: %{
+    "BotEmail" => String.t(),
+    "BotId" => String.t(),
+    "BotType" => list(any()),
+    "CreatedTimestamp" => non_neg_integer(),
+    "Disabled" => boolean(),
+    "DisplayName" => String.t(),
+    "SecurityToken" => String.t(),
+    "UpdatedTimestamp" => non_neg_integer(),
+    "UserId" => String.t()
+  }
+  """
+  @type bot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  address() :: %{
+    "city" => String.t(),
+    "country" => String.t(),
+    "postDirectional" => String.t(),
+    "postalCode" => String.t(),
+    "postalCodePlus4" => String.t(),
+    "preDirectional" => String.t(),
+    "state" => String.t(),
+    "streetName" => String.t(),
+    "streetNumber" => String.t(),
+    "streetSuffix" => String.t()
+  }
+  """
+  @type address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sip_rule_target_application() :: %{
+    "AwsRegion" => String.t(),
+    "Priority" => integer(),
+    "SipMediaApplicationId" => String.t()
+  }
+  """
+  @type sip_rule_target_application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_emergency_calling_configuration_response() :: %{
+    "EmergencyCallingConfiguration" => emergency_calling_configuration()
+  }
+  """
+  @type get_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_voice_connector_request() :: %{
+
+  }
+  """
+  @type delete_voice_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_accounts_request() :: %{
+    optional("MaxResults") => integer(),
+    optional("Name") => String.t(),
+    optional("NextToken") => String.t(),
+    optional("UserEmail") => String.t()
+  }
+  """
+  @type list_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_phone_number_request() :: %{
+    optional("CallingName") => String.t(),
+    optional("ProductType") => list(any())
+  }
+  """
+  @type update_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_request() :: %{
+
+  }
+  """
+  @type get_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redact_room_message_response() :: %{
+
+  }
+  """
+  @type redact_room_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_events_configuration_request() :: %{
+    optional("LambdaFunctionArn") => String.t(),
+    optional("OutboundEventsHTTPSEndpoint") => String.t()
+  }
+  """
+  @type put_events_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_retention_settings_response() :: %{
+    "InitiateDeletionTimestamp" => non_neg_integer(),
+    "RetentionSettings" => retention_settings()
+  }
+  """
+  @type get_retention_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_origination_request() :: %{
+
+  }
+  """
+  @type get_voice_connector_origination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_voice_connector_emergency_calling_configuration_response() :: %{
+    "EmergencyCallingConfiguration" => emergency_calling_configuration()
+  }
+  """
+  @type put_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_voice_connector_termination_response() :: %{
+    "Termination" => termination()
+  }
+  """
+  @type get_voice_connector_termination_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_attendee_request() :: %{
+    optional("Tags") => list(tag()()),
+    required("ExternalUserId") => String.t()
+  }
+  """
+  @type create_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_room_request() :: %{
+    optional("Name") => String.t()
+  }
+  """
+  @type update_room_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_channels_request() :: %{
+    optional("ChimeBearer") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("Privacy") => list(any()),
+    required("AppInstanceArn") => String.t()
+  }
+  """
+  @type list_channels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_instance_user_request() :: %{
+
+  }
+  """
+  @type describe_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_retention_settings_request() :: %{
+
+  }
+  """
+  @type get_retention_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_response() :: %{
+    "Account" => account()
+  }
+  """
+  @type update_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_user_response() :: %{
+    "User" => user()
+  }
+  """
+  @type create_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_bot_response() :: %{
+    "Bot" => bot()
+  }
+  """
+  @type update_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_suspend_user_response() :: %{
+    "UserErrors" => list(user_error()())
+  }
+  """
+  @type batch_suspend_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_phone_number_request() :: %{
+    required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
+  }
+  """
+  @type batch_update_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  artifacts_configuration() :: %{
+    "Audio" => audio_artifacts_configuration(),
+    "Content" => content_artifacts_configuration(),
+    "Video" => video_artifacts_configuration()
+  }
+  """
+  @type artifacts_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  channel_message_summary() :: %{
+    "Content" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "LastEditedTimestamp" => non_neg_integer(),
+    "LastUpdatedTimestamp" => non_neg_integer(),
+    "MessageId" => String.t(),
+    "Metadata" => String.t(),
+    "Redacted" => boolean(),
+    "Sender" => identity(),
+    "Type" => list(any())
+  }
+  """
+  @type channel_message_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  media_placement() :: %{
+    "AudioFallbackUrl" => String.t(),
+    "AudioHostUrl" => String.t(),
+    "EventIngestionUrl" => String.t(),
+    "ScreenDataUrl" => String.t(),
+    "ScreenSharingUrl" => String.t(),
+    "ScreenViewingUrl" => String.t(),
+    "SignalingUrl" => String.t(),
+    "TurnControlUrl" => String.t()
+  }
+  """
+  @type media_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sip_media_application() :: %{
+    "AwsRegion" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "Endpoints" => list(sip_media_application_endpoint()()),
+    "Name" => String.t(),
+    "SipMediaApplicationId" => String.t(),
+    "UpdatedTimestamp" => non_neg_integer()
+  }
+  """
+  @type sip_media_application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  search_available_phone_numbers_request() :: %{
+    optional("AreaCode") => String.t(),
+    optional("City") => String.t(),
+    optional("Country") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    optional("PhoneNumberType") => list(any()),
+    optional("State") => String.t(),
+    optional("TollFreePrefix") => String.t()
+  }
+  """
+  @type search_available_phone_numbers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_events_configuration_response() :: %{
+    "EventsConfiguration" => events_configuration()
+  }
+  """
+  @type put_events_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_meeting_dial_out_request() :: %{
+    required("FromPhoneNumber") => String.t(),
+    required("JoinToken") => String.t(),
+    required("ToPhoneNumber") => String.t()
+  }
+  """
+  @type create_meeting_dial_out_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_attendee_request() :: %{
+
+  }
+  """
+  @type delete_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_room_response() :: %{
+    "Room" => room()
+  }
+  """
+  @type create_room_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_instance_user_request() :: %{
+    optional("Metadata") => String.t(),
+    optional("Tags") => list(tag()()),
+    required("AppInstanceArn") => String.t(),
+    required("AppInstanceUserId") => String.t(),
+    required("ClientRequestToken") => String.t(),
+    required("Name") => String.t()
+  }
+  """
+  @type create_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  room_retention_settings() :: %{
+    "RetentionDays" => integer()
+  }
+  """
+  @type room_retention_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_supported_phone_number_countries_request() :: %{
+    required("ProductType") => list(any())
+  }
+  """
+  @type list_supported_phone_number_countries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_instance() :: %{
+    "AppInstanceArn" => String.t(),
+    "CreatedTimestamp" => non_neg_integer(),
+    "LastUpdatedTimestamp" => non_neg_integer(),
+    "Metadata" => String.t(),
+    "Name" => String.t()
+  }
+  """
+  @type app_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conversation_retention_settings() :: %{
+    "RetentionDays" => integer()
+  }
+  """
+  @type conversation_retention_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  emergency_calling_configuration() :: %{
+    "DNIS" => list(d_n_i_s_emergency_calling_configuration()())
+  }
+  """
+  @type emergency_calling_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_user_request() :: %{
+    optional("Email") => String.t(),
+    optional("UserType") => list(any()),
+    optional("Username") => String.t()
+  }
+  """
+  @type create_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_user_request() :: %{
+    required("UpdateUserRequestItems") => list(update_user_request_item()())
+  }
+  """
+  @type batch_update_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  regenerate_security_token_request() :: %{
+
+  }
+  """
+  @type regenerate_security_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disassociate_signin_delegate_groups_from_account_response() :: %{
+
+  }
+  """
+  @type disassociate_signin_delegate_groups_from_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_channel_membership_response() :: %{
+    "ChannelArn" => String.t(),
+    "Member" => identity()
+  }
+  """
+  @type create_channel_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_instance_user_response() :: %{
+    "AppInstanceUserArn" => String.t()
+  }
+  """
+  @type create_app_instance_user_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2018-05-01",
@@ -88,6 +4671,23 @@ defmodule AWS.Chime do
   @doc """
   Associates a phone number with the specified Amazon Chime user.
   """
+  @spec associate_phone_number_with_user(
+          map(),
+          String.t(),
+          String.t(),
+          associate_phone_number_with_user_request(),
+          list()
+        ) ::
+          {:ok, associate_phone_number_with_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def associate_phone_number_with_user(
         %Client{} = client,
         account_id,
@@ -130,6 +4730,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec associate_phone_numbers_with_voice_connector(
+          map(),
+          String.t(),
+          associate_phone_numbers_with_voice_connector_request(),
+          list()
+        ) ::
+          {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -171,6 +4787,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec associate_phone_numbers_with_voice_connector_group(
+          map(),
+          String.t(),
+          associate_phone_numbers_with_voice_connector_group_request(),
+          list()
+        ) ::
+          {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -202,6 +4834,21 @@ defmodule AWS.Chime do
   Associates the specified sign-in delegate groups with the specified Amazon Chime
   account.
   """
+  @spec associate_signin_delegate_groups_with_account(
+          map(),
+          String.t(),
+          associate_signin_delegate_groups_with_account_request(),
+          list()
+        ) ::
+          {:ok, associate_signin_delegate_groups_with_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def associate_signin_delegate_groups_with_account(
         %Client{} = client,
         account_id,
@@ -248,6 +4895,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec batch_create_attendee(map(), String.t(), batch_create_attendee_request(), list()) ::
+          {:ok, batch_create_attendee_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
     headers = []
@@ -282,6 +4940,20 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec batch_create_channel_membership(
+          map(),
+          String.t(),
+          batch_create_channel_membership_request(),
+          list()
+        ) ::
+          {:ok, batch_create_channel_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
 
@@ -314,6 +4986,22 @@ defmodule AWS.Chime do
   Members can be users or bots. The member role designates whether the member is a
   chat room administrator or a general chat room member.
   """
+  @spec batch_create_room_membership(
+          map(),
+          String.t(),
+          String.t(),
+          batch_create_room_membership_request(),
+          list()
+        ) ::
+          {:ok, batch_create_room_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships?operation=batch-create"
@@ -347,6 +5035,16 @@ defmodule AWS.Chime do
   Phone numbers remain in the
   **Deletion queue** for 7 days before they are deleted permanently.
   """
+  @spec batch_delete_phone_number(map(), batch_delete_phone_number_request(), list()) ::
+          {:ok, batch_delete_phone_number_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
     headers = []
@@ -391,6 +5089,16 @@ defmodule AWS.Chime do
   To sign out users without suspending them, use the
   `LogoutUser` action.
   """
+  @spec batch_suspend_user(map(), String.t(), batch_suspend_user_request(), list()) ::
+          {:ok, batch_suspend_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
     headers = []
@@ -428,6 +5136,16 @@ defmodule AWS.Chime do
   `Registered`
   status. Users who are not previously suspended are ignored.
   """
+  @spec batch_unsuspend_user(map(), String.t(), batch_unsuspend_user_request(), list()) ::
+          {:ok, batch_unsuspend_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
     headers = []
@@ -462,6 +5180,16 @@ defmodule AWS.Chime do
   updates to outbound calling names must be complete before you can request
   another update.
   """
+  @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
+          {:ok, batch_update_phone_number_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_update_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
     headers = []
@@ -488,6 +5216,16 @@ defmodule AWS.Chime do
 
   Currently, only `LicenseType` updates are supported for this action.
   """
+  @spec batch_update_user(map(), String.t(), batch_update_user_request(), list()) ::
+          {:ok, batch_update_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
     headers = []
@@ -518,6 +5256,16 @@ defmodule AWS.Chime do
   in the *Amazon Chime
   Administration Guide*.
   """
+  @spec create_account(map(), create_account_request(), list()) ::
+          {:ok, create_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_account(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
     headers = []
@@ -556,6 +5304,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_app_instance(map(), create_app_instance_request(), list()) ::
+          {:ok, create_app_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
     headers = []
@@ -602,6 +5361,17 @@ defmodule AWS.Chime do
 
   Only an `AppInstanceUser` can be promoted to an `AppInstanceAdmin` role.
   """
+  @spec create_app_instance_admin(map(), String.t(), create_app_instance_admin_request(), list()) ::
+          {:ok, create_app_instance_admin_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
@@ -639,6 +5409,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_app_instance_user(map(), create_app_instance_user_request(), list()) ::
+          {:ok, create_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
     headers = []
@@ -679,6 +5460,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_attendee(map(), String.t(), create_attendee_request(), list()) ::
+          {:ok, create_attendee_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
@@ -702,6 +5494,17 @@ defmodule AWS.Chime do
   @doc """
   Creates a bot for an Amazon Chime Enterprise account.
   """
+  @spec create_bot(map(), String.t(), create_bot_request(), list()) ::
+          {:ok, create_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_bot(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
     headers = []
@@ -743,6 +5546,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_channel(map(), create_channel_request(), list()) ::
+          {:ok, create_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
 
@@ -796,6 +5610,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_channel_ban(map(), String.t(), create_channel_ban_request(), list()) ::
+          {:ok, create_channel_ban_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
@@ -868,6 +5693,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_channel_membership(map(), String.t(), create_channel_membership_request(), list()) ::
+          {:ok, create_channel_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
@@ -929,6 +5765,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_channel_moderator(map(), String.t(), create_channel_moderator_request(), list()) ::
+          {:ok, create_channel_moderator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
@@ -969,6 +5816,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_media_capture_pipeline(map(), create_media_capture_pipeline_request(), list()) ::
+          {:ok, create_media_capture_pipeline_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-capture-pipelines"
     headers = []
@@ -1011,6 +5868,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_meeting(map(), create_meeting_request(), list()) ::
+          {:ok, create_meeting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
     headers = []
@@ -1044,6 +5911,17 @@ defmodule AWS.Chime do
 
   ## This API is is not available in a dedicated namespace.
   """
+  @spec create_meeting_dial_out(map(), String.t(), create_meeting_dial_out_request(), list()) ::
+          {:ok, create_meeting_dial_out_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
     headers = []
@@ -1090,6 +5968,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_meeting_with_attendees(map(), create_meeting_with_attendees_request(), list()) ::
+          {:ok, create_meeting_with_attendees_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
     headers = []
@@ -1118,6 +6006,17 @@ defmodule AWS.Chime do
   For numbers outside the U.S., you must use the Amazon Chime SIP Media
   Application Dial-In product type.
   """
+  @spec create_phone_number_order(map(), create_phone_number_order_request(), list()) ::
+          {:ok, create_phone_number_order_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_phone_number_order(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number-orders"
     headers = []
@@ -1153,6 +6052,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_proxy_session(map(), String.t(), create_proxy_session_request(), list()) ::
+          {:ok, create_proxy_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
     headers = []
@@ -1176,6 +6085,17 @@ defmodule AWS.Chime do
   @doc """
   Creates a chat room for the specified Amazon Chime Enterprise account.
   """
+  @spec create_room(map(), String.t(), create_room_request(), list()) ::
+          {:ok, create_room_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_room(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
     headers = []
@@ -1202,6 +6122,24 @@ defmodule AWS.Chime do
   A member can be either a user or a bot. The member role designates whether the
   member is a chat room administrator or a general chat room member.
   """
+  @spec create_room_membership(
+          map(),
+          String.t(),
+          String.t(),
+          create_room_membership_request(),
+          list()
+        ) ::
+          {:ok, create_room_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
@@ -1238,6 +6176,18 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_sip_media_application(map(), create_sip_media_application_request(), list()) ::
+          {:ok, create_sip_media_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_sip_media_application(%Client{} = client, input, options \\ []) do
     url_path = "/sip-media-applications"
     headers = []
@@ -1274,6 +6224,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_sip_media_application_call(
+          map(),
+          String.t(),
+          create_sip_media_application_call_request(),
+          list()
+        ) ::
+          {:ok, create_sip_media_application_call_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -1314,6 +6280,18 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_sip_rule(map(), create_sip_rule_request(), list()) ::
+          {:ok, create_sip_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_sip_rule(%Client{} = client, input, options \\ []) do
     url_path = "/sip-rules"
     headers = []
@@ -1337,6 +6315,17 @@ defmodule AWS.Chime do
   @doc """
   Creates a user under the specified Amazon Chime account.
   """
+  @spec create_user(map(), String.t(), create_user_request(), list()) ::
+          {:ok, create_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
     headers = []
@@ -1379,6 +6368,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_voice_connector(map(), create_voice_connector_request(), list()) ::
+          {:ok, create_voice_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_voice_connector(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connectors"
     headers = []
@@ -1423,6 +6423,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec create_voice_connector_group(map(), create_voice_connector_group_request(), list()) ::
+          {:ok, create_voice_connector_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def create_voice_connector_group(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connector-groups"
     headers = []
@@ -1462,6 +6473,17 @@ defmodule AWS.Chime do
   After 90 days, deleted accounts are permanently removed from your
   `Disabled` accounts list.
   """
+  @spec delete_account(map(), String.t(), delete_account_request(), list()) ::
+          {:ok, delete_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
+          | {:error, unprocessable_entity_exception()}
   def delete_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
@@ -1496,6 +6518,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_app_instance(map(), String.t(), delete_app_instance_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -1532,6 +6563,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_app_instance_admin(
+          map(),
+          String.t(),
+          String.t(),
+          delete_app_instance_admin_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -1574,6 +6621,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_app_instance_streaming_configurations(
+          map(),
+          String.t(),
+          delete_app_instance_streaming_configurations_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -1613,6 +6675,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_app_instance_user(map(), String.t(), delete_app_instance_user_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -1654,6 +6725,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_attendee(map(), String.t(), String.t(), delete_attendee_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -1697,6 +6778,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -1741,6 +6831,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_channel_ban(map(), String.t(), String.t(), delete_channel_ban_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
@@ -1786,6 +6885,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_channel_membership(
+          map(),
+          String.t(),
+          String.t(),
+          delete_channel_membership_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
@@ -1835,6 +6950,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_channel_message(
+          map(),
+          String.t(),
+          String.t(),
+          delete_channel_message_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -1880,6 +7010,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_channel_moderator(
+          map(),
+          String.t(),
+          String.t(),
+          delete_channel_moderator_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -1916,6 +7061,21 @@ defmodule AWS.Chime do
   @doc """
   Deletes the events configuration that allows a bot to receive outgoing events.
   """
+  @spec delete_events_configuration(
+          map(),
+          String.t(),
+          String.t(),
+          delete_events_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -1952,6 +7112,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_media_capture_pipeline(
+          map(),
+          String.t(),
+          delete_media_capture_pipeline_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -1992,6 +7167,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_meeting(map(), String.t(), delete_meeting_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
@@ -2024,6 +7209,16 @@ defmodule AWS.Chime do
   ## Deletion queue
   for 7 days before they are deleted permanently.
   """
+  @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -2059,6 +7254,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_proxy_session(
+          map(),
+          String.t(),
+          String.t(),
+          delete_proxy_session_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -2090,6 +7301,16 @@ defmodule AWS.Chime do
   @doc """
   Deletes a chat room in an Amazon Chime Enterprise account.
   """
+  @spec delete_room(map(), String.t(), String.t(), delete_room_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_room(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -2115,6 +7336,23 @@ defmodule AWS.Chime do
   @doc """
   Removes a member from a chat room in an Amazon Chime Enterprise account.
   """
+  @spec delete_room_membership(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_room_membership_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_room_membership(
         %Client{} = client,
         account_id,
@@ -2158,6 +7396,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_sip_media_application(
+          map(),
+          String.t(),
+          delete_sip_media_application_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_sip_media_application(
         %Client{} = client,
         sip_media_application_id,
@@ -2199,6 +7453,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_sip_rule(map(), String.t(), delete_sip_rule_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
@@ -2237,6 +7502,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector(map(), String.t(), delete_voice_connector_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -2272,6 +7548,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_emergency_calling_configuration(
+          map(),
+          String.t(),
+          delete_voice_connector_emergency_calling_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -2318,6 +7609,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_group(
+          map(),
+          String.t(),
+          delete_voice_connector_group_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -2360,6 +7667,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_origination(
+          map(),
+          String.t(),
+          delete_voice_connector_origination_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_origination(
         %Client{} = client,
         voice_connector_id,
@@ -2399,6 +7721,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_proxy(
+          map(),
+          String.t(),
+          delete_voice_connector_proxy_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -2436,6 +7773,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_streaming_configuration(
+          map(),
+          String.t(),
+          delete_voice_connector_streaming_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -2480,6 +7832,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_termination(
+          map(),
+          String.t(),
+          delete_voice_connector_termination_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_termination(
         %Client{} = client,
         voice_connector_id,
@@ -2520,6 +7887,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec delete_voice_connector_termination_credentials(
+          map(),
+          String.t(),
+          delete_voice_connector_termination_credentials_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -2561,6 +7943,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_app_instance(map(), String.t(), list()) ::
+          {:ok, describe_app_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -2585,6 +7976,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_app_instance_admin(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_app_instance_admin_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -2616,6 +8016,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_app_instance_user(map(), String.t(), list()) ::
+          {:ok, describe_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -2645,6 +8054,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_channel(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_channel(%Client{} = client, channel_arn, chime_bearer \\ nil, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
     headers = []
@@ -2681,6 +8099,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_channel_ban(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_channel_ban_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_channel_ban(
         %Client{} = client,
         channel_arn,
@@ -2725,6 +8153,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_channel_membership(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_channel_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_channel_membership(
         %Client{} = client,
         channel_arn,
@@ -2770,6 +8208,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_channel_membership_for_app_instance_user(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -2820,6 +8273,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_channel_moderated_by_app_instance_user(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -2871,6 +8339,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec describe_channel_moderator(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_channel_moderator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def describe_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -2901,6 +8379,22 @@ defmodule AWS.Chime do
   Disassociates the primary provisioned phone number from the specified Amazon
   Chime user.
   """
+  @spec disassociate_phone_number_from_user(
+          map(),
+          String.t(),
+          String.t(),
+          disassociate_phone_number_from_user_request(),
+          list()
+        ) ::
+          {:ok, disassociate_phone_number_from_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def disassociate_phone_number_from_user(
         %Client{} = client,
         account_id,
@@ -2944,6 +8438,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec disassociate_phone_numbers_from_voice_connector(
+          map(),
+          String.t(),
+          disassociate_phone_numbers_from_voice_connector_request(),
+          list()
+        ) ::
+          {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
@@ -2986,6 +8495,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec disassociate_phone_numbers_from_voice_connector_group(
+          map(),
+          String.t(),
+          disassociate_phone_numbers_from_voice_connector_group_request(),
+          list()
+        ) ::
+          {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -3017,6 +8541,21 @@ defmodule AWS.Chime do
   Disassociates the specified sign-in delegate groups from the specified Amazon
   Chime account.
   """
+  @spec disassociate_signin_delegate_groups_from_account(
+          map(),
+          String.t(),
+          disassociate_signin_delegate_groups_from_account_request(),
+          list()
+        ) ::
+          {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def disassociate_signin_delegate_groups_from_account(
         %Client{} = client,
         account_id,
@@ -3049,6 +8588,16 @@ defmodule AWS.Chime do
   and supported
   licenses.
   """
+  @spec get_account(map(), String.t(), list()) ::
+          {:ok, get_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
@@ -3068,6 +8617,16 @@ defmodule AWS.Chime do
   [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the *Amazon
   Chime Administration Guide*.
   """
+  @spec get_account_settings(map(), String.t(), list()) ::
+          {:ok, get_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
@@ -3092,6 +8651,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_app_instance_retention_settings(map(), String.t(), list()) ::
+          {:ok, get_app_instance_retention_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
@@ -3116,6 +8685,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_app_instance_streaming_configurations(map(), String.t(), list()) ::
+          {:ok, get_app_instance_streaming_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -3150,6 +8729,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_attendee(map(), String.t(), String.t(), list()) ::
+          {:ok, get_attendee_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -3166,6 +8755,16 @@ defmodule AWS.Chime do
   Retrieves details for the specified bot, such as bot email address, bot type,
   status, and display name.
   """
+  @spec get_bot(map(), String.t(), String.t(), list()) ::
+          {:ok, get_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
@@ -3194,6 +8793,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_channel_message(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_channel_message(
         %Client{} = client,
         channel_arn,
@@ -3224,6 +8833,16 @@ defmodule AWS.Chime do
   Gets details for an events configuration that allows a bot to receive outgoing
   events, such as an HTTPS endpoint or Lambda function ARN.
   """
+  @spec get_events_configuration(map(), String.t(), String.t(), list()) ::
+          {:ok, get_events_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -3241,6 +8860,15 @@ defmodule AWS.Chime do
   Chime Business
   Calling and Amazon Chime Voice Connector settings.
   """
+  @spec get_global_settings(map(), list()) ::
+          {:ok, get_global_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
     headers = []
@@ -3265,6 +8893,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_media_capture_pipeline(map(), String.t(), list()) ::
+          {:ok, get_media_capture_pipeline_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
@@ -3296,6 +8934,16 @@ defmodule AWS.Chime do
   *Amazon Chime SDK Developer Guide*
   .
   """
+  @spec get_meeting(map(), String.t(), list()) ::
+          {:ok, get_meeting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
@@ -3320,6 +8968,14 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_messaging_session_endpoint(map(), list()) ::
+          {:ok, get_messaging_session_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
     headers = []
@@ -3334,6 +8990,16 @@ defmodule AWS.Chime do
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
   """
+  @spec get_phone_number(map(), String.t(), list()) ::
+          {:ok, get_phone_number_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -3349,6 +9015,16 @@ defmodule AWS.Chime do
   creation timestamp, phone
   numbers in E.164 format, product type, and order status.
   """
+  @spec get_phone_number_order(map(), String.t(), list()) ::
+          {:ok, get_phone_number_order_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
     headers = []
@@ -3363,6 +9039,15 @@ defmodule AWS.Chime do
   Retrieves the phone number settings for the administrator's AWS account, such as
   the default outbound calling name.
   """
+  @spec get_phone_number_settings(map(), list()) ::
+          {:ok, get_phone_number_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
     headers = []
@@ -3388,6 +9073,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_proxy_session(map(), String.t(), String.t(), list()) ::
+          {:ok, get_proxy_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
@@ -3408,6 +9103,16 @@ defmodule AWS.Chime do
   [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
   the *Amazon Chime Administration Guide*.
   """
+  @spec get_retention_settings(map(), String.t(), list()) ::
+          {:ok, get_retention_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
@@ -3422,6 +9127,16 @@ defmodule AWS.Chime do
   Retrieves room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
   """
+  @spec get_room(map(), String.t(), String.t(), list()) ::
+          {:ok, get_room_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -3449,6 +9164,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_sip_media_application(map(), String.t(), list()) ::
+          {:ok, get_sip_media_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
@@ -3473,6 +9198,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_sip_media_application_logging_configuration(map(), String.t(), list()) ::
+          {:ok, get_sip_media_application_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -3504,6 +9239,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_sip_rule(map(), String.t(), list()) ::
+          {:ok, get_sip_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
@@ -3521,6 +9266,16 @@ defmodule AWS.Chime do
   To retrieve user details with an email address instead of a user ID, use the
   `ListUsers` action, and then filter by email address.
   """
+  @spec get_user(map(), String.t(), String.t(), list()) ::
+          {:ok, get_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -3537,6 +9292,16 @@ defmodule AWS.Chime do
   Retrieves settings for the specified user ID, such as any associated phone
   number settings.
   """
+  @spec get_user_settings(map(), String.t(), String.t(), list()) ::
+          {:ok, get_user_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -3564,6 +9329,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -3589,6 +9364,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_emergency_calling_configuration(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -3621,6 +9406,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_group(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
@@ -3649,6 +9444,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_logging_configuration(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -3680,6 +9485,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_origination(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_origination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
@@ -3705,6 +9520,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_proxy(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_proxy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -3736,6 +9561,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_streaming_configuration(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_streaming_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -3767,6 +9602,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec get_voice_connector_termination(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_termination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
@@ -3794,6 +9639,16 @@ defmodule AWS.Chime do
   Retrieves information about the last time a SIP `OPTIONS` ping was received from
   your SIP infrastructure for the specified Amazon Chime Voice Connector.
   """
+  @spec get_voice_connector_termination_health(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_termination_health_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def get_voice_connector_termination_health(
         %Client{} = client,
         voice_connector_id,
@@ -3816,6 +9671,16 @@ defmodule AWS.Chime do
   Only `Team` account types are currently
   supported for this action.
   """
+  @spec invite_users(map(), String.t(), invite_users_request(), list()) ::
+          {:ok, invite_users_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def invite_users(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
     headers = []
@@ -3844,6 +9709,23 @@ defmodule AWS.Chime do
   to, you can
   filter by the user's email address, which returns one account result.
   """
+  @spec list_accounts(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_accounts(
         %Client{} = client,
         max_results \\ nil,
@@ -3903,6 +9785,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_app_instance_admins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_app_instance_admins_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_app_instance_admins(
         %Client{} = client,
         app_instance_arn,
@@ -3948,6 +9839,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_app_instance_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_app_instance_users_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_app_instance_users(
         %Client{} = client,
         app_instance_arn,
@@ -3999,6 +9899,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_app_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_app_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/app-instances"
     headers = []
@@ -4029,6 +9938,16 @@ defmodule AWS.Chime do
   ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace.
   Update your application to remove calls to this API.
   """
+  @spec list_attendee_tags(map(), String.t(), String.t(), list()) ::
+          {:ok, list_attendee_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags"
@@ -4060,6 +9979,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_attendees(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_attendees_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_attendees(
         %Client{} = client,
         meeting_id,
@@ -4094,6 +10023,16 @@ defmodule AWS.Chime do
   Lists the bots associated with the administrator's Amazon Chime Enterprise
   account ID.
   """
+  @spec list_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_bots_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_bots(
         %Client{} = client,
         account_id,
@@ -4142,6 +10081,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channel_bans(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channel_bans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channel_bans(
         %Client{} = client,
         channel_arn,
@@ -4199,6 +10154,23 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channel_memberships(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channel_memberships_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channel_memberships(
         %Client{} = client,
         channel_arn,
@@ -4267,6 +10239,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channel_memberships_for_app_instance_user(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
         app_instance_user_arn \\ nil,
@@ -4341,6 +10329,25 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channel_messages(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channel_messages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channel_messages(
         %Client{} = client,
         channel_arn,
@@ -4422,6 +10429,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channel_moderators(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channel_moderators_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channel_moderators(
         %Client{} = client,
         channel_arn,
@@ -4492,6 +10515,23 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channels(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channels_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channels(
         %Client{} = client,
         app_instance_arn,
@@ -4564,6 +10604,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_channels_moderated_by_app_instance_user(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
         app_instance_user_arn \\ nil,
@@ -4624,6 +10680,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_media_capture_pipelines_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_media_capture_pipelines(
         %Client{} = client,
         max_results \\ nil,
@@ -4667,6 +10732,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_meeting_tags(map(), String.t(), list()) ::
+          {:ok, list_meeting_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
     headers = []
@@ -4687,6 +10762,15 @@ defmodule AWS.Chime do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
   in the *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_meetings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_meetings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/meetings"
     headers = []
@@ -4714,6 +10798,15 @@ defmodule AWS.Chime do
   @doc """
   Lists the phone number orders for the administrator's Amazon Chime account.
   """
+  @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_phone_number_orders_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_phone_number_orders(
         %Client{} = client,
         max_results \\ nil,
@@ -4747,6 +10840,25 @@ defmodule AWS.Chime do
   Lists the phone numbers for the specified Amazon Chime account, Amazon Chime
   user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.
   """
+  @spec list_phone_numbers(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_phone_numbers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_phone_numbers(
         %Client{} = client,
         filter_name \\ nil,
@@ -4822,6 +10934,23 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_proxy_sessions(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_proxy_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_proxy_sessions(
         %Client{} = client,
         voice_connector_id,
@@ -4865,6 +10994,23 @@ defmodule AWS.Chime do
   Enterprise account,
   such as the members' IDs, email addresses, and names.
   """
+  @spec list_room_memberships(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_room_memberships_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_room_memberships(
         %Client{} = client,
         account_id,
@@ -4904,6 +11050,23 @@ defmodule AWS.Chime do
   Optionally, filter the results by a member ID (user ID or bot ID) to see a list
   of rooms that the member belongs to.
   """
+  @spec list_rooms(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_rooms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_rooms(
         %Client{} = client,
         account_id,
@@ -4956,6 +11119,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_sip_media_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sip_media_applications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_sip_media_applications(
         %Client{} = client,
         max_results \\ nil,
@@ -4999,6 +11171,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_sip_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sip_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_sip_rules(
         %Client{} = client,
         max_results \\ nil,
@@ -5039,6 +11220,16 @@ defmodule AWS.Chime do
   @doc """
   Lists supported phone number countries.
   """
+  @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
+          {:ok, list_supported_phone_number_countries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
     url_path = "/phone-number-countries"
     headers = []
@@ -5075,6 +11266,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
     headers = []
@@ -5098,6 +11298,24 @@ defmodule AWS.Chime do
   You can specify an email
   address to list only the user that the email address belongs to.
   """
+  @spec list_users(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_users_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_users(
         %Client{} = client,
         account_id,
@@ -5159,6 +11377,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_voice_connector_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_voice_connector_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_voice_connector_groups(
         %Client{} = client,
         max_results \\ nil,
@@ -5202,6 +11429,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_voice_connector_termination_credentials(map(), String.t(), list()) ::
+          {:ok, list_voice_connector_termination_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -5232,6 +11469,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec list_voice_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_voice_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def list_voice_connectors(
         %Client{} = client,
         max_results \\ nil,
@@ -5265,6 +11511,16 @@ defmodule AWS.Chime do
   Logs out the specified user from all of the devices they are currently logged
   into.
   """
+  @spec logout_user(map(), String.t(), String.t(), logout_user_request(), list()) ::
+          {:ok, logout_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def logout_user(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=logout"
@@ -5301,6 +11557,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_app_instance_retention_settings(
+          map(),
+          String.t(),
+          put_app_instance_retention_settings_request(),
+          list()
+        ) ::
+          {:ok, put_app_instance_retention_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_app_instance_retention_settings(
         %Client{} = client,
         app_instance_arn,
@@ -5330,6 +11602,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_app_instance_streaming_configurations(
+          map(),
+          String.t(),
+          put_app_instance_streaming_configurations_request(),
+          list()
+        ) ::
+          {:ok, put_app_instance_streaming_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -5353,6 +11640,22 @@ defmodule AWS.Chime do
   Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
   see `Bot`.
   """
+  @spec put_events_configuration(
+          map(),
+          String.t(),
+          String.t(),
+          put_events_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_events_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -5383,6 +11686,17 @@ defmodule AWS.Chime do
   [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html)
   in the *Amazon Chime Administration Guide*.
   """
+  @spec put_retention_settings(map(), String.t(), put_retention_settings_request(), list()) ::
+          {:ok, put_retention_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
@@ -5407,6 +11721,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_sip_media_application_logging_configuration(
+          map(),
+          String.t(),
+          put_sip_media_application_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_sip_media_application_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -5442,6 +11771,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_emergency_calling_configuration(
+          map(),
+          String.t(),
+          put_voice_connector_emergency_calling_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5477,6 +11821,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_logging_configuration(
+          map(),
+          String.t(),
+          put_voice_connector_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_voice_connector_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5511,6 +11870,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_origination(
+          map(),
+          String.t(),
+          put_voice_connector_origination_request(),
+          list()
+        ) ::
+          {:ok, put_voice_connector_origination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_origination(
         %Client{} = client,
         voice_connector_id,
@@ -5541,6 +11915,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_proxy(map(), String.t(), put_voice_connector_proxy_request(), list()) ::
+          {:ok, put_voice_connector_proxy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -5572,6 +11957,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_streaming_configuration(
+          map(),
+          String.t(),
+          put_voice_connector_streaming_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_voice_connector_streaming_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5606,6 +12006,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_termination(
+          map(),
+          String.t(),
+          put_voice_connector_termination_request(),
+          list()
+        ) ::
+          {:ok, put_voice_connector_termination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_termination(
         %Client{} = client,
         voice_connector_id,
@@ -5635,6 +12051,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec put_voice_connector_termination_credentials(
+          map(),
+          String.t(),
+          put_voice_connector_termination_credentials_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def put_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -5683,6 +12114,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec redact_channel_message(
+          map(),
+          String.t(),
+          String.t(),
+          redact_channel_message_request(),
+          list()
+        ) ::
+          {:ok, redact_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
@@ -5713,6 +12159,23 @@ defmodule AWS.Chime do
   @doc """
   Redacts the specified message from the specified Amazon Chime conversation.
   """
+  @spec redact_conversation_message(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          redact_conversation_message_request(),
+          list()
+        ) ::
+          {:ok, redact_conversation_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def redact_conversation_message(
         %Client{} = client,
         account_id,
@@ -5745,6 +12208,23 @@ defmodule AWS.Chime do
   @doc """
   Redacts the specified message from the specified Amazon Chime channel.
   """
+  @spec redact_room_message(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          redact_room_message_request(),
+          list()
+        ) ::
+          {:ok, redact_room_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def redact_room_message(
         %Client{} = client,
         account_id,
@@ -5777,6 +12257,22 @@ defmodule AWS.Chime do
   @doc """
   Regenerates the security token for a bot.
   """
+  @spec regenerate_security_token(
+          map(),
+          String.t(),
+          String.t(),
+          regenerate_security_token_request(),
+          list()
+        ) ::
+          {:ok, regenerate_security_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def regenerate_security_token(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}?operation=regenerate-security-token"
@@ -5806,6 +12302,16 @@ defmodule AWS.Chime do
   Returns
   the `User` object with the updated personal meeting PIN.
   """
+  @spec reset_personal_pin(map(), String.t(), String.t(), reset_personal_pin_request(), list()) ::
+          {:ok, reset_personal_pin_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def reset_personal_pin(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=reset-personal-pin"
@@ -5832,6 +12338,17 @@ defmodule AWS.Chime do
   Moves a phone number from the **Deletion queue** back into the
   phone number **Inventory**.
   """
+  @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
+          {:ok, restore_phone_number_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
     headers = []
@@ -5861,6 +12378,27 @@ defmodule AWS.Chime do
   `City`, you must also provide `State`. Numbers outside the US only
   support the `PhoneNumberType` filter, which you must use.
   """
+  @spec search_available_phone_numbers(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, search_available_phone_numbers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def search_available_phone_numbers(
         %Client{} = client,
         area_code \\ nil,
@@ -5959,6 +12497,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec send_channel_message(map(), String.t(), send_channel_message_request(), list()) ::
+          {:ok, send_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
@@ -6017,6 +12565,23 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec start_meeting_transcription(
+          map(),
+          String.t(),
+          start_meeting_transcription_request(),
+          list()
+        ) ::
+          {:ok, start_meeting_transcription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
+          | {:error, unprocessable_entity_exception()}
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
     headers = []
@@ -6051,6 +12616,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec stop_meeting_transcription(
+          map(),
+          String.t(),
+          stop_meeting_transcription_request(),
+          list()
+        ) ::
+          {:ok, stop_meeting_transcription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
+          | {:error, unprocessable_entity_exception()}
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
     headers = []
@@ -6077,6 +12658,17 @@ defmodule AWS.Chime do
   TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update
   your application to remove calls to this API.
   """
+  @spec tag_attendee(map(), String.t(), String.t(), tag_attendee_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def tag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=add"
@@ -6113,6 +12705,17 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec tag_meeting(map(), String.t(), tag_meeting_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
     headers = []
@@ -6147,6 +12750,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, unauthorized_client_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
@@ -6173,6 +12785,16 @@ defmodule AWS.Chime do
   UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace.
   Update your application to remove calls to this API.
   """
+  @spec untag_attendee(map(), String.t(), String.t(), untag_attendee_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def untag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=delete"
@@ -6209,6 +12831,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec untag_meeting(map(), String.t(), untag_meeting_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
     headers = []
@@ -6245,6 +12877,15 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, unauthorized_client_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
@@ -6271,6 +12912,16 @@ defmodule AWS.Chime do
   Currently, only account name and default license updates are supported for this
   action.
   """
+  @spec update_account(map(), String.t(), update_account_request(), list()) ::
+          {:ok, update_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
@@ -6301,6 +12952,17 @@ defmodule AWS.Chime do
   the *Amazon Chime Administration
   Guide*.
   """
+  @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
+          {:ok, update_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
@@ -6325,6 +12987,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_app_instance(map(), String.t(), update_app_instance_request(), list()) ::
+          {:ok, update_app_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
@@ -6351,6 +13023,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_app_instance_user(map(), String.t(), update_app_instance_user_request(), list()) ::
+          {:ok, update_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
@@ -6365,6 +13047,16 @@ defmodule AWS.Chime do
   Updates the status of the specified bot, such as starting or stopping the bot
   from running in your Amazon Chime Enterprise account.
   """
+  @spec update_bot(map(), String.t(), String.t(), update_bot_request(), list()) ::
+          {:ok, update_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
@@ -6405,6 +13097,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+          {:ok, update_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -6439,6 +13141,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_channel_message(
+          map(),
+          String.t(),
+          String.t(),
+          update_channel_message_request(),
+          list()
+        ) ::
+          {:ok, update_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -6474,6 +13192,21 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_channel_read_marker(
+          map(),
+          String.t(),
+          update_channel_read_marker_request(),
+          list()
+        ) ::
+          {:ok, update_channel_read_marker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
@@ -6494,6 +13227,15 @@ defmodule AWS.Chime do
   Updates global settings for the administrator's AWS account, such as Amazon
   Chime Business Calling and Amazon Chime Voice Connector settings.
   """
+  @spec update_global_settings(map(), update_global_settings_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
     headers = []
@@ -6519,6 +13261,17 @@ defmodule AWS.Chime do
   to outbound calling names must be complete before you can request another
   update.
   """
+  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+          {:ok, update_phone_number_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
@@ -6547,6 +13300,15 @@ defmodule AWS.Chime do
   You can update the default outbound calling name once every seven
   days. Outbound calling names can take up to 72 hours to update.
   """
+  @spec update_phone_number_settings(map(), update_phone_number_settings_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_phone_number_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings/phone-number"
     headers = []
@@ -6571,6 +13333,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_proxy_session(
+          map(),
+          String.t(),
+          String.t(),
+          update_proxy_session_request(),
+          list()
+        ) ::
+          {:ok, update_proxy_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_proxy_session(
         %Client{} = client,
         proxy_session_id,
@@ -6603,6 +13381,16 @@ defmodule AWS.Chime do
   Updates room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
   """
+  @spec update_room(map(), String.t(), String.t(), update_room_request(), list()) ::
+          {:ok, update_room_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_room(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -6635,6 +13423,23 @@ defmodule AWS.Chime do
   for
   user IDs.
   """
+  @spec update_room_membership(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_room_membership_request(),
+          list()
+        ) ::
+          {:ok, update_room_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_room_membership(
         %Client{} = client,
         account_id,
@@ -6678,6 +13483,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_sip_media_application(
+          map(),
+          String.t(),
+          update_sip_media_application_request(),
+          list()
+        ) ::
+          {:ok, update_sip_media_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_sip_media_application(
         %Client{} = client,
         sip_media_application_id,
@@ -6710,6 +13531,23 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_sip_media_application_call(
+          map(),
+          String.t(),
+          String.t(),
+          update_sip_media_application_call_request(),
+          list()
+        ) ::
+          {:ok, update_sip_media_application_call_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
@@ -6752,6 +13590,18 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_sip_rule(map(), String.t(), update_sip_rule_request(), list()) ::
+          {:ok, update_sip_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, resource_limit_exceeded_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
@@ -6767,6 +13617,16 @@ defmodule AWS.Chime do
 
   Currently, only `LicenseType` updates are supported for this action.
   """
+  @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
+          {:ok, update_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_user(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -6792,6 +13652,22 @@ defmodule AWS.Chime do
   @doc """
   Updates the settings for the specified user, such as phone number settings.
   """
+  @spec update_user_settings(
+          map(),
+          String.t(),
+          String.t(),
+          update_user_settings_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_user_settings(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -6818,6 +13694,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_voice_connector(map(), String.t(), update_voice_connector_request(), list()) ::
+          {:ok, update_voice_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
@@ -6844,6 +13730,22 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec update_voice_connector_group(
+          map(),
+          String.t(),
+          update_voice_connector_group_request(),
+          list()
+        ) ::
+          {:ok, update_voice_connector_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, conflict_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def update_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
@@ -6880,6 +13782,16 @@ defmodule AWS.Chime do
   in the
   *Amazon Chime SDK Developer Guide*.
   """
+  @spec validate_e911_address(map(), validate_e911_address_request(), list()) ::
+          {:ok, validate_e911_address_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, bad_request_exception()}
+          | {:error, forbidden_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_failure_exception()}
+          | {:error, service_unavailable_exception()}
+          | {:error, throttled_client_exception()}
+          | {:error, unauthorized_client_exception()}
   def validate_e911_address(%Client{} = client, input, options \\ []) do
     url_path = "/emergency-calling/address"
     headers = []

@@ -41,6 +41,1711 @@ defmodule AWS.SFN do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  state_machine_version_list_item() :: %{
+    "creationDate" => non_neg_integer(),
+    "stateMachineVersionArn" => String.t()
+  }
+  """
+  @type state_machine_version_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_state_machine_for_execution_input() :: %{
+    required("executionArn") => String.t()
+  }
+  """
+  @type describe_state_machine_for_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_executions_output() :: %{
+    "executions" => list(execution_list_item()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_executions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found() :: %{
+    "message" => String.t(),
+    "resourceName" => String.t()
+  }
+  """
+  @type resource_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_type_not_supported() :: %{
+    "message" => String.t()
+  }
+  """
+  @type state_machine_type_not_supported() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_does_not_exist() :: %{
+    "message" => String.t()
+  }
+  """
+  @type execution_does_not_exist() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_state_machine_aliases_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type list_state_machine_aliases_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_succeeded_event_details() :: %{
+    "output" => String.t(),
+    "outputDetails" => history_event_execution_data_details()
+  }
+  """
+  @type execution_succeeded_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  missing_required_parameter() :: %{
+    "message" => String.t()
+  }
+  """
+  @type missing_required_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_alias_list_item() :: %{
+    "creationDate" => non_neg_integer(),
+    "stateMachineAliasArn" => String.t()
+  }
+  """
+  @type state_machine_alias_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cloud_watch_events_execution_data_details() :: %{
+    "included" => boolean()
+  }
+  """
+  @type cloud_watch_events_execution_data_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_execution_input() :: %{
+    required("executionArn") => String.t()
+  }
+  """
+  @type describe_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_execution_output() :: %{
+    "cause" => String.t(),
+    "error" => String.t(),
+    "executionArn" => String.t(),
+    "input" => String.t(),
+    "inputDetails" => cloud_watch_events_execution_data_details(),
+    "mapRunArn" => String.t(),
+    "name" => String.t(),
+    "output" => String.t(),
+    "outputDetails" => cloud_watch_events_execution_data_details(),
+    "redriveCount" => integer(),
+    "redriveDate" => non_neg_integer(),
+    "redriveStatus" => list(any()),
+    "redriveStatusReason" => String.t(),
+    "startDate" => non_neg_integer(),
+    "stateMachineAliasArn" => String.t(),
+    "stateMachineArn" => String.t(),
+    "stateMachineVersionArn" => String.t(),
+    "status" => list(any()),
+    "stopDate" => non_neg_integer(),
+    "traceHeader" => String.t()
+  }
+  """
+  @type describe_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_state_machine_alias_output() :: %{
+    "updateDate" => non_neg_integer()
+  }
+  """
+  @type update_state_machine_alias_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_state_machine_output() :: %{
+
+  }
+  """
+  @type delete_state_machine_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_run_item_counts() :: %{
+    "aborted" => float(),
+    "failed" => float(),
+    "failuresNotRedrivable" => float(),
+    "pending" => float(),
+    "pendingRedrive" => float(),
+    "resultsWritten" => float(),
+    "running" => float(),
+    "succeeded" => float(),
+    "timedOut" => float(),
+    "total" => float()
+  }
+  """
+  @type map_run_item_counts() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_state_machine_version_output() :: %{
+
+  }
+  """
+  @type delete_state_machine_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_state_machine_aliases_output() :: %{
+    "nextToken" => String.t(),
+    "stateMachineAliases" => list(state_machine_alias_list_item()())
+  }
+  """
+  @type list_state_machine_aliases_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t(),
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_state_machine_input() :: %{
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type describe_state_machine_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_state_machine_alias_input() :: %{
+    required("stateMachineAliasArn") => String.t()
+  }
+  """
+  @type describe_state_machine_alias_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_execution_output() :: %{
+    "executionArn" => String.t(),
+    "startDate" => non_neg_integer()
+  }
+  """
+  @type start_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_run_started_event_details() :: %{
+    "mapRunArn" => String.t()
+  }
+  """
+  @type map_run_started_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_tracing_configuration() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_tracing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_state_machines_output() :: %{
+    "nextToken" => String.t(),
+    "stateMachines" => list(state_machine_list_item()())
+  }
+  """
+  @type list_state_machines_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_state_machine_alias_input() :: %{
+    optional("description") => String.t(),
+    required("name") => String.t(),
+    required("routingConfiguration") => list(routing_configuration_list_item()())
+  }
+  """
+  @type create_state_machine_alias_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_output() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_run_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type map_run_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_task_failure_output() :: %{
+
+  }
+  """
+  @type send_task_failure_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_schedule_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type activity_schedule_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_entered_event_details() :: %{
+    "input" => String.t(),
+    "inputDetails" => history_event_execution_data_details(),
+    "name" => String.t()
+  }
+  """
+  @type state_entered_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_token() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_token() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_activity_input() :: %{
+    required("activityArn") => String.t()
+  }
+  """
+  @type delete_activity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_state_machine_alias_input() :: %{
+    required("stateMachineAliasArn") => String.t()
+  }
+  """
+  @type delete_state_machine_alias_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_list_item() :: %{
+    "creationDate" => non_neg_integer(),
+    "name" => String.t(),
+    "stateMachineArn" => String.t(),
+    "type" => list(any())
+  }
+  """
+  @type state_machine_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_state_machine_output() :: %{
+    "creationDate" => non_neg_integer(),
+    "stateMachineArn" => String.t(),
+    "stateMachineVersionArn" => String.t()
+  }
+  """
+  @type create_state_machine_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_aborted_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type execution_aborted_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_redriven_event_details() :: %{
+    "redriveCount" => integer()
+  }
+  """
+  @type execution_redriven_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_start_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type lambda_function_start_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type lambda_function_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_state_machine_alias_output() :: %{
+    "creationDate" => non_neg_integer(),
+    "description" => String.t(),
+    "name" => String.t(),
+    "routingConfiguration" => list(routing_configuration_list_item()()),
+    "stateMachineAliasArn" => String.t(),
+    "updateDate" => non_neg_integer()
+  }
+  """
+  @type describe_state_machine_alias_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redrive_execution_output() :: %{
+    "redriveDate" => non_neg_integer()
+  }
+  """
+  @type redrive_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_output() :: %{
+    "tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_sync_execution_output() :: %{
+    "billingDetails" => billing_details(),
+    "cause" => String.t(),
+    "error" => String.t(),
+    "executionArn" => String.t(),
+    "input" => String.t(),
+    "inputDetails" => cloud_watch_events_execution_data_details(),
+    "name" => String.t(),
+    "output" => String.t(),
+    "outputDetails" => cloud_watch_events_execution_data_details(),
+    "startDate" => non_neg_integer(),
+    "stateMachineArn" => String.t(),
+    "status" => list(any()),
+    "stopDate" => non_neg_integer(),
+    "traceHeader" => String.t()
+  }
+  """
+  @type start_sync_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_task_failure_input() :: %{
+    optional("cause") => String.t(),
+    optional("error") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type send_task_failure_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logging_configuration() :: %{
+    "destinations" => list(log_destination()()),
+    "includeExecutionData" => boolean(),
+    "level" => list(any())
+  }
+  """
+  @type logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_activity_task_output() :: %{
+    "input" => String.t(),
+    "taskToken" => String.t()
+  }
+  """
+  @type get_activity_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_activity_output() :: %{
+    "activityArn" => String.t(),
+    "creationDate" => non_neg_integer(),
+    "name" => String.t()
+  }
+  """
+  @type describe_activity_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_timed_out_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t(),
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_timed_out_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  history_event_execution_data_details() :: %{
+    "truncated" => boolean()
+  }
+  """
+  @type history_event_execution_data_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_map_run_output() :: %{
+
+  }
+  """
+  @type update_map_run_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_started_event_details() :: %{
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_started_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_activity_output() :: %{
+
+  }
+  """
+  @type delete_activity_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  redrive_execution_input() :: %{
+    optional("clientToken") => String.t(),
+    required("executionArn") => String.t()
+  }
+  """
+  @type redrive_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_execution_history_input() :: %{
+    optional("includeExecutionData") => boolean(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    required("executionArn") => String.t()
+  }
+  """
+  @type get_execution_history_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_state_machine_for_execution_output() :: %{
+    "definition" => String.t(),
+    "label" => String.t(),
+    "loggingConfiguration" => logging_configuration(),
+    "mapRunArn" => String.t(),
+    "name" => String.t(),
+    "revisionId" => String.t(),
+    "roleArn" => String.t(),
+    "stateMachineArn" => String.t(),
+    "tracingConfiguration" => tracing_configuration(),
+    "updateDate" => non_neg_integer()
+  }
+  """
+  @type describe_state_machine_for_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_execution_history_output() :: %{
+    "events" => list(history_event()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_execution_history_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_state_machines_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_state_machines_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inspection_data_request() :: %{
+    "body" => String.t(),
+    "headers" => String.t(),
+    "method" => String.t(),
+    "protocol" => String.t(),
+    "url" => String.t()
+  }
+  """
+  @type inspection_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_already_exists() :: %{
+    "message" => String.t()
+  }
+  """
+  @type state_machine_already_exists() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_not_redrivable() :: %{
+    "message" => String.t()
+  }
+  """
+  @type execution_not_redrivable() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_task_success_output() :: %{
+
+  }
+  """
+  @type send_task_success_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_succeeded_event_details() :: %{
+    "output" => String.t(),
+    "outputDetails" => history_event_execution_data_details()
+  }
+  """
+  @type activity_succeeded_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_timed_out() :: %{
+    "message" => String.t()
+  }
+  """
+  @type task_timed_out() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_task_heartbeat_input() :: %{
+    required("taskToken") => String.t()
+  }
+  """
+  @type send_task_heartbeat_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_succeeded_event_details() :: %{
+    "output" => String.t(),
+    "outputDetails" => history_event_execution_data_details(),
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_succeeded_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inspection_data() :: %{
+    "afterInputPath" => String.t(),
+    "afterParameters" => String.t(),
+    "afterResultPath" => String.t(),
+    "afterResultSelector" => String.t(),
+    "input" => String.t(),
+    "request" => inspection_data_request(),
+    "response" => inspection_data_response(),
+    "result" => String.t()
+  }
+  """
+  @type inspection_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_state_machine_version_input() :: %{
+    optional("description") => String.t(),
+    optional("revisionId") => String.t(),
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type publish_state_machine_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_schedule_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type lambda_function_schedule_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  log_destination() :: %{
+    "cloudWatchLogsLogGroup" => cloud_watch_logs_log_group()
+  }
+  """
+  @type log_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_limit_exceeded() :: %{
+    "message" => String.t()
+  }
+  """
+  @type execution_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_activity_task_input() :: %{
+    optional("workerName") => String.t(),
+    required("activityArn") => String.t()
+  }
+  """
+  @type get_activity_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_exited_event_details() :: %{
+    "name" => String.t(),
+    "output" => String.t(),
+    "outputDetails" => history_event_execution_data_details()
+  }
+  """
+  @type state_exited_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_state_machine_input() :: %{
+    optional("loggingConfiguration") => logging_configuration(),
+    optional("publish") => boolean(),
+    optional("tags") => list(tag()()),
+    optional("tracingConfiguration") => tracing_configuration(),
+    optional("type") => list(any()),
+    optional("versionDescription") => String.t(),
+    required("definition") => String.t(),
+    required("name") => String.t(),
+    required("roleArn") => String.t()
+  }
+  """
+  @type create_state_machine_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cloud_watch_logs_log_group() :: %{
+    "logGroupArn" => String.t()
+  }
+  """
+  @type cloud_watch_logs_log_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_state_machine_alias_output() :: %{
+
+  }
+  """
+  @type delete_state_machine_alias_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type activity_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_activity_input() :: %{
+    optional("tags") => list(tag()()),
+    required("name") => String.t()
+  }
+  """
+  @type create_activity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_succeeded_event_details() :: %{
+    "output" => String.t(),
+    "outputDetails" => history_event_execution_data_details()
+  }
+  """
+  @type lambda_function_succeeded_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type execution_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_timed_out_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type lambda_function_timed_out_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_scheduled_event_details() :: %{
+    "input" => String.t(),
+    "inputDetails" => history_event_execution_data_details(),
+    "resource" => String.t(),
+    "taskCredentials" => task_credentials(),
+    "timeoutInSeconds" => float()
+  }
+  """
+  @type lambda_function_scheduled_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_submit_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t(),
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_submit_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_input() :: %{
+    required("resourceArn") => String.t(),
+    required("tags") => list(tag()())
+  }
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_state_machine_output() :: %{
+    "revisionId" => String.t(),
+    "stateMachineVersionArn" => String.t(),
+    "updateDate" => non_neg_integer()
+  }
+  """
+  @type update_state_machine_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_activity_input() :: %{
+    required("activityArn") => String.t()
+  }
+  """
+  @type describe_activity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tracing_configuration() :: %{
+    "enabled" => boolean()
+  }
+  """
+  @type tracing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_execution_output() :: %{
+    "stopDate" => non_neg_integer()
+  }
+  """
+  @type stop_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_worker_limit_exceeded() :: %{
+    "message" => String.t()
+  }
+  """
+  @type activity_worker_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_timed_out_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type execution_timed_out_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  billing_details() :: %{
+    "billedDurationInMilliseconds" => float(),
+    "billedMemoryUsedInMB" => float()
+  }
+  """
+  @type billing_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_started_event_details() :: %{
+    "input" => String.t(),
+    "inputDetails" => history_event_execution_data_details(),
+    "roleArn" => String.t(),
+    "stateMachineAliasArn" => String.t(),
+    "stateMachineVersionArn" => String.t()
+  }
+  """
+  @type execution_started_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_output() :: %{
+
+  }
+  """
+  @type tag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  history_event() :: %{
+    "executionRedrivenEventDetails" => execution_redriven_event_details(),
+    "mapIterationFailedEventDetails" => map_iteration_event_details(),
+    "mapRunRedrivenEventDetails" => map_run_redriven_event_details(),
+    "taskSucceededEventDetails" => task_succeeded_event_details(),
+    "id" => float(),
+    "lambdaFunctionScheduleFailedEventDetails" => lambda_function_schedule_failed_event_details(),
+    "taskFailedEventDetails" => task_failed_event_details(),
+    "stateExitedEventDetails" => state_exited_event_details(),
+    "timestamp" => non_neg_integer(),
+    "executionFailedEventDetails" => execution_failed_event_details(),
+    "lambdaFunctionTimedOutEventDetails" => lambda_function_timed_out_event_details(),
+    "taskScheduledEventDetails" => task_scheduled_event_details(),
+    "mapIterationAbortedEventDetails" => map_iteration_event_details(),
+    "mapRunFailedEventDetails" => map_run_failed_event_details(),
+    "taskStartFailedEventDetails" => task_start_failed_event_details(),
+    "lambdaFunctionSucceededEventDetails" => lambda_function_succeeded_event_details(),
+    "taskStartedEventDetails" => task_started_event_details(),
+    "activitySucceededEventDetails" => activity_succeeded_event_details(),
+    "mapRunStartedEventDetails" => map_run_started_event_details(),
+    "taskTimedOutEventDetails" => task_timed_out_event_details(),
+    "type" => list(any()),
+    "activityTimedOutEventDetails" => activity_timed_out_event_details(),
+    "activityScheduleFailedEventDetails" => activity_schedule_failed_event_details(),
+    "executionAbortedEventDetails" => execution_aborted_event_details(),
+    "activityFailedEventDetails" => activity_failed_event_details(),
+    "stateEnteredEventDetails" => state_entered_event_details(),
+    "mapIterationSucceededEventDetails" => map_iteration_event_details(),
+    "activityStartedEventDetails" => activity_started_event_details(),
+    "activityScheduledEventDetails" => activity_scheduled_event_details(),
+    "executionTimedOutEventDetails" => execution_timed_out_event_details(),
+    "taskSubmittedEventDetails" => task_submitted_event_details(),
+    "mapIterationStartedEventDetails" => map_iteration_event_details(),
+    "lambdaFunctionScheduledEventDetails" => lambda_function_scheduled_event_details(),
+    "executionSucceededEventDetails" => execution_succeeded_event_details(),
+    "previousEventId" => float(),
+    "lambdaFunctionStartFailedEventDetails" => lambda_function_start_failed_event_details(),
+    "executionStartedEventDetails" => execution_started_event_details(),
+    "lambdaFunctionFailedEventDetails" => lambda_function_failed_event_details(),
+    "mapStateStartedEventDetails" => map_state_started_event_details(),
+    "taskSubmitFailedEventDetails" => task_submit_failed_event_details()
+  }
+  """
+  @type history_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_limit_exceeded() :: %{
+    "message" => String.t()
+  }
+  """
+  @type state_machine_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_iteration_event_details() :: %{
+    "index" => integer(),
+    "name" => String.t()
+  }
+  """
+  @type map_iteration_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_state_machine_alias_input() :: %{
+    optional("description") => String.t(),
+    optional("routingConfiguration") => list(routing_configuration_list_item()()),
+    required("stateMachineAliasArn") => String.t()
+  }
+  """
+  @type update_state_machine_alias_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_start_failed_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t(),
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_start_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_run_execution_counts() :: %{
+    "aborted" => float(),
+    "failed" => float(),
+    "failuresNotRedrivable" => float(),
+    "pending" => float(),
+    "pendingRedrive" => float(),
+    "resultsWritten" => float(),
+    "running" => float(),
+    "succeeded" => float(),
+    "timedOut" => float(),
+    "total" => float()
+  }
+  """
+  @type map_run_execution_counts() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_state_machine_input() :: %{
+    optional("definition") => String.t(),
+    optional("loggingConfiguration") => logging_configuration(),
+    optional("publish") => boolean(),
+    optional("roleArn") => String.t(),
+    optional("tracingConfiguration") => tracing_configuration(),
+    optional("versionDescription") => String.t(),
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type update_state_machine_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_does_not_exist() :: %{
+    "message" => String.t()
+  }
+  """
+  @type state_machine_does_not_exist() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_state_started_event_details() :: %{
+    "length" => integer()
+  }
+  """
+  @type map_state_started_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_run_list_item() :: %{
+    "executionArn" => String.t(),
+    "mapRunArn" => String.t(),
+    "startDate" => non_neg_integer(),
+    "stateMachineArn" => String.t(),
+    "stopDate" => non_neg_integer()
+  }
+  """
+  @type map_run_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_list_item() :: %{
+    "activityArn" => String.t(),
+    "creationDate" => non_neg_integer(),
+    "name" => String.t()
+  }
+  """
+  @type activity_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_input() :: %{
+    required("resourceArn") => String.t(),
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_definition() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_state_machine_input() :: %{
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type delete_state_machine_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_map_runs_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("executionArn") => String.t()
+  }
+  """
+  @type list_map_runs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_does_not_exist() :: %{
+    "message" => String.t()
+  }
+  """
+  @type task_does_not_exist() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_already_exists() :: %{
+    "message" => String.t()
+  }
+  """
+  @type execution_already_exists() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_activity_output() :: %{
+    "activityArn" => String.t(),
+    "creationDate" => non_neg_integer()
+  }
+  """
+  @type create_activity_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_limit_exceeded() :: %{
+    "message" => String.t()
+  }
+  """
+  @type activity_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_name() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_name() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => String.t(),
+    "reason" => list(any())
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_input() :: %{
+    required("resourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_submitted_event_details() :: %{
+    "output" => String.t(),
+    "outputDetails" => history_event_execution_data_details(),
+    "resource" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type task_submitted_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_output() :: %{
+
+  }
+  """
+  @type untag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  map_run_redriven_event_details() :: %{
+    "mapRunArn" => String.t(),
+    "redriveCount" => integer()
+  }
+  """
+  @type map_run_redriven_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_state_output() :: %{
+    "cause" => String.t(),
+    "error" => String.t(),
+    "inspectionData" => inspection_data(),
+    "nextState" => String.t(),
+    "output" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type test_state_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_map_run_input() :: %{
+    optional("maxConcurrency") => integer(),
+    optional("toleratedFailureCount") => float(),
+    optional("toleratedFailurePercentage") => float(),
+    required("mapRunArn") => String.t()
+  }
+  """
+  @type update_map_run_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_sync_execution_input() :: %{
+    optional("input") => String.t(),
+    optional("name") => String.t(),
+    optional("traceHeader") => String.t(),
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type start_sync_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_task_success_input() :: %{
+    required("output") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type send_task_success_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  routing_configuration_list_item() :: %{
+    "stateMachineVersionArn" => String.t(),
+    "weight" => integer()
+  }
+  """
+  @type routing_configuration_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_list_item() :: %{
+    "executionArn" => String.t(),
+    "itemCount" => integer(),
+    "mapRunArn" => String.t(),
+    "name" => String.t(),
+    "redriveCount" => integer(),
+    "redriveDate" => non_neg_integer(),
+    "startDate" => non_neg_integer(),
+    "stateMachineAliasArn" => String.t(),
+    "stateMachineArn" => String.t(),
+    "stateMachineVersionArn" => String.t(),
+    "status" => list(any()),
+    "stopDate" => non_neg_integer()
+  }
+  """
+  @type execution_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_scheduled_event_details() :: %{
+    "heartbeatInSeconds" => float(),
+    "input" => String.t(),
+    "inputDetails" => history_event_execution_data_details(),
+    "resource" => String.t(),
+    "timeoutInSeconds" => float()
+  }
+  """
+  @type activity_scheduled_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_timed_out_event_details() :: %{
+    "cause" => String.t(),
+    "error" => String.t()
+  }
+  """
+  @type activity_timed_out_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_credentials() :: %{
+    "roleArn" => String.t()
+  }
+  """
+  @type task_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  send_task_heartbeat_output() :: %{
+
+  }
+  """
+  @type send_task_heartbeat_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_state_machine_alias_output() :: %{
+    "creationDate" => non_neg_integer(),
+    "stateMachineAliasArn" => String.t()
+  }
+  """
+  @type create_state_machine_alias_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_map_run_output() :: %{
+    "executionArn" => String.t(),
+    "executionCounts" => map_run_execution_counts(),
+    "itemCounts" => map_run_item_counts(),
+    "mapRunArn" => String.t(),
+    "maxConcurrency" => integer(),
+    "redriveCount" => integer(),
+    "redriveDate" => non_neg_integer(),
+    "startDate" => non_neg_integer(),
+    "status" => list(any()),
+    "stopDate" => non_neg_integer(),
+    "toleratedFailureCount" => float(),
+    "toleratedFailurePercentage" => float()
+  }
+  """
+  @type describe_map_run_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_state_input() :: %{
+    optional("input") => String.t(),
+    optional("inspectionLevel") => list(any()),
+    optional("revealSecrets") => boolean(),
+    required("definition") => String.t(),
+    required("roleArn") => String.t()
+  }
+  """
+  @type test_state_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_logging_configuration() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_state_machine_versions_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type list_state_machine_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  state_machine_deleting() :: %{
+    "message" => String.t()
+  }
+  """
+  @type state_machine_deleting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_activities_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_activities_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_state_machine_versions_output() :: %{
+    "nextToken" => String.t(),
+    "stateMachineVersions" => list(state_machine_version_list_item()())
+  }
+  """
+  @type list_state_machine_versions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_does_not_exist() :: %{
+    "message" => String.t()
+  }
+  """
+  @type activity_does_not_exist() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_state_machine_version_input() :: %{
+    required("stateMachineVersionArn") => String.t()
+  }
+  """
+  @type delete_state_machine_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_activities_output() :: %{
+    "activities" => list(activity_list_item()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_activities_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tags() :: %{
+    "message" => String.t(),
+    "resourceName" => String.t()
+  }
+  """
+  @type too_many_tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_started_event_details() :: %{
+    "workerName" => String.t()
+  }
+  """
+  @type activity_started_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_map_runs_output() :: %{
+    "mapRuns" => list(map_run_list_item()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_map_runs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_executions_input() :: %{
+    optional("mapRunArn") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("redriveFilter") => list(any()),
+    optional("stateMachineArn") => String.t(),
+    optional("statusFilter") => list(any())
+  }
+  """
+  @type list_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  inspection_data_response() :: %{
+    "body" => String.t(),
+    "headers" => String.t(),
+    "protocol" => String.t(),
+    "statusCode" => String.t(),
+    "statusMessage" => String.t()
+  }
+  """
+  @type inspection_data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_execution_input() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_scheduled_event_details() :: %{
+    "heartbeatInSeconds" => float(),
+    "parameters" => String.t(),
+    "region" => String.t(),
+    "resource" => String.t(),
+    "resourceType" => String.t(),
+    "taskCredentials" => task_credentials(),
+    "timeoutInSeconds" => float()
+  }
+  """
+  @type task_scheduled_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_state_machine_version_output() :: %{
+    "creationDate" => non_neg_integer(),
+    "stateMachineVersionArn" => String.t()
+  }
+  """
+  @type publish_state_machine_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_execution_input() :: %{
+    optional("input") => String.t(),
+    optional("name") => String.t(),
+    optional("traceHeader") => String.t(),
+    required("stateMachineArn") => String.t()
+  }
+  """
+  @type start_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_map_run_input() :: %{
+    required("mapRunArn") => String.t()
+  }
+  """
+  @type describe_map_run_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_arn() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_arn() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_execution_input() :: %{
+    optional("cause") => String.t(),
+    optional("error") => String.t(),
+    required("executionArn") => String.t()
+  }
+  """
+  @type stop_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_state_machine_output() :: %{
+    "creationDate" => non_neg_integer(),
+    "definition" => String.t(),
+    "description" => String.t(),
+    "label" => String.t(),
+    "loggingConfiguration" => logging_configuration(),
+    "name" => String.t(),
+    "revisionId" => String.t(),
+    "roleArn" => String.t(),
+    "stateMachineArn" => String.t(),
+    "status" => list(any()),
+    "tracingConfiguration" => tracing_configuration(),
+    "type" => list(any())
+  }
+  """
+  @type describe_state_machine_output() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2016-11-23",
@@ -77,6 +1782,12 @@ defmodule AWS.SFN do
   idempotent request of the previous. In this case, `tags` will not be updated,
   even if they are different.
   """
+  @spec create_activity(map(), create_activity_input(), list()) ::
+          {:ok, create_activity_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, activity_limit_exceeded()}
+          | {:error, invalid_name()}
+          | {:error, too_many_tags()}
   def create_activity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -110,6 +1821,21 @@ defmodule AWS.SFN do
   it as an idempotent request of the previous. In this case, `roleArn` and
   `tags` will not be updated, even if they are different.
   """
+  @spec create_state_machine(map(), create_state_machine_input(), list()) ::
+          {:ok, create_state_machine_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, invalid_definition()}
+          | {:error, invalid_logging_configuration()}
+          | {:error, invalid_name()}
+          | {:error, invalid_tracing_configuration()}
+          | {:error, state_machine_already_exists()}
+          | {:error, state_machine_deleting()}
+          | {:error, state_machine_limit_exceeded()}
+          | {:error, state_machine_type_not_supported()}
+          | {:error, too_many_tags()}
+          | {:error, validation_exception()}
   def create_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -166,6 +1892,16 @@ defmodule AWS.SFN do
 
   `DeleteStateMachineAlias`
   """
+  @spec create_state_machine_alias(map(), create_state_machine_alias_input(), list()) ::
+          {:ok, create_state_machine_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, invalid_name()}
+          | {:error, resource_not_found()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, state_machine_deleting()}
+          | {:error, validation_exception()}
   def create_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -175,6 +1911,10 @@ defmodule AWS.SFN do
   @doc """
   Deletes an activity.
   """
+  @spec delete_activity(map(), delete_activity_input(), list()) ::
+          {:ok, delete_activity_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
   def delete_activity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -218,6 +1958,11 @@ defmodule AWS.SFN do
   less than a minute). Running executions may emit logs after `DeleteStateMachine`
   API is called.
   """
+  @spec delete_state_machine(map(), delete_state_machine_input(), list()) ::
+          {:ok, delete_state_machine_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, validation_exception()}
   def delete_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -252,6 +1997,13 @@ defmodule AWS.SFN do
 
   `UpdateStateMachineAlias`
   """
+  @spec delete_state_machine_alias(map(), delete_state_machine_alias_input(), list()) ::
+          {:ok, delete_state_machine_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
+          | {:error, validation_exception()}
   def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -283,6 +2035,12 @@ defmodule AWS.SFN do
 
   `ListStateMachineVersions`
   """
+  @spec delete_state_machine_version(map(), delete_state_machine_version_input(), list()) ::
+          {:ok, delete_state_machine_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, validation_exception()}
   def delete_state_machine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -295,6 +2053,11 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
+  @spec describe_activity(map(), describe_activity_input(), list()) ::
+          {:ok, describe_activity_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, activity_does_not_exist()}
+          | {:error, invalid_arn()}
   def describe_activity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -322,6 +2085,11 @@ defmodule AWS.SFN do
   Executions of an `EXPRESS` state machine aren't supported by `DescribeExecution`
   unless a Map Run dispatched them.
   """
+  @spec describe_execution(map(), describe_execution_input(), list()) ::
+          {:ok, describe_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_does_not_exist()}
+          | {:error, invalid_arn()}
   def describe_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -337,6 +2105,11 @@ defmodule AWS.SFN do
   Run](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html)
   in the *Step Functions Developer Guide*.
   """
+  @spec describe_map_run(map(), describe_map_run_input(), list()) ::
+          {:ok, describe_map_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
   def describe_map_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -381,6 +2154,11 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
+  @spec describe_state_machine(map(), describe_state_machine_input(), list()) ::
+          {:ok, describe_state_machine_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, state_machine_does_not_exist()}
   def describe_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -409,6 +2187,12 @@ defmodule AWS.SFN do
 
   `DeleteStateMachineAlias`
   """
+  @spec describe_state_machine_alias(map(), describe_state_machine_alias_input(), list()) ::
+          {:ok, describe_state_machine_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
+          | {:error, validation_exception()}
   def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -431,6 +2215,15 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
+  @spec describe_state_machine_for_execution(
+          map(),
+          describe_state_machine_for_execution_input(),
+          list()
+        ) ::
+          {:ok, describe_state_machine_for_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_does_not_exist()}
+          | {:error, invalid_arn()}
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -462,6 +2255,12 @@ defmodule AWS.SFN do
   Tasks](https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html)
   in the Step Functions Developer Guide.
   """
+  @spec get_activity_task(map(), get_activity_task_input(), list()) ::
+          {:ok, get_activity_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, activity_does_not_exist()}
+          | {:error, activity_worker_limit_exceeded()}
+          | {:error, invalid_arn()}
   def get_activity_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -484,6 +2283,12 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
+  @spec get_execution_history(map(), get_execution_history_input(), list()) ::
+          {:ok, get_execution_history_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_does_not_exist()}
+          | {:error, invalid_arn()}
+          | {:error, invalid_token()}
   def get_execution_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -502,6 +2307,10 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
+  @spec list_activities(map(), list_activities_input(), list()) ::
+          {:ok, list_activities_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_token()}
   def list_activities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -536,6 +2345,15 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
+  @spec list_executions(map(), list_executions_input(), list()) ::
+          {:ok, list_executions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, invalid_token()}
+          | {:error, resource_not_found()}
+          | {:error, state_machine_does_not_exist()}
+          | {:error, state_machine_type_not_supported()}
+          | {:error, validation_exception()}
   def list_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -548,6 +2366,12 @@ defmodule AWS.SFN do
   Use this API action to obtain Map Run ARNs, and then call `DescribeMapRun` to
   obtain more information, if needed.
   """
+  @spec list_map_runs(map(), list_map_runs_input(), list()) ::
+          {:ok, list_map_runs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_does_not_exist()}
+          | {:error, invalid_arn()}
+          | {:error, invalid_token()}
   def list_map_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -588,6 +2412,14 @@ defmodule AWS.SFN do
 
   `DeleteStateMachineAlias`
   """
+  @spec list_state_machine_aliases(map(), list_state_machine_aliases_input(), list()) ::
+          {:ok, list_state_machine_aliases_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, invalid_token()}
+          | {:error, resource_not_found()}
+          | {:error, state_machine_deleting()}
+          | {:error, state_machine_does_not_exist()}
   def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -617,6 +2449,12 @@ defmodule AWS.SFN do
 
   `DeleteStateMachineVersion`
   """
+  @spec list_state_machine_versions(map(), list_state_machine_versions_input(), list()) ::
+          {:ok, list_state_machine_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, invalid_token()}
+          | {:error, validation_exception()}
   def list_state_machine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -635,6 +2473,10 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
+  @spec list_state_machines(map(), list_state_machines_input(), list()) ::
+          {:ok, list_state_machines_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_token()}
   def list_state_machines(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -647,6 +2489,11 @@ defmodule AWS.SFN do
   Tags may only contain Unicode letters, digits, white space, or these symbols: `_
   . : / = + - @`.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -686,6 +2533,15 @@ defmodule AWS.SFN do
 
   `ListStateMachineVersions`
   """
+  @spec publish_state_machine_version(map(), publish_state_machine_version_input(), list()) ::
+          {:ok, publish_state_machine_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, state_machine_deleting()}
+          | {:error, state_machine_does_not_exist()}
+          | {:error, validation_exception()}
   def publish_state_machine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -746,6 +2602,13 @@ defmodule AWS.SFN do
   workflow execution contains less than 24,999 events to accommodate the
   `ExecutionRedriven` history event and at least one other history event.
   """
+  @spec redrive_execution(map(), redrive_execution_input(), list()) ::
+          {:ok, redrive_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_does_not_exist()}
+          | {:error, execution_limit_exceeded()}
+          | {:error, execution_not_redrivable()}
+          | {:error, invalid_arn()}
   def redrive_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -758,6 +2621,12 @@ defmodule AWS.SFN do
   run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
   pattern to report that the task identified by the `taskToken` failed.
   """
+  @spec send_task_failure(map(), send_task_failure_input(), list()) ::
+          {:ok, send_task_failure_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_token()}
+          | {:error, task_does_not_exist()}
+          | {:error, task_timed_out()}
   def send_task_failure(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -790,6 +2659,12 @@ defmodule AWS.SFN do
   requests received. Use `HeartbeatSeconds` to configure the timeout interval
   for heartbeats.
   """
+  @spec send_task_heartbeat(map(), send_task_heartbeat_input(), list()) ::
+          {:ok, send_task_heartbeat_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_token()}
+          | {:error, task_does_not_exist()}
+          | {:error, task_timed_out()}
   def send_task_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -803,6 +2678,13 @@ defmodule AWS.SFN do
   pattern to report that the task identified by the `taskToken` completed
   successfully.
   """
+  @spec send_task_success(map(), send_task_success_input(), list()) ::
+          {:ok, send_task_success_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_output()}
+          | {:error, invalid_token()}
+          | {:error, task_does_not_exist()}
+          | {:error, task_timed_out()}
   def send_task_success(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -859,6 +2741,17 @@ defmodule AWS.SFN do
 
   `StartExecution` isn't idempotent for `EXPRESS` workflows.
   """
+  @spec start_execution(map(), start_execution_input(), list()) ::
+          {:ok, start_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_already_exists()}
+          | {:error, execution_limit_exceeded()}
+          | {:error, invalid_arn()}
+          | {:error, invalid_execution_input()}
+          | {:error, invalid_name()}
+          | {:error, state_machine_deleting()}
+          | {:error, state_machine_does_not_exist()}
+          | {:error, validation_exception()}
   def start_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -881,6 +2774,15 @@ defmodule AWS.SFN do
 
   This API action isn't logged in CloudTrail.
   """
+  @spec start_sync_execution(map(), start_sync_execution_input(), list()) ::
+          {:ok, start_sync_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, invalid_execution_input()}
+          | {:error, invalid_name()}
+          | {:error, state_machine_deleting()}
+          | {:error, state_machine_does_not_exist()}
+          | {:error, state_machine_type_not_supported()}
   def start_sync_execution(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "sync-")
 
@@ -892,6 +2794,12 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
+  @spec stop_execution(map(), stop_execution_input(), list()) ::
+          {:ok, stop_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execution_does_not_exist()}
+          | {:error, invalid_arn()}
+          | {:error, validation_exception()}
   def stop_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -909,6 +2817,12 @@ defmodule AWS.SFN do
   Tags may only contain Unicode letters, digits, white space, or these symbols: `_
   . : / = + - @`.
   """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
+          | {:error, too_many_tags()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -976,6 +2890,13 @@ defmodule AWS.SFN do
   [Map](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html)
   states.
   """
+  @spec test_state(map(), test_state_input(), list()) ::
+          {:ok, test_state_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, invalid_definition()}
+          | {:error, invalid_execution_input()}
+          | {:error, validation_exception()}
   def test_state(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "sync-")
 
@@ -985,6 +2906,11 @@ defmodule AWS.SFN do
   @doc """
   Remove a tag from a Step Functions resource
   """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -995,6 +2921,12 @@ defmodule AWS.SFN do
   Updates an in-progress Map Run's configuration to include changes to the
   settings that control maximum concurrency and Map Run failure.
   """
+  @spec update_map_run(map(), update_map_run_input(), list()) ::
+          {:ok, update_map_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
+          | {:error, validation_exception()}
   def update_map_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1058,6 +2990,19 @@ defmodule AWS.SFN do
   call `UpdateStateMachine` may use the previous state machine
   `definition` and `roleArn`.
   """
+  @spec update_state_machine(map(), update_state_machine_input(), list()) ::
+          {:ok, update_state_machine_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, invalid_definition()}
+          | {:error, invalid_logging_configuration()}
+          | {:error, invalid_tracing_configuration()}
+          | {:error, missing_required_parameter()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, state_machine_deleting()}
+          | {:error, state_machine_does_not_exist()}
+          | {:error, validation_exception()}
   def update_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1101,6 +3046,14 @@ defmodule AWS.SFN do
 
   `DeleteStateMachineAlias`
   """
+  @spec update_state_machine_alias(map(), update_state_machine_alias_input(), list()) ::
+          {:ok, update_state_machine_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, invalid_arn()}
+          | {:error, resource_not_found()}
+          | {:error, state_machine_deleting()}
+          | {:error, validation_exception()}
   def update_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

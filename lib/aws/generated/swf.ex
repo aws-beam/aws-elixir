@@ -32,6 +32,1826 @@ defmodule AWS.SWF do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  workflow_execution_infos() :: %{
+    "executionInfos" => list(workflow_execution_info()()),
+    "nextPageToken" => String.t()
+  }
+  """
+  @type workflow_execution_infos() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  respond_decision_task_completed_input() :: %{
+    optional("decisions") => list(decision()()),
+    optional("executionContext") => String.t(),
+    optional("taskList") => task_list(),
+    optional("taskListScheduleToStartTimeout") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type respond_decision_task_completed_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_type_detail() :: %{
+    "configuration" => workflow_type_configuration(),
+    "typeInfo" => workflow_type_info()
+  }
+  """
+  @type workflow_type_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  timer_canceled_event_attributes() :: %{
+    "decisionTaskCompletedEventId" => float(),
+    "startedEventId" => float(),
+    "timerId" => String.t()
+  }
+  """
+  @type timer_canceled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_cancel_requested_event_attributes() :: %{
+    "cause" => list(any()),
+    "externalInitiatedEventId" => float(),
+    "externalWorkflowExecution" => workflow_execution()
+  }
+  """
+  @type workflow_execution_cancel_requested_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_status() :: %{
+    "cancelRequested" => boolean()
+  }
+  """
+  @type activity_task_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  undeprecate_workflow_type_input() :: %{
+    required("domain") => String.t(),
+    required("workflowType") => workflow_type()
+  }
+  """
+  @type undeprecate_workflow_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_scheduled_event_attributes() :: %{
+    "activityId" => String.t(),
+    "activityType" => activity_type(),
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "heartbeatTimeout" => String.t(),
+    "input" => String.t(),
+    "scheduleToCloseTimeout" => String.t(),
+    "scheduleToStartTimeout" => String.t(),
+    "startToCloseTimeout" => String.t(),
+    "taskList" => task_list(),
+    "taskPriority" => String.t()
+  }
+  """
+  @type activity_task_scheduled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  count_closed_workflow_executions_input() :: %{
+    optional("closeStatusFilter") => close_status_filter(),
+    optional("closeTimeFilter") => execution_time_filter(),
+    optional("executionFilter") => workflow_execution_filter(),
+    optional("startTimeFilter") => execution_time_filter(),
+    optional("tagFilter") => tag_filter(),
+    optional("typeFilter") => workflow_type_filter(),
+    required("domain") => String.t()
+  }
+  """
+  @type count_closed_workflow_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_type_configuration() :: %{
+    "defaultTaskHeartbeatTimeout" => String.t(),
+    "defaultTaskList" => task_list(),
+    "defaultTaskPriority" => String.t(),
+    "defaultTaskScheduleToCloseTimeout" => String.t(),
+    "defaultTaskScheduleToStartTimeout" => String.t(),
+    "defaultTaskStartToCloseTimeout" => String.t()
+  }
+  """
+  @type activity_type_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_completed_event_attributes() :: %{
+    "result" => String.t(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float()
+  }
+  """
+  @type lambda_function_completed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_child_workflow_execution_decision_attributes() :: %{
+    "childPolicy" => list(any()),
+    "control" => String.t(),
+    "executionStartToCloseTimeout" => String.t(),
+    "input" => String.t(),
+    "lambdaRole" => String.t(),
+    "tagList" => list(String.t()()),
+    "taskList" => task_list(),
+    "taskPriority" => String.t(),
+    "taskStartToCloseTimeout" => String.t(),
+    "workflowId" => String.t(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type start_child_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_timed_out_event_attributes() :: %{
+    "childPolicy" => list(any()),
+    "timeoutType" => list(any())
+  }
+  """
+  @type workflow_execution_timed_out_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  poll_for_decision_task_input() :: %{
+    optional("identity") => String.t(),
+    optional("maximumPageSize") => integer(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    optional("startAtPreviousStartedEvent") => boolean(),
+    required("domain") => String.t(),
+    required("taskList") => task_list()
+  }
+  """
+  @type poll_for_decision_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workflow_execution_input() :: %{
+    required("domain") => String.t(),
+    required("execution") => workflow_execution()
+  }
+  """
+  @type describe_workflow_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  close_status_filter() :: %{
+    "status" => list(any())
+  }
+  """
+  @type close_status_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  child_workflow_execution_canceled_event_attributes() :: %{
+    "details" => String.t(),
+    "initiatedEventId" => float(),
+    "startedEventId" => float(),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type child_workflow_execution_canceled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_activity_type_input() :: %{
+    optional("defaultTaskHeartbeatTimeout") => String.t(),
+    optional("defaultTaskList") => task_list(),
+    optional("defaultTaskPriority") => String.t(),
+    optional("defaultTaskScheduleToCloseTimeout") => String.t(),
+    optional("defaultTaskScheduleToStartTimeout") => String.t(),
+    optional("defaultTaskStartToCloseTimeout") => String.t(),
+    optional("description") => String.t(),
+    required("domain") => String.t(),
+    required("name") => String.t(),
+    required("version") => String.t()
+  }
+  """
+  @type register_activity_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_count() :: %{
+    "count" => integer(),
+    "truncated" => boolean()
+  }
+  """
+  @type workflow_execution_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_started_event_attributes() :: %{
+    "childPolicy" => list(any()),
+    "continuedExecutionRunId" => String.t(),
+    "executionStartToCloseTimeout" => String.t(),
+    "input" => String.t(),
+    "lambdaRole" => String.t(),
+    "parentInitiatedEventId" => float(),
+    "parentWorkflowExecution" => workflow_execution(),
+    "tagList" => list(String.t()()),
+    "taskList" => task_list(),
+    "taskPriority" => String.t(),
+    "taskStartToCloseTimeout" => String.t(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type workflow_execution_started_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_type_filter() :: %{
+    "name" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type workflow_type_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_cancel_activity_task_decision_attributes() :: %{
+    "activityId" => String.t()
+  }
+  """
+  @type request_cancel_activity_task_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_workflow_execution_decision_attributes() :: %{
+    "details" => String.t()
+  }
+  """
+  @type cancel_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  complete_workflow_execution_decision_attributes() :: %{
+    "result" => String.t()
+  }
+  """
+  @type complete_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  external_workflow_execution_signaled_event_attributes() :: %{
+    "initiatedEventId" => float(),
+    "workflowExecution" => workflow_execution()
+  }
+  """
+  @type external_workflow_execution_signaled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  child_workflow_execution_completed_event_attributes() :: %{
+    "initiatedEventId" => float(),
+    "result" => String.t(),
+    "startedEventId" => float(),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type child_workflow_execution_completed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  decision_task_timed_out_event_attributes() :: %{
+    "scheduledEventId" => float(),
+    "startedEventId" => float(),
+    "timeoutType" => list(any())
+  }
+  """
+  @type decision_task_timed_out_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_canceled_event_attributes() :: %{
+    "decisionTaskCompletedEventId" => float(),
+    "details" => String.t()
+  }
+  """
+  @type workflow_execution_canceled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_configuration() :: %{
+    "childPolicy" => list(any()),
+    "executionStartToCloseTimeout" => String.t(),
+    "lambdaRole" => String.t(),
+    "taskList" => task_list(),
+    "taskPriority" => String.t(),
+    "taskStartToCloseTimeout" => String.t()
+  }
+  """
+  @type workflow_execution_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_type_infos() :: %{
+    "nextPageToken" => String.t(),
+    "typeInfos" => list(workflow_type_info()())
+  }
+  """
+  @type workflow_type_infos() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_already_started_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type workflow_execution_already_started_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_workflow_types_input() :: %{
+    optional("maximumPageSize") => integer(),
+    optional("name") => String.t(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    required("domain") => String.t(),
+    required("registrationStatus") => list(any())
+  }
+  """
+  @type list_workflow_types_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_canceled_event_attributes() :: %{
+    "details" => String.t(),
+    "latestCancelRequestedEventId" => float(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float()
+  }
+  """
+  @type activity_task_canceled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_output() :: %{
+    "tags" => list(resource_tag()())
+  }
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_lambda_function_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float(),
+    "id" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type schedule_lambda_function_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  respond_activity_task_failed_input() :: %{
+    optional("details") => String.t(),
+    optional("reason") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type respond_activity_task_failed_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_time_filter() :: %{
+    "latestDate" => non_neg_integer(),
+    "oldestDate" => non_neg_integer()
+  }
+  """
+  @type execution_time_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_timer_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float(),
+    "timerId" => String.t()
+  }
+  """
+  @type cancel_timer_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_timer_decision_attributes() :: %{
+    "control" => String.t(),
+    "startToFireTimeout" => String.t(),
+    "timerId" => String.t()
+  }
+  """
+  @type start_timer_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_type_configuration() :: %{
+    "defaultChildPolicy" => list(any()),
+    "defaultExecutionStartToCloseTimeout" => String.t(),
+    "defaultLambdaRole" => String.t(),
+    "defaultTaskList" => task_list(),
+    "defaultTaskPriority" => String.t(),
+    "defaultTaskStartToCloseTimeout" => String.t()
+  }
+  """
+  @type workflow_type_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_domain_input() :: %{
+    optional("description") => String.t(),
+    optional("tags") => list(resource_tag()()),
+    required("name") => String.t(),
+    required("workflowExecutionRetentionPeriodInDays") => String.t()
+  }
+  """
+  @type register_domain_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  undeprecate_domain_input() :: %{
+    required("name") => String.t()
+  }
+  """
+  @type undeprecate_domain_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  poll_for_activity_task_input() :: %{
+    optional("identity") => String.t(),
+    required("domain") => String.t(),
+    required("taskList") => task_list()
+  }
+  """
+  @type poll_for_activity_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_scheduled_event_attributes() :: %{
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "id" => String.t(),
+    "input" => String.t(),
+    "name" => String.t(),
+    "startToCloseTimeout" => String.t()
+  }
+  """
+  @type lambda_function_scheduled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_cancel_external_workflow_execution_decision_attributes() :: %{
+    "control" => String.t(),
+    "runId" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type request_cancel_external_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  continue_as_new_workflow_execution_decision_attributes() :: %{
+    "childPolicy" => list(any()),
+    "executionStartToCloseTimeout" => String.t(),
+    "input" => String.t(),
+    "lambdaRole" => String.t(),
+    "tagList" => list(String.t()()),
+    "taskList" => task_list(),
+    "taskPriority" => String.t(),
+    "taskStartToCloseTimeout" => String.t(),
+    "workflowTypeVersion" => String.t()
+  }
+  """
+  @type continue_as_new_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_timed_out_event_attributes() :: %{
+    "scheduledEventId" => float(),
+    "startedEventId" => float(),
+    "timeoutType" => list(any())
+  }
+  """
+  @type lambda_function_timed_out_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  record_activity_task_heartbeat_input() :: %{
+    optional("details") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type record_activity_task_heartbeat_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_workflow_execution_input() :: %{
+    optional("childPolicy") => list(any()),
+    optional("details") => String.t(),
+    optional("reason") => String.t(),
+    optional("runId") => String.t(),
+    required("domain") => String.t(),
+    required("workflowId") => String.t()
+  }
+  """
+  @type terminate_workflow_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  respond_activity_task_completed_input() :: %{
+    optional("result") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type respond_activity_task_completed_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_open_workflow_executions_input() :: %{
+    optional("executionFilter") => workflow_execution_filter(),
+    optional("maximumPageSize") => integer(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    optional("tagFilter") => tag_filter(),
+    optional("typeFilter") => workflow_type_filter(),
+    required("domain") => String.t(),
+    required("startTimeFilter") => execution_time_filter()
+  }
+  """
+  @type list_open_workflow_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution() :: %{
+    "runId" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type workflow_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprecate_domain_input() :: %{
+    required("name") => String.t()
+  }
+  """
+  @type deprecate_domain_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  register_workflow_type_input() :: %{
+    optional("defaultChildPolicy") => list(any()),
+    optional("defaultExecutionStartToCloseTimeout") => String.t(),
+    optional("defaultLambdaRole") => String.t(),
+    optional("defaultTaskList") => task_list(),
+    optional("defaultTaskPriority") => String.t(),
+    optional("defaultTaskStartToCloseTimeout") => String.t(),
+    optional("description") => String.t(),
+    required("domain") => String.t(),
+    required("name") => String.t(),
+    required("version") => String.t()
+  }
+  """
+  @type register_workflow_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  decision() :: %{
+    "cancelTimerDecisionAttributes" => cancel_timer_decision_attributes(),
+    "cancelWorkflowExecutionDecisionAttributes" => cancel_workflow_execution_decision_attributes(),
+    "completeWorkflowExecutionDecisionAttributes" => complete_workflow_execution_decision_attributes(),
+    "continueAsNewWorkflowExecutionDecisionAttributes" => continue_as_new_workflow_execution_decision_attributes(),
+    "decisionType" => list(any()),
+    "failWorkflowExecutionDecisionAttributes" => fail_workflow_execution_decision_attributes(),
+    "recordMarkerDecisionAttributes" => record_marker_decision_attributes(),
+    "requestCancelActivityTaskDecisionAttributes" => request_cancel_activity_task_decision_attributes(),
+    "requestCancelExternalWorkflowExecutionDecisionAttributes" => request_cancel_external_workflow_execution_decision_attributes(),
+    "scheduleActivityTaskDecisionAttributes" => schedule_activity_task_decision_attributes(),
+    "scheduleLambdaFunctionDecisionAttributes" => schedule_lambda_function_decision_attributes(),
+    "signalExternalWorkflowExecutionDecisionAttributes" => signal_external_workflow_execution_decision_attributes(),
+    "startChildWorkflowExecutionDecisionAttributes" => start_child_workflow_execution_decision_attributes(),
+    "startTimerDecisionAttributes" => start_timer_decision_attributes()
+  }
+  """
+  @type decision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_type_info() :: %{
+    "creationDate" => non_neg_integer(),
+    "deprecationDate" => non_neg_integer(),
+    "description" => String.t(),
+    "status" => list(any()),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type workflow_type_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_started_event_attributes() :: %{
+    "scheduledEventId" => float()
+  }
+  """
+  @type lambda_function_started_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  child_workflow_execution_failed_event_attributes() :: %{
+    "details" => String.t(),
+    "initiatedEventId" => float(),
+    "reason" => String.t(),
+    "startedEventId" => float(),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type child_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  decision_task_started_event_attributes() :: %{
+    "identity" => String.t(),
+    "scheduledEventId" => float()
+  }
+  """
+  @type decision_task_started_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pending_task_count() :: %{
+    "count" => integer(),
+    "truncated" => boolean()
+  }
+  """
+  @type pending_task_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_closed_workflow_executions_input() :: %{
+    optional("closeStatusFilter") => close_status_filter(),
+    optional("closeTimeFilter") => execution_time_filter(),
+    optional("executionFilter") => workflow_execution_filter(),
+    optional("maximumPageSize") => integer(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    optional("startTimeFilter") => execution_time_filter(),
+    optional("tagFilter") => tag_filter(),
+    optional("typeFilter") => workflow_type_filter(),
+    required("domain") => String.t()
+  }
+  """
+  @type list_closed_workflow_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  decision_task_completed_event_attributes() :: %{
+    "executionContext" => String.t(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float(),
+    "taskList" => task_list(),
+    "taskListScheduleToStartTimeout" => String.t()
+  }
+  """
+  @type decision_task_completed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  signal_external_workflow_execution_initiated_event_attributes() :: %{
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "input" => String.t(),
+    "runId" => String.t(),
+    "signalName" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type signal_external_workflow_execution_initiated_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  record_marker_decision_attributes() :: %{
+    "details" => String.t(),
+    "markerName" => String.t()
+  }
+  """
+  @type record_marker_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_terminated_event_attributes() :: %{
+    "cause" => list(any()),
+    "childPolicy" => list(any()),
+    "details" => String.t(),
+    "reason" => String.t()
+  }
+  """
+  @type workflow_execution_terminated_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_workflow_execution_input() :: %{
+    optional("childPolicy") => list(any()),
+    optional("executionStartToCloseTimeout") => String.t(),
+    optional("input") => String.t(),
+    optional("lambdaRole") => String.t(),
+    optional("tagList") => list(String.t()()),
+    optional("taskList") => task_list(),
+    optional("taskPriority") => String.t(),
+    optional("taskStartToCloseTimeout") => String.t(),
+    required("domain") => String.t(),
+    required("workflowId") => String.t(),
+    required("workflowType") => workflow_type()
+  }
+  """
+  @type start_workflow_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_timed_out_event_attributes() :: %{
+    "details" => String.t(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float(),
+    "timeoutType" => list(any())
+  }
+  """
+  @type activity_task_timed_out_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  continue_as_new_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type continue_as_new_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fail_workflow_execution_decision_attributes() :: %{
+    "details" => String.t(),
+    "reason" => String.t()
+  }
+  """
+  @type fail_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  complete_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type complete_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  task_list() :: %{
+    "name" => String.t()
+  }
+  """
+  @type task_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprecate_activity_type_input() :: %{
+    required("activityType") => activity_type(),
+    required("domain") => String.t()
+  }
+  """
+  @type deprecate_activity_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_timer_decision_attributes() :: %{
+    "timerId" => String.t()
+  }
+  """
+  @type cancel_timer_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  decision_task() :: %{
+    "events" => list(history_event()()),
+    "nextPageToken" => String.t(),
+    "previousStartedEventId" => float(),
+    "startedEventId" => float(),
+    "taskToken" => String.t(),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type decision_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  child_workflow_execution_timed_out_event_attributes() :: %{
+    "initiatedEventId" => float(),
+    "startedEventId" => float(),
+    "timeoutType" => list(any()),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type child_workflow_execution_timed_out_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  fail_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type fail_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_activity_task_decision_attributes() :: %{
+    "activityId" => String.t(),
+    "activityType" => activity_type(),
+    "control" => String.t(),
+    "heartbeatTimeout" => String.t(),
+    "input" => String.t(),
+    "scheduleToCloseTimeout" => String.t(),
+    "scheduleToStartTimeout" => String.t(),
+    "startToCloseTimeout" => String.t(),
+    "taskList" => task_list(),
+    "taskPriority" => String.t()
+  }
+  """
+  @type schedule_activity_task_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  signal_external_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "initiatedEventId" => float(),
+    "runId" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type signal_external_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  type_deprecated_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type type_deprecated_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_cancel_activity_task_failed_event_attributes() :: %{
+    "activityId" => String.t(),
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type request_cancel_activity_task_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_activity_task_failed_event_attributes() :: %{
+    "activityId" => String.t(),
+    "activityType" => activity_type(),
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type schedule_activity_task_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_detail() :: %{
+    "executionConfiguration" => workflow_execution_configuration(),
+    "executionInfo" => workflow_execution_info(),
+    "latestActivityTaskTimestamp" => non_neg_integer(),
+    "latestExecutionContext" => String.t(),
+    "openCounts" => workflow_execution_open_counts()
+  }
+  """
+  @type workflow_execution_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_failed_event_attributes() :: %{
+    "decisionTaskCompletedEventId" => float(),
+    "details" => String.t(),
+    "reason" => String.t()
+  }
+  """
+  @type workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  count_open_workflow_executions_input() :: %{
+    optional("executionFilter") => workflow_execution_filter(),
+    optional("tagFilter") => tag_filter(),
+    optional("typeFilter") => workflow_type_filter(),
+    required("domain") => String.t(),
+    required("startTimeFilter") => execution_time_filter()
+  }
+  """
+  @type count_open_workflow_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_input() :: %{
+    required("resourceArn") => String.t(),
+    required("tags") => list(resource_tag()())
+  }
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_type() :: %{
+    "name" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type workflow_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_info() :: %{
+    "cancelRequested" => boolean(),
+    "closeStatus" => list(any()),
+    "closeTimestamp" => non_neg_integer(),
+    "execution" => workflow_execution(),
+    "executionStatus" => list(any()),
+    "parent" => workflow_execution(),
+    "startTimestamp" => non_neg_integer(),
+    "tagList" => list(String.t()()),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type workflow_execution_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task() :: %{
+    "activityId" => String.t(),
+    "activityType" => activity_type(),
+    "input" => String.t(),
+    "startedEventId" => float(),
+    "taskToken" => String.t(),
+    "workflowExecution" => workflow_execution()
+  }
+  """
+  @type activity_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  history_event() :: %{
+    "signalExternalWorkflowExecutionFailedEventAttributes" => signal_external_workflow_execution_failed_event_attributes(),
+    "workflowExecutionFailedEventAttributes" => workflow_execution_failed_event_attributes(),
+    "workflowExecutionSignaledEventAttributes" => workflow_execution_signaled_event_attributes(),
+    "workflowExecutionCancelRequestedEventAttributes" => workflow_execution_cancel_requested_event_attributes(),
+    "scheduleActivityTaskFailedEventAttributes" => schedule_activity_task_failed_event_attributes(),
+    "cancelWorkflowExecutionFailedEventAttributes" => cancel_workflow_execution_failed_event_attributes(),
+    "childWorkflowExecutionCompletedEventAttributes" => child_workflow_execution_completed_event_attributes(),
+    "workflowExecutionTimedOutEventAttributes" => workflow_execution_timed_out_event_attributes(),
+    "startChildWorkflowExecutionInitiatedEventAttributes" => start_child_workflow_execution_initiated_event_attributes(),
+    "markerRecordedEventAttributes" => marker_recorded_event_attributes(),
+    "workflowExecutionStartedEventAttributes" => workflow_execution_started_event_attributes(),
+    "lambdaFunctionScheduledEventAttributes" => lambda_function_scheduled_event_attributes(),
+    "eventTimestamp" => non_neg_integer(),
+    "decisionTaskScheduledEventAttributes" => decision_task_scheduled_event_attributes(),
+    "requestCancelExternalWorkflowExecutionInitiatedEventAttributes" => request_cancel_external_workflow_execution_initiated_event_attributes(),
+    "timerFiredEventAttributes" => timer_fired_event_attributes(),
+    "childWorkflowExecutionStartedEventAttributes" => child_workflow_execution_started_event_attributes(),
+    "decisionTaskStartedEventAttributes" => decision_task_started_event_attributes(),
+    "lambdaFunctionFailedEventAttributes" => lambda_function_failed_event_attributes(),
+    "startLambdaFunctionFailedEventAttributes" => start_lambda_function_failed_event_attributes(),
+    "activityTaskScheduledEventAttributes" => activity_task_scheduled_event_attributes(),
+    "activityTaskTimedOutEventAttributes" => activity_task_timed_out_event_attributes(),
+    "activityTaskStartedEventAttributes" => activity_task_started_event_attributes(),
+    "requestCancelActivityTaskFailedEventAttributes" => request_cancel_activity_task_failed_event_attributes(),
+    "signalExternalWorkflowExecutionInitiatedEventAttributes" => signal_external_workflow_execution_initiated_event_attributes(),
+    "externalWorkflowExecutionCancelRequestedEventAttributes" => external_workflow_execution_cancel_requested_event_attributes(),
+    "requestCancelExternalWorkflowExecutionFailedEventAttributes" => request_cancel_external_workflow_execution_failed_event_attributes(),
+    "lambdaFunctionTimedOutEventAttributes" => lambda_function_timed_out_event_attributes(),
+    "childWorkflowExecutionTerminatedEventAttributes" => child_workflow_execution_terminated_event_attributes(),
+    "lambdaFunctionCompletedEventAttributes" => lambda_function_completed_event_attributes(),
+    "childWorkflowExecutionTimedOutEventAttributes" => child_workflow_execution_timed_out_event_attributes(),
+    "activityTaskCanceledEventAttributes" => activity_task_canceled_event_attributes(),
+    "externalWorkflowExecutionSignaledEventAttributes" => external_workflow_execution_signaled_event_attributes(),
+    "decisionTaskTimedOutEventAttributes" => decision_task_timed_out_event_attributes(),
+    "failWorkflowExecutionFailedEventAttributes" => fail_workflow_execution_failed_event_attributes(),
+    "recordMarkerFailedEventAttributes" => record_marker_failed_event_attributes(),
+    "startChildWorkflowExecutionFailedEventAttributes" => start_child_workflow_execution_failed_event_attributes(),
+    "activityTaskFailedEventAttributes" => activity_task_failed_event_attributes(),
+    "eventId" => float(),
+    "workflowExecutionContinuedAsNewEventAttributes" => workflow_execution_continued_as_new_event_attributes(),
+    "continueAsNewWorkflowExecutionFailedEventAttributes" => continue_as_new_workflow_execution_failed_event_attributes(),
+    "eventType" => list(any()),
+    "workflowExecutionCanceledEventAttributes" => workflow_execution_canceled_event_attributes(),
+    "lambdaFunctionStartedEventAttributes" => lambda_function_started_event_attributes(),
+    "childWorkflowExecutionFailedEventAttributes" => child_workflow_execution_failed_event_attributes(),
+    "decisionTaskCompletedEventAttributes" => decision_task_completed_event_attributes(),
+    "activityTaskCompletedEventAttributes" => activity_task_completed_event_attributes(),
+    "activityTaskCancelRequestedEventAttributes" => activity_task_cancel_requested_event_attributes(),
+    "completeWorkflowExecutionFailedEventAttributes" => complete_workflow_execution_failed_event_attributes(),
+    "workflowExecutionCompletedEventAttributes" => workflow_execution_completed_event_attributes(),
+    "workflowExecutionTerminatedEventAttributes" => workflow_execution_terminated_event_attributes(),
+    "timerStartedEventAttributes" => timer_started_event_attributes(),
+    "timerCanceledEventAttributes" => timer_canceled_event_attributes(),
+    "startTimerFailedEventAttributes" => start_timer_failed_event_attributes(),
+    "childWorkflowExecutionCanceledEventAttributes" => child_workflow_execution_canceled_event_attributes(),
+    "cancelTimerFailedEventAttributes" => cancel_timer_failed_event_attributes(),
+    "scheduleLambdaFunctionFailedEventAttributes" => schedule_lambda_function_failed_event_attributes()
+  }
+  """
+  @type history_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_configuration() :: %{
+    "workflowExecutionRetentionPeriodInDays" => String.t()
+  }
+  """
+  @type domain_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_lambda_function_decision_attributes() :: %{
+    "control" => String.t(),
+    "id" => String.t(),
+    "input" => String.t(),
+    "name" => String.t(),
+    "startToCloseTimeout" => String.t()
+  }
+  """
+  @type schedule_lambda_function_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_cancel_workflow_execution_input() :: %{
+    optional("runId") => String.t(),
+    required("domain") => String.t(),
+    required("workflowId") => String.t()
+  }
+  """
+  @type request_cancel_workflow_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_timer_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float(),
+    "timerId" => String.t()
+  }
+  """
+  @type start_timer_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_info() :: %{
+    "arn" => String.t(),
+    "description" => String.t(),
+    "name" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type domain_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  timer_fired_event_attributes() :: %{
+    "startedEventId" => float(),
+    "timerId" => String.t()
+  }
+  """
+  @type timer_fired_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  respond_activity_task_canceled_input() :: %{
+    optional("details") => String.t(),
+    required("taskToken") => String.t()
+  }
+  """
+  @type respond_activity_task_canceled_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_activity_types_input() :: %{
+    optional("maximumPageSize") => integer(),
+    optional("name") => String.t(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    required("domain") => String.t(),
+    required("registrationStatus") => list(any())
+  }
+  """
+  @type list_activity_types_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_detail() :: %{
+    "configuration" => domain_configuration(),
+    "domainInfo" => domain_info()
+  }
+  """
+  @type domain_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unknown_resource_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unknown_resource_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_tag() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type resource_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_type() :: %{
+    "name" => String.t(),
+    "version" => String.t()
+  }
+  """
+  @type activity_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_type_infos() :: %{
+    "nextPageToken" => String.t(),
+    "typeInfos" => list(activity_type_info()())
+  }
+  """
+  @type activity_type_infos() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tags_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type too_many_tags_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lambda_function_failed_event_attributes() :: %{
+    "details" => String.t(),
+    "reason" => String.t(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float()
+  }
+  """
+  @type lambda_function_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_infos() :: %{
+    "domainInfos" => list(domain_info()()),
+    "nextPageToken" => String.t()
+  }
+  """
+  @type domain_infos() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_filter() :: %{
+    "workflowId" => String.t()
+  }
+  """
+  @type workflow_execution_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_completed_event_attributes() :: %{
+    "decisionTaskCompletedEventId" => float(),
+    "result" => String.t()
+  }
+  """
+  @type workflow_execution_completed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  signal_workflow_execution_input() :: %{
+    optional("input") => String.t(),
+    optional("runId") => String.t(),
+    required("domain") => String.t(),
+    required("signalName") => String.t(),
+    required("workflowId") => String.t()
+  }
+  """
+  @type signal_workflow_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_cancel_external_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "initiatedEventId" => float(),
+    "runId" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type request_cancel_external_workflow_execution_failed_event_attributes() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  operation_not_permitted_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type operation_not_permitted_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_input() :: %{
+    required("resourceArn") => String.t(),
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_domain_input() :: %{
+    required("name") => String.t()
+  }
+  """
+  @type describe_domain_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_type_info() :: %{
+    "activityType" => activity_type(),
+    "creationDate" => non_neg_integer(),
+    "deprecationDate" => non_neg_integer(),
+    "description" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type activity_type_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  request_cancel_external_workflow_execution_initiated_event_attributes() :: %{
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "runId" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type request_cancel_external_workflow_execution_initiated_event_attributes() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_input() :: %{
+    required("resourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  external_workflow_execution_cancel_requested_event_attributes() :: %{
+    "initiatedEventId" => float(),
+    "workflowExecution" => workflow_execution()
+  }
+  """
+  @type external_workflow_execution_cancel_requested_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  child_workflow_execution_terminated_event_attributes() :: %{
+    "initiatedEventId" => float(),
+    "startedEventId" => float(),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type child_workflow_execution_terminated_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_already_exists_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type domain_already_exists_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_completed_event_attributes() :: %{
+    "result" => String.t(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float()
+  }
+  """
+  @type activity_task_completed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  decision_task_scheduled_event_attributes() :: %{
+    "scheduleToStartTimeout" => String.t(),
+    "startToCloseTimeout" => String.t(),
+    "taskList" => task_list(),
+    "taskPriority" => String.t()
+  }
+  """
+  @type decision_task_scheduled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  count_pending_decision_tasks_input() :: %{
+    required("domain") => String.t(),
+    required("taskList") => task_list()
+  }
+  """
+  @type count_pending_decision_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_started_event_attributes() :: %{
+    "identity" => String.t(),
+    "scheduledEventId" => float()
+  }
+  """
+  @type activity_task_started_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_child_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "initiatedEventId" => float(),
+    "workflowId" => String.t(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type start_child_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  count_pending_activity_tasks_input() :: %{
+    required("domain") => String.t(),
+    required("taskList") => task_list()
+  }
+  """
+  @type count_pending_activity_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  undeprecate_activity_type_input() :: %{
+    required("activityType") => activity_type(),
+    required("domain") => String.t()
+  }
+  """
+  @type undeprecate_activity_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  timer_started_event_attributes() :: %{
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "startToFireTimeout" => String.t(),
+    "timerId" => String.t()
+  }
+  """
+  @type timer_started_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_cancel_requested_event_attributes() :: %{
+    "activityId" => String.t(),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type activity_task_cancel_requested_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_open_counts() :: %{
+    "openActivityTasks" => integer(),
+    "openChildWorkflowExecutions" => integer(),
+    "openDecisionTasks" => integer(),
+    "openLambdaFunctions" => integer(),
+    "openTimers" => integer()
+  }
+  """
+  @type workflow_execution_open_counts() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_activity_type_input() :: %{
+    required("activityType") => activity_type(),
+    required("domain") => String.t()
+  }
+  """
+  @type describe_activity_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_continued_as_new_event_attributes() :: %{
+    "childPolicy" => list(any()),
+    "decisionTaskCompletedEventId" => float(),
+    "executionStartToCloseTimeout" => String.t(),
+    "input" => String.t(),
+    "lambdaRole" => String.t(),
+    "newExecutionRunId" => String.t(),
+    "tagList" => list(String.t()()),
+    "taskList" => task_list(),
+    "taskPriority" => String.t(),
+    "taskStartToCloseTimeout" => String.t(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type workflow_execution_continued_as_new_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  marker_recorded_event_attributes() :: %{
+    "decisionTaskCompletedEventId" => float(),
+    "details" => String.t(),
+    "markerName" => String.t()
+  }
+  """
+  @type marker_recorded_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  record_marker_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float(),
+    "markerName" => String.t()
+  }
+  """
+  @type record_marker_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_lambda_function_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "message" => String.t(),
+    "scheduledEventId" => float()
+  }
+  """
+  @type start_lambda_function_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  history() :: %{
+    "events" => list(history_event()()),
+    "nextPageToken" => String.t()
+  }
+  """
+  @type history() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_type_detail() :: %{
+    "configuration" => activity_type_configuration(),
+    "typeInfo" => activity_type_info()
+  }
+  """
+  @type activity_type_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deprecate_workflow_type_input() :: %{
+    required("domain") => String.t(),
+    required("workflowType") => workflow_type()
+  }
+  """
+  @type deprecate_workflow_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_child_workflow_execution_initiated_event_attributes() :: %{
+    "childPolicy" => list(any()),
+    "control" => String.t(),
+    "decisionTaskCompletedEventId" => float(),
+    "executionStartToCloseTimeout" => String.t(),
+    "input" => String.t(),
+    "lambdaRole" => String.t(),
+    "tagList" => list(String.t()()),
+    "taskList" => task_list(),
+    "taskPriority" => String.t(),
+    "taskStartToCloseTimeout" => String.t(),
+    "workflowId" => String.t(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type start_child_workflow_execution_initiated_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  type_already_exists_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type type_already_exists_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_filter() :: %{
+    "tag" => String.t()
+  }
+  """
+  @type tag_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_workflow_execution_failed_event_attributes() :: %{
+    "cause" => list(any()),
+    "decisionTaskCompletedEventId" => float()
+  }
+  """
+  @type cancel_workflow_execution_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_workflow_execution_history_input() :: %{
+    optional("maximumPageSize") => integer(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    required("domain") => String.t(),
+    required("execution") => workflow_execution()
+  }
+  """
+  @type get_workflow_execution_history_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_domains_input() :: %{
+    optional("maximumPageSize") => integer(),
+    optional("nextPageToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    required("registrationStatus") => list(any())
+  }
+  """
+  @type list_domains_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  signal_external_workflow_execution_decision_attributes() :: %{
+    "control" => String.t(),
+    "input" => String.t(),
+    "runId" => String.t(),
+    "signalName" => String.t(),
+    "workflowId" => String.t()
+  }
+  """
+  @type signal_external_workflow_execution_decision_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  workflow_execution_signaled_event_attributes() :: %{
+    "externalInitiatedEventId" => float(),
+    "externalWorkflowExecution" => workflow_execution(),
+    "input" => String.t(),
+    "signalName" => String.t()
+  }
+  """
+  @type workflow_execution_signaled_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  domain_deprecated_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type domain_deprecated_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_workflow_type_input() :: %{
+    required("domain") => String.t(),
+    required("workflowType") => workflow_type()
+  }
+  """
+  @type describe_workflow_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  default_undefined_fault() :: %{
+    "message" => String.t()
+  }
+  """
+  @type default_undefined_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  activity_task_failed_event_attributes() :: %{
+    "details" => String.t(),
+    "reason" => String.t(),
+    "scheduledEventId" => float(),
+    "startedEventId" => float()
+  }
+  """
+  @type activity_task_failed_event_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run() :: %{
+    "runId" => String.t()
+  }
+  """
+  @type run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  child_workflow_execution_started_event_attributes() :: %{
+    "initiatedEventId" => float(),
+    "workflowExecution" => workflow_execution(),
+    "workflowType" => workflow_type()
+  }
+  """
+  @type child_workflow_execution_started_event_attributes() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2012-01-25",
@@ -96,6 +1916,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec count_closed_workflow_executions(map(), count_closed_workflow_executions_input(), list()) ::
+          {:ok, workflow_execution_count(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def count_closed_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -151,6 +1976,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec count_open_workflow_executions(map(), count_open_workflow_executions_input(), list()) ::
+          {:ok, workflow_execution_count(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def count_open_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -192,6 +2022,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec count_pending_activity_tasks(map(), count_pending_activity_tasks_input(), list()) ::
+          {:ok, pending_task_count(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def count_pending_activity_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -233,6 +2068,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec count_pending_decision_tasks(map(), count_pending_decision_tasks_input(), list()) ::
+          {:ok, pending_task_count(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def count_pending_decision_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -286,6 +2126,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec deprecate_activity_type(map(), deprecate_activity_type_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_deprecated_fault()}
+          | {:error, unknown_resource_fault()}
   def deprecate_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -332,6 +2178,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec deprecate_domain(map(), deprecate_domain_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, domain_deprecated_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def deprecate_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -387,6 +2239,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec deprecate_workflow_type(map(), deprecate_workflow_type_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_deprecated_fault()}
+          | {:error, unknown_resource_fault()}
   def deprecate_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -437,6 +2295,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec describe_activity_type(map(), describe_activity_type_input(), list()) ::
+          {:ok, activity_type_detail(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def describe_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -472,6 +2335,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec describe_domain(map(), describe_domain_input(), list()) ::
+          {:ok, domain_detail(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def describe_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -511,6 +2379,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec describe_workflow_execution(map(), describe_workflow_execution_input(), list()) ::
+          {:ok, workflow_execution_detail(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def describe_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -561,6 +2434,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec describe_workflow_type(map(), describe_workflow_type_input(), list()) ::
+          {:ok, workflow_type_detail(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def describe_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -602,6 +2480,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec get_workflow_execution_history(map(), get_workflow_execution_history_input(), list()) ::
+          {:ok, history(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def get_workflow_execution_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -645,6 +2528,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec list_activity_types(map(), list_activity_types_input(), list()) ::
+          {:ok, activity_type_infos(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def list_activity_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -703,6 +2591,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec list_closed_workflow_executions(map(), list_closed_workflow_executions_input(), list()) ::
+          {:ok, workflow_execution_infos(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def list_closed_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -747,6 +2640,10 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec list_domains(map(), list_domains_input(), list()) ::
+          {:ok, domain_infos(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
   def list_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -804,6 +2701,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec list_open_workflow_executions(map(), list_open_workflow_executions_input(), list()) ::
+          {:ok, workflow_execution_infos(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def list_open_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -813,6 +2715,12 @@ defmodule AWS.SWF do
   @doc """
   List tags for a given domain.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -850,6 +2758,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec list_workflow_types(map(), list_workflow_types_input(), list()) ::
+          {:ok, workflow_type_infos(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def list_workflow_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -901,6 +2814,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec poll_for_activity_task(map(), poll_for_activity_task_input(), list()) ::
+          {:ok, activity_task(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def poll_for_activity_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -968,6 +2887,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec poll_for_decision_task(map(), poll_for_decision_task_input(), list()) ::
+          {:ok, decision_task(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def poll_for_decision_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1036,6 +2961,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec record_activity_task_heartbeat(map(), record_activity_task_heartbeat_input(), list()) ::
+          {:ok, activity_task_status(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def record_activity_task_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1091,6 +3021,13 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec register_activity_type(map(), register_activity_type_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_already_exists_fault()}
+          | {:error, unknown_resource_fault()}
   def register_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1126,6 +3063,13 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec register_domain(map(), register_domain_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, domain_already_exists_fault()}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, too_many_tags_fault()}
   def register_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1184,6 +3128,13 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec register_workflow_type(map(), register_workflow_type_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_already_exists_fault()}
+          | {:error, unknown_resource_fault()}
   def register_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1234,6 +3185,15 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec request_cancel_workflow_execution(
+          map(),
+          request_cancel_workflow_execution_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def request_cancel_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1286,6 +3246,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec respond_activity_task_canceled(map(), respond_activity_task_canceled_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def respond_activity_task_canceled(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1337,6 +3302,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec respond_activity_task_completed(map(), respond_activity_task_completed_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def respond_activity_task_completed(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1382,6 +3352,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec respond_activity_task_failed(map(), respond_activity_task_failed_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def respond_activity_task_failed(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1414,6 +3389,11 @@ defmodule AWS.SWF do
   in the
   *Amazon SWF Developer Guide*.
   """
+  @spec respond_decision_task_completed(map(), respond_decision_task_completed_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def respond_decision_task_completed(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1462,6 +3442,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec signal_workflow_execution(map(), signal_workflow_execution_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def signal_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1536,6 +3521,15 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec start_workflow_execution(map(), start_workflow_execution_input(), list()) ::
+          {:ok, run(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, default_undefined_fault()}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_deprecated_fault()}
+          | {:error, unknown_resource_fault()}
+          | {:error, workflow_execution_already_started_fault()}
   def start_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1547,6 +3541,13 @@ defmodule AWS.SWF do
 
   Amazon SWF supports a maximum of 50 tags per resource.
   """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, too_many_tags_fault()}
+          | {:error, unknown_resource_fault()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1599,6 +3600,11 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec terminate_workflow_execution(map(), terminate_workflow_execution_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def terminate_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1650,6 +3656,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec undeprecate_activity_type(map(), undeprecate_activity_type_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_already_exists_fault()}
+          | {:error, unknown_resource_fault()}
   def undeprecate_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1690,6 +3702,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec undeprecate_domain(map(), undeprecate_domain_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, domain_already_exists_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def undeprecate_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1741,6 +3759,12 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
+  @spec undeprecate_workflow_type(map(), undeprecate_workflow_type_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, type_already_exists_fault()}
+          | {:error, unknown_resource_fault()}
   def undeprecate_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1750,6 +3774,12 @@ defmodule AWS.SWF do
   @doc """
   Remove a tag from a Amazon SWF domain.
   """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, limit_exceeded_fault()}
+          | {:error, operation_not_permitted_fault()}
+          | {:error, unknown_resource_fault()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

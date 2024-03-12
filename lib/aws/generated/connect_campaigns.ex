@@ -9,6 +9,580 @@ defmodule AWS.ConnectCampaigns do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  answer_machine_detection_config() :: %{
+    "enableAnswerMachineDetection" => [boolean()]
+  }
+  """
+  @type answer_machine_detection_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_campaign_response() :: %{
+    "campaign" => campaign()
+  }
+  """
+  @type describe_campaign_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    "tags" => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  encryption_config() :: %{
+    "enabled" => boolean(),
+    "encryptionType" => String.t(),
+    "keyArn" => String.t()
+  }
+  """
+  @type encryption_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign() :: %{
+    "arn" => String.t(),
+    "connectInstanceId" => String.t(),
+    "dialerConfig" => list(),
+    "id" => String.t(),
+    "name" => String.t(),
+    "outboundCallConfig" => outbound_call_config(),
+    "tags" => map()
+  }
+  """
+  @type campaign() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  successful_request() :: %{
+    "clientToken" => String.t(),
+    "id" => String.t()
+  }
+  """
+  @type successful_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_onboarding_job_request() :: %{
+
+  }
+  """
+  @type delete_instance_onboarding_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_connect_instance_config_request() :: %{
+
+  }
+  """
+  @type delete_connect_instance_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_campaign_state_batch_response() :: %{
+    "failedRequests" => list(failed_campaign_state_response()()),
+    "successfulRequests" => list(successful_campaign_state_response()())
+  }
+  """
+  @type get_campaign_state_batch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_onboarding_job_status() :: %{
+    "connectInstanceId" => String.t(),
+    "failureCode" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type instance_onboarding_job_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_campaigns_response() :: %{
+    "campaignSummaryList" => list(campaign_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_campaigns_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_campaign_state_response() :: %{
+    "state" => String.t()
+  }
+  """
+  @type get_campaign_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_campaign_request() :: %{
+
+  }
+  """
+  @type delete_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_campaign_request() :: %{
+
+  }
+  """
+  @type describe_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    "tagKeys" => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_state_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_id_filter() :: %{
+    "operator" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type instance_id_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_campaign_state_exception() :: %{
+    "message" => [String.t()],
+    "state" => String.t(),
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type invalid_campaign_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_campaigns_request() :: %{
+    "filters" => campaign_filters(),
+    "maxResults" => integer(),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_campaigns_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  dial_request() :: %{
+    "attributes" => map(),
+    "clientToken" => String.t(),
+    "expirationTime" => non_neg_integer(),
+    "phoneNumber" => String.t()
+  }
+  """
+  @type dial_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_campaign_name_request() :: %{
+    "name" => String.t()
+  }
+  """
+  @type update_campaign_name_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_instance_onboarding_job_response() :: %{
+    "connectInstanceOnboardingJobStatus" => instance_onboarding_job_status()
+  }
+  """
+  @type start_instance_onboarding_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_campaign_state_request() :: %{
+
+  }
+  """
+  @type get_campaign_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  agentless_dialer_config() :: %{
+    "dialingCapacity" => float()
+  }
+  """
+  @type agentless_dialer_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_dial_request_batch_response() :: %{
+    "failedRequests" => list(failed_request()()),
+    "successfulRequests" => list(successful_request()())
+  }
+  """
+  @type put_dial_request_batch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resume_campaign_request() :: %{
+
+  }
+  """
+  @type resume_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_connect_instance_config_request() :: %{
+
+  }
+  """
+  @type get_connect_instance_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_campaign_state_batch_request() :: %{
+    "campaignIds" => list(String.t()())
+  }
+  """
+  @type get_campaign_state_batch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_campaign_dialer_config_request() :: %{
+    "dialerConfig" => list()
+  }
+  """
+  @type update_campaign_dialer_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "tags" => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_dial_request_batch_request() :: %{
+    "dialRequests" => list(dial_request()())
+  }
+  """
+  @type put_dial_request_batch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  progressive_dialer_config() :: %{
+    "bandwidthAllocation" => float(),
+    "dialingCapacity" => float()
+  }
+  """
+  @type progressive_dialer_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_campaign_request() :: %{
+
+  }
+  """
+  @type stop_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  pause_campaign_request() :: %{
+
+  }
+  """
+  @type pause_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_campaign_request() :: %{
+
+  }
+  """
+  @type start_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_campaign_request() :: %{
+    "connectInstanceId" => String.t(),
+    "dialerConfig" => list(),
+    "name" => String.t(),
+    "outboundCallConfig" => outbound_call_config(),
+    "tags" => map()
+  }
+  """
+  @type create_campaign_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_onboarding_job_status_response() :: %{
+    "connectInstanceOnboardingJobStatus" => instance_onboarding_job_status()
+  }
+  """
+  @type get_instance_onboarding_job_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_connect_instance_config_response() :: %{
+    "connectInstanceConfig" => instance_config()
+  }
+  """
+  @type get_connect_instance_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_config() :: %{
+    "connectInstanceId" => String.t(),
+    "encryptionConfig" => encryption_config(),
+    "serviceLinkedRoleArn" => String.t()
+  }
+  """
+  @type instance_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => [String.t()],
+    "xAmzErrorType" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  outbound_call_config() :: %{
+    "answerMachineDetectionConfig" => answer_machine_detection_config(),
+    "connectContactFlowId" => String.t(),
+    "connectQueueId" => String.t(),
+    "connectSourcePhoneNumber" => String.t()
+  }
+  """
+  @type outbound_call_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_campaign_outbound_call_config_request() :: %{
+    "answerMachineDetectionConfig" => answer_machine_detection_config(),
+    "connectContactFlowId" => String.t(),
+    "connectSourcePhoneNumber" => String.t()
+  }
+  """
+  @type update_campaign_outbound_call_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_request() :: %{
+    "clientToken" => String.t(),
+    "failureCode" => String.t(),
+    "id" => String.t()
+  }
+  """
+  @type failed_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  predictive_dialer_config() :: %{
+    "bandwidthAllocation" => float(),
+    "dialingCapacity" => float()
+  }
+  """
+  @type predictive_dialer_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_campaign_response() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type create_campaign_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  successful_campaign_state_response() :: %{
+    "campaignId" => String.t(),
+    "state" => String.t()
+  }
+  """
+  @type successful_campaign_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign_summary() :: %{
+    "arn" => String.t(),
+    "connectInstanceId" => String.t(),
+    "id" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type campaign_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_onboarding_job_status_request() :: %{
+
+  }
+  """
+  @type get_instance_onboarding_job_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failed_campaign_state_response() :: %{
+    "campaignId" => String.t(),
+    "failureCode" => String.t()
+  }
+  """
+  @type failed_campaign_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_instance_onboarding_job_request() :: %{
+    "encryptionConfig" => encryption_config()
+  }
+  """
+  @type start_instance_onboarding_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  campaign_filters() :: %{
+    "instanceIdFilter" => instance_id_filter()
+  }
+  """
+  @type campaign_filters() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2021-01-30",
@@ -29,6 +603,16 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
+  @spec create_campaign(map(), create_campaign_request(), list()) ::
+          {:ok, create_campaign_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_campaign(%Client{} = client, input, options \\ []) do
     url_path = "/campaigns"
     headers = []
@@ -42,6 +626,13 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Deletes a campaign from the specified Amazon Connect account.
   """
+  @spec delete_campaign(map(), String.t(), delete_campaign_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -65,6 +656,20 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Deletes a connect instance config from the specified AWS account.
   """
+  @spec delete_connect_instance_config(
+          map(),
+          String.t(),
+          delete_connect_instance_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_connect_instance_config(
         %Client{} = client,
         connect_instance_id,
@@ -94,6 +699,19 @@ defmodule AWS.ConnectCampaigns do
   Delete the Connect Campaigns onboarding job for the specified Amazon Connect
   instance.
   """
+  @spec delete_instance_onboarding_job(
+          map(),
+          String.t(),
+          delete_instance_onboarding_job_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def delete_instance_onboarding_job(
         %Client{} = client,
         connect_instance_id,
@@ -122,6 +740,13 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Describes the specific campaign.
   """
+  @spec describe_campaign(map(), String.t(), list()) ::
+          {:ok, describe_campaign_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def describe_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -135,6 +760,14 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get state of a campaign for the specified Amazon Connect account.
   """
+  @spec get_campaign_state(map(), String.t(), list()) ::
+          {:ok, get_campaign_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_campaign_state(%Client{} = client, id, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/state"
     headers = []
@@ -148,6 +781,13 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get state of campaigns for the specified Amazon Connect account.
   """
+  @spec get_campaign_state_batch(map(), get_campaign_state_batch_request(), list()) ::
+          {:ok, get_campaign_state_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_campaign_state_batch(%Client{} = client, input, options \\ []) do
     url_path = "/campaigns-state"
     headers = []
@@ -171,6 +811,13 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get the specific Connect instance config.
   """
+  @spec get_connect_instance_config(map(), String.t(), list()) ::
+          {:ok, get_connect_instance_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_connect_instance_config(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/config"
     headers = []
@@ -184,6 +831,13 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get the specific instance onboarding job status.
   """
+  @spec get_instance_onboarding_job_status(map(), String.t(), list()) ::
+          {:ok, get_instance_onboarding_job_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def get_instance_onboarding_job_status(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
     headers = []
@@ -198,6 +852,12 @@ defmodule AWS.ConnectCampaigns do
   Provides summary information about the campaigns under the specified Amazon
   Connect account.
   """
+  @spec list_campaigns(map(), list_campaigns_request(), list()) ::
+          {:ok, list_campaigns_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, validation_exception()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
     url_path = "/campaigns-summary"
     headers = []
@@ -221,6 +881,14 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   List tags for a resource.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
@@ -234,6 +902,16 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Pauses a campaign for the specified Amazon Connect account.
   """
+  @spec pause_campaign(map(), String.t(), pause_campaign_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_campaign_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def pause_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/pause"
     headers = []
@@ -259,6 +937,16 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
+  @spec put_dial_request_batch(map(), String.t(), put_dial_request_batch_request(), list()) ::
+          {:ok, put_dial_request_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_campaign_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def put_dial_request_batch(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/dial-requests"
     headers = []
@@ -272,6 +960,16 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Stops a campaign for the specified Amazon Connect account.
   """
+  @spec resume_campaign(map(), String.t(), resume_campaign_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_campaign_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def resume_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/resume"
     headers = []
@@ -295,6 +993,16 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Starts a campaign for the specified Amazon Connect account.
   """
+  @spec start_campaign(map(), String.t(), start_campaign_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_campaign_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def start_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/start"
     headers = []
@@ -318,6 +1026,20 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Onboard the specific Amazon Connect instance to Connect Campaigns.
   """
+  @spec start_instance_onboarding_job(
+          map(),
+          String.t(),
+          start_instance_onboarding_job_request(),
+          list()
+        ) ::
+          {:ok, start_instance_onboarding_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def start_instance_onboarding_job(%Client{} = client, connect_instance_id, input, options \\ []) do
     url_path = "/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
     headers = []
@@ -331,6 +1053,16 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Stops a campaign for the specified Amazon Connect account.
   """
+  @spec stop_campaign(map(), String.t(), stop_campaign_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, invalid_campaign_state_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def stop_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/stop"
     headers = []
@@ -354,6 +1086,14 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Tag a resource.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
@@ -377,6 +1117,14 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Untag a resource.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
@@ -407,6 +1155,19 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
+  @spec update_campaign_dialer_config(
+          map(),
+          String.t(),
+          update_campaign_dialer_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def update_campaign_dialer_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/dialer-config"
     headers = []
@@ -432,6 +1193,14 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
+  @spec update_campaign_name(map(), String.t(), update_campaign_name_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def update_campaign_name(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/name"
     headers = []
@@ -457,6 +1226,20 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
+  @spec update_campaign_outbound_call_config(
+          map(),
+          String.t(),
+          update_campaign_outbound_call_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_campaign_outbound_call_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/campaigns/#{AWS.Util.encode_uri(id)}/outbound-call-config"
     headers = []

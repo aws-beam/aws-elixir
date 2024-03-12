@@ -14,6 +14,1073 @@ defmodule AWS.Tnb do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  update_sol_network_package_output() :: %{
+    "nsdOperationalState" => list(any())
+  }
+  """
+  @type update_sol_network_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_vnf_info() :: %{
+    "vnfState" => list(any()),
+    "vnfcResourceInfo" => list(get_sol_vnfc_resource_info()())
+  }
+  """
+  @type get_sol_vnf_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sol_function_package_input() :: %{
+
+  }
+  """
+  @type delete_sol_function_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sol_network_instance_input() :: %{
+
+  }
+  """
+  @type delete_sol_network_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sol_network_package_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "nsdOnboardingState" => list(any()),
+    "nsdOperationalState" => list(any()),
+    "nsdUsageState" => list(any()),
+    "tags" => map()
+  }
+  """
+  @type create_sol_network_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => get_sol_function_package_metadata(),
+    "onboardingState" => list(any()),
+    "operationalState" => list(any()),
+    "tags" => map(),
+    "usageState" => list(any()),
+    "vnfProductName" => [String.t()],
+    "vnfProvider" => [String.t()],
+    "vnfdId" => [String.t()],
+    "vnfdVersion" => [String.t()]
+  }
+  """
+  @type get_sol_function_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_instance_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type list_sol_function_instance_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_instances_input() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_sol_function_instances_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_operations_input() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_sol_network_operations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_sol_network_package_content_metadata() :: %{
+    "nsd" => network_artifact_meta()
+  }
+  """
+  @type validate_sol_network_package_content_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_packages_output() :: %{
+    "networkPackages" => list(list_sol_network_package_info()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_sol_network_packages_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_instance_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type get_sol_function_instance_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sol_network_package_input() :: %{
+    optional("tags") => map()
+  }
+  """
+  @type create_sol_network_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sol_function_package_content_metadata() :: %{
+    "vnfd" => function_artifact_meta()
+  }
+  """
+  @type put_sol_function_package_content_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_descriptor_input() :: %{
+
+  }
+  """
+  @type get_sol_network_package_descriptor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_descriptor_input() :: %{
+    required("accept") => list(any())
+  }
+  """
+  @type get_sol_function_package_descriptor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_instance_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "instantiatedVnfInfo" => get_sol_vnf_info(),
+    "instantiationState" => list(any()),
+    "metadata" => get_sol_function_instance_metadata(),
+    "nsInstanceId" => String.t(),
+    "tags" => map(),
+    "vnfPkgId" => String.t(),
+    "vnfProductName" => [String.t()],
+    "vnfProvider" => [String.t()],
+    "vnfdId" => String.t(),
+    "vnfdVersion" => [String.t()]
+  }
+  """
+  @type get_sol_function_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => get_sol_network_package_metadata(),
+    "nsdId" => String.t(),
+    "nsdName" => [String.t()],
+    "nsdOnboardingState" => list(any()),
+    "nsdOperationalState" => list(any()),
+    "nsdUsageState" => list(any()),
+    "nsdVersion" => [String.t()],
+    "tags" => map(),
+    "vnfPkgIds" => list(String.t()())
+  }
+  """
+  @type get_sol_network_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  error_info() :: %{
+    "cause" => String.t(),
+    "details" => String.t()
+  }
+  """
+  @type error_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sol_function_package_content_output() :: %{
+    "id" => String.t(),
+    "metadata" => put_sol_function_package_content_metadata(),
+    "vnfProductName" => [String.t()],
+    "vnfProvider" => [String.t()],
+    "vnfdId" => String.t(),
+    "vnfdVersion" => [String.t()]
+  }
+  """
+  @type put_sol_function_package_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_output() :: %{
+    "tags" => map()
+  }
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_input() :: %{
+
+  }
+  """
+  @type get_sol_network_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_packages_input() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_sol_network_packages_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_sol_network_package_content_input() :: %{
+    optional("contentType") => list(any()),
+    required("file") => [binary()]
+  }
+  """
+  @type validate_sol_network_package_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sol_network_package_content_input() :: %{
+    optional("contentType") => list(any()),
+    required("file") => [binary()]
+  }
+  """
+  @type put_sol_network_package_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_operations_info() :: %{
+    "arn" => String.t(),
+    "error" => problem_details(),
+    "id" => String.t(),
+    "lcmOperationType" => list(any()),
+    "metadata" => list_sol_network_operations_metadata(),
+    "nsInstanceId" => String.t(),
+    "operationState" => list(any())
+  }
+  """
+  @type list_sol_network_operations_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_sol_network_instance_input() :: %{
+    optional("tags") => map()
+  }
+  """
+  @type terminate_sol_network_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_instantiated_vnf_info() :: %{
+    "vnfState" => list(any())
+  }
+  """
+  @type get_sol_instantiated_vnf_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_vnfc_resource_info() :: %{
+    "metadata" => get_sol_vnfc_resource_info_metadata()
+  }
+  """
+  @type get_sol_vnfc_resource_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_package_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type list_sol_network_package_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sol_network_package_content_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => put_sol_network_package_content_metadata(),
+    "nsdId" => String.t(),
+    "nsdName" => [String.t()],
+    "nsdVersion" => [String.t()],
+    "vnfPkgIds" => list(String.t()())
+  }
+  """
+  @type put_sol_network_package_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_instances_input() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_sol_network_instances_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sol_network_package_content_metadata() :: %{
+    "nsd" => network_artifact_meta()
+  }
+  """
+  @type put_sol_network_package_content_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_operations_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type list_sol_network_operations_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_content_output() :: %{
+    "contentType" => list(any()),
+    "nsdContent" => [binary()]
+  }
+  """
+  @type get_sol_network_package_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sol_network_instance_output() :: %{
+    "nsLcmOpOccId" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type update_sol_network_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  problem_details() :: %{
+    "detail" => [String.t()],
+    "title" => [String.t()]
+  }
+  """
+  @type problem_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sol_network_instance_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "nsInstanceName" => [String.t()],
+    "nsdInfoId" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type create_sol_network_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terminate_sol_network_instance_output() :: %{
+    "nsLcmOpOccId" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type terminate_sol_network_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_sol_function_package_content_input() :: %{
+    optional("contentType") => list(any()),
+    required("file") => [binary()]
+  }
+  """
+  @type put_sol_function_package_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instantiate_sol_network_instance_input() :: %{
+    optional("additionalParamsForNs") => [any()],
+    optional("dryRun") => [boolean()],
+    optional("tags") => map()
+  }
+  """
+  @type instantiate_sol_network_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_packages_output() :: %{
+    "functionPackages" => list(list_sol_function_package_info()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_sol_function_packages_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sol_function_package_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "onboardingState" => list(any()),
+    "operationalState" => list(any()),
+    "tags" => map(),
+    "usageState" => list(any())
+  }
+  """
+  @type create_sol_function_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_sol_network_operation_input() :: %{
+
+  }
+  """
+  @type cancel_sol_network_operation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_input() :: %{
+    required("tags") => map()
+  }
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sol_network_modify() :: %{
+    "vnfConfigurableProperties" => [any()],
+    "vnfInstanceId" => String.t()
+  }
+  """
+  @type update_sol_network_modify() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_instance_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type list_sol_network_instance_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_instance_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "lcmOpInfo" => lcm_operation_info(),
+    "metadata" => get_sol_network_instance_metadata(),
+    "nsInstanceDescription" => [String.t()],
+    "nsInstanceName" => [String.t()],
+    "nsState" => list(any()),
+    "nsdId" => String.t(),
+    "nsdInfoId" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type get_sol_network_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_output() :: %{
+
+  }
+  """
+  @type tag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_descriptor_output() :: %{
+    "contentType" => list(any()),
+    "vnfd" => [binary()]
+  }
+  """
+  @type get_sol_function_package_descriptor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_instance_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type get_sol_network_instance_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()],
+    "nsd" => network_artifact_meta()
+  }
+  """
+  @type get_sol_network_package_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_operation_input() :: %{
+
+  }
+  """
+  @type get_sol_network_operation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sol_network_package_input() :: %{
+    required("nsdOperationalState") => list(any())
+  }
+  """
+  @type update_sol_network_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sol_function_package_input() :: %{
+    optional("tags") => map()
+  }
+  """
+  @type create_sol_function_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sol_function_package_output() :: %{
+    "operationalState" => list(any())
+  }
+  """
+  @type update_sol_function_package_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_operation_task_details() :: %{
+    "taskContext" => map(),
+    "taskEndTime" => [non_neg_integer()],
+    "taskErrorDetails" => error_info(),
+    "taskName" => [String.t()],
+    "taskStartTime" => [non_neg_integer()],
+    "taskStatus" => list(any())
+  }
+  """
+  @type get_sol_network_operation_task_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_input() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_content_input() :: %{
+    required("accept") => list(any())
+  }
+  """
+  @type get_sol_network_package_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_sol_network_package_input() :: %{
+
+  }
+  """
+  @type delete_sol_network_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_input() :: %{
+
+  }
+  """
+  @type get_sol_function_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_input() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_sol_network_package_content_output() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => validate_sol_network_package_content_metadata(),
+    "nsdId" => String.t(),
+    "nsdName" => [String.t()],
+    "nsdVersion" => [String.t()],
+    "vnfPkgIds" => list(String.t()())
+  }
+  """
+  @type validate_sol_network_package_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_output() :: %{
+
+  }
+  """
+  @type untag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_content_input() :: %{
+    required("accept") => list(any())
+  }
+  """
+  @type get_sol_function_package_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()],
+    "vnfd" => function_artifact_meta()
+  }
+  """
+  @type get_sol_function_package_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sol_network_instance_input() :: %{
+    optional("modifyVnfInfoData") => update_sol_network_modify(),
+    optional("tags") => map(),
+    required("updateType") => list(any())
+  }
+  """
+  @type update_sol_network_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instantiate_sol_network_instance_output() :: %{
+    "nsLcmOpOccId" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type instantiate_sol_network_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tosca_override() :: %{
+    "defaultValue" => [String.t()],
+    "name" => [String.t()]
+  }
+  """
+  @type tosca_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_operation_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type get_sol_network_operation_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_operations_output() :: %{
+    "networkOperations" => list(list_sol_network_operations_info()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_sol_network_operations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_package_metadata() :: %{
+    "createdAt" => [non_neg_integer()],
+    "lastModified" => [non_neg_integer()]
+  }
+  """
+  @type list_sol_function_package_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_instance_input() :: %{
+
+  }
+  """
+  @type get_sol_function_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_vnfc_resource_info_metadata() :: %{
+    "cluster" => [String.t()],
+    "helmChart" => [String.t()],
+    "nodeGroup" => [String.t()]
+  }
+  """
+  @type get_sol_vnfc_resource_info_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_instance_input() :: %{
+
+  }
+  """
+  @type get_sol_network_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_instances_output() :: %{
+    "networkInstances" => list(list_sol_network_instance_info()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_sol_network_instances_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_sol_network_instance_input() :: %{
+    optional("nsDescription") => [String.t()],
+    optional("tags") => map(),
+    required("nsName") => [String.t()],
+    required("nsdInfoId") => String.t()
+  }
+  """
+  @type create_sol_network_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_instance_info() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => list_sol_network_instance_metadata(),
+    "nsInstanceDescription" => [String.t()],
+    "nsInstanceName" => [String.t()],
+    "nsState" => list(any()),
+    "nsdId" => String.t(),
+    "nsdInfoId" => String.t()
+  }
+  """
+  @type list_sol_network_instance_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_package_info() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => list_sol_function_package_metadata(),
+    "onboardingState" => list(any()),
+    "operationalState" => list(any()),
+    "usageState" => list(any()),
+    "vnfProductName" => [String.t()],
+    "vnfProvider" => [String.t()],
+    "vnfdId" => [String.t()],
+    "vnfdVersion" => [String.t()]
+  }
+  """
+  @type list_sol_function_package_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  function_artifact_meta() :: %{
+    "overrides" => list(tosca_override()())
+  }
+  """
+  @type function_artifact_meta() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_sol_function_package_content_input() :: %{
+    optional("contentType") => list(any()),
+    required("file") => [binary()]
+  }
+  """
+  @type validate_sol_function_package_content_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_sol_function_package_content_output() :: %{
+    "id" => String.t(),
+    "metadata" => validate_sol_function_package_content_metadata(),
+    "vnfProductName" => [String.t()],
+    "vnfProvider" => [String.t()],
+    "vnfdId" => String.t(),
+    "vnfdVersion" => [String.t()]
+  }
+  """
+  @type validate_sol_function_package_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_package_descriptor_output() :: %{
+    "contentType" => list(any()),
+    "nsd" => [binary()]
+  }
+  """
+  @type get_sol_network_package_descriptor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validate_sol_function_package_content_metadata() :: %{
+    "vnfd" => function_artifact_meta()
+  }
+  """
+  @type validate_sol_function_package_content_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_function_package_content_output() :: %{
+    "contentType" => list(any()),
+    "packageContent" => [binary()]
+  }
+  """
+  @type get_sol_function_package_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_sol_network_operation_output() :: %{
+    "arn" => String.t(),
+    "error" => problem_details(),
+    "id" => String.t(),
+    "lcmOperationType" => list(any()),
+    "metadata" => get_sol_network_operation_metadata(),
+    "nsInstanceId" => String.t(),
+    "operationState" => list(any()),
+    "tags" => map(),
+    "tasks" => list(get_sol_network_operation_task_details()())
+  }
+  """
+  @type get_sol_network_operation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_instance_info() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "instantiatedVnfInfo" => get_sol_instantiated_vnf_info(),
+    "instantiationState" => list(any()),
+    "metadata" => list_sol_function_instance_metadata(),
+    "nsInstanceId" => String.t(),
+    "vnfPkgId" => String.t(),
+    "vnfPkgName" => [String.t()]
+  }
+  """
+  @type list_sol_function_instance_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lcm_operation_info() :: %{
+    "nsLcmOpOccId" => String.t()
+  }
+  """
+  @type lcm_operation_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_sol_function_package_input() :: %{
+    required("operationalState") => list(any())
+  }
+  """
+  @type update_sol_function_package_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_instances_output() :: %{
+    "functionInstances" => list(list_sol_function_instance_info()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_sol_function_instances_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_network_package_info() :: %{
+    "arn" => String.t(),
+    "id" => String.t(),
+    "metadata" => list_sol_network_package_metadata(),
+    "nsdDesigner" => [String.t()],
+    "nsdId" => [String.t()],
+    "nsdInvariantId" => [String.t()],
+    "nsdName" => [String.t()],
+    "nsdOnboardingState" => list(any()),
+    "nsdOperationalState" => list(any()),
+    "nsdUsageState" => list(any()),
+    "nsdVersion" => [String.t()],
+    "vnfPkgIds" => list(String.t()())
+  }
+  """
+  @type list_sol_network_package_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sol_function_packages_input() :: %{
+    optional("maxResults") => [integer()],
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_sol_function_packages_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_artifact_meta() :: %{
+    "overrides" => list(tosca_override()())
+  }
+  """
+  @type network_artifact_meta() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2008-10-21",
@@ -35,6 +1102,19 @@ defmodule AWS.Tnb do
   A network operation is any operation that is done to your network, such as
   network instance instantiation or termination.
   """
+  @spec cancel_sol_network_operation(
+          map(),
+          String.t(),
+          cancel_sol_network_operation_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def cancel_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}/cancel"
     headers = []
@@ -71,6 +1151,14 @@ defmodule AWS.Tnb do
   content, see
   [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
   """
+  @spec create_sol_function_package(map(), create_sol_function_package_input(), list()) ::
+          {:ok, create_sol_function_package_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_sol_function_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
     headers = []
@@ -105,6 +1193,15 @@ defmodule AWS.Tnb do
   network, see
   [InstantiateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html).
   """
+  @spec create_sol_network_instance(map(), create_sol_network_instance_input(), list()) ::
+          {:ok, create_sol_network_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_sol_network_instance(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
     headers = []
@@ -143,6 +1240,14 @@ defmodule AWS.Tnb do
   create a network package, you can upload the network package content using
   [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
   """
+  @spec create_sol_network_package(map(), create_sol_network_package_input(), list()) ::
+          {:ok, create_sol_network_package_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_sol_network_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
     headers = []
@@ -175,6 +1280,19 @@ defmodule AWS.Tnb do
   disable a function package, see
   [UpdateSolFunctionPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html).
   """
+  @spec delete_sol_function_package(
+          map(),
+          String.t(),
+          delete_sol_function_package_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
     headers = []
@@ -206,6 +1324,19 @@ defmodule AWS.Tnb do
   state. To terminate a network instance, see
   [TerminateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html).
   """
+  @spec delete_sol_network_instance(
+          map(),
+          String.t(),
+          delete_sol_network_instance_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
     headers = []
@@ -237,6 +1368,14 @@ defmodule AWS.Tnb do
   a network package, see
   [UpdateSolNetworkPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html).
   """
+  @spec delete_sol_network_package(map(), String.t(), delete_sol_network_package_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
     headers = []
@@ -264,6 +1403,14 @@ defmodule AWS.Tnb do
 
   A network function instance is a function in a function package .
   """
+  @spec get_sol_function_instance(map(), String.t(), list()) ::
+          {:ok, get_sol_function_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_function_instance(%Client{} = client, vnf_instance_id, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances/#{AWS.Util.encode_uri(vnf_instance_id)}"
     headers = []
@@ -283,6 +1430,14 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network..
   """
+  @spec get_sol_function_package(map(), String.t(), list()) ::
+          {:ok, get_sol_function_package_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
     headers = []
@@ -301,6 +1456,14 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
+  @spec get_sol_function_package_content(map(), String.t(), String.t(), list()) ::
+          {:ok, get_sol_function_package_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_function_package_content(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
     headers = []
@@ -338,6 +1501,14 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
+  @spec get_sol_function_package_descriptor(map(), String.t(), String.t(), list()) ::
+          {:ok, get_sol_function_package_descriptor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_function_package_descriptor(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/vnfd"
     headers = []
@@ -370,6 +1541,14 @@ defmodule AWS.Tnb do
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed.
   """
+  @spec get_sol_network_instance(map(), String.t(), list()) ::
+          {:ok, get_sol_network_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
     headers = []
@@ -387,6 +1566,14 @@ defmodule AWS.Tnb do
   A network operation is any operation that is done to your network, such as
   network instance instantiation or termination.
   """
+  @spec get_sol_network_operation(map(), String.t(), list()) ::
+          {:ok, get_sol_network_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}"
     headers = []
@@ -404,6 +1591,14 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
+  @spec get_sol_network_package(map(), String.t(), list()) ::
+          {:ok, get_sol_network_package_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
     headers = []
@@ -421,6 +1616,14 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
+  @spec get_sol_network_package_content(map(), String.t(), String.t(), list()) ::
+          {:ok, get_sol_network_package_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_network_package_content(%Client{} = client, nsd_info_id, accept, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
     headers = []
@@ -453,6 +1656,14 @@ defmodule AWS.Tnb do
   TOSCA standard to describe the network functions you want to deploy and the
   Amazon Web Services infrastructure you want to deploy the network functions on.
   """
+  @spec get_sol_network_package_descriptor(map(), String.t(), list()) ::
+          {:ok, get_sol_network_package_descriptor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_sol_network_package_descriptor(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd"
     headers = []
@@ -481,6 +1692,20 @@ defmodule AWS.Tnb do
   instance. For more information, see
   [CreateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html).
   """
+  @spec instantiate_sol_network_instance(
+          map(),
+          String.t(),
+          instantiate_sol_network_instance_input(),
+          list()
+        ) ::
+          {:ok, instantiate_sol_network_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/instantiate"
     headers = []
@@ -511,6 +1736,13 @@ defmodule AWS.Tnb do
 
   A network function instance is a function in a function package .
   """
+  @spec list_sol_function_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sol_function_instances_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_sol_function_instances(
         %Client{} = client,
         max_results \\ nil,
@@ -548,6 +1780,13 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
+  @spec list_sol_function_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sol_function_packages_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_sol_function_packages(
         %Client{} = client,
         max_results \\ nil,
@@ -584,6 +1823,13 @@ defmodule AWS.Tnb do
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed.
   """
+  @spec list_sol_network_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sol_network_instances_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_sol_network_instances(
         %Client{} = client,
         max_results \\ nil,
@@ -620,6 +1866,13 @@ defmodule AWS.Tnb do
   A network operation is any operation that is done to your network, such as
   network instance instantiation or termination.
   """
+  @spec list_sol_network_operations(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sol_network_operations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_sol_network_operations(
         %Client{} = client,
         max_results \\ nil,
@@ -656,6 +1909,13 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
+  @spec list_sol_network_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sol_network_packages_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_sol_network_packages(
         %Client{} = client,
         max_results \\ nil,
@@ -688,6 +1948,14 @@ defmodule AWS.Tnb do
   @doc """
   Lists tags for AWS TNB resources.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -706,6 +1974,19 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
+  @spec put_sol_function_package_content(
+          map(),
+          String.t(),
+          put_sol_function_package_content_input(),
+          list()
+        ) ::
+          {:ok, put_sol_function_package_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def put_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
 
@@ -729,6 +2010,19 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
+  @spec put_sol_network_package_content(
+          map(),
+          String.t(),
+          put_sol_network_package_content_input(),
+          list()
+        ) ::
+          {:ok, put_sol_network_package_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def put_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
 
@@ -752,6 +2046,14 @@ defmodule AWS.Tnb do
   consists of a key and an optional value. You can use tags to search and filter
   your resources or track your Amazon Web Services costs.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -781,6 +2083,20 @@ defmodule AWS.Tnb do
 
   You must terminate a network instance before you can delete it.
   """
+  @spec terminate_sol_network_instance(
+          map(),
+          String.t(),
+          terminate_sol_network_instance_input(),
+          list()
+        ) ::
+          {:ok, terminate_sol_network_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def terminate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/terminate"
     headers = []
@@ -808,6 +2124,14 @@ defmodule AWS.Tnb do
   consists of a key and an optional value. You can use tags to search and filter
   your resources or track your Amazon Web Services costs.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -841,6 +2165,19 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
+  @spec update_sol_function_package(
+          map(),
+          String.t(),
+          update_sol_function_package_input(),
+          list()
+        ) ::
+          {:ok, update_sol_function_package_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
     headers = []
@@ -868,6 +2205,20 @@ defmodule AWS.Tnb do
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed.
   """
+  @spec update_sol_network_instance(
+          map(),
+          String.t(),
+          update_sol_network_instance_input(),
+          list()
+        ) ::
+          {:ok, update_sol_network_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/update"
     headers = []
@@ -899,6 +2250,14 @@ defmodule AWS.Tnb do
   TOSCA standard to describe the network functions you want to deploy and the
   Amazon Web Services infrastructure you want to deploy the network functions on.
   """
+  @spec update_sol_network_package(map(), String.t(), update_sol_network_package_input(), list()) ::
+          {:ok, update_sol_network_package_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
     headers = []
@@ -930,6 +2289,19 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
+  @spec validate_sol_function_package_content(
+          map(),
+          String.t(),
+          validate_sol_function_package_content_input(),
+          list()
+        ) ::
+          {:ok, validate_sol_function_package_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def validate_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path =
       "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content/validate"
@@ -957,6 +2329,19 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
+  @spec validate_sol_network_package_content(
+          map(),
+          String.t(),
+          validate_sol_network_package_content_input(),
+          list()
+        ) ::
+          {:ok, validate_sol_network_package_content_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def validate_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path =
       "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content/validate"

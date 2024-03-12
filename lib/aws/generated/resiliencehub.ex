@@ -19,6 +19,1854 @@ defmodule AWS.Resiliencehub do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  app() :: %{
+    "appArn" => String.t(),
+    "assessmentSchedule" => String.t(),
+    "complianceStatus" => String.t(),
+    "creationTime" => non_neg_integer(),
+    "description" => String.t(),
+    "driftStatus" => String.t(),
+    "eventSubscriptions" => list(event_subscription()()),
+    "lastAppComplianceEvaluationTime" => non_neg_integer(),
+    "lastDriftEvaluationTime" => non_neg_integer(),
+    "lastResiliencyScoreEvaluationTime" => non_neg_integer(),
+    "name" => String.t(),
+    "permissionModel" => permission_model(),
+    "policyArn" => String.t(),
+    "resiliencyScore" => float(),
+    "rpoInSecs" => integer(),
+    "rtoInSecs" => integer(),
+    "status" => String.t(),
+    "tags" => map()
+  }
+  """
+  @type app() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_recommendation_status_request() :: %{
+    required("appArn") => String.t(),
+    required("requestEntries") => list(update_recommendation_status_request_entry()())
+  }
+  """
+  @type batch_update_recommendation_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_component_compliances_response() :: %{
+    optional("nextToken") => String.t(),
+    required("componentCompliances") => list(app_component_compliance()())
+  }
+  """
+  @type list_app_component_compliances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_resources_resolution_status_request() :: %{
+    optional("resolutionId") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_resources_resolution_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_apps_response() :: %{
+    optional("nextToken") => String.t(),
+    required("appSummaries") => list(app_summary()())
+  }
+  """
+  @type list_apps_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("tags") => map()
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_component_recommendations_response() :: %{
+    optional("nextToken") => String.t(),
+    required("componentRecommendations") => list(component_recommendation()())
+  }
+  """
+  @type list_app_component_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_resource_request() :: %{
+    optional("awsAccountId") => String.t(),
+    optional("awsRegion") => String.t(),
+    optional("logicalResourceId") => logical_resource_id(),
+    optional("physicalResourceId") => String.t(),
+    optional("resourceName") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_component_recommendations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_app_component_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_draft_app_version_resource_mappings_response() :: %{
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("resourceMappings") => list(resource_mapping()())
+  }
+  """
+  @type add_draft_app_version_resource_mappings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_request() :: %{
+    optional("assessmentSchedule") => String.t(),
+    optional("clientToken") => String.t(),
+    optional("description") => String.t(),
+    optional("eventSubscriptions") => list(event_subscription()()),
+    optional("permissionModel") => permission_model(),
+    optional("policyArn") => String.t(),
+    optional("tags") => map(),
+    required("name") => String.t()
+  }
+  """
+  @type create_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_version_resources_response() :: %{
+    optional("nextToken") => String.t(),
+    required("physicalResources") => list(physical_resource()()),
+    required("resolutionId") => String.t()
+  }
+  """
+  @type list_app_version_resources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_response() :: %{
+    required("appArn") => String.t()
+  }
+  """
+  @type delete_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_version_app_component_response() :: %{
+    optional("appComponent") => app_component(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type create_app_version_app_component_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_assessments_request() :: %{
+    optional("appArn") => String.t(),
+    optional("assessmentName") => String.t(),
+    optional("assessmentStatus") => list(String.t()()),
+    optional("complianceStatus") => String.t(),
+    optional("invoker") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("reverseOrder") => boolean()
+  }
+  """
+  @type list_app_assessments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_versions_response() :: %{
+    optional("nextToken") => String.t(),
+    required("appVersions") => list(app_version_summary()())
+  }
+  """
+  @type list_app_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_draft_app_version_resource_mappings_response() :: %{
+    optional("appArn") => String.t(),
+    optional("appVersion") => String.t()
+  }
+  """
+  @type remove_draft_app_version_resource_mappings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resolve_app_version_resources_request() :: %{
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type resolve_app_version_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_version_app_component_request() :: %{
+    optional("additionalInfo") => map(),
+    optional("name") => String.t(),
+    optional("type") => String.t(),
+    required("appArn") => String.t(),
+    required("id") => String.t()
+  }
+  """
+  @type update_app_version_app_component_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_draft_app_version_template_request() :: %{
+    required("appArn") => String.t(),
+    required("appTemplateBody") => String.t()
+  }
+  """
+  @type put_draft_app_version_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_mapping() :: %{
+    "appRegistryAppName" => String.t(),
+    "eksSourceName" => String.t(),
+    "logicalStackName" => String.t(),
+    "mappingType" => String.t(),
+    "physicalResourceId" => physical_resource_id(),
+    "resourceGroupName" => String.t(),
+    "resourceName" => String.t(),
+    "terraformSourceName" => String.t()
+  }
+  """
+  @type resource_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_unsupported_app_version_resources_response() :: %{
+    optional("nextToken") => String.t(),
+    required("resolutionId") => String.t(),
+    required("unsupportedResources") => list(unsupported_resource()())
+  }
+  """
+  @type list_unsupported_app_version_resources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resiliency_score() :: %{
+    "componentScore" => map(),
+    "disruptionScore" => map(),
+    "score" => float()
+  }
+  """
+  @type resiliency_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_resource() :: %{
+    "logicalResourceId" => logical_resource_id(),
+    "physicalResourceId" => physical_resource_id(),
+    "resourceType" => String.t(),
+    "unsupportedResourceStatus" => String.t()
+  }
+  """
+  @type unsupported_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_version_resource_request() :: %{
+    optional("additionalInfo") => map(),
+    optional("awsAccountId") => String.t(),
+    optional("awsRegion") => String.t(),
+    optional("clientToken") => String.t(),
+    optional("resourceName") => String.t(),
+    required("appArn") => String.t(),
+    required("appComponents") => list(String.t()()),
+    required("logicalResourceId") => logical_resource_id(),
+    required("physicalResourceId") => String.t(),
+    required("resourceType") => String.t()
+  }
+  """
+  @type create_app_version_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  config_recommendation() :: %{
+    "appComponentName" => String.t(),
+    "compliance" => map(),
+    "cost" => cost(),
+    "description" => String.t(),
+    "haArchitecture" => String.t(),
+    "name" => String.t(),
+    "optimizationType" => String.t(),
+    "recommendationCompliance" => map(),
+    "referenceId" => String.t(),
+    "suggestedChanges" => list(String.t()())
+  }
+  """
+  @type config_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_subscription() :: %{
+    "eventType" => String.t(),
+    "name" => String.t(),
+    "snsTopicArn" => String.t()
+  }
+  """
+  @type event_subscription() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_template_request() :: %{
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_resources_to_draft_app_version_request() :: %{
+    optional("eksSources") => list(eks_source()()),
+    optional("importStrategy") => String.t(),
+    optional("sourceArns") => list(String.t()()),
+    optional("terraformSources") => list(terraform_source()()),
+    required("appArn") => String.t()
+  }
+  """
+  @type import_resources_to_draft_app_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_input_source_response() :: %{
+    optional("appArn") => String.t(),
+    optional("appInputSource") => app_input_source()
+  }
+  """
+  @type delete_app_input_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_app_assessment_request() :: %{
+    optional("clientToken") => String.t(),
+    optional("tags") => map(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("assessmentName") => String.t()
+  }
+  """
+  @type start_app_assessment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_version_app_components_response() :: %{
+    optional("appComponents") => list(app_component()()),
+    optional("nextToken") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type list_app_version_app_components_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_recommendation_status_response() :: %{
+    "appArn" => String.t(),
+    "failedEntries" => list(batch_update_recommendation_status_failed_entry()()),
+    "successfulEntries" => list(batch_update_recommendation_status_successful_entry()())
+  }
+  """
+  @type batch_update_recommendation_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_unsupported_app_version_resources_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("resolutionId") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type list_unsupported_app_version_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_input_sources_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type list_app_input_sources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_recommendations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_test_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  failure_policy() :: %{
+    "rpoInSecs" => integer(),
+    "rtoInSecs" => integer()
+  }
+  """
+  @type failure_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_recommendation_template_response() :: %{
+    optional("recommendationTemplate") => recommendation_template()
+  }
+  """
+  @type create_recommendation_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_response() :: %{
+    required("app") => app()
+  }
+  """
+  @type describe_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  disruption_compliance() :: %{
+    "achievableRpoInSecs" => integer(),
+    "achievableRtoInSecs" => integer(),
+    "complianceStatus" => String.t(),
+    "currentRpoInSecs" => integer(),
+    "currentRtoInSecs" => integer(),
+    "message" => String.t(),
+    "rpoDescription" => String.t(),
+    "rpoReferenceId" => String.t(),
+    "rtoDescription" => String.t(),
+    "rtoReferenceId" => String.t()
+  }
+  """
+  @type disruption_compliance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_resiliency_policies_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("policyName") => String.t()
+  }
+  """
+  @type list_resiliency_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_recommendation_status_request_entry() :: %{
+    "entryId" => String.t(),
+    "excludeReason" => String.t(),
+    "excluded" => boolean(),
+    "item" => update_recommendation_status_item(),
+    "referenceId" => String.t()
+  }
+  """
+  @type update_recommendation_status_request_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  terraform_source() :: %{
+    "s3StateFileUrl" => String.t()
+  }
+  """
+  @type terraform_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_version_resources_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("resolutionId") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type list_app_version_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_errors_details() :: %{
+    "hasMoreErrors" => boolean(),
+    "resourceErrors" => list(resource_error()())
+  }
+  """
+  @type resource_errors_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  component_recommendation() :: %{
+    "appComponentName" => String.t(),
+    "configRecommendations" => list(config_recommendation()()),
+    "recommendationStatus" => String.t()
+  }
+  """
+  @type component_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_version_resource_response() :: %{
+    optional("physicalResource") => physical_resource(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type create_app_version_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  logical_resource_id() :: %{
+    "eksSourceName" => String.t(),
+    "identifier" => String.t(),
+    "logicalStackName" => String.t(),
+    "resourceGroupName" => String.t(),
+    "terraformSourceName" => String.t()
+  }
+  """
+  @type logical_resource_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_version_resource_response() :: %{
+    optional("physicalResource") => physical_resource(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type delete_app_version_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_assessment_request() :: %{
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type describe_app_assessment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation_item() :: %{
+    "alreadyImplemented" => boolean(),
+    "excludeReason" => String.t(),
+    "excluded" => boolean(),
+    "resourceId" => String.t(),
+    "targetAccountId" => String.t(),
+    "targetRegion" => String.t()
+  }
+  """
+  @type recommendation_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_version_resource_mappings_response() :: %{
+    optional("nextToken") => String.t(),
+    required("resourceMappings") => list(resource_mapping()())
+  }
+  """
+  @type list_app_version_resource_mappings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_resource_response() :: %{
+    optional("physicalResource") => physical_resource(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_draft_app_version_template_response() :: %{
+    optional("appArn") => String.t(),
+    optional("appVersion") => String.t()
+  }
+  """
+  @type put_draft_app_version_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => String.t(),
+    "resourceId" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t(),
+    "resourceId" => String.t(),
+    "resourceType" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_assessment_compliance_drifts_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_app_assessment_compliance_drifts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_input_source_request() :: %{
+    optional("clientToken") => String.t(),
+    optional("eksSourceClusterNamespace") => eks_source_cluster_namespace(),
+    optional("sourceArn") => String.t(),
+    optional("terraformSource") => terraform_source(),
+    required("appArn") => String.t()
+  }
+  """
+  @type delete_app_input_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suggested_resiliency_policies_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_suggested_resiliency_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_recommendation_status_failed_entry() :: %{
+    "entryId" => String.t(),
+    "errorMessage" => String.t()
+  }
+  """
+  @type batch_update_recommendation_status_failed_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  alarm_recommendation() :: %{
+    "appComponentName" => String.t(),
+    "appComponentNames" => list(String.t()()),
+    "description" => String.t(),
+    "items" => list(recommendation_item()()),
+    "name" => String.t(),
+    "prerequisite" => String.t(),
+    "recommendationId" => String.t(),
+    "recommendationStatus" => String.t(),
+    "referenceId" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type alarm_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recommendation_templates_response() :: %{
+    optional("nextToken") => String.t(),
+    optional("recommendationTemplates") => list(recommendation_template()())
+  }
+  """
+  @type list_recommendation_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  scoring_component_resiliency_score() :: %{
+    "excludedCount" => float(),
+    "outstandingCount" => float(),
+    "possibleScore" => float(),
+    "score" => float()
+  }
+  """
+  @type scoring_component_resiliency_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_resiliency_policy_request() :: %{
+    optional("clientToken") => String.t(),
+    optional("dataLocationConstraint") => String.t(),
+    optional("policyDescription") => String.t(),
+    optional("tags") => map(),
+    required("policy") => map(),
+    required("policyName") => String.t(),
+    required("tier") => String.t()
+  }
+  """
+  @type create_resiliency_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_assessments_response() :: %{
+    optional("nextToken") => String.t(),
+    required("assessmentSummaries") => list(app_assessment_summary()())
+  }
+  """
+  @type list_app_assessments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sop_recommendations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_sop_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_version_resource_mappings_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type list_app_version_resource_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  add_draft_app_version_resource_mappings_request() :: %{
+    required("appArn") => String.t(),
+    required("resourceMappings") => list(resource_mapping()())
+  }
+  """
+  @type add_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_app_component_request() :: %{
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("id") => String.t()
+  }
+  """
+  @type describe_app_version_app_component_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_resiliency_policy_response() :: %{
+    required("policy") => resiliency_policy()
+  }
+  """
+  @type update_resiliency_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_app_version_response() :: %{
+    optional("appVersion") => String.t(),
+    optional("identifier") => float(),
+    optional("versionName") => String.t(),
+    required("appArn") => String.t()
+  }
+  """
+  @type publish_app_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_version_resource_response() :: %{
+    optional("physicalResource") => physical_resource(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type update_app_version_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  batch_update_recommendation_status_successful_entry() :: %{
+    "entryId" => String.t(),
+    "excludeReason" => String.t(),
+    "excluded" => boolean(),
+    "item" => update_recommendation_status_item(),
+    "referenceId" => String.t()
+  }
+  """
+  @type batch_update_recommendation_status_successful_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_resiliency_policy_response() :: %{
+    required("policy") => resiliency_policy()
+  }
+  """
+  @type create_resiliency_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_version_response() :: %{
+    optional("additionalInfo") => map(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type update_app_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_alarm_recommendations_response() :: %{
+    optional("nextToken") => String.t(),
+    required("alarmRecommendations") => list(alarm_recommendation()())
+  }
+  """
+  @type list_alarm_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    optional("tags") => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  eks_source_cluster_namespace() :: %{
+    "eksClusterArn" => String.t(),
+    "namespace" => String.t()
+  }
+  """
+  @type eks_source_cluster_namespace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_draft_app_version_resources_import_status_request() :: %{
+    required("appArn") => String.t()
+  }
+  """
+  @type describe_draft_app_version_resources_import_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_template_response() :: %{
+    required("appArn") => String.t(),
+    required("appTemplateBody") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_resiliency_policy_response() :: %{
+    required("policy") => resiliency_policy()
+  }
+  """
+  @type describe_resiliency_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_component() :: %{
+    "additionalInfo" => map(),
+    "id" => String.t(),
+    "name" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type app_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation_disruption_compliance() :: %{
+    "expectedComplianceStatus" => String.t(),
+    "expectedRpoDescription" => String.t(),
+    "expectedRpoInSecs" => integer(),
+    "expectedRtoDescription" => String.t(),
+    "expectedRtoInSecs" => integer()
+  }
+  """
+  @type recommendation_disruption_compliance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suggested_resiliency_policies_response() :: %{
+    optional("nextToken") => String.t(),
+    required("resiliencyPolicies") => list(resiliency_policy()())
+  }
+  """
+  @type list_suggested_resiliency_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_error() :: %{
+    "logicalResourceId" => String.t(),
+    "physicalResourceId" => String.t(),
+    "reason" => String.t()
+  }
+  """
+  @type resource_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_location() :: %{
+    "bucket" => String.t(),
+    "prefix" => String.t()
+  }
+  """
+  @type s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resolve_app_version_resources_response() :: %{
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("resolutionId") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type resolve_app_version_resources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_input_source() :: %{
+    "eksSourceClusterNamespace" => eks_source_cluster_namespace(),
+    "importType" => String.t(),
+    "resourceCount" => integer(),
+    "sourceArn" => String.t(),
+    "sourceName" => String.t(),
+    "terraformSource" => terraform_source()
+  }
+  """
+  @type app_input_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_recommendation_template_response() :: %{
+    required("recommendationTemplateArn") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type delete_recommendation_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  physical_resource() :: %{
+    "additionalInfo" => map(),
+    "appComponents" => list(app_component()()),
+    "excluded" => boolean(),
+    "logicalResourceId" => logical_resource_id(),
+    "parentResourceName" => String.t(),
+    "physicalResourceId" => physical_resource_id(),
+    "resourceName" => String.t(),
+    "resourceType" => String.t(),
+    "sourceType" => String.t()
+  }
+  """
+  @type physical_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_summary() :: %{
+    "appArn" => String.t(),
+    "assessmentSchedule" => String.t(),
+    "complianceStatus" => String.t(),
+    "creationTime" => non_neg_integer(),
+    "description" => String.t(),
+    "driftStatus" => String.t(),
+    "lastAppComplianceEvaluationTime" => non_neg_integer(),
+    "name" => String.t(),
+    "resiliencyScore" => float(),
+    "rpoInSecs" => integer(),
+    "rtoInSecs" => integer(),
+    "status" => String.t()
+  }
+  """
+  @type app_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_recommendations_response() :: %{
+    optional("nextToken") => String.t(),
+    required("testRecommendations") => list(test_recommendation()())
+  }
+  """
+  @type list_test_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_response() :: %{
+    required("app") => app()
+  }
+  """
+  @type update_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_assessment_summary() :: %{
+    "appArn" => String.t(),
+    "appVersion" => String.t(),
+    "assessmentArn" => String.t(),
+    "assessmentName" => String.t(),
+    "assessmentStatus" => String.t(),
+    "complianceStatus" => String.t(),
+    "cost" => cost(),
+    "driftStatus" => String.t(),
+    "endTime" => non_neg_integer(),
+    "invoker" => String.t(),
+    "message" => String.t(),
+    "resiliencyScore" => float(),
+    "startTime" => non_neg_integer(),
+    "versionName" => String.t()
+  }
+  """
+  @type app_assessment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  eks_source() :: %{
+    "eksClusterArn" => String.t(),
+    "namespaces" => list(String.t()())
+  }
+  """
+  @type eks_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_request() :: %{
+    optional("clientToken") => String.t(),
+    optional("forceDelete") => boolean(),
+    required("appArn") => String.t()
+  }
+  """
+  @type delete_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_version_resource_request() :: %{
+    optional("additionalInfo") => map(),
+    optional("appComponents") => list(String.t()()),
+    optional("awsAccountId") => String.t(),
+    optional("awsRegion") => String.t(),
+    optional("excluded") => boolean(),
+    optional("logicalResourceId") => logical_resource_id(),
+    optional("physicalResourceId") => String.t(),
+    optional("resourceName") => String.t(),
+    optional("resourceType") => String.t(),
+    required("appArn") => String.t()
+  }
+  """
+  @type update_app_version_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  publish_app_version_request() :: %{
+    optional("versionName") => String.t(),
+    required("appArn") => String.t()
+  }
+  """
+  @type publish_app_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_request() :: %{
+    required("appArn") => String.t()
+  }
+  """
+  @type describe_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_resiliency_policy_request() :: %{
+    optional("clientToken") => String.t(),
+    required("policyArn") => String.t()
+  }
+  """
+  @type delete_resiliency_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_assessment_compliance_drifts_response() :: %{
+    "complianceDrifts" => list(compliance_drift()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_app_assessment_compliance_drifts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_version_app_component_response() :: %{
+    optional("appComponent") => app_component(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type delete_app_version_app_component_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_version_app_component_request() :: %{
+    optional("clientToken") => String.t(),
+    required("appArn") => String.t(),
+    required("id") => String.t()
+  }
+  """
+  @type delete_app_version_app_component_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  import_resources_to_draft_app_version_response() :: %{
+    optional("eksSources") => list(eks_source()()),
+    optional("sourceArns") => list(String.t()()),
+    optional("terraformSources") => list(terraform_source()()),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type import_resources_to_draft_app_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_version_summary() :: %{
+    "appVersion" => String.t(),
+    "creationTime" => non_neg_integer(),
+    "identifier" => float(),
+    "versionName" => String.t()
+  }
+  """
+  @type app_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_version_app_components_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type list_app_version_app_components_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  permission_model() :: %{
+    "crossAccountRoleArns" => list(String.t()()),
+    "invokerRoleName" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type permission_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_resiliency_policy_request() :: %{
+    optional("dataLocationConstraint") => String.t(),
+    optional("policy") => map(),
+    optional("policyDescription") => String.t(),
+    optional("policyName") => String.t(),
+    optional("tier") => String.t(),
+    required("policyArn") => String.t()
+  }
+  """
+  @type update_resiliency_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_input_sources_response() :: %{
+    optional("nextToken") => String.t(),
+    required("appInputSources") => list(app_input_source()())
+  }
+  """
+  @type list_app_input_sources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resiliency_policy() :: %{
+    "creationTime" => non_neg_integer(),
+    "dataLocationConstraint" => String.t(),
+    "estimatedCostTier" => String.t(),
+    "policy" => map(),
+    "policyArn" => String.t(),
+    "policyDescription" => String.t(),
+    "policyName" => String.t(),
+    "tags" => map(),
+    "tier" => String.t()
+  }
+  """
+  @type resiliency_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_request() :: %{
+    optional("assessmentSchedule") => String.t(),
+    optional("clearResiliencyPolicyArn") => boolean(),
+    optional("description") => String.t(),
+    optional("eventSubscriptions") => list(event_subscription()()),
+    optional("permissionModel") => permission_model(),
+    optional("policyArn") => String.t(),
+    required("appArn") => String.t()
+  }
+  """
+  @type update_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_assessment() :: %{
+    "appArn" => String.t(),
+    "appVersion" => String.t(),
+    "assessmentArn" => String.t(),
+    "assessmentName" => String.t(),
+    "assessmentStatus" => String.t(),
+    "compliance" => map(),
+    "complianceStatus" => String.t(),
+    "cost" => cost(),
+    "driftStatus" => String.t(),
+    "endTime" => non_neg_integer(),
+    "invoker" => String.t(),
+    "message" => String.t(),
+    "policy" => resiliency_policy(),
+    "resiliencyScore" => resiliency_score(),
+    "resourceErrorsDetails" => resource_errors_details(),
+    "startTime" => non_neg_integer(),
+    "tags" => map(),
+    "versionName" => String.t()
+  }
+  """
+  @type app_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_recommendation() :: %{
+    "appComponentName" => String.t(),
+    "dependsOnAlarms" => list(String.t()()),
+    "description" => String.t(),
+    "intent" => String.t(),
+    "items" => list(recommendation_item()()),
+    "name" => String.t(),
+    "prerequisite" => String.t(),
+    "recommendationId" => String.t(),
+    "recommendationStatus" => String.t(),
+    "referenceId" => String.t(),
+    "risk" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type test_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_recommendation_templates_request() :: %{
+    optional("maxResults") => integer(),
+    optional("name") => String.t(),
+    optional("nextToken") => String.t(),
+    optional("recommendationTemplateArn") => String.t(),
+    optional("reverseOrder") => boolean(),
+    optional("status") => list(String.t()()),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_recommendation_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => String.t(),
+    "retryAfterSeconds" => integer()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  start_app_assessment_response() :: %{
+    required("assessment") => app_assessment()
+  }
+  """
+  @type start_app_assessment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_recommendation_status_item() :: %{
+    "resourceId" => String.t(),
+    "targetAccountId" => String.t(),
+    "targetRegion" => String.t()
+  }
+  """
+  @type update_recommendation_status_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_alarm_recommendations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_alarm_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_version_request() :: %{
+    optional("additionalInfo") => map(),
+    required("appArn") => String.t()
+  }
+  """
+  @type update_app_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_resiliency_policy_request() :: %{
+    required("policyArn") => String.t()
+  }
+  """
+  @type describe_resiliency_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_assessment_response() :: %{
+    required("assessment") => app_assessment()
+  }
+  """
+  @type describe_app_assessment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_app_component_response() :: %{
+    optional("appComponent") => app_component(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_app_component_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_apps_request() :: %{
+    optional("appArn") => String.t(),
+    optional("fromLastAssessmentTime") => non_neg_integer(),
+    optional("maxResults") => integer(),
+    optional("name") => String.t(),
+    optional("nextToken") => String.t(),
+    optional("reverseOrder") => boolean(),
+    optional("toLastAssessmentTime") => non_neg_integer()
+  }
+  """
+  @type list_apps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_app_version_app_component_response() :: %{
+    optional("appComponent") => app_component(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type update_app_version_app_component_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recommendation_template() :: %{
+    "appArn" => String.t(),
+    "assessmentArn" => String.t(),
+    "endTime" => non_neg_integer(),
+    "format" => String.t(),
+    "message" => String.t(),
+    "name" => String.t(),
+    "needsReplacements" => boolean(),
+    "recommendationIds" => list(String.t()()),
+    "recommendationTemplateArn" => String.t(),
+    "recommendationTypes" => list(String.t()()),
+    "startTime" => non_neg_integer(),
+    "status" => String.t(),
+    "tags" => map(),
+    "templatesLocation" => s3_location()
+  }
+  """
+  @type recommendation_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_resiliency_policy_response() :: %{
+    required("policyArn") => String.t()
+  }
+  """
+  @type delete_resiliency_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_version_resource_request() :: %{
+    optional("awsAccountId") => String.t(),
+    optional("awsRegion") => String.t(),
+    optional("clientToken") => String.t(),
+    optional("logicalResourceId") => logical_resource_id(),
+    optional("physicalResourceId") => String.t(),
+    optional("resourceName") => String.t(),
+    required("appArn") => String.t()
+  }
+  """
+  @type delete_app_version_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_sop_recommendations_response() :: %{
+    optional("nextToken") => String.t(),
+    required("sopRecommendations") => list(sop_recommendation()())
+  }
+  """
+  @type list_sop_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_assessment_response() :: %{
+    required("assessmentArn") => String.t(),
+    required("assessmentStatus") => String.t()
+  }
+  """
+  @type delete_app_assessment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  physical_resource_id() :: %{
+    "awsAccountId" => String.t(),
+    "awsRegion" => String.t(),
+    "identifier" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type physical_resource_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_response() :: %{
+    required("app") => app()
+  }
+  """
+  @type create_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_component_compliances_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type list_app_component_compliances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_app_versions_request() :: %{
+    optional("endTime") => non_neg_integer(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("startTime") => non_neg_integer(),
+    required("appArn") => String.t()
+  }
+  """
+  @type list_app_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  compliance_drift() :: %{
+    "actualReferenceId" => String.t(),
+    "actualValue" => map(),
+    "appId" => String.t(),
+    "appVersion" => String.t(),
+    "diffType" => String.t(),
+    "driftType" => String.t(),
+    "entityId" => String.t(),
+    "entityType" => String.t(),
+    "expectedReferenceId" => String.t(),
+    "expectedValue" => map()
+  }
+  """
+  @type compliance_drift() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_app_version_app_component_request() :: %{
+    optional("additionalInfo") => map(),
+    optional("clientToken") => String.t(),
+    optional("id") => String.t(),
+    required("appArn") => String.t(),
+    required("name") => String.t(),
+    required("type") => String.t()
+  }
+  """
+  @type create_app_version_app_component_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_recommendation_template_request() :: %{
+    optional("clientToken") => String.t(),
+    required("recommendationTemplateArn") => String.t()
+  }
+  """
+  @type delete_recommendation_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cost() :: %{
+    "amount" => float(),
+    "currency" => String.t(),
+    "frequency" => String.t()
+  }
+  """
+  @type cost() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_resources_resolution_status_response() :: %{
+    optional("errorMessage") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("resolutionId") => String.t(),
+    required("status") => String.t()
+  }
+  """
+  @type describe_app_version_resources_resolution_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_resiliency_policies_response() :: %{
+    optional("nextToken") => String.t(),
+    required("resiliencyPolicies") => list(resiliency_policy()())
+  }
+  """
+  @type list_resiliency_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remove_draft_app_version_resource_mappings_request() :: %{
+    optional("appRegistryAppNames") => list(String.t()()),
+    optional("eksSourceNames") => list(String.t()()),
+    optional("logicalStackNames") => list(String.t()()),
+    optional("resourceGroupNames") => list(String.t()()),
+    optional("resourceNames") => list(String.t()()),
+    optional("terraformSourceNames") => list(String.t()()),
+    required("appArn") => String.t()
+  }
+  """
+  @type remove_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sop_recommendation() :: %{
+    "appComponentName" => String.t(),
+    "description" => String.t(),
+    "items" => list(recommendation_item()()),
+    "name" => String.t(),
+    "prerequisite" => String.t(),
+    "recommendationId" => String.t(),
+    "recommendationStatus" => String.t(),
+    "referenceId" => String.t(),
+    "serviceType" => String.t()
+  }
+  """
+  @type sop_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  app_component_compliance() :: %{
+    "appComponentName" => String.t(),
+    "compliance" => map(),
+    "cost" => cost(),
+    "message" => String.t(),
+    "resiliencyScore" => resiliency_score(),
+    "status" => String.t()
+  }
+  """
+  @type app_component_compliance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_app_assessment_request() :: %{
+    optional("clientToken") => String.t(),
+    required("assessmentArn") => String.t()
+  }
+  """
+  @type delete_app_assessment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_recommendation_template_request() :: %{
+    optional("bucketName") => String.t(),
+    optional("clientToken") => String.t(),
+    optional("format") => String.t(),
+    optional("recommendationIds") => list(String.t()()),
+    optional("recommendationTypes") => list(String.t()()),
+    optional("tags") => map(),
+    required("assessmentArn") => String.t(),
+    required("name") => String.t()
+  }
+  """
+  @type create_recommendation_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_request() :: %{
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_draft_app_version_resources_import_status_response() :: %{
+    optional("errorMessage") => String.t(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t(),
+    required("status") => String.t(),
+    required("statusChangeTime") => non_neg_integer()
+  }
+  """
+  @type describe_draft_app_version_resources_import_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_app_version_response() :: %{
+    optional("additionalInfo") => map(),
+    required("appArn") => String.t(),
+    required("appVersion") => String.t()
+  }
+  """
+  @type describe_app_version_response() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2020-04-30",
@@ -43,6 +1891,19 @@ defmodule AWS.Resiliencehub do
   how to add them in your application, see [Step 2: How is your application managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
   in the Resilience Hub User Guide.
   """
+  @spec add_draft_app_version_resource_mappings(
+          map(),
+          add_draft_app_version_resource_mappings_request(),
+          list()
+        ) ::
+          {:ok, add_draft_app_version_resource_mappings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def add_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/add-draft-app-version-resource-mappings"
     headers = []
@@ -66,6 +1927,18 @@ defmodule AWS.Resiliencehub do
   @doc """
   Enables you to include or exclude one or more operational recommendations.
   """
+  @spec batch_update_recommendation_status(
+          map(),
+          batch_update_recommendation_status_request(),
+          list()
+        ) ::
+          {:ok, batch_update_recommendation_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def batch_update_recommendation_status(%Client{} = client, input, options \\ []) do
     url_path = "/batch-update-recommendation-status"
     headers = []
@@ -110,6 +1983,16 @@ defmodule AWS.Resiliencehub do
   objective
   (RPO).
   """
+  @spec create_app(map(), create_app_request(), list()) ::
+          {:ok, create_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/create-app"
     headers = []
@@ -137,6 +2020,20 @@ defmodule AWS.Resiliencehub do
   Application Component for running assessments, you must publish the Resilience
   Hub application using the `PublishAppVersion` API.
   """
+  @spec create_app_version_app_component(
+          map(),
+          create_app_version_app_component_request(),
+          list()
+        ) ::
+          {:ok, create_app_version_app_component_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-app-component"
     headers = []
@@ -179,6 +2076,16 @@ defmodule AWS.Resiliencehub do
   To update application version with new `physicalResourceID`, you must
   call `ResolveAppVersionResources` API.
   """
+  @spec create_app_version_resource(map(), create_app_version_resource_request(), list()) ::
+          {:ok, create_app_version_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-resource"
     headers = []
@@ -202,6 +2109,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a new recommendation template for the Resilience Hub application.
   """
+  @spec create_recommendation_template(map(), create_recommendation_template_request(), list()) ::
+          {:ok, create_recommendation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/create-recommendation-template"
     headers = []
@@ -233,6 +2150,15 @@ defmodule AWS.Resiliencehub do
   status** for your application will be set to **Policy
   breached**.
   """
+  @spec create_resiliency_policy(map(), create_resiliency_policy_request(), list()) ::
+          {:ok, create_resiliency_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/create-resiliency-policy"
     headers = []
@@ -259,6 +2185,14 @@ defmodule AWS.Resiliencehub do
   This is a destructive action that can't be
   undone.
   """
+  @spec delete_app(map(), delete_app_request(), list()) ::
+          {:ok, delete_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_app(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app"
     headers = []
@@ -285,6 +2219,15 @@ defmodule AWS.Resiliencehub do
   This is a destructive action that can't
   be undone.
   """
+  @spec delete_app_assessment(map(), delete_app_assessment_request(), list()) ::
+          {:ok, delete_app_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-assessment"
     headers = []
@@ -309,6 +2252,15 @@ defmodule AWS.Resiliencehub do
   Deletes the input source and all of its imported resources from the Resilience
   Hub application.
   """
+  @spec delete_app_input_source(map(), delete_app_input_source_request(), list()) ::
+          {:ok, delete_app_input_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_app_input_source(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-input-source"
     headers = []
@@ -341,6 +2293,19 @@ defmodule AWS.Resiliencehub do
   You will not be able to delete an Application Component if it has resources
   associated with it.
   """
+  @spec delete_app_version_app_component(
+          map(),
+          delete_app_version_app_component_request(),
+          list()
+        ) ::
+          {:ok, delete_app_version_app_component_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-app-component"
     headers = []
@@ -376,6 +2341,15 @@ defmodule AWS.Resiliencehub do
   resource for running resiliency assessments, you must publish the Resilience Hub
   application using the `PublishAppVersion` API.
   """
+  @spec delete_app_version_resource(map(), delete_app_version_resource_request(), list()) ::
+          {:ok, delete_app_version_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-resource"
     headers = []
@@ -402,6 +2376,14 @@ defmodule AWS.Resiliencehub do
   This is a destructive action that can't be
   undone.
   """
+  @spec delete_recommendation_template(map(), delete_recommendation_template_request(), list()) ::
+          {:ok, delete_recommendation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/delete-recommendation-template"
     headers = []
@@ -427,6 +2409,15 @@ defmodule AWS.Resiliencehub do
 
   This is a destructive action that can't be undone.
   """
+  @spec delete_resiliency_policy(map(), delete_resiliency_policy_request(), list()) ::
+          {:ok, delete_resiliency_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/delete-resiliency-policy"
     headers = []
@@ -450,6 +2441,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes an Resilience Hub application.
   """
+  @spec describe_app(map(), describe_app_request(), list()) ::
+          {:ok, describe_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app"
     headers = []
@@ -473,6 +2472,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes an assessment for an Resilience Hub application.
   """
+  @spec describe_app_assessment(map(), describe_app_assessment_request(), list()) ::
+          {:ok, describe_app_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-assessment"
     headers = []
@@ -496,6 +2503,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes the Resilience Hub application version.
   """
+  @spec describe_app_version(map(), describe_app_version_request(), list()) ::
+          {:ok, describe_app_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version"
     headers = []
@@ -519,6 +2534,19 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes an Application Component in the Resilience Hub application.
   """
+  @spec describe_app_version_app_component(
+          map(),
+          describe_app_version_app_component_request(),
+          list()
+        ) ::
+          {:ok, describe_app_version_app_component_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-app-component"
     headers = []
@@ -557,6 +2585,15 @@ defmodule AWS.Resiliencehub do
   `physicalResourceId` (Along with `physicalResourceId`, you can also
   provide `awsAccountId`, and `awsRegion`)
   """
+  @spec describe_app_version_resource(map(), describe_app_version_resource_request(), list()) ::
+          {:ok, describe_app_version_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-resource"
     headers = []
@@ -585,6 +2622,18 @@ defmodule AWS.Resiliencehub do
   If `resolutionId` is not specified, the current resolution status is
   returned.
   """
+  @spec describe_app_version_resources_resolution_status(
+          map(),
+          describe_app_version_resources_resolution_status_request(),
+          list()
+        ) ::
+          {:ok, describe_app_version_resources_resolution_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app_version_resources_resolution_status(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-resources-resolution-status"
     headers = []
@@ -608,6 +2657,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes details about an Resilience Hub application.
   """
+  @spec describe_app_version_template(map(), describe_app_version_template_request(), list()) ::
+          {:ok, describe_app_version_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-template"
     headers = []
@@ -637,6 +2694,18 @@ defmodule AWS.Resiliencehub do
   calling `describeDraftAppVersionResourcesImportStatus` to obtain the
   status.
   """
+  @spec describe_draft_app_version_resources_import_status(
+          map(),
+          describe_draft_app_version_resources_import_status_request(),
+          list()
+        ) ::
+          {:ok, describe_draft_app_version_resources_import_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_draft_app_version_resources_import_status(%Client{} = client, input, options \\ []) do
     url_path = "/describe-draft-app-version-resources-import-status"
     headers = []
@@ -665,6 +2734,14 @@ defmodule AWS.Resiliencehub do
   Amazon Resource
   Name (ARN) for the policy, tags, tier, and more.
   """
+  @spec describe_resiliency_policy(map(), describe_resiliency_policy_request(), list()) ::
+          {:ok, describe_resiliency_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def describe_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/describe-resiliency-policy"
     headers = []
@@ -693,6 +2770,20 @@ defmodule AWS.Resiliencehub do
   [Discover the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
   """
+  @spec import_resources_to_draft_app_version(
+          map(),
+          import_resources_to_draft_app_version_request(),
+          list()
+        ) ::
+          {:ok, import_resources_to_draft_app_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def import_resources_to_draft_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/import-resources-to-draft-app-version"
     headers = []
@@ -716,6 +2807,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the alarm recommendations for an Resilience Hub application.
   """
+  @spec list_alarm_recommendations(map(), list_alarm_recommendations_request(), list()) ::
+          {:ok, list_alarm_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_alarm_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-alarm-recommendations"
     headers = []
@@ -739,6 +2838,17 @@ defmodule AWS.Resiliencehub do
   @doc """
   List of compliance drifts that were detected while running an assessment.
   """
+  @spec list_app_assessment_compliance_drifts(
+          map(),
+          list_app_assessment_compliance_drifts_request(),
+          list()
+        ) ::
+          {:ok, list_app_assessment_compliance_drifts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_assessment_compliance_drifts(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-assessment-compliance-drifts"
     headers = []
@@ -765,6 +2875,25 @@ defmodule AWS.Resiliencehub do
   You can use request parameters to
   refine the results for the response object.
   """
+  @spec list_app_assessments(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_app_assessments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_assessments(
         %Client{} = client,
         app_arn \\ nil,
@@ -845,6 +2974,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the compliances for an Resilience Hub Application Component.
   """
+  @spec list_app_component_compliances(map(), list_app_component_compliances_request(), list()) ::
+          {:ok, list_app_component_compliances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_component_compliances(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-compliances"
     headers = []
@@ -868,6 +3005,18 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the recommendations for an Resilience Hub Application Component.
   """
+  @spec list_app_component_recommendations(
+          map(),
+          list_app_component_recommendations_request(),
+          list()
+        ) ::
+          {:ok, list_app_component_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_component_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-recommendations"
     headers = []
@@ -895,6 +3044,14 @@ defmodule AWS.Resiliencehub do
   input sources supported by Resilience Hub, see [Discover the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
   """
+  @spec list_app_input_sources(map(), list_app_input_sources_request(), list()) ::
+          {:ok, list_app_input_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_input_sources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-input-sources"
     headers = []
@@ -918,6 +3075,15 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists all the Application Components in the Resilience Hub application.
   """
+  @spec list_app_version_app_components(map(), list_app_version_app_components_request(), list()) ::
+          {:ok, list_app_version_app_components_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_version_app_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-app-components"
     headers = []
@@ -946,6 +3112,18 @@ defmodule AWS.Resiliencehub do
   application registry
   app.
   """
+  @spec list_app_version_resource_mappings(
+          map(),
+          list_app_version_resource_mappings_request(),
+          list()
+        ) ::
+          {:ok, list_app_version_resource_mappings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resource-mappings"
     headers = []
@@ -969,6 +3147,15 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists all the resources in an Resilience Hub application.
   """
+  @spec list_app_version_resources(map(), list_app_version_resources_request(), list()) ::
+          {:ok, list_app_version_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resources"
     headers = []
@@ -992,6 +3179,13 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the different versions for the Resilience Hub applications.
   """
+  @spec list_app_versions(map(), list_app_versions_request(), list()) ::
+          {:ok, list_app_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, validation_exception()}
   def list_app_versions(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-versions"
     headers = []
@@ -1027,6 +3221,23 @@ defmodule AWS.Resiliencehub do
   one filter is supported for this operation.
   ```
   """
+  @spec list_apps(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_apps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_apps(
         %Client{} = client,
         app_arn \\ nil,
@@ -1099,6 +3310,23 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the recommendation templates for the Resilience Hub applications.
   """
+  @spec list_recommendation_templates(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_recommendation_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_recommendation_templates(
         %Client{} = client,
         assessment_arn,
@@ -1171,6 +3399,20 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the resiliency policies for the Resilience Hub applications.
   """
+  @spec list_resiliency_policies(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_resiliency_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_resiliency_policies(
         %Client{} = client,
         max_results \\ nil,
@@ -1213,6 +3455,15 @@ defmodule AWS.Resiliencehub do
   Hub
   applications.
   """
+  @spec list_sop_recommendations(map(), list_sop_recommendations_request(), list()) ::
+          {:ok, list_sop_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_sop_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-sop-recommendations"
     headers = []
@@ -1236,6 +3487,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the suggested resiliency policies for the Resilience Hub applications.
   """
+  @spec list_suggested_resiliency_policies(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_suggested_resiliency_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_suggested_resiliency_policies(
         %Client{} = client,
         max_results \\ nil,
@@ -1268,6 +3527,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the tags for your resources in your Resilience Hub applications.
   """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1281,6 +3548,15 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the test recommendations for the Resilience Hub application.
   """
+  @spec list_test_recommendations(map(), list_test_recommendations_request(), list()) ::
+          {:ok, list_test_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_test_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-test-recommendations"
     headers = []
@@ -1309,6 +3585,19 @@ defmodule AWS.Resiliencehub do
   but is not
   supported by Resilience Hub.
   """
+  @spec list_unsupported_app_version_resources(
+          map(),
+          list_unsupported_app_version_resources_request(),
+          list()
+        ) ::
+          {:ok, list_unsupported_app_version_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_unsupported_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-unsupported-app-version-resources"
     headers = []
@@ -1332,6 +3621,15 @@ defmodule AWS.Resiliencehub do
   @doc """
   Publishes a new version of a specific Resilience Hub application.
   """
+  @spec publish_app_version(map(), publish_app_version_request(), list()) ::
+          {:ok, publish_app_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def publish_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/publish-app-version"
     headers = []
@@ -1356,6 +3654,15 @@ defmodule AWS.Resiliencehub do
   Adds or updates the app template for an Resilience Hub application draft
   version.
   """
+  @spec put_draft_app_version_template(map(), put_draft_app_version_template_request(), list()) ::
+          {:ok, put_draft_app_version_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def put_draft_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/put-draft-app-version-template"
     headers = []
@@ -1379,6 +3686,19 @@ defmodule AWS.Resiliencehub do
   @doc """
   Removes resource mappings from a draft application version.
   """
+  @spec remove_draft_app_version_resource_mappings(
+          map(),
+          remove_draft_app_version_resource_mappings_request(),
+          list()
+        ) ::
+          {:ok, remove_draft_app_version_resource_mappings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def remove_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/remove-draft-app-version-resource-mappings"
     headers = []
@@ -1402,6 +3722,15 @@ defmodule AWS.Resiliencehub do
   @doc """
   Resolves the resources for an application version.
   """
+  @spec resolve_app_version_resources(map(), resolve_app_version_resources_request(), list()) ::
+          {:ok, resolve_app_version_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def resolve_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resolve-app-version-resources"
     headers = []
@@ -1425,6 +3754,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a new application assessment for an application.
   """
+  @spec start_app_assessment(map(), start_app_assessment_request(), list()) ::
+          {:ok, start_app_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def start_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-app-assessment"
     headers = []
@@ -1448,6 +3787,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Applies one or more tags to a resource.
   """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1471,6 +3818,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Removes one or more tags from a resource.
   """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1499,6 +3854,15 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates an application.
   """
+  @spec update_app(map(), update_app_request(), list()) ::
+          {:ok, update_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_app(%Client{} = client, input, options \\ []) do
     url_path = "/update-app"
     headers = []
@@ -1528,6 +3892,15 @@ defmodule AWS.Resiliencehub do
   application using the
   `PublishAppVersion` API.
   """
+  @spec update_app_version(map(), update_app_version_request(), list()) ::
+          {:ok, update_app_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version"
     headers = []
@@ -1555,6 +3928,19 @@ defmodule AWS.Resiliencehub do
   Application Component for running assessments, you must publish the Resilience
   Hub application using the `PublishAppVersion` API.
   """
+  @spec update_app_version_app_component(
+          map(),
+          update_app_version_app_component_request(),
+          list()
+        ) ::
+          {:ok, update_app_version_app_component_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-app-component"
     headers = []
@@ -1590,6 +3976,16 @@ defmodule AWS.Resiliencehub do
   To update application version with new `physicalResourceID`, you must call
   `ResolveAppVersionResources` API.
   """
+  @spec update_app_version_resource(map(), update_app_version_resource_request(), list()) ::
+          {:ok, update_app_version_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-resource"
     headers = []
@@ -1621,6 +4017,15 @@ defmodule AWS.Resiliencehub do
   status** for your application will be set to **Policy
   breached**.
   """
+  @spec update_resiliency_policy(map(), update_resiliency_policy_request(), list()) ::
+          {:ok, update_resiliency_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/update-resiliency-policy"
     headers = []

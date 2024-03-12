@@ -192,6 +192,2665 @@ defmodule AWS.Proton do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  list_environment_template_versions_output() :: %{
+    optional("nextToken") => String.t(),
+    required("templateVersions") => list(environment_template_version_summary()())
+  }
+  """
+  @type list_environment_template_versions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_pipeline_provisioned_resources_output() :: %{
+    optional("nextToken") => String.t(),
+    required("provisionedResources") => list(provisioned_resource()())
+  }
+  """
+  @type list_service_pipeline_provisioned_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_component_output() :: %{
+    optional("component") => component()
+  }
+  """
+  @type get_component_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_template_version_input() :: %{
+    "compatibleEnvironmentTemplates" => list(compatible_environment_template_input()()),
+    "description" => String.t(),
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "status" => String.t(),
+    "supportedComponentSources" => list(String.t()()),
+    "templateName" => String.t()
+  }
+  """
+  @type update_service_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_branch_input() :: %{
+    "branch" => String.t(),
+    "name" => String.t(),
+    "provider" => String.t()
+  }
+  """
+  @type repository_branch_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_template_version_input() :: %{
+    "description" => String.t(),
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "status" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type update_environment_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type get_service_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_instance_sync_status_output() :: %{
+    optional("desiredState") => revision(),
+    optional("latestSuccessfulSync") => resource_sync_attempt(),
+    optional("latestSync") => resource_sync_attempt()
+  }
+  """
+  @type get_service_instance_sync_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_template_filter() :: %{
+    "majorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type environment_template_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_environment_account_connection_output() :: %{
+    required("environmentAccountConnection") => environment_account_connection()
+  }
+  """
+  @type accept_environment_account_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_component_input() :: %{
+    "clientToken" => String.t(),
+    "deploymentType" => String.t(),
+    "description" => String.t(),
+    "name" => String.t(),
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t(),
+    "serviceSpec" => String.t(),
+    "templateFile" => String.t()
+  }
+  """
+  @type update_component_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deployment_summary() :: %{
+    "arn" => String.t(),
+    "completedAt" => [non_neg_integer()],
+    "componentName" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "environmentName" => String.t(),
+    "id" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t(),
+    "targetArn" => String.t(),
+    "targetResourceCreatedAt" => [non_neg_integer()],
+    "targetResourceType" => String.t()
+  }
+  """
+  @type deployment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_sync_attempt() :: %{
+    "events" => list(repository_sync_event()()),
+    "startedAt" => [non_neg_integer()],
+    "status" => String.t()
+  }
+  """
+  @type repository_sync_attempt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_instance_input() :: %{
+    optional("clientToken") => String.t(),
+    optional("tags") => list(tag()()),
+    optional("templateMajorVersion") => String.t(),
+    optional("templateMinorVersion") => String.t(),
+    required("name") => String.t(),
+    required("serviceName") => String.t(),
+    required("spec") => String.t()
+  }
+  """
+  @type create_service_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_template_output() :: %{
+    optional("environmentTemplate") => environment_template()
+  }
+  """
+  @type delete_environment_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_repository_input() :: %{
+    "name" => String.t(),
+    "provider" => String.t()
+  }
+  """
+  @type get_repository_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_template_sync_config_output() :: %{
+    optional("templateSyncConfig") => template_sync_config()
+  }
+  """
+  @type update_template_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_sync_config() :: %{
+    "branch" => String.t(),
+    "filePath" => String.t(),
+    "repositoryName" => String.t(),
+    "repositoryProvider" => String.t(),
+    "serviceName" => String.t()
+  }
+  """
+  @type service_sync_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_account_connection_output() :: %{
+    required("environmentAccountConnection") => environment_account_connection()
+  }
+  """
+  @type create_environment_account_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_sync_config_output() :: %{
+    optional("serviceSyncConfig") => service_sync_config()
+  }
+  """
+  @type get_service_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_instance_output() :: %{
+    required("serviceInstance") => service_instance()
+  }
+  """
+  @type update_service_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_templates_output() :: %{
+    optional("nextToken") => String.t(),
+    required("templates") => list(environment_template_summary()())
+  }
+  """
+  @type list_environment_templates_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  accept_environment_account_connection_input() :: %{
+    "id" => String.t()
+  }
+  """
+  @type accept_environment_account_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  deployment() :: %{
+    "arn" => String.t(),
+    "completedAt" => [non_neg_integer()],
+    "componentName" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "environmentName" => String.t(),
+    "id" => String.t(),
+    "initialState" => list(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t(),
+    "targetArn" => String.t(),
+    "targetResourceCreatedAt" => [non_neg_integer()],
+    "targetResourceType" => String.t(),
+    "targetState" => list()
+  }
+  """
+  @type deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_output() :: %{
+    required("environment") => environment()
+  }
+  """
+  @type get_environment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_repository_output() :: %{
+    required("repository") => repository()
+  }
+  """
+  @type create_repository_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_template_sync_config_input() :: %{
+    optional("subdirectory") => String.t(),
+    required("branch") => String.t(),
+    required("repositoryName") => String.t(),
+    required("repositoryProvider") => String.t(),
+    required("templateName") => String.t(),
+    required("templateType") => String.t()
+  }
+  """
+  @type update_template_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_sync_config_output() :: %{
+    optional("serviceSyncConfig") => service_sync_config()
+  }
+  """
+  @type update_service_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_template_version_output() :: %{
+    required("environmentTemplateVersion") => environment_template_version()
+  }
+  """
+  @type update_environment_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_sync_config_input() :: %{
+    required("branch") => String.t(),
+    required("filePath") => String.t(),
+    required("repositoryName") => String.t(),
+    required("repositoryProvider") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type create_service_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_sync_blocker_input() :: %{
+    required("id") => [String.t()],
+    required("resolvedReason") => [String.t()]
+  }
+  """
+  @type update_service_sync_blocker_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_template_versions_input() :: %{
+    optional("majorVersion") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("templateName") => String.t()
+  }
+  """
+  @type list_environment_template_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_deployment_output() :: %{
+    "deployment" => deployment()
+  }
+  """
+  @type get_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_input() :: %{
+    optional("codebuildRoleArn") => String.t(),
+    optional("componentRoleArn") => String.t(),
+    optional("description") => String.t(),
+    optional("environmentAccountConnectionId") => String.t(),
+    optional("protonServiceRoleArn") => String.t(),
+    optional("provisioningRepository") => repository_branch_input(),
+    optional("tags") => list(tag()()),
+    optional("templateMinorVersion") => String.t(),
+    required("name") => String.t(),
+    required("spec") => String.t(),
+    required("templateMajorVersion") => String.t(),
+    required("templateName") => String.t()
+  }
+  """
+  @type create_environment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_template_version_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "recommendedMinorVersion" => String.t(),
+    "status" => String.t(),
+    "statusMessage" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type environment_template_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_account_connection_input() :: %{
+    "id" => String.t()
+  }
+  """
+  @type get_environment_account_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_sync_config_input() :: %{
+    required("serviceName") => String.t()
+  }
+  """
+  @type delete_service_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sync_blocker_context() :: %{
+    "key" => [String.t()],
+    "value" => [String.t()]
+  }
+  """
+  @type sync_blocker_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_instance_output() :: %{
+    required("serviceInstance") => service_instance()
+  }
+  """
+  @type get_service_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_component_output() :: %{
+    optional("component") => component()
+  }
+  """
+  @type delete_component_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_component_provisioned_resources_input() :: %{
+    optional("nextToken") => String.t(),
+    required("componentName") => String.t()
+  }
+  """
+  @type list_component_provisioned_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_branch() :: %{
+    "arn" => String.t(),
+    "branch" => String.t(),
+    "name" => String.t(),
+    "provider" => String.t()
+  }
+  """
+  @type repository_branch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_summary() :: %{
+    "arn" => String.t(),
+    "componentRoleArn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "description" => String.t(),
+    "environmentAccountConnectionId" => String.t(),
+    "environmentAccountId" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "name" => String.t(),
+    "protonServiceRoleArn" => String.t(),
+    "provisioning" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type environment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  s3_object_source() :: %{
+    "bucket" => String.t(),
+    "key" => String.t()
+  }
+  """
+  @type s3_object_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type delete_environment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instance_provisioned_resources_input() :: %{
+    optional("nextToken") => String.t(),
+    required("serviceInstanceName") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type list_service_instance_provisioned_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_deployment_input() :: %{
+    optional("componentName") => String.t(),
+    optional("environmentName") => String.t(),
+    optional("serviceInstanceName") => String.t(),
+    optional("serviceName") => String.t(),
+    required("id") => String.t()
+  }
+  """
+  @type get_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_instance_sync_status_input() :: %{
+    required("serviceInstanceName") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type get_service_instance_sync_status_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_template_input() :: %{
+    required("name") => String.t()
+  }
+  """
+  @type get_environment_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_template_version_output() :: %{
+    required("environmentTemplateVersion") => environment_template_version()
+  }
+  """
+  @type get_environment_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_template_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type delete_environment_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_repositories_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_repositories_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_output() :: %{
+    required("service") => service()
+  }
+  """
+  @type update_service_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  compatible_environment_template_input() :: %{
+    "majorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type compatible_environment_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_instance_input() :: %{
+    "clientToken" => String.t(),
+    "deploymentType" => String.t(),
+    "name" => String.t(),
+    "serviceName" => String.t(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t()
+  }
+  """
+  @type update_service_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_instance_output() :: %{
+    required("serviceInstance") => service_instance()
+  }
+  """
+  @type create_service_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_repository_output() :: %{
+    required("repository") => repository()
+  }
+  """
+  @type get_repository_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_pipeline_state() :: %{
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_pipeline_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service() :: %{
+    "arn" => String.t(),
+    "branchName" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "name" => String.t(),
+    "pipeline" => service_pipeline(),
+    "repositoryConnectionArn" => String.t(),
+    "repositoryId" => String.t(),
+    "spec" => String.t(),
+    "status" => String.t(),
+    "statusMessage" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_service_pipeline_deployment_input() :: %{
+    "serviceName" => String.t()
+  }
+  """
+  @type cancel_service_pipeline_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instance_provisioned_resources_output() :: %{
+    optional("nextToken") => String.t(),
+    required("provisionedResources") => list(provisioned_resource()())
+  }
+  """
+  @type list_service_instance_provisioned_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_template_output() :: %{
+    required("serviceTemplate") => service_template()
+  }
+  """
+  @type create_service_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environments_input() :: %{
+    optional("environmentTemplates") => list(environment_template_filter()()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_environments_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_sync_config_output() :: %{
+    optional("serviceSyncConfig") => service_sync_config()
+  }
+  """
+  @type create_service_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_template_version_input() :: %{
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type delete_environment_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_output() :: %{
+    optional("nextToken") => [String.t()],
+    required("tags") => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  component_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "environmentName" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastModifiedAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "name" => String.t(),
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t()
+  }
+  """
+  @type component_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_template_output() :: %{
+    optional("serviceTemplate") => service_template()
+  }
+  """
+  @type delete_service_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_environment_deployment_output() :: %{
+    required("environment") => environment()
+  }
+  """
+  @type cancel_environment_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_sync_definition() :: %{
+    "branch" => String.t(),
+    "directory" => [String.t()],
+    "parent" => [String.t()],
+    "target" => [String.t()]
+  }
+  """
+  @type repository_sync_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_template_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "displayName" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "name" => String.t(),
+    "provisioning" => String.t(),
+    "recommendedVersion" => String.t()
+  }
+  """
+  @type environment_template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_components_output() :: %{
+    optional("nextToken") => String.t(),
+    required("components") => list(component_summary()())
+  }
+  """
+  @type list_components_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  component_state() :: %{
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t(),
+    "serviceSpec" => String.t(),
+    "templateFile" => String.t()
+  }
+  """
+  @type component_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_component_output() :: %{
+    required("component") => component()
+  }
+  """
+  @type create_component_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_template_sync_config_input() :: %{
+    optional("subdirectory") => String.t(),
+    required("branch") => String.t(),
+    required("repositoryName") => String.t(),
+    required("repositoryProvider") => String.t(),
+    required("templateName") => String.t(),
+    required("templateType") => String.t()
+  }
+  """
+  @type create_template_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_environment_account_connection_input() :: %{
+    "id" => String.t()
+  }
+  """
+  @type reject_environment_account_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_output() :: %{
+    required("environment") => environment()
+  }
+  """
+  @type create_environment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_template_version() :: %{
+    "arn" => String.t(),
+    "compatibleEnvironmentTemplates" => list(compatible_environment_template()()),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "recommendedMinorVersion" => String.t(),
+    "schema" => String.t(),
+    "status" => String.t(),
+    "statusMessage" => String.t(),
+    "supportedComponentSources" => list(String.t()()),
+    "templateName" => String.t()
+  }
+  """
+  @type service_template_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_account_connection_input() :: %{
+    "codebuildRoleArn" => String.t(),
+    "componentRoleArn" => String.t(),
+    "id" => String.t(),
+    "roleArn" => String.t()
+  }
+  """
+  @type update_environment_account_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_template_version_input() :: %{
+    optional("clientToken") => String.t(),
+    optional("description") => String.t(),
+    optional("majorVersion") => String.t(),
+    optional("supportedComponentSources") => list(String.t()()),
+    optional("tags") => list(tag()()),
+    required("compatibleEnvironmentTemplates") => list(compatible_environment_template_input()()),
+    required("source") => list(),
+    required("templateName") => String.t()
+  }
+  """
+  @type create_service_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_repository_output() :: %{
+    optional("repository") => repository()
+  }
+  """
+  @type delete_repository_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_template_version_output() :: %{
+    required("serviceTemplateVersion") => service_template_version()
+  }
+  """
+  @type get_service_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_summary() :: %{
+    "arn" => String.t(),
+    "connectionArn" => String.t(),
+    "name" => String.t(),
+    "provider" => String.t()
+  }
+  """
+  @type repository_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_account_connection_output() :: %{
+    optional("environmentAccountConnection") => environment_account_connection()
+  }
+  """
+  @type delete_environment_account_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_template_version_input() :: %{
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type get_environment_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_outputs_output() :: %{
+    optional("nextToken") => String.t(),
+    required("outputs") => list(output()())
+  }
+  """
+  @type list_environment_outputs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_template_input() :: %{
+    optional("description") => String.t(),
+    optional("displayName") => String.t(),
+    optional("encryptionKey") => String.t(),
+    optional("provisioning") => String.t(),
+    optional("tags") => list(tag()()),
+    required("name") => String.t()
+  }
+  """
+  @type create_environment_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_sync_config_input() :: %{
+    required("serviceName") => String.t()
+  }
+  """
+  @type get_service_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_template_output() :: %{
+    required("environmentTemplate") => environment_template()
+  }
+  """
+  @type update_environment_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  notify_resource_deployment_status_change_input() :: %{
+    optional("deploymentId") => String.t(),
+    optional("outputs") => list(output()()),
+    optional("status") => String.t(),
+    optional("statusMessage") => String.t(),
+    required("resourceArn") => String.t()
+  }
+  """
+  @type notify_resource_deployment_status_change_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_output() :: %{
+    required("environment") => environment()
+  }
+  """
+  @type update_environment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_template_sync_config_output() :: %{
+    optional("templateSyncConfig") => template_sync_config()
+  }
+  """
+  @type delete_template_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_account_connection() :: %{
+    "arn" => String.t(),
+    "codebuildRoleArn" => String.t(),
+    "componentRoleArn" => String.t(),
+    "environmentAccountId" => String.t(),
+    "environmentName" => String.t(),
+    "id" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "managementAccountId" => String.t(),
+    "requestedAt" => [non_neg_integer()],
+    "roleArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type environment_account_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_instance_state() :: %{
+    "lastSuccessfulComponentDeploymentIds" => list(String.t()()),
+    "lastSuccessfulEnvironmentDeploymentId" => String.t(),
+    "lastSuccessfulServicePipelineDeploymentId" => String.t(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_instance_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_output() :: %{
+    optional("service") => service()
+  }
+  """
+  @type get_service_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_component_input() :: %{
+    optional("clientToken") => String.t(),
+    optional("description") => String.t(),
+    optional("environmentName") => String.t(),
+    optional("serviceInstanceName") => String.t(),
+    optional("serviceName") => String.t(),
+    optional("serviceSpec") => String.t(),
+    optional("tags") => list(tag()()),
+    required("manifest") => String.t(),
+    required("name") => String.t(),
+    required("templateFile") => String.t()
+  }
+  """
+  @type create_component_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment() :: %{
+    "arn" => String.t(),
+    "codebuildRoleArn" => String.t(),
+    "componentRoleArn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "description" => String.t(),
+    "environmentAccountConnectionId" => String.t(),
+    "environmentAccountId" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "name" => String.t(),
+    "protonServiceRoleArn" => String.t(),
+    "provisioning" => String.t(),
+    "provisioningRepository" => repository_branch(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type environment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_input() :: %{
+
+  }
+  """
+  @type get_account_settings_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_component_outputs_input() :: %{
+    optional("deploymentId") => String.t(),
+    optional("nextToken") => String.t(),
+    required("componentName") => String.t()
+  }
+  """
+  @type list_component_outputs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository() :: %{
+    "arn" => String.t(),
+    "connectionArn" => String.t(),
+    "encryptionKey" => String.t(),
+    "name" => String.t(),
+    "provider" => String.t()
+  }
+  """
+  @type repository() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_template_sync_status_input() :: %{
+    required("templateName") => String.t(),
+    required("templateType") => String.t(),
+    required("templateVersion") => String.t()
+  }
+  """
+  @type get_template_sync_status_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "name" => String.t(),
+    "status" => String.t(),
+    "statusMessage" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_instance() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "environmentName" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastClientRequestToken" => [String.t()],
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "name" => String.t(),
+    "serviceName" => String.t(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_environment_deployment_input() :: %{
+    "environmentName" => String.t()
+  }
+  """
+  @type cancel_environment_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  component() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "description" => String.t(),
+    "environmentName" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastClientRequestToken" => [String.t()],
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastModifiedAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "name" => String.t(),
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t(),
+    "serviceSpec" => String.t()
+  }
+  """
+  @type component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_counts_summary() :: %{
+    "behindMajor" => [integer()],
+    "behindMinor" => [integer()],
+    "failed" => [integer()],
+    "total" => [integer()],
+    "upToDate" => [integer()]
+  }
+  """
+  @type resource_counts_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_pipeline() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_pipeline() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_pipeline_outputs_input() :: %{
+    optional("deploymentId") => String.t(),
+    optional("nextToken") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type list_service_pipeline_outputs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_components_input() :: %{
+    optional("environmentName") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("serviceInstanceName") => String.t(),
+    optional("serviceName") => String.t()
+  }
+  """
+  @type list_components_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type get_environment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environments_output() :: %{
+    optional("nextToken") => String.t(),
+    required("environments") => list(environment_summary()())
+  }
+  """
+  @type list_environments_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_input() :: %{
+    "codebuildRoleArn" => String.t(),
+    "componentRoleArn" => String.t(),
+    "deploymentType" => String.t(),
+    "description" => String.t(),
+    "environmentAccountConnectionId" => String.t(),
+    "name" => String.t(),
+    "protonServiceRoleArn" => String.t(),
+    "provisioningRepository" => repository_branch_input(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t()
+  }
+  """
+  @type update_environment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_repository_sync_status_output() :: %{
+    optional("latestSync") => repository_sync_attempt()
+  }
+  """
+  @type get_repository_sync_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instance_outputs_output() :: %{
+    optional("nextToken") => String.t(),
+    required("outputs") => list(output()())
+  }
+  """
+  @type list_service_instance_outputs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sync_blocker() :: %{
+    "contexts" => list(sync_blocker_context()()),
+    "createdAt" => [non_neg_integer()],
+    "createdReason" => [String.t()],
+    "id" => [String.t()],
+    "resolvedAt" => [non_neg_integer()],
+    "resolvedReason" => [String.t()],
+    "status" => String.t(),
+    "type" => String.t()
+  }
+  """
+  @type sync_blocker() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_template_output() :: %{
+    required("environmentTemplate") => environment_template()
+  }
+  """
+  @type get_environment_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_state() :: %{
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type environment_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  notify_resource_deployment_status_change_output() :: %{
+
+  }
+  """
+  @type notify_resource_deployment_status_change_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instances_output() :: %{
+    optional("nextToken") => String.t(),
+    required("serviceInstances") => list(service_instance_summary()())
+  }
+  """
+  @type list_service_instances_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_account_connection_summary() :: %{
+    "arn" => String.t(),
+    "componentRoleArn" => String.t(),
+    "environmentAccountId" => String.t(),
+    "environmentName" => String.t(),
+    "id" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "managementAccountId" => String.t(),
+    "requestedAt" => [non_neg_integer()],
+    "roleArn" => String.t(),
+    "status" => String.t()
+  }
+  """
+  @type environment_account_connection_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_sync_config_output() :: %{
+    optional("serviceSyncConfig") => service_sync_config()
+  }
+  """
+  @type delete_service_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_component_provisioned_resources_output() :: %{
+    optional("nextToken") => String.t(),
+    required("provisionedResources") => list(provisioned_resource()())
+  }
+  """
+  @type list_component_provisioned_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_template_output() :: %{
+    required("environmentTemplate") => environment_template()
+  }
+  """
+  @type create_environment_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_template_version_input() :: %{
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type delete_service_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_template_output() :: %{
+    required("serviceTemplate") => service_template()
+  }
+  """
+  @type update_service_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_deployment_input() :: %{
+    required("id") => String.t()
+  }
+  """
+  @type delete_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instances_input() :: %{
+    optional("filters") => list(list_service_instances_filter()()),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("serviceName") => String.t(),
+    optional("sortBy") => String.t(),
+    optional("sortOrder") => String.t()
+  }
+  """
+  @type list_service_instances_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  counts_summary() :: %{
+    "components" => resource_counts_summary(),
+    "environmentTemplates" => resource_counts_summary(),
+    "environments" => resource_counts_summary(),
+    "pipelines" => resource_counts_summary(),
+    "serviceInstances" => resource_counts_summary(),
+    "serviceTemplates" => resource_counts_summary(),
+    "services" => resource_counts_summary()
+  }
+  """
+  @type counts_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_input() :: %{
+    required("resourceArn") => String.t(),
+    required("tags") => list(tag()())
+  }
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  template_sync_config() :: %{
+    "branch" => String.t(),
+    "repositoryName" => String.t(),
+    "repositoryProvider" => String.t(),
+    "subdirectory" => String.t(),
+    "templateName" => String.t(),
+    "templateType" => String.t()
+  }
+  """
+  @type template_sync_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_output() :: %{
+    optional("service") => service()
+  }
+  """
+  @type delete_service_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_template_version_output() :: %{
+    optional("environmentTemplateVersion") => environment_template_version()
+  }
+  """
+  @type delete_environment_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_template_version() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "recommendedMinorVersion" => String.t(),
+    "schema" => String.t(),
+    "status" => String.t(),
+    "statusMessage" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type environment_template_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_templates_output() :: %{
+    optional("nextToken") => String.t(),
+    required("templates") => list(service_template_summary()())
+  }
+  """
+  @type list_service_templates_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_templates_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_environment_templates_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_repository_sync_definitions_input() :: %{
+    optional("nextToken") => String.t(),
+    required("repositoryName") => String.t(),
+    required("repositoryProvider") => String.t(),
+    required("syncType") => String.t()
+  }
+  """
+  @type list_repository_sync_definitions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_service_instance_deployment_input() :: %{
+    "serviceInstanceName" => String.t(),
+    "serviceName" => String.t()
+  }
+  """
+  @type cancel_service_instance_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_template_version_output() :: %{
+    required("serviceTemplateVersion") => service_template_version()
+  }
+  """
+  @type update_service_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_output() :: %{
+
+  }
+  """
+  @type tag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_outputs_input() :: %{
+    optional("deploymentId") => String.t(),
+    optional("nextToken") => String.t(),
+    required("environmentName") => String.t()
+  }
+  """
+  @type list_environment_outputs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_template_version_output() :: %{
+    optional("serviceTemplateVersion") => service_template_version()
+  }
+  """
+  @type delete_service_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instance_outputs_input() :: %{
+    optional("deploymentId") => String.t(),
+    optional("nextToken") => String.t(),
+    required("serviceInstanceName") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type list_service_instance_outputs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_output() :: %{
+    optional("environment") => environment()
+  }
+  """
+  @type delete_environment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_component_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type get_component_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_template_versions_input() :: %{
+    optional("majorVersion") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("templateName") => String.t()
+  }
+  """
+  @type list_service_template_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_sync_blocker_output() :: %{
+    optional("serviceInstanceName") => String.t(),
+    required("serviceName") => String.t(),
+    required("serviceSyncBlocker") => sync_blocker()
+  }
+  """
+  @type update_service_sync_blocker_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_settings_input() :: %{
+    optional("deletePipelineProvisioningRepository") => [boolean()],
+    optional("pipelineCodebuildRoleArn") => String.t(),
+    optional("pipelineProvisioningRepository") => repository_branch_input(),
+    optional("pipelineServiceRoleArn") => String.t()
+  }
+  """
+  @type update_account_settings_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_repository_input() :: %{
+    "name" => String.t(),
+    "provider" => String.t()
+  }
+  """
+  @type delete_repository_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  provisioned_resource() :: %{
+    "identifier" => String.t(),
+    "name" => String.t(),
+    "provisioningEngine" => String.t()
+  }
+  """
+  @type provisioned_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type delete_service_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_account_settings_output() :: %{
+    required("accountSettings") => account_settings()
+  }
+  """
+  @type update_account_settings_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_template_input() :: %{
+    optional("description") => String.t(),
+    optional("displayName") => String.t(),
+    optional("encryptionKey") => String.t(),
+    optional("pipelineProvisioning") => String.t(),
+    optional("tags") => list(tag()()),
+    required("name") => String.t()
+  }
+  """
+  @type create_service_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_provisioned_resources_output() :: %{
+    optional("nextToken") => String.t(),
+    required("provisionedResources") => list(provisioned_resource()())
+  }
+  """
+  @type list_environment_provisioned_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  environment_template() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "displayName" => String.t(),
+    "encryptionKey" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "name" => String.t(),
+    "provisioning" => String.t(),
+    "recommendedVersion" => String.t()
+  }
+  """
+  @type environment_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_input() :: %{
+    required("resourceArn") => String.t(),
+    required("tagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_instances_filter() :: %{
+    "key" => String.t(),
+    "value" => String.t()
+  }
+  """
+  @type list_service_instances_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_environment_account_connection_output() :: %{
+    required("environmentAccountConnection") => environment_account_connection()
+  }
+  """
+  @type get_environment_account_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_resources_summary_input() :: %{
+
+  }
+  """
+  @type get_resources_summary_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_deployment_output() :: %{
+    "deployment" => deployment()
+  }
+  """
+  @type delete_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_component_deployment_input() :: %{
+    "componentName" => String.t()
+  }
+  """
+  @type cancel_component_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_template_versions_output() :: %{
+    optional("nextToken") => String.t(),
+    required("templateVersions") => list(service_template_version_summary()())
+  }
+  """
+  @type list_service_template_versions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_environment_account_connection_input() :: %{
+    "id" => String.t()
+  }
+  """
+  @type delete_environment_account_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_sync_blocker_summary_input() :: %{
+    optional("serviceInstanceName") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type get_service_sync_blocker_summary_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_output() :: %{
+    required("service") => service()
+  }
+  """
+  @type create_service_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_templates_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_service_templates_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_template_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type get_service_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_pipeline_provisioned_resources_input() :: %{
+    optional("nextToken") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type list_service_pipeline_provisioned_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_settings() :: %{
+    "pipelineCodebuildRoleArn" => String.t(),
+    "pipelineProvisioningRepository" => repository_branch(),
+    "pipelineServiceRoleArn" => String.t()
+  }
+  """
+  @type account_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_pipeline_output() :: %{
+    required("pipeline") => service_pipeline()
+  }
+  """
+  @type update_service_pipeline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => [String.t()],
+    required("resourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_component_output() :: %{
+    required("component") => component()
+  }
+  """
+  @type update_component_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_service_pipeline_outputs_output() :: %{
+    optional("nextToken") => String.t(),
+    required("outputs") => list(output()())
+  }
+  """
+  @type list_service_pipeline_outputs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_sync_attempt() :: %{
+    "events" => list(resource_sync_event()()),
+    "initialRevision" => revision(),
+    "startedAt" => [non_neg_integer()],
+    "status" => String.t(),
+    "target" => [String.t()],
+    "targetRevision" => revision()
+  }
+  """
+  @type resource_sync_attempt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_template_version_output() :: %{
+    required("serviceTemplateVersion") => service_template_version()
+  }
+  """
+  @type create_service_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_output() :: %{
+
+  }
+  """
+  @type untag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_account_connections_input() :: %{
+    optional("environmentName") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("statuses") => list(String.t()()),
+    required("requestedBy") => String.t()
+  }
+  """
+  @type list_environment_account_connections_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_repositories_output() :: %{
+    optional("nextToken") => String.t(),
+    required("repositories") => list(repository_summary()())
+  }
+  """
+  @type list_repositories_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_template_sync_config_input() :: %{
+    required("templateName") => String.t(),
+    required("templateType") => String.t()
+  }
+  """
+  @type get_template_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_account_connection_input() :: %{
+    optional("clientToken") => String.t(),
+    optional("codebuildRoleArn") => String.t(),
+    optional("componentRoleArn") => String.t(),
+    optional("roleArn") => String.t(),
+    optional("tags") => list(tag()()),
+    required("environmentName") => String.t(),
+    required("managementAccountId") => String.t()
+  }
+  """
+  @type create_environment_account_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_template_version_output() :: %{
+    required("environmentTemplateVersion") => environment_template_version()
+  }
+  """
+  @type create_environment_template_version_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_output() :: %{
+    optional("accountSettings") => account_settings()
+  }
+  """
+  @type get_account_settings_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_repository_sync_status_input() :: %{
+    required("branch") => String.t(),
+    required("repositoryName") => String.t(),
+    required("repositoryProvider") => String.t(),
+    required("syncType") => String.t()
+  }
+  """
+  @type get_repository_sync_status_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_instance_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "deploymentStatus" => String.t(),
+    "deploymentStatusMessage" => String.t(),
+    "environmentName" => String.t(),
+    "lastAttemptedDeploymentId" => String.t(),
+    "lastDeploymentAttemptedAt" => [non_neg_integer()],
+    "lastDeploymentSucceededAt" => [non_neg_integer()],
+    "lastSucceededDeploymentId" => String.t(),
+    "name" => String.t(),
+    "serviceName" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_instance_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_template_version_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "recommendedMinorVersion" => String.t(),
+    "status" => String.t(),
+    "statusMessage" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type service_template_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_repository_sync_definitions_output() :: %{
+    optional("nextToken") => String.t(),
+    required("syncDefinitions") => list(repository_sync_definition()())
+  }
+  """
+  @type list_repository_sync_definitions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_template_version_input() :: %{
+    "majorVersion" => String.t(),
+    "minorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type get_service_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_account_connection_output() :: %{
+    required("environmentAccountConnection") => environment_account_connection()
+  }
+  """
+  @type update_environment_account_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_sync_blocker_summary_output() :: %{
+    optional("serviceSyncBlockerSummary") => service_sync_blocker_summary()
+  }
+  """
+  @type get_service_sync_blocker_summary_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_environment_template_input() :: %{
+    "description" => String.t(),
+    "displayName" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type update_environment_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_provisioned_resources_input() :: %{
+    optional("nextToken") => String.t(),
+    required("environmentName") => String.t()
+  }
+  """
+  @type list_environment_provisioned_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_service_instance_deployment_output() :: %{
+    required("serviceInstance") => service_instance()
+  }
+  """
+  @type cancel_service_instance_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_service_template_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type delete_service_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_resources_summary_output() :: %{
+    required("counts") => counts_summary()
+  }
+  """
+  @type get_resources_summary_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_deployments_output() :: %{
+    "deployments" => list(deployment_summary()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_deployments_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_service_input() :: %{
+    optional("branchName") => String.t(),
+    optional("description") => String.t(),
+    optional("repositoryConnectionArn") => String.t(),
+    optional("repositoryId") => String.t(),
+    optional("tags") => list(tag()()),
+    optional("templateMinorVersion") => String.t(),
+    required("name") => String.t(),
+    required("spec") => String.t(),
+    required("templateMajorVersion") => String.t(),
+    required("templateName") => String.t()
+  }
+  """
+  @type create_service_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_deployments_input() :: %{
+    optional("componentName") => String.t(),
+    optional("environmentName") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("serviceInstanceName") => String.t(),
+    optional("serviceName") => String.t()
+  }
+  """
+  @type list_deployments_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_repository_input() :: %{
+    optional("encryptionKey") => String.t(),
+    optional("tags") => list(tag()()),
+    required("connectionArn") => String.t(),
+    required("name") => String.t(),
+    required("provider") => String.t()
+  }
+  """
+  @type create_repository_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_component_input() :: %{
+    "name" => String.t()
+  }
+  """
+  @type delete_component_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_pipeline_input() :: %{
+    "deploymentType" => String.t(),
+    "serviceName" => String.t(),
+    "spec" => String.t(),
+    "templateMajorVersion" => String.t(),
+    "templateMinorVersion" => String.t()
+  }
+  """
+  @type update_service_pipeline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_template_output() :: %{
+    required("serviceTemplate") => service_template()
+  }
+  """
+  @type get_service_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_component_deployment_output() :: %{
+    required("component") => component()
+  }
+  """
+  @type cancel_component_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_component_outputs_output() :: %{
+    optional("nextToken") => String.t(),
+    required("outputs") => list(output()())
+  }
+  """
+  @type list_component_outputs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_template_sync_status_output() :: %{
+    optional("desiredState") => revision(),
+    optional("latestSuccessfulSync") => resource_sync_attempt(),
+    optional("latestSync") => resource_sync_attempt()
+  }
+  """
+  @type get_template_sync_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_sync_config_input() :: %{
+    required("branch") => String.t(),
+    required("filePath") => String.t(),
+    required("repositoryName") => String.t(),
+    required("repositoryProvider") => String.t(),
+    required("serviceName") => String.t()
+  }
+  """
+  @type update_service_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_input() :: %{
+    "description" => String.t(),
+    "name" => String.t(),
+    "spec" => String.t()
+  }
+  """
+  @type update_service_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_sync_event() :: %{
+    "event" => [String.t()],
+    "externalId" => [String.t()],
+    "time" => [non_neg_integer()],
+    "type" => [String.t()]
+  }
+  """
+  @type resource_sync_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_template_summary() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "displayName" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "name" => String.t(),
+    "pipelineProvisioning" => String.t(),
+    "recommendedVersion" => String.t()
+  }
+  """
+  @type service_template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_environment_template_version_input() :: %{
+    optional("clientToken") => String.t(),
+    optional("description") => String.t(),
+    optional("majorVersion") => String.t(),
+    optional("tags") => list(tag()()),
+    required("source") => list(),
+    required("templateName") => String.t()
+  }
+  """
+  @type create_environment_template_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  repository_sync_event() :: %{
+    "event" => [String.t()],
+    "externalId" => [String.t()],
+    "time" => [non_neg_integer()],
+    "type" => [String.t()]
+  }
+  """
+  @type repository_sync_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_service_instance_input() :: %{
+    "name" => String.t(),
+    "serviceName" => String.t()
+  }
+  """
+  @type get_service_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  revision() :: %{
+    "branch" => String.t(),
+    "directory" => [String.t()],
+    "repositoryName" => String.t(),
+    "repositoryProvider" => String.t(),
+    "sha" => String.t()
+  }
+  """
+  @type revision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  compatible_environment_template() :: %{
+    "majorVersion" => String.t(),
+    "templateName" => String.t()
+  }
+  """
+  @type compatible_environment_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_services_output() :: %{
+    optional("nextToken") => String.t(),
+    required("services") => list(service_summary()())
+  }
+  """
+  @type list_services_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cancel_service_pipeline_deployment_output() :: %{
+    required("pipeline") => service_pipeline()
+  }
+  """
+  @type cancel_service_pipeline_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_template_sync_config_input() :: %{
+    required("templateName") => String.t(),
+    required("templateType") => String.t()
+  }
+  """
+  @type delete_template_sync_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_template() :: %{
+    "arn" => String.t(),
+    "createdAt" => [non_neg_integer()],
+    "description" => String.t(),
+    "displayName" => String.t(),
+    "encryptionKey" => String.t(),
+    "lastModifiedAt" => [non_neg_integer()],
+    "name" => String.t(),
+    "pipelineProvisioning" => String.t(),
+    "recommendedVersion" => String.t()
+  }
+  """
+  @type service_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  reject_environment_account_connection_output() :: %{
+    required("environmentAccountConnection") => environment_account_connection()
+  }
+  """
+  @type reject_environment_account_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_template_sync_config_output() :: %{
+    optional("templateSyncConfig") => template_sync_config()
+  }
+  """
+  @type create_template_sync_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  output() :: %{
+    "key" => String.t(),
+    "valueString" => String.t()
+  }
+  """
+  @type output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_service_template_input() :: %{
+    "description" => String.t(),
+    "displayName" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type update_service_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_environment_account_connections_output() :: %{
+    optional("nextToken") => String.t(),
+    required("environmentAccountConnections") => list(environment_account_connection_summary()())
+  }
+  """
+  @type list_environment_account_connections_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_services_input() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_services_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_sync_blocker_summary() :: %{
+    "latestBlockers" => list(sync_blocker()()),
+    "serviceInstanceName" => [String.t()],
+    "serviceName" => [String.t()]
+  }
+  """
+  @type service_sync_blocker_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_template_sync_config_output() :: %{
+    optional("templateSyncConfig") => template_sync_config()
+  }
+  """
+  @type get_template_sync_config_output() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2020-07-20",
@@ -217,6 +2876,19 @@ defmodule AWS.Proton do
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
   in the *Proton User guide*.
   """
+  @spec accept_environment_account_connection(
+          map(),
+          accept_environment_account_connection_input(),
+          list()
+        ) ::
+          {:ok, accept_environment_account_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def accept_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -232,6 +2904,15 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec cancel_component_deployment(map(), cancel_component_deployment_input(), list()) ::
+          {:ok, cancel_component_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def cancel_component_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -261,6 +2942,15 @@ defmodule AWS.Proton do
   attempt starts, the resulting deployment state is
   `SUCCEEDED` and the cancellation attempt has no effect.
   """
+  @spec cancel_environment_deployment(map(), cancel_environment_deployment_input(), list()) ::
+          {:ok, cancel_environment_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def cancel_environment_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -290,6 +2980,19 @@ defmodule AWS.Proton do
   cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and
   the cancellation attempt has no effect.
   """
+  @spec cancel_service_instance_deployment(
+          map(),
+          cancel_service_instance_deployment_input(),
+          list()
+        ) ::
+          {:ok, cancel_service_instance_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def cancel_service_instance_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -319,6 +3022,19 @@ defmodule AWS.Proton do
   cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and
   the cancellation attempt has no effect.
   """
+  @spec cancel_service_pipeline_deployment(
+          map(),
+          cancel_service_pipeline_deployment_input(),
+          list()
+        ) ::
+          {:ok, cancel_service_pipeline_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -335,6 +3051,16 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec create_component(map(), create_component_input(), list()) ::
+          {:ok, create_component_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -365,6 +3091,16 @@ defmodule AWS.Proton do
   in the *Proton User
   Guide*.
   """
+  @spec create_environment(map(), create_environment_input(), list()) ::
+          {:ok, create_environment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -383,6 +3119,19 @@ defmodule AWS.Proton do
   in the *Proton User
   guide*.
   """
+  @spec create_environment_account_connection(
+          map(),
+          create_environment_account_connection_input(),
+          list()
+        ) ::
+          {:ok, create_environment_account_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -413,6 +3162,15 @@ defmodule AWS.Proton do
   template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html)
   in the *Proton User Guide*.
   """
+  @spec create_environment_template(map(), create_environment_template_input(), list()) ::
+          {:ok, create_environment_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -427,6 +3185,20 @@ defmodule AWS.Proton do
   version that's backwards compatible within its major
   version.
   """
+  @spec create_environment_template_version(
+          map(),
+          create_environment_template_version_input(),
+          list()
+        ) ::
+          {:ok, create_environment_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -451,6 +3223,15 @@ defmodule AWS.Proton do
   in the *Proton
   User Guide*.
   """
+  @spec create_repository(map(), create_repository_input(), list()) ::
+          {:ok, create_repository_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -467,6 +3248,16 @@ defmodule AWS.Proton do
 
   in the *Proton User Guide*.
   """
+  @spec create_service(map(), create_service_input(), list()) ::
+          {:ok, create_service_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -476,6 +3267,15 @@ defmodule AWS.Proton do
   @doc """
   Create a service instance.
   """
+  @spec create_service_instance(map(), create_service_instance_input(), list()) ::
+          {:ok, create_service_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -485,6 +3285,15 @@ defmodule AWS.Proton do
   @doc """
   Create the Proton Ops configuration file.
   """
+  @spec create_service_sync_config(map(), create_service_sync_config_input(), list()) ::
+          {:ok, create_service_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -506,6 +3315,15 @@ defmodule AWS.Proton do
   information, see [Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html)
   in the *Proton User Guide*.
   """
+  @spec create_service_template(map(), create_service_template_input(), list()) ::
+          {:ok, create_service_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -520,6 +3338,16 @@ defmodule AWS.Proton do
   a service template is a version that's backward compatible within its major
   version.
   """
+  @spec create_service_template_version(map(), create_service_template_version_input(), list()) ::
+          {:ok, create_service_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -540,6 +3368,15 @@ defmodule AWS.Proton do
   in the *Proton
   User Guide*.
   """
+  @spec create_template_sync_config(map(), create_template_sync_config_input(), list()) ::
+          {:ok, create_template_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def create_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -554,6 +3391,15 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec delete_component(map(), delete_component_input(), list()) ::
+          {:ok, delete_component_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -563,6 +3409,14 @@ defmodule AWS.Proton do
   @doc """
   Delete the deployment.
   """
+  @spec delete_deployment(map(), delete_deployment_input(), list()) ::
+          {:ok, delete_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -572,6 +3426,15 @@ defmodule AWS.Proton do
   @doc """
   Delete an environment.
   """
+  @spec delete_environment(map(), delete_environment_input(), list()) ::
+          {:ok, delete_environment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -591,6 +3454,19 @@ defmodule AWS.Proton do
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
   in the *Proton User guide*.
   """
+  @spec delete_environment_account_connection(
+          map(),
+          delete_environment_account_connection_input(),
+          list()
+        ) ::
+          {:ok, delete_environment_account_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -601,6 +3477,15 @@ defmodule AWS.Proton do
   If no other major or minor versions of an environment template exist, delete the
   environment template.
   """
+  @spec delete_environment_template(map(), delete_environment_template_input(), list()) ::
+          {:ok, delete_environment_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -623,6 +3508,19 @@ defmodule AWS.Proton do
   versions of the environment template exist. A minor version of an
   environment template is a version that's backward compatible.
   """
+  @spec delete_environment_template_version(
+          map(),
+          delete_environment_template_version_input(),
+          list()
+        ) ::
+          {:ok, delete_environment_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -632,6 +3530,15 @@ defmodule AWS.Proton do
   @doc """
   De-register and unlink your repository.
   """
+  @spec delete_repository(map(), delete_repository_input(), list()) ::
+          {:ok, delete_repository_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -650,6 +3557,15 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec delete_service(map(), delete_service_input(), list()) ::
+          {:ok, delete_service_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -659,6 +3575,15 @@ defmodule AWS.Proton do
   @doc """
   Delete the Proton Ops file.
   """
+  @spec delete_service_sync_config(map(), delete_service_sync_config_input(), list()) ::
+          {:ok, delete_service_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -670,6 +3595,15 @@ defmodule AWS.Proton do
   service
   template.
   """
+  @spec delete_service_template(map(), delete_service_template_input(), list()) ::
+          {:ok, delete_service_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -695,6 +3629,15 @@ defmodule AWS.Proton do
   template is a
   version that's backwards compatible.
   """
+  @spec delete_service_template_version(map(), delete_service_template_version_input(), list()) ::
+          {:ok, delete_service_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -704,6 +3647,15 @@ defmodule AWS.Proton do
   @doc """
   Delete a template sync configuration.
   """
+  @spec delete_template_sync_config(map(), delete_template_sync_config_input(), list()) ::
+          {:ok, delete_template_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def delete_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -713,6 +3665,14 @@ defmodule AWS.Proton do
   @doc """
   Get detail data for Proton account-wide settings.
   """
+  @spec get_account_settings(map(), get_account_settings_input(), list()) ::
+          {:ok, get_account_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -727,6 +3687,14 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec get_component(map(), get_component_input(), list()) ::
+          {:ok, get_component_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -736,6 +3704,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for a deployment.
   """
+  @spec get_deployment(map(), get_deployment_input(), list()) ::
+          {:ok, get_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -745,6 +3721,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for an environment.
   """
+  @spec get_environment(map(), get_environment_input(), list()) ::
+          {:ok, get_environment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -758,6 +3742,18 @@ defmodule AWS.Proton do
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
   in the *Proton User guide*.
   """
+  @spec get_environment_account_connection(
+          map(),
+          get_environment_account_connection_input(),
+          list()
+        ) ::
+          {:ok, get_environment_account_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -767,6 +3763,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for an environment template.
   """
+  @spec get_environment_template(map(), get_environment_template_input(), list()) ::
+          {:ok, get_environment_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -776,6 +3780,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for a major or minor version of an environment template.
   """
+  @spec get_environment_template_version(map(), get_environment_template_version_input(), list()) ::
+          {:ok, get_environment_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -785,6 +3797,14 @@ defmodule AWS.Proton do
   @doc """
   Get detail data for a linked repository.
   """
+  @spec get_repository(map(), get_repository_input(), list()) ::
+          {:ok, get_repository_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -807,6 +3827,14 @@ defmodule AWS.Proton do
   in the *Proton User
   Guide*.
   """
+  @spec get_repository_sync_status(map(), get_repository_sync_status_input(), list()) ::
+          {:ok, get_repository_sync_status_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -836,6 +3864,13 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec get_resources_summary(map(), get_resources_summary_input(), list()) ::
+          {:ok, get_resources_summary_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_resources_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -845,6 +3880,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for a service.
   """
+  @spec get_service(map(), get_service_input(), list()) ::
+          {:ok, get_service_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -857,6 +3900,14 @@ defmodule AWS.Proton do
   A service instance is an instantiation of
   service template and it runs in a specific environment.
   """
+  @spec get_service_instance(map(), get_service_instance_input(), list()) ::
+          {:ok, get_service_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -866,6 +3917,14 @@ defmodule AWS.Proton do
   @doc """
   Get the status of the synced service instance.
   """
+  @spec get_service_instance_sync_status(map(), get_service_instance_sync_status_input(), list()) ::
+          {:ok, get_service_instance_sync_status_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service_instance_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -875,6 +3934,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for the service sync blocker summary.
   """
+  @spec get_service_sync_blocker_summary(map(), get_service_sync_blocker_summary_input(), list()) ::
+          {:ok, get_service_sync_blocker_summary_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service_sync_blocker_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -884,6 +3951,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed information for the service sync configuration.
   """
+  @spec get_service_sync_config(map(), get_service_sync_config_input(), list()) ::
+          {:ok, get_service_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -893,6 +3968,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for a service template.
   """
+  @spec get_service_template(map(), get_service_template_input(), list()) ::
+          {:ok, get_service_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -902,6 +3985,14 @@ defmodule AWS.Proton do
   @doc """
   Get detailed data for a major or minor version of a service template.
   """
+  @spec get_service_template_version(map(), get_service_template_version_input(), list()) ::
+          {:ok, get_service_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -911,6 +4002,14 @@ defmodule AWS.Proton do
   @doc """
   Get detail data for a template sync configuration.
   """
+  @spec get_template_sync_config(map(), get_template_sync_config_input(), list()) ::
+          {:ok, get_template_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -920,6 +4019,14 @@ defmodule AWS.Proton do
   @doc """
   Get the status of a template sync.
   """
+  @spec get_template_sync_status(map(), get_template_sync_status_input(), list()) ::
+          {:ok, get_template_sync_status_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_template_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -934,6 +4041,14 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec list_component_outputs(map(), list_component_outputs_input(), list()) ::
+          {:ok, list_component_outputs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_component_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -948,6 +4063,18 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec list_component_provisioned_resources(
+          map(),
+          list_component_provisioned_resources_input(),
+          list()
+        ) ::
+          {:ok, list_component_provisioned_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -965,6 +4092,13 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec list_components(map(), list_components_input(), list()) ::
+          {:ok, list_components_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -977,6 +4111,14 @@ defmodule AWS.Proton do
   You can filter the result list by environment, service, or a single service
   instance.
   """
+  @spec list_deployments(map(), list_deployments_input(), list()) ::
+          {:ok, list_deployments_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -989,6 +4131,17 @@ defmodule AWS.Proton do
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
   in the *Proton User guide*.
   """
+  @spec list_environment_account_connections(
+          map(),
+          list_environment_account_connections_input(),
+          list()
+        ) ::
+          {:ok, list_environment_account_connections_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_environment_account_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -998,6 +4151,14 @@ defmodule AWS.Proton do
   @doc """
   List the infrastructure as code outputs for your environment.
   """
+  @spec list_environment_outputs(map(), list_environment_outputs_input(), list()) ::
+          {:ok, list_environment_outputs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_environment_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1007,6 +4168,18 @@ defmodule AWS.Proton do
   @doc """
   List the provisioned resources for your environment.
   """
+  @spec list_environment_provisioned_resources(
+          map(),
+          list_environment_provisioned_resources_input(),
+          list()
+        ) ::
+          {:ok, list_environment_provisioned_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_environment_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1016,6 +4189,18 @@ defmodule AWS.Proton do
   @doc """
   List major or minor versions of an environment template with detail data.
   """
+  @spec list_environment_template_versions(
+          map(),
+          list_environment_template_versions_input(),
+          list()
+        ) ::
+          {:ok, list_environment_template_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_environment_template_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1025,6 +4210,13 @@ defmodule AWS.Proton do
   @doc """
   List environment templates.
   """
+  @spec list_environment_templates(map(), list_environment_templates_input(), list()) ::
+          {:ok, list_environment_templates_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_environment_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1034,6 +4226,14 @@ defmodule AWS.Proton do
   @doc """
   List environments with detail data summaries.
   """
+  @spec list_environments(map(), list_environments_input(), list()) ::
+          {:ok, list_environments_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_environments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1043,6 +4243,14 @@ defmodule AWS.Proton do
   @doc """
   List linked repositories with detail data.
   """
+  @spec list_repositories(map(), list_repositories_input(), list()) ::
+          {:ok, list_repositories_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1052,6 +4260,13 @@ defmodule AWS.Proton do
   @doc """
   List repository sync definitions with detail data.
   """
+  @spec list_repository_sync_definitions(map(), list_repository_sync_definitions_input(), list()) ::
+          {:ok, list_repository_sync_definitions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1061,6 +4276,14 @@ defmodule AWS.Proton do
   @doc """
   Get a list service of instance Infrastructure as Code (IaC) outputs.
   """
+  @spec list_service_instance_outputs(map(), list_service_instance_outputs_input(), list()) ::
+          {:ok, list_service_instance_outputs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_instance_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1070,6 +4293,18 @@ defmodule AWS.Proton do
   @doc """
   List provisioned resources for a service instance with details.
   """
+  @spec list_service_instance_provisioned_resources(
+          map(),
+          list_service_instance_provisioned_resources_input(),
+          list()
+        ) ::
+          {:ok, list_service_instance_provisioned_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_instance_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1082,6 +4317,14 @@ defmodule AWS.Proton do
   This action lists service instances of all
   services in the Amazon Web Services account.
   """
+  @spec list_service_instances(map(), list_service_instances_input(), list()) ::
+          {:ok, list_service_instances_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1091,6 +4334,14 @@ defmodule AWS.Proton do
   @doc """
   Get a list of service pipeline Infrastructure as Code (IaC) outputs.
   """
+  @spec list_service_pipeline_outputs(map(), list_service_pipeline_outputs_input(), list()) ::
+          {:ok, list_service_pipeline_outputs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1100,6 +4351,18 @@ defmodule AWS.Proton do
   @doc """
   List provisioned resources for a service and pipeline with details.
   """
+  @spec list_service_pipeline_provisioned_resources(
+          map(),
+          list_service_pipeline_provisioned_resources_input(),
+          list()
+        ) ::
+          {:ok, list_service_pipeline_provisioned_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_pipeline_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1109,6 +4372,14 @@ defmodule AWS.Proton do
   @doc """
   List major or minor versions of a service template with detail data.
   """
+  @spec list_service_template_versions(map(), list_service_template_versions_input(), list()) ::
+          {:ok, list_service_template_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_template_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1118,6 +4389,13 @@ defmodule AWS.Proton do
   @doc """
   List service templates with detail data.
   """
+  @spec list_service_templates(map(), list_service_templates_input(), list()) ::
+          {:ok, list_service_templates_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_service_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1127,6 +4405,13 @@ defmodule AWS.Proton do
   @doc """
   List services with summaries of detail data.
   """
+  @spec list_services(map(), list_services_input(), list()) ::
+          {:ok, list_services_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1140,6 +4425,14 @@ defmodule AWS.Proton do
   tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in
   the *Proton User Guide*.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1153,6 +4446,20 @@ defmodule AWS.Proton do
   For more information, see [Self-managed provisioning](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
   in the *Proton User Guide*.
   """
+  @spec notify_resource_deployment_status_change(
+          map(),
+          notify_resource_deployment_status_change_input(),
+          list()
+        ) ::
+          {:ok, notify_resource_deployment_status_change_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1173,6 +4480,19 @@ defmodule AWS.Proton do
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
   in the *Proton User guide*.
   """
+  @spec reject_environment_account_connection(
+          map(),
+          reject_environment_account_connection_input(),
+          list()
+        ) ::
+          {:ok, reject_environment_account_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def reject_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1188,6 +4508,15 @@ defmodule AWS.Proton do
   For more information, see [Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in
   the *Proton User Guide*.
   """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1202,6 +4531,15 @@ defmodule AWS.Proton do
   For more information, see [Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in
   the *Proton User Guide*.
   """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1212,6 +4550,14 @@ defmodule AWS.Proton do
   Update Proton settings that are used for multiple services in the Amazon Web
   Services account.
   """
+  @spec update_account_settings(map(), update_account_settings_input(), list()) ::
+          {:ok, update_account_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1233,6 +4579,16 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec update_component(map(), update_component_input(), list()) ::
+          {:ok, update_component_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1314,6 +4670,15 @@ defmodule AWS.Proton do
   by default. You can also specify a different major version that's higher than
   the major version in use and a minor version.
   """
+  @spec update_environment(map(), update_environment_input(), list()) ::
+          {:ok, update_environment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1327,6 +4692,19 @@ defmodule AWS.Proton do
   For more information, see [Environment account connections](https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html)
   in the *Proton User guide*.
   """
+  @spec update_environment_account_connection(
+          map(),
+          update_environment_account_connection_input(),
+          list()
+        ) ::
+          {:ok, update_environment_account_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1336,6 +4714,15 @@ defmodule AWS.Proton do
   @doc """
   Update an environment template.
   """
+  @spec update_environment_template(map(), update_environment_template_input(), list()) ::
+          {:ok, update_environment_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1345,6 +4732,19 @@ defmodule AWS.Proton do
   @doc """
   Update a major or minor version of an environment template.
   """
+  @spec update_environment_template_version(
+          map(),
+          update_environment_template_version_input(),
+          list()
+        ) ::
+          {:ok, update_environment_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1370,6 +4770,16 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec update_service(map(), update_service_input(), list()) ::
+          {:ok, update_service_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1391,6 +4801,15 @@ defmodule AWS.Proton do
   in the
   *Proton User Guide*.
   """
+  @spec update_service_instance(map(), update_service_instance_input(), list()) ::
+          {:ok, update_service_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1441,6 +4860,15 @@ defmodule AWS.Proton do
   and a
   minor version.
   """
+  @spec update_service_pipeline(map(), update_service_pipeline_input(), list()) ::
+          {:ok, update_service_pipeline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1450,6 +4878,15 @@ defmodule AWS.Proton do
   @doc """
   Update the service sync blocker by resolving it.
   """
+  @spec update_service_sync_blocker(map(), update_service_sync_blocker_input(), list()) ::
+          {:ok, update_service_sync_blocker_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service_sync_blocker(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1459,6 +4896,15 @@ defmodule AWS.Proton do
   @doc """
   Update the Proton Ops config file.
   """
+  @spec update_service_sync_config(map(), update_service_sync_config_input(), list()) ::
+          {:ok, update_service_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1468,6 +4914,15 @@ defmodule AWS.Proton do
   @doc """
   Update a service template.
   """
+  @spec update_service_template(map(), update_service_template_input(), list()) ::
+          {:ok, update_service_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1477,6 +4932,15 @@ defmodule AWS.Proton do
   @doc """
   Update a major or minor version of a service template.
   """
+  @spec update_service_template_version(map(), update_service_template_version_input(), list()) ::
+          {:ok, update_service_template_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1492,6 +4956,15 @@ defmodule AWS.Proton do
   repository is a repository that has been registered with Proton. For
   more information, see `CreateRepository`.
   """
+  @spec update_template_sync_config(map(), update_template_sync_config_input(), list()) ::
+          {:ok, update_template_sync_config_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def update_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

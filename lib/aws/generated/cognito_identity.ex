@@ -35,6 +35,600 @@ defmodule AWS.CognitoIdentity do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  get_credentials_for_identity_response() :: %{
+    "Credentials" => credentials(),
+    "IdentityId" => String.t()
+  }
+  """
+  @type get_credentials_for_identity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unlink_identity_input() :: %{
+    required("IdentityId") => String.t(),
+    required("Logins") => map(),
+    required("LoginsToRemove") => list(String.t()())
+  }
+  """
+  @type unlink_identity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_open_id_token_for_developer_identity_response() :: %{
+    "IdentityId" => String.t(),
+    "Token" => String.t()
+  }
+  """
+  @type get_open_id_token_for_developer_identity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  merge_developer_identities_response() :: %{
+    "IdentityId" => String.t()
+  }
+  """
+  @type merge_developer_identities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  developer_user_already_registered_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type developer_user_already_registered_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_identity_pool_input() :: %{
+    required("IdentityPoolId") => String.t()
+  }
+  """
+  @type describe_identity_pool_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  identity_pool() :: %{
+    "AllowClassicFlow" => boolean(),
+    "AllowUnauthenticatedIdentities" => boolean(),
+    "CognitoIdentityProviders" => list(cognito_identity_provider()()),
+    "DeveloperProviderName" => String.t(),
+    "IdentityPoolId" => String.t(),
+    "IdentityPoolName" => String.t(),
+    "IdentityPoolTags" => map(),
+    "OpenIdConnectProviderARNs" => list(String.t()()),
+    "SamlProviderARNs" => list(String.t()()),
+    "SupportedLoginProviders" => map()
+  }
+  """
+  @type identity_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_identity_pool_roles_response() :: %{
+    "IdentityPoolId" => String.t(),
+    "RoleMappings" => map(),
+    "Roles" => map()
+  }
+  """
+  @type get_identity_pool_roles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unlink_developer_identity_input() :: %{
+    required("DeveloperProviderName") => String.t(),
+    required("DeveloperUserIdentifier") => String.t(),
+    required("IdentityId") => String.t(),
+    required("IdentityPoolId") => String.t()
+  }
+  """
+  @type unlink_developer_identity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_identity_pools_input() :: %{
+    optional("NextToken") => String.t(),
+    required("MaxResults") => integer()
+  }
+  """
+  @type list_identity_pools_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_identities_response() :: %{
+    "UnprocessedIdentityIds" => list(unprocessed_identity_id()())
+  }
+  """
+  @type delete_identities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_identity_pool_roles_input() :: %{
+    required("IdentityPoolId") => String.t()
+  }
+  """
+  @type get_identity_pool_roles_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  credentials() :: %{
+    "AccessKeyId" => String.t(),
+    "Expiration" => non_neg_integer(),
+    "SecretKey" => String.t(),
+    "SessionToken" => String.t()
+  }
+  """
+  @type credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lookup_developer_identity_response() :: %{
+    "DeveloperUserIdentifierList" => list(String.t()()),
+    "IdentityId" => String.t(),
+    "NextToken" => String.t()
+  }
+  """
+  @type lookup_developer_identity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unprocessed_identity_id() :: %{
+    "ErrorCode" => list(any()),
+    "IdentityId" => String.t()
+  }
+  """
+  @type unprocessed_identity_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_requests_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  set_identity_pool_roles_input() :: %{
+    optional("RoleMappings") => map(),
+    required("IdentityPoolId") => String.t(),
+    required("Roles") => map()
+  }
+  """
+  @type set_identity_pool_roles_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  identity_description() :: %{
+    "CreationDate" => non_neg_integer(),
+    "IdentityId" => String.t(),
+    "LastModifiedDate" => non_neg_integer(),
+    "Logins" => list(String.t()())
+  }
+  """
+  @type identity_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_identity_pools_response() :: %{
+    "IdentityPools" => list(identity_pool_short_description()()),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_identity_pools_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_credentials_for_identity_input() :: %{
+    optional("CustomRoleArn") => String.t(),
+    optional("Logins") => map(),
+    required("IdentityId") => String.t()
+  }
+  """
+  @type get_credentials_for_identity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_identity_pool_configuration_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_identity_pool_configuration_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  set_principal_tag_attribute_map_input() :: %{
+    optional("PrincipalTags") => map(),
+    optional("UseDefaults") => boolean(),
+    required("IdentityPoolId") => String.t(),
+    required("IdentityProviderName") => String.t()
+  }
+  """
+  @type set_principal_tag_attribute_map_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rules_configuration_type() :: %{
+    "Rules" => list(mapping_rule()())
+  }
+  """
+  @type rules_configuration_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  mapping_rule() :: %{
+    "Claim" => String.t(),
+    "MatchType" => list(any()),
+    "RoleARN" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type mapping_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_identities_input() :: %{
+    required("IdentityIdsToDelete") => list(String.t()())
+  }
+  """
+  @type delete_identities_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_identity_input() :: %{
+    required("IdentityId") => String.t()
+  }
+  """
+  @type describe_identity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_identities_input() :: %{
+    optional("HideDisabled") => boolean(),
+    optional("NextToken") => String.t(),
+    required("IdentityPoolId") => String.t(),
+    required("MaxResults") => integer()
+  }
+  """
+  @type list_identities_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_open_id_token_response() :: %{
+    "IdentityId" => String.t(),
+    "Token" => String.t()
+  }
+  """
+  @type get_open_id_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  identity_pool_short_description() :: %{
+    "IdentityPoolId" => String.t(),
+    "IdentityPoolName" => String.t()
+  }
+  """
+  @type identity_pool_short_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  role_mapping() :: %{
+    "AmbiguousRoleResolution" => list(any()),
+    "RulesConfiguration" => rules_configuration_type(),
+    "Type" => list(any())
+  }
+  """
+  @type role_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_principal_tag_attribute_map_input() :: %{
+    required("IdentityPoolId") => String.t(),
+    required("IdentityProviderName") => String.t()
+  }
+  """
+  @type get_principal_tag_attribute_map_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  merge_developer_identities_input() :: %{
+    required("DestinationUserIdentifier") => String.t(),
+    required("DeveloperProviderName") => String.t(),
+    required("IdentityPoolId") => String.t(),
+    required("SourceUserIdentifier") => String.t()
+  }
+  """
+  @type merge_developer_identities_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "Tags" => map()
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  set_principal_tag_attribute_map_response() :: %{
+    "IdentityPoolId" => String.t(),
+    "IdentityProviderName" => String.t(),
+    "PrincipalTags" => map(),
+    "UseDefaults" => boolean()
+  }
+  """
+  @type set_principal_tag_attribute_map_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_input() :: %{
+    required("ResourceArn") => String.t(),
+    required("Tags") => map()
+  }
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cognito_identity_provider() :: %{
+    "ClientId" => String.t(),
+    "ProviderName" => String.t(),
+    "ServerSideTokenCheck" => boolean()
+  }
+  """
+  @type cognito_identity_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_identity_pool_input() :: %{
+    optional("AllowClassicFlow") => boolean(),
+    optional("CognitoIdentityProviders") => list(cognito_identity_provider()()),
+    optional("DeveloperProviderName") => String.t(),
+    optional("IdentityPoolTags") => map(),
+    optional("OpenIdConnectProviderARNs") => list(String.t()()),
+    optional("SamlProviderARNs") => list(String.t()()),
+    optional("SupportedLoginProviders") => map(),
+    required("AllowUnauthenticatedIdentities") => boolean(),
+    required("IdentityPoolName") => String.t()
+  }
+  """
+  @type create_identity_pool_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_authorized_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type not_authorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_parameter_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_input() :: %{
+    required("ResourceArn") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  lookup_developer_identity_input() :: %{
+    optional("DeveloperUserIdentifier") => String.t(),
+    optional("IdentityId") => String.t(),
+    optional("MaxResults") => integer(),
+    optional("NextToken") => String.t(),
+    required("IdentityPoolId") => String.t()
+  }
+  """
+  @type lookup_developer_identity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_id_input() :: %{
+    optional("AccountId") => String.t(),
+    optional("Logins") => map(),
+    required("IdentityPoolId") => String.t()
+  }
+  """
+  @type get_id_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  concurrent_modification_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_open_id_token_for_developer_identity_input() :: %{
+    optional("IdentityId") => String.t(),
+    optional("PrincipalTags") => map(),
+    optional("TokenDuration") => float(),
+    required("IdentityPoolId") => String.t(),
+    required("Logins") => map()
+  }
+  """
+  @type get_open_id_token_for_developer_identity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_input() :: %{
+    required("ResourceArn") => String.t()
+  }
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_identities_response() :: %{
+    "Identities" => list(identity_description()()),
+    "IdentityPoolId" => String.t(),
+    "NextToken" => String.t()
+  }
+  """
+  @type list_identities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_identity_pool_input() :: %{
+    required("IdentityPoolId") => String.t()
+  }
+  """
+  @type delete_identity_pool_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  external_service_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type external_service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_open_id_token_input() :: %{
+    optional("Logins") => map(),
+    required("IdentityId") => String.t()
+  }
+  """
+  @type get_open_id_token_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_principal_tag_attribute_map_response() :: %{
+    "IdentityPoolId" => String.t(),
+    "IdentityProviderName" => String.t(),
+    "PrincipalTags" => map(),
+    "UseDefaults" => boolean()
+  }
+  """
+  @type get_principal_tag_attribute_map_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_conflict_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type resource_conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_id_response() :: %{
+    "IdentityId" => String.t()
+  }
+  """
+  @type get_id_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_error_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_error_exception() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2014-06-30",
@@ -74,6 +668,15 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec create_identity_pool(map(), create_identity_pool_input(), list()) ::
+          {:ok, identity_pool(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, too_many_requests_exception()}
   def create_identity_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -88,6 +691,12 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec delete_identities(map(), delete_identities_input(), list()) ::
+          {:ok, delete_identities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_identities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -102,6 +711,14 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec delete_identity_pool(map(), delete_identity_pool_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def delete_identity_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -114,6 +731,14 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec describe_identity(map(), describe_identity_input(), list()) ::
+          {:ok, identity_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def describe_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -126,6 +751,14 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec describe_identity_pool(map(), describe_identity_pool_input(), list()) ::
+          {:ok, identity_pool(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def describe_identity_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -143,6 +776,17 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
+  @spec get_credentials_for_identity(map(), get_credentials_for_identity_input(), list()) ::
+          {:ok, get_credentials_for_identity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, external_service_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_identity_pool_configuration_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_credentials_for_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -157,6 +801,17 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
+  @spec get_id(map(), get_id_input(), list()) ::
+          {:ok, get_id_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, external_service_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -168,6 +823,15 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec get_identity_pool_roles(map(), get_identity_pool_roles_input(), list()) ::
+          {:ok, get_identity_pool_roles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_identity_pool_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -185,6 +849,16 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
+  @spec get_open_id_token(map(), get_open_id_token_input(), list()) ::
+          {:ok, get_open_id_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, external_service_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_open_id_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -213,6 +887,20 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec get_open_id_token_for_developer_identity(
+          map(),
+          get_open_id_token_for_developer_identity_input(),
+          list()
+        ) ::
+          {:ok, get_open_id_token_for_developer_identity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, developer_user_already_registered_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -223,6 +911,14 @@ defmodule AWS.CognitoIdentity do
   Use `GetPrincipalTagAttributeMap` to list all mappings between `PrincipalTags`
   and user attributes.
   """
+  @spec get_principal_tag_attribute_map(map(), get_principal_tag_attribute_map_input(), list()) ::
+          {:ok, get_principal_tag_attribute_map_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def get_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -234,6 +930,14 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec list_identities(map(), list_identities_input(), list()) ::
+          {:ok, list_identities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def list_identities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -245,6 +949,14 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec list_identity_pools(map(), list_identity_pools_input(), list()) ::
+          {:ok, list_identity_pools_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def list_identity_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -260,6 +972,14 @@ defmodule AWS.CognitoIdentity do
 
   You can use this action up to 10 times per second, per account.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -292,6 +1012,15 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec lookup_developer_identity(map(), lookup_developer_identity_input(), list()) ::
+          {:ok, lookup_developer_identity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def lookup_developer_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -320,6 +1049,15 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec merge_developer_identities(map(), merge_developer_identities_input(), list()) ::
+          {:ok, merge_developer_identities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def merge_developer_identities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -333,6 +1071,16 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec set_identity_pool_roles(map(), set_identity_pool_roles_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def set_identity_pool_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -343,6 +1091,14 @@ defmodule AWS.CognitoIdentity do
   You can use this operation to use default (username and clientID) attribute or
   custom attribute mappings.
   """
+  @spec set_principal_tag_attribute_map(map(), set_principal_tag_attribute_map_input(), list()) ::
+          {:ok, set_principal_tag_attribute_map_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def set_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -378,6 +1134,14 @@ defmodule AWS.CognitoIdentity do
   can have
   as many as 50 tags.
   """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -396,6 +1160,15 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec unlink_developer_identity(map(), unlink_developer_identity_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def unlink_developer_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -412,6 +1185,16 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
+  @spec unlink_identity(map(), unlink_identity_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, external_service_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def unlink_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -424,6 +1207,14 @@ defmodule AWS.CognitoIdentity do
   You can use
   this action up to 5 times per second, per account
   """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -435,6 +1226,17 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
+  @spec update_identity_pool(map(), identity_pool(), list()) ::
+          {:ok, identity_pool(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
+          | {:error, internal_error_exception()}
+          | {:error, invalid_parameter_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_authorized_exception()}
+          | {:error, resource_conflict_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, too_many_requests_exception()}
   def update_identity_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

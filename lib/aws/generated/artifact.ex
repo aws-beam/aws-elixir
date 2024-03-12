@@ -9,6 +9,267 @@ defmodule AWS.Artifact do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  access_denied_exception() :: %{
+    "message" => [String.t()]
+  }
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_settings() :: %{
+    "notificationSubscriptionStatus" => String.t()
+  }
+  """
+  @type account_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  conflict_exception() :: %{
+    "message" => [String.t()],
+    "resourceId" => [String.t()],
+    "resourceType" => [String.t()]
+  }
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_request() :: %{
+
+  }
+  """
+  @type get_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_response() :: %{
+    "accountSettings" => account_settings()
+  }
+  """
+  @type get_account_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_report_metadata_request() :: %{
+    optional("reportVersion") => float(),
+    required("reportId") => String.t()
+  }
+  """
+  @type get_report_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_report_metadata_response() :: %{
+    "reportDetails" => report_detail()
+  }
+  """
+  @type get_report_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_report_request() :: %{
+    optional("reportVersion") => float(),
+    required("reportId") => String.t(),
+    required("termToken") => String.t()
+  }
+  """
+  @type get_report_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_report_response() :: %{
+    "documentPresignedUrl" => [String.t()]
+  }
+  """
+  @type get_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_term_for_report_request() :: %{
+    optional("reportVersion") => float(),
+    required("reportId") => String.t()
+  }
+  """
+  @type get_term_for_report_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_term_for_report_response() :: %{
+    "documentPresignedUrl" => [String.t()],
+    "termToken" => [String.t()]
+  }
+  """
+  @type get_term_for_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_server_exception() :: %{
+    "message" => [String.t()],
+    "retryAfterSeconds" => [integer()]
+  }
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_reports_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_reports_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_reports_response() :: %{
+    "nextToken" => String.t(),
+    "reports" => list(report_summary()())
+  }
+  """
+  @type list_reports_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_account_settings_request() :: %{
+    optional("notificationSubscriptionStatus") => String.t()
+  }
+  """
+  @type put_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  put_account_settings_response() :: %{
+    "accountSettings" => account_settings()
+  }
+  """
+  @type put_account_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  report_detail() :: %{
+    "acceptanceType" => String.t(),
+    "arn" => String.t(),
+    "category" => String.t(),
+    "companyName" => String.t(),
+    "createdAt" => non_neg_integer(),
+    "deletedAt" => non_neg_integer(),
+    "description" => String.t(),
+    "id" => String.t(),
+    "lastModifiedAt" => non_neg_integer(),
+    "name" => String.t(),
+    "periodEnd" => non_neg_integer(),
+    "periodStart" => non_neg_integer(),
+    "productName" => String.t(),
+    "sequenceNumber" => float(),
+    "series" => String.t(),
+    "state" => String.t(),
+    "statusMessage" => String.t(),
+    "termArn" => String.t(),
+    "uploadState" => String.t(),
+    "version" => float()
+  }
+  """
+  @type report_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  report_summary() :: %{
+    "arn" => String.t(),
+    "category" => String.t(),
+    "companyName" => String.t(),
+    "description" => String.t(),
+    "id" => String.t(),
+    "name" => String.t(),
+    "periodEnd" => non_neg_integer(),
+    "periodStart" => non_neg_integer(),
+    "productName" => String.t(),
+    "series" => String.t(),
+    "state" => String.t(),
+    "statusMessage" => String.t(),
+    "uploadState" => String.t(),
+    "version" => float()
+  }
+  """
+  @type report_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resource_not_found_exception() :: %{
+    "message" => [String.t()],
+    "resourceId" => [String.t()],
+    "resourceType" => [String.t()]
+  }
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_quota_exceeded_exception() :: %{
+    "message" => [String.t()],
+    "quotaCode" => [String.t()],
+    "resourceId" => [String.t()],
+    "resourceType" => [String.t()],
+    "serviceCode" => [String.t()]
+  }
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  throttling_exception() :: %{
+    "message" => [String.t()],
+    "quotaCode" => [String.t()],
+    "retryAfterSeconds" => [integer()],
+    "serviceCode" => [String.t()]
+  }
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception() :: %{
+    "fieldList" => list(validation_exception_field()()),
+    "message" => [String.t()],
+    "reason" => String.t()
+  }
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  validation_exception_field() :: %{
+    "message" => [String.t()],
+    "name" => [String.t()]
+  }
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -27,6 +288,16 @@ defmodule AWS.Artifact do
   @doc """
   Get the account settings for Artifact.
   """
+  @spec get_account_settings(map(), list()) ::
+          {:ok, get_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/get"
     headers = []
@@ -40,6 +311,16 @@ defmodule AWS.Artifact do
   @doc """
   Get the content for a single report.
   """
+  @spec get_report(map(), String.t(), String.t() | nil, String.t(), list()) ::
+          {:ok, get_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_report(%Client{} = client, report_id, report_version \\ nil, term_token, options \\ []) do
     url_path = "/v1/report/get"
     headers = []
@@ -74,6 +355,15 @@ defmodule AWS.Artifact do
   @doc """
   Get the metadata for a single report.
   """
+  @spec get_report_metadata(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_report_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_report_metadata(%Client{} = client, report_id, report_version \\ nil, options \\ []) do
     url_path = "/v1/report/getMetadata"
     headers = []
@@ -101,6 +391,16 @@ defmodule AWS.Artifact do
   @doc """
   Get the Term content associated with a single report.
   """
+  @spec get_term_for_report(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_term_for_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def get_term_for_report(%Client{} = client, report_id, report_version \\ nil, options \\ []) do
     url_path = "/v1/report/getTermForReport"
     headers = []
@@ -128,6 +428,15 @@ defmodule AWS.Artifact do
   @doc """
   List available reports.
   """
+  @spec list_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_reports_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def list_reports(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/report/list"
     headers = []
@@ -155,6 +464,16 @@ defmodule AWS.Artifact do
   @doc """
   Put the account settings for Artifact.
   """
+  @spec put_account_settings(map(), put_account_settings_request(), list()) ::
+          {:ok, put_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, access_denied_exception()}
+          | {:error, conflict_exception()}
+          | {:error, internal_server_exception()}
+          | {:error, resource_not_found_exception()}
+          | {:error, service_quota_exceeded_exception()}
+          | {:error, throttling_exception()}
+          | {:error, validation_exception()}
   def put_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/v1/account-settings/put"
     headers = []

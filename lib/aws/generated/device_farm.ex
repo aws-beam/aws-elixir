@@ -27,6 +27,2359 @@ defmodule AWS.DeviceFarm do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  update_test_grid_project_request() :: %{
+    optional("description") => String.t(),
+    optional("name") => String.t(),
+    optional("vpcConfig") => test_grid_vpc_config(),
+    required("projectArn") => String.t()
+  }
+  """
+  @type update_test_grid_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_pool() :: %{
+    "arn" => String.t(),
+    "description" => String.t(),
+    "maxDevices" => integer(),
+    "name" => String.t(),
+    "rules" => list(rule()()),
+    "type" => list(any())
+  }
+  """
+  @type device_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpce_configuration_result() :: %{
+    "vpceConfiguration" => vpce_configuration()
+  }
+  """
+  @type create_vpce_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_remote_access_session_configuration() :: %{
+    "billingMethod" => list(any()),
+    "vpceConfigurationArns" => list(String.t()())
+  }
+  """
+  @type create_remote_access_session_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_profile_request() :: %{
+    optional("description") => String.t(),
+    optional("downlinkBandwidthBits") => float(),
+    optional("downlinkDelayMs") => float(),
+    optional("downlinkJitterMs") => float(),
+    optional("downlinkLossPercent") => integer(),
+    optional("type") => list(any()),
+    optional("uplinkBandwidthBits") => float(),
+    optional("uplinkDelayMs") => float(),
+    optional("uplinkJitterMs") => float(),
+    optional("uplinkLossPercent") => integer(),
+    required("name") => String.t(),
+    required("projectArn") => String.t()
+  }
+  """
+  @type create_network_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tests_result() :: %{
+    "nextToken" => String.t(),
+    "tests" => list(test()())
+  }
+  """
+  @type list_tests_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_instance_profiles_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_instance_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_device_pool_request() :: %{
+    optional("description") => String.t(),
+    optional("maxDevices") => integer(),
+    required("name") => String.t(),
+    required("projectArn") => String.t(),
+    required("rules") => list(rule()())
+  }
+  """
+  @type create_device_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_suite_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_upload_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_devices_request() :: %{
+    optional("arn") => String.t(),
+    optional("filters") => list(device_filter()()),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_devices_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_request() :: %{
+    required("ResourceARN") => String.t(),
+    required("Tags") => list(tag()())
+  }
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_remote_access_session_request() :: %{
+    optional("clientId") => String.t(),
+    optional("configuration") => create_remote_access_session_configuration(),
+    optional("instanceArn") => String.t(),
+    optional("interactionMode") => list(any()),
+    optional("name") => String.t(),
+    optional("remoteDebugEnabled") => boolean(),
+    optional("remoteRecordAppArn") => String.t(),
+    optional("remoteRecordEnabled") => boolean(),
+    optional("skipAppResign") => boolean(),
+    optional("sshPublicKey") => String.t(),
+    required("deviceArn") => String.t(),
+    required("projectArn") => String.t()
+  }
+  """
+  @type create_remote_access_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  instance_profile() :: %{
+    "arn" => String.t(),
+    "description" => String.t(),
+    "excludeAppPackagesFromCleanup" => list(String.t()()),
+    "name" => String.t(),
+    "packageCleanup" => boolean(),
+    "rebootAfterUse" => boolean()
+  }
+  """
+  @type instance_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_session_actions_request() :: %{
+    optional("maxResult") => integer(),
+    optional("nextToken") => String.t(),
+    required("sessionArn") => String.t()
+  }
+  """
+  @type list_test_grid_session_actions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_session_artifacts_request() :: %{
+    optional("maxResult") => integer(),
+    optional("nextToken") => String.t(),
+    optional("type") => list(any()),
+    required("sessionArn") => String.t()
+  }
+  """
+  @type list_test_grid_session_artifacts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_upload_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_run_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_remote_access_session_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_remote_access_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  suite() :: %{
+    "arn" => String.t(),
+    "counters" => counters(),
+    "created" => non_neg_integer(),
+    "deviceMinutes" => device_minutes(),
+    "message" => String.t(),
+    "name" => String.t(),
+    "result" => list(any()),
+    "started" => non_neg_integer(),
+    "status" => list(any()),
+    "stopped" => non_neg_integer(),
+    "type" => list(any())
+  }
+  """
+  @type suite() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_operation_exception() :: %{
+    "message" => String.t(),
+    "resourceName" => String.t()
+  }
+  """
+  @type tag_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_unique_problems_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_unique_problems_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_jobs_result() :: %{
+    "jobs" => list(job()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_jobs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_vpce_configuration_request() :: %{
+    optional("vpceConfigurationDescription") => String.t(),
+    required("serviceDnsName") => String.t(),
+    required("vpceConfigurationName") => String.t(),
+    required("vpceServiceName") => String.t()
+  }
+  """
+  @type create_vpce_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_eligible_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type not_eligible_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_response() :: %{
+
+  }
+  """
+  @type untag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_run_request() :: %{
+    optional("appArn") => String.t(),
+    optional("configuration") => schedule_run_configuration(),
+    optional("devicePoolArn") => String.t(),
+    optional("deviceSelectionConfiguration") => device_selection_configuration(),
+    optional("executionConfiguration") => execution_configuration(),
+    optional("name") => String.t(),
+    required("projectArn") => String.t(),
+    required("test") => schedule_run_test()
+  }
+  """
+  @type schedule_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  renew_offering_request() :: %{
+    required("offeringId") => String.t(),
+    required("quantity") => integer()
+  }
+  """
+  @type renew_offering_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_upload_result() :: %{
+    "upload" => upload()
+  }
+  """
+  @type update_upload_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_network_profiles_result() :: %{
+    "networkProfiles" => list(network_profile()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_network_profiles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_request() :: %{
+
+  }
+  """
+  @type get_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_offering_promotions_result() :: %{
+    "nextToken" => String.t(),
+    "offeringPromotions" => list(offering_promotion()())
+  }
+  """
+  @type list_offering_promotions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  monetary_amount() :: %{
+    "amount" => float(),
+    "currencyCode" => list(any())
+  }
+  """
+  @type monetary_amount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_jobs_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_run_result() :: %{
+    "run" => run()
+  }
+  """
+  @type schedule_run_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_devices_result() :: %{
+    "devices" => list(device()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_devices_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_upload_result() :: %{
+
+  }
+  """
+  @type delete_upload_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_selection_configuration() :: %{
+    "filters" => list(device_filter()()),
+    "maxDevices" => integer()
+  }
+  """
+  @type device_selection_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_test_grid_session_request() :: %{
+    optional("projectArn") => String.t(),
+    optional("sessionArn") => String.t(),
+    optional("sessionId") => String.t()
+  }
+  """
+  @type get_test_grid_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_offerings_request() :: %{
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_project_result() :: %{
+
+  }
+  """
+  @type delete_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_remote_access_session_result() :: %{
+    "remoteAccessSession" => remote_access_session()
+  }
+  """
+  @type get_remote_access_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_profile_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_network_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpce_configuration_result() :: %{
+    "vpceConfiguration" => vpce_configuration()
+  }
+  """
+  @type get_vpce_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_project_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  recurring_charge() :: %{
+    "cost" => monetary_amount(),
+    "frequency" => list(any())
+  }
+  """
+  @type recurring_charge() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_profile_result() :: %{
+
+  }
+  """
+  @type delete_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_device_instance_request() :: %{
+    optional("labels") => list(String.t()()),
+    optional("profileArn") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_device_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_profile_result() :: %{
+    "instanceProfile" => instance_profile()
+  }
+  """
+  @type get_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_profile_result() :: %{
+    "instanceProfile" => instance_profile()
+  }
+  """
+  @type create_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_operation_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_instance_result() :: %{
+    "deviceInstance" => device_instance()
+  }
+  """
+  @type get_device_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_job_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type stop_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpce_configuration() :: %{
+    "arn" => String.t(),
+    "serviceDnsName" => String.t(),
+    "vpceConfigurationDescription" => String.t(),
+    "vpceConfigurationName" => String.t(),
+    "vpceServiceName" => String.t()
+  }
+  """
+  @type vpce_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  install_to_remote_access_session_request() :: %{
+    required("appArn") => String.t(),
+    required("remoteAccessSessionArn") => String.t()
+  }
+  """
+  @type install_to_remote_access_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_offering_status_result() :: %{
+    "current" => map(),
+    "nextPeriod" => map(),
+    "nextToken" => String.t()
+  }
+  """
+  @type get_offering_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpce_configuration_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_vpce_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_uploads_request() :: %{
+    optional("nextToken") => String.t(),
+    optional("type") => list(any()),
+    required("arn") => String.t()
+  }
+  """
+  @type list_uploads_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  offering_status() :: %{
+    "effectiveOn" => non_neg_integer(),
+    "offering" => offering(),
+    "quantity" => integer(),
+    "type" => list(any())
+  }
+  """
+  @type offering_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_unique_problems_result() :: %{
+    "nextToken" => String.t(),
+    "uniqueProblems" => map()
+  }
+  """
+  @type list_unique_problems_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_remote_access_sessions_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_remote_access_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_policy_exception() :: %{
+    "message" => String.t(),
+    "resourceName" => String.t()
+  }
+  """
+  @type tag_policy_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_instance_profiles_result() :: %{
+    "instanceProfiles" => list(instance_profile()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_instance_profiles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_device_pool_result() :: %{
+    "devicePool" => device_pool()
+  }
+  """
+  @type create_device_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  internal_service_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type internal_service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  untag_resource_request() :: %{
+    required("ResourceARN") => String.t(),
+    required("TagKeys") => list(String.t()())
+  }
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_upload_result() :: %{
+    "upload" => upload()
+  }
+  """
+  @type get_upload_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test() :: %{
+    "arn" => String.t(),
+    "counters" => counters(),
+    "created" => non_neg_integer(),
+    "deviceMinutes" => device_minutes(),
+    "message" => String.t(),
+    "name" => String.t(),
+    "result" => list(any()),
+    "started" => non_neg_integer(),
+    "status" => list(any()),
+    "stopped" => non_neg_integer(),
+    "type" => list(any())
+  }
+  """
+  @type test() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_device_pool_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_device_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_grid_vpc_config() :: %{
+    "securityGroupIds" => list(String.t()()),
+    "subnetIds" => list(String.t()()),
+    "vpcId" => String.t()
+  }
+  """
+  @type test_grid_vpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  upload() :: %{
+    "arn" => String.t(),
+    "category" => list(any()),
+    "contentType" => String.t(),
+    "created" => non_neg_integer(),
+    "message" => String.t(),
+    "metadata" => String.t(),
+    "name" => String.t(),
+    "status" => list(any()),
+    "type" => list(any()),
+    "url" => String.t()
+  }
+  """
+  @type upload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  network_profile() :: %{
+    "arn" => String.t(),
+    "description" => String.t(),
+    "downlinkBandwidthBits" => float(),
+    "downlinkDelayMs" => float(),
+    "downlinkJitterMs" => float(),
+    "downlinkLossPercent" => integer(),
+    "name" => String.t(),
+    "type" => list(any()),
+    "uplinkBandwidthBits" => float(),
+    "uplinkDelayMs" => float(),
+    "uplinkJitterMs" => float(),
+    "uplinkLossPercent" => integer()
+  }
+  """
+  @type network_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_instance_profile_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_run_configuration() :: %{
+    "auxiliaryApps" => list(String.t()()),
+    "billingMethod" => list(any()),
+    "customerArtifactPaths" => customer_artifact_paths(),
+    "extraDataPackageArn" => String.t(),
+    "locale" => String.t(),
+    "location" => location(),
+    "networkProfileArn" => String.t(),
+    "radios" => radios(),
+    "vpceConfigurationArns" => list(String.t()())
+  }
+  """
+  @type schedule_run_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_instance_profile_request() :: %{
+    optional("description") => String.t(),
+    optional("excludeAppPackagesFromCleanup") => list(String.t()()),
+    optional("packageCleanup") => boolean(),
+    optional("rebootAfterUse") => boolean(),
+    required("name") => String.t()
+  }
+  """
+  @type create_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_device_pools_request() :: %{
+    optional("nextToken") => String.t(),
+    optional("type") => list(any()),
+    required("arn") => String.t()
+  }
+  """
+  @type list_device_pools_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unique_problem() :: %{
+    "message" => String.t(),
+    "problems" => list(problem()())
+  }
+  """
+  @type unique_problem() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_network_profiles_request() :: %{
+    optional("nextToken") => String.t(),
+    optional("type") => list(any()),
+    required("arn") => String.t()
+  }
+  """
+  @type list_network_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_job_result() :: %{
+    "job" => job()
+  }
+  """
+  @type get_job_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_vpce_configuration_result() :: %{
+
+  }
+  """
+  @type delete_vpce_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tests_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_tests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  counters() :: %{
+    "errored" => integer(),
+    "failed" => integer(),
+    "passed" => integer(),
+    "skipped" => integer(),
+    "stopped" => integer(),
+    "total" => integer(),
+    "warned" => integer()
+  }
+  """
+  @type counters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_profile_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_network_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  radios() :: %{
+    "bluetooth" => boolean(),
+    "gps" => boolean(),
+    "nfc" => boolean(),
+    "wifi" => boolean()
+  }
+  """
+  @type radios() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_vpce_configuration_request() :: %{
+    optional("serviceDnsName") => String.t(),
+    optional("vpceConfigurationDescription") => String.t(),
+    optional("vpceConfigurationName") => String.t(),
+    optional("vpceServiceName") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_vpce_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  schedule_run_test() :: %{
+    "filter" => String.t(),
+    "parameters" => map(),
+    "testPackageArn" => String.t(),
+    "testSpecArn" => String.t(),
+    "type" => list(any())
+  }
+  """
+  @type schedule_run_test() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_instance_profile_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_device_pool_result() :: %{
+
+  }
+  """
+  @type delete_device_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_project_result() :: %{
+    "project" => project()
+  }
+  """
+  @type get_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  trial_minutes() :: %{
+    "remaining" => float(),
+    "total" => float()
+  }
+  """
+  @type trial_minutes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_instance_profile_result() :: %{
+    "instanceProfile" => instance_profile()
+  }
+  """
+  @type update_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_samples_result() :: %{
+    "nextToken" => String.t(),
+    "samples" => list(sample()())
+  }
+  """
+  @type list_samples_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_suite_result() :: %{
+    "suite" => suite()
+  }
+  """
+  @type get_suite_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_projects_result() :: %{
+    "nextToken" => String.t(),
+    "testGridProjects" => list(test_grid_project()())
+  }
+  """
+  @type list_test_grid_projects_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag() :: %{
+    "Key" => String.t(),
+    "Value" => String.t()
+  }
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_offering_status_request() :: %{
+    optional("nextToken") => String.t()
+  }
+  """
+  @type get_offering_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_offering_transactions_result() :: %{
+    "nextToken" => String.t(),
+    "offeringTransactions" => list(offering_transaction()())
+  }
+  """
+  @type list_offering_transactions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  project() :: %{
+    "arn" => String.t(),
+    "created" => non_neg_integer(),
+    "defaultJobTimeoutMinutes" => integer(),
+    "name" => String.t(),
+    "vpcConfig" => vpc_config()
+  }
+  """
+  @type project() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_grid_session_action() :: %{
+    "action" => String.t(),
+    "duration" => float(),
+    "requestMethod" => String.t(),
+    "started" => non_neg_integer(),
+    "statusCode" => String.t()
+  }
+  """
+  @type test_grid_session_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  cannot_delete_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type cannot_delete_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_pool_compatibility_result() :: %{
+    "compatibleDevices" => list(device_pool_compatibility_result()()),
+    "incompatibleDevices" => list(device_pool_compatibility_result()())
+  }
+  """
+  @type get_device_pool_compatibility_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_pool_compatibility_request() :: %{
+    optional("appArn") => String.t(),
+    optional("configuration") => schedule_run_configuration(),
+    optional("test") => schedule_run_test(),
+    optional("testType") => list(any()),
+    required("devicePoolArn") => String.t()
+  }
+  """
+  @type get_device_pool_compatibility_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  offering_transaction() :: %{
+    "cost" => monetary_amount(),
+    "createdOn" => non_neg_integer(),
+    "offeringPromotionId" => String.t(),
+    "offeringStatus" => offering_status(),
+    "transactionId" => String.t()
+  }
+  """
+  @type offering_transaction() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_grid_project() :: %{
+    "arn" => String.t(),
+    "created" => non_neg_integer(),
+    "description" => String.t(),
+    "name" => String.t(),
+    "vpcConfig" => test_grid_vpc_config()
+  }
+  """
+  @type test_grid_project() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_offering_result() :: %{
+    "offeringTransaction" => offering_transaction()
+  }
+  """
+  @type purchase_offering_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_vpce_configuration_result() :: %{
+    "vpceConfiguration" => vpce_configuration()
+  }
+  """
+  @type update_vpce_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_remote_access_session_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_remote_access_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  c_p_u() :: %{
+    "architecture" => String.t(),
+    "clock" => float(),
+    "frequency" => String.t()
+  }
+  """
+  @type c_p_u() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_run_result() :: %{
+    "run" => run()
+  }
+  """
+  @type get_run_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_test_grid_project_result() :: %{
+    "testGridProject" => test_grid_project()
+  }
+  """
+  @type create_test_grid_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_device_instances_result() :: %{
+    "deviceInstances" => list(device_instance()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_device_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_runs_result() :: %{
+    "nextToken" => String.t(),
+    "runs" => list(run()())
+  }
+  """
+  @type list_runs_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  renew_offering_result() :: %{
+    "offeringTransaction" => offering_transaction()
+  }
+  """
+  @type renew_offering_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  not_found_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_test_grid_project_request() :: %{
+    required("projectArn") => String.t()
+  }
+  """
+  @type delete_test_grid_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  sample() :: %{
+    "arn" => String.t(),
+    "type" => list(any()),
+    "url" => String.t()
+  }
+  """
+  @type sample() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_device_pool_request() :: %{
+    optional("clearMaxDevices") => boolean(),
+    optional("description") => String.t(),
+    optional("maxDevices") => integer(),
+    optional("name") => String.t(),
+    optional("rules") => list(rule()()),
+    required("arn") => String.t()
+  }
+  """
+  @type update_device_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  vpc_config() :: %{
+    "securityGroupIds" => list(String.t()()),
+    "subnetIds" => list(String.t()()),
+    "vpcId" => String.t()
+  }
+  """
+  @type vpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_session_artifacts_result() :: %{
+    "artifacts" => list(test_grid_session_artifact()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_test_grid_session_artifacts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_result() :: %{
+    "device" => device()
+  }
+  """
+  @type get_device_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_response() :: %{
+    "Tags" => list(tag()())
+  }
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  problem_detail() :: %{
+    "arn" => String.t(),
+    "name" => String.t()
+  }
+  """
+  @type problem_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_network_profile_result() :: %{
+    "networkProfile" => network_profile()
+  }
+  """
+  @type create_network_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  location() :: %{
+    "latitude" => float(),
+    "longitude" => float()
+  }
+  """
+  @type location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  execution_configuration() :: %{
+    "accountsCleanup" => boolean(),
+    "appPackagesCleanup" => boolean(),
+    "jobTimeoutMinutes" => integer(),
+    "skipAppResign" => boolean(),
+    "videoCapture" => boolean()
+  }
+  """
+  @type execution_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_offering_transactions_request() :: %{
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_offering_transactions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  service_account_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type service_account_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_test_grid_project_request() :: %{
+    required("projectArn") => String.t()
+  }
+  """
+  @type get_test_grid_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  install_to_remote_access_session_result() :: %{
+    "appUpload" => upload()
+  }
+  """
+  @type install_to_remote_access_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_samples_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_samples_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_grid_session_artifact() :: %{
+    "filename" => String.t(),
+    "type" => list(any()),
+    "url" => String.t()
+  }
+  """
+  @type test_grid_session_artifact() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  rule() :: %{
+    "attribute" => list(any()),
+    "operator" => list(any()),
+    "value" => String.t()
+  }
+  """
+  @type rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_run_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_pool_compatibility_result() :: %{
+    "compatible" => boolean(),
+    "device" => device(),
+    "incompatibilityMessages" => list(incompatibility_message()())
+  }
+  """
+  @type device_pool_compatibility_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_selection_result() :: %{
+    "filters" => list(device_filter()()),
+    "matchedDevicesCount" => integer(),
+    "maxDevices" => integer()
+  }
+  """
+  @type device_selection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_upload_result() :: %{
+    "upload" => upload()
+  }
+  """
+  @type create_upload_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_test_grid_url_result() :: %{
+    "expires" => non_neg_integer(),
+    "url" => String.t()
+  }
+  """
+  @type create_test_grid_url_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_network_profile_result() :: %{
+    "networkProfile" => network_profile()
+  }
+  """
+  @type get_network_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_remote_access_session_result() :: %{
+    "remoteAccessSession" => remote_access_session()
+  }
+  """
+  @type stop_remote_access_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_device_instance_result() :: %{
+    "deviceInstance" => device_instance()
+  }
+  """
+  @type update_device_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_remote_access_session_result() :: %{
+
+  }
+  """
+  @type delete_remote_access_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_run_result() :: %{
+    "run" => run()
+  }
+  """
+  @type stop_run_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_offering_promotions_request() :: %{
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_offering_promotions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_project_request() :: %{
+    optional("defaultJobTimeoutMinutes") => integer(),
+    optional("name") => String.t(),
+    optional("vpcConfig") => vpc_config(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  test_grid_session() :: %{
+    "arn" => String.t(),
+    "billingMinutes" => float(),
+    "created" => non_neg_integer(),
+    "ended" => non_neg_integer(),
+    "seleniumProperties" => String.t(),
+    "status" => list(any())
+  }
+  """
+  @type test_grid_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_upload_request() :: %{
+    optional("contentType") => String.t(),
+    optional("editContent") => boolean(),
+    optional("name") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_run_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type stop_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_test_grid_project_result() :: %{
+
+  }
+  """
+  @type delete_test_grid_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  incompatibility_message() :: %{
+    "message" => String.t(),
+    "type" => list(any())
+  }
+  """
+  @type incompatibility_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  problem() :: %{
+    "device" => device(),
+    "job" => problem_detail(),
+    "message" => String.t(),
+    "result" => list(any()),
+    "run" => problem_detail(),
+    "suite" => problem_detail(),
+    "test" => problem_detail()
+  }
+  """
+  @type problem() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_run_result() :: %{
+
+  }
+  """
+  @type delete_run_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_test_grid_project_result() :: %{
+    "testGridProject" => test_grid_project()
+  }
+  """
+  @type update_test_grid_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  remote_access_session() :: %{
+    "arn" => String.t(),
+    "billingMethod" => list(any()),
+    "clientId" => String.t(),
+    "created" => non_neg_integer(),
+    "device" => device(),
+    "deviceMinutes" => device_minutes(),
+    "deviceUdid" => String.t(),
+    "endpoint" => String.t(),
+    "hostAddress" => String.t(),
+    "instanceArn" => String.t(),
+    "interactionMode" => list(any()),
+    "message" => String.t(),
+    "name" => String.t(),
+    "remoteDebugEnabled" => boolean(),
+    "remoteRecordAppArn" => String.t(),
+    "remoteRecordEnabled" => boolean(),
+    "result" => list(any()),
+    "skipAppResign" => boolean(),
+    "started" => non_neg_integer(),
+    "status" => list(any()),
+    "stopped" => non_neg_integer(),
+    "vpcConfig" => vpc_config()
+  }
+  """
+  @type remote_access_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_sessions_result() :: %{
+    "nextToken" => String.t(),
+    "testGridSessions" => list(test_grid_session()())
+  }
+  """
+  @type list_test_grid_sessions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  customer_artifact_paths() :: %{
+    "androidPaths" => list(String.t()()),
+    "deviceHostPaths" => list(String.t()()),
+    "iosPaths" => list(String.t()())
+  }
+  """
+  @type customer_artifact_paths() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_instance() :: %{
+    "arn" => String.t(),
+    "deviceArn" => String.t(),
+    "instanceProfile" => instance_profile(),
+    "labels" => list(String.t()()),
+    "status" => list(any()),
+    "udid" => String.t()
+  }
+  """
+  @type device_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_remote_access_session_result() :: %{
+    "remoteAccessSession" => remote_access_session()
+  }
+  """
+  @type create_remote_access_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  tag_resource_response() :: %{
+
+  }
+  """
+  @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_pool_result() :: %{
+    "devicePool" => device_pool()
+  }
+  """
+  @type get_device_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_pool_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_device_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_network_profile_result() :: %{
+    "networkProfile" => network_profile()
+  }
+  """
+  @type update_network_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_settings() :: %{
+    "awsAccountNumber" => String.t(),
+    "defaultJobTimeoutMinutes" => integer(),
+    "maxJobTimeoutMinutes" => integer(),
+    "maxSlots" => map(),
+    "skipAppResign" => boolean(),
+    "trialMinutes" => trial_minutes(),
+    "unmeteredDevices" => map(),
+    "unmeteredRemoteAccessDevices" => map()
+  }
+  """
+  @type account_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_device_pool_result() :: %{
+    "devicePool" => device_pool()
+  }
+  """
+  @type update_device_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_network_profile_request() :: %{
+    optional("description") => String.t(),
+    optional("downlinkBandwidthBits") => float(),
+    optional("downlinkDelayMs") => float(),
+    optional("downlinkJitterMs") => float(),
+    optional("downlinkLossPercent") => integer(),
+    optional("name") => String.t(),
+    optional("type") => list(any()),
+    optional("uplinkBandwidthBits") => float(),
+    optional("uplinkDelayMs") => float(),
+    optional("uplinkJitterMs") => float(),
+    optional("uplinkLossPercent") => integer(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_network_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_upload_request() :: %{
+    optional("contentType") => String.t(),
+    required("name") => String.t(),
+    required("projectArn") => String.t(),
+    required("type") => list(any())
+  }
+  """
+  @type create_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_tags_for_resource_request() :: %{
+    required("ResourceARN") => String.t()
+  }
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  idempotency_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type idempotency_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  job() :: %{
+    "arn" => String.t(),
+    "counters" => counters(),
+    "created" => non_neg_integer(),
+    "device" => device(),
+    "deviceMinutes" => device_minutes(),
+    "instanceArn" => String.t(),
+    "message" => String.t(),
+    "name" => String.t(),
+    "result" => list(any()),
+    "started" => non_neg_integer(),
+    "status" => list(any()),
+    "stopped" => non_neg_integer(),
+    "type" => list(any()),
+    "videoCapture" => boolean(),
+    "videoEndpoint" => String.t()
+  }
+  """
+  @type job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_artifacts_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t(),
+    required("type") => list(any())
+  }
+  """
+  @type list_artifacts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_network_profile_result() :: %{
+
+  }
+  """
+  @type delete_network_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_device_instances_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_device_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_job_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_project_request() :: %{
+    optional("defaultJobTimeoutMinutes") => integer(),
+    optional("vpcConfig") => vpc_config(),
+    required("name") => String.t()
+  }
+  """
+  @type create_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_vpce_configurations_result() :: %{
+    "nextToken" => String.t(),
+    "vpceConfigurations" => list(vpce_configuration()())
+  }
+  """
+  @type list_vpce_configurations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suites_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_suites_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_projects_request() :: %{
+    optional("arn") => String.t(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_projects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_account_settings_result() :: %{
+    "accountSettings" => account_settings()
+  }
+  """
+  @type get_account_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_vpce_configurations_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_vpce_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  offering() :: %{
+    "description" => String.t(),
+    "id" => String.t(),
+    "platform" => list(any()),
+    "recurringCharges" => list(recurring_charge()()),
+    "type" => list(any())
+  }
+  """
+  @type offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_minutes() :: %{
+    "metered" => float(),
+    "total" => float(),
+    "unmetered" => float()
+  }
+  """
+  @type device_minutes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  limit_exceeded_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  resolution() :: %{
+    "height" => integer(),
+    "width" => integer()
+  }
+  """
+  @type resolution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_instance_profile_request() :: %{
+    optional("description") => String.t(),
+    optional("excludeAppPackagesFromCleanup") => list(String.t()()),
+    optional("name") => String.t(),
+    optional("packageCleanup") => boolean(),
+    optional("rebootAfterUse") => boolean(),
+    required("arn") => String.t()
+  }
+  """
+  @type update_instance_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_test_grid_url_request() :: %{
+    required("expiresInSeconds") => integer(),
+    required("projectArn") => String.t()
+  }
+  """
+  @type create_test_grid_url_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_test_result() :: %{
+    "test" => test()
+  }
+  """
+  @type get_test_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_device_pools_result() :: %{
+    "devicePools" => list(device_pool()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_device_pools_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_suites_result() :: %{
+    "nextToken" => String.t(),
+    "suites" => list(suite()())
+  }
+  """
+  @type list_suites_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_test_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_test_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_test_grid_project_request() :: %{
+    optional("description") => String.t(),
+    optional("vpcConfig") => test_grid_vpc_config(),
+    required("name") => String.t()
+  }
+  """
+  @type create_test_grid_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_remote_access_session_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type stop_remote_access_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  artifact() :: %{
+    "arn" => String.t(),
+    "extension" => String.t(),
+    "name" => String.t(),
+    "type" => list(any()),
+    "url" => String.t()
+  }
+  """
+  @type artifact() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_artifacts_result() :: %{
+    "artifacts" => list(artifact()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_artifacts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device() :: %{
+    "arn" => String.t(),
+    "availability" => list(any()),
+    "carrier" => String.t(),
+    "cpu" => c_p_u(),
+    "fleetName" => String.t(),
+    "fleetType" => String.t(),
+    "formFactor" => list(any()),
+    "heapSize" => float(),
+    "image" => String.t(),
+    "instances" => list(device_instance()()),
+    "manufacturer" => String.t(),
+    "memory" => float(),
+    "model" => String.t(),
+    "modelId" => String.t(),
+    "name" => String.t(),
+    "os" => String.t(),
+    "platform" => list(any()),
+    "radio" => String.t(),
+    "remoteAccessEnabled" => boolean(),
+    "remoteDebugEnabled" => boolean(),
+    "resolution" => resolution()
+  }
+  """
+  @type device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_projects_result() :: %{
+    "nextToken" => String.t(),
+    "projects" => list(project()())
+  }
+  """
+  @type list_projects_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  delete_project_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type delete_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_remote_access_sessions_result() :: %{
+    "nextToken" => String.t(),
+    "remoteAccessSessions" => list(remote_access_session()())
+  }
+  """
+  @type list_remote_access_sessions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_test_grid_project_result() :: %{
+    "testGridProject" => test_grid_project()
+  }
+  """
+  @type get_test_grid_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  offering_promotion() :: %{
+    "description" => String.t(),
+    "id" => String.t()
+  }
+  """
+  @type offering_promotion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_offerings_result() :: %{
+    "nextToken" => String.t(),
+    "offerings" => list(offering()())
+  }
+  """
+  @type list_offerings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_session_actions_result() :: %{
+    "actions" => list(test_grid_session_action()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type list_test_grid_session_actions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  create_project_result() :: %{
+    "project" => project()
+  }
+  """
+  @type create_project_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  stop_job_result() :: %{
+    "job" => job()
+  }
+  """
+  @type stop_job_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_runs_request() :: %{
+    optional("nextToken") => String.t(),
+    required("arn") => String.t()
+  }
+  """
+  @type list_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_vpce_configuration_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_vpce_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  device_filter() :: %{
+    "attribute" => list(any()),
+    "operator" => list(any()),
+    "values" => list(String.t()())
+  }
+  """
+  @type device_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_sessions_request() :: %{
+    optional("creationTimeAfter") => non_neg_integer(),
+    optional("creationTimeBefore") => non_neg_integer(),
+    optional("endTimeAfter") => non_neg_integer(),
+    optional("endTimeBefore") => non_neg_integer(),
+    optional("maxResult") => integer(),
+    optional("nextToken") => String.t(),
+    optional("status") => list(any()),
+    required("projectArn") => String.t()
+  }
+  """
+  @type list_test_grid_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_uploads_result() :: %{
+    "nextToken" => String.t(),
+    "uploads" => list(upload()())
+  }
+  """
+  @type list_uploads_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  too_many_tags_exception() :: %{
+    "message" => String.t(),
+    "resourceName" => String.t()
+  }
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_test_grid_session_result() :: %{
+    "testGridSession" => test_grid_session()
+  }
+  """
+  @type get_test_grid_session_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  get_device_instance_request() :: %{
+    required("arn") => String.t()
+  }
+  """
+  @type get_device_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  purchase_offering_request() :: %{
+    optional("offeringPromotionId") => String.t(),
+    required("offeringId") => String.t(),
+    required("quantity") => integer()
+  }
+  """
+  @type purchase_offering_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  run() :: %{
+    "appUpload" => String.t(),
+    "arn" => String.t(),
+    "billingMethod" => list(any()),
+    "completedJobs" => integer(),
+    "counters" => counters(),
+    "created" => non_neg_integer(),
+    "customerArtifactPaths" => customer_artifact_paths(),
+    "deviceMinutes" => device_minutes(),
+    "devicePoolArn" => String.t(),
+    "deviceSelectionResult" => device_selection_result(),
+    "eventCount" => integer(),
+    "jobTimeoutMinutes" => integer(),
+    "locale" => String.t(),
+    "location" => location(),
+    "message" => String.t(),
+    "name" => String.t(),
+    "networkProfile" => network_profile(),
+    "parsingResultUrl" => String.t(),
+    "platform" => list(any()),
+    "radios" => radios(),
+    "result" => list(any()),
+    "resultCode" => list(any()),
+    "seed" => integer(),
+    "skipAppResign" => boolean(),
+    "started" => non_neg_integer(),
+    "status" => list(any()),
+    "stopped" => non_neg_integer(),
+    "testSpecArn" => String.t(),
+    "totalJobs" => integer(),
+    "type" => list(any()),
+    "vpcConfig" => vpc_config(),
+    "webUrl" => String.t()
+  }
+  """
+  @type run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  argument_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type argument_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  list_test_grid_projects_request() :: %{
+    optional("maxResult") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type list_test_grid_projects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  update_project_result() :: %{
+    "project" => project()
+  }
+  """
+  @type update_project_result() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2015-06-23",
@@ -45,6 +2398,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a device pool.
   """
+  @spec create_device_pool(map(), create_device_pool_request(), list()) ::
+          {:ok, create_device_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def create_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -55,6 +2415,13 @@ defmodule AWS.DeviceFarm do
   Creates a profile that can be applied to one or more private fleet device
   instances.
   """
+  @spec create_instance_profile(map(), create_instance_profile_request(), list()) ::
+          {:ok, create_instance_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -64,6 +2431,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a network profile.
   """
+  @spec create_network_profile(map(), create_network_profile_request(), list()) ::
+          {:ok, create_network_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def create_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -73,6 +2447,14 @@ defmodule AWS.DeviceFarm do
   @doc """
   Creates a project.
   """
+  @spec create_project(map(), create_project_request(), list()) ::
+          {:ok, create_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
+          | {:error, tag_operation_exception()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -82,6 +2464,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Specifies and starts a remote access session.
   """
+  @spec create_remote_access_session(map(), create_remote_access_session_request(), list()) ::
+          {:ok, create_remote_access_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def create_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -94,6 +2483,12 @@ defmodule AWS.DeviceFarm do
   Projects are used to track `TestGridSession`
   instances.
   """
+  @spec create_test_grid_project(map(), create_test_grid_project_request(), list()) ::
+          {:ok, create_test_grid_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, limit_exceeded_exception()}
   def create_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -105,6 +2500,12 @@ defmodule AWS.DeviceFarm do
   `RemoteWebDriver`
   constructor.
   """
+  @spec create_test_grid_url(map(), create_test_grid_url_request(), list()) ::
+          {:ok, create_test_grid_url_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def create_test_grid_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -114,6 +2515,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Uploads an app or test scripts.
   """
+  @spec create_upload(map(), create_upload_request(), list()) ::
+          {:ok, create_upload_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def create_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -125,6 +2533,12 @@ defmodule AWS.DeviceFarm do
   Cloud
   (VPC) endpoint.
   """
+  @spec create_vpce_configuration(map(), create_vpce_configuration_request(), list()) ::
+          {:ok, create_vpce_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, service_account_exception()}
   def create_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -137,6 +2551,13 @@ defmodule AWS.DeviceFarm do
   Does not allow deletion of curated pools
   owned by the system.
   """
+  @spec delete_device_pool(map(), delete_device_pool_request(), list()) ::
+          {:ok, delete_device_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -146,6 +2567,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a profile that can be applied to one or more private device instances.
   """
+  @spec delete_instance_profile(map(), delete_instance_profile_request(), list()) ::
+          {:ok, delete_instance_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -155,6 +2583,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a network profile.
   """
+  @spec delete_network_profile(map(), delete_network_profile_request(), list()) ::
+          {:ok, delete_network_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -166,6 +2601,13 @@ defmodule AWS.DeviceFarm do
 
   Deleting this resource does not stop an in-progress run.
   """
+  @spec delete_project(map(), delete_project_request(), list()) ::
+          {:ok, delete_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -175,6 +2617,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a completed remote access session and its results.
   """
+  @spec delete_remote_access_session(map(), delete_remote_access_session_request(), list()) ::
+          {:ok, delete_remote_access_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -186,6 +2635,13 @@ defmodule AWS.DeviceFarm do
 
   Deleting this resource does not stop an in-progress run.
   """
+  @spec delete_run(map(), delete_run_request(), list()) ::
+          {:ok, delete_run_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -199,6 +2655,13 @@ defmodule AWS.DeviceFarm do
 
   You cannot delete a project if it has active sessions.
   """
+  @spec delete_test_grid_project(map(), delete_test_grid_project_request(), list()) ::
+          {:ok, delete_test_grid_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, cannot_delete_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def delete_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -208,6 +2671,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes an upload given the upload ARN.
   """
+  @spec delete_upload(map(), delete_upload_request(), list()) ::
+          {:ok, delete_upload_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -217,6 +2687,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.
   """
+  @spec delete_vpce_configuration(map(), delete_vpce_configuration_request(), list()) ::
+          {:ok, delete_vpce_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, invalid_operation_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def delete_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -228,6 +2705,13 @@ defmodule AWS.DeviceFarm do
   purchased by the
   account.
   """
+  @spec get_account_settings(map(), get_account_settings_request(), list()) ::
+          {:ok, get_account_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -237,6 +2721,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a unique device type.
   """
+  @spec get_device(map(), get_device_request(), list()) ::
+          {:ok, get_device_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -247,6 +2738,13 @@ defmodule AWS.DeviceFarm do
   Returns information about a device instance that belongs to a private device
   fleet.
   """
+  @spec get_device_instance(map(), get_device_instance_request(), list()) ::
+          {:ok, get_device_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_device_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -256,6 +2754,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a device pool.
   """
+  @spec get_device_pool(map(), get_device_pool_request(), list()) ::
+          {:ok, get_device_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -265,6 +2770,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about compatibility with a device pool.
   """
+  @spec get_device_pool_compatibility(map(), get_device_pool_compatibility_request(), list()) ::
+          {:ok, get_device_pool_compatibility_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_device_pool_compatibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -274,6 +2786,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns information about the specified instance profile.
   """
+  @spec get_instance_profile(map(), get_instance_profile_request(), list()) ::
+          {:ok, get_instance_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -283,6 +2802,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a job.
   """
+  @spec get_job(map(), get_job_request(), list()) ::
+          {:ok, get_job_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -292,6 +2818,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns information about a network profile.
   """
+  @spec get_network_profile(map(), get_network_profile_request(), list()) ::
+          {:ok, get_network_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -310,6 +2843,14 @@ defmodule AWS.DeviceFarm do
   operation. If you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
+  @spec get_offering_status(map(), get_offering_status_request(), list()) ::
+          {:ok, get_offering_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_eligible_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_offering_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -319,6 +2860,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a project.
   """
+  @spec get_project(map(), get_project_request(), list()) ::
+          {:ok, get_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -328,6 +2876,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a link to a currently running remote access session.
   """
+  @spec get_remote_access_session(map(), get_remote_access_session_request(), list()) ::
+          {:ok, get_remote_access_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -337,6 +2892,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a run.
   """
+  @spec get_run(map(), get_run_request(), list()) ::
+          {:ok, get_run_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -346,6 +2908,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a suite.
   """
+  @spec get_suite(map(), get_suite_request(), list()) ::
+          {:ok, get_suite_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_suite(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -355,6 +2924,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about a test.
   """
+  @spec get_test(map(), get_test_request(), list()) ::
+          {:ok, get_test_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_test(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -364,6 +2940,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Retrieves information about a Selenium testing project.
   """
+  @spec get_test_grid_project(map(), get_test_grid_project_request(), list()) ::
+          {:ok, get_test_grid_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def get_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -383,6 +2965,12 @@ defmodule AWS.DeviceFarm do
   The project ARN and a session ID (`GetTestGridSessionRequest$projectArn` and
   `GetTestGridSessionRequest$sessionId`).
   """
+  @spec get_test_grid_session(map(), get_test_grid_session_request(), list()) ::
+          {:ok, get_test_grid_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def get_test_grid_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -392,6 +2980,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about an upload.
   """
+  @spec get_upload(map(), get_upload_request(), list()) ::
+          {:ok, get_upload_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -403,6 +2998,12 @@ defmodule AWS.DeviceFarm do
   Private
   Cloud (VPC) endpoint.
   """
+  @spec get_vpce_configuration(map(), get_vpce_configuration_request(), list()) ::
+          {:ok, get_vpce_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def get_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -417,6 +3018,17 @@ defmodule AWS.DeviceFarm do
   must be in
   .ipa format.
   """
+  @spec install_to_remote_access_session(
+          map(),
+          install_to_remote_access_session_request(),
+          list()
+        ) ::
+          {:ok, install_to_remote_access_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def install_to_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -426,6 +3038,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about artifacts.
   """
+  @spec list_artifacts(map(), list_artifacts_request(), list()) ::
+          {:ok, list_artifacts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -437,6 +3056,13 @@ defmodule AWS.DeviceFarm do
   more AWS
   accounts.
   """
+  @spec list_device_instances(map(), list_device_instances_request(), list()) ::
+          {:ok, list_device_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_device_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -446,6 +3072,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about device pools.
   """
+  @spec list_device_pools(map(), list_device_pools_request(), list()) ::
+          {:ok, list_device_pools_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_device_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -455,6 +3088,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about unique device types.
   """
+  @spec list_devices(map(), list_devices_request(), list()) ::
+          {:ok, list_devices_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -464,6 +3104,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns information about all the instance profiles in an AWS account.
   """
+  @spec list_instance_profiles(map(), list_instance_profiles_request(), list()) ::
+          {:ok, list_instance_profiles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -473,6 +3120,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about jobs for a given test run.
   """
+  @spec list_jobs(map(), list_jobs_request(), list()) ::
+          {:ok, list_jobs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -482,6 +3136,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns the list of available network profiles.
   """
+  @spec list_network_profiles(map(), list_network_profiles_request(), list()) ::
+          {:ok, list_network_profiles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_network_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -498,6 +3159,14 @@ defmodule AWS.DeviceFarm do
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if
   you must be able to invoke this operation.
   """
+  @spec list_offering_promotions(map(), list_offering_promotions_request(), list()) ::
+          {:ok, list_offering_promotions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_eligible_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_offering_promotions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -516,6 +3185,14 @@ defmodule AWS.DeviceFarm do
   you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
+  @spec list_offering_transactions(map(), list_offering_transactions_request(), list()) ::
+          {:ok, list_offering_transactions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_eligible_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_offering_transactions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -534,6 +3211,14 @@ defmodule AWS.DeviceFarm do
   able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
+  @spec list_offerings(map(), list_offerings_request(), list()) ::
+          {:ok, list_offerings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_eligible_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -543,6 +3228,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about projects.
   """
+  @spec list_projects(map(), list_projects_request(), list()) ::
+          {:ok, list_projects_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -552,6 +3244,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a list of all currently running remote access sessions.
   """
+  @spec list_remote_access_sessions(map(), list_remote_access_sessions_request(), list()) ::
+          {:ok, list_remote_access_sessions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_remote_access_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -561,6 +3260,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about runs, given an AWS Device Farm project ARN.
   """
+  @spec list_runs(map(), list_runs_request(), list()) ::
+          {:ok, list_runs_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -570,6 +3276,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about samples, given an AWS Device Farm job ARN.
   """
+  @spec list_samples(map(), list_samples_request(), list()) ::
+          {:ok, list_samples_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_samples(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -579,6 +3292,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about test suites for a given job.
   """
+  @spec list_suites(map(), list_suites_request(), list()) ::
+          {:ok, list_suites_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_suites(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -588,6 +3308,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   List the tags for an AWS Device Farm resource.
   """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, not_found_exception()}
+          | {:error, tag_operation_exception()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -597,6 +3323,11 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets a list of all Selenium testing projects in your account.
   """
+  @spec list_test_grid_projects(map(), list_test_grid_projects_request(), list()) ::
+          {:ok, list_test_grid_projects_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
   def list_test_grid_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -606,6 +3337,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Returns a list of the actions taken in a `TestGridSession`.
   """
+  @spec list_test_grid_session_actions(map(), list_test_grid_session_actions_request(), list()) ::
+          {:ok, list_test_grid_session_actions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def list_test_grid_session_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -615,6 +3352,16 @@ defmodule AWS.DeviceFarm do
   @doc """
   Retrieves a list of artifacts created during the session.
   """
+  @spec list_test_grid_session_artifacts(
+          map(),
+          list_test_grid_session_artifacts_request(),
+          list()
+        ) ::
+          {:ok, list_test_grid_session_artifacts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def list_test_grid_session_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -624,6 +3371,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Retrieves a list of sessions for a `TestGridProject`.
   """
+  @spec list_test_grid_sessions(map(), list_test_grid_sessions_request(), list()) ::
+          {:ok, list_test_grid_sessions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, not_found_exception()}
   def list_test_grid_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -633,6 +3386,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about tests in a given test suite.
   """
+  @spec list_tests(map(), list_tests_request(), list()) ::
+          {:ok, list_tests_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_tests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -654,6 +3414,13 @@ defmodule AWS.DeviceFarm do
   ), `ListUniqueProblems` returns a single entry instead of many
   individual entries for that exception.
   """
+  @spec list_unique_problems(map(), list_unique_problems_request(), list()) ::
+          {:ok, list_unique_problems_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_unique_problems(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -663,6 +3430,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Gets information about uploads, given an AWS Device Farm project ARN.
   """
+  @spec list_uploads(map(), list_uploads_request(), list()) ::
+          {:ok, list_uploads_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def list_uploads(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -673,6 +3447,11 @@ defmodule AWS.DeviceFarm do
   Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
   configurations in the AWS account.
   """
+  @spec list_vpce_configurations(map(), list_vpce_configurations_request(), list()) ::
+          {:ok, list_vpce_configurations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, service_account_exception()}
   def list_vpce_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -690,6 +3469,14 @@ defmodule AWS.DeviceFarm do
   contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
+  @spec purchase_offering(map(), purchase_offering_request(), list()) ::
+          {:ok, purchase_offering_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_eligible_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def purchase_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -706,6 +3493,14 @@ defmodule AWS.DeviceFarm do
   this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
+  @spec renew_offering(map(), renew_offering_request(), list()) ::
+          {:ok, renew_offering_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_eligible_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def renew_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -715,6 +3510,14 @@ defmodule AWS.DeviceFarm do
   @doc """
   Schedules a run.
   """
+  @spec schedule_run(map(), schedule_run_request(), list()) ::
+          {:ok, schedule_run_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, idempotency_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def schedule_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -731,6 +3534,13 @@ defmodule AWS.DeviceFarm do
   billed for setup, teardown,
   and any tests that were in progress or already completed.
   """
+  @spec stop_job(map(), stop_job_request(), list()) ::
+          {:ok, stop_job_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def stop_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -740,6 +3550,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Ends a specified remote access session.
   """
+  @spec stop_remote_access_session(map(), stop_remote_access_session_request(), list()) ::
+          {:ok, stop_remote_access_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def stop_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -756,6 +3573,13 @@ defmodule AWS.DeviceFarm do
   devices. You are billed for
   setup, teardown, and any tests that were in progress or already completed.
   """
+  @spec stop_run(map(), stop_run_request(), list()) ::
+          {:ok, stop_run_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def stop_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -770,6 +3594,14 @@ defmodule AWS.DeviceFarm do
   When a resource is deleted,
   the tags associated with that resource are also deleted.
   """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, not_found_exception()}
+          | {:error, tag_operation_exception()}
+          | {:error, tag_policy_exception()}
+          | {:error, too_many_tags_exception()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -779,6 +3611,12 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes the specified tags from a resource.
   """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, not_found_exception()}
+          | {:error, tag_operation_exception()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -788,6 +3626,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates information about a private device instance.
   """
+  @spec update_device_instance(map(), update_device_instance_request(), list()) ::
+          {:ok, update_device_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_device_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -802,6 +3647,13 @@ defmodule AWS.DeviceFarm do
   Rule updates are all-or-nothing, meaning they can only be updated as a
   whole (or not at all).
   """
+  @spec update_device_pool(map(), update_device_pool_request(), list()) ::
+          {:ok, update_device_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -811,6 +3663,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates information about an existing private device instance profile.
   """
+  @spec update_instance_profile(map(), update_instance_profile_request(), list()) ::
+          {:ok, update_instance_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -820,6 +3679,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates the network profile.
   """
+  @spec update_network_profile(map(), update_network_profile_request(), list()) ::
+          {:ok, update_network_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -830,6 +3696,13 @@ defmodule AWS.DeviceFarm do
   Modifies the specified project name, given the project ARN and a new
   name.
   """
+  @spec update_project(map(), update_project_request(), list()) ::
+          {:ok, update_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -839,6 +3712,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Change details of a project.
   """
+  @spec update_test_grid_project(map(), update_test_grid_project_request(), list()) ::
+          {:ok, update_test_grid_project_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, internal_service_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
   def update_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -848,6 +3728,13 @@ defmodule AWS.DeviceFarm do
   @doc """
   Updates an uploaded test spec.
   """
+  @spec update_upload(map(), update_upload_request(), list()) ::
+          {:ok, update_upload_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, limit_exceeded_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -858,6 +3745,13 @@ defmodule AWS.DeviceFarm do
   Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
   configuration.
   """
+  @spec update_vpce_configuration(map(), update_vpce_configuration_request(), list()) ::
+          {:ok, update_vpce_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, argument_exception()}
+          | {:error, invalid_operation_exception()}
+          | {:error, not_found_exception()}
+          | {:error, service_account_exception()}
   def update_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -72,6 +72,546 @@ defmodule AWS.Health do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+  describe_events_for_organization_response() :: %{
+    "events" => list(organization_event()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_events_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  unsupported_locale() :: %{
+    "message" => String.t()
+  }
+  """
+  @type unsupported_locale() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  account_entity_aggregate() :: %{
+    "accountId" => String.t(),
+    "count" => integer(),
+    "statuses" => map()
+  }
+  """
+  @type account_entity_aggregate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organization_event_filter() :: %{
+    "awsAccountIds" => list(String.t()()),
+    "endTime" => date_time_range(),
+    "entityArns" => list(String.t()()),
+    "entityValues" => list(String.t()()),
+    "eventStatusCodes" => list(list(any())()),
+    "eventTypeCategories" => list(list(any())()),
+    "eventTypeCodes" => list(String.t()()),
+    "lastUpdatedTime" => date_time_range(),
+    "regions" => list(String.t()()),
+    "services" => list(String.t()()),
+    "startTime" => date_time_range()
+  }
+  """
+  @type organization_event_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_details_for_organization_request() :: %{
+    optional("locale") => String.t(),
+    required("organizationEventDetailFilters") => list(event_account_filter()())
+  }
+  """
+  @type describe_event_details_for_organization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_affected_accounts_for_organization_response() :: %{
+    "affectedAccounts" => list(String.t()()),
+    "eventScopeCode" => list(any()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_affected_accounts_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  invalid_pagination_token() :: %{
+    "message" => String.t()
+  }
+  """
+  @type invalid_pagination_token() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  affected_entity() :: %{
+    "awsAccountId" => String.t(),
+    "entityArn" => String.t(),
+    "entityUrl" => String.t(),
+    "entityValue" => String.t(),
+    "eventArn" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "statusCode" => list(any()),
+    "tags" => map()
+  }
+  """
+  @type affected_entity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_entity_aggregates_response() :: %{
+    "entityAggregates" => list(entity_aggregate()())
+  }
+  """
+  @type describe_entity_aggregates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_details() :: %{
+    "event" => event(),
+    "eventDescription" => event_description(),
+    "eventMetadata" => map()
+  }
+  """
+  @type event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organization_event_details_error_item() :: %{
+    "awsAccountId" => String.t(),
+    "errorMessage" => String.t(),
+    "errorName" => String.t(),
+    "eventArn" => String.t()
+  }
+  """
+  @type organization_event_details_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organization_event_details() :: %{
+    "awsAccountId" => String.t(),
+    "event" => event(),
+    "eventDescription" => event_description(),
+    "eventMetadata" => map()
+  }
+  """
+  @type organization_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  entity_filter() :: %{
+    "entityArns" => list(String.t()()),
+    "entityValues" => list(String.t()()),
+    "eventArns" => list(String.t()()),
+    "lastUpdatedTimes" => list(date_time_range()()),
+    "statusCodes" => list(list(any())()),
+    "tags" => list(map()())
+  }
+  """
+  @type entity_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_description() :: %{
+    "latestDescription" => String.t()
+  }
+  """
+  @type event_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_affected_entities_for_organization_request() :: %{
+    optional("locale") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    optional("organizationEntityAccountFilters") => list(entity_account_filter()()),
+    optional("organizationEntityFilters") => list(event_account_filter()())
+  }
+  """
+  @type describe_affected_entities_for_organization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_affected_entities_for_organization_response() :: %{
+    "entities" => list(affected_entity()()),
+    "failedSet" => list(organization_affected_entities_error_item()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_affected_entities_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_account_filter() :: %{
+    "awsAccountId" => String.t(),
+    "eventArn" => String.t()
+  }
+  """
+  @type event_account_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_entity_aggregates_for_organization_response() :: %{
+    "organizationEntityAggregates" => list(organization_entity_aggregate()())
+  }
+  """
+  @type describe_entity_aggregates_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_entity_aggregates_for_organization_request() :: %{
+    optional("awsAccountIds") => list(String.t()()),
+    required("eventArns") => list(String.t()())
+  }
+  """
+  @type describe_entity_aggregates_for_organization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_details_request() :: %{
+    optional("locale") => String.t(),
+    required("eventArns") => list(String.t()())
+  }
+  """
+  @type describe_event_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_types_response() :: %{
+    "eventTypes" => list(event_type()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_event_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_entity_aggregates_request() :: %{
+    optional("eventArns") => list(String.t()())
+  }
+  """
+  @type describe_entity_aggregates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  entity_aggregate() :: %{
+    "count" => integer(),
+    "eventArn" => String.t(),
+    "statuses" => map()
+  }
+  """
+  @type entity_aggregate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_affected_entities_response() :: %{
+    "entities" => list(affected_entity()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_affected_entities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_health_service_status_for_organization_response() :: %{
+    "healthServiceAccessStatusForOrganization" => String.t()
+  }
+  """
+  @type describe_health_service_status_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organization_entity_aggregate() :: %{
+    "accounts" => list(account_entity_aggregate()()),
+    "count" => integer(),
+    "eventArn" => String.t(),
+    "statuses" => map()
+  }
+  """
+  @type organization_entity_aggregate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_affected_accounts_for_organization_request() :: %{
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("eventArn") => String.t()
+  }
+  """
+  @type describe_affected_accounts_for_organization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  entity_account_filter() :: %{
+    "awsAccountId" => String.t(),
+    "eventArn" => String.t(),
+    "statusCodes" => list(list(any())())
+  }
+  """
+  @type entity_account_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organization_affected_entities_error_item() :: %{
+    "awsAccountId" => String.t(),
+    "errorMessage" => String.t(),
+    "errorName" => String.t(),
+    "eventArn" => String.t()
+  }
+  """
+  @type organization_affected_entities_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  date_time_range() :: %{
+    "from" => non_neg_integer(),
+    "to" => non_neg_integer()
+  }
+  """
+  @type date_time_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_filter() :: %{
+    "availabilityZones" => list(String.t()()),
+    "endTimes" => list(date_time_range()()),
+    "entityArns" => list(String.t()()),
+    "entityValues" => list(String.t()()),
+    "eventArns" => list(String.t()()),
+    "eventStatusCodes" => list(list(any())()),
+    "eventTypeCategories" => list(list(any())()),
+    "eventTypeCodes" => list(String.t()()),
+    "lastUpdatedTimes" => list(date_time_range()()),
+    "regions" => list(String.t()()),
+    "services" => list(String.t()()),
+    "startTimes" => list(date_time_range()()),
+    "tags" => list(map()())
+  }
+  """
+  @type event_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_aggregates_request() :: %{
+    optional("filter") => event_filter(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("aggregateField") => list(any())
+  }
+  """
+  @type describe_event_aggregates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_for_organization_request() :: %{
+    optional("filter") => organization_event_filter(),
+    optional("locale") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type describe_events_for_organization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event() :: %{
+    "arn" => String.t(),
+    "availabilityZone" => String.t(),
+    "endTime" => non_neg_integer(),
+    "eventScopeCode" => list(any()),
+    "eventTypeCategory" => list(any()),
+    "eventTypeCode" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "region" => String.t(),
+    "service" => String.t(),
+    "startTime" => non_neg_integer(),
+    "statusCode" => list(any())
+  }
+  """
+  @type event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_request() :: %{
+    optional("filter") => event_filter(),
+    optional("locale") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type describe_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_aggregates_response() :: %{
+    "eventAggregates" => list(event_aggregate()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_event_aggregates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  concurrent_modification_exception() :: %{
+    "message" => String.t()
+  }
+  """
+  @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_type_filter() :: %{
+    "eventTypeCategories" => list(list(any())()),
+    "eventTypeCodes" => list(String.t()()),
+    "services" => list(String.t()())
+  }
+  """
+  @type event_type_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_details_for_organization_response() :: %{
+    "failedSet" => list(organization_event_details_error_item()()),
+    "successfulSet" => list(organization_event_details()())
+  }
+  """
+  @type describe_event_details_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_types_request() :: %{
+    optional("filter") => event_type_filter(),
+    optional("locale") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t()
+  }
+  """
+  @type describe_event_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_type() :: %{
+    "category" => list(any()),
+    "code" => String.t(),
+    "service" => String.t()
+  }
+  """
+  @type event_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  organization_event() :: %{
+    "arn" => String.t(),
+    "endTime" => non_neg_integer(),
+    "eventScopeCode" => list(any()),
+    "eventTypeCategory" => list(any()),
+    "eventTypeCode" => String.t(),
+    "lastUpdatedTime" => non_neg_integer(),
+    "region" => String.t(),
+    "service" => String.t(),
+    "startTime" => non_neg_integer(),
+    "statusCode" => list(any())
+  }
+  """
+  @type organization_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_event_details_response() :: %{
+    "failedSet" => list(event_details_error_item()()),
+    "successfulSet" => list(event_details()())
+  }
+  """
+  @type describe_event_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_details_error_item() :: %{
+    "errorMessage" => String.t(),
+    "errorName" => String.t(),
+    "eventArn" => String.t()
+  }
+  """
+  @type event_details_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  event_aggregate() :: %{
+    "aggregateValue" => String.t(),
+    "count" => integer()
+  }
+  """
+  @type event_aggregate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_events_response() :: %{
+    "events" => list(event()()),
+    "nextToken" => String.t()
+  }
+  """
+  @type describe_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+  describe_affected_entities_request() :: %{
+    optional("locale") => String.t(),
+    optional("maxResults") => integer(),
+    optional("nextToken") => String.t(),
+    required("filter") => entity_filter()
+  }
+  """
+  @type describe_affected_entities_request() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2016-08-04",
@@ -102,6 +642,14 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
+  @spec describe_affected_accounts_for_organization(
+          map(),
+          describe_affected_accounts_for_organization_request(),
+          list()
+        ) ::
+          {:ok, describe_affected_accounts_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
   def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -132,6 +680,11 @@ defmodule AWS.Health do
   information, see [Resource- and action-based conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions)
   in the *Health User Guide*.
   """
+  @spec describe_affected_entities(map(), describe_affected_entities_request(), list()) ::
+          {:ok, describe_affected_entities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
+          | {:error, unsupported_locale()}
   def describe_affected_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -166,6 +719,15 @@ defmodule AWS.Health do
   conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions)
   in the *Health User Guide*.
   """
+  @spec describe_affected_entities_for_organization(
+          map(),
+          describe_affected_entities_for_organization_request(),
+          list()
+        ) ::
+          {:ok, describe_affected_entities_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
+          | {:error, unsupported_locale()}
   def describe_affected_entities_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -176,6 +738,9 @@ defmodule AWS.Health do
   Returns the number of entities that are affected by each of the specified
   events.
   """
+  @spec describe_entity_aggregates(map(), describe_entity_aggregates_request(), list()) ::
+          {:ok, describe_entity_aggregates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_entity_aggregates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -186,6 +751,13 @@ defmodule AWS.Health do
   Returns a list of entity aggregates for your Organizations that are affected by
   each of the specified events.
   """
+  @spec describe_entity_aggregates_for_organization(
+          map(),
+          describe_entity_aggregates_for_organization_request(),
+          list()
+        ) ::
+          {:ok, describe_entity_aggregates_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -203,6 +775,10 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
+  @spec describe_event_aggregates(map(), describe_event_aggregates_request(), list()) ::
+          {:ok, describe_event_aggregates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
   def describe_event_aggregates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -230,6 +806,10 @@ defmodule AWS.Health do
   information, see [Resource- and action-based conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions)
   in the *Health User Guide*.
   """
+  @spec describe_event_details(map(), describe_event_details_request(), list()) ::
+          {:ok, describe_event_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, unsupported_locale()}
   def describe_event_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -279,6 +859,14 @@ defmodule AWS.Health do
   conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions)
   in the *Health User Guide*.
   """
+  @spec describe_event_details_for_organization(
+          map(),
+          describe_event_details_for_organization_request(),
+          list()
+        ) ::
+          {:ok, describe_event_details_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, unsupported_locale()}
   def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -301,6 +889,11 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
+  @spec describe_event_types(map(), describe_event_types_request(), list()) ::
+          {:ok, describe_event_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
+          | {:error, unsupported_locale()}
   def describe_event_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -340,6 +933,11 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
+  @spec describe_events(map(), describe_events_request(), list()) ::
+          {:ok, describe_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
+          | {:error, unsupported_locale()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -384,6 +982,15 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
+  @spec describe_events_for_organization(
+          map(),
+          describe_events_for_organization_request(),
+          list()
+        ) ::
+          {:ok, describe_events_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invalid_pagination_token()}
+          | {:error, unsupported_locale()}
   def describe_events_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -398,6 +1005,9 @@ defmodule AWS.Health do
   To call this operation, you must use the organization's
   management account.
   """
+  @spec describe_health_service_status_for_organization(map(), %{}, list()) ::
+          {:ok, describe_health_service_status_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_health_service_status_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -436,6 +1046,10 @@ defmodule AWS.Health do
   an error. Health continues to aggregate health events for your
   Amazon Web Services account.
   """
+  @spec disable_health_service_access_for_organization(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
   def disable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -482,6 +1096,10 @@ defmodule AWS.Health do
   events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in
   the *Health User Guide*.
   """
+  @spec enable_health_service_access_for_organization(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, concurrent_modification_exception()}
   def enable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

@@ -668,7 +668,12 @@ defmodule AWS.MediaPackageV2 do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
 
-    headers = []
+    {headers, input} =
+      [
+        {"ETag", "x-amzn-update-if-match"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()
@@ -688,7 +693,13 @@ defmodule AWS.MediaPackageV2 do
   """
   def update_channel_group(%Client{} = client, channel_group_name, input, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ETag", "x-amzn-update-if-match"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()
@@ -716,7 +727,12 @@ defmodule AWS.MediaPackageV2 do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"ETag", "x-amzn-update-if-match"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()
